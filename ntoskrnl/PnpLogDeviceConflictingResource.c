@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpLogDeviceConflictingResource @ 0x140801FA0
+ * Callers:
+ *     IopTestConfiguration @ 0x1408038E0 (IopTestConfiguration.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall PnpLogDeviceConflictingResource(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

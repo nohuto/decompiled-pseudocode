@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtQueryAttributesFile @ 0x14070C010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     FsRtlpCleanupEcps @ 0x14070C240 (FsRtlpCleanupEcps.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtQueryAttributesFile(__int64 a1, unsigned __int64 a2)
 {
   char PreviousMode; // di

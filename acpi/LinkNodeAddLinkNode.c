@@ -1,3 +1,11 @@
+/*
+ * XREFs of LinkNodeAddLinkNode @ 0x1C005CE38
+ * Callers:
+ *     ACPIBuildProcessDevicePhaseSta @ 0x1C0010780 (ACPIBuildProcessDevicePhaseSta.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LinkNodeAddLinkNode(_QWORD *Context)
 {
   struct _IO_WORKITEM *WorkItem; // rax

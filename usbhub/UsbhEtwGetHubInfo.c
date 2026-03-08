@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhEtwGetHubInfo @ 0x1C0021B60
+ * Callers:
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ *     UsbhEtwLogHubEventWithExtraData @ 0x1C005B848 (UsbhEtwLogHubEventWithExtraData.c)
+ *     UsbhEtwLogHubException @ 0x1C005B93C (UsbhEtwLogHubException.c)
+ *     UsbhEtwLogHubInformation @ 0x1C005BA60 (UsbhEtwLogHubInformation.c)
+ *     UsbhEtwLogHubPastExceptions @ 0x1C005BB74 (UsbhEtwLogHubPastExceptions.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UsbhEtwGetHubInfo(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // r8

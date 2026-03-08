@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmIoMmuAllocatePage @ 0x1C006DED0
+ * Callers:
+ *     SmmIoMmuUpdatePfn @ 0x1C006E280 (SmmIoMmuUpdatePfn.c)
+ * Callees:
+ *     SmmIoMmuCompareIoMmuPagePfn @ 0x1C002A3C4 (SmmIoMmuCompareIoMmuPagePfn.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 _QWORD *__fastcall SmmIoMmuAllocatePage(__int64 a1, __int64 a2)
 {
   char v3; // bl

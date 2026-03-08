@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhBusRemove @ 0x1C0036FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ */
+
 void __fastcall UsbhBusRemove(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rdi

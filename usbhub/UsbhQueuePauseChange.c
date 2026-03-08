@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhQueuePauseChange @ 0x1C0034E90
+ * Callers:
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhQueuePauseChange(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Store@MaterialProperty@@QEAAJPEBUResourceObject@DirectComposition@@@Z @ 0x1C00BE244
+ * Callers:
+ *     NtDCompositionSetMaterialProperty @ 0x1C00BE150 (NtDCompositionSetMaterialProperty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MaterialProperty::Store(MaterialProperty *this, const struct DirectComposition::ResourceObject *a2)
 {
   NTSTATUS v3; // esi

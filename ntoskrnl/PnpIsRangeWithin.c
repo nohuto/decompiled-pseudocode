@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpIsRangeWithin @ 0x1408049A4
+ * Callers:
+ *     PnpNeedToReleaseBootResources @ 0x14080484C (PnpNeedToReleaseBootResources.c)
+ * Callees:
+ *     RtlCmDecodeMemIoResource @ 0x1403706C0 (RtlCmDecodeMemIoResource.c)
+ */
+
 __int64 __fastcall PnpIsRangeWithin(
         struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *a1,
         struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *a2)

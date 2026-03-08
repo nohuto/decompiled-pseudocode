@@ -1,3 +1,12 @@
+/*
+ * XREFs of Event @ 0x1C0050550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     InitEvent @ 0x1C005093C (InitEvent.c)
+ */
+
 __int64 __fastcall Event(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi

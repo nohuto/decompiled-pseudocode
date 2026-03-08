@@ -1,3 +1,18 @@
+/*
+ * XREFs of SdbpMatchOsVersion @ 0x1407A2004
+ * Callers:
+ *     SdbpCheckForMatch @ 0x1407A1468 (SdbpCheckForMatch.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGetVersion @ 0x1407A1380 (RtlGetVersion.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbReadQWORDTag @ 0x140800D70 (SdbReadQWORDTag.c)
+ *     SdbpCheckUptoVersion @ 0x140860A14 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckFromVersion @ 0x140A508BC (SdbpCheckFromVersion.c)
+ *     SdbpCheckVersion @ 0x140A50A40 (SdbpCheckVersion.c)
+ */
+
 _BOOL8 __fastcall SdbpMatchOsVersion(__int64 a1, unsigned int a2)
 {
   BOOL v4; // ebx

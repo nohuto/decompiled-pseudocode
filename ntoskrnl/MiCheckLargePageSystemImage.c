@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckLargePageSystemImage @ 0x140B616E0
+ * Callers:
+ *     MiCheckLargePageOk @ 0x140B38B30 (MiCheckLargePageOk.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiCheckLargePageSystemImage(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   __int64 result; // rax

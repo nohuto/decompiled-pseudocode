@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiConvertDeferredWaits @ 0x1C003A77C
+ * Callers:
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiConvertDeferredWaits(__int64 a1)
 {
   __int64 v2; // rax

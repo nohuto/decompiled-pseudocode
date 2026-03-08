@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopActionRetrieveInitialState @ 0x14058CEB0
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopVerifySystemPowerState @ 0x14082A73C (PopVerifySystemPowerState.c)
+ *     PopFastS4Check @ 0x14097D8F4 (PopFastS4Check.c)
+ */
+
 __int64 __fastcall PopActionRetrieveInitialState(_DWORD *a1, _DWORD *a2, _DWORD *a3, _BYTE *a4)
 {
   _DWORD *v4; // rbx

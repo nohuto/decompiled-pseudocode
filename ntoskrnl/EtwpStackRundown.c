@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpStackRundown @ 0x140460D80
+ * Callers:
+ *     EtwpStopLoggerInstance @ 0x140748874 (EtwpStopLoggerInstance.c)
+ *     EtwpCheckLoggerAccessAndDoRundown @ 0x1409EBB50 (EtwpCheckLoggerAccessAndDoRundown.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpDereferenceStackEntry @ 0x140460D12 (EtwpDereferenceStackEntry.c)
+ *     EtwpTraceCachedStack @ 0x140460F38 (EtwpTraceCachedStack.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall EtwpStackRundown(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r14

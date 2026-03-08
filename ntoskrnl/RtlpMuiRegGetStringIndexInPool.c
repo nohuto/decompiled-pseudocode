@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpMuiRegGetStringIndexInPool @ 0x14084463C
+ * Callers:
+ *     RtlpMuiRegGetOrAddStringToPool @ 0x140844538 (RtlpMuiRegGetOrAddStringToPool.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall RtlpMuiRegGetStringIndexInPool(__int64 a1, const wchar_t *a2)
 {
   unsigned int v4; // edi

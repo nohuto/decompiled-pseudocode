@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpSetupConfigurationTree @ 0x140B52640
+ * Callers:
+ *     CmpInitializeHardwareConfiguration @ 0x140B51F64 (CmpInitializeHardwareConfiguration.c)
+ *     CmpSetupConfigurationTree @ 0x140B52640 (CmpSetupConfigurationTree.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     CmpInitializeRegistryNode @ 0x140816FB8 (CmpInitializeRegistryNode.c)
+ *     CmpSetupConfigurationTree @ 0x140B52640 (CmpSetupConfigurationTree.c)
+ */
+
 NTSTATUS __fastcall CmpSetupConfigurationTree(__int64 a1, void *a2, BOOL a3, unsigned int a4)
 {
   unsigned __int16 i; // cx

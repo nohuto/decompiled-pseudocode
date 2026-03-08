@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlIsHpfsDbcsLegal @ 0x14093C730
+ * Callers:
+ *     FsRtlIsHpfsDbcsLegal @ 0x14093C730 (FsRtlIsHpfsDbcsLegal.c)
+ * Callees:
+ *     FsRtlDissectDbcs @ 0x14093BFE0 (FsRtlDissectDbcs.c)
+ *     FsRtlIsHpfsDbcsLegal @ 0x14093C730 (FsRtlIsHpfsDbcsLegal.c)
+ */
+
 BOOLEAN __stdcall FsRtlIsHpfsDbcsLegal(
         ANSI_STRING *DbcsName,
         BOOLEAN WildCardsPermissible,

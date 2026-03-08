@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllWaiters@EnterLeaveCritMitRitHandOffHazard@@SAXXZ @ 0x1C00D43A0
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 void EnterLeaveCritMitRitHandOffHazard::ReleaseAllWaiters(void)
 {
   if ( EnterLeaveCritMitRitHandOffHazard::_slSemWaiters )

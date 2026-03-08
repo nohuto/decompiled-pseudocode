@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfPtProcessFreePoolInfo @ 0x140ADBAD0
+ * Callers:
+ *     ViPtLogStackCallout @ 0x140ADBF00 (ViPtLogStackCallout.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1405CFEE0 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x1405CFF24 (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x1405CFFC0 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x1405CFFD4 (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1405D0044 (ViPtReleaseTreeLockFromDpcLevel.c)
+ */
+
 BOOLEAN __fastcall VfPtProcessFreePoolInfo(__int64 *a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiForwardTick @ 0x1403C61D0
+ * Callers:
+ *     KiUpdateTime @ 0x14022BD80 (KiUpdateTime.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     HalpInterruptSendIpi @ 0x140230870 (HalpInterruptSendIpi.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeIsEqualAffinityEx @ 0x140237260 (KeIsEqualAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int16 __fastcall KiForwardTick(__int64 a1, unsigned int a2, int a3, char a4, __int64 a5)
 {
   __int64 v6; // rdi

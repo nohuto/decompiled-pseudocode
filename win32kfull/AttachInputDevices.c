@@ -1,3 +1,11 @@
+/*
+ * XREFs of AttachInputDevices @ 0x1C0126370
+ * Callers:
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AttachInputDevices(__int64 a1)
 {
   __int64 v1; // rax

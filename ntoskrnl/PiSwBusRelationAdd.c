@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiSwBusRelationAdd @ 0x1408076A8
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140561860 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140561988 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiSwBusRelationAdd(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, __int64 a3)
 {
   int v5; // eax

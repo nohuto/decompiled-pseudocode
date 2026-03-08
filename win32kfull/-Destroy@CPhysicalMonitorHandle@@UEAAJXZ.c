@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Destroy@CPhysicalMonitorHandle@@UEAAJXZ @ 0x1C026C5A0
+ * Callers:
+ *     ??1CPhysicalMonitorHandle@@UEAA@XZ @ 0x1C026B3F8 (--1CPhysicalMonitorHandle@@UEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPhysicalMonitorHandle::Destroy(CPhysicalMonitorHandle *this)
 {
   unsigned int v2; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of WbFreeMemoryBlock @ 0x140754DEC
+ * Callers:
+ *     WbFreeWarbirdProcess @ 0x140752CDC (WbFreeWarbirdProcess.c)
+ *     WbAllocateMemoryBlock @ 0x140753534 (WbAllocateMemoryBlock.c)
+ *     WbAllocateUserMemory @ 0x140754868 (WbAllocateUserMemory.c)
+ * Callees:
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     sub_140754E6C @ 0x140754E6C (sub_140754E6C.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WbFreeMemoryBlock(PVOID *BaseAddress)
 {
   int v2; // edi

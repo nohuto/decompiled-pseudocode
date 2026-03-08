@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Create@CGlobalMit@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800CB6A0
+ * Callers:
+ *     ?Initialize@CInputManager@@UEAAJXZ @ 0x1800CB370 (-Initialize@CInputManager@@UEAAJXZ.c)
+ * Callees:
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CGlobalMit@@IEAA@PEAVCComposition@@@Z @ 0x1800CB754 (--0CGlobalMit@@IEAA@PEAVCComposition@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??_GCGlobalMit@@UEAAPEAXI@Z @ 0x1801AE310 (--_GCGlobalMit@@UEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall CGlobalMit::Create(struct CComposition *a1, struct CGlobalMit **a2)
 {
   CGlobalMit *v4; // rax

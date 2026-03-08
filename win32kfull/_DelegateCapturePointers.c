@@ -1,3 +1,16 @@
+/*
+ * XREFs of _DelegateCapturePointers @ 0x1C01C5C88
+ * Callers:
+ *     EditionDelegateCapturePointers @ 0x1C01C5350 (EditionDelegateCapturePointers.c)
+ *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01CCF38 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01C4E48 (-DelegateDiscardMessages@@YAXPEAUtagQ@@HPEAUtagDELEGATEPOINTERMAP@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_LHL @ 0x1C01C5980 (WPP_RECORDER_AND_TRACE_SF_LHL.c)
+ *     ?DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z @ 0x1C01C6958 (-DeferNotifyDelegateCapture@@YAHPEAUtagTHREADINPUTPOINTERLIST@@GKPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall DelegateCapturePointers(unsigned int a1, __int64 a2)
 {
   unsigned int v2; // ebp

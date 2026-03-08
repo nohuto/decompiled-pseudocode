@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetTraceLoggingPTPAAPKeyPress @ 0x1C024692C
+ * Callers:
+ *     ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C00F3574 (-OnKeyPress@CPTPProcessor@@CAX_N@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*__fastcall ApiSetTraceLoggingPTPAAPKeyPress(unsigned int a1))(void)
 {
   char v2; // bl

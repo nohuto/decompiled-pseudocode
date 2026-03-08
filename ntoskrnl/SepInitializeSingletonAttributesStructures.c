@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepInitializeSingletonAttributesStructures @ 0x140B49204
+ * Callers:
+ *     SepInitializationPhase1 @ 0x140810320 (SepInitializationPhase1.c)
+ * Callees:
+ *     RtlpCreateHashTable @ 0x1402B8550 (RtlpCreateHashTable.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 SepInitializeSingletonAttributesStructures()
 {
   PEX_SPIN_LOCK v0; // rax

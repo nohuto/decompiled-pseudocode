@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwAlpcQueryInformationMessage @ 0x140413450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwAlpcQueryInformationMessage(__int64 a1, __int64 a2)
 {
   _disable();

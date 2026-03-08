@@ -1,3 +1,11 @@
+/*
+ * XREFs of FONTOBJ_AdvanceGlyphCacheBuffer @ 0x1C01303C8
+ * Callers:
+ *     ?CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z @ 0x1C011DBE0 (-CaptureUsermodeParameters@QueryGlyphMetricsPlusBitsRequest@@UEAAXPEAX@Z.c)
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ */
+
 void __fastcall FONTOBJ_AdvanceGlyphCacheBuffer(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rax

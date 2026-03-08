@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1FxInterrupt@@UEAA@XZ @ 0x1C007E644
+ * Callers:
+ *     ??_EFxInterrupt@@UEAAPEAXI@Z @ 0x1C007E6F0 (--_EFxInterrupt@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ */
+
 void __fastcall FxInterrupt::~FxInterrupt(FxInterrupt *this, unsigned int a2)
 {
   bool v2; // zf

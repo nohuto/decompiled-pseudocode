@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlPrepareForSecureHibernate @ 0x14054486C
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlPrepareForSecureHibernate(_OWORD *a1)
 {
   PHYSICAL_ADDRESS *v2; // rax

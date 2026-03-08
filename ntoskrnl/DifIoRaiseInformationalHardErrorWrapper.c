@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoRaiseInformationalHardErrorWrapper @ 0x1405DE370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     IoRaiseInformationalHardError @ 0x140554960 (IoRaiseInformationalHardError.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 BOOLEAN __fastcall DifIoRaiseInformationalHardErrorWrapper(
         NTSTATUS ErrorStatus,
         PUNICODE_STRING String,

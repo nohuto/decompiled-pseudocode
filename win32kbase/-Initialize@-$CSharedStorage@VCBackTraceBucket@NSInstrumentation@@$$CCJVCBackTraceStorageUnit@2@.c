@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAA_NI@Z @ 0x1C019CB74
+ * Callers:
+ *     ?Create@CBackTraceStoreEx@NSInstrumentation@@SAPEAV12@XZ @ 0x1C019CB14 (-Create@CBackTraceStoreEx@NSInstrumentation@@SAPEAV12@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Initialize(
         __int64 a1)
 {

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_CleanupMonitorSourceModeAndFreqRanges@MonitorModes@DxgMonitor@@AEAAXXZ @ 0x1C01FFC4C
+ * Callers:
+ *     ?OnDescriptorUpdated@MonitorModes@DxgMonitor@@QEAAJPEBUIMonitorDescriptor@2@@Z @ 0x1C01FD69C (-OnDescriptorUpdated@MonitorModes@DxgMonitor@@QEAAJPEBUIMonitorDescriptor@2@@Z.c)
+ *     ??1MonitorModes@DxgMonitor@@QEAA@XZ @ 0x1C03C7CA8 (--1MonitorModes@DxgMonitor@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall DxgMonitor::MonitorModes::_CleanupMonitorSourceModeAndFreqRanges(DxgMonitor::MonitorModes *this)
 {
   _QWORD **v1; // rdi

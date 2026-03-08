@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiApplyDynamicRelocations @ 0x140B39134
+ * Callers:
+ *     MiRebaseDynamicRelocationRegions @ 0x140B38F54 (MiRebaseDynamicRelocationRegions.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     LdrApplyDynamicRelocations @ 0x140370E54 (LdrApplyDynamicRelocations.c)
+ *     LdrCaptureDynamicRelocationTableHeader @ 0x1407F5778 (LdrCaptureDynamicRelocationTableHeader.c)
+ *     VslApplyDynamicRelocations @ 0x140B90128 (VslApplyDynamicRelocations.c)
+ */
+
 __int64 __fastcall MiApplyDynamicRelocations(unsigned __int64 a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // ebp

@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiActOnPte @ 0x1402CF06C
+ * Callers:
+ *     MiWalkVaRange @ 0x1402CECEC (MiWalkVaRange.c)
+ * Callees:
+ *     MiCheckUserVirtualAddress @ 0x1402258B0 (MiCheckUserVirtualAddress.c)
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiUpdatePfnPriority @ 0x14028D35C (MiUpdatePfnPriority.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiUpdatePageTableUseCount @ 0x14029EC20 (MiUpdatePageTableUseCount.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiUpdateWsleAge @ 0x1402CF54C (MiUpdateWsleAge.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiSharedVaToPartition @ 0x1402E21A4 (MiSharedVaToPartition.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MI_IS_RESET_PTE @ 0x14032F190 (MI_IS_RESET_PTE.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     MiReleasePageFileSpace @ 0x14034BE0C (MiReleasePageFileSpace.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ */
+
 __int64 __fastcall MiActOnPte(
         __int64 a1,
         int a2,

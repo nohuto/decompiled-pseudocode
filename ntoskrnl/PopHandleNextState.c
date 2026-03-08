@@ -1,3 +1,32 @@
+/*
+ * XREFs of PopHandleNextState @ 0x140AA4FAC
+ * Callers:
+ *     PopInvokeStateHandlerTargetProcessor @ 0x140AA53B0 (PopInvokeStateHandlerTargetProcessor.c)
+ *     PopIssueNextState @ 0x140AA5CEC (PopIssueNextState.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14036A3E8 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14036A62C (KeSaveExtendedAndSupervisorState.c)
+ *     HvlEnlightenProcessor @ 0x14037F430 (HvlEnlightenProcessor.c)
+ *     KeFlushCurrentTbImmediately @ 0x140396EE0 (KeFlushCurrentTbImmediately.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KdPowerTransition @ 0x1405655B0 (KdPowerTransition.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140569B44 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeSaveProcessorSpecificFeatures @ 0x140569BCC (KeSaveProcessorSpecificFeatures.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResumeClockTimer @ 0x14056D39C (KeResumeClockTimer.c)
+ *     KeSuspendClockTimer @ 0x14056D49C (KeSuspendClockTimer.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x14057007C (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1405700B8 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     PopFxNotifySystemStateTransition @ 0x140588B24 (PopFxNotifySystemStateTransition.c)
+ *     PpmResetPerfEngineForProcessor @ 0x14058B178 (PpmResetPerfEngineForProcessor.c)
+ *     PopRestoreHiberContext @ 0x140AA139C (PopRestoreHiberContext.c)
+ *     PopSstDiagInitializeResumeTimer @ 0x140AA74F4 (PopSstDiagInitializeResumeTimer.c)
+ */
+
 void __fastcall PopHandleNextState(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KPRCB *CurrentPrcb; // rsi

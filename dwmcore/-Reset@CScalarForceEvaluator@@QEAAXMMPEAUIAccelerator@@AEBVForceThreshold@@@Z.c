@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Reset@CScalarForceEvaluator@@QEAAXMMPEAUIAccelerator@@AEBVForceThreshold@@@Z @ 0x180273700
+ * Callers:
+ *     ?Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z @ 0x180272844 (-Initialize@CScalarForce@@QEAAXW4ThresholdKind@ForceThreshold@@MMM@Z.c)
+ *     ?Update@CExpressionForce@@UEAAMMPEAVCExpressionValueStack@@_K@Z @ 0x180272B10 (-Update@CExpressionForce@@UEAAMMPEAVCExpressionValueStack@@_K@Z.c)
+ *     ?Reset@CVector3ForceEvaluator@@QEAAXUD2DVector3@@0PEAUIAccelerator@@11@Z @ 0x180273B34 (-Reset@CVector3ForceEvaluator@@QEAAXUD2DVector3@@0PEAUIAccelerator@@11@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetMinAcceleration@ForceThreshold@@QEBAMXZ @ 0x180274338 (-GetMinAcceleration@ForceThreshold@@QEBAMXZ.c)
+ *     ?GetMinVelocity@ForceThreshold@@QEBAMXZ @ 0x1802743B0 (-GetMinVelocity@ForceThreshold@@QEBAMXZ.c)
+ */
+
 void __fastcall CScalarForceEvaluator::Reset(
         CScalarForceEvaluator *this,
         float a2,

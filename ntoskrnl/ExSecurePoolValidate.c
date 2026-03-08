@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExSecurePoolValidate @ 0x14060AB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall ExSecurePoolValidate(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   _BOOL8 result; // rax

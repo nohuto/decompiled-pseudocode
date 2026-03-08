@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpValidateLoader @ 0x140B48484
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall ExpValidateLoader(unsigned int *a1)
 {
   ULONG_PTR result; // rax

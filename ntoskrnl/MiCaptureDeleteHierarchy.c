@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCaptureDeleteHierarchy @ 0x140333890
+ * Callers:
+ *     MiDeleteEmptyPageTableCommit @ 0x1402D426C (MiDeleteEmptyPageTableCommit.c)
+ *     MiRemoveVad @ 0x140333090 (MiRemoveVad.c)
+ * Callees:
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ */
+
 void __fastcall MiCaptureDeleteHierarchy(__int64 a1, __int64 a2, unsigned __int8 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiDemoteCombinedPte @ 0x14029DF88
+ * Callers:
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiResetAccessBitPte @ 0x140325D60 (MiResetAccessBitPte.c)
+ *     MiAgePte @ 0x1403260A0 (MiAgePte.c)
+ *     NtUnlockVirtualMemory @ 0x1403479C0 (NtUnlockVirtualMemory.c)
+ *     MiWalkVaCheckCommon @ 0x140349290 (MiWalkVaCheckCommon.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062B2BC (MiDeprioritizeVirtualAddresses.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiUpdateWorkingSetPrivateSize @ 0x14029DA1C (MiUpdateWorkingSetPrivateSize.c)
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MiUnlockPageTableCharges @ 0x140345720 (MiUnlockPageTableCharges.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogCombinedPteDelete @ 0x14065109C (MiLogCombinedPteDelete.c)
+ *     MiUpdatePageFileBlockOwner @ 0x1406646BC (MiUpdatePageFileBlockOwner.c)
+ */
+
 __int64 __fastcall MiDemoteCombinedPte(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v5; // rbx

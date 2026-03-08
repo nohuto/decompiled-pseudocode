@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiCMSetProblem @ 0x140967AB4
+ * Callers:
+ *     PiCMDeviceAction @ 0x14096671C (PiCMDeviceAction.c)
+ *     PiCMSetDeviceProblem @ 0x1409679A8 (PiCMSetDeviceProblem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x140414A70 (ZwPlugPlayControl.c)
+ *     _CmGetDeviceStatus @ 0x1406C8624 (_CmGetDeviceStatus.c)
+ */
+
 __int64 __fastcall PiCMSetProblem(PCWSTR SourceString, int a2, int a3)
 {
   __int64 result; // rax

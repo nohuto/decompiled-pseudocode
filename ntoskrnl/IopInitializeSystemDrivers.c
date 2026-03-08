@@ -1,3 +1,28 @@
+/*
+ * XREFs of IopInitializeSystemDrivers @ 0x140B57B44
+ * Callers:
+ *     IoInitSystem @ 0x140B5E3E0 (IoInitSystem.c)
+ * Callees:
+ *     PnpDiagnosticTrace @ 0x1402B1760 (PnpDiagnosticTrace.c)
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     IopGetDriverNameFromKeyNode @ 0x1406C1730 (IopGetDriverNameFromKeyNode.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     IopReferenceDriverObjectByName @ 0x1406C3670 (IopReferenceDriverObjectByName.c)
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     ExIsManufacturingModeEnabled @ 0x14078C860 (ExIsManufacturingModeEnabled.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     IopOpenRegistryKeyEx @ 0x14081BCC0 (IopOpenRegistryKeyEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     InbvIndicateProgress @ 0x140B590E0 (InbvIndicateProgress.c)
+ *     PipCheckDependencies @ 0x140B59300 (PipCheckDependencies.c)
+ *     PipLookupGroupName @ 0x140B5935C (PipLookupGroupName.c)
+ *     PnpWaitForDevicesToStart @ 0x140B594C8 (PnpWaitForDevicesToStart.c)
+ *     CmGetSystemDriverList @ 0x140B59568 (CmGetSystemDriverList.c)
+ *     PipFreeGroupTree @ 0x140B67B98 (PipFreeGroupTree.c)
+ */
+
 __int64 IopInitializeSystemDrivers()
 {
   char IsManufacturingModeEnabled; // al

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfCheckImageCompliance @ 0x140AC049C
+ * Callers:
+ *     VfSuspectDriversLoadCallback @ 0x140AD7704 (VfSuspectDriversLoadCallback.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViCiPreprocessOptions @ 0x140AC09DC (ViCiPreprocessOptions.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ */
+
 void __fastcall VfCheckImageCompliance(__int64 a1)
 {
   int v2; // r13d

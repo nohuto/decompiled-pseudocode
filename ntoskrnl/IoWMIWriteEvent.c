@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoWMIWriteEvent @ 0x1403A2D60
+ * Callers:
+ *     PpmFireWmiEvent @ 0x140596908 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x140596990 (PpmWmiFireIdleAccountingEvent.c)
+ * Callees:
+ *     WmipDoFindRegEntryByProviderId @ 0x140208DB0 (WmipDoFindRegEntryByProviderId.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExInterlockedInsertTailList @ 0x1402B8DC0 (ExInterlockedInsertTailList.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     EtwTraceEvent @ 0x14045FE22 (EtwTraceEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoWMIWriteEvent(PVOID WnodeEventItem)
 {
   NTSTATUS v1; // edi

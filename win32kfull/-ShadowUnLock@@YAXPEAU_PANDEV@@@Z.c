@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C029F890
+ * Callers:
+ *     ?PanUnlockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z @ 0x1C029F760 (-PanUnlockDisplayArea@@YAXPEAUDHPDEV__@@PEAU_RECTL@@@Z.c)
+ *     ?vUnLockShadow@PANSURFLOCK@@QEAAXXZ @ 0x1C02A08FC (-vUnLockShadow@PANSURFLOCK@@QEAAXXZ.c)
+ *     ?vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C02A0978 (-vUnLockShadowR@MULTIPANSURFLOCK@@QEAAXXZ.c)
+ *     ?vUnLockShadowW@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C02A0A0C (-vUnLockShadowW@MULTIPANSURFLOCK@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ShadowUnLock(struct _PANDEV *a1)
 {
   struct _KSEMAPHORE *v2; // rcx

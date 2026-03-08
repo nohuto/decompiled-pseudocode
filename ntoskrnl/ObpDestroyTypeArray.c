@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObpDestroyTypeArray @ 0x140979084
+ * Callers:
+ *     ObEnumerateObjectsByType @ 0x140978854 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x140978914 (ObGetObjectInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ObpDestroyTypeArray(_QWORD *P)
 {
   __int64 i; // rdi

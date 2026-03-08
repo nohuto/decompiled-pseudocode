@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiAbortMmIoFlipPacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_DEVICE@@I@Z @ 0x1C0001280
+ * Callers:
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0012A7C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiAbortMmIoFlipPacket(struct _VIDSCH_QUEUE_PACKET *a1, struct _VIDSCH_DEVICE *a2, int a3)
 {
   int v3; // eax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalPutScatterGatherListV2 @ 0x1403C8D28
+ * Callers:
+ *     HalPutScatterGatherList @ 0x1403C8D00 (HalPutScatterGatherList.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ *     HalpDmaNextContiguousPiece @ 0x140452E28 (HalpDmaNextContiguousPiece.c)
+ *     IoFlushAdapterBuffersV2 @ 0x140454F60 (IoFlushAdapterBuffersV2.c)
+ *     IoFreeMapRegistersV2 @ 0x1404554C0 (IoFreeMapRegistersV2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall HalPutScatterGatherListV2(__int64 a1, _QWORD *a2, char a3)
 {
   _DWORD *v3; // rbx

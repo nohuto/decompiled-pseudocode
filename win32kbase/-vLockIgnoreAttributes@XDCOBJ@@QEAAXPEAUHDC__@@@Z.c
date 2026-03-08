@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C0052C24
+ * Callers:
+ *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C001ADD0 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     GreSelectBitmap @ 0x1C0043B10 (GreSelectBitmap.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     GreCreateCompatibleDC @ 0x1C0052510 (GreCreateCompatibleDC.c)
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C0052A00 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     GreGetDCPoint @ 0x1C0053880 (GreGetDCPoint.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ *     GreIntersectClipRect @ 0x1C0056F30 (GreIntersectClipRect.c)
+ *     GreSelectPalette @ 0x1C0092ED0 (GreSelectPalette.c)
+ *     GreRestoreOwnedDC @ 0x1C00A46A0 (GreRestoreOwnedDC.c)
+ * Callees:
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C0045394 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     HmgLockEx @ 0x1C004AED0 (HmgLockEx.c)
+ *     W32GetCurrentThread @ 0x1C004DBF0 (W32GetCurrentThread.c)
+ *     ?LogUmpdCallbackStatus@XDCOBJ@@AEAAXPEAVUMPDOBJ@@@Z @ 0x1C017F440 (-LogUmpdCallbackStatus@XDCOBJ@@AEAAXPEAVUMPDOBJ@@@Z.c)
+ */
+
 void __fastcall XDCOBJ::vLockIgnoreAttributes(XDCOBJ *this, HDC a2)
 {
   __int64 v3; // rax

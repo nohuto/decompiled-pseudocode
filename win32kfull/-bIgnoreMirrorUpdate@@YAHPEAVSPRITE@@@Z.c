@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bIgnoreMirrorUpdate@@YAHPEAVSPRITE@@@Z @ 0x1C027FEF4
+ * Callers:
+ *     ?vSpRedrawSprite@@YAXPEAVSPRITE@@@Z @ 0x1C010E078 (-vSpRedrawSprite@@YAXPEAVSPRITE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bIgnoreMirrorUpdate(struct SPRITE *a1)
 {
   __int64 v1; // rax

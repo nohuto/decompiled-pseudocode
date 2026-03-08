@@ -1,3 +1,14 @@
+/*
+ * XREFs of CsTerminate @ 0x1C000C4C4
+ * Callers:
+ *     CiDriverUnload @ 0x1C000C460 (CiDriverUnload.c)
+ *     DriverEntry @ 0x1C000E080 (DriverEntry.c)
+ * Callees:
+ *     CiFreeMemory @ 0x1C0004D68 (CiFreeMemory.c)
+ *     WppCleanupKm @ 0x1C000C5D8 (WppCleanupKm.c)
+ *     CiSchedulerTerminate @ 0x1C000C8F8 (CiSchedulerTerminate.c)
+ */
+
 __int64 CsTerminate()
 {
   struct _LIST_ENTRY *Flink; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of InitializeSensorExplicitly @ 0x1C009A520
+ * Callers:
+ *     ActivateKSTInputProcessingHelper @ 0x1C009A400 (ActivateKSTInputProcessingHelper.c)
+ * Callees:
+ *     _anonymous_namespace_::InitializeInputSensorPass1Worker @ 0x1C009A5B4 (_anonymous_namespace_--InitializeInputSensorPass1Worker.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sd @ 0x1C0217150 (WPP_RECORDER_AND_TRACE_SF_sd.c)
+ */
+
 __int64 __fastcall InitializeSensorExplicitly(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   PVOID DeviceObject; // rbx

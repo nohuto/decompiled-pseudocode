@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Grow@CLegacyTokenBuffer@@IEAAJXZ @ 0x1C0077B74
+ * Callers:
+ *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C0017FA0 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
+ *     ?GetCurrentBufferPointer@CLegacyTokenBuffer@@QEAAJPEAPEAEPEAII@Z @ 0x1C001BB44 (-GetCurrentBufferPointer@CLegacyTokenBuffer@@QEAAJPEAPEAEPEAII@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall CLegacyTokenBuffer::Grow(CLegacyTokenBuffer *this)
 {
   unsigned int v2; // edi

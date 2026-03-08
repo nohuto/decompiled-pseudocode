@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpCopyDataToOffsetArray @ 0x14030C52C
+ * Callers:
+ *     HvpGenerateLogEntryMetadata @ 0x1402B24D4 (HvpGenerateLogEntryMetadata.c)
+ *     HvpGenerateLogEntryHeader @ 0x1402B2544 (HvpGenerateLogEntryHeader.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x14030C5F8 (HvpGenerateLogEntryDirtyData.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 _UNKNOWN **__fastcall HvpCopyDataToOffsetArray(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlNextUnicodePrefix @ 0x1408617B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ */
+
 PUNICODE_PREFIX_TABLE_ENTRY __stdcall RtlNextUnicodePrefix(PUNICODE_PREFIX_TABLE PrefixTable, BOOLEAN Restart)
 {
   PUNICODE_PREFIX_TABLE_ENTRY NextPrefixTree; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of TouchTargetingSnapToSegment @ 0x1C0251998
+ * Callers:
+ *     ?_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@Z @ 0x1C02507C8 (-_TTUpdateRankWithSegment@@YAXJJJJ_NPEAUtagPOINT@@PEAGUtagRECT@@3PEBUtagTOUCHTARGETINGCONTACT@@@.c)
+ *     TouchTargetingRankForRectDeep @ 0x1C025169C (TouchTargetingRankForRectDeep.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TouchTargetingSnapToSegment(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   int v5; // r12d

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpCmcWorkerRoutine @ 0x14080C020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpCmciInit @ 0x140A8795C (HalpCmciInit.c)
+ */
+
 void __fastcall HalpCmcWorkerRoutine(__int64 a1)
 {
   unsigned int v2; // esi

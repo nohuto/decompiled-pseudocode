@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z @ 0x18023FD88
+ * Callers:
+ *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x18023FEB4 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x18009B504 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 __int64 __fastcall CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>(
         __int64 a1,
         struct CComposition *a2)

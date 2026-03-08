@@ -1,3 +1,16 @@
+/*
+ * XREFs of safe_cast_fnid_to_PSBWND @ 0x1C01BC260
+ * Callers:
+ *     xxxEnableScrollBar @ 0x1C00D4CD0 (xxxEnableScrollBar.c)
+ *     ?HitTestScrollBar@@YAHPEAUtagWND@@HUtagPOINT@@@Z @ 0x1C022BCB4 (-HitTestScrollBar@@YAHPEAUtagWND@@HUtagPOINT@@@Z.c)
+ *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C022C2A0 (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
+ *     xxxDoScrollMenu @ 0x1C022CC6C (xxxDoScrollMenu.c)
+ *     xxxEndScroll @ 0x1C022CE90 (xxxEndScroll.c)
+ *     xxxSBTrackInit @ 0x1C022D18C (xxxSBTrackInit.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall safe_cast_fnid_to_PSBWND(__int64 a1)
 {
   __int64 v2; // rax

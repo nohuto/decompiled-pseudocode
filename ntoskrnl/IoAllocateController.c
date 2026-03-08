@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoAllocateController @ 0x1405542D0
+ * Callers:
+ *     DifIoAllocateControllerWrapper @ 0x1405DAA60 (DifIoAllocateControllerWrapper.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IoFreeController @ 0x140554450 (IoFreeController.c)
+ *     KeInsertDeviceQueue @ 0x140570C90 (KeInsertDeviceQueue.c)
+ */
+
 void __stdcall IoAllocateController(
         PCONTROLLER_OBJECT ControllerObject,
         PDEVICE_OBJECT DeviceObject,

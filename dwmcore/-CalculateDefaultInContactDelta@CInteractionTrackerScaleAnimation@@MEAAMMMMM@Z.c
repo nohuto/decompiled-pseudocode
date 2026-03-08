@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateDefaultInContactDelta@CInteractionTrackerScaleAnimation@@MEAAMMMMM@Z @ 0x180263A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CInteractionTrackerScaleAnimation::CalculateDefaultInContactDelta(
         CInteractionTrackerScaleAnimation *this,
         float a2,

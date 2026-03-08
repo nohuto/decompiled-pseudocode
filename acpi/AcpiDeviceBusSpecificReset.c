@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDeviceBusSpecificReset @ 0x1C0082CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiPlatformLevelDeviceReset @ 0x1C0023D14 (AcpiPlatformLevelDeviceReset.c)
+ *     AcpiFunctionLevelDeviceReset @ 0x1C0082E50 (AcpiFunctionLevelDeviceReset.c)
+ */
+
 __int64 __fastcall AcpiDeviceBusSpecificReset(__int64 a1, _QWORD *a2, __int64 a3, _QWORD *a4, __int64 a5)
 {
   unsigned int v6; // r10d

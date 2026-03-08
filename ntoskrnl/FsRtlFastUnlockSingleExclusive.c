@@ -1,3 +1,21 @@
+/*
+ * XREFs of FsRtlFastUnlockSingleExclusive @ 0x1402C1DF4
+ * Callers:
+ *     FsRtlFastUnlockSingle @ 0x1402C1D10 (FsRtlFastUnlockSingle.c)
+ *     FsRtlPrivateRemoveLock @ 0x14053B568 (FsRtlPrivateRemoveLock.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402C19B4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     RtlDelete @ 0x1402C2940 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1402C2FA0 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402C3018 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall FsRtlFastUnlockSingleExclusive(
         __int64 a1,
         _RTL_SPLAY_LINKS *a2,

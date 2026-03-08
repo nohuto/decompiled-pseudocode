@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerPolTimerExpiredNoWakePowerDownNotProcessed@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C007C2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxPkgPnp::PowerPolTimerExpiredNoWakePowerDownNotProcessed(FxPkgPnp *This)
 {
   This->m_InternalFailure = 1;

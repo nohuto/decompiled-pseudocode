@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpDiskProvTraceDisk @ 0x1405FB638
+ * Callers:
+ *     EtwpTraceIo @ 0x14035E9C0 (EtwpTraceIo.c)
+ * Callees:
+ *     EtwpLevelKeywordEnabled @ 0x140231970 (EtwpLevelKeywordEnabled.c)
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpDiskProvTraceDisk(unsigned __int16 a1, __int64 a2, __int64 a3, GUID *a4)
 {
   ULONGLONG v4; // rbx

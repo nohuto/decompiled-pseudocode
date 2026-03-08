@@ -1,3 +1,13 @@
+/*
+ * XREFs of IntelPptFilter_FilterCommand @ 0x1C007C100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     IntelPptFilter_CheckAndIncreaseEndpointCount @ 0x1C007C020 (IntelPptFilter_CheckAndIncreaseEndpointCount.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007C2F8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ */
+
 __int64 __fastcall IntelPptFilter_FilterCommand(__int64 a1, __int64 a2)
 {
   KIRQL v4; // al

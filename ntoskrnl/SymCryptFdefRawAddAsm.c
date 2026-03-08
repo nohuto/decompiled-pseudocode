@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawAddAsm @ 0x1404001A0
+ * Callers:
+ *     SymCryptFdefIntAddMixedSize @ 0x1403FD55C (SymCryptFdefIntAddMixedSize.c)
+ *     SymCryptFdefRawAdd @ 0x1403FDCDC (SymCryptFdefRawAdd.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall SymCryptFdefRawAddAsm(_QWORD *a1, _QWORD *a2, _QWORD *a3, int a4)
 {
   int v4; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorAreTargetStatesEqual @ 0x1409904F0
+ * Callers:
+ *     PopPowerAggregatorRecordIntent @ 0x140757470 (PopPowerAggregatorRecordIntent.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopPowerAggregatorAreTargetStatesEqual(int *a1, __int64 a2)
 {
   int v2; // r8d

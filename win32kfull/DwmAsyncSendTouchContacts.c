@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncSendTouchContacts @ 0x1C014D056
+ * Callers:
+ *     ?ContactVisualizationWorker@@YAHKPEAX_KHK@Z @ 0x1C01AE304 (-ContactVisualizationWorker@@YAHKPEAX_KHK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncSendTouchContacts(PVOID Object, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v8; // r14d

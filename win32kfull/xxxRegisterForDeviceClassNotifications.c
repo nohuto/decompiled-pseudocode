@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxRegisterForDeviceClassNotifications @ 0x1C00787C0
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     RegisterCDROMNotify @ 0x1C0077C84 (RegisterCDROMNotify.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxRegisterForDeviceClassNotifications(__int64 a1)
 {

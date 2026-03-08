@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiBootImageRelocated @ 0x140B97534
+ * Callers:
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     VslReserveProtectedPages @ 0x140881254 (VslReserveProtectedPages.c)
+ *     MiUpdateThunks @ 0x140B97620 (MiUpdateThunks.c)
+ */
+
 __int64 __fastcall MiBootImageRelocated(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   __int64 v8; // rbx

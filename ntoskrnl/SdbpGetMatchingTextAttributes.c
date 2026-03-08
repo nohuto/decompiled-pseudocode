@@ -1,3 +1,18 @@
+/*
+ * XREFs of SdbpGetMatchingTextAttributes @ 0x140A4E208
+ * Callers:
+ *     SdbpCheckMatchingText @ 0x140A4D1D0 (SdbpCheckMatchingText.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x14079D160 (SdbReadBinaryTag.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbpGetMatchingTextAttributes(
         __int64 a1,
         __int64 a2,

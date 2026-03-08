@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLogFailureToGetFileSize @ 0x140A1DC00
+ * Callers:
+ *     CmpInitializeActualFileSizes @ 0x140730684 (CmpInitializeActualFileSizes.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void CmpLogFailureToGetFileSize()
 {
   int v0; // r9d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Initialize@CDebugVisualImage@@AEAAJPEAVCVisual@@@Z @ 0x180215110
+ * Callers:
+ *     ?Create@CDebugVisualImage@@SAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z @ 0x18021504C (-Create@CDebugVisualImage@@SAJPEAVCComposition@@PEAVCVisual@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A70C (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ @ 0x1800A8D04 (-ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ.c)
+ *     ?UpdateVisualTree@CCachedVisualImage@@MEAAJXZ @ 0x1800F3950 (-UpdateVisualTree@CCachedVisualImage@@MEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CDebugVisualImage::Initialize(CDebugVisualImage *this, struct CVisual *a2)
 {
   int updated; // ebx

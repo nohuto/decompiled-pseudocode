@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpGlobalLockKeyForWrite @ 0x14084617C
+ * Callers:
+ *     CmLockKeyForWrite @ 0x140845EFC (CmLockKeyForWrite.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     CmpUnlockGlobalKeyLockTracker @ 0x140846294 (CmpUnlockGlobalKeyLockTracker.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x1408462FC (CmpCreateGlobalKeyLockEntry.c)
+ *     CmpLockGlobalKeyLockTrackerExclusive @ 0x140846350 (CmpLockGlobalKeyLockTrackerExclusive.c)
+ */
+
 __int64 __fastcall CmpGlobalLockKeyForWrite(__int64 a1, __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

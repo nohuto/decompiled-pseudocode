@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C003E6F8
+ * Callers:
+ *     ??1FxDevice@@UEAA@XZ @ 0x1C003D530 (--1FxDevice@@UEAA@XZ.c)
+ *     ??1FxDriver@@UEAA@XZ @ 0x1C003FE58 (--1FxDriver@@UEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FxObject::IsDisposed(FxObject *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rax

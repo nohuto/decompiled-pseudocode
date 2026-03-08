@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpFreeHeapInternal @ 0x1402E0AF4
+ * Callers:
+ *     RtlFreeHeap @ 0x1402E0A90 (RtlFreeHeap.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x1405A7A00 (RtlpHpFreeWithExceptionProtection.c)
+ * Callees:
+ *     RtlpHpVsContextFree @ 0x1402B6740 (RtlpHpVsContextFree.c)
+ *     RtlpHpConvertFlagsToSegmentFlags @ 0x1402E0CAC (RtlpHpConvertFlagsToSegmentFlags.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpFreeHeap @ 0x1405AAE88 (RtlpFreeHeap.c)
+ *     RtlpProbeUserBufferSafe @ 0x1405ABB9C (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 RtlpFreeHeapInternal(_DWORD *a1, unsigned __int64 a2, unsigned int a3, ...)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpIoResourceListToCmResourceList @ 0x1C008FD8C
+ * Callers:
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B620 (AcpiTranslatePepDeviceControlResourcesInternal.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00994B8 (LinkNodeGetPossibleResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpIoResourceListToCmResourceList(_DWORD *a1, _QWORD *a2)
 {
   _DWORD *v4; // rbx

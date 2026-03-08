@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpInitializeSecurity @ 0x140B70760
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     EtwpGetGuidSecurityDescriptor @ 0x14069707C (EtwpGetGuidSecurityDescriptor.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ */
+
 __int64 EtwpInitializeSecurity()
 {
   unsigned int PersistedStateLocation; // ebx

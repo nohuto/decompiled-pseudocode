@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RefreshPreferencesAndPolicies@CSettingsManager@@QEAAXXZ @ 0x140004228
+ * Callers:
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ *     ?PropagateUserLogon@CSettingsManager@@QEAAXPEAUHKEY__@@00_N@Z @ 0x1400040E4 (-PropagateUserLogon@CSettingsManager@@QEAAXPEAUHKEY__@@00_N@Z.c)
+ * Callees:
+ *     ?ReadRegistryBitfields@CSettingsManager@@AEAAXW4DwmSettingType@@PEAUBitfieldRegistrySetting@@IPEAK@Z @ 0x140004330 (-ReadRegistryBitfields@CSettingsManager@@AEAAXW4DwmSettingType@@PEAUBitfieldRegistrySetting@@IPE.c)
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ */
+
 void __fastcall CSettingsManager::RefreshPreferencesAndPolicies(CSettingsManager *this)
 {
   _QWORD v2[6]; // [rsp+30h] [rbp-29h] BYREF

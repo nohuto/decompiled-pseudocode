@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RoundOffsets@CMILMatrix@@QEAAXXZ @ 0x1800E2AA0
+ * Callers:
+ *     ?CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z @ 0x1800705F0 (-CalcTransform@CVisual@@QEBAXPEBVCVisualTree@@PEBVCMILMatrix@@PEA_NPEAV3@3@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMILMatrix::RoundOffsets(CMILMatrix *this)
 {
   float v1; // xmm0_4

@@ -1,3 +1,24 @@
+/*
+ * XREFs of VidSchInitializeAdapter @ 0x1C00B5B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002360 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00023B8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x1C0011828 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
+ *     ?AllocateElements@?$NonPagedPoolZeroedArray@_K$01$0DAGBGJFG@@@QEAAPEA_KI@Z @ 0x1C0019040 (-AllocateElements@-$NonPagedPoolZeroedArray@_K$01$0DAGBGJFG@@@QEAAPEA_KI@Z.c)
+ *     ??0_VIDSCH_GLOBAL@@QEAA@XZ @ 0x1C001908C (--0_VIDSCH_GLOBAL@@QEAA@XZ.c)
+ *     ?AllocateElements@?$NonPagedPoolZeroedArray@K$07$0DAGBGJFG@@@QEAAPEAKI@Z @ 0x1C00190F4 (-AllocateElements@-$NonPagedPoolZeroedArray@K$07$0DAGBGJFG@@@QEAAPEAKI@Z.c)
+ *     ?AllocateElements@?$NonPagedPoolZeroedArray@U_VIDSCH_INDEPENDENT_FLIP_STATE@@$00$0DJGBGJFG@@@QEAAPEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@I@Z @ 0x1C0019170 (-AllocateElements@-$NonPagedPoolZeroedArray@U_VIDSCH_INDEPENDENT_FLIP_STATE@@$00$0DJGBGJFG@@@QEA.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchiCreateNode @ 0x1C00B6A5C (VidSchiCreateNode.c)
+ *     VidSchiReadGlobalConfiguration @ 0x1C00B6ED0 (VidSchiReadGlobalConfiguration.c)
+ *     VidSchiInitializeNode @ 0x1C00B7C50 (VidSchiInitializeNode.c)
+ *     VidSchiRequestSchedulerStatus @ 0x1C00B7E60 (VidSchiRequestSchedulerStatus.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ */
+
 _VIDSCH_GLOBAL *__fastcall VidSchInitializeAdapter(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // r14

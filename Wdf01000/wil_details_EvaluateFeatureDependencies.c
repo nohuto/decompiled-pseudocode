@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_EvaluateFeatureDependencies @ 0x1C00B00D8
+ * Callers:
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C00B0010 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ * Callees:
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0017930 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C00B018C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ */
+
 const wil_details_FeatureDescriptor *wil_details_EvaluateFeatureDependencies()
 {
   const wil_details_FeatureDescriptor *v0; // rdx

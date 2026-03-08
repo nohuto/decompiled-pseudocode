@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiIsExtentDangling @ 0x140A31284
+ * Callers:
+ *     FsRtlIsExtentDangling @ 0x14093BD90 (FsRtlIsExtentDangling.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 unsigned __int64 __fastcall MiIsExtentDangling(unsigned __int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v4; // rbp

@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMePowerInitialize @ 0x1C000FCC4
+ * Callers:
+ *     NVMeHwPassiveInitialize @ 0x1C0008480 (NVMeHwPassiveInitialize.c)
+ * Callees:
+ *     NVMeGetPowerState @ 0x1C0007C94 (NVMeGetPowerState.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMePowerStateGetMaxPower @ 0x1C001055C (NVMePowerStateGetMaxPower.c)
+ *     NVMeValidatePowerStates @ 0x1C0010B08 (NVMeValidatePowerStates.c)
+ *     NVMeGetAutoPowerStateTransition @ 0x1C001D454 (NVMeGetAutoPowerStateTransition.c)
+ *     NVMeSetAutoPowerStateTransition @ 0x1C0023724 (NVMeSetAutoPowerStateTransition.c)
+ */
+
 char __fastcall NVMePowerInitialize(__int64 a1)
 {
   __int64 v1; // r15

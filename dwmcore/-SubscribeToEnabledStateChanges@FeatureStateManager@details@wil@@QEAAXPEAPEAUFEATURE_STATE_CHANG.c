@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SubscribeToEnabledStateChanges@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AFB14
+ * Callers:
+ *     ?WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AFAE0 (-WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_.c)
+ * Callees:
+ *     ?SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AFE8C (-SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPT.c)
+ *     wil_details_RtlRegisterFeatureConfigurationChangeNotification @ 0x180110D74 (wil_details_RtlRegisterFeatureConfigurationChangeNotification.c)
+ */
+
 void __fastcall wil::details::FeatureStateManager::SubscribeToEnabledStateChanges(
         RTL_SRWLOCK *this,
         struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ **a2,

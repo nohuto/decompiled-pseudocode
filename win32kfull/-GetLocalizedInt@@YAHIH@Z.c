@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLocalizedInt@@YAHIH@Z @ 0x1C010CEAC
+ * Callers:
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetLocalizedInt(__int64 a1)
 {
   ULONG Value; // [rsp+20h] [rbp-D8h] BYREF

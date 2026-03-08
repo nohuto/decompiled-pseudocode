@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02D06C4
+ * Callers:
+ *     NtGdiDeleteColorTransform @ 0x1C02D1310 (NtGdiDeleteColorTransform.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C029CEC0 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ */
+
 __int64 __fastcall GreDeleteColorTransform(HDC a1, void *a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?QueryBufferAvailableEvent@FlipManagerObject@@QEAAJ_KPEAPEAX@Z @ 0x1C007F520
+ * Callers:
+ *     NtFlipObjectQueryBufferAvailableEvent @ 0x1C0080630 (NtFlipObjectQueryBufferAvailableEvent.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?QueryBufferAvailableEvent@CFlipManager@@QEAAJ_KPEAPEAX@Z @ 0x1C0084420 (-QueryBufferAvailableEvent@CFlipManager@@QEAAJ_KPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall FlipManagerObject::QueryBufferAvailableEvent(
         FlipManagerObject *this,
         unsigned __int64 a2,

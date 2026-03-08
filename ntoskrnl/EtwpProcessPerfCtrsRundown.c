@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpProcessPerfCtrsRundown @ 0x1408A3722
+ * Callers:
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ObGetProcessHandleCount @ 0x14071172C (ObGetProcessHandleCount.c)
+ */
+
 void __fastcall EtwpProcessPerfCtrsRundown(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

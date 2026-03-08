@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ObjectInit@SynchronizationObject@DirectComposition@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C0249B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::SynchronizationObject::ObjectInit(
         struct CompositionObject *a1,
         void *a2,

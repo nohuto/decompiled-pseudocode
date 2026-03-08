@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkDisableStablePowerState@@YAXXZ @ 0x1C030D99C
+ * Callers:
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020F18 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DisableStablePowerState@DXGGLOBAL@@QEAAXXZ @ 0x1C030D89C (-DisableStablePowerState@DXGGLOBAL@@QEAAXXZ.c)
+ */
+
 void DxgkDisableStablePowerState(void)
 {
   DXGGLOBAL *Global; // rax

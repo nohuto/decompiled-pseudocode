@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpHvIdentityInfoCallback @ 0x14053DAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HviGetHypervisorInterface @ 0x14037F18C (HviGetHypervisorInterface.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x140612FD4 (HviGetHypervisorVendorAndMaxFunction.c)
+ *     HviGetHypervisorVersion @ 0x14061301C (HviGetHypervisorVersion.c)
+ */
+
 void __fastcall HvlpHvIdentityInfoCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

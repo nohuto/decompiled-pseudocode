@@ -1,3 +1,19 @@
+/*
+ * XREFs of WheapInitErrorReportDeviceDriver @ 0x14060F578
+ * Callers:
+ *     WheaCreateHwErrorReportDeviceDriver @ 0x14060EE60 (WheaCreateHwErrorReportDeviceDriver.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     RtlStringCchCopyA @ 0x1403BD50C (RtlStringCchCopyA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14060F410 (WheapErrDescIsDeviceDriver.c)
+ *     WheapGetPreallocatedPacketBuffer @ 0x14060F4C0 (WheapGetPreallocatedPacketBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WheapInitErrorReportDeviceDriver(unsigned int a1, void **a2)
 {
   char v4; // bl

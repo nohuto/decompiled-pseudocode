@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObGetHandleInformationEx @ 0x14097864C
+ * Callers:
+ *     ExpGetHandleInformationEx @ 0x1409F3754 (ExpGetHandleInformationEx.c)
+ * Callees:
+ *     ExpSnapShotHandleTables @ 0x1408A6B82 (ExpSnapShotHandleTables.c)
+ */
+
 __int64 __fastcall ObGetHandleInformationEx(_DWORD *a1, unsigned int a2, _DWORD *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvpViewMapMakeViewRangeCOWByCaller @ 0x1407326F8
+ * Callers:
+ *     HvpViewMapCOWAndUnsealRange @ 0x140732640 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpViewMapMigrateCOWData @ 0x1408807B4 (HvpViewMapMigrateCOWData.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiUnlockViewOfSection @ 0x1402B3864 (CmSiUnlockViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ *     HvpViewMapTouchPages @ 0x140732810 (HvpViewMapTouchPages.c)
+ */
+
 __int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

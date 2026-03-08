@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiAddTriageDumpDataBlock @ 0x1403A2B04
+ * Callers:
+ *     KeAddTriageDumpDataBlock @ 0x1403A29E0 (KeAddTriageDumpDataBlock.c)
+ *     KiAddTriageDumpDataBlock @ 0x1403A2B04 (KiAddTriageDumpDataBlock.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KiAddTriageDumpDataBlock @ 0x1403A2B04 (KiAddTriageDumpDataBlock.c)
+ *     KiCheckRangeOverlap @ 0x140567794 (KiCheckRangeOverlap.c)
+ */
+
 __int64 __fastcall KiAddTriageDumpDataBlock(_DWORD *a1, const void *a2, unsigned __int64 a3, int a4)
 {
   unsigned __int64 v4; // rsi

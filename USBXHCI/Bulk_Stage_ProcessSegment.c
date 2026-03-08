@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_Stage_ProcessSegment @ 0x1C000E054
+ * Callers:
+ *     Bulk_Stage_CalculateBytesTransferred @ 0x1C000DF50 (Bulk_Stage_CalculateBytesTransferred.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Bulk_Stage_ProcessSegment(__int64 a1, __int64 *a2, __int64 a3, unsigned int a4, int *a5)
 {
   __int64 v5; // rbx

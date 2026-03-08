@@ -1,3 +1,22 @@
+/*
+ * XREFs of DbgkCaptureLiveKernelDump @ 0x140539CE8
+ * Callers:
+ *     NtSystemDebugControl @ 0x140791FE0 (NtSystemDebugControl.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     Feature_LivedumpProcessFiltering__private_IsEnabledDeviceUsage @ 0x140409F20 (Feature_LivedumpProcessFiltering__private_IsEnabledDeviceUsage.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     DbgkpWerIsFullLiveDumpDisabled @ 0x14087EE3C (DbgkpWerIsFullLiveDumpDisabled.c)
+ *     DbgkpWerAllocatePool @ 0x1409386C4 (DbgkpWerAllocatePool.c)
+ *     DbgkpWerFreePool @ 0x140938B84 (DbgkpWerFreePool.c)
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ *     ObOpenObjectByPointerWithTag @ 0x1409790E0 (ObOpenObjectByPointerWithTag.c)
+ */
+
 __int64 __fastcall DbgkCaptureLiveKernelDump(__int64 a1)
 {
   KPROCESSOR_MODE PreviousMode; // r12

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDrvDbUnloadNodeWorkerCallback @ 0x140799960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PiDrvDbUnloadNodeReset @ 0x140300534 (PiDrvDbUnloadNodeReset.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ */
+
 char __fastcall PiDrvDbUnloadNodeWorkerCallback(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

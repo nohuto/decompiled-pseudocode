@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWakeDeferredRestoreEnables @ 0x1C0044C38
+ * Callers:
+ *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
+ * Callees:
+ *     ACPIBuildRunMethodRequest @ 0x1C0013564 (ACPIBuildRunMethodRequest.c)
+ */
+
 __int64 __fastcall ACPIWakeDeferredRestoreEnables(__int64 a1, __int64 a2, __int64 a3)
 {
   KIRQL v5; // di

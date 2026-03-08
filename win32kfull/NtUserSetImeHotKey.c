@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetImeHotKey @ 0x1C00D8690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z @ 0x1C00D8704 (-SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z.c)
+ */
+
 __int64 __fastcall NtUserSetImeHotKey(unsigned int a1, unsigned int a2, unsigned int a3, HKL a4, unsigned int a5)
 {
   __int64 v9; // rbx

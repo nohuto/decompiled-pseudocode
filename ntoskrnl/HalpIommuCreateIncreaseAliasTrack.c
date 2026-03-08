@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIommuCreateIncreaseAliasTrack @ 0x1405154C8
+ * Callers:
+ *     HalpIommuUnblockDevice @ 0x140516330 (HalpIommuUnblockDevice.c)
+ * Callees:
+ *     HalpIommuCloneDeviceId @ 0x14038D3A8 (HalpIommuCloneDeviceId.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     IidAreIdsStrictlyEqual @ 0x14067175C (IidAreIdsStrictlyEqual.c)
+ */
+
 __int64 __fastcall HalpIommuCreateIncreaseAliasTrack(void *Src, _QWORD *a2)
 {
   __int64 *i; // r11

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3 @ 0x1C0086460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3@@@Z @ 0x1C0001218 (-DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURC.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiEnsureHwFlipQueueLog @ 0x1C010966C (VidSchiEnsureHwFlipQueueLog.c)
+ */
+
 __int64 __fastcall VidSchSetVidPnSourceAddressWithMultiPlaneOverlay3(
         struct _VIDSCH_GLOBAL *a1,
         struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3 *a2)

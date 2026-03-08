@@ -1,3 +1,26 @@
+/*
+ * XREFs of Endpoint_Create @ 0x1C006D624
+ * Callers:
+ *     Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006D510 (Endpoint_UcxEvtUsbDeviceEndpointAdd.c)
+ *     Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd @ 0x1C00725A0 (Endpoint_UcxEvtUsbDeviceDefaultEndpointAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     TR_GetWdfQueue @ 0x1C000B108 (TR_GetWdfQueue.c)
+ *     XilEndpoint_Create @ 0x1C000B114 (XilEndpoint_Create.c)
+ *     Etw_EndpointCreate @ 0x1C000B79C (Etw_EndpointCreate.c)
+ *     UsbDevice_AddEndpointToDeviceEndpointList @ 0x1C000B7C0 (UsbDevice_AddEndpointToDeviceEndpointList.c)
+ *     WPP_RECORDER_SF_ddqDdd @ 0x1C000BA4C (WPP_RECORDER_SF_ddqDdd.c)
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     XilEndpoint_AcquireBuffer @ 0x1C001B9F0 (XilEndpoint_AcquireBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_CreateClearStallContext @ 0x1C0039D58 (Endpoint_CreateClearStallContext.c)
+ *     XilRegister_GetContextSize @ 0x1C003F324 (XilRegister_GetContextSize.c)
+ *     TR_Create @ 0x1C006DDF8 (TR_Create.c)
+ *     Endpoint_SetType @ 0x1C006E21C (Endpoint_SetType.c)
+ */
+
 __int64 Endpoint_Create(__int64 a1, __int64 a2, ...)
 {
   __int64 v3; // rdi

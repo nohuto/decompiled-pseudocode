@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeReleaseInStackQueuedSpinLock @ 0x14025C890
+ * Callers:
+ *     CcNotifyOfMappedWrite @ 0x140215670 (CcNotifyOfMappedWrite.c)
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403CEA10 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     PnprMarkOrMirrorPages @ 0x140A99F48 (PnprMarkOrMirrorPages.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140A9CCE4 (KiAddProcessorToGroupSchedulingDatabase.c)
+ * Callees:
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 void __stdcall KeReleaseInStackQueuedSpinLock(PKLOCK_QUEUE_HANDLE LockHandle)
 {
   _KSPIN_LOCK_QUEUE *volatile Next; // rax

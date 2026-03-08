@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z @ 0x1C0155E9C
+ * Callers:
+ *     MarkQueuesForKeyStateUpdate @ 0x1C02180C0 (MarkQueuesForKeyStateUpdate.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00B9120 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?MarkQueuesForKeyStateUpdateWorker@KeyboardProcessing@@YAXPEAUtagQ@@QEAX@Z @ 0x1C0217528 (-MarkQueuesForKeyStateUpdateWorker@KeyboardProcessing@@YAXPEAUtagQ@@QEAX@Z.c)
+ */
+
 void __fastcall CActivationObjectManager::ForEachActivatableQueue(
         CActivationObjectManager *this,
         void (*a2)(struct tagQ *, void *),

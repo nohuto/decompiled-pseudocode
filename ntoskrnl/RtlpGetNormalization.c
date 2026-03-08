@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpGetNormalization @ 0x1409C5918
+ * Callers:
+ *     RtlIsNormalizedString @ 0x1409BEC40 (RtlIsNormalizedString.c)
+ *     RtlNormalizeString @ 0x1409BECD0 (RtlNormalizeString.c)
+ * Callees:
+ *     ZwGetNlsSectionPtr @ 0x140414310 (ZwGetNlsSectionPtr.c)
+ *     NormalizationListEntry_Alloc @ 0x1405B3640 (NormalizationListEntry_Alloc.c)
+ *     NormalizationList__InsertTail @ 0x1405B3664 (NormalizationList__InsertTail.c)
+ *     NormalizationList__Lock @ 0x1405B3698 (NormalizationList__Lock.c)
+ *     NormalizationList__Lookup @ 0x1405B36C8 (NormalizationList__Lookup.c)
+ *     NormalizationList__Unlock @ 0x1405B36F8 (NormalizationList__Unlock.c)
+ *     Normalization__LoadTables @ 0x1409BE078 (Normalization__LoadTables.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
 {
   __int64 result; // rax

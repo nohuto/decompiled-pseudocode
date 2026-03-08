@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiDcUpdateDeviceContainerMembership @ 0x1406825AC
+ * Callers:
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     wcscmp @ 0x1403D5DD0 (wcscmp.c)
+ *     _CmAddDeviceToContainer @ 0x140682764 (_CmAddDeviceToContainer.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406C3AD8 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PiDcContainerRequiresConfiguration @ 0x1408793AC (PiDcContainerRequiresConfiguration.c)
+ *     PiDcResetChildDeviceContainers @ 0x140958510 (PiDcResetChildDeviceContainers.c)
+ *     _CmRemoveDeviceFromContainer @ 0x140A619AC (_CmRemoveDeviceFromContainer.c)
+ */
+
 __int64 __fastcall PiDcUpdateDeviceContainerMembership(__int64 a1, int a2, const wchar_t *a3)
 {
   int DeviceContainerIdFromBase; // ebx

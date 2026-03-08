@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetClosestNodeWithProcessors @ 0x1403028A8
+ * Callers:
+ *     MiComputeIdealDpcGang @ 0x1403867CC (MiComputeIdealDpcGang.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ *     MiCreateZeroThreadContext @ 0x1408384D8 (MiCreateZeroThreadContext.c)
+ * Callees:
+ *     KeQueryNodeActiveAffinity @ 0x1402AE860 (KeQueryNodeActiveAffinity.c)
+ */
+
 __int64 __fastcall MiGetClosestNodeWithProcessors(int a1)
 {
   unsigned int *v1; // rbx

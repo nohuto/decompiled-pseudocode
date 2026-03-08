@@ -1,3 +1,34 @@
+/*
+ * XREFs of KeBoostPriorityThread @ 0x140359A88
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     ExpCreateWorkerThread @ 0x1407DE0C4 (ExpCreateWorkerThread.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KiAbPropagateBoosts @ 0x1402395C0 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiGetProcessorEfficiencyClass @ 0x14036A2D4 (KiGetProcessorEfficiencyClass.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSwapContext @ 0x14041F890 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwTracePriority @ 0x14045EE2A (EtwTracePriority.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ */
+
 char __fastcall KeBoostPriorityThread(__int64 a1, int a2)
 {
   void *v2; // rax

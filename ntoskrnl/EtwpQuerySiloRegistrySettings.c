@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpQuerySiloRegistrySettings @ 0x14039537C
+ * Callers:
+ *     EtwpInitializeSiloState @ 0x14083BE04 (EtwpInitializeSiloState.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall EtwpQuerySiloRegistrySettings(__int64 a1)
 {
   _WORD *v2; // rbx

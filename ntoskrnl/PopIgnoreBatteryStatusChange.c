@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIgnoreBatteryStatusChange @ 0x14059681C
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 char PopIgnoreBatteryStatusChange()
 {
   __int32 v0; // eax

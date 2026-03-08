@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02689C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D380 (-SetRemarshalingFlags@CNotificationResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CInteractionTrackerMarshaler::SetRemarshalingFlags(
         DirectComposition::CInteractionTrackerMarshaler *this)
 {

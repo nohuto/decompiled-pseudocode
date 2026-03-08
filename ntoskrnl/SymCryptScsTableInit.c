@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptScsTableInit @ 0x1404090E0
+ * Callers:
+ *     SymCryptModExpWindowed @ 0x140403800 (SymCryptModExpWindowed.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptScsTableInit(__int64 a1, int a2, int a3)
 {
   int v3; // r9d

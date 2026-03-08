@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyObjectCaches@CThreadContext@@SAXXZ @ 0x18026E538
+ * Callers:
+ *     ??1CComposition@@MEAA@XZ @ 0x1801B0AEC (--1CComposition@@MEAA@XZ.c)
+ * Callees:
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800789A0 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ *     ?Destroy@CObjectCache@@QEAAXXZ @ 0x18026E4F8 (-Destroy@CObjectCache@@QEAAXXZ.c)
+ */
+
 void CThreadContext::DestroyObjectCaches(void)
 {
   int Current; // eax

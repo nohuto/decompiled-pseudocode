@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlRestoreBootStatusDefaults @ 0x1409BAB20
+ * Callers:
+ *     PopBootStatRestoreDefaults @ 0x1409940B0 (PopBootStatRestoreDefaults.c)
+ * Callees:
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpRecordBootStatusData @ 0x14073D990 (RtlpRecordBootStatusData.c)
+ */
+
 __int64 __fastcall RtlRestoreBootStatusDefaults(HANDLE FileHandle)
 {
   __int64 v2; // rdx

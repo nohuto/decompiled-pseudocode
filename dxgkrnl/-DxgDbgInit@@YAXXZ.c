@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgDbgInit@@YAXXZ @ 0x1C0219AB4
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 void DxgDbgInit(void)
 {
   __int64 Pool2; // rax

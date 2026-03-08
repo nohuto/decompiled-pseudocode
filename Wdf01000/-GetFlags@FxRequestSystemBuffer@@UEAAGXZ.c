@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFlags@FxRequestSystemBuffer@@UEAAGXZ @ 0x1C00427F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall FxRequestSystemBuffer::GetFlags(FxRequestSystemBuffer *this)
 {
   unsigned __int8 *v1; // rdx

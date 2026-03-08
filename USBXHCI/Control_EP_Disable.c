@@ -1,3 +1,11 @@
+/*
+ * XREFs of Control_EP_Disable @ 0x1C000FAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ */
+
 void __fastcall Control_EP_Disable(__int64 a1)
 {
   int v2; // esi

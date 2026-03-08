@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmGetMatchingDeviceInterfaceList @ 0x14085C60C
+ * Callers:
+ *     _PnpDispatchDeviceInterface @ 0x1406C8CF0 (_PnpDispatchDeviceInterface.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406C42E4 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ */
+
 __int64 __fastcall CmGetMatchingDeviceInterfaceList(
         __int64 a1,
         __int64 a2,

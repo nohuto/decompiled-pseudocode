@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCreateSlabAllocationsFromKernelHal @ 0x140B39FD4
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiActOnLargeKernelHalPages @ 0x140809AB8 (MiActOnLargeKernelHalPages.c)
+ */
+
 __int64 MiCreateSlabAllocationsFromKernelHal()
 {
   int v0; // ebx

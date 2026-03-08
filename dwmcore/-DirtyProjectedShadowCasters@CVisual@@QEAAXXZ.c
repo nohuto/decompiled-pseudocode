@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DirtyProjectedShadowCasters@CVisual@@QEAAXXZ @ 0x1800096F0
+ * Callers:
+ *     ?UpdateTransform@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z @ 0x180088A84 (-UpdateTransform@CPreWalkVisual@CPreComputeContext@@QEAAXPEBVCVisualTree@@@Z.c)
+ * Callees:
+ *     ?RequestRedraw@CProjectedShadowCaster@@QEAAXXZ @ 0x18000973C (-RequestRedraw@CProjectedShadowCaster@@QEAAXXZ.c)
+ *     ?GetProjectedShadowCasters@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowCaster@@V?$allocator@PEAVCProjectedShadowCaster@@@std@@@std@@XZ @ 0x18000977C (-GetProjectedShadowCasters@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowCaster@@V-$allocator@PE.c)
+ */
+
 void __fastcall CVisual::DirtyProjectedShadowCasters(CVisual *this)
 {
   __int64 ProjectedShadowCasters; // rax

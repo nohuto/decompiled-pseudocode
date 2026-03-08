@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxResolveDesktopForWOW @ 0x1C01BFDF8
+ * Callers:
+ *     NtUserResolveDesktopForWOW @ 0x1C01DAF30 (NtUserResolveDesktopForWOW.c)
+ * Callees:
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     _OpenDesktop @ 0x1C00BF4B0 (_OpenDesktop.c)
+ *     _OpenWindowStation @ 0x1C00C0364 (_OpenWindowStation.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z @ 0x1C01BF948 (-SafeCopyUnicodeString@@YAXPEAU_UNICODE_STRING@@QEAU1@@Z.c)
+ */
+
 __int64 __fastcall xxxResolveDesktopForWOW(PUNICODE_STRING Destination)
 {
   UNICODE_STRING v2; // xmm1

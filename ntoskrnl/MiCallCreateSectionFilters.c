@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCallCreateSectionFilters @ 0x1407D16B0
+ * Callers:
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     FsRtlAcquireToCreateMappedSection @ 0x1407D17DC (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ */
+
 __int64 __fastcall MiCallCreateSectionFilters(int *a1)
 {
   struct _FILE_OBJECT *v2; // rdi

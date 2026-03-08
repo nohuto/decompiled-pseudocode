@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpRegTziFormatToTzi @ 0x140812584
+ * Callers:
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x140811C80 (RtlpCheckDynamicTimeZoneInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpRegTziFormatToTzi(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

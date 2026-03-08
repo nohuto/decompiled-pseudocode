@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopAllocateErrorLogEntry @ 0x1403C11FC
+ * Callers:
+ *     IoAllocateErrorLogEntry @ 0x1403C11C0 (IoAllocateErrorLogEntry.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140554348 (IoAllocateGenericErrorLogEntry.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopAllocateErrorLogEntry(PVOID Object, PVOID a2, char a3)
 {
   unsigned int v5; // ebx

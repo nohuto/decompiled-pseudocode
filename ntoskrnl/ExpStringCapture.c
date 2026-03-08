@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpStringCapture @ 0x1409F4BAC
+ * Callers:
+ *     ExpGetDeviceDataInformation @ 0x1409F34C8 (ExpGetDeviceDataInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpStringCapture(_QWORD *a1, unsigned __int16 *a2)
 {
   __int64 v4; // rax

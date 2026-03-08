@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0107950
+ * Callers:
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C0079E10 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     ?OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z @ 0x1C00F2C34 (-OpenDeviceCfgKey@@YAJKPEAGKPEAPEAXH@Z.c)
+ *     EditionGetPointerDeviceConfigurationKey @ 0x1C01071F0 (EditionGetPointerDeviceConfigurationKey.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C01084CC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     ReadTiltCalibrationData @ 0x1C01A678C (ReadTiltCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01A6CF4 (WriteTiltCalibrationData.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1C0107584 (RtlUnicodeStringValidateWorker.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0107828 (RtlUnicodeStringValidateDestWorker.c)
+ */
+
 __int64 __fastcall RtlUnicodeStringCopy(struct _UNICODE_STRING *a1, const struct _UNICODE_STRING *a2)
 {
   __int16 v3; // bx

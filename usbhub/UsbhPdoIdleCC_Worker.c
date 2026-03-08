@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhPdoIdleCC_Worker @ 0x1C0058720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhIdleIrp_Event @ 0x1C0057F68 (UsbhIdleIrp_Event.c)
+ */
+
 void __fastcall UsbhPdoIdleCC_Worker(ULONG_PTR a1, __int64 a2, __int64 a3)
 {
   _DWORD *v5; // rbp

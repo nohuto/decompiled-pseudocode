@@ -1,3 +1,13 @@
+/*
+ * XREFs of Isoch_Initialize @ 0x1C006D400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Isoch_CalculatePacketsPerFrame @ 0x1C0001D9C (Isoch_CalculatePacketsPerFrame.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Isoch_Initialize(__int64 a1)
 {
   unsigned __int64 v2; // rax

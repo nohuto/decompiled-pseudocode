@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?inv_cmap@@YAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C02A647C
+ * Callers:
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A5D44 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ * Callees:
+ *     ?inv_cmap@INVCMAP@@QEAAXHPEAURGBX@@HPEAKPEAE@Z @ 0x1C02A64DC (-inv_cmap@INVCMAP@@QEAAXHPEAURGBX@@HPEAKPEAE@Z.c)
+ */
+
 void __fastcall inv_cmap(__int64 a1, struct RGBX *a2, __int64 a3, unsigned int *a4, unsigned __int8 *a5)
 {
   int v7; // edi

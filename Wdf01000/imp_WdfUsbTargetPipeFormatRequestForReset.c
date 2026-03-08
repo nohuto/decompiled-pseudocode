@@ -1,3 +1,14 @@
+/*
+ * XREFs of imp_WdfUsbTargetPipeFormatRequestForReset @ 0x1C0056BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ *     WPP_IFR_SF_qqD @ 0x1C0050A64 (WPP_IFR_SF_qqD.c)
+ *     ?FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z @ 0x1C005A0EC (-FormatResetRequest@FxUsbPipe@@QEAAJPEAVFxRequestBase@@@Z.c)
+ */
+
 __int64 __fastcall imp_WdfUsbTargetPipeFormatRequestForReset(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFUSBPIPE__ *Pipe,

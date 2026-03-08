@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C00542B0
+ * Callers:
+ *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C0019970 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     bDeleteRegion @ 0x1C0053FA0 (bDeleteRegion.c)
+ *     bDeleteBrush @ 0x1C00D59D0 (bDeleteBrush.c)
+ * Callees:
+ *     EtwTraceGdiTransformHandle @ 0x1C001D41C (EtwTraceGdiTransformHandle.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C005168C (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
+ *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00EE512 (McTemplateK0ppqqq_EtwWriteTransfer.c)
+ *     ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0274CF0 (-_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z.c)
+ */
+
 __int64 __fastcall bPEBCacheHandle(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4, __int64 a5)
 {
   _QWORD *CurrentProcessWin32Process; // rax

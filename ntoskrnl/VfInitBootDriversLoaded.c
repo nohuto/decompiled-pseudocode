@@ -1,3 +1,27 @@
+/*
+ * XREFs of VfInitBootDriversLoaded @ 0x140B4EE44
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     CarInit @ 0x1405D18E4 (CarInit.c)
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     NtSetDebugFilterState @ 0x140828EB0 (NtSetDebugFilterState.c)
+ *     VfThunkGetNumberOfWdmThunk @ 0x140AB9E64 (VfThunkGetNumberOfWdmThunk.c)
+ *     VfDriverLoadImage @ 0x140AB9ED8 (VfDriverLoadImage.c)
+ *     VfAvlInitializeTreeEx @ 0x140ABA4D4 (VfAvlInitializeTreeEx.c)
+ *     VfInitVerifierComponents @ 0x140ABFE40 (VfInitVerifierComponents.c)
+ *     VfObjectContextInit @ 0x140AC0F94 (VfObjectContextInit.c)
+ *     ViThunkFindAllExportAddresses @ 0x140B4F010 (ViThunkFindAllExportAddresses.c)
+ *     VfDriverLoadBootDrivers @ 0x140B4F21C (VfDriverLoadBootDrivers.c)
+ *     ViLogAndLoadXdv @ 0x140B93AE4 (ViLogAndLoadXdv.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140B93B7C (VfSuspectDriversParseRegistryString.c)
+ *     VfXdvExcludeParseRegistryString @ 0x140B93D2C (VfXdvExcludeParseRegistryString.c)
+ *     VfTriageAddDrivers @ 0x140B93E98 (VfTriageAddDrivers.c)
+ */
+
 void __fastcall VfInitBootDriversLoaded(__int64 a1)
 {
   __int64 v2; // r8

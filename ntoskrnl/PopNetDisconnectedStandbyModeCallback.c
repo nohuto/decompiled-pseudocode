@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopNetDisconnectedStandbyModeCallback @ 0x140861510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopNetDisconnectedStandbyModeCallback(int a1, int *a2, int a3)
 {
   unsigned int v4; // ebx

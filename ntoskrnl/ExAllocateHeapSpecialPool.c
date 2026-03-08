@@ -1,3 +1,23 @@
+/*
+ * XREFs of ExAllocateHeapSpecialPool @ 0x14060C980
+ * Callers:
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ * Callees:
+ *     MiDeterminePoolType @ 0x14020DEF0 (MiDeterminePoolType.c)
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     ExpPlFindLimitEntry @ 0x1402F00EC (ExpPlFindLimitEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExGetHeapFromType @ 0x1403B509C (ExGetHeapFromType.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403B53DC (ExpPoolTrackerChargeEntry.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060CCF8 (ExpFreeHeapSpecialPool.c)
+ */
+
 unsigned __int64 __fastcall ExAllocateHeapSpecialPool(int a1, ULONG_PTR a2, unsigned int a3)
 {
   int v3; // edi

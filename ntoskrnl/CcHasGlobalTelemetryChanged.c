@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcHasGlobalTelemetryChanged @ 0x1403CB4B4
+ * Callers:
+ *     CcTelemetryPeriodicTimerCallback @ 0x14087C260 (CcTelemetryPeriodicTimerCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 char CcHasGlobalTelemetryChanged()
 {
   char result; // al

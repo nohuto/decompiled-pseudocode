@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpGetPathCustomSdb @ 0x140A50220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x140A4FFD0 (SdbpGetPathAppPatch.c)
+ *     AslPathCombine @ 0x140A524A8 (AslPathCombine.c)
+ */
+
 __int64 __fastcall SdbpGetPathCustomSdb(wchar_t *a1, size_t a2)
 {
   int v5; // ebx

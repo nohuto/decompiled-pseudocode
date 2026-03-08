@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiRuntimePowerIrpCompletion@@YAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C001B650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiRuntimePowerIrpCompletion(
         PDEVICE_OBJECT DeviceObject,
         UCHAR MinorFunction,

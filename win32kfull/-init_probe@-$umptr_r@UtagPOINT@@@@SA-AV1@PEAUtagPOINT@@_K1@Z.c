@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?init_probe@?$umptr_r@UtagPOINT@@@@SA?AV1@PEAUtagPOINT@@_K1@Z @ 0x1C02C4458
+ * Callers:
+ *     NtGdiPolyDraw @ 0x1C02C67A0 (NtGdiPolyDraw.c)
+ * Callees:
+ *     ULongLongMult @ 0x1C014D830 (ULongLongMult.c)
+ */
+
 _QWORD *__fastcall umptr_r<tagPOINT>::init_probe(__int64 a1, __int64 a2, ULONGLONG a3)
 {
   _QWORD *v4; // r10

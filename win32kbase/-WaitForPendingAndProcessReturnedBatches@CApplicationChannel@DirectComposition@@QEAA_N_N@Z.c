@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WaitForPendingAndProcessReturnedBatches@CApplicationChannel@DirectComposition@@QEAA_N_N@Z @ 0x1C00BF8F4
+ * Callers:
+ *     ?GetBatchFragment@CApplicationChannel@DirectComposition@@QEAAPEAVCBatch@2@K_N0@Z @ 0x1C0060A74 (-GetBatchFragment@CApplicationChannel@DirectComposition@@QEAAPEAVCBatch@2@K_N0@Z.c)
+ *     NtDCompositionSubmitDWMBatch @ 0x1C0060E20 (NtDCompositionSubmitDWMBatch.c)
+ *     NtDCompositionWaitForChannel @ 0x1C00BF880 (NtDCompositionWaitForChannel.c)
+ * Callees:
+ *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C00609AC (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CApplicationChannel::WaitForPendingAndProcessReturnedBatches(
         DirectComposition::CApplicationChannel *this,
         char a2)

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsW32ScreenSaver_Show @ 0x1C0203530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsHungWindow@@YA_NPEBUtagWND@@@Z @ 0x1C009FF14 (-IsHungWindow@@YA_NPEBUtagWND@@@Z.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ?StartScreenSaver@@YAXH@Z @ 0x1C0203424 (-StartScreenSaver@@YAXH@Z.c)
+ */
+
 void PsW32ScreenSaver_Show()
 {
   const struct tagTHREADINFO **v0; // rcx

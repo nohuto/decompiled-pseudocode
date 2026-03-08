@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInsertPdoIdleIrp @ 0x1C00586E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UsbhInsertPdoIdleIrp(struct _IO_CSQ *Csq, PIRP Irp)
 {
   _LIST_ENTRY *ReservePointer; // rax

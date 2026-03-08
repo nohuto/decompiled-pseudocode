@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvInitializeHashLibrary @ 0x140816840
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     SymCryptInit @ 0x1403B1860 (SymCryptInit.c)
+ *     SymCryptMarvin32ExpandSeed @ 0x1403F06B4 (SymCryptMarvin32ExpandSeed.c)
+ */
+
 __int64 HvInitializeHashLibrary()
 {
   unsigned __int64 v1; // [rsp+30h] [rbp+8h] BYREF

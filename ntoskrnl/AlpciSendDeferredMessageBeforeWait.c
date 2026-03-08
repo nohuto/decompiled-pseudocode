@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpciSendDeferredMessageBeforeWait @ 0x14033E1E0
+ * Callers:
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpSignal @ 0x14033E410 (AlpcpSignal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpTrackPortReferences @ 0x1407C9E94 (AlpcpTrackPortReferences.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ */
+
 __int64 __fastcall AlpciSendDeferredMessageBeforeWait(
         __int64 a1,
         void *a2,

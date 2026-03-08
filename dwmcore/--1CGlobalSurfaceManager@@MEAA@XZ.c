@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x1801B3FD8
+ * Callers:
+ *     ??_GCGlobalSurfaceManager@@MEAAPEAXI@Z @ 0x1801B4240 (--_GCGlobalSurfaceManager@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$_Destroy_range@V?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@YAXPEAVAdapterInfo@CGlobalSurfaceManager@@QEAV12@AEAV?$allocator@VAdapterInfo@CGlobalSurfaceManager@@@0@@Z @ 0x1800CE2F0 (--$_Destroy_range@V-$allocator@VAdapterInfo@CGlobalSurfaceManager@@@std@@@std@@YAXPEAVAdapterInf.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801B2538 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ *     ??1CLegacySurfaceManager@@UEAA@XZ @ 0x1801B40A4 (--1CLegacySurfaceManager@@UEAA@XZ.c)
+ */
+
 void __fastcall CGlobalSurfaceManager::~CGlobalSurfaceManager(CGlobalSurfaceManager *this)
 {
   __int64 v2; // rcx

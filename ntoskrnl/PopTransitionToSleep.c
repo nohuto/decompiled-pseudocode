@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopTransitionToSleep @ 0x140AA21D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MmEmptyAllWorkingSets @ 0x140633230 (MmEmptyAllWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x14063327C (MmTrimFilePagesFromWorkingSets.c)
+ *     MmFlushAllPagesEx @ 0x1406398BC (MmFlushAllPagesEx.c)
+ *     PopEnlargeHiberFile @ 0x140985550 (PopEnlargeHiberFile.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA542C (PopInvokeSystemStateHandler.c)
+ *     MmDuplicateMemory @ 0x140AA96DC (MmDuplicateMemory.c)
+ */
+
 LONG __fastcall PopTransitionToSleep(struct _KEVENT *a1)
 {
   unsigned int Lock; // esi

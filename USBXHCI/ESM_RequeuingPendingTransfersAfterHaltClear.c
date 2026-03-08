@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_RequeuingPendingTransfersAfterHaltClear @ 0x1C0051A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_ReclaimTransfers @ 0x1C000E940 (TR_ReclaimTransfers.c)
+ */
+
 __int64 __fastcall ESM_RequeuingPendingTransfersAfterHaltClear(__int64 a1)
 {
   __int64 v1; // rbx

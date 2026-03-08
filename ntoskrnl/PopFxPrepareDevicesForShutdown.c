@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxPrepareDevicesForShutdown @ 0x140588F3C
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopFxActivateDevicesForSx @ 0x1405865A4 (PopFxActivateDevicesForSx.c)
+ */
+
 char PopFxPrepareDevicesForShutdown()
 {
   struct _KTHREAD *CurrentThread; // rax

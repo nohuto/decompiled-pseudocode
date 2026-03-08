@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmGetKeyLastWriteTime @ 0x1407ABE44
+ * Callers:
+ *     CmpQueryKeyDataFromCache @ 0x1407ABC40 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1407AD510 (CmpQueryKeyDataFromNode.c)
+ * Callees:
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x140776A40 (CmListGetPrevElement.c)
+ */
+
 __int64 __fastcall CmGetKeyLastWriteTime(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rbx

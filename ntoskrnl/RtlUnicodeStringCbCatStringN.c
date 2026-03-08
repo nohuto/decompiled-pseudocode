@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeStringCbCatStringN @ 0x14066BEEC
+ * Callers:
+ *     AslpPathWildcardAllocMatchNode @ 0x140A539A4 (AslpPathWildcardAllocMatchNode.c)
+ * Callees:
+ *     RtlWideCharArrayCopyStringWorker @ 0x14059FCA0 (RtlWideCharArrayCopyStringWorker.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringCbCatStringN(
         PUNICODE_STRING DestinationString,
         NTSTRSAFE_PCWSTR pszSrc,

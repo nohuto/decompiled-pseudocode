@@ -1,3 +1,20 @@
+/*
+ * XREFs of zzzCancelJournalling @ 0x1C001D3F4
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     PhkFirstGlobalValid @ 0x1C001D640 (PhkFirstGlobalValid.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     PhkNextValid @ 0x1C0039A4C (PhkNextValid.c)
+ *     SendMsgCleanup @ 0x1C0094980 (SendMsgCleanup.c)
+ *     xxxReceiverDied @ 0x1C00949E0 (xxxReceiverDied.c)
+ *     _PostThreadMessage @ 0x1C009575C (_PostThreadMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     zzzUnhookWindowsHookEx @ 0x1C009C50C (zzzUnhookWindowsHookEx.c)
+ *     ?IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z @ 0x1C00E2134 (-IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 zzzCancelJournalling()
 {

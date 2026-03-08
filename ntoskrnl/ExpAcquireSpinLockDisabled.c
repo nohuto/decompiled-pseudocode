@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpAcquireSpinLockDisabled @ 0x1402E50A8
+ * Callers:
+ *     ExInterlockedInsertHeadList @ 0x1402E5000 (ExInterlockedInsertHeadList.c)
+ *     ExInterlockedAddUlong @ 0x1403C9600 (ExInterlockedAddUlong.c)
+ *     ExInterlockedAddLargeInteger @ 0x14060A630 (ExInterlockedAddLargeInteger.c)
+ *     ExInterlockedPopEntryList @ 0x14060A6C0 (ExInterlockedPopEntryList.c)
+ *     ExInterlockedPushEntryList @ 0x14060A750 (ExInterlockedPushEntryList.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall ExpAcquireSpinLockDisabled(volatile signed __int32 *a1)
 {
   volatile signed __int32 *SchedulerAssist; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDelegateInput @ 0x1C00E4130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00390F4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserDelegateInput(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v9; // rax

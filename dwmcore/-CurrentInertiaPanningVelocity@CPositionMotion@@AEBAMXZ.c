@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CurrentInertiaPanningVelocity@CPositionMotion@@AEBAMXZ @ 0x18026C1A8
+ * Callers:
+ *     ?CurrentInertiaVelocity@CPositionMotion@@MEBAMXZ @ 0x18026C220 (-CurrentInertiaVelocity@CPositionMotion@@MEBAMXZ.c)
+ * Callees:
+ *     powf_0 @ 0x18011777C (powf_0.c)
+ */
+
 float __fastcall CPositionMotion::CurrentInertiaPanningVelocity(CPositionMotion *this)
 {
   float v1; // xmm1_4

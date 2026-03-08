@@ -1,3 +1,17 @@
+/*
+ * XREFs of HsaAttachDeviceDomainInternal @ 0x14052CC78
+ * Callers:
+ *     HsaAttachDeviceDomain @ 0x14052CC60 (HsaAttachDeviceDomain.c)
+ *     HsaDetachDeviceDomain @ 0x14052D1C0 (HsaDetachDeviceDomain.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HsaFlushTbInternal @ 0x14052D57C (HsaFlushTbInternal.c)
+ *     HsaUpdateDeviceTableEntry @ 0x14052E900 (HsaUpdateDeviceTableEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HsaAttachDeviceDomainInternal(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v6; // eax

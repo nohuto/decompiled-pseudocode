@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgUnicodeStringFromCharBuffer@@YAJAEAU_UNICODE_STRING@@PEADG@Z @ 0x1C02C95FC
+ * Callers:
+ *     ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02C911C (-DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINF.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DxgUnicodeStringFromCharBuffer(PUNICODE_STRING DestinationString, char *a2, USHORT a3)
 {
   unsigned __int64 i; // rax

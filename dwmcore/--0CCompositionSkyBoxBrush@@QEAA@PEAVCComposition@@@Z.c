@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCompositionSkyBoxBrush@@QEAA@PEAVCComposition@@@Z @ 0x180221C1C
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CCompositionSkyBoxBrush *__fastcall CCompositionSkyBoxBrush::CCompositionSkyBoxBrush(
         CCompositionSkyBoxBrush *this,
         struct CComposition *a2)

@@ -1,3 +1,44 @@
+/*
+ * XREFs of PspRundownSingleProcess @ 0x1406F8160
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ *     PspTerminateProcess @ 0x1407DC198 (PspTerminateProcess.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ *     PspCreateProcess @ 0x140858F60 (PspCreateProcess.c)
+ *     PsTerminateMinimalProcess @ 0x1409B08B0 (PsTerminateMinimalProcess.c)
+ *     PspProcessRundownWorker @ 0x1409B0CD0 (PspProcessRundownWorker.c)
+ *     PspProcessRundownWorkerSingle @ 0x1409B0D80 (PspProcessRundownWorkerSingle.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeSetProcess @ 0x140293FE4 (KeSetProcess.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     RtlInterlockedSetClearBits @ 0x140294B08 (RtlInterlockedSetClearBits.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeRundownSecureProcess @ 0x14056D14C (KeRundownSecureProcess.c)
+ *     ObKillProcess @ 0x1406C0F5C (ObKillProcess.c)
+ *     PspSendProcessNotificationToJobChain @ 0x1406F84CC (PspSendProcessNotificationToJobChain.c)
+ *     PspNotifyEmptyJobsInJobChain @ 0x1406F870C (PspNotifyEmptyJobsInJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     ObReferenceProcessHandleTable @ 0x140711794 (ObReferenceProcessHandleTable.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ *     ExSweepHandleTable @ 0x1407D8110 (ExSweepHandleTable.c)
+ *     PspClearProcessThreadCidRefs @ 0x1407D935C (PspClearProcessThreadCidRefs.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall PspRundownSingleProcess(PRKPROCESS PROCESS, bool a2)
 {
   bool v2; // bp

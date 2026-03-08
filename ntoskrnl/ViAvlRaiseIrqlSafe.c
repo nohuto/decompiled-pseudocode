@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViAvlRaiseIrqlSafe @ 0x140303B34
+ * Callers:
+ *     VfAvlDeleteTreeNode @ 0x140303394 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140303A48 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140AD9230 (VfAvlDeleteAllTreeNodes.c)
+ *     VfAvlEnumerateNodes @ 0x140AD92A4 (VfAvlEnumerateNodes.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ViAvlRaiseIrqlSafe(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // r9

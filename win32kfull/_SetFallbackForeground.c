@@ -1,3 +1,11 @@
+/*
+ * XREFs of _SetFallbackForeground @ 0x1C01AFA70
+ * Callers:
+ *     NtUserSetFallbackForeground @ 0x1C01DCB60 (NtUserSetFallbackForeground.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetFallbackForeground(__int64 a1, int a2)
 {

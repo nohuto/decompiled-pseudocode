@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C003C610
+ * Callers:
+ *     GreGetRegionData @ 0x1C003C510 (GreGetRegionData.c)
+ *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00EF31A (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RGNOBJ::vDownload(RGNOBJ *this, _OWORD *a2)
 {
   unsigned int *v3; // r8

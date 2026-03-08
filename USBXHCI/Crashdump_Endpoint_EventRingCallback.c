@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Endpoint_EventRingCallback @ 0x1C004EF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Endpoint_EventRingCallback(__int64 a1, __int64 a2, _BYTE *a3)
 {
   int v5; // r8d

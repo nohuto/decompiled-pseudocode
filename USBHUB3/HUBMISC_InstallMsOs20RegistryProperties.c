@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBMISC_InstallMsOs20RegistryProperties @ 0x1C0032C14
+ * Callers:
+ *     HUBDSM_InstallingMsOs20RegistryValues @ 0x1C0024A60 (HUBDSM_InstallingMsOs20RegistryValues.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBDESC_GetNextMsOs20Descriptor @ 0x1C003D6A0 (HUBDESC_GetNextMsOs20Descriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00867FC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ */
+
 __int64 __fastcall HUBMISC_InstallMsOs20RegistryProperties(__int64 a1)
 {
   unsigned int v2; // r14d

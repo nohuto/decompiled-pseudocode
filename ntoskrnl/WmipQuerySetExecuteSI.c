@@ -1,3 +1,25 @@
+/*
+ * XREFs of WmipQuerySetExecuteSI @ 0x14069C72C
+ * Callers:
+ *     IoWMIQuerySingleInstance @ 0x14069D0A0 (IoWMIQuerySingleInstance.c)
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ *     IoWMIExecuteMethod @ 0x1409DBE40 (IoWMIExecuteMethod.c)
+ *     IoWMISetSingleInstance @ 0x1409DC1B0 (IoWMISetSingleInstance.c)
+ *     IoWMISetSingleItem @ 0x1409DC2E0 (IoWMISetSingleItem.c)
+ *     WmipQuerySingleMultiple @ 0x1409DE144 (WmipQuerySingleMultiple.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipPrepareWnodeSI @ 0x14069BED4 (WmipPrepareWnodeSI.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14069CD88 (WmipSendWmiIrp.c)
+ *     WmipForwardWmiIrp @ 0x14069CE70 (WmipForwardWmiIrp.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipQuerySetExecuteSI(
         PVOID Object,
         IRP *a2,

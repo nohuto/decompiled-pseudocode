@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcNotifyWriteBehind @ 0x1405345B8
+ * Callers:
+ *     MiShutdownSystem @ 0x140AA8A00 (MiShutdownSystem.c)
+ *     MmDuplicateMemory @ 0x140AA96DC (MmDuplicateMemory.c)
+ * Callees:
+ *     CcForEachPartition @ 0x140305240 (CcForEachPartition.c)
+ */
+
 LONG_PTR CcNotifyWriteBehind()
 {
   return CcForEachPartition(

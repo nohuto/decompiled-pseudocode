@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiDdDDISharedPrimaryLockNotification @ 0x1C0272B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z @ 0x1C0271100 (-DxLddmSharedPrimaryLockNotification@@YAJU_LUID@@IPEBU_RECTL@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiDdDDISharedPrimaryLockNotification(ULONG64 a1)
 {
   struct _LUID v3[2]; // [rsp+20h] [rbp-38h] BYREF

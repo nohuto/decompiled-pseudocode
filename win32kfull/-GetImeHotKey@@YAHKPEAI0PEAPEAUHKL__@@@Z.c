@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetImeHotKey@@YAHKPEAI0PEAPEAUHKL__@@@Z @ 0x1C01FE59C
+ * Callers:
+ *     NtUserGetImeHotKey @ 0x1C01D2B10 (NtUserGetImeHotKey.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?FindImeHotKeyByID@@YAPEAU_tagIMEHOTKEYOBJ@@PEBU1@K@Z @ 0x1C00D8894 (-FindImeHotKeyByID@@YAPEAU_tagIMEHOTKEYOBJ@@PEBU1@K@Z.c)
+ */
+
 __int64 __fastcall GetImeHotKey(__int64 a1, unsigned int *a2, unsigned int *a3, HKL *a4)
 {
   int v7; // ebx

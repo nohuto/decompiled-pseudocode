@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800351FC
+ * Callers:
+ *     ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D74 (-GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFo.c)
+ * Callees:
+ *     ?GetPixelFormatInfo@CRenderTargetBitmap@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800353DC (-GetPixelFormatInfo@CRenderTargetBitmap@@UEBA-AUPixelFormatInfo@@XZ.c)
+ *     ?GetSize@CRenderTargetBitmap@@UEBA?AUD2D_SIZE_U@@XZ @ 0x18003542C (-GetSize@CRenderTargetBitmap@@UEBA-AUD2D_SIZE_U@@XZ.c)
+ *     ?IsValid@CRenderTargetBitmap@@UEBAJXZ @ 0x180035480 (-IsValid@CRenderTargetBitmap@@UEBAJXZ.c)
+ *     ?IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ @ 0x1800354BC (-IsHardwareProtected@CRenderTargetBitmap@@UEBA_NXZ.c)
+ *     ?Remove@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAHAEBQEAVCScratchRenderTargetBitmap@@@Z @ 0x180035600 (-Remove@-$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAHAEBQEAVCScratchRenderTargetBitmap@.c)
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ *     ?RemoveAt@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z @ 0x1800EA8C0 (-RemoveAt@-$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 char __fastcall CRenderTargetBitmapCache::FindMatchingBitmap(
         CRenderTargetBitmapCache *this,
         const struct D2D_SIZE_U *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of GetQpcFrequency @ 0x1C0161710
+ * Callers:
+ *     EtwTraceFlipManagerPresentCanceled @ 0x1C0162840 (EtwTraceFlipManagerPresentCanceled.c)
+ *     EtwTraceFlipManagerPresentDeferred @ 0x1C0162B50 (EtwTraceFlipManagerPresentDeferred.c)
+ *     EtwTraceFlipManagerPresentPosted @ 0x1C0162ED0 (EtwTraceFlipManagerPresentPosted.c)
+ *     EtwTraceFlipManagerPresentProcessed @ 0x1C01630E0 (EtwTraceFlipManagerPresentProcessed.c)
+ *     EtwTraceFlipManagerPresentSkipped @ 0x1C0163430 (EtwTraceFlipManagerPresentSkipped.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 GetQpcFrequency()
 {
   __int64 result; // rax

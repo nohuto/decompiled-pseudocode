@@ -1,3 +1,11 @@
+/*
+ * XREFs of BgpFwMapFrameBuffer @ 0x14066F710
+ * Callers:
+ *     BgpFwSetBootGraphicsInformation @ 0x14066F7B0 (BgpFwSetBootGraphicsInformation.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ */
+
 __int64 __fastcall BgpFwMapFrameBuffer(__int64 a1)
 {
   int v2; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmpFpWaitForResource @ 0x1405CA06C
+ * Callers:
+ *     SmFpAllocate @ 0x14045D93E (SmFpAllocate.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     SmpFpAllocateResource @ 0x1405C9EC8 (SmpFpAllocateResource.c)
+ */
+
 __int64 __fastcall SmpFpWaitForResource(PEX_SPIN_LOCK SpinLock, int a2, struct _KTHREAD *a3)
 {
   struct _KTHREAD *CurrentThread; // rdi

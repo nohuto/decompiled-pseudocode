@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxDesktopThreadWaiter @ 0x1C0094300
+ * Callers:
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxDesktopThread @ 0x1C0093DC0 (xxxDesktopThread.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z @ 0x1C00719A0 (-xxxUpdateInputHangInfo@@YAXPEAUtagWND@@W4INPUTHANGTIME@@@Z.c)
+ *     ?ClearQueueServerEvent@@YAXG@Z @ 0x1C0094494 (-ClearQueueServerEvent@@YAXG@Z.c)
+ *     zzzWakeInputIdle @ 0x1C00944D0 (zzzWakeInputIdle.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00946F4 (xxxRemoveQueueCompletion.c)
+ *     SleepInputIdle @ 0x1C00947C4 (SleepInputIdle.c)
+ *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C00E8454 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C012C5E4 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C012C60C (--1LeaveEnterCrit@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxDesktopThreadWaiter(char a1, unsigned __int8 a2)
 {
   LegacyInputDispatcher *v4; // r15

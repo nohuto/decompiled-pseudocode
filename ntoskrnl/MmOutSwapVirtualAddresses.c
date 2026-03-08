@@ -1,3 +1,32 @@
+/*
+ * XREFs of MmOutSwapVirtualAddresses @ 0x14065065C
+ * Callers:
+ *     SmPerformStoreSwapOperation @ 0x1405CB29C (SmPerformStoreSwapOperation.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiOutSwapWorkingSet @ 0x1402DB710 (MiOutSwapWorkingSet.c)
+ *     MiReAllocateWorkingSetSwapSupport @ 0x1402DBD9C (MiReAllocateWorkingSetSwapSupport.c)
+ *     MiAllocateWorkingSetSwapSupport @ 0x1402DBDF4 (MiAllocateWorkingSetSwapSupport.c)
+ *     MiFindBestOutswapPagefile @ 0x1402DBE44 (MiFindBestOutswapPagefile.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateMemoryRangeEntries @ 0x14075C34C (MiValidateMemoryRangeEntries.c)
+ *     EtwTraceWorkingSetSwap @ 0x140765840 (EtwTraceWorkingSetSwap.c)
+ *     MiFreeReservationRuns @ 0x140765980 (MiFreeReservationRuns.c)
+ *     MiExtendWorkingSetSwapPagefile @ 0x140A40524 (MiExtendWorkingSetSwapPagefile.c)
+ *     MiReserveWorkingSetSwapSpace @ 0x140A40660 (MiReserveWorkingSetSwapSpace.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmOutSwapVirtualAddresses(PEPROCESS Process, unsigned __int64 *a2, __int64 a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // r15

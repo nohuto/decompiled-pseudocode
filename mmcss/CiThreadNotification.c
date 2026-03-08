@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiThreadNotification @ 0x1C0001040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CiThreadDereference @ 0x1C000A400 (CiThreadDereference.c)
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ */
+
 void __fastcall CiThreadNotification(HANDLE ProcessId, HANDLE ThreadId, BOOLEAN Create)
 {
   struct _KTHREAD *CurrentThread; // rbx

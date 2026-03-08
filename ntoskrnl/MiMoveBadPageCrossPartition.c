@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMoveBadPageCrossPartition @ 0x14064B358
+ * Callers:
+ *     MiMoveLargeFreePage @ 0x14064D244 (MiMoveLargeFreePage.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ *     MiTransferPartitionPageRun @ 0x140659030 (MiTransferPartitionPageRun.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ */
+
 __int64 __fastcall MiMoveBadPageCrossPartition(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v5; // rsi

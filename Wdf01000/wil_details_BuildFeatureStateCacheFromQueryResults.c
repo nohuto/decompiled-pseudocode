@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C00B0070
+ * Callers:
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x1C00B029C (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C00BD1B8 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil_details_BuildFeatureStateCacheFromQueryResults(
         int queryStatus,
         const _RTL_FEATURE_CONFIGURATION *featureConfiguration,

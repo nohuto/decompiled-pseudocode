@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvIsInPlaceBaseBlockValid @ 0x140A1E0E4
+ * Callers:
+ *     HvHiveStartMemoryBacked @ 0x1407FF060 (HvHiveStartMemoryBacked.c)
+ * Callees:
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 bool __fastcall HvIsInPlaceBaseBlockValid(_DWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // eax

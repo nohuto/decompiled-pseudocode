@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CHueRotationEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024E5D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CHueRotationEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CHueRotationEffectMarshaler *this)
 {

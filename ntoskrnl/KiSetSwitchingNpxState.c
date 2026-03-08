@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSetSwitchingNpxState @ 0x1402381AC
+ * Callers:
+ *     KiInitializeContextThread @ 0x140237E9C (KiInitializeContextThread.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiSetSwitchingNpxState(__int64 a1, char a2, __int64 a3)
 {
   unsigned __int64 v3; // r9

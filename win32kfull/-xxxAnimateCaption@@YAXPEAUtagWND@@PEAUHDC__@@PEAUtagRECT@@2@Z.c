@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1C02270EC
+ * Callers:
+ *     xxxDrawAnimatedRects @ 0x1C0227740 (xxxDrawAnimatedRects.c)
+ * Callees:
+ *     GetWindowBorders @ 0x1C0021910 (GetWindowBorders.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _WindowFromDC @ 0x1C01BF0E8 (_WindowFromDC.c)
+ *     ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C022700C (-SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z.c)
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ */
+
 void __fastcall xxxAnimateCaption(struct tagWND *a1, __int64 *a2, struct tagRECT *a3, struct tagRECT *a4)
 {
   __int64 v8; // rcx

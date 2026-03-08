@@ -1,3 +1,14 @@
+/*
+ * XREFs of InterlockedPushListSList @ 0x140420510
+ * Callers:
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     MiReplenishPageSlist @ 0x14034E120 (MiReplenishPageSlist.c)
+ *     EtwpCovSampPushListSList @ 0x140461D1E (EtwpCovSampPushListSList.c)
+ *     HvlpSetupCachedHypercallPages @ 0x14053FCEC (HvlpSetupCachedHypercallPages.c)
+ * Callees:
+ *     <none>
+ */
+
 PSLIST_ENTRY __stdcall InterlockedPushListSList(
         PSLIST_HEADER ListHead,
         PSLIST_ENTRY List,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExSaAllocate @ 0x1402962FC
+ * Callers:
+ *     ExpAllocateFannedOutPushLock @ 0x1403CF30C (ExpAllocateFannedOutPushLock.c)
+ *     KeInitializeProcess @ 0x14070A0C8 (KeInitializeProcess.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409EDC1C (EtwpCovSampCaptureContextStart.c)
+ * Callees:
+ *     ExpSaAllocatorAllocate @ 0x140296390 (ExpSaAllocatorAllocate.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExSaAllocate(unsigned int a1, unsigned int a2)
 {
   ULONG_PTR v3; // rcx

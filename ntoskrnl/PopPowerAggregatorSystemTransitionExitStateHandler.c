@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopPowerAggregatorSystemTransitionExitStateHandler @ 0x140991090
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x1402BCB88 (PopCheckForWork.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140879638 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorSystemTransitionExitStateHandler(struct _KEVENT *a1)
 {
   _OWORD v3[2]; // [rsp+30h] [rbp-28h] BYREF

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpBuildNotificationPacket @ 0x14068ECF4
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpCalculateUpdateNotification @ 0x140690658 (EtwpCalculateUpdateNotification.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1409E46E0 (EtwpNotifyDisallowedGuidChange.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1409E9FE0 (SendCaptureStateNotificationsWorker.c)
+ * Callees:
+ *     EtwpAllocDataBlock @ 0x14068ED78 (EtwpAllocDataBlock.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140694C98 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpCopySchematizedFilters @ 0x1409F23CC (EtwpCopySchematizedFilters.c)
+ */
+
 __int64 __fastcall EtwpBuildNotificationPacket(__int64 a1, _OWORD *a2, char a3, _QWORD *a4)
 {
   _OWORD *v4; // rbx

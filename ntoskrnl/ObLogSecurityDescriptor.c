@@ -1,3 +1,27 @@
+/*
+ * XREFs of ObLogSecurityDescriptor @ 0x1406965B0
+ * Callers:
+ *     EtwpAllocGuidEntry @ 0x140690BD4 (EtwpAllocGuidEntry.c)
+ *     SeDefaultObjectMethod @ 0x1406961E0 (SeDefaultObjectMethod.c)
+ *     ExpWnfCreateNameInstance @ 0x140718994 (ExpWnfCreateNameInstance.c)
+ *     IopGetSetSecurityObject @ 0x14074EA70 (IopGetSetSecurityObject.c)
+ *     IopSetDeviceSecurityDescriptor @ 0x140750F44 (IopSetDeviceSecurityDescriptor.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140751100 (ObSetSecurityDescriptorInfo.c)
+ *     ObAssignObjectSecurityDescriptor @ 0x14076BE14 (ObAssignObjectSecurityDescriptor.c)
+ *     EtwpInitializeLoggerSecurityDescriptor @ 0x140796D6C (EtwpInitializeLoggerSecurityDescriptor.c)
+ *     ObpInitObjectTypeSD @ 0x14080D154 (ObpInitObjectTypeSD.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409E9524 (EtwpUpdateLoggerSecurityDescriptor.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObLogSecurityDescriptor(__int16 *Buf1, _QWORD *a2, unsigned int a3)
 {
   int v4; // ecx

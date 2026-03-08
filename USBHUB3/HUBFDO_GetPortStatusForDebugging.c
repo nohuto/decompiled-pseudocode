@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBFDO_GetPortStatusForDebugging @ 0x1C000E29C
+ * Callers:
+ *     HUBFDO_IoctlGetNodeConnectionInfo @ 0x1C000E4EC (HUBFDO_IoctlGetNodeConnectionInfo.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 _QWORD *__fastcall HUBFDO_GetPortStatusForDebugging(_QWORD *a1, int a2)
 {
   _QWORD *result; // rax

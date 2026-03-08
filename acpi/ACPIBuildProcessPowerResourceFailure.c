@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildProcessPowerResourceFailure @ 0x1C0010E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildProcessGenericComplete @ 0x1C0010C40 (ACPIBuildProcessGenericComplete.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessPowerResourceFailure(_QWORD *Entry)
 {
   __int64 v1; // rbx

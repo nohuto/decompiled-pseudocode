@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerRequestTableCompare @ 0x140795070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPowerRequestTableCompare(struct _RTL_AVL_TABLE *Table, _DWORD *FirstStruct, _DWORD *SecondStruct)
 {
   int v3; // ecx

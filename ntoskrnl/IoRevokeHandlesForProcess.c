@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoRevokeHandlesForProcess @ 0x140555EE0
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     IopGetDevicePDO @ 0x14023FFC4 (IopGetDevicePDO.c)
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpDisableUserModeNotifications @ 0x14055F0F8 (PnpDisableUserModeNotifications.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     ObDereferenceProcessHandleTable @ 0x1406EDFD0 (ObDereferenceProcessHandleTable.c)
+ *     ExEnumHandleTable @ 0x14070F670 (ExEnumHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x140711794 (ObReferenceProcessHandleTable.c)
+ *     PsIsProcessAppContainer @ 0x140781158 (PsIsProcessAppContainer.c)
+ */
+
 __int64 __fastcall IoRevokeHandlesForProcess(__int64 a1, void *a2)
 {
   __int64 v5; // rsi

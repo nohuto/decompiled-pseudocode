@@ -1,3 +1,18 @@
+/*
+ * XREFs of AMLILoadDDB @ 0x1C00AB124
+ * Callers:
+ *     ACPIInitializeDDB @ 0x1C00A93C4 (ACPIInitializeDDB.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     RtlStringCchCopyNA @ 0x1C002BADC (RtlStringCchCopyNA.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     LoadDDB @ 0x1C004FA40 (LoadDDB.c)
+ *     NewContext @ 0x1C00539EC (NewContext.c)
+ *     SyncLoadDDB @ 0x1C00AB82C (SyncLoadDDB.c)
+ */
+
 __int64 __fastcall AMLILoadDDB(int *a1, _QWORD *a2)
 {
   char v4; // cl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvUnattachMirrorDriversInSession @ 0x1C00D8898
+ * Callers:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 DrvUnattachMirrorDriversInSession()
 {
   __int64 i; // rdx

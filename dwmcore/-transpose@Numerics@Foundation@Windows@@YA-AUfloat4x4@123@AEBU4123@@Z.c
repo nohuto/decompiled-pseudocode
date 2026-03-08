@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?transpose@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBU4123@@Z @ 0x180006368
+ * Callers:
+ *     ?Transpose@CMILMatrix@@QEAAXXZ @ 0x180006324 (-Transpose@CMILMatrix@@QEAAXXZ.c)
+ *     ?SetLocalToWorld@CD3DBatchExecutionContext@@QEAAXAEBVCMILMatrix@@@Z @ 0x180202458 (-SetLocalToWorld@CD3DBatchExecutionContext@@QEAAXAEBVCMILMatrix@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __m128 *__fastcall Windows::Foundation::Numerics::transpose(__m128 *a1, __m128 *a2)
 {
   __m128 v2; // xmm0

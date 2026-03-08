@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspReferenceCpuPartitionByHandle @ 0x1409AE694
+ * Callers:
+ *     NtQueryInformationCpuPartition @ 0x1409AD630 (NtQueryInformationCpuPartition.c)
+ *     PspAssignCpuPartitionsToProcess @ 0x1409ADDC4 (PspAssignCpuPartitionsToProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     ObCheckObjectAccess @ 0x14069DB90 (ObCheckObjectAccess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall PspReferenceCpuPartitionByHandle(
         ULONG_PTR BugCheckParameter1,
         int a2,

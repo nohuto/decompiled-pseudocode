@@ -1,3 +1,14 @@
+/*
+ * XREFs of Command_D0EntryPostInterruptsEnabled @ 0x1C0014130
+ * Callers:
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C0013F90 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Command_SendInternalCommandSynchronously @ 0x1C0030224 (Command_SendInternalCommandSynchronously.c)
+ *     Etw_ControllerFirmareVersionUpdate @ 0x1C004A9F0 (Etw_ControllerFirmareVersionUpdate.c)
+ */
+
 __int64 __fastcall Command_D0EntryPostInterruptsEnabled(__int64 a1, int a2)
 {
   __int64 v2; // rsi

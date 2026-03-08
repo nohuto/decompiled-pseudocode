@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserUpdateClientRect @ 0x1C01E0420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxCalcClientRect @ 0x1C00AAA20 (xxxCalcClientRect.c)
+ */
+
 __int64 __fastcall NtUserUpdateClientRect(__int64 a1)
 {
   __int64 v2; // rax

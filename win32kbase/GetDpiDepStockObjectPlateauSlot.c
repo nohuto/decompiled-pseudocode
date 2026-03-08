@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetDpiDepStockObjectPlateauSlot @ 0x1C018C0A0
+ * Callers:
+ *     GreGetDpiDepDefaultGuiFont @ 0x1C018C110 (GreGetDpiDepDefaultGuiFont.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetDpiDepStockObjectPlateauSlot(int a1, int a2)
 {
   unsigned int v2; // r8d

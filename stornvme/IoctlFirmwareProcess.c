@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoctlFirmwareProcess @ 0x1C00137A8
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     FirmwareActivate @ 0x1C00116D0 (FirmwareActivate.c)
+ *     FirmwareDownload @ 0x1C0011914 (FirmwareDownload.c)
+ *     FirmwareGetInfo @ 0x1C0011CF4 (FirmwareGetInfo.c)
+ */
+
 __int64 __fastcall IoctlFirmwareProcess(__int64 a1, __int64 a2)
 {
   _DWORD *SrbDataBuffer; // rdx

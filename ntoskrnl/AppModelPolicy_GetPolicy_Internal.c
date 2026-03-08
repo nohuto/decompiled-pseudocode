@@ -1,3 +1,11 @@
+/*
+ * XREFs of AppModelPolicy_GetPolicy_Internal @ 0x140298B38
+ * Callers:
+ *     SeQuerySigningPolicyWorker @ 0x14070BBF8 (SeQuerySigningPolicyWorker.c)
+ * Callees:
+ *     RtlQueryPackageClaims @ 0x1402983B0 (RtlQueryPackageClaims.c)
+ */
+
 __int64 __fastcall AppModelPolicy_GetPolicy_Internal(int a1, __int64 a2, int *a3, int *a4, _QWORD *a5)
 {
   NTSTATUS PackageClaims; // eax

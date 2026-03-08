@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvcallpExtendedFastHypercallWithOutput @ 0x140422660
+ * Callers:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ * Callees:
+ *     HvcallpExtendedFastHypercall @ 0x140422600 (HvcallpExtendedFastHypercall.c)
+ */
+
 __int64 __fastcall HvcallpExtendedFastHypercallWithOutput(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CopyDIB_CX @ 0x1C014C760
+ * Callers:
+ *     RepDIB_CY @ 0x1C0265B80 (RepDIB_CY.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CopyDIB_CX(__int64 a1, _WORD *a2, __int64 a3, __int64 a4, int a5)
 {
   __int16 v5; // ax

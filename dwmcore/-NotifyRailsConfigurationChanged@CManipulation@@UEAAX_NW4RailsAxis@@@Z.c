@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyRailsConfigurationChanged@CManipulation@@UEAAX_NW4RailsAxis@@@Z @ 0x18020A9D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 unsigned __int8 __fastcall CManipulation::NotifyRailsConfigurationChanged(__int64 a1, char a2, int a3)
 {
   unsigned __int8 result; // al

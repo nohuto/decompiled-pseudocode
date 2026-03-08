@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetPresentStatisticsDWM@CHolographicInteropTarget@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x1802A5C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CHolographicInteropTarget::GetPresentStatisticsDWM(
         CHolographicInteropTarget *this,
         struct DXGI_FRAME_STATISTICS_DWM *a2)

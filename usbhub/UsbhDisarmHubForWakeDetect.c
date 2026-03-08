@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhDisarmHubForWakeDetect @ 0x1C0020A80
+ * Callers:
+ *     Usbh_SSH_HubPendingResume @ 0x1C00076A0 (Usbh_SSH_HubPendingResume.c)
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhArmHubForWakeDetect @ 0x1C00218E0 (UsbhArmHubForWakeDetect.c)
+ *     UsbhUninitialize @ 0x1C002E0C0 (UsbhUninitialize.c)
+ *     UsbhDisarmHubWakeOnConnect @ 0x1C003C040 (UsbhDisarmHubWakeOnConnect.c)
+ *     UsbhFdoPower_PowerFailureEntry @ 0x1C003C0B8 (UsbhFdoPower_PowerFailureEntry.c)
+ * Callees:
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 void __fastcall UsbhDisarmHubForWakeDetect(__int64 a1)
 {
   __int64 v2; // rdx

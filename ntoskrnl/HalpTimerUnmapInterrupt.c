@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpTimerUnmapInterrupt @ 0x1405074D0
+ * Callers:
+ *     HalpTimerConfigureInterrupt @ 0x140379C34 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403AC5D0 (HalpTimerInitializeClock.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140508908 (HalpTimerTestHypervisorTimer.c)
+ * Callees:
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x140503150 (HalpInterruptLineToGsi.c)
+ *     HalpInterruptUnmap @ 0x140930578 (HalpInterruptUnmap.c)
+ */
+
 void __fastcall HalpTimerUnmapInterrupt(__int64 a1, int a2, int a3, char a4)
 {
   int v5; // edi

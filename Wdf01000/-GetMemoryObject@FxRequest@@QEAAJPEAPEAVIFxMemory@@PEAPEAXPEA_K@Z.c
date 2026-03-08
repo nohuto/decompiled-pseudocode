@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?GetMemoryObject@FxRequest@@QEAAJPEAPEAVIFxMemory@@PEAPEAXPEA_K@Z @ 0x1C000770C
+ * Callers:
+ *     imp_WdfRequestRetrieveInputBuffer @ 0x1C0007620 (imp_WdfRequestRetrieveInputBuffer.c)
+ *     imp_WdfRequestRetrieveOutputBuffer @ 0x1C0008280 (imp_WdfRequestRetrieveOutputBuffer.c)
+ *     imp_WdfRequestRetrieveInputMemory @ 0x1C000D6E0 (imp_WdfRequestRetrieveInputMemory.c)
+ *     imp_WdfRequestRetrieveOutputMemory @ 0x1C000D7D0 (imp_WdfRequestRetrieveOutputMemory.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     WPP_IFR_SF_Dqqd @ 0x1C003A3DC (WPP_IFR_SF_Dqqd.c)
+ *     WPP_IFR_SF_Dqq @ 0x1C003B200 (WPP_IFR_SF_Dqq.c)
+ *     ?Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BAA98 (-Vf_VerifyRequestIsNotCompleted@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 __int64 __fastcall FxRequest::GetMemoryObject(
         FxRequest *this,
         FxRequestSystemBuffer **MemoryObject,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonPauseProfiling @ 0x14051B9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 EmonPauseProfiling()
 {
   __int64 v0; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator__std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn__0_ @ 0x1801CA3CC
+ * Callers:
+ *     _anonymous_namespace_::FramesReport::UpdateResourceCountersForPsn @ 0x180036C08 (_anonymous_namespace_--FramesReport--UpdateResourceCountersForPsn.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void **__fastcall std::unique_ptr__anonymous_namespace_::FramesReport::ResourcesForPsn_std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn___::operator__std::default_delete__anonymous_namespace_::FramesReport::ResourcesForPsn__0_(
         void **a1,
         void **a2)

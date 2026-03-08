@@ -1,3 +1,11 @@
+/*
+ * XREFs of Do3121 @ 0x1C0261368
+ * Callers:
+ *     FastExpAA_CY @ 0x1C0263760 (FastExpAA_CY.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Do3121(_BYTE *a1, unsigned __int8 *a2, unsigned __int8 *a3, unsigned __int8 *a4, int a5)
 {
   int v7; // edi

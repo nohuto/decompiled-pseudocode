@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIsPageInIoHugeRangeTransition @ 0x14029BA30
+ * Callers:
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiDereferenceIoHugeRange @ 0x14061D540 (MiDereferenceIoHugeRange.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ * Callees:
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ */
+
 __int64 __fastcall MiIsPageInIoHugeRangeTransition(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

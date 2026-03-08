@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExCreateHeap @ 0x14037523C
+ * Callers:
+ *     ExInitializePoolHeapManagement @ 0x140374D0C (ExInitializePoolHeapManagement.c)
+ *     ExInitializePagedHeaps @ 0x140374F94 (ExInitializePagedHeaps.c)
+ * Callees:
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ */
+
 __int64 __fastcall ExCreateHeap(__int128 *a1, __int64 a2, __int64 *a3)
 {
   __int64 v4; // rax

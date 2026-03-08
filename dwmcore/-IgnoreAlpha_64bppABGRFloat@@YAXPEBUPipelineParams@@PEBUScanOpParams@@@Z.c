@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IgnoreAlpha_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BAF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IgnoreAlpha_64bppABGRFloat(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   __int16 *v2; // r9

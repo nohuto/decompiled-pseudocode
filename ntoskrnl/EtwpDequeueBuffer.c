@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpDequeueBuffer @ 0x140206388
+ * Callers:
+ *     EtwpDequeueFreeBuffer @ 0x14020620C (EtwpDequeueFreeBuffer.c)
+ *     EtwpAdjustSiloTraceBuffers @ 0x1402067AC (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406F2CFC (EtwpFreeTraceBufferPool.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall EtwpDequeueBuffer(__int64 a1, _QWORD *a2)
 {
   _QWORD **v2; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpCopyContext @ 0x140280F40
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpCopyContext(__int64 a1, __int64 a2)
 {
   int v3; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of While @ 0x1C0055BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     PushScope @ 0x1C0053D40 (PushScope.c)
+ */
+
 __int64 __fastcall While(_QWORD *a1, __int64 *a2)
 {
   unsigned int v4; // edx

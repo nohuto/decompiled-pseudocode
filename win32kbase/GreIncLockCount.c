@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreIncLockCount @ 0x1C00A4DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 GreIncLockCount()
 {
   __int64 result; // rax

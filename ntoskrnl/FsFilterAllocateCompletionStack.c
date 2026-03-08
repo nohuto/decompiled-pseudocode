@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsFilterAllocateCompletionStack @ 0x140456BDC
+ * Callers:
+ *     FsFilterCtrlInit @ 0x140343B50 (FsFilterCtrlInit.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall FsFilterAllocateCompletionStack(__int64 a1, char a2)
 {
   _QWORD *v4; // rdi

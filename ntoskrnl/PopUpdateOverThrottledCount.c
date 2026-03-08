@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopUpdateOverThrottledCount @ 0x1409881F8
+ * Callers:
+ *     PopCheckAndHandleThermalConditions @ 0x14039CAB4 (PopCheckAndHandleThermalConditions.c)
+ *     PopThermalZoneRemove @ 0x140988010 (PopThermalZoneRemove.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopDiagTraceThermalOverthrottleState @ 0x140592760 (PopDiagTraceThermalOverthrottleState.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopUpdateOverThrottledCount(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // rcx

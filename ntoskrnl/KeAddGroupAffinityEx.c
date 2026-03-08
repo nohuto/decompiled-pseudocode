@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAddGroupAffinityEx @ 0x1402AE370
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeAddGroupAffinityEx(unsigned __int16 *a1, unsigned __int16 a2, __int64 a3)
 {
   __int64 result; // rax

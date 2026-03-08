@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReleaseLargePageAllocationLocks @ 0x14034F6B0
+ * Callers:
+ *     MiUnlinkNodeLargePages @ 0x14034EB80 (MiUnlinkNodeLargePages.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ * Callees:
+ *     MiChangePageAttributeContiguous @ 0x140214270 (MiChangePageAttributeContiguous.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall MiReleaseLargePageAllocationLocks(__int64 a1)
 {
   __int64 v1; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIEcStopRemoveDeviceCommon @ 0x1C0025890
+ * Callers:
+ *     ACPIEcRemoveDevice @ 0x1C00253C0 (ACPIEcRemoveDevice.c)
+ *     ACPIEcStopDevice @ 0x1C0025840 (ACPIEcStopDevice.c)
+ * Callees:
+ *     ACPIEcDisconnectInterrupt @ 0x1C0083564 (ACPIEcDisconnectInterrupt.c)
+ *     ACPIEcRemoveOpRegionHandler @ 0x1C0083734 (ACPIEcRemoveOpRegionHandler.c)
+ */
+
 __int64 __fastcall ACPIEcStopRemoveDeviceCommon(__int64 a1)
 {
   int v1; // ebx

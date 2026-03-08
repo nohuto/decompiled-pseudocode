@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipFreeDependencyEdge @ 0x14055D7DC
+ * Callers:
+ *     PipDeleteAllDependencyRelations @ 0x1409514A0 (PipDeleteAllDependencyRelations.c)
+ *     PipMergeDependencyEdgeList @ 0x1409517A8 (PipMergeDependencyEdgeList.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PipDereferenceDependencyNode @ 0x140838B30 (PipDereferenceDependencyNode.c)
+ *     PipNotifyDependenciesChanged @ 0x140838D1C (PipNotifyDependenciesChanged.c)
+ *     PipFreeBindingRequestEntry @ 0x14095175C (PipFreeBindingRequestEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PipFreeDependencyEdge(_DWORD *P, __int64 a2)
 {
   __int64 **v3; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierMmUnlockPages @ 0x140AE0680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetAddToCounter @ 0x140AC8994 (ViTargetAddToCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall VerifierMmUnlockPages(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // cl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetIsConstrainedBySize@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETISCONSTRAINEDBYSIZE@@@Z @ 0x18021D354
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCaptureController::ProcessSetIsConstrainedBySize(
         CCaptureController *this,
         struct CResourceTable *a2,

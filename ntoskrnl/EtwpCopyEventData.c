@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCopyEventData @ 0x14036FDD8
+ * Callers:
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall EtwpCopyEventData(char *a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // r14d

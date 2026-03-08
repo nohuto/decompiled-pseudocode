@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnprCopyReservedMapping @ 0x1405607AC
+ * Callers:
+ *     PnprRecopyMirrorPages @ 0x140560F5C (PnprRecopyMirrorPages.c)
+ * Callees:
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnprGetPageDestination @ 0x140560B68 (PnprGetPageDestination.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ */
+
 __int64 PnprCopyReservedMapping()
 {
   __int64 v0; // r12

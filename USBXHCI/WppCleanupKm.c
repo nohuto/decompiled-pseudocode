@@ -1,3 +1,12 @@
+/*
+ * XREFs of WppCleanupKm @ 0x1C007999C
+ * Callers:
+ *     DriverEntry @ 0x1C0074360 (DriverEntry.c)
+ *     DriverCleanup @ 0x1C0079890 (DriverCleanup.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall WppCleanupKm(__int64 a1)
 {
   PDEVICE_OBJECT v1; // rbx

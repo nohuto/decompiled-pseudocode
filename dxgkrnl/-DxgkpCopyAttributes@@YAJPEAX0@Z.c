@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkpCopyAttributes@@YAJPEAX0@Z @ 0x1C0306618
+ * Callers:
+ *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C0306750 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DxgkpCopyAttributes(void *a1, void *a2)
 {
   NTSTATUS v3; // eax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of WmipReceiveNotifications @ 0x1402F642C
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     WmipCompleteGuidIrpWithError @ 0x1402FE9B0 (WmipCompleteGuidIrpWithError.c)
+ *     WmipClearIrpObjectList @ 0x1402FEABC (WmipClearIrpObjectList.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     WmipCopyFromEventQueues @ 0x1409DD5AC (WmipCopyFromEventQueues.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipReceiveNotifications(unsigned int *a1, int *a2, __int64 a3)
 {
   __int64 v4; // r12

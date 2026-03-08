@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_GhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F5244
+ * Callers:
+ *     ?_GhostOwnerWindowAndOwnees@@YAXPEAUtagWND@@@Z @ 0x1C01F51CC (-_GhostOwnerWindowAndOwnees@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     IsNonImmersiveBand @ 0x1C0039CB0 (IsNonImmersiveBand.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C01F4ECC (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ *     ?SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C01F4FB8 (-SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ */
+
 _BOOL8 __fastcall _GhostWindow(struct tagWND *a1)
 {
   BOOL v2; // edi

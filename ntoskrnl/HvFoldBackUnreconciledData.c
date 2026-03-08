@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvFoldBackUnreconciledData @ 0x140A1DE3C
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     RtlMergeBitMaps @ 0x1402D7420 (RtlMergeBitMaps.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     HvFreeUnreconciledData @ 0x14078B7A4 (HvFreeUnreconciledData.c)
+ */
+
 void __fastcall HvFoldBackUnreconciledData(__int64 a1)
 {
   ULONG v2; // eax

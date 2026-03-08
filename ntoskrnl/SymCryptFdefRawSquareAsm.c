@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawSquareAsm @ 0x1404004F0
+ * Callers:
+ *     SymCryptFdefRawSquare @ 0x1403FE168 (SymCryptFdefRawSquare.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawSquareAsm(unsigned __int64 *a1, __int64 a2, unsigned __int64 *a3)
 {
   __int64 v3; // r10

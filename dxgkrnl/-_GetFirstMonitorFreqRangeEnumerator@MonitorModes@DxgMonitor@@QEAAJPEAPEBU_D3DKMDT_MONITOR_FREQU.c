@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetFirstMonitorFreqRangeEnumerator@MonitorModes@DxgMonitor@@QEAAJPEAPEBU_D3DKMDT_MONITOR_FREQUENCY_RANGE@@@Z @ 0x1C03C88F8
+ * Callers:
+ *     ?AcquireFirstFrequencyRangeInfo@DXGK_MONITORFREQUENCYRANGESET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORFREQUENCYRANGESET__@@PEAPEBU_D3DKMDT_MONITOR_FREQUENCY_RANGE@@@Z @ 0x1C03C1500 (-AcquireFirstFrequencyRangeInfo@DXGK_MONITORFREQUENCYRANGESET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorModes::_GetFirstMonitorFreqRangeEnumerator(
         DxgMonitor::MonitorModes *this,
         const struct _D3DKMDT_MONITOR_FREQUENCY_RANGE **a2)

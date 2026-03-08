@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindImeHotKeyByKeyWithLang@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@IIIG@Z @ 0x1C00D88B4
+ * Callers:
+ *     ?SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z @ 0x1C00D8704 (-SetImeHotKey@@YAHKIIPEAUHKL__@@K@Z.c)
+ * Callees:
+ *     ?GetHotKeyLangID@@YAGK@Z @ 0x1C00D8934 (-GetHotKeyLangID@@YAGK@Z.c)
+ */
+
 struct _tagIMEHOTKEYOBJ *__fastcall FindImeHotKeyByKeyWithLang(
         struct _tagIMEHOTKEYOBJ *a1,
         int a2,

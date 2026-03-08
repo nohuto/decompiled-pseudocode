@@ -1,3 +1,13 @@
+/*
+ * XREFs of Divide @ 0x1C00065A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     PushPost @ 0x1C0053CE0 (PushPost.c)
+ */
+
 __int64 __fastcall Divide(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

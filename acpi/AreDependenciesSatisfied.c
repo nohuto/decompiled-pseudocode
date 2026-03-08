@@ -1,3 +1,12 @@
+/*
+ * XREFs of AreDependenciesSatisfied @ 0x1C0014914
+ * Callers:
+ *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C000E5D0 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
+ * Callees:
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 bool __fastcall AreDependenciesSatisfied(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rsi

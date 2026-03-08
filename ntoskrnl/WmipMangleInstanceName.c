@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipMangleInstanceName @ 0x1408687EC
+ * Callers:
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipFindISinGEbyName @ 0x1408688F8 (WmipFindISinGEbyName.c)
+ */
+
 __int64 __fastcall WmipMangleInstanceName(_QWORD *a1, const wchar_t *a2, size_t a3, wchar_t *a4)
 {
   NTSTATUS v7; // esi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeKernelPadSections @ 0x140B65494
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiIsKernelHalPadSection @ 0x1403A1CD0 (MiIsKernelHalPadSection.c)
+ *     MiFreeInitializationCode @ 0x14072A51C (MiFreeInitializationCode.c)
+ *     VslReserveProtectedPages @ 0x140881254 (VslReserveProtectedPages.c)
+ */
+
 void __fastcall MiFreeKernelPadSections(unsigned __int64 a1, int a2)
 {
   int v2; // ebp

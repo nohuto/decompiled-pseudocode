@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CSpriteVectorShape@@UEAA@XZ @ 0x1800B8484
+ * Callers:
+ *     ??_GCSpriteVectorShape@@UEAAPEAXI@Z @ 0x1800B8440 (--_GCSpriteVectorShape@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?_Tidy@?$vector@MV?$allocator@M@std@@@std@@AEAAXXZ @ 0x1800F9B40 (-_Tidy@-$vector@MV-$allocator@M@std@@@std@@AEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CSpriteVectorShape::~CSpriteVectorShape(CSpriteVectorShape *this)
 {
   __int64 v2; // rcx

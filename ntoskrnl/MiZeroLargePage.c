@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiZeroLargePage @ 0x1402441E4
+ * Callers:
+ *     MiZeroAndReleasePages @ 0x1402776A0 (MiZeroAndReleasePages.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     MiZeroAndConvertPage @ 0x14064DA84 (MiZeroAndConvertPage.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     MiWriteLargePte @ 0x1402443C4 (MiWriteLargePte.c)
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     MiDeleteUltraThreadContext @ 0x14035137C (MiDeleteUltraThreadContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeZeroPages @ 0x14041BBF0 (KeZeroPages.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiZeroLargePage(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v4; // rbp

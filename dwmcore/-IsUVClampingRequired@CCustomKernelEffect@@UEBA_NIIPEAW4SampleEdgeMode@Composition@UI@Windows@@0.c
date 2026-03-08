@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsUVClampingRequired@CCustomKernelEffect@@UEBA_NIIPEAW4SampleEdgeMode@Composition@UI@Windows@@0@Z @ 0x1800FAF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CCustomKernelEffect::IsUVClampingRequired(
         CCustomKernelEffect *this,
         __int64 a2,

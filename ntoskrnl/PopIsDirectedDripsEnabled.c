@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopIsDirectedDripsEnabled @ 0x140867174
+ * Callers:
+ *     PopDripsWatchdogInitializeActions @ 0x140B936AC (PopDripsWatchdogInitializeActions.c)
+ * Callees:
+ *     <none>
+ */
+
 char PopIsDirectedDripsEnabled()
 {
   ULONG HandleAttributes; // eax

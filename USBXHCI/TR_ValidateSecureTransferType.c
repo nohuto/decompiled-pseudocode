@@ -1,3 +1,12 @@
+/*
+ * XREFs of TR_ValidateSecureTransferType @ 0x1C0012478
+ * Callers:
+ *     Bulk_RetrieveNextStage @ 0x1C0011FDC (Bulk_RetrieveNextStage.c)
+ * Callees:
+ *     Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage @ 0x1C001F91C (Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ */
+
 __int64 __fastcall TR_ValidateSecureTransferType(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r9d

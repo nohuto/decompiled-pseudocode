@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCheckFileObjectOpenedAsCopyDestination @ 0x140943F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IoCheckFileObjectOpenedAsCopyDestination(__int64 a1)
 {
   _DWORD *v1; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhSS_PdoWakeWorker @ 0x1C00020D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhSetPdoPowerState @ 0x1C0003960 (UsbhSetPdoPowerState.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhCompletePdoWakeIrp @ 0x1C001BB3C (UsbhCompletePdoWakeIrp.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ */
+
 void __fastcall UsbhSS_PdoWakeWorker(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // r14

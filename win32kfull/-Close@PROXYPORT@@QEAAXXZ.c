@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Close@PROXYPORT@@QEAAXXZ @ 0x1C02C1E80
+ * Callers:
+ *     UMPDCachedResourceCleanupWrap @ 0x1C00DAE00 (UMPDCachedResourceCleanupWrap.c)
+ *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C029CA14 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PROXYPORT::Close(void **this)
 {
   void *v2; // rcx

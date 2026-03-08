@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Sd @ 0x1C0042CD0
+ * Callers:
+ *     CheckUSBFnConfiguration @ 0x1C004329C (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004353C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00436CC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Sd(
         __int64 a1,
         unsigned __int8 a2,

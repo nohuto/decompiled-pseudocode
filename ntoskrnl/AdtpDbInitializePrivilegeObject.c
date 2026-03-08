@@ -1,3 +1,11 @@
+/*
+ * XREFs of AdtpDbInitializePrivilegeObject @ 0x14039A930
+ * Callers:
+ *     AdtpInitializeAuditingCommon @ 0x140841394 (AdtpInitializeAuditingCommon.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 __int64 AdtpDbInitializePrivilegeObject()
 {
   unsigned __int16 v0; // bx

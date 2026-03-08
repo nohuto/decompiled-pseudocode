@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetEntryTableIndexContainingEntry@GdiHandleEntryDirectory@@AEAAHI@Z @ 0x1C004B540
+ * Callers:
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C004B700 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GdiHandleEntryDirectory::_GetEntryTableIndexContainingEntry(
         GdiHandleEntryDirectory *this,
         unsigned int a2)

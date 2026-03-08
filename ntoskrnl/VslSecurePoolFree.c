@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslSecurePoolFree @ 0x14054A314
+ * Callers:
+ *     ExFreePool2 @ 0x140604AA0 (ExFreePool2.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslSecurePoolFree(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ChunkAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K@Z @ 0x1402E0E84
+ * Callers:
+ *     ?SetValue@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z @ 0x1402E0E10 (-SetValue@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z.c)
+ * Callees:
+ *     RtlpFlsHeapAlloc @ 0x14076B76C (RtlpFlsHeapAlloc.c)
+ */
+
 _OWORD *__fastcall RTL_BINARY_ARRAY<RTLP_FLS_SLOT,4,4>::ChunkAllocate(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rdi

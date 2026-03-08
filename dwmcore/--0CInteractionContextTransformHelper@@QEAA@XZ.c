@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInteractionContextTransformHelper@@QEAA@XZ @ 0x180039BDC
+ * Callers:
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039AB8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CInteractionContextTransformHelper *__fastcall CInteractionContextTransformHelper::CInteractionContextTransformHelper(
         CInteractionContextTransformHelper *this)
 {

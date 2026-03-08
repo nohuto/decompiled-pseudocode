@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0hbr0pqx_EtwWriteTransfer @ 0x1C0065AC0
+ * Callers:
+ *     DpiDxgkDdiQueryChildRelations @ 0x1C02093E8 (DpiDxgkDdiQueryChildRelations.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0hbr0pqx_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

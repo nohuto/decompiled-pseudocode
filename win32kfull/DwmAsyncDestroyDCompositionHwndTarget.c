@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncDestroyDCompositionHwndTarget @ 0x1C00E99A4
+ * Callers:
+ *     EditionNotifyDwmForSystemVisualDestruction @ 0x1C00E9940 (EditionNotifyDwmForSystemVisualDestruction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncDestroyDCompositionHwndTarget(PVOID Object, __int64 a2, int a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryWDDM2_9Caps@DXGADAPTER@@QEAAXPEAU_D3DKMT_WDDM_2_9_CAPS@@@Z @ 0x1C02B47A8
+ * Callers:
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGADAPTER::QueryWDDM2_9Caps(DXGADAPTER *this, struct _D3DKMT_WDDM_2_9_CAPS *a2)
 {
   int v2; // r8d

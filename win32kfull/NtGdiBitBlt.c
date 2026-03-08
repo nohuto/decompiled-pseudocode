@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiBitBlt @ 0x1C0060820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ */
+
 __int64 __fastcall NtGdiBitBlt(
         HDC a1,
         LONG a2,

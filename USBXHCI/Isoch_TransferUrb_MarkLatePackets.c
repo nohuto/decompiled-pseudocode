@@ -1,3 +1,12 @@
+/*
+ * XREFs of Isoch_TransferUrb_MarkLatePackets @ 0x1C00453C4
+ * Callers:
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ * Callees:
+ *     Controller_GetFrameNumber @ 0x1C0033490 (Controller_GetFrameNumber.c)
+ *     Isoch_GetPacketLength @ 0x1C00445B8 (Isoch_GetPacketLength.c)
+ */
+
 __int64 __fastcall Isoch_TransferUrb_MarkLatePackets(__int64 a1, __int64 a2)
 {
   __int64 v3; // rsi

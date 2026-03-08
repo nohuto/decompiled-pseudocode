@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhQueryCapsComplete @ 0x1C0043DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhQueryCapsComplete(PDEVICE_OBJECT DeviceObject, PIRP Irp, __int64 Context)
 {
   _DWORD *v4; // rdi

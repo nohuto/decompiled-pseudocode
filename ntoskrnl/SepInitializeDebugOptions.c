@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepInitializeDebugOptions @ 0x140B722E4
+ * Callers:
+ *     SeCodeIntegrityInitializePolicy @ 0x140B43EA0 (SeCodeIntegrityInitializePolicy.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 __int64 SepInitializeDebugOptions()
 {
   __int64 result; // rax

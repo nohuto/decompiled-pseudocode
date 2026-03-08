@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpSysReadIoSpace @ 0x140565A54
+ * Callers:
+ *     KdSystemDebugControl @ 0x14096F180 (KdSystemDebugControl.c)
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KdpSysReadIoSpace(int a1, int a2, int a3, unsigned __int16 a4, _BYTE *a5, int a6, _DWORD *a7)
 {
   unsigned int v7; // r10d

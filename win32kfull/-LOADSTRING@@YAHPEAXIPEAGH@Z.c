@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LOADSTRING@@YAHPEAXIPEAGH@Z @ 0x1C00BA838
+ * Callers:
+ *     InitializeScripts @ 0x1C03B68E8 (InitializeScripts.c)
+ * Callees:
+ *     ?pvFindResource@@YAPEAXPEAX0HHPEAK@Z @ 0x1C00DD128 (-pvFindResource@@YAPEAXPEAX0HHPEAK@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall LOADSTRING(void *a1, unsigned int a2, unsigned __int16 *a3, int a4)
 {
   char v6; // di

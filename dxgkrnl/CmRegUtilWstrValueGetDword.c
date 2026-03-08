@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmRegUtilWstrValueGetDword @ 0x1C0393DFC
+ * Callers:
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C03933A4 (PiRegStateReadStackCreationSettingsFromKey.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C005D324 (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilUcValueGetDword @ 0x1C0393AE8 (CmRegUtilUcValueGetDword.c)
+ */
+
 int __fastcall CmRegUtilWstrValueGetDword(__int64 a1, const WCHAR *a2)
 {
   int result; // eax

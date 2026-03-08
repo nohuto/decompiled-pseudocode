@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeSanitizeRecoverCompletionRoutine @ 0x1C0017DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetLocalCommand @ 0x1C0009C80 (GetLocalCommand.c)
+ */
+
 char __fastcall NVMeSanitizeRecoverCompletionRoutine(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

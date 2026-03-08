@@ -1,3 +1,36 @@
+/*
+ * XREFs of CmSaveMergedKeys @ 0x140A09144
+ * Callers:
+ *     NtSaveMergedKeys @ 0x140A0C200 (NtSaveMergedKeys.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpUuidCreate @ 0x140733C60 (CmpUuidCreate.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpLockTwoKcbsShared @ 0x1407ACF00 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1407ACF58 (CmpUnlockTwoKcbs.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCreateTemporaryHive @ 0x140A09630 (CmpCreateTemporaryHive.c)
+ *     CmpBlockTwoHiveWrites @ 0x140A10BB8 (CmpBlockTwoHiveWrites.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     CmpLogUnsupportedOperation @ 0x140A1D140 (CmpLogUnsupportedOperation.c)
+ *     HvWriteExternal @ 0x140A1DE94 (HvWriteExternal.c)
+ *     CmpCopySyncTree @ 0x140A1E748 (CmpCopySyncTree.c)
+ *     CmpMergeKeyValues @ 0x140A1F628 (CmpMergeKeyValues.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmLockHiveSecurityShared @ 0x140AF2590 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140AF25F0 (CmUnlockHiveSecurity.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x140AF2AFC (CmpDoAccessCheckOnSubtree.c)
+ */
+
 __int64 __fastcall CmSaveMergedKeys(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v5; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringExHandleOtherFlagsW @ 0x1C000B94C
+ * Callers:
+ *     RtlStringCchPrintfExW @ 0x1C000B730 (RtlStringCchPrintfExW.c)
+ *     RtlStringCbPrintfExW @ 0x1C0017B4C (RtlStringCbPrintfExW.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 NTSTATUS __stdcall RtlStringExHandleOtherFlagsW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cbDest,

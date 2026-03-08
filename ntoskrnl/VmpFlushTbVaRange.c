@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmpFlushTbVaRange @ 0x1405F6DF0
+ * Callers:
+ *     VmpFlushTb @ 0x14045E4DA (VmpFlushTb.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F68BC (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405F7288 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessInvalidateSlat @ 0x1405F8654 (VmpProcessInvalidateSlat.c)
+ */
+
 unsigned __int64 __fastcall VmpFlushTbVaRange(
         volatile LONG *SpinLock,
         unsigned __int64 a2,

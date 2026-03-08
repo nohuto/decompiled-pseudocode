@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiVerifyPdata @ 0x140B5D77C
+ * Callers:
+ *     KiVerifyScopesExecute @ 0x140B5D050 (KiVerifyScopesExecute.c)
+ * Callees:
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 unsigned __int64 __fastcall KiVerifyPdata(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int64 result; // rax

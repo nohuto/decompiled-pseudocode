@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcAllocateWorkQueueEntry @ 0x140219880
+ * Callers:
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ *     CcNotifyOfMappedWrite @ 0x140215670 (CcNotifyOfMappedWrite.c)
+ *     CcAsyncCopyRead @ 0x140216AA0 (CcAsyncCopyRead.c)
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcWriteBehind @ 0x140219768 (CcWriteBehind.c)
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x1403BA4E0 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403CEA10 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ *     CcQueueLazyWriteScanThread @ 0x140534A20 (CcQueueLazyWriteScanThread.c)
+ * Callees:
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall CcAllocateWorkQueueEntry(__int64 a1, __int64 a2, __int64 a3, PSLIST_ENTRY *a4)
 {
   struct _KPRCB *CurrentPrcb; // rsi

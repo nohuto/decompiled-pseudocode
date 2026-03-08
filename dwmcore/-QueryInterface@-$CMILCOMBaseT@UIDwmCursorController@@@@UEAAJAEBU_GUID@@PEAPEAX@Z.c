@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryInterface@?$CMILCOMBaseT@UIDwmCursorController@@@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180277380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IDwmCursorController>::QueryInterface(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   int v5; // edi

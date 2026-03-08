@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoPageRead @ 0x1403CFDE0
+ * Callers:
+ *     PopReadPagesFromHiberFile @ 0x140985B2C (PopReadPagesFromHiberFile.c)
+ * Callees:
+ *     IoPageReadEx @ 0x14027F4F0 (IoPageReadEx.c)
+ */
+
 NTSTATUS __stdcall IoPageRead(
         PFILE_OBJECT FileObject,
         PMDL MemoryDescriptorList,

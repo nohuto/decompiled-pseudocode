@@ -1,3 +1,29 @@
+/*
+ * XREFs of AuthzBasepSetSecurityAttributesToken @ 0x14029705C
+ * Callers:
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1402980AC (SepDesktopAppxSubProcessToken.c)
+ *     SepInternalSetSecurityAttributesToken @ 0x1402BE3C0 (SepInternalSetSecurityAttributesToken.c)
+ *     SeSetSecurityAttributesTokenEx @ 0x14039D0A0 (SeSetSecurityAttributesTokenEx.c)
+ *     SepSetSingletonEntry @ 0x14039D204 (SepSetSingletonEntry.c)
+ *     SepDesktopAppModifyTokenBreakaway @ 0x1405B5AC4 (SepDesktopAppModifyTokenBreakaway.c)
+ *     SepVerifyDesktopAppxPackageName @ 0x1405B5D24 (SepVerifyDesktopAppxPackageName.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x1405B6FD0 (SepSetTokenAllApplicationPackagesPolicy.c)
+ *     SepSetProcessUniqueAttribute @ 0x14070B6C4 (SepSetProcessUniqueAttribute.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ *     SepCreateClaimAttributes @ 0x140780934 (SepCreateClaimAttributes.c)
+ *     SepAddTokenOriginClaim @ 0x140794680 (SepAddTokenOriginClaim.c)
+ *     AuthzBasepInitializeSystemSecurityAttributes @ 0x140841554 (AuthzBasepInitializeSystemSecurityAttributes.c)
+ * Callees:
+ *     AuthzBasepAddSecurityAttribute @ 0x140296FB0 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepValidateSecurityAttributes @ 0x140297140 (AuthzBasepValidateSecurityAttributes.c)
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140297A30 (AuthzBasepFinaliseSecurityAttributesList.c)
+ *     AuthzBasepReplaceSecurityAttribute @ 0x140297E14 (AuthzBasepReplaceSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140297E80 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepDeleteAllSecurityAttributes @ 0x14066C554 (AuthzBasepDeleteAllSecurityAttributes.c)
+ */
+
 __int64 __fastcall AuthzBasepSetSecurityAttributesToken(__int64 a1, int *a2, __int64 a3)
 {
   int v3; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of flagString @ 0x1C0209370
+ * Callers:
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ * Callees:
+ *     ?RtlStringCchCatA@@YAJPEAD_KPEBD@Z @ 0x1C00F304E (-RtlStringCchCatA@@YAJPEAD_KPEBD@Z.c)
+ */
+
 __int64 __fastcall flagString(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // bx

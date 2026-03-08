@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiIncrementLargeSubsections @ 0x14063B558
+ * Callers:
+ *     MiReferenceDataSubsections @ 0x14020FEC8 (MiReferenceDataSubsections.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiCloneLargeFileOnlyVad @ 0x140A309C4 (MiCloneLargeFileOnlyVad.c)
+ * Callees:
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDecrementLargeSubsections @ 0x14063A2E8 (MiDecrementLargeSubsections.c)
+ *     MiEnableLargeSubsection @ 0x14063AA00 (MiEnableLargeSubsection.c)
+ */
+
 __int64 __fastcall MiIncrementLargeSubsections(__int64 *a1, unsigned __int64 a2)
 {
   __int64 v2; // rdi

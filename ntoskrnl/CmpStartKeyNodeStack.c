@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpStartKeyNodeStack @ 0x140A1D5E8
+ * Callers:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ *     CmpStartKeyNodeStackFromKcbStack @ 0x140A1D69C (CmpStartKeyNodeStackFromKcbStack.c)
+ *     CmpSubtreeEnumeratorStart @ 0x140A1DA80 (CmpSubtreeEnumeratorStart.c)
+ *     CmpKeyEnumStackStart @ 0x140A2158C (CmpKeyEnumStackStart.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ */
+
 __int64 __fastcall CmpStartKeyNodeStack(__int64 a1, __int16 a2)
 {
   unsigned int v3; // ebx

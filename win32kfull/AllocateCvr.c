@@ -1,3 +1,13 @@
+/*
+ * XREFs of AllocateCvr @ 0x1C0027990
+ * Callers:
+ *     _BeginDeferWindowPos @ 0x1C0027918 (_BeginDeferWindowPos.c)
+ *     InternalBeginDeferWindowPos @ 0x1C0029148 (InternalBeginDeferWindowPos.c)
+ *     NtUserSetWindowPos @ 0x1C0067A30 (NtUserSetWindowPos.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AllocateCvr(__int64 a1, int a2)
 {
   __int64 v4; // rcx

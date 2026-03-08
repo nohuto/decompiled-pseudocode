@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtDCompositionGetBatchId @ 0x1C0093970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtDCompositionGetBatchId(__int64 a1, int a2, _DWORD *a3)
 {
   _DWORD *v3; // r13

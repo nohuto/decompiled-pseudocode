@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpReadStringRef @ 0x1407A2AA4
+ * Callers:
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x1407A21B8 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbpReadStringRef(__int64 a1, unsigned int a2)
 {
   unsigned int v5; // [rsp+50h] [rbp+18h] BYREF

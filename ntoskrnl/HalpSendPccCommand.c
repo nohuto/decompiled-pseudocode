@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpSendPccCommand @ 0x140932C70
+ * Callers:
+ *     HalpChannelPowerRequest @ 0x1409329FC (HalpChannelPowerRequest.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpStartPccCommand @ 0x140932CDC (HalpStartPccCommand.c)
+ */
+
 __int64 __fastcall HalpSendPccCommand(unsigned __int16 a1, __int64 a2)
 {
   int v3; // edi

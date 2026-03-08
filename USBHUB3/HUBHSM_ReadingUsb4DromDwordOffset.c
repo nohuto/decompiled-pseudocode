@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_ReadingUsb4DromDwordOffset @ 0x1C000A320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     FWUPDATE_GetMMIO @ 0x1C0040C24 (FWUPDATE_GetMMIO.c)
+ */
+
 __int64 __fastcall HUBHSM_ReadingUsb4DromDwordOffset(__int64 a1)
 {
   __int64 v1; // rbx

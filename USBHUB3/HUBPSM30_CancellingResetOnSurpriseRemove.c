@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPSM30_CancellingResetOnSurpriseRemove @ 0x1C0011AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBHTX_CancelControlTransfer @ 0x1C0004464 (HUBHTX_CancelControlTransfer.c)
+ *     HUBMUX_ReleaseInterruptReference @ 0x1C0010DF8 (HUBMUX_ReleaseInterruptReference.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPSM30_CancellingResetOnSurpriseRemove(__int64 a1)
 {
   __int64 v1; // rbx

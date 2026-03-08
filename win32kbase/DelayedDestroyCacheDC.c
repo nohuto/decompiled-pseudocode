@@ -1,3 +1,15 @@
+/*
+ * XREFs of DelayedDestroyCacheDC @ 0x1C003D924
+ * Callers:
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ *     DestroyProcessInfo @ 0x1C00D51B0 (DestroyProcessInfo.c)
+ * Callees:
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ */
+
 __int64 __fastcall DelayedDestroyCacheDC(int a1)
 {
   int v2; // esi

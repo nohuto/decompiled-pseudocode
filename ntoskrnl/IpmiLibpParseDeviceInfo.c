@@ -1,3 +1,11 @@
+/*
+ * XREFs of IpmiLibpParseDeviceInfo @ 0x1406755F0
+ * Callers:
+ *     IpmiHwInitializeContext @ 0x1406751C8 (IpmiHwInitializeContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IpmiLibpParseDeviceInfo(__int64 a1, __int64 a2)
 {
   char v2; // al

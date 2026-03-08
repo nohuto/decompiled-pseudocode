@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsColorKey@CColorKey@@QEBA_NAEBU_D3DCOLORVALUE@@@Z @ 0x1802AC870
+ * Callers:
+ *     ?HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800DECD0 (-HitTestContent@CWindowNode@@UEAAJ_NAEBUD2D_POINT_2F@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CColorKey::IsColorKey(CColorKey *this, const struct _D3DCOLORVALUE *a2)
 {
   float a; // xmm1_4

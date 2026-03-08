@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBuildProcessRunMethodPhaseCheckSta @ 0x1C0011880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIDeviceHasFirmwareDependencies @ 0x1C00144D4 (ACPIDeviceHasFirmwareDependencies.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessRunMethodPhaseCheckSta(__int64 a1)
 {
   __int64 v1; // rbx

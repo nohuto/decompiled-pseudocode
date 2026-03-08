@@ -1,3 +1,20 @@
+/*
+ * XREFs of MinAsn1ExtractValues @ 0x140A6EB74
+ * Callers:
+ *     MincryptValidateBasicConstraints @ 0x14067DECC (MincryptValidateBasicConstraints.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x140A6D684 (MinAsn1ParseAlgorithmIdentifier.c)
+ *     MinAsn1ParseAndDecodeRDNComponent @ 0x140A6D6CC (MinAsn1ParseAndDecodeRDNComponent.c)
+ *     MinAsn1ParseCertificate @ 0x140A6D7E0 (MinAsn1ParseCertificate.c)
+ *     MinAsn1ParseOIDSequence @ 0x140A6D858 (MinAsn1ParseOIDSequence.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x140A6D938 (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x140A6D980 (MinAsn1ParseRSAPublicKey.c)
+ *     MinAsn1ParseSingleExtensionValue @ 0x140A6DAB8 (MinAsn1ParseSingleExtensionValue.c)
+ *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140A6EAD0 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ */
+
 __int64 __fastcall MinAsn1ExtractValues(
         _BYTE *a1,
         unsigned int a2,

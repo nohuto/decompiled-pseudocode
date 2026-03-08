@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExRaiseDatatypeMisalignmentWrapper @ 0x1405D7120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 void __noreturn DifExRaiseDatatypeMisalignmentWrapper()
 {
   __int64 *APIThunkContextById; // rax

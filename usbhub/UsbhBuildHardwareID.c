@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhBuildHardwareID @ 0x1C004FCFC
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dDD @ 0x1C00484FC (WPP_RECORDER_SF_dDD.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C005109C (WPP_RECORDER_SF_Sd.c)
+ *     WPP_RECORDER_SF_Sqd @ 0x1C0051200 (WPP_RECORDER_SF_Sqd.c)
+ *     UsbhBuildUxdPnpId @ 0x1C00598B4 (UsbhBuildUxdPnpId.c)
+ */
+
 __int64 __fastcall UsbhBuildHardwareID(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rcx

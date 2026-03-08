@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViIrpCheckKernelAddressForIrp @ 0x140ACADD0
+ * Callers:
+ *     VfBeforeCallDriver @ 0x140ACA5AC (VfBeforeCallDriver.c)
+ * Callees:
+ *     VfTargetDriversIsEnabled @ 0x140AC8614 (VfTargetDriversIsEnabled.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 struct _KTHREAD *__fastcall ViIrpCheckKernelAddressForIrp(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

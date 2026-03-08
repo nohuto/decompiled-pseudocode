@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CHolographicExclusiveModeMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0265770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CHolographicExclusiveModeMarshaler::SetFloatProperty(
         DirectComposition::CHolographicExclusiveModeMarshaler *this,
         int a2,

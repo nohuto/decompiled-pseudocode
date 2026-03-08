@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RegisterClientVersion@_FX_DRIVER_GLOBALS@@QEAAXPEBU_UNICODE_STRING@@@Z @ 0x1C0048684
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ */
+
 void __fastcall _FX_DRIVER_GLOBALS::RegisterClientVersion(_FX_DRIVER_GLOBALS *this, _UNICODE_STRING *ServiceKeyName)
 {
   NTSTATUS v4; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of IvtConfigureAts @ 0x140529B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     IvtAllocateTranslationStructures @ 0x1405292FC (IvtAllocateTranslationStructures.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052B844 (IvtUpdateScalableModeContextEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtConfigureAts(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r15d

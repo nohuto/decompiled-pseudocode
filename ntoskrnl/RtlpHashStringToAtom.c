@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpHashStringToAtom @ 0x1407DA630
+ * Callers:
+ *     RtlAddAtomToAtomTableEx @ 0x1403546F0 (RtlAddAtomToAtomTableEx.c)
+ *     RtlpFreeAllAtom @ 0x140355B04 (RtlpFreeAllAtom.c)
+ *     RtlLookupAtomInAtomTable @ 0x1407DA4D0 (RtlLookupAtomInAtomTable.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpLookupOrCreateLowBox @ 0x14035400C (RtlpLookupOrCreateLowBox.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x1407D8D38 (RtlpAtomMapAtomToHandleEntry.c)
+ */
+
 __int64 __fastcall RtlpHashStringToAtom(
         __int64 a1,
         unsigned __int64 a2,

@@ -1,3 +1,24 @@
+/*
+ * XREFs of MmCopyMemory @ 0x1402A1CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiCopySinglePage @ 0x1402A2358 (MiCopySinglePage.c)
+ *     MiUnlockSystemVa @ 0x1402A2820 (MiUnlockSystemVa.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadVirtualMemoryEx @ 0x1404151B0 (ZwReadVirtualMemoryEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCheckPhysicalAddressRange @ 0x1406415CC (MiCheckPhysicalAddressRange.c)
+ */
+
 __int64 __fastcall MmCopyMemory(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, int a4, _QWORD *a5)
 {
   unsigned __int64 v9; // r14

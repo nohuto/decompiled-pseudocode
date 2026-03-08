@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiGetMonitorDescriptor @ 0x1C0201694
+ * Callers:
+ *     ?GetMonitorDescriptor@KernelDriver@@UEBAJKKPEAX@Z @ 0x1C0201670 (-GetMonitorDescriptor@KernelDriver@@UEBAJKKPEAX@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0201770 (DpiDxgkDdiQueryDeviceDescriptor.c)
+ */
+
 __int64 __fastcall DpiGetMonitorDescriptor(__int64 a1, unsigned int a2, unsigned int a3, char *a4)
 {
   __int64 v4; // rbp

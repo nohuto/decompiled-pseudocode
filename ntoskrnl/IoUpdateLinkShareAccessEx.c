@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoUpdateLinkShareAccessEx @ 0x1406B2A00
+ * Callers:
+ *     IoUpdateShareAccess @ 0x1408729C0 (IoUpdateShareAccess.c)
+ *     IoUpdateLinkShareAccess @ 0x140944720 (IoUpdateLinkShareAccess.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IoUpdateLinkShareAccessEx(__int64 a1, _DWORD *a2, _DWORD *a3, char a4)
 {
   _DWORD *v4; // rax

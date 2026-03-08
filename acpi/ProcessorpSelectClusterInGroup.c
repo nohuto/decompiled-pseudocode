@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpSelectClusterInGroup @ 0x1C009C108
+ * Callers:
+ *     ProcessorpSelectProcessorSetFromClusters @ 0x1C009C230 (ProcessorpSelectProcessorSetFromClusters.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall ProcessorpSelectClusterInGroup(__int64 a1, char a2, _QWORD *a3)
 {
   _QWORD *v3; // r9

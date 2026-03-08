@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetShellWindowEx @ 0x1C0092AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetShellWindow @ 0x1C0092CAC (xxxSetShellWindow.c)
+ *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0099FC0 (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetShellWindowEx(__int64 a1, HWND a2)
 {
   int v4; // edi

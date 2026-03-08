@@ -1,3 +1,19 @@
+/*
+ * XREFs of DxgkNetDispStopMiracastDisplayDevice @ 0x1C02CEF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C000296C (-RtlStringCchLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C0045498 (-DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z.c)
+ *     ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C0045B38 (-IsAllowedToCallMiracast@@YA_NXZ.c)
+ *     DxgkMiracastStopMiracastSession @ 0x1C00624C4 (DxgkMiracastStopMiracastSession.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
 __int64 __fastcall DxgkNetDispStopMiracastDisplayDevice(unsigned __int16 *a1, HANDLE Handle)
 {
   WCHAR *v4; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMReleasePointerDeviceInfo @ 0x1C01B9064
+ * Callers:
+ *     RIMFreeSpecificDevWorker @ 0x1C0034C6C (RIMFreeSpecificDevWorker.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimDestroyDeadzone @ 0x1C01B2AC8 (rimDestroyDeadzone.c)
+ *     RIMAssignPreparsedData @ 0x1C01B3578 (RIMAssignPreparsedData.c)
+ *     RIMFreePointerDevice @ 0x1C01B5B18 (RIMFreePointerDevice.c)
+ */
+
 void __fastcall RIMReleasePointerDeviceInfo(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

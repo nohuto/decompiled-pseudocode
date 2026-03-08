@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInitRecordEmOverrides @ 0x1C00A8CBC
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     AcpiDiagOverrideAttribute @ 0x1C00072EC (AcpiDiagOverrideAttribute.c)
+ */
+
 int ACPIInitRecordEmOverrides()
 {
   int result; // eax

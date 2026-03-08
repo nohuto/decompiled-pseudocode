@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EndShutdown@@YAXJ@Z @ 0x1C0095B2C
+ * Callers:
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ * Callees:
+ *     _PostThreadMessage @ 0x1C009575C (_PostThreadMessage.c)
+ *     ?NotifyLogon@@YAHK@Z @ 0x1C0095BD0 (-NotifyLogon@@YAHK@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall EndShutdown(int a1)
 {

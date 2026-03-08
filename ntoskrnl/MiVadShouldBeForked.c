@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiVadShouldBeForked @ 0x140663104
+ * Callers:
+ *     MiAllocateChildVads @ 0x140A4571C (MiAllocateChildVads.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiVadShouldBeForked(__int64 a1)
 {
   int v1; // edx

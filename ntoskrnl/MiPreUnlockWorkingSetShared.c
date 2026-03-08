@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPreUnlockWorkingSetShared @ 0x1402F0758
+ * Callers:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiQueryAddressSpan @ 0x14031E2D0 (MiQueryAddressSpan.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiReduceWs @ 0x1402F0810 (MiReduceWs.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSelfTrim @ 0x14064DCAC (MiSelfTrim.c)
+ */
+
 void __fastcall MiPreUnlockWorkingSetShared(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rdi

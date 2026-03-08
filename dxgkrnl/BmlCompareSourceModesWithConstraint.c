@@ -1,3 +1,13 @@
+/*
+ * XREFs of BmlCompareSourceModesWithConstraint @ 0x1C03B88CC
+ * Callers:
+ *     BmlCompareSourceModes @ 0x1C03B86F4 (BmlCompareSourceModes.c)
+ * Callees:
+ *     BmlCompareRegionsWithPivot @ 0x1C016E1AC (BmlCompareRegionsWithPivot.c)
+ *     BmlDoesSourceModeObeyConstraint @ 0x1C0170C60 (BmlDoesSourceModeObeyConstraint.c)
+ *     ??$BmlCompareValues@_N@@YA?AW4BML_COMPARISON_RESULT@@_N0@Z @ 0x1C01DD75C (--$BmlCompareValues@_N@@YA-AW4BML_COMPARISON_RESULT@@_N0@Z.c)
+ */
+
 __int64 __fastcall BmlCompareSourceModesWithConstraint(__int64 a1, unsigned __int16 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rbx

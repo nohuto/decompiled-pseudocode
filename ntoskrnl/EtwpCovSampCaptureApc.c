@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpCovSampCaptureApc @ 0x140461810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461C2A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x140461D68 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A3D6C (EtwpCovSampCaptureUserAddresses.c)
+ */
+
 struct _KTHREAD *__fastcall EtwpCovSampCaptureApc(_QWORD *a1, _QWORD *a2, __int64 *a3, __int64 *a4)
 {
   __int64 v5; // rbp

@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E430
+ * Callers:
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004DFB0 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ * Callees:
+ *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004C6C8 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
+ *     ?Update@?$LinearFitT@$0BAA@@@QEAA_N_J0@Z @ 0x18004D8A4 (-Update@-$LinearFitT@$0BAA@@@QEAA_N_J0@Z.c)
+ *     ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z @ 0x18004D9D8 (-CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z.c)
+ *     ?TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ @ 0x1800512B0 (-TracePresentStats@CScheduleFrameInfoVolatileData@@QEBAXXZ.c)
+ *     ?SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z @ 0x1800512D4 (-SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z.c)
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800525D0 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF148 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     floor_0 @ 0x18011771C (floor_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0xx_EventWriteTransfer @ 0x180129E50 (McTemplateU0xx_EventWriteTransfer.c)
+ *     ?ComputeAverage@?$LinearFitT@$0BAA@@@QEBANXZ @ 0x18012A6B6 (-ComputeAverage@-$LinearFitT@$0BAA@@@QEBANXZ.c)
+ *     McTemplateU0xxxiid_EventWriteTransfer @ 0x18012A9B0 (McTemplateU0xxxiid_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::GetPresentStatisticsAndAdjustRates(
         CPartitionVerticalBlankScheduler *this,
         __int64 a2,

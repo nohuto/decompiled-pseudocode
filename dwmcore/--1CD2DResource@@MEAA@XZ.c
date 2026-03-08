@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??1CD2DResource@@MEAA@XZ @ 0x18003D0EC
+ * Callers:
+ *     ??1CD2DEffect@@MEAA@XZ @ 0x180016AC4 (--1CD2DEffect@@MEAA@XZ.c)
+ *     ??1CD2DBitmap@@UEAA@XZ @ 0x18003CE18 (--1CD2DBitmap@@UEAA@XZ.c)
+ *     ??_GCD2DBrush@@UEAAPEAXI@Z @ 0x1800FDB80 (--_GCD2DBrush@@UEAAPEAXI@Z.c)
+ *     ??_ECD2DResource@@MEAAPEAXI@Z @ 0x1802889E0 (--_ECD2DResource@@MEAAPEAXI@Z.c)
+ *     ??1CD2DInk@@MEAA@XZ @ 0x1802993F8 (--1CD2DInk@@MEAA@XZ.c)
+ *     ??_GCD2DGenericInk@@UEAAPEAXI@Z @ 0x180299720 (--_GCD2DGenericInk@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z @ 0x18003D244 (-UnmanageResource@CD2DResourceManager@@IEAAXPEAVCD2DResource@@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CD2DResource::~CD2DResource(CD2DResource *this)
 {
   __int64 v2; // rcx

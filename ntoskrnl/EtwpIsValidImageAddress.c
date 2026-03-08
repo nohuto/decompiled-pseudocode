@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpIsValidImageAddress @ 0x140775684
+ * Callers:
+ *     EtwpFindDebugId @ 0x140775478 (EtwpFindDebugId.c)
+ * Callees:
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ */
+
 bool __fastcall EtwpIsValidImageAddress(
         unsigned __int64 a1,
         unsigned __int64 a2,

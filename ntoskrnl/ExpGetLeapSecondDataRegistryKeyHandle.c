@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetLeapSecondDataRegistryKeyHandle @ 0x140851054
+ * Callers:
+ *     ExpReadLeapSecondData @ 0x140850DB4 (ExpReadLeapSecondData.c)
+ *     ExSetLeapSecondEnabled @ 0x1409F4D44 (ExSetLeapSecondEnabled.c)
+ * Callees:
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 NTSTATUS __fastcall ExpGetLeapSecondDataRegistryKeyHandle(HANDLE *a1)
 {
   NTSTATUS result; // eax

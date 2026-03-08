@@ -1,3 +1,22 @@
+/*
+ * XREFs of _RtlpMuiRegPopulateBaseLanguages @ 0x140A72CB8
+ * Callers:
+ *     _RtlpMuiRegInitPartialLanguage @ 0x140A72C5C (_RtlpMuiRegInitPartialLanguage.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ *     NtQueryInstallUILanguage @ 0x140749760 (NtQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140843474 (RtlpLoadInstallLanguageFallback.c)
+ *     LdrpQueryValueKey @ 0x1408446D0 (LdrpQueryValueKey.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x140A726D0 (_RtlpMuiRegAddBaseLanguage.c)
+ *     _RtlpMuiRegValidateAndGetInstallFallbackBase @ 0x140A730F0 (_RtlpMuiRegValidateAndGetInstallFallbackBase.c)
+ */
+
 __int64 __fastcall RtlpMuiRegPopulateBaseLanguages(__int64 a1, __int64 a2, _WORD *a3, __int64 a4)
 {
   unsigned __int64 v4; // rbp

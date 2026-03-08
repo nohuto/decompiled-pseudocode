@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDeviceInitSetDeviceClass @ 0x1C002F510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 void __fastcall imp_WdfDeviceInitSetDeviceClass(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE_INIT *DeviceInit,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpInitializeTransactions @ 0x140B6D49C
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ */
+
 __int64 *CmpInitializeTransactions()
 {
   unsigned __int64 v0; // rax

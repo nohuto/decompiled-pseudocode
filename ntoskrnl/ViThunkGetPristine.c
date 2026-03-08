@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkGetPristine @ 0x140AD8B80
+ * Callers:
+ *     ViThunkApplyPristineCurrentSession @ 0x140AD858C (ViThunkApplyPristineCurrentSession.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViThunkGetPristine(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpCaptureKeyValueArray @ 0x1407A8A44
+ * Callers:
+ *     NtQueryMultipleValueKey @ 0x1406B8CB0 (NtQueryMultipleValueKey.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140243978 (CmpAllocateTransientPoolWithQuota.c)
+ *     RtlULongLongAdd @ 0x14024EE90 (RtlULongLongAdd.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpDoesBufferRequireCapturing @ 0x1407A97FC (CmpDoesBufferRequireCapturing.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall CmpCaptureKeyValueArray(
         __int64 a1,
         unsigned int a2,

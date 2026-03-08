@@ -1,3 +1,19 @@
+/*
+ * XREFs of SetupAAHeader @ 0x1C025E588
+ * Callers:
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     _ALIGN_MEM @ 0x1C014B81A (_ALIGN_MEM.c)
+ *     CheckBMPNeedFixup @ 0x1C014B848 (CheckBMPNeedFixup.c)
+ *     ComputeByteOffset @ 0x1C0253DA4 (ComputeByteOffset.c)
+ *     ComputeBytesPerScanLine @ 0x1C0253E3C (ComputeBytesPerScanLine.c)
+ *     ComputeAABBP @ 0x1C025DCB8 (ComputeAABBP.c)
+ *     ComputeInputColorInfo @ 0x1C025E1C4 (ComputeInputColorInfo.c)
+ */
+
 __int64 __fastcall SetupAAHeader(_QWORD *a1, __int64 a2, __int64 a3, __int64 (__fastcall **a4)())
 {
   unsigned int v6; // edi

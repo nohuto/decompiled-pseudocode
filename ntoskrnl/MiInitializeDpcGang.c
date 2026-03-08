@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeDpcGang @ 0x140386740
+ * Callers:
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiComputeIdealDpcGang @ 0x1403867CC (MiComputeIdealDpcGang.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 PVOID __fastcall MiInitializeDpcGang(_DWORD *a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   PVOID result; // rax

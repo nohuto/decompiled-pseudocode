@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInternalDeviceClockIrpStartDeviceCompletion @ 0x1C002CBD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIInternalDeviceClockIrpStartDeviceCompletion(__int64 a1, IRP *a2, int a3)
 {
   int v4; // eax

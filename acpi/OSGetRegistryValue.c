@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSGetRegistryValue @ 0x1C008DCAC
+ * Callers:
+ *     PcisuppGetRoutingInfo @ 0x1C0099C6C (PcisuppGetRoutingInfo.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C009F8A4 (IrqPolicyGetDevicePolicy.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00A87E8 (ACPIInitGetPlatformOverrides.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00AA2F4 (OSReadAcpiConfigurationData.c)
+ *     IrqPolicyConfigure @ 0x1C00AC2A4 (IrqPolicyConfigure.c)
+ *     IrqPolicyGetDistributionDisposition @ 0x1C00AC39C (IrqPolicyGetDistributionDisposition.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall OSGetRegistryValue(HANDLE KeyHandle, const WCHAR *a2, _QWORD *a3)
 {
   NTSTATUS result; // eax

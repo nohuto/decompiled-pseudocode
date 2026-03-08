@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CGeometry2DGroup@@MEAA@XZ @ 0x18012E0BE
+ * Callers:
+ *     ??_ECGeometry2DGroup@@MEAAPEAXI@Z @ 0x18012A300 (--_ECGeometry2DGroup@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CGeometry2DGroup::~CGeometry2DGroup(CGeometry2DGroup *this)
 {
   unsigned __int64 v1; // r8

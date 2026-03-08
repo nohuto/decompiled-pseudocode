@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpQueuePendingEject @ 0x1409562EC
+ * Callers:
+ *     IopEjectDevice @ 0x140969DA8 (IopEjectDevice.c)
+ * Callees:
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ */
+
 char __fastcall PnpQueuePendingEject(_QWORD *a1)
 {
   _QWORD *v2; // rax

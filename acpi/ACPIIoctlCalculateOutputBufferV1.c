@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIIoctlCalculateOutputBufferV1 @ 0x1C002F884
+ * Callers:
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C002F884 (ACPIIoctlCalculateOutputBufferV1.c)
+ *     ACPIIoctlEvalPostProcessingV1 @ 0x1C002FD84 (ACPIIoctlEvalPostProcessingV1.c)
+ *     AcpiConvertObjDataToMethodArguments @ 0x1C0036EF4 (AcpiConvertObjDataToMethodArguments.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C003A774 (ACPIProcessorContainerFillIoctlBuffer.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C002F780 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C002F884 (ACPIIoctlCalculateOutputBufferV1.c)
+ */
+
 __int64 __fastcall ACPIIoctlCalculateOutputBufferV1(__int64 a1, __int64 a2, char a3)
 {
   __int16 v4; // cx

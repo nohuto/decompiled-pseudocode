@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiReleaseDriverPtes @ 0x1407F74BC
+ * Callers:
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ *     MiReturnSystemImageAddress @ 0x1407F7768 (MiReturnSystemImageAddress.c)
+ *     MmUnmapLockedRestartPages @ 0x140A287B0 (MmUnmapLockedRestartPages.c)
+ *     MiReleaseSystemImageVa @ 0x140B975CC (MiReleaseSystemImageVa.c)
+ * Callees:
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     MiUnlockDriverMappings @ 0x14036C434 (MiUnlockDriverMappings.c)
+ *     MiLockDriverMappings @ 0x14036C498 (MiLockDriverMappings.c)
+ *     RtlAreBitsSet @ 0x14036C840 (RtlAreBitsSet.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReleaseDriverPtes(unsigned int a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v3; // rsi

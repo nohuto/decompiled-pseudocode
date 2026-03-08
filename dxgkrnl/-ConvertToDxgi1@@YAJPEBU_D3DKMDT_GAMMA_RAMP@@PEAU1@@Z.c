@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertToDxgi1@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0073E2C
+ * Callers:
+ *     ColorSpaceTransformConvert @ 0x1C0004808 (ColorSpaceTransformConvert.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ConvertToDxgi1(const struct _D3DKMDT_GAMMA_RAMP *a1, struct _D3DKMDT_GAMMA_RAMP *a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocateLogEntry@DXGK_LOG@@AEAAPEAUDXGK_LOG_ENTRY@@II@Z @ 0x1C004CCB8
+ * Callers:
+ *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0001830 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
+ *     ?AllocateLogEntry@DXGK_LOG@@AEAAPEAUDXGK_LOG_ENTRY@@II@Z @ 0x1C004CCB8 (-AllocateLogEntry@DXGK_LOG@@AEAAPEAUDXGK_LOG_ENTRY@@II@Z.c)
+ * Callees:
+ *     ?AllocateLogEntry@DXGK_LOG@@AEAAPEAUDXGK_LOG_ENTRY@@II@Z @ 0x1C004CCB8 (-AllocateLogEntry@DXGK_LOG@@AEAAPEAUDXGK_LOG_ENTRY@@II@Z.c)
+ */
+
 struct DXGK_LOG_ENTRY *__fastcall DXGK_LOG::AllocateLogEntry(DXGK_LOG *this, char a2, unsigned int a3)
 {
   unsigned int v4; // ecx

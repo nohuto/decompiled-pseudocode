@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceUIPIHookError @ 0x1C0164A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003CD2C (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     McTemplateK0ndcdxx_EtwWriteTransfer @ 0x1C01656C4 (McTemplateK0ndcdxx_EtwWriteTransfer.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qDqq @ 0x1C0167D28 (WPP_RECORDER_AND_TRACE_SF_qDqq.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceUIPIHookError(
         char a1,
         char a2,

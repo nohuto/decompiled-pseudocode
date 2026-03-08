@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawMul1024Asm @ 0x140401B90
+ * Callers:
+ *     SymCryptFdefModMulMontgomery1024 @ 0x1403FEF80 (SymCryptFdefModMulMontgomery1024.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawMul1024Asm(
         unsigned __int64 *a1,
         unsigned __int64 *a2,

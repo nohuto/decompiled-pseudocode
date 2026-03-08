@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDeleteRotateAndStopFaults @ 0x140630198
+ * Callers:
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A2ECE4 (MiRotateToFrameBufferNoCopy.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiDeleteVirtualAddresses @ 0x140332E60 (MiDeleteVirtualAddresses.c)
+ */
+
 signed __int64 __fastcall MiDeleteRotateAndStopFaults(unsigned __int64 a1, __int64 a2, _QWORD *a3)
 {
   _KPROCESS *Process; // rdi

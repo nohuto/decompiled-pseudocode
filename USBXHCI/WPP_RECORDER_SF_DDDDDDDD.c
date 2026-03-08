@@ -1,3 +1,16 @@
+/*
+ * XREFs of WPP_RECORDER_SF_DDDDDDDD @ 0x1C0040A98
+ * Callers:
+ *     RootHub_UcxEvtGetHubStatus @ 0x1C0013580 (RootHub_UcxEvtGetHubStatus.c)
+ *     RootHub_UcxEvtClearPortFeature @ 0x1C00156F0 (RootHub_UcxEvtClearPortFeature.c)
+ *     RootHub_UcxEvtSetPortFeature @ 0x1C0016F50 (RootHub_UcxEvtSetPortFeature.c)
+ *     RootHub_UcxEvtGetPortStatus @ 0x1C0017660 (RootHub_UcxEvtGetPortStatus.c)
+ *     RootHub_UcxEvtClearHubFeature @ 0x1C003FCE0 (RootHub_UcxEvtClearHubFeature.c)
+ *     RootHub_UcxEvtGetPortErrorCount @ 0x1C003FFC0 (RootHub_UcxEvtGetPortErrorCount.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_DDDDDDDD(__int64 a1, _DWORD a2, _DWORD a3, unsigned __int16 a4, __int64 a5, ...)
 {
   int v8; // [rsp+28h] [rbp-81h]

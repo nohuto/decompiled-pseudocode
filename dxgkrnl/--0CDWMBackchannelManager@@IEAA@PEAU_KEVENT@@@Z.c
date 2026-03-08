@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDWMBackchannelManager@@IEAA@PEAU_KEVENT@@@Z @ 0x1C0087094
+ * Callers:
+ *     ?Create@CDWMBackchannelManager@@SAJPEAU_KEVENT@@PEAPEAV1@@Z @ 0x1C008719C (-Create@CDWMBackchannelManager@@SAJPEAU_KEVENT@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CDWMBackchannelManager *__fastcall CDWMBackchannelManager::CDWMBackchannelManager(
         CDWMBackchannelManager *this,
         struct _KEVENT *a2)

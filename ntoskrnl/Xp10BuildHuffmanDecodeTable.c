@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10BuildHuffmanDecodeTable @ 0x1409C2118
+ * Callers:
+ *     Xp10ReadAndDecodeHuffmanTables @ 0x1409C4774 (Xp10ReadAndDecodeHuffmanTables.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10BuildHuffmanDecodeTable(
         __int64 a1,
         __int64 a2,

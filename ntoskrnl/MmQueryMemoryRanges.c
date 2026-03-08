@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmQueryMemoryRanges @ 0x140859AF0
+ * Callers:
+ *     IoInitializeLiveDump @ 0x1403A9880 (IoInitializeLiveDump.c)
+ *     IopLiveDumpQueryIOSpaceRanges @ 0x14094BE00 (IopLiveDumpQueryIOSpaceRanges.c)
+ * Callees:
+ *     MiPartitionObjectToPartition @ 0x140236884 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     RtlFindSetBitsEx @ 0x1402D8E10 (RtlFindSetBitsEx.c)
+ *     RtlFindNextForwardRunClearEx @ 0x14045B7C0 (RtlFindNextForwardRunClearEx.c)
+ *     MiAddRuns @ 0x140A2B004 (MiAddRuns.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmQueryMemoryRanges(__int64 a1)
 {
   unsigned __int64 v1; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcIncrementWriteBehindPriority @ 0x1405339B4
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x14021511C (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ */
+
 __int64 __fastcall CcIncrementWriteBehindPriority(__int64 a1)
 {
   __int64 v1; // rbp

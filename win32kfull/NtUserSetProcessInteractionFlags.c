@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetProcessInteractionFlags @ 0x1C01DD780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserSetProcessInteractionFlags(char a1, char a2, char a3)
 {
   __int64 v6; // rcx

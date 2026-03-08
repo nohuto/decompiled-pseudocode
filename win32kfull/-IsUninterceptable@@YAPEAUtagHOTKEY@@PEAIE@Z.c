@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z @ 0x1C0098C20
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     EditionKeyEventLLHook @ 0x1C00E83C0 (EditionKeyEventLLHook.c)
+ * Callees:
+ *     ?IsHotKey@@YAPEAUtagHOTKEY@@II@Z @ 0x1C00989D0 (-IsHotKey@@YAPEAUtagHOTKEY@@II@Z.c)
+ */
+
 unsigned __int64 __fastcall IsUninterceptable(unsigned int *a1, unsigned __int8 a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiGetSystemAddressForImage @ 0x1407F6010
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x1403005CC (MiFreePrivateFixupEntryForSystemImage.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiSessionInsertImage @ 0x14036BEC4 (MiSessionInsertImage.c)
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1403A6104 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ *     MiImageSuitableForSystem @ 0x1407F6204 (MiImageSuitableForSystem.c)
+ *     MiFindDataTableEntryBySection @ 0x1407F6234 (MiFindDataTableEntryBySection.c)
+ *     MiBytesToMapSystemImage @ 0x1407F6A64 (MiBytesToMapSystemImage.c)
+ *     MiReservePrivilegedPtes @ 0x1407F6AA8 (MiReservePrivilegedPtes.c)
+ *     MiSelectSystemImageAddress @ 0x1407F6D24 (MiSelectSystemImageAddress.c)
+ *     MiReleasePrivilegedPtes @ 0x1407F7400 (MiReleasePrivilegedPtes.c)
+ *     MiReturnSystemImageAddress @ 0x1407F7768 (MiReturnSystemImageAddress.c)
+ */
+
 unsigned __int64 __fastcall MiGetSystemAddressForImage(__int64 a1, int a2, _DWORD *a3)
 {
   char v4; // r12

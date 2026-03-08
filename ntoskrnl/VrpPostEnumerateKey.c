@@ -1,3 +1,33 @@
+/*
+ * XREFs of VrpPostEnumerateKey @ 0x140736428
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     ExGetPreviousMode @ 0x1402449F0 (ExGetPreviousMode.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     VrpCleanupBufferParameter @ 0x1406C16C4 (VrpCleanupBufferParameter.c)
+ *     VrpOutputBufferParameter @ 0x1406C16FC (VrpOutputBufferParameter.c)
+ *     VrpBuildKeyPath @ 0x1406C286C (VrpBuildKeyPath.c)
+ *     VrpProcessBufferParameter @ 0x1407367D8 (VrpProcessBufferParameter.c)
+ *     VrpFindExactNamespaceNode @ 0x140737324 (VrpFindExactNamespaceNode.c)
+ *     VrpUpdateKeyInformation @ 0x140791490 (VrpUpdateKeyInformation.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpPostEnumerateKey(__int64 a1, __int64 a2)
 {
   __int64 v3; // r14

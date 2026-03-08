@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspValidateEnvironmentBlock @ 0x14075A170
+ * Callers:
+ *     PspCaptureUserProcessParameters @ 0x140759A00 (PspCaptureUserProcessParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspValidateEnvironmentBlock(__int16 *a1, __int64 *a2)
 {
   __int64 v3; // r8

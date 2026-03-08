@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipCopyFromEventQueues @ 0x1409DD5AC
+ * Callers:
+ *     WmipReceiveNotifications @ 0x1402F642C (WmipReceiveNotifications.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall WmipCopyFromEventQueues(
         struct _KEVENT **a1,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DestroyDeviceFirmwareLock @ 0x1C001BB60
+ * Callers:
+ *     AcpiHandleDeviceFirmwareLock @ 0x1C001B660 (AcpiHandleDeviceFirmwareLock.c)
+ * Callees:
+ *     PerformHandlerInvocation @ 0x1C001BDD0 (PerformHandlerInvocation.c)
+ *     ReleaseDeviceFirmwareLock @ 0x1C001BF6C (ReleaseDeviceFirmwareLock.c)
+ */
+
 void __fastcall DestroyDeviceFirmwareLock(__int64 *a1)
 {
   __int64 v2; // r8

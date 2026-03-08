@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBHUB_InitBugCheck @ 0x1C0041BF4
+ * Callers:
+ *     DriverEntry @ 0x1C0041964 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KBUGCHECK_REASON_CALLBACK_RECORD *__fastcall USBHUB_InitBugCheck(
         PKBUGCHECK_REASON_CALLBACK_ROUTINE CallbackRoutine)
 {

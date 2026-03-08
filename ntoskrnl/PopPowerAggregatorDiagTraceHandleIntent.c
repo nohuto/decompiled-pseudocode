@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerAggregatorDiagTraceHandleIntent @ 0x140757608
+ * Callers:
+ *     PopPowerAggregatorRecordIntent @ 0x140757470 (PopPowerAggregatorRecordIntent.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407577FC (PopPowerAggregatorDiagTraceEvent.c)
+ */
+
 char __fastcall PopPowerAggregatorDiagTraceHandleIntent(int a1, int a2, int a3, _DWORD *a4, _DWORD *a5, int a6)
 {
   _DWORD *v6; // rbx

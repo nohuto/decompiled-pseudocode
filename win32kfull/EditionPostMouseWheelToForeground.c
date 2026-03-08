@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionPostMouseWheelToForeground @ 0x1C01B78F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ */
+
 __int64 __fastcall EditionPostMouseWheelToForeground(
         unsigned int a1,
         unsigned __int64 a2,

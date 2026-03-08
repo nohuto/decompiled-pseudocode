@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpRemoveMessagePort @ 0x140797F3C
+ * Callers:
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpRemoveMessagePort(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

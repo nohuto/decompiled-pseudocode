@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxSafeLoadKeyboardLayoutEx @ 0x1C0084F50
+ * Callers:
+ *     NtUserLoadKeyboardLayoutEx @ 0x1C0084BB0 (NtUserLoadKeyboardLayoutEx.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C0085038 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ */
+
 HKL __fastcall xxxSafeLoadKeyboardLayoutEx(
         struct tagWINDOWSTATION *a1,
         HANDLE Handle,

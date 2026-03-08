@@ -1,3 +1,18 @@
+/*
+ * XREFs of ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4
+ * Callers:
+ *     IrqLibFreeMessageTarget @ 0x1C0099250 (IrqLibFreeMessageTarget.c)
+ *     IrqTransGetInterruptVector @ 0x1C009A410 (IrqTransGetInterruptVector.c)
+ *     IrqTranslateResources @ 0x1C009A520 (IrqTranslateResources.c)
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ *     IrqArbBacktrackAllocation @ 0x1C009CE20 (IrqArbBacktrackAllocation.c)
+ *     IrqArbGetDeviceIrql @ 0x1C009D304 (IrqArbGetDeviceIrql.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C009E5F4 (IrqArbpSetDeviceProperties.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C009E890 (IrqArbpUnreferenceArbitrationList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorGetDeviceIdtAssignment(PVOID a1, int a2, int a3, _OWORD *a4)
 {
   __int64 v4; // rbx

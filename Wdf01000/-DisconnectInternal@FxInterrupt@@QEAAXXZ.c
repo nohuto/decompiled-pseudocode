@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisconnectInternal@FxInterrupt@@QEAAXXZ @ 0x1C0080038
+ * Callers:
+ *     ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C007ED80 (-Disconnect@FxInterrupt@@QEAAJK@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxInterrupt::DisconnectInternal(FxInterrupt *this)
 {
   __int64 v1; // rdx

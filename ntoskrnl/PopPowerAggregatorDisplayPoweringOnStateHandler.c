@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerAggregatorDisplayPoweringOnStateHandler @ 0x140990660
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     PopPowerAggregatorStartNextSession @ 0x1408794D4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140879638 (PopPowerAggregatorSetCurrentState.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorDisplayPoweringOnStateHandler(__int64 a1)
 {
   int v2; // edx

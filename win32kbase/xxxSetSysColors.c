@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSetSysColors @ 0x1C001A31C
+ * Callers:
+ *     NtUserSetSysColors @ 0x1C0017020 (NtUserSetSysColors.c)
+ *     xxxODI_ColorInit @ 0x1C0018A90 (xxxODI_ColorInit.c)
+ *     ?ResetSystemColors@@YAXXZ @ 0x1C00C8EE0 (-ResetSystemColors@@YAXXZ.c)
+ * Callees:
+ *     IsCreateBitmapStripSupported @ 0x1C0017470 (IsCreateBitmapStripSupported.c)
+ *     SetSysColor @ 0x1C001A584 (SetSysColor.c)
+ *     GreGetDeviceCaps @ 0x1C003EAF0 (GreGetDeviceCaps.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall xxxSetSysColors(__int64 a1, unsigned int a2, char *a3, char *a4, unsigned int a5)
 {
   unsigned int v5; // ebx

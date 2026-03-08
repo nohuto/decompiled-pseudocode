@@ -1,3 +1,17 @@
+/*
+ * XREFs of ObpMarkDirectoryObjectsTemporary @ 0x14076F1F8
+ * Callers:
+ *     ObpDeleteDirectoryName @ 0x14076F180 (ObpDeleteDirectoryName.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpLockDirectoryExclusive @ 0x14076F3D0 (ObpLockDirectoryExclusive.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14076F408 (ObpDeleteSymbolicLinkName.c)
+ */
+
 _QWORD *__fastcall ObpMarkDirectoryObjectsTemporary(_QWORD **Object, _QWORD *a2)
 {
   _QWORD *v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0ppffffubr6q_EventWriteTransfer @ 0x18012AF08
+ * Callers:
+ *     ?EtwLogCurrentState@CDrawingContext@@QEBAXXZ @ 0x18000D500 (-EtwLogCurrentState@CDrawingContext@@QEBAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 McTemplateU0ppffffubr6q_EventWriteTransfer(
         _DWORD a1,
         _DWORD a2,

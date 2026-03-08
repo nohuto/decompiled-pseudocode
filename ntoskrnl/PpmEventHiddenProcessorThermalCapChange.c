@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventHiddenProcessorThermalCapChange @ 0x140598320
+ * Callers:
+ *     PpmRegisterPerfCap @ 0x14058AF70 (PpmRegisterPerfCap.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventHiddenProcessorThermalCapChange(__int64 a1, int a2, int a3)
 {
   _UNKNOWN **v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptSortProcessorTable @ 0x1403769D8
+ * Callers:
+ *     HalpInterruptParseMadt @ 0x140376468 (HalpInterruptParseMadt.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpInterruptSortProcessorTable(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r8d

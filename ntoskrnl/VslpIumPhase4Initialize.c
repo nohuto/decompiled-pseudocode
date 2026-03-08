@@ -1,3 +1,16 @@
+/*
+ * XREFs of VslpIumPhase4Initialize @ 0x1403AB65C
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PoDisableSleepStates @ 0x140980FB0 (PoDisableSleepStates.c)
+ *     VslpIumInitializeTelemetry @ 0x140B6E0BC (VslpIumInitializeTelemetry.c)
+ */
+
 __int64 VslpIumPhase4Initialize()
 {
   __int64 result; // rax

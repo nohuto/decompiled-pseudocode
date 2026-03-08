@@ -1,3 +1,16 @@
+/*
+ * XREFs of CreateDyesColorMappingTable @ 0x1C0257C98
+ * Callers:
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ * Callees:
+ *     ComputeChecksum @ 0x1C0019A58 (ComputeChecksum.c)
+ *     CachedHalftonePattern @ 0x1C0254570 (CachedHalftonePattern.c)
+ *     AddBGRMapCache @ 0x1C0255FE8 (AddBGRMapCache.c)
+ *     ComputeBGRMappingTable @ 0x1C0256580 (ComputeBGRMappingTable.c)
+ *     ComputeRGBLUTAA @ 0x1C0257424 (ComputeRGBLUTAA.c)
+ *     FindBGRMapCache @ 0x1C0257DE8 (FindBGRMapCache.c)
+ */
+
 __int64 __fastcall CreateDyesColorMappingTable(__int64 *a1)
 {
   __int64 v1; // rbp

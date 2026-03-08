@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFillUserPhysicalMdl @ 0x140647538
+ * Callers:
+ *     MiAllocateFastAwePages @ 0x140A3D534 (MiAllocateFastAwePages.c)
+ * Callees:
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDemotePfnListChain @ 0x140665964 (MiDemotePfnListChain.c)
+ */
+
 __int64 __fastcall MiFillUserPhysicalMdl(__int64 a1, _QWORD *a2, unsigned __int64 a3)
 {
   unsigned int v3; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiCheckHeadTimeout@@YAHPEAU_VIDSCH_GLOBAL@@IPEAHPEA_KPEAT_ULARGE_INTEGER@@@Z @ 0x1C0008B70
+ * Callers:
+ *     VidSchiCheckFlipQueueTimeout @ 0x1C0007940 (VidSchiCheckFlipQueueTimeout.c)
+ * Callees:
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C00067E0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiSkipXboxVsyncTimeout @ 0x1C003C7CC (VidSchiSkipXboxVsyncTimeout.c)
+ *     ?VidSchiObserveHwFlipQueueUpdates@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEA_N@Z @ 0x1C0049888 (-VidSchiObserveHwFlipQueueUpdates@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEA_N@Z.c)
+ */
+
 __int64 __fastcall VidSchiCheckHeadTimeout(
         KSPIN_LOCK *a1,
         unsigned int a2,

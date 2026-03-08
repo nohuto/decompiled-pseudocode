@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopFxFindAcpiDeviceByUniqueId @ 0x140393420
+ * Callers:
+ *     PopFxAcpiPrepareDevice @ 0x14059E918 (PopFxAcpiPrepareDevice.c)
+ *     PopFxFindDeviceAndAllocateUniqueId @ 0x1406F7118 (PopFxFindDeviceAndAllocateUniqueId.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ */
+
 __int64 __fastcall PopFxFindAcpiDeviceByUniqueId(PCUNICODE_STRING String2, __int64 **a2)
 {
   struct _KTHREAD *CurrentThread; // rax

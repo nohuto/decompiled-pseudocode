@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitializeTelemetryAssertsKMWorkerInternal @ 0x1C001D15C
+ * Callers:
+ *     InitializeTelemetryAssertsKMByDriverObject @ 0x1C001D054 (InitializeTelemetryAssertsKMByDriverObject.c)
+ * Callees:
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0075028 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 __fastcall InitializeTelemetryAssertsKMWorkerInternal(const void **a1)
 {
   unsigned int v2; // ebx

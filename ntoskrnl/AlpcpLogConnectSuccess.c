@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcpLogConnectSuccess @ 0x1409773D0
+ * Callers:
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x140774850 (NtSecureConnectPort.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AlpcpInvokeLogCallbacks @ 0x1409771E8 (AlpcpInvokeLogCallbacks.c)
+ */
+
 signed __int32 __fastcall AlpcpLogConnectSuccess(int a1)
 {
   __int128 v1; // xmm0

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TriggerCabcV2Wnf@@YAJW4_CABC_OPTION_TYPE@@@Z @ 0x1C02F7AD8
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TriggerCabcV2Wnf(int a1)
 {
   NTSTATUS v1; // eax

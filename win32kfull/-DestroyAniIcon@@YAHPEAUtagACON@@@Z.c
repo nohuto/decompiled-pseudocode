@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DestroyAniIcon@@YAHPEAUtagACON@@@Z @ 0x1C00E6CB4
+ * Callers:
+ *     ?CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z @ 0x1C0044690 (-CleanupCursorObject@@YAXPEAUtagCURSOR@@@Z.c)
+ * Callees:
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ */
+
 __int64 __fastcall DestroyAniIcon(struct tagACON *a1)
 {
   int i; // edi

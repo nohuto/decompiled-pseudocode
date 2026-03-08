@@ -1,3 +1,16 @@
+/*
+ * XREFs of FirmwareActivate @ 0x1C00116D0
+ * Callers:
+ *     IoctlFirmwareProcess @ 0x1C00137A8 (IoctlFirmwareProcess.c)
+ *     NVMeFirmwareActivateCompletion @ 0x1C0015020 (NVMeFirmwareActivateCompletion.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     BuildFirmwareActivateCommand @ 0x1C0010D98 (BuildFirmwareActivateCommand.c)
+ *     IsFirmwareActivateWithoutResetEnabled @ 0x1C0014AC4 (IsFirmwareActivateWithoutResetEnabled.c)
+ */
+
 __int64 __fastcall FirmwareActivate(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r15d

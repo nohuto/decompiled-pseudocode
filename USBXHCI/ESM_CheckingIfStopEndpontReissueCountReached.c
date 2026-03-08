@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_CheckingIfStopEndpontReissueCountReached @ 0x1C0051690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ESM_CheckingIfStopEndpontReissueCountReached(__int64 a1)
 {
   __m128i **v1; // rdx

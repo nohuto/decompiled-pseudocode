@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopDeleteDriver @ 0x14085AE30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeFlushQueuedDpcs @ 0x1402AF200 (KeFlushQueuedDpcs.c)
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     IoUnregisterPriorityCallback @ 0x1405550E0 (IoUnregisterPriorityCallback.c)
+ *     MmUnloadSystemImage @ 0x1407F5FA0 (MmUnloadSystemImage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopDeleteDriver(__int64 a1)
 {
   _QWORD *v2; // rcx

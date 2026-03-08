@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaForceAllocation @ 0x14050EBC0
+ * Callers:
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14050E094 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpDmaForceAllocation(__int64 a1, __int64 *a2, __int64 **a3, int a4, char a5, _DWORD *a6)
 {
   __int64 *v6; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulDeleteDeviceOrRedirectionBitmap@@YAXPEAUDHSURF__@@@Z @ 0x1C02B18E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MulDeleteDeviceOrRedirectionBitmap(__int64 ***pv)
 {
   __int64 **i; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfMiscKeReleaseInStackQueuedSpinLock_Entry @ 0x140ADCF50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     ViMiscCheckKeLowerIrql @ 0x140ADE308 (ViMiscCheckKeLowerIrql.c)
+ */
+
 __int64 __fastcall VfMiscKeReleaseInStackQueuedSpinLock_Entry(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di

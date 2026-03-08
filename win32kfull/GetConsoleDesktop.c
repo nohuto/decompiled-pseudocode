@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetConsoleDesktop @ 0x1C01BFCC8
+ * Callers:
+ *     _OpenThreadDesktop @ 0x1C00BEF04 (_OpenThreadDesktop.c)
+ *     _GetThreadDesktop @ 0x1C00D13FC (_GetThreadDesktop.c)
+ *     NtUserCheckWindowThreadDesktop @ 0x1C01CE770 (NtUserCheckWindowThreadDesktop.c)
+ * Callees:
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     ?GetConsoleHostProcess@@YAJKPEAPEAX@Z @ 0x1C01BF7E8 (-GetConsoleHostProcess@@YAJKPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall GetConsoleDesktop(int a1, _QWORD *a2, _QWORD *a3, __int64 *a4)
 {
   __int64 result; // rax

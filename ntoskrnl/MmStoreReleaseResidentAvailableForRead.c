@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmStoreReleaseResidentAvailableForRead @ 0x14065AE68
+ * Callers:
+ *     SmPartitionCleanup @ 0x1409D3DC8 (SmPartitionCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MmStoreReleaseResidentAvailableForRead(unsigned __int16 **a1, __int64 a2)
 {
   unsigned __int16 *v2; // r9

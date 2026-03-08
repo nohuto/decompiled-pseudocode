@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x1800555A0
+ * Callers:
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053D90 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z @ 0x180054C80 (-SetOutputValueOnTarget@CBaseExpression@@IEAAJPEAVCResource@@@Z.c)
+ *     ?SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z @ 0x1800BCC10 (-SetOutputValue@CBaseExpression@@IEAAJPEBVCExpressionValue@@@Z.c)
+ * Callees:
+ *     memcmp_0 @ 0x1801177DC (memcmp_0.c)
+ *     ??8CPathData@@QEBA_NAEBV0@@Z @ 0x18012DEDA (--8CPathData@@QEBA_NAEBV0@@Z.c)
+ *     ??8D2DQuaternion@@QEBAHAEBU0@@Z @ 0x1802793B4 (--8D2DQuaternion@@QEBAHAEBU0@@Z.c)
+ */
+
 __int64 __fastcall CExpressionValue::operator==(_DWORD *Buf1, _DWORD *a2, __int64 a3)
 {
   int v3; // eax

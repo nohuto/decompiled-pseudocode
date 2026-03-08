@@ -1,3 +1,28 @@
+/*
+ * XREFs of CmpPartialPromoteSubkeys @ 0x140A236F0
+ * Callers:
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpHashCompressedComponent @ 0x14074BDE4 (CmpHashCompressedComponent.c)
+ *     CmpFindKcbInHashEntryByName @ 0x140775070 (CmpFindKcbInHashEntryByName.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     CmpPopulateKcbStack @ 0x1407AF248 (CmpPopulateKcbStack.c)
+ *     CmpStartKcbStack @ 0x1407AF450 (CmpStartKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A146E0 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpKeyEnumStackAdvance @ 0x140A209E8 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackCleanup @ 0x140A20CD0 (CmpKeyEnumStackCleanup.c)
+ *     CmpKeyEnumStackInitialize @ 0x140A21424 (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackNotifyPromotion @ 0x140A21474 (CmpKeyEnumStackNotifyPromotion.c)
+ *     CmpKeyEnumStackStartFromKcbStack @ 0x140A2163C (CmpKeyEnumStackStartFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A23C40 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A23DDC (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ */
+
 __int64 __fastcall CmpPartialPromoteSubkeys(__int64 a1)
 {
   __int16 v2; // dx

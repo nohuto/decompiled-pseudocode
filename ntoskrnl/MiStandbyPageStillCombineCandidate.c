@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiStandbyPageStillCombineCandidate @ 0x14029F354
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x14029F020 (MiCombineWithStandbyExisting.c)
+ * Callees:
+ *     MiStandbyPageContentsIntact @ 0x14034B200 (MiStandbyPageContentsIntact.c)
+ */
+
 _BOOL8 __fastcall MiStandbyPageStillCombineCandidate(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   return !*(_WORD *)(a1 + 32)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of Register_SetClearSSICPortUnused @ 0x1C0013BD0
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall Register_SetClearSSICPortUnused(__int64 a1, char a2)
 {
   __int64 result; // rax

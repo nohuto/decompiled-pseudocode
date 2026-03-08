@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetSetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C0169004
+ * Callers:
+ *     NtUserDisplayConfigSetDeviceInfo @ 0x1C016E700 (NtUserDisplayConfigSetDeviceInfo.c)
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0193490 (DrvDisplayConfigSetDeviceInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DispConfigTypes::GetSetterTypeSize(int a1)
 {
   unsigned int v1; // edx

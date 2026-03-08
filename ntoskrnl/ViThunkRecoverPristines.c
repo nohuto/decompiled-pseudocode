@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkRecoverPristines @ 0x140AD8D6C
+ * Callers:
+ *     VfThunkAddSpecialDriverThunks @ 0x140AD8020 (VfThunkAddSpecialDriverThunks.c)
+ * Callees:
+ *     ViThunkReplacePristine @ 0x140AD90D8 (ViThunkReplacePristine.c)
+ *     ViThunkReplaceSpecialPristine @ 0x140AD91AC (ViThunkReplaceSpecialPristine.c)
+ */
+
 void __fastcall ViThunkRecoverPristines(__int64 a1)
 {
   unsigned int v1; // edi

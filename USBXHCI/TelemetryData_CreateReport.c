@@ -1,3 +1,13 @@
+/*
+ * XREFs of TelemetryData_CreateReport @ 0x1C005306C
+ * Callers:
+ *     Controller_TelemetryReport @ 0x1C0034B08 (Controller_TelemetryReport.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1C001C700 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 *__fastcall TelemetryData_CreateReport(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   __int64 *Pool2; // rax

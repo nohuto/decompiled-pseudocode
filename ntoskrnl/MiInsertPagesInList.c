@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiInsertPagesInList @ 0x140287DB0
+ * Callers:
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiEnqueuePageList @ 0x140285CB0 (MiEnqueuePageList.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402DFCF4 (MiInsertProtectedStandbyPage.c)
+ * Callees:
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiIncreaseAvailablePages @ 0x140288238 (MiIncreaseAvailablePages.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiSharedInsertPfnChainInList @ 0x140288400 (MiSharedInsertPfnChainInList.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiMakeProtoTransition @ 0x1402C59B0 (MiMakeProtoTransition.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402C6EB0 (MiRebuildStandbyLookasideList.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402D3138 (MiExclusiveInsertPfnChainInList.c)
+ *     MiSynchronizeFastPageInsert @ 0x140319210 (MiSynchronizeFastPageInsert.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiWakeModifiedPageWriter @ 0x14063982C (MiWakeModifiedPageWriter.c)
+ */
+
 void __fastcall MiInsertPagesInList(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rdi

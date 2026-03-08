@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspCreateUserProcessEcp @ 0x14070D8D0
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     FsRtlAllocateExtraCreateParameter @ 0x1406A8D50 (FsRtlAllocateExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14070C280 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x14070D9C0 (FsRtlInsertExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameterList @ 0x1407CBC20 (FsRtlAllocateExtraCreateParameterList.c)
+ */
+
 __int64 __fastcall PspCreateUserProcessEcp(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rbx

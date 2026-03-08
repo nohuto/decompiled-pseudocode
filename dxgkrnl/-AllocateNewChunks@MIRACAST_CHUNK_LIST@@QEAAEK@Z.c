@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocateNewChunks@MIRACAST_CHUNK_LIST@@QEAAEK@Z @ 0x1C005EE40
+ * Callers:
+ *     DxgNotifyDpcCB @ 0x1C000E390 (DxgNotifyDpcCB.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall MIRACAST_CHUNK_LIST::AllocateNewChunks(MIRACAST_CHUNK_LIST *this, unsigned int a2)
 {
   unsigned int v2; // eax

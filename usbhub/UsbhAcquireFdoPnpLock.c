@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhAcquireFdoPnpLock @ 0x1C0031BEC
+ * Callers:
+ *     UsbhFdoSystemPowerState @ 0x1C000D270 (UsbhFdoSystemPowerState.c)
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C003375C (UsbhInstallMsOs20RegistryProperties.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C003383C (UsbhInstallMsOsExtendedProperties.c)
+ *     UsbhAcquireApiLock @ 0x1C003DE98 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003E714 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044348 (Usbh_FDO_Pnp_State.c)
+ *     UsbhEtwRundown @ 0x1C005BED0 (UsbhEtwRundown.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhAcquireFdoPnpLock(__int64 a1, __int64 a2, int a3, int a4, int a5)
 {
   _DWORD *v8; // rdi

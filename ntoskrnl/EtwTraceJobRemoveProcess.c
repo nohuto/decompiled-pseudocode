@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceJobRemoveProcess @ 0x1409E26A8
+ * Callers:
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceJobRemoveProcess(__int64 a1, int a2, int a3)
 {
   int v3; // r9d

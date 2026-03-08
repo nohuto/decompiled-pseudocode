@@ -1,3 +1,42 @@
+/*
+ * XREFs of PipProcessStartPhase3 @ 0x14068203C
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PpvUtilTestStartedPdoStack @ 0x140201FB8 (PpvUtilTestStartedPdoStack.c)
+ *     PnpSetDeviceInstanceStartedEvent @ 0x140201FD8 (PnpSetDeviceInstanceStartedEvent.c)
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1405620F8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpGenerateDeviceIdsHash @ 0x140680864 (PnpGenerateDeviceIdsHash.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x140681C08 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PiCreateDriverSwDevices @ 0x140681C40 (PiCreateDriverSwDevices.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x1406824BC (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PiDcUpdateDeviceContainerMembership @ 0x1406825AC (PiDcUpdateDeviceContainerMembership.c)
+ *     PiProcessQueryDeviceState @ 0x140683054 (PiProcessQueryDeviceState.c)
+ *     PiUpdateDevicePanel @ 0x140683D74 (PiUpdateDevicePanel.c)
+ *     PnpCheckDeviceIdsChanged @ 0x140684A9C (PnpCheckDeviceIdsChanged.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140685094 (PnpDeviceObjectToDeviceInstance.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PnpQueryID @ 0x1406882B4 (PnpQueryID.c)
+ *     PnpSetPlugPlayEvent @ 0x140688820 (PnpSetPlugPlayEvent.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PiAuditDeviceStart @ 0x14096CE1C (PiAuditDeviceStart.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipProcessStartPhase3(__int64 a1, int a2, __int64 a3)
 {
   const wchar_t **v3; // rsi

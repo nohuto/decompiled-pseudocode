@@ -1,3 +1,16 @@
+/*
+ * XREFs of PoSetThermalActiveCooling @ 0x14097FC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPropogateCoolingChange @ 0x140584860 (PopPropogateCoolingChange.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140846CC0 (PopThermalUpdateActiveTimeTracking.c)
+ *     PoGetThermalRequestSupport @ 0x14085D140 (PoGetThermalRequestSupport.c)
+ *     PopDiagTraceThermalRequestActiveUpdate @ 0x14098ED60 (PopDiagTraceThermalRequestActiveUpdate.c)
+ */
+
 __int64 __fastcall PoSetThermalActiveCooling(__int64 a1, char a2)
 {
   unsigned int v4; // ebx

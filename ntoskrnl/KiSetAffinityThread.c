@@ -1,3 +1,26 @@
+/*
+ * XREFs of KiSetAffinityThread @ 0x1402AFA28
+ * Callers:
+ *     KeSetUserAffinityThread @ 0x1402B0FA0 (KeSetUserAffinityThread.c)
+ *     KiSetLegacyAffinityThread @ 0x1402FDE2C (KiSetLegacyAffinityThread.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A8A60 (KeSetUserGroupAffinityThread.c)
+ *     KeSetAffinityProcess @ 0x1403A9688 (KeSetAffinityProcess.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x140237154 (KiUpdateNodeAffinitizedFlag.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x140238A10 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiCheckPrcbAffinityEx @ 0x1402ADF54 (KiCheckPrcbAffinityEx.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeFirstGroupAffinityEx @ 0x1402AEC40 (KeFirstGroupAffinityEx.c)
+ *     KiRescheduleThreadAfterAffinityChange @ 0x1402AFD1C (KiRescheduleThreadAfterAffinityChange.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiReselectIdealProcessorAfterAffinityChange @ 0x14035977C (KiReselectIdealProcessorAfterAffinityChange.c)
+ *     EtwTraceThreadAffinity @ 0x14045F1AC (EtwTraceThreadAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x1405FA980 (EtwTraceIdealProcessor.c)
+ */
+
 __int64 __fastcall KiSetAffinityThread(__int64 a1, __int64 a2, unsigned __int16 *a3)
 {
   __int64 v3; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpressionConvertToString @ 0x140A6BCC8
+ * Callers:
+ *     FilterConvertToString @ 0x140A6C0C8 (FilterConvertToString.c)
+ * Callees:
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     RtlStringCbCopyExW @ 0x1402E1820 (RtlStringCbCopyExW.c)
+ *     ConvertDevpropertyToString @ 0x140A6B5A0 (ConvertDevpropertyToString.c)
+ */
+
 __int64 __fastcall ExpressionConvertToString(_DWORD *a1, unsigned int a2, wchar_t *a3, unsigned int *a4)
 {
   size_t v7; // rdi

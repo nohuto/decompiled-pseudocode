@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TraceLoggingProcessDCsInUse@@YAXKK@Z @ 0x1C017D99C
+ * Callers:
+ *     UpdateDCEInUseCount @ 0x1C003D02C (UpdateDCEInUseCount.c)
+ *     ReleaseCacheDC @ 0x1C003F210 (ReleaseCacheDC.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0088890 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ */
+
 void __fastcall TraceLoggingProcessDCsInUse()
 {
   __int64 v0; // r8

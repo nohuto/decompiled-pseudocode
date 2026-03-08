@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateChainingDirection@CScrollAnimation@@AEAAXM@Z @ 0x180261F74
+ * Callers:
+ *     ?UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z @ 0x180262038 (-UpdateValueWithChaining@CScrollAnimation@@IEAAMMMW4Boundary@@@Z.c)
+ * Callees:
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_Interaction_NullptrSmackdown@@@details@wil@@QEAA_NXZ @ 0x1801165B0 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_Interaction_NullptrSmackdown@@@de.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x180130A3E (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
+ *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026191C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
+ */
+
 void __fastcall CScrollAnimation::UpdateChainingDirection(CScrollAnimation *this, float a2)
 {
   char v2; // r8

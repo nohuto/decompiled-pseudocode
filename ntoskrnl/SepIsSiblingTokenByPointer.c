@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepIsSiblingTokenByPointer @ 0x140776354
+ * Callers:
+ *     SeIsTokenAssignableToProcess @ 0x140776104 (SeIsTokenAssignableToProcess.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     SepReleaseOrderedReadLocks @ 0x1402E9D34 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x1402E9D68 (SepAcquireOrderedReadLocks.c)
+ */
+
 __int64 __fastcall SepIsSiblingTokenByPointer(unsigned __int64 a1, _BYTE *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

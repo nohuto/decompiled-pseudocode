@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiNotifyCiDriverBlocked @ 0x140956D68
+ * Callers:
+ *     PiIsDriverBlocked @ 0x14079DF64 (PiIsDriverBlocked.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiNotifyCiDriverBlocked(__int128 *a1, int a2, const void **a3)
 {
   __int64 Pool2; // rax

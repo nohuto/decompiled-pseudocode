@@ -1,3 +1,25 @@
+/*
+ * XREFs of ACPIGetWorkerForString @ 0x1C002B860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIGetConvertToCompatibleID @ 0x1C002983C (ACPIGetConvertToCompatibleID.c)
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C00298A4 (ACPIGetConvertToCompatibleIDWide.c)
+ *     ACPIGetConvertToDeviceID @ 0x1C0029CB8 (ACPIGetConvertToDeviceID.c)
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D20 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIGetConvertToHardwareID @ 0x1C002A0C4 (ACPIGetConvertToHardwareID.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C002A12C (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPIGetConvertToInstanceID @ 0x1C002A39C (ACPIGetConvertToInstanceID.c)
+ *     ACPIGetConvertToInstanceIDWide @ 0x1C002A404 (ACPIGetConvertToInstanceIDWide.c)
+ *     ACPIGetConvertToPnpID @ 0x1C002A5E8 (ACPIGetConvertToPnpID.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C002A650 (ACPIGetConvertToPnpIDWide.c)
+ *     ACPIGetConvertToSerialIDWide @ 0x1C002A834 (ACPIGetConvertToSerialIDWide.c)
+ *     ACPIGetConvertToString @ 0x1C002A908 (ACPIGetConvertToString.c)
+ *     ACPIGetConvertToStringWide @ 0x1C002A974 (ACPIGetConvertToStringWide.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 void __fastcall ACPIGetWorkerForString(__int64 a1, unsigned int a2, __int64 a3, char *a4)
 {
   __int64 *v5; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxApplyGlobalInputSettings@@YAXH@Z @ 0x1C009AD2C
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C009A850 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     EditionKeyboardInputDelegationChanged @ 0x1C012D0A0 (EditionKeyboardInputDelegationChanged.c)
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C012C6EC (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ */
+
 void __fastcall xxxApplyGlobalInputSettings()
 {
   struct tagQ *KeyboardDelegationTargetQ; // rdx

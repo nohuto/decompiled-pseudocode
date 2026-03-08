@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSetProbePagesAhead @ 0x1402699A0
+ * Callers:
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MiProbeLeafFrame @ 0x1403CFA14 (MiProbeLeafFrame.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ */
+
 char __fastcall MiSetProbePagesAhead(__int64 a1)
 {
   unsigned __int64 CurrentThread; // rax

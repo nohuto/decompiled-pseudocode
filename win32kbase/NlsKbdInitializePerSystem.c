@@ -1,3 +1,12 @@
+/*
+ * XREFs of NlsKbdInitializePerSystem @ 0x1C00CA8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NlsSetKeyStateToggle@@YAXE@Z @ 0x1C00CAB1C (-NlsSetKeyStateToggle@@YAXE@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall NlsKbdInitializePerSystem(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiDereferenceControlAreaPfnList @ 0x1402CFBF0
+ * Callers:
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiDeleteTransitionPte @ 0x1402833F0 (MiDeleteTransitionPte.c)
+ *     MiReleaseInPageRefs @ 0x1402C6460 (MiReleaseInPageRefs.c)
+ *     MiPurgeImageSection @ 0x1402FECC8 (MiPurgeImageSection.c)
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ *     MiPurgeSubsection @ 0x140623294 (MiPurgeSubsection.c)
+ *     MiSplitDirectMapPage @ 0x14063CE6C (MiSplitDirectMapPage.c)
+ * Callees:
+ *     MiRemoveUnusedSubsection @ 0x140214CC0 (MiRemoveUnusedSubsection.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckForControlAreaDeletion @ 0x1402CFCF8 (MiCheckForControlAreaDeletion.c)
+ *     MiInsertUnusedSubsection @ 0x1402D4DE8 (MiInsertUnusedSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 void __fastcall MiDereferenceControlAreaPfnList(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 inserted; // r15

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpReleaseResourcesInternal @ 0x140803D74
+ * Callers:
+ *     IopReleaseResources @ 0x140801F0C (IopReleaseResources.c)
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140803B38 (IopWriteAllocatedResourcesToRegistry.c)
+ *     IopFindLegacyBusDeviceNode @ 0x140805E30 (IopFindLegacyBusDeviceNode.c)
+ *     IopCallArbiter @ 0x140805E88 (IopCallArbiter.c)
+ */
+
 __int64 __fastcall PnpReleaseResourcesInternal(_QWORD *a1)
 {
   unsigned int *v2; // rbx

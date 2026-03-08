@@ -1,3 +1,12 @@
+/*
+ * XREFs of Endpoint_IsCandidateForSplitTransactionHSIIWorkaround @ 0x1C001EDF8
+ * Callers:
+ *     Endpoint_Disable_Internal @ 0x1C000B8A4 (Endpoint_Disable_Internal.c)
+ *     Endpoint_Enable @ 0x1C000BDC0 (Endpoint_Enable.c)
+ * Callees:
+ *     Feature_SplitTransactionHSIIWorkaround__private_ReportDeviceUsage @ 0x1C001EE54 (Feature_SplitTransactionHSIIWorkaround__private_ReportDeviceUsage.c)
+ */
+
 bool __fastcall Endpoint_IsCandidateForSplitTransactionHSIIWorkaround(__m128i **a1)
 {
   __m128i *v2; // rax

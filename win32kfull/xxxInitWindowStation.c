@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxInitWindowStation @ 0x1C00C1348
+ * Callers:
+ *     xxxCreateWindowStation @ 0x1C00BE56C (xxxCreateWindowStation.c)
+ * Callees:
+ *     FinalUserInit @ 0x1C00C1B24 (FinalUserInit.c)
+ *     SetKeyboardRate @ 0x1C0102588 (SetKeyboardRate.c)
+ *     ?xxxLoadSomeStrings@@YAXXZ @ 0x1C0108E98 (-xxxLoadSomeStrings@@YAXXZ.c)
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ *     SetMinMetrics @ 0x1C010CA78 (SetMinMetrics.c)
+ *     xxxSetWindowNCMetrics @ 0x1C010CBC8 (xxxSetWindowNCMetrics.c)
+ *     GreTextInitialized @ 0x1C010FB94 (GreTextInitialized.c)
+ */
+
 __int64 xxxInitWindowStation()
 {
   struct _UNICODE_STRING *v0; // rdi

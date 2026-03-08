@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PnpDispatchDevicePanel @ 0x140823890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _CmValidateDevicePanelName @ 0x140823928 (_CmValidateDevicePanelName.c)
+ *     _CmGetMatchingDevicePanelList @ 0x140823988 (_CmGetMatchingDevicePanelList.c)
+ *     _CmGetDevicePanelMappedProperty @ 0x140A63830 (_CmGetDevicePanelMappedProperty.c)
+ *     _CmGetDevicePanelMappedPropertyKeys @ 0x140A63950 (_CmGetDevicePanelMappedPropertyKeys.c)
+ *     _CmGetDevicePanelMappedPropertyLocales @ 0x140A639E0 (_CmGetDevicePanelMappedPropertyLocales.c)
+ *     _CmOpenDevicePanelRegKey @ 0x140A63B24 (_CmOpenDevicePanelRegKey.c)
+ *     _CmSetDevicePanelMappedProperty @ 0x140A64260 (_CmSetDevicePanelMappedProperty.c)
+ */
+
 __int64 __fastcall PnpDispatchDevicePanel(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(); // r8

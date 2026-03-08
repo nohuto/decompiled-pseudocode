@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$ProcessLocalStorage@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x1400051BC
+ * Callers:
+ *     wil::details::_dynamic_atexit_destructor_for__g_processLocalData__ @ 0x1400072E0 (wil--details--_dynamic_atexit_destructor_for__g_processLocalData__.c)
+ * Callees:
+ *     ?Release@?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAXXZ @ 0x140009F80 (-Release@-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall wil::details_abi::ProcessLocalStorage<wil::details_abi::ProcessLocalData>::~ProcessLocalStorage<wil::details_abi::ProcessLocalData>(
         __int64 a1)
 {

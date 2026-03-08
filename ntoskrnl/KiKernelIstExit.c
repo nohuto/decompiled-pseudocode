@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiKernelIstExit @ 0x140AF4C40
+ * Callers:
+ *     KiDebugTrapOrFault @ 0x140423580 (KiDebugTrapOrFault.c)
+ *     KiNmiInterruptStart @ 0x140423B80 (KiNmiInterruptStart.c)
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void __fastcall KiKernelIstExit(
         __int64 a1,

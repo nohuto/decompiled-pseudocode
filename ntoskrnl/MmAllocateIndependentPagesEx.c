@@ -1,3 +1,36 @@
+/*
+ * XREFs of MmAllocateIndependentPagesEx @ 0x140869ADC
+ * Callers:
+ *     KiAllocateProcessorStacks @ 0x1403723C0 (KiAllocateProcessorStacks.c)
+ *     ExCreatePoolTagTable @ 0x14080AC00 (ExCreatePoolTagTable.c)
+ *     HvlInitializeProcessor @ 0x14080AFA0 (HvlInitializeProcessor.c)
+ *     MmAllocateIsrStack @ 0x14080AFF0 (MmAllocateIsrStack.c)
+ *     MmAllocateIndependentPages @ 0x140869AC0 (MmAllocateIndependentPages.c)
+ *     HvlpPreallocatePageListResources @ 0x14093E770 (HvlpPreallocatePageListResources.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140949C84 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14094A230 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x14094AC38 (IopLiveDumpAllocateIptBuffers.c)
+ *     HvpAllocateNonPagedBin @ 0x140A274CC (HvpAllocateNonPagedBin.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiInitializePfn @ 0x140289DB0 (MiInitializePfn.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiGetNextPageColor @ 0x1402A6DC8 (MiGetNextPageColor.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiReturnPoolCharges @ 0x1402D89F8 (MiReturnPoolCharges.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiObtainPoolCharges @ 0x1402EDAA0 (MiObtainPoolCharges.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ */
+
 __int64 __fastcall MmAllocateIndependentPagesEx(unsigned __int64 a1, int a2, _QWORD *a3, unsigned int a4)
 {
   unsigned __int64 v6; // rsi

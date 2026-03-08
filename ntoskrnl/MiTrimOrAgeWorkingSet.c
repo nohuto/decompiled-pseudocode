@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiTrimOrAgeWorkingSet @ 0x1402245D0
+ * Callers:
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ * Callees:
+ *     MiDetachAndUnlockWorkingSet @ 0x14020CF74 (MiDetachAndUnlockWorkingSet.c)
+ *     MiAgeWorkingSet @ 0x1402248A0 (MiAgeWorkingSet.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiAttachWorkingSet @ 0x1402D4FE4 (MiAttachWorkingSet.c)
+ *     MiCheckAndProcessCcAccessLog @ 0x1402DC3D4 (MiCheckAndProcessCcAccessLog.c)
+ *     MiTrimWorkingSet @ 0x1402F08AC (MiTrimWorkingSet.c)
+ *     PfLogForegroundProcess @ 0x1402F5C50 (PfLogForegroundProcess.c)
+ *     MiCaptureAndResetWorkingSetAccessBits @ 0x1402F6AAC (MiCaptureAndResetWorkingSetAccessBits.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140301814 (MiEmptyWorkingSetInitiate.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiDrainOldAccessBuffers @ 0x140330C2C (MiDrainOldAccessBuffers.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeTrimAmount @ 0x140632094 (MiComputeTrimAmount.c)
+ */
+
 __int64 __fastcall MiTrimOrAgeWorkingSet(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // r14

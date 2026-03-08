@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIIrpCompletionRoutineWorker @ 0x1C007BDE0
+ * Callers:
+ *     ACPIIrpGenericFilterCompletionHandler @ 0x1C000AAD0 (ACPIIrpGenericFilterCompletionHandler.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ */
+
 void __fastcall ACPIIrpCompletionRoutineWorker(ULONG_PTR DeviceObject, PVOID Context)
 {
   __int64 DeviceExtension; // rax

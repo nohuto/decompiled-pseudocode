@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvBufferCheckSum @ 0x140734F0C
+ * Callers:
+ *     CmLogTmRmAction @ 0x14073478C (CmLogTmRmAction.c)
+ *     CmAddLogForAction @ 0x14073485C (CmAddLogForAction.c)
+ *     CmpVerifyLogRecord @ 0x140A1C5E0 (CmpVerifyLogRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvBufferCheckSum(__int64 a1, unsigned int a2)
 {
   int v2; // r9d

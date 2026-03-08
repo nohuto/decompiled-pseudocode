@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlCheckOplock @ 0x14023BB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockStoreKeyForDeleteOperation @ 0x14023BBE0 (FsRtlpOplockStoreKeyForDeleteOperation.c)
+ */
+
 NTSTATUS __stdcall FsRtlCheckOplock(
         POPLOCK Oplock,
         PIRP Irp,

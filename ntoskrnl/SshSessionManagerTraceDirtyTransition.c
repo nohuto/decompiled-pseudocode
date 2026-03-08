@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshSessionManagerTraceDirtyTransition @ 0x1407FBAD8
+ * Callers:
+ *     PopDiagTraceDirtyTransition @ 0x140B32210 (PopDiagTraceDirtyTransition.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 __int64 SshSessionManagerTraceDirtyTransition()
 {
   int v0; // eax

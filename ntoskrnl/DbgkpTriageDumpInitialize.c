@@ -1,3 +1,12 @@
+/*
+ * XREFs of DbgkpTriageDumpInitialize @ 0x14093921C
+ * Callers:
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 __int64 __fastcall DbgkpTriageDumpInitialize(
         __int64 a1,
         __int64 a2,

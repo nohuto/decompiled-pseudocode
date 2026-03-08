@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiSelectUserAddress @ 0x1407D6D30
+ * Callers:
+ *     MiMapLockedPagesInUserSpace @ 0x140725C90 (MiMapLockedPagesInUserSpace.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140756084 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A2E020 (MiMapViewOfPhysicalSection.c)
+ *     MiAllocateEnclaveVad @ 0x140A3A010 (MiAllocateEnclaveVad.c)
+ * Callees:
+ *     MiInitializeVadCellBitMap @ 0x140729460 (MiInitializeVadCellBitMap.c)
+ *     MiFindEmptyAddressRangeDown @ 0x140760E10 (MiFindEmptyAddressRangeDown.c)
+ *     MiFindEmptyAddressRange @ 0x1407D6F10 (MiFindEmptyAddressRange.c)
+ */
+
 __int64 __fastcall MiSelectUserAddress(
         int a1,
         unsigned __int64 a2,

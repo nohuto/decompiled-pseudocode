@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiUpdatePriorityMatrixForRunningTransition @ 0x140576224
+ * Callers:
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiUpdatePriorityMatrixForRunningTransition(__int64 a1, __int64 a2)
 {
   int v2; // eax

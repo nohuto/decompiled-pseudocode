@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfSnAsyncContextInitialize @ 0x1407DFF7C
+ * Callers:
+ *     PfSnPrefetchScenario @ 0x1407E1578 (PfSnPrefetchScenario.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     PfSnReferenceProcessTrace @ 0x14028D560 (PfSnReferenceProcessTrace.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall PfSnAsyncContextInitialize(_QWORD *a1, __int64 a2, __int64 a3, int a4)
 {
   _KPROCESS *Process; // rcx

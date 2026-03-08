@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLangIdMatchLevel@@YAHPEAUHKL__@@G@Z @ 0x1C01FE638
+ * Callers:
+ *     ?FindImeHotKeyByKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@III@Z @ 0x1C0009EC4 (-FindImeHotKeyByKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@III@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetLangIdMatchLevel(HKL a1, unsigned __int16 a2)
 {
   unsigned int v3; // ebx

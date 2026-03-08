@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiWalkPageTablesRecursively @ 0x140223160
+ * Callers:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ * Callees:
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ *     MiComputePxeWalkAction @ 0x140223D30 (MiComputePxeWalkAction.c)
+ *     MiGetNextPageTablePte @ 0x140224090 (MiGetNextPageTablePte.c)
+ *     MiRecomputeWalkHierarchy @ 0x140224510 (MiRecomputeWalkHierarchy.c)
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiGetPageTableLockBuffer @ 0x140290838 (MiGetPageTableLockBuffer.c)
+ *     MiYieldPageTableWalk @ 0x1402D4558 (MiYieldPageTableWalk.c)
+ *     MiAdvanceToLastUntrimmableVa @ 0x1402EC17C (MiAdvanceToLastUntrimmableVa.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FB09C (EtwTraceShouldYieldProcessor.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ */
+
 __int64 __fastcall MiWalkPageTablesRecursively(
         unsigned int *a1,
         unsigned __int64 a2,

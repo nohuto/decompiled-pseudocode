@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpDeviceCompletionProcessCompletedRequests @ 0x1406CD318
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PnpDeviceCompletionQueueIsEmpty @ 0x1402454DC (PnpDeviceCompletionQueueIsEmpty.c)
+ *     PnpDeviceCompletionQueueGetCompletedRequest @ 0x1403A0050 (PnpDeviceCompletionQueueGetCompletedRequest.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140685424 (PnpDeviceCompletionProcessCompletedRequest.c)
+ */
+
 __int64 __fastcall PnpDeviceCompletionProcessCompletedRequests(int a1, int a2, _BYTE *a3)
 {
   unsigned int v6; // ebx

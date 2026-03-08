@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_FeatureReporting_RecordUsageInCache @ 0x180110FFC
+ * Callers:
+ *     ?ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_details_ServiceReportingKind@@I_KE@Z @ 0x180039364 (-ReportUsageToServiceDirect@details@wil@@YAHPEAUwil_details_FeatureReportingCache@@IHHW4wil_deta.c)
+ * Callees:
+ *     wil_details_FeatureReporting_IncrementOpportunityInCache @ 0x180110E0C (wil_details_FeatureReporting_IncrementOpportunityInCache.c)
+ *     wil_details_FeatureReporting_IncrementUsageInCache @ 0x180110F00 (wil_details_FeatureReporting_IncrementUsageInCache.c)
+ */
+
 __int64 __fastcall wil_details_FeatureReporting_RecordUsageInCache(__int64 a1, volatile signed __int32 *a2, __int64 a3)
 {
   int v5; // edi

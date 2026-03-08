@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIAsyncAcquireGlobalLock @ 0x1C0039130
+ * Callers:
+ *     ACPIIoctlAcquireGlobalLock @ 0x1C002F39C (ACPIIoctlAcquireGlobalLock.c)
+ *     GlobalLockEventHandler @ 0x1C0039690 (GlobalLockEventHandler.c)
+ * Callees:
+ *     ACPIAcquireHardwareGlobalLock @ 0x1C0004C30 (ACPIAcquireHardwareGlobalLock.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ */
+
 __int64 __fastcall ACPIAsyncAcquireGlobalLock(__int64 a1)
 {
   KIRQL v2; // si

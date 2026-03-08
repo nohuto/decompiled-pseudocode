@@ -1,3 +1,36 @@
+/*
+ * XREFs of MiUnmapViewOfSection @ 0x1406A2570
+ * Callers:
+ *     MmUnmapViewOfSection @ 0x1406A07B0 (MmUnmapViewOfSection.c)
+ *     AlpcViewDestroyProcedure @ 0x1406A2290 (AlpcViewDestroyProcedure.c)
+ *     NtUnmapViewOfSectionEx @ 0x1406A24A0 (NtUnmapViewOfSectionEx.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     MiMapViewOfSection @ 0x1407D51F0 (MiMapViewOfSection.c)
+ *     EtwpCoverageEnsureUserModeView @ 0x140871504 (EtwpCoverageEnsureUserModeView.c)
+ *     IopCloseIoRing @ 0x140946200 (IopCloseIoRing.c)
+ *     PsShutdownSystem @ 0x1409B05A4 (PsShutdownSystem.c)
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ *     MiUnmapImageForEnclaveUse @ 0x140A3BD1C (MiUnmapImageForEnclaveUse.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiVadMapsLargeImage @ 0x140327280 (MiVadMapsLargeImage.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiUpdateVadStartVpn @ 0x14034CF40 (MiUpdateVadStartVpn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiCheckSecuredVad @ 0x1406A0F38 (MiCheckSecuredVad.c)
+ *     DbgkUnMapViewOfSection @ 0x1406A10EC (DbgkUnMapViewOfSection.c)
+ *     MiUnmapVad @ 0x1406A2850 (MiUnmapVad.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     PerfLogImageUnload @ 0x1407EA8E0 (PerfLogImageUnload.c)
+ */
+
 __int64 __fastcall MiUnmapViewOfSection(PRKPROCESS PROCESS, unsigned __int64 a2, int a3, int a4)
 {
   __int64 v4; // rsi

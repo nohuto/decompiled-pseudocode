@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpStoreFreeCr3 @ 0x1403A3C2C
+ * Callers:
+ *     HalpMapCR3Ex @ 0x140A8D980 (HalpMapCR3Ex.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpStoreFreeCr3(__int64 a1)
 {
   __int64 result; // rax

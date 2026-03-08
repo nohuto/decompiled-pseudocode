@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserAddAtomToAtomTableEx @ 0x1C00BE980
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?LkdForAtomAdditionFailure@@YAXPEAXJ@Z @ 0x1C017BB80 (-LkdForAtomAdditionFailure@@YAXPEAXJ@Z.c)
+ */
+
 __int64 __fastcall UserAddAtomToAtomTableEx(struct _RTL_ATOM_TABLE *a1, __int64 a2, int a3, __int64 a4)
 {
   int v6; // ebx

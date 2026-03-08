@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseD2DResources@CD2DBitmap@@MEAAXXZ @ 0x18029C3C0
+ * Callers:
+ *     ?ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ @ 0x18029C670 (-ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD2DBitmap::ReleaseD2DResources(CD2DBitmap *this)
 {
   __int64 v2; // rcx

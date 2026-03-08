@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDrvDbDriverStoreNodesUpdated @ 0x14081C56C
+ * Callers:
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbUnregisterNode @ 0x14096E504 (PiDrvDbUnregisterNode.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ */
+
 __int64 PiDrvDbDriverStoreNodesUpdated()
 {
   int v1; // [rsp+50h] [rbp+8h] BYREF

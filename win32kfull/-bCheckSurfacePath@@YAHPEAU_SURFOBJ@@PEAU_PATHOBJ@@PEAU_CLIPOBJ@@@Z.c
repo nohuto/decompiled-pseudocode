@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bCheckSurfacePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C02CA0DC
+ * Callers:
+ *     NtGdiEngFillPath @ 0x1C02CC0E0 (NtGdiEngFillPath.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02CDA40 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C02CDD70 (NtGdiEngStrokePath.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall bCheckSurfacePath(struct _SURFOBJ *a1, struct _PATHOBJ *a2, struct _CLIPOBJ *a3)
 {
   unsigned int v4; // r9d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpCloudbookHardwareLockedProvider @ 0x140859D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpOsProductCacheProviderHelper @ 0x140859E94 (ExpOsProductCacheProviderHelper.c)
+ */
+
 __int64 __fastcall ExpCloudbookHardwareLockedProvider(
         __int64 a1,
         _DWORD *a2,

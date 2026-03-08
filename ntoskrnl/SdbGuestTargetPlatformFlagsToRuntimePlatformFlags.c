@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbGuestTargetPlatformFlagsToRuntimePlatformFlags @ 0x140A4F724
+ * Callers:
+ *     SdbResolveDatabaseEx @ 0x140A4FB10 (SdbResolveDatabaseEx.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGuestHostArchsToRuntimePlatformFlag @ 0x140A4F678 (SdbGuestHostArchsToRuntimePlatformFlag.c)
+ *     AslEnvGetProcessWowInfo @ 0x140A54488 (AslEnvGetProcessWowInfo.c)
+ *     AslEnvVerifyGuestProcessorSupport @ 0x140A54AAC (AslEnvVerifyGuestProcessorSupport.c)
+ */
+
 __int64 __fastcall SdbGuestTargetPlatformFlagsToRuntimePlatformFlags(int a1)
 {
   unsigned int v1; // edi

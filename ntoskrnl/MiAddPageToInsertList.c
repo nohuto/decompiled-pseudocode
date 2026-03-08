@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAddPageToInsertList @ 0x1402848D0
+ * Callers:
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402DFCF4 (MiInsertProtectedStandbyPage.c)
+ * Callees:
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     MiCanBatchHardFaultPages @ 0x140284A30 (MiCanBatchHardFaultPages.c)
+ *     MiEnqueuePageList @ 0x140285CB0 (MiEnqueuePageList.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MiHardFaultPageRelease @ 0x140287C78 (MiHardFaultPageRelease.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiCanBatchSystemCacheUnmapPages @ 0x14062C6E4 (MiCanBatchSystemCacheUnmapPages.c)
+ */
+
 __int64 __fastcall MiAddPageToInsertList(__int64 a1, _BYTE *a2, __int64 a3)
 {
   int v3; // ebp

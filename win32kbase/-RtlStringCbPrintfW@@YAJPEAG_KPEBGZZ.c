@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C0710
+ * Callers:
+ *     ?GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z @ 0x1C00C0604 (-GetAlpcPortName@ServerPorts@CoreMessagingK@@CAJPEBU_GUID@@PEAU_UNICODE_STRING@@@Z.c)
+ *     ?ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z @ 0x1C00D69FC (-ScaleOverrideTestHookCore@DpiInternal@@YAXQEBGPEAK@Z.c)
+ * Callees:
+ *     _vsnwprintf @ 0x1C00DAA34 (_vsnwprintf.c)
+ */
+
 __int64 RtlStringCbPrintfW(unsigned __int16 *a1, unsigned __int64 a2, const unsigned __int16 *a3, ...)
 {
   unsigned __int64 v3; // rdx

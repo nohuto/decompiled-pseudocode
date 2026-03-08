@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUnloadHotPatchForUserSid @ 0x140A3940C
+ * Callers:
+ *     NtManageHotPatch @ 0x140784740 (NtManageHotPatch.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiDeleteHotPatchRecord @ 0x140A33BA4 (MiDeleteHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x140A3420C (MiFindUserSidHotPatchContext.c)
+ *     MiHotPatchAllProcesses @ 0x140A34748 (MiHotPatchAllProcesses.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiUnloadHotPatchForUserSid(void *a1, int *a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

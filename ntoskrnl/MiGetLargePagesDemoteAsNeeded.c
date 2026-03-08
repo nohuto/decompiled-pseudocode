@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetLargePagesDemoteAsNeeded @ 0x14034DF94
+ * Callers:
+ *     MiGetLargePageChain @ 0x1402E98A8 (MiGetLargePageChain.c)
+ *     MiGetFastLargePages @ 0x14034D588 (MiGetFastLargePages.c)
+ *     MiFindLargeNodePage @ 0x14061B228 (MiFindLargeNodePage.c)
+ * Callees:
+ *     MiUnlinkNodeLargePages @ 0x14034EB80 (MiUnlinkNodeLargePages.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ */
+
 __int64 __fastcall MiGetLargePagesDemoteAsNeeded(
         __int64 a1,
         unsigned int a2,

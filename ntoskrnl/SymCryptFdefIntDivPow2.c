@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntDivPow2 @ 0x1403FD77C
+ * Callers:
+ *     SymCryptIntDivPow2 @ 0x1403F380C (SymCryptIntDivPow2.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ */
+
 unsigned __int64 __fastcall SymCryptFdefIntDivPow2(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 result; // rax

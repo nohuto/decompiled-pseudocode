@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmCrEncCleanup @ 0x140770FE4
+ * Callers:
+ *     ?StCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402E6DD8 (-StCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     BCryptCloseAlgorithmProvider @ 0x1403892D4 (BCryptCloseAlgorithmProvider.c)
+ *     BCryptDestroyKey @ 0x1405B52AC (BCryptDestroyKey.c)
+ */
+
 void __fastcall SmCrEncCleanup(__int64 a1, ULONG a2)
 {
   struct _PRIVILEGE_SET *v3; // rcx

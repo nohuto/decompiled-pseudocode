@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreExtCreatePen @ 0x1C00E8994
+ * Callers:
+ *     GreCreatePen @ 0x1C00E8908 (GreCreatePen.c)
+ *     NtGdiExtCreatePen @ 0x1C014FEC0 (NtGdiExtCreatePen.c)
+ * Callees:
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00E8C20 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00E8CA0 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02D2CD4 (-hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z.c)
+ *     GreCreateDIBBrush @ 0x1C02D2D2C (GreCreateDIBBrush.c)
+ */
+
 __int64 __fastcall GreExtCreatePen(
         int a1,
         int a2,

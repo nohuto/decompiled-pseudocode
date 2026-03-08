@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopFxUnregisterDevice @ 0x140982DC4
+ * Callers:
+ *     PopFxUnregisterDeviceOrWait @ 0x1408803F8 (PopFxUnregisterDeviceOrWait.c)
+ *     PoFxUnregisterDevice @ 0x140981B50 (PoFxUnregisterDevice.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PoFxActivateComponent @ 0x140305CE0 (PoFxActivateComponent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PopFxAssignDeviceToDevNode @ 0x140393BD4 (PopFxAssignDeviceToDevNode.c)
+ *     IoReleaseRemoveLockAndWaitEx @ 0x1403D0F90 (IoReleaseRemoveLockAndWaitEx.c)
+ *     PopFxComponentRelationsCleanup @ 0x140587474 (PopFxComponentRelationsCleanup.c)
+ *     PopFxDestroyDeviceDpm @ 0x14058779C (PopFxDestroyDeviceDpm.c)
+ *     PopFxDeviceRelationsCleanup @ 0x140587938 (PopFxDeviceRelationsCleanup.c)
+ *     PopFxRemoveDevice @ 0x140589250 (PopFxRemoveDevice.c)
+ *     PopPluginUnregisterDevice @ 0x14058A6DC (PopPluginUnregisterDevice.c)
+ *     PopPlUnregisterDevice @ 0x14059F9D0 (PopPlUnregisterDevice.c)
+ *     PopDiagTraceFxDeviceUnregistration @ 0x14098C5AC (PopDiagTraceFxDeviceUnregistration.c)
+ *     PopPepUnregisterDevice @ 0x14099A948 (PopPepUnregisterDevice.c)
+ */
+
 void __fastcall PopFxUnregisterDevice(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v2; // eax

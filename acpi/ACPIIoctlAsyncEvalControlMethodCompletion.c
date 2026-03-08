@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIIoctlAsyncEvalControlMethodCompletion @ 0x1C002F6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIIoctlEvalPostProcessingV2 @ 0x1C000449A (ACPIIoctlEvalPostProcessingV2.c)
+ *     ACPIIoctlEvalPostProcessingV1 @ 0x1C002FD84 (ACPIIoctlEvalPostProcessingV1.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 void __fastcall ACPIIoctlAsyncEvalControlMethodCompletion(__int64 a1, int a2, void *a3, IRP *a4)
 {
   void *v5; // rdi

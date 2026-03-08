@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfStringCreate @ 0x1C00B70E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall imp_VfWdfStringCreate(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         const _UNICODE_STRING *UnicodeString,

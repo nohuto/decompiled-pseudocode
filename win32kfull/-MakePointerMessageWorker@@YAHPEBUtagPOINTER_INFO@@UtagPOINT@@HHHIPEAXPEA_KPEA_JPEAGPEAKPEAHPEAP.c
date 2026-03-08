@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C6DB8
+ * Callers:
+ *     ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C6CC4 (-MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     GetDPITransformationMonitor @ 0x1C01BAD54 (GetDPITransformationMonitor.c)
+ */
+
 __int64 __fastcall MakePointerMessageWorker(
         const struct tagPOINTER_INFO *a1,
         struct tagPOINT a2,

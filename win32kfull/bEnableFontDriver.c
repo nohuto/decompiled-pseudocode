@@ -1,3 +1,11 @@
+/*
+ * XREFs of bEnableFontDriver @ 0x1C00E7360
+ * Callers:
+ *     UmfdSessionInitialize @ 0x1C00E6FB0 (UmfdSessionInitialize.c)
+ * Callees:
+ *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00E7578 (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
+ */
+
 __int64 __fastcall bEnableFontDriver(__int64 a1, unsigned int a2)
 {
   struct _LDEV *Internal; // rax

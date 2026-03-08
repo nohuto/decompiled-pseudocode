@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CCompositionSkyBoxBrush@@UEAA@XZ @ 0x180221CE4
+ * Callers:
+ *     ??_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z @ 0x180221DD0 (--_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CCompositionSkyBoxBrush::~CCompositionSkyBoxBrush(CCompositionSkyBoxBrush *this)
 {
   __int64 v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfpRpLogDeprioEvent @ 0x14035B938
+ * Callers:
+ *     PfCheckDeprioritizeFile @ 0x1407E6FF0 (PfCheckDeprioritizeFile.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ */
+
 __int64 __fastcall PfpRpLogDeprioEvent(__int64 a1, int a2, int a3)
 {
   __int64 v4; // [rsp+20h] [rbp-28h] BYREF

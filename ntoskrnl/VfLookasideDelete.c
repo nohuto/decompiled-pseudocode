@@ -1,3 +1,17 @@
+/*
+ * XREFs of VfLookasideDelete @ 0x140ADF35C
+ * Callers:
+ *     VfMiscExDeleteLookasideListEx_Entry @ 0x140ADCA90 (VfMiscExDeleteLookasideListEx_Entry.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x140303394 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 void __fastcall VfLookasideDelete(ULONG_PTR BugCheckParameter2)
 {
   struct _SLIST_ENTRY *v2; // rbx

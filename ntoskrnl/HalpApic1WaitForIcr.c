@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApic1WaitForIcr @ 0x140518660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpApic1WaitForIcr()
 {
   __int64 result; // rax

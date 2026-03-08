@@ -1,3 +1,14 @@
+/*
+ * XREFs of BapdpRecordIumStatus @ 0x140B44430
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     BapdRegisterEtwProvider @ 0x14038069C (BapdRegisterEtwProvider.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ */
+
 int BapdpRecordIumStatus()
 {
   int result; // eax

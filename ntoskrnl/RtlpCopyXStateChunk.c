@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpCopyXStateChunk @ 0x1403D1A88
+ * Callers:
+ *     RtlpCopyExtendedContext @ 0x140364B00 (RtlpCopyExtendedContext.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlpCopyXStateChunk(char a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   unsigned int v6; // esi

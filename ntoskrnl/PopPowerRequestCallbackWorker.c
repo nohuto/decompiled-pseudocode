@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopPowerRequestCallbackWorker @ 0x1402BC180
+ * Callers:
+ *     PopPowerRequestReferenceRelease @ 0x1402BA084 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestHandleClose @ 0x1402BBD4C (PopPowerRequestHandleClose.c)
+ *     PopPowerRequestReferenceAcquire @ 0x1402BBDF0 (PopPowerRequestReferenceAcquire.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopReleasePowerRequestPushLock @ 0x14073B67C (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestStatsSetActive @ 0x14073BEE8 (PopPowerRequestStatsSetActive.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x14073BF54 (PopPowerRequestHandleRequestUpdate.c)
+ */
+
 __int64 __fastcall PopPowerRequestCallbackWorker(__int64 *a1)
 {
   __int64 *v1; // r14

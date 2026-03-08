@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C007CAB0
+ * Callers:
+ *     GreGetPaletteEntries @ 0x1C007BA80 (GreGetPaletteEntries.c)
+ *     EngQueryPalette @ 0x1C0293F70 (EngQueryPalette.c)
+ *     NtGdiColorCorrectPalette @ 0x1C02D0DA0 (NtGdiColorCorrectPalette.c)
+ *     GreGetSystemPaletteEntries @ 0x1C02D3540 (GreGetSystemPaletteEntries.c)
+ *     PALOBJ_cGetColors @ 0x1C02DAFE0 (PALOBJ_cGetColors.c)
+ *     XLATEOBJ_cGetPalette @ 0x1C02DDE00 (XLATEOBJ_cGetPalette.c)
+ *     ?bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z @ 0x1C02E0688 (-bSetHTSrcSurfInfo@@YAHPEAU_SURFOBJ@@VXEPALOBJ@@PEAU_HTSURFACEINFO@@PEAU_XLATEOBJ@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall XEPALOBJ::ulGetEntries(
         XEPALOBJ *this,
         unsigned int a2,

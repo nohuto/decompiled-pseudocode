@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0247FEC
+ * Callers:
+ *     ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0247EA8 (-Deinitialize@InteractiveControlDevice@@QEAAXXZ.c)
+ *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C024897C (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InteractiveControlDevice::DestroyDeadzone(InteractiveControlDevice *this)
 {
   __int64 v2; // rcx

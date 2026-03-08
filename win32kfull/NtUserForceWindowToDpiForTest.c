@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserForceWindowToDpiForTest @ 0x1C01D0A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     xxxForceWindowToDpiForTest @ 0x1C01BBDC8 (xxxForceWindowToDpiForTest.c)
+ */
+
 __int64 __fastcall NtUserForceWindowToDpiForTest(__int64 a1, int a2)
 {
   __int64 v4; // rax

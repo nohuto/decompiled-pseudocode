@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiValidateVadMetadataFlags @ 0x1407D5750
+ * Callers:
+ *     MiMapViewOfSection @ 0x1407D51F0 (MiMapViewOfSection.c)
+ * Callees:
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ */
+
 __int64 __fastcall MiValidateVadMetadataFlags(__int64 a1)
 {
   int v1; // r9d

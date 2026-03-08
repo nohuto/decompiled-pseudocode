@@ -1,3 +1,11 @@
+/*
+ * XREFs of hCreateKernelTimer @ 0x1C0159900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 void *__fastcall hCreateKernelTimer(TIMER_TYPE TimerType)
 {
   NTSTATUS v1; // eax

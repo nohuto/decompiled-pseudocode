@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepHasCriticalAcesRemoved @ 0x14074E8C0
+ * Callers:
+ *     SepCheckForCriticalAceRemoval @ 0x1402438A8 (SepCheckForCriticalAceRemoval.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     RtlGetControlSecurityDescriptor @ 0x140750B60 (RtlGetControlSecurityDescriptor.c)
+ */
+
 int __fastcall SepHasCriticalAcesRemoved(void *a1, void *a2, _BYTE *a3, _BYTE *a4)
 {
   __int64 AclSize; // rax

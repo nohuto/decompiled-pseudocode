@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmPerformMemoryListCommand @ 0x140A849F4
+ * Callers:
+ *     PfpLogScenarioEvent @ 0x14073A758 (PfpLogScenarioEvent.c)
+ *     MmIssueMemoryListCommand @ 0x14085E358 (MmIssueMemoryListCommand.c)
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140A9CFDC (PfpPowerActionStartScenarioTracing.c)
+ *     PopVerifierFlushMemoryBeforeSleep @ 0x140AA46C4 (PopVerifierFlushMemoryBeforeSleep.c)
+ * Callees:
+ *     MiCaptureAllWorkingSetAccessBits @ 0x1402B8A14 (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiEmptyAllWorkingSets @ 0x1406322B8 (MiEmptyAllWorkingSets.c)
+ *     MiFlushAllPages @ 0x1406377FC (MiFlushAllPages.c)
+ *     MiPurgePartitionStandby @ 0x14064EF50 (MiPurgePartitionStandby.c)
+ */
+
 __int64 MmPerformMemoryListCommand()
 {
   __int64 ProcessPartition; // rax

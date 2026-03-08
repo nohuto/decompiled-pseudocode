@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopWriteBsdPoInfo @ 0x1402B9F3C
+ * Callers:
+ *     PopBsdFlush @ 0x14073AE24 (PopBsdFlush.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopDiagTraceBsdWriteTime @ 0x1402B9E34 (PopDiagTraceBsdWriteTime.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlSetSystemBootStatus @ 0x14073AEB0 (RtlSetSystemBootStatus.c)
+ *     PopQpcTimeInMs @ 0x140A84A40 (PopQpcTimeInMs.c)
+ */
+
 void __fastcall PopWriteBsdPoInfo(unsigned int a1)
 {
   unsigned int v2; // ebx

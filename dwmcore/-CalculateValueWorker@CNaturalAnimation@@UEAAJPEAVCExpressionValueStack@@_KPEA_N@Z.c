@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180238E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ToMilliseconds@TimeDelta@@QEBAHXZ @ 0x1800E3CC4 (-ToMilliseconds@TimeDelta@@QEBAHXZ.c)
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180238A9C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x18023A3A4 (-PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z.c)
+ *     ?SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x18023AC9C (-SetupAnimationIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CNaturalAnimation::CalculateValueWorker(
         CNaturalAnimation *this,
         struct CExpressionValueStack *a2,

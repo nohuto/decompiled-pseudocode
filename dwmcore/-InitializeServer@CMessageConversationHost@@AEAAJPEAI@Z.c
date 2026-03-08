@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x1800FC710
+ * Callers:
+ *     ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800FC370 (-Initialize@CMessageConversationHost@@AEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMessageConversationHost::InitializeServer(CMessageConversationHost *this, unsigned int *a2)
 {
   PSECURITY_DESCRIPTOR v4; // rdi

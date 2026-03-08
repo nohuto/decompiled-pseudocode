@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CScalarMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0261FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CScalarMarshaler::EmitUpdateCommands(
         DirectComposition::CScalarMarshaler *this,
         struct DirectComposition::CBatch ***a2)

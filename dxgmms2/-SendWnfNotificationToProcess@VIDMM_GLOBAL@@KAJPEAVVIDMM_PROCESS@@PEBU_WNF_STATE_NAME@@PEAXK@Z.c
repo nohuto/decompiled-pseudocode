@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SendWnfNotificationToProcess@VIDMM_GLOBAL@@KAJPEAVVIDMM_PROCESS@@PEBU_WNF_STATE_NAME@@PEAXK@Z @ 0x1C00A7AC4
+ * Callers:
+ *     ?HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C00A70D0 (-HandleTrimWnf@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     SendWnfNotificationToVmProcess @ 0x1C002D098 (SendWnfNotificationToVmProcess.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::SendWnfNotificationToProcess(
         struct VIDMM_PROCESS *a1,
         struct _WNF_STATE_NAME *a2,

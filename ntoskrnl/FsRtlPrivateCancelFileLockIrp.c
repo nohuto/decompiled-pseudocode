@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlPrivateCancelFileLockIrp @ 0x14053B390
+ * Callers:
+ *     FsRtlPrivateLock @ 0x1402C21B0 (FsRtlPrivateLock.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlCompleteLockIrpReal @ 0x140456B80 (FsRtlCompleteLockIrpReal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall FsRtlPrivateCancelFileLockIrp(__int64 a1, IRP *a2)
 {
   ULONG_PTR Information; // rdi

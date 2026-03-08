@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalGetDmaAdapterInfo @ 0x14050CD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalGetDmaAdapterInfo(__int64 a1, _DWORD *a2)
 {
   int v3; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vCopy_rgbquad@XEPALOBJ@@QEAAXPEAUtagRGBQUAD@@KK@Z @ 0x1C00D91B8
+ * Callers:
+ *     ?GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX@Z @ 0x1C008C990 (-GreStretchDIBitsInternalImpl@@YAHPEAUHDC__@@HHHHHHHHAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KKIPEAX.c)
+ *     GreSetDIBColorTable @ 0x1C02D3CA0 (GreSetDIBColorTable.c)
+ * Callees:
+ *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C00D922C (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall XEPALOBJ::vCopy_rgbquad(XEPALOBJ *this, struct tagRGBQUAD *a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // rax

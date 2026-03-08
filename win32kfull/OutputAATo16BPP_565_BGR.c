@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo16BPP_565_BGR @ 0x1C025A730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OutputAATo16BPP_565_BGR(
         unsigned int *a1,
         unsigned __int8 *a2,

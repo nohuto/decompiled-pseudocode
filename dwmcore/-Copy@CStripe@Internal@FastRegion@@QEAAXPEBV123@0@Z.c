@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x180047CF8
+ * Callers:
+ *     ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180046BB8 (-Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ *     ?Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18004705C (-Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FastRegion::Internal::CStripe::Copy(
         FastRegion::Internal::CStripe *this,
         const struct FastRegion::Internal::CStripe *a2,

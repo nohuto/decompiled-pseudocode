@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_GetNextEvent @ 0x1C000C6FC
+ * Callers:
+ *     ESM_RunStateMachine @ 0x1C000C510 (ESM_RunStateMachine.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ESM_GetNextEvent(__int64 a1)
 {
   __int64 v1; // r9

@@ -1,3 +1,25 @@
+/*
+ * XREFs of DpiPdoHandleChildConnectionChange @ 0x1C02009DC
+ * Callers:
+ *     DxgkQueryConnectionChanges @ 0x1C001BFA0 (DxgkQueryConnectionChanges.c)
+ *     DpiFdoHandleTargetConnectionState @ 0x1C0397A98 (DpiFdoHandleTargetConnectionState.c)
+ * Callees:
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A240 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     Feature_OnlyHandlingLidSwitchInBroker__private_ReportDeviceUsage @ 0x1C0026868 (Feature_OnlyHandlingLidSwitchInBroker__private_ReportDeviceUsage.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkIsConsoleSessionDispBrokerEnabled @ 0x1C0171D70 (DxgkIsConsoleSessionDispBrokerEnabled.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     MonitorCreatePhysicalMonitor @ 0x1C01FA828 (MonitorCreatePhysicalMonitor.c)
+ *     MonitorNotifyDeviceNodeReady @ 0x1C01FB0DC (MonitorNotifyDeviceNodeReady.c)
+ *     MonitorCancelSkippedDepartures @ 0x1C0200D8C (MonitorCancelSkippedDepartures.c)
+ *     DpiPdoAddPdo @ 0x1C0201FA0 (DpiPdoAddPdo.c)
+ *     DpiPdoRemovePdo @ 0x1C03A53EC (DpiPdoRemovePdo.c)
+ *     DpiPdoSetMonitorDriverInterfaceState @ 0x1C03A577C (DpiPdoSetMonitorDriverInterfaceState.c)
+ *     MonitorRemovePhysicalMonitor @ 0x1C03BFFD0 (MonitorRemovePhysicalMonitor.c)
+ */
+
 __int64 __fastcall DpiPdoHandleChildConnectionChange(
         __int64 a1,
         unsigned int a2,

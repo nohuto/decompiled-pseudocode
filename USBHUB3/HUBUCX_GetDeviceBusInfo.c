@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBUCX_GetDeviceBusInfo @ 0x1C0028E94
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_GetDeviceBusInfo(__int64 a1, __int64 a2, _DWORD *a3)
 {
   _DWORD *Pool2; // rdi

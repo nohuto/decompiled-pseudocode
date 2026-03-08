@@ -1,3 +1,17 @@
+/*
+ * XREFs of AdtpBuildRegistryValueString @ 0x140A57FA4
+ * Callers:
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x1409C7074 (SeAdtRegistryValueChangedAuditAlarm.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AdtpBuildHexInt64String @ 0x140A57954 (AdtpBuildHexInt64String.c)
+ *     AdtpBuildUlongString @ 0x140A589A8 (AdtpBuildUlongString.c)
+ *     AdtpBuildReplacementString @ 0x140A59338 (AdtpBuildReplacementString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildRegistryValueString(
         int a1,
         unsigned int a2,

@@ -1,3 +1,26 @@
+/*
+ * XREFs of KeQueryLogicalProcessorRelationship @ 0x1402AA2C0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KiTryPopulateLogicalProcessorInformation @ 0x1402A9990 (KiTryPopulateLogicalProcessorInformation.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x1402AAE68 (KeQueryNodeActiveAffinityEx.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x1402AE38C (KiQuerySubNodeActiveAffinity.c)
+ *     KeGetNodePrimarySubNode @ 0x1402AE8B4 (KeGetNodePrimarySubNode.c)
+ *     KeFirstGroupAffinityEx @ 0x1402AEC40 (KeFirstGroupAffinityEx.c)
+ *     KiGetProcessorEfficiencyClass @ 0x14036A2D4 (KiGetProcessorEfficiencyClass.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall KeQueryLogicalProcessorRelationship(
         PPROCESSOR_NUMBER ProcessorNumber,
         LOGICAL_PROCESSOR_RELATIONSHIP RelationshipType,

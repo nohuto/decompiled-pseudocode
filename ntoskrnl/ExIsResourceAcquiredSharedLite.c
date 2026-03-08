@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExIsResourceAcquiredSharedLite @ 0x140336990
+ * Callers:
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     CmpDoReOpenTransKey @ 0x140A27F24 (CmpDoReOpenTransKey.c)
+ * Callees:
+ *     KxAcquireQueuedSpinLock @ 0x140336C10 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFastResourceLegacyIsAcquiredShared @ 0x1406081A8 (ExpFastResourceLegacyIsAcquiredShared.c)
+ */
+
 ULONG __stdcall ExIsResourceAcquiredSharedLite(PERESOURCE Resource)
 {
   USHORT Flag; // ax

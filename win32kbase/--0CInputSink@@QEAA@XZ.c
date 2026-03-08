@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInputSink@@QEAA@XZ @ 0x1C00AB798
+ * Callers:
+ *     ?ObjectInit@CompositionInputObject@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z @ 0x1C00AB730 (-ObjectInit@CompositionInputObject@@KAJPEAUCompositionObject@@PEAXPEAPEAVICompositionObject@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 CInputSink *__fastcall CInputSink::CInputSink(CInputSink *this)
 {
   _DWORD *v2; // rdi

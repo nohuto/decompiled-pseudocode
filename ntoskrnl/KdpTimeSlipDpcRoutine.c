@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpTimeSlipDpcRoutine @ 0x140AAD0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall KdpTimeSlipDpcRoutine(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

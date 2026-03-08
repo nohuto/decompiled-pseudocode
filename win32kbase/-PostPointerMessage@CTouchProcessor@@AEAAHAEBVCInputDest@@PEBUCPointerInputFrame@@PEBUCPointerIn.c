@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10
+ * Callers:
+ *     ?GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInputDest@@@Z @ 0x1C01F375C (-GenerateMessage@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@_KPEBUCPointerInputFrame@@IKHHVCInp.c)
+ * Callees:
+ *     ApiSetEditionPostInputMessage @ 0x1C00072A4 (ApiSetEditionPostInputMessage.c)
+ *     ApiSetEditionIsGpqForegroundAccessibleExplicit @ 0x1C000EE70 (ApiSetEditionIsGpqForegroundAccessibleExplicit.c)
+ *     CheckAccessEx @ 0x1C0016FB0 (CheckAccessEx.c)
+ *     EtwTraceUIPIInputError @ 0x1C003A560 (EtwTraceUIPIInputError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ *     ?GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z @ 0x1C007D35C (-GetQueue@CInputDest@@QEBAPEAXW4QType@1@@Z.c)
+ *     ?GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ @ 0x1C007D3C0 (-GetThreadInfo@CInputDest@@QEBAPEAUtagTHREADINFO@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     GetPointerInputSource @ 0x1C00F4410 (GetPointerInputSource.c)
+ *     ?DropInput@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@W4DropReason@12@@Z @ 0x1C01F1224 (-DropInput@Pointer@InputTraceLogging@@SAXPEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@W4DropR.c)
+ *     flagString @ 0x1C0209370 (flagString.c)
+ *     messageString @ 0x1C0209534 (messageString.c)
+ *     WPP_RECORDER_AND_TRACE_SF_LsHHsLLLL @ 0x1C0209B44 (WPP_RECORDER_AND_TRACE_SF_LsHHsLLLL.c)
+ *     ?GetExecutionEnvironment@CBaseProcessor@@KA?AW4_ProcessorExecutionEnvironment@@XZ @ 0x1C0226204 (-GetExecutionEnvironment@CBaseProcessor@@KA-AW4_ProcessorExecutionEnvironment@@XZ.c)
+ */
+
 __int64 __fastcall CTouchProcessor::PostPointerMessage(
         CTouchProcessor *this,
         const struct CInputDest *a2,

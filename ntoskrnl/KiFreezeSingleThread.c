@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiFreezeSingleThread @ 0x140355BB4
+ * Callers:
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ *     KeFreezeProcess @ 0x140355C58 (KeFreezeProcess.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ */
+
 char __fastcall KiFreezeSingleThread(__int64 a1, __int64 a2, char a3)
 {
   _UNKNOWN **v3; // rax

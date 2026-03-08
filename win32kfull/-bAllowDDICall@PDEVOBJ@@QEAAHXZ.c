@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bAllowDDICall@PDEVOBJ@@QEAAHXZ @ 0x1C029CE50
+ * Callers:
+ *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C029CEC0 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PDEVOBJ::bAllowDDICall(PDEVOBJ *this)
 {
   __int64 v1; // rdi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PipProcessPendingObjects @ 0x140B91F00
+ * Callers:
+ *     PipProcessPendingServices @ 0x140B5AF8C (PipProcessPendingServices.c)
+ *     PipProcessPendingOsExtensionResources @ 0x140B5B018 (PipProcessPendingOsExtensionResources.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14081D44C (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14086617C (_PnpCtxRegQueryValue.c)
+ *     PnpCheckDriverDependencies @ 0x140955668 (PnpCheckDriverDependencies.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipProcessPendingObjects(
         void *a1,
         __int64 (__fastcall *a2)(_BYTE *, void *, _QWORD, char *),

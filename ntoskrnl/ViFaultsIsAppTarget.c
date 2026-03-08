@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViFaultsIsAppTarget @ 0x140AD3A00
+ * Callers:
+ *     ViCreateProcessCallbackInternal @ 0x140AD3224 (ViCreateProcessCallbackInternal.c)
+ *     ViFaultsAddAppNoDuplicates @ 0x140AD34AC (ViFaultsAddAppNoDuplicates.c)
+ * Callees:
+ *     VfUtilEqualUnicodeString @ 0x140ABF66C (VfUtilEqualUnicodeString.c)
+ */
+
 __int64 __fastcall ViFaultsIsAppTarget(__int64 a1)
 {
   const void **v1; // rbx

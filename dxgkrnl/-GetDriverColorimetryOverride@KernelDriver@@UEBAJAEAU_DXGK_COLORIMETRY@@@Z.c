@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDriverColorimetryOverride@KernelDriver@@UEBAJAEAU_DXGK_COLORIMETRY@@@Z @ 0x1C0214790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetMonitorColorimetryOverride @ 0x1C02147C4 (DpiGetMonitorColorimetryOverride.c)
+ */
+
 __int64 __fastcall KernelDriver::GetDriverColorimetryOverride(KernelDriver *this, struct _DXGK_COLORIMETRY *a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiMirrorVerify @ 0x1406261B0
+ * Callers:
+ *     MmDuplicateMemory @ 0x140AA96DC (MmDuplicateMemory.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiMirrorVerify(__int64 a1)
 {
   int v1; // ebp

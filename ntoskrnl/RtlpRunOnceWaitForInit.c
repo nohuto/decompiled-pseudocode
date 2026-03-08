@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpRunOnceWaitForInit @ 0x140881418
+ * Callers:
+ *     RtlRunOnceBeginInitialize @ 0x1407A2CC0 (RtlRunOnceBeginInitialize.c)
+ * Callees:
+ *     KeWaitForAlertByThreadId @ 0x140293354 (KeWaitForAlertByThreadId.c)
+ */
+
 signed __int64 __fastcall RtlpRunOnceWaitForInit(signed __int64 a1, volatile signed __int64 *a2)
 {
   signed __int64 v3; // rax

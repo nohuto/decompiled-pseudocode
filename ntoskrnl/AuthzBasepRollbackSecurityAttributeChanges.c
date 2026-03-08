@@ -1,3 +1,14 @@
+/*
+ * XREFs of AuthzBasepRollbackSecurityAttributeChanges @ 0x14066C990
+ * Callers:
+ *     AuthzBasepFinaliseSecurityAttributesList @ 0x140297A30 (AuthzBasepFinaliseSecurityAttributesList.c)
+ * Callees:
+ *     AuthzBasepFreeSecurityAttributeValues @ 0x1402B87B0 (AuthzBasepFreeSecurityAttributeValues.c)
+ *     AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066C88C (AuthzBasepRemoveSecurityAttributeFromLists.c)
+ *     AuthzBasepRemoveSecurityAttributeValueFromLists @ 0x14066C90C (AuthzBasepRemoveSecurityAttributeValueFromLists.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall AuthzBasepRollbackSecurityAttributeChanges(_DWORD *a1, __int64 a2)
 {
   char v2; // bl

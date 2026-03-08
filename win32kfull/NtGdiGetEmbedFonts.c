@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetEmbedFonts @ 0x1C02C56A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x1C026D2B0 (-GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ.c)
+ */
+
 __int64 __fastcall NtGdiGetEmbedFonts(Gre::Base *a1)
 {
   __int64 v1; // rcx

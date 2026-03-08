@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??$_Free_non_head@V?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@std@@@?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@SAXAEAV?$allocator@U?$_List_node@UCasterEntry@CProjectedShadowScene@@PEAX@std@@@1@PEAU01@@Z @ 0x1800043B8
+ * Callers:
+ *     ?ClearCasters@CProjectedShadowScene@@AEAAXXZ @ 0x1800044B8 (-ClearCasters@CProjectedShadowScene@@AEAAXXZ.c)
+ *     ??1CProjectedShadowScene@@UEAA@XZ @ 0x1800047D4 (--1CProjectedShadowScene@@UEAA@XZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 _QWORD *__fastcall std::_List_node<CProjectedShadowScene::CasterEntry,void *>::_Free_non_head<std::allocator<std::_List_node<CProjectedShadowScene::CasterEntry,void *>>>(
         __int64 a1,
         __int64 a2)

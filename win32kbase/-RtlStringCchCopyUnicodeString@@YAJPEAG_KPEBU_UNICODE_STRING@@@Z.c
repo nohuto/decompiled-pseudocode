@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0156E48
+ * Callers:
+ *     _lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator() @ 0x1C0156CEC (_lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_--operator().c)
+ * Callees:
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1C0156ED8 (RtlUnicodeStringValidateSrcWorker.c)
+ */
+
 NTSTATUS __fastcall RtlStringCchCopyUnicodeString(char *a1, __int64 a2, const struct _UNICODE_STRING *a3, size_t a4)
 {
   NTSTATUS result; // eax

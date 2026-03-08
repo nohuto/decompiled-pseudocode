@@ -1,3 +1,18 @@
+/*
+ * XREFs of McTemplateK0cd_EtwWriteTransfer @ 0x1C00EDF1C
+ * Callers:
+ *     EtwTraceEndAppMessageProcessing @ 0x1C00A5890 (EtwTraceEndAppMessageProcessing.c)
+ *     EtwTraceEndDispatchMessage @ 0x1C00BAA80 (EtwTraceEndDispatchMessage.c)
+ *     EtwTraceBeginDispatchMessage @ 0x1C00BAAA0 (EtwTraceBeginDispatchMessage.c)
+ *     EtwTraceWakeMIT @ 0x1C00BEA10 (EtwTraceWakeMIT.c)
+ *     EtwTraceWakeRIT @ 0x1C00CDEE0 (EtwTraceWakeRIT.c)
+ *     EtwTraceEndTranslateMessage @ 0x1C00D08B0 (EtwTraceEndTranslateMessage.c)
+ *     EtwTraceBeginTranslateMessage @ 0x1C00D08D0 (EtwTraceBeginTranslateMessage.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0cd_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

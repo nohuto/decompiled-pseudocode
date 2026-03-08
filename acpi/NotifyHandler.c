@@ -1,3 +1,16 @@
+/*
+ * XREFs of NotifyHandler @ 0x1C0004EE0
+ * Callers:
+ *     AcpiNativeNotifyEventHandler @ 0x1C00376C0 (AcpiNativeNotifyEventHandler.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDD @ 0x1C0004A4C (WPP_RECORDER_SF_DDD.c)
+ *     DispatchNotification @ 0x1C0004C6E (DispatchNotification.c)
+ *     OSNotifyDeviceCheck @ 0x1C0032C80 (OSNotifyDeviceCheck.c)
+ *     OSNotifyDeviceEject @ 0x1C0032E08 (OSNotifyDeviceEject.c)
+ *     OSNotifyDeviceEnum @ 0x1C0032E9C (OSNotifyDeviceEnum.c)
+ *     OSNotifyDeviceWake @ 0x1C0032FFC (OSNotifyDeviceWake.c)
+ */
+
 __int64 __fastcall NotifyHandler(__int64 a1, int a2, __int64 a3)
 {
   int v4; // esi

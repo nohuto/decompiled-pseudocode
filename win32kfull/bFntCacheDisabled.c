@@ -1,3 +1,11 @@
+/*
+ * XREFs of bFntCacheDisabled @ 0x1C00BAB7C
+ * Callers:
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ * Callees:
+ *     bQueryFntCacheReg @ 0x1C00BAC20 (bQueryFntCacheReg.c)
+ */
+
 __int64 __fastcall bFntCacheDisabled(Gre::Base *a1)
 {
   unsigned int v1; // ebx

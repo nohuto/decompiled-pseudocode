@@ -1,3 +1,11 @@
+/*
+ * XREFs of InbvEnableBootDriver @ 0x14054C160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (*InbvEnableBootDriver())(void)
 {
   __int64 (*result)(void); // rax

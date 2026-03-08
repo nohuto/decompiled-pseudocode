@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_RemoveDeviceFromControllerDeviceList @ 0x1C0034680
+ * Callers:
+ *     UsbDevice_EvtUsbDeviceCleanupCallback @ 0x1C0048CB0 (UsbDevice_EvtUsbDeviceCleanupCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_RemoveDeviceFromControllerDeviceList(__int64 a1, __int64 a2, _QWORD *a3)
 {
   KIRQL v6; // al

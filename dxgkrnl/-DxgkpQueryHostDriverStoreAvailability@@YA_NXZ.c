@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkpQueryHostDriverStoreAvailability@@YA_NXZ @ 0x1C0350714
+ * Callers:
+ *     DxgkNotifySessionStateChange @ 0x1C01DDA00 (DxgkNotifySessionStateChange.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 char DxgkpQueryHostDriverStoreAvailability(void)
 {
   void *FileHandle; // [rsp+30h] [rbp-69h] BYREF

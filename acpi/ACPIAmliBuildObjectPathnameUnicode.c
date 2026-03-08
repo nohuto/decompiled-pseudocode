@@ -1,3 +1,25 @@
+/*
+ * XREFs of ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0
+ * Callers:
+ *     AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0007584 (AcpiDiagTraceActiveCoolingDevicePower.c)
+ *     AcpiDiagTraceConstraintEvent @ 0x1C0007AE8 (AcpiDiagTraceConstraintEvent.c)
+ *     AcpiDiagTraceDeviceActiveCooling @ 0x1C0007D80 (AcpiDiagTraceDeviceActiveCooling.c)
+ *     AcpiDiagTraceDeviceCoolingRundown @ 0x1C0007ECC (AcpiDiagTraceDeviceCoolingRundown.c)
+ *     AcpiDiagTraceDevicePassiveCooling @ 0x1C0008024 (AcpiDiagTraceDevicePassiveCooling.c)
+ *     AcpiDiagTraceFanEvent @ 0x1C0008320 (AcpiDiagTraceFanEvent.c)
+ *     AcpiDiagTraceTemperatureChange @ 0x1C0008890 (AcpiDiagTraceTemperatureChange.c)
+ *     AcpiDiagTraceTemperatureTelemetry @ 0x1C00089D4 (AcpiDiagTraceTemperatureTelemetry.c)
+ *     AcpiDiagTraceThermalNotification @ 0x1C0008B38 (AcpiDiagTraceThermalNotification.c)
+ *     AcpiDiagTraceThermalZoneRundown @ 0x1C0008DBC (AcpiDiagTraceThermalZoneRundown.c)
+ *     ACPIReserveDependencies @ 0x1C00145EC (ACPIReserveDependencies.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     ACPIProcessorContainerComputeIoctlPayloadSize @ 0x1C003A504 (ACPIProcessorContainerComputeIoctlPayloadSize.c)
+ *     ACPIProcessorContainerFillIoctlBuffer @ 0x1C003A774 (ACPIProcessorContainerFillIoctlBuffer.c)
+ *     ACPIThermalGetOverrideHandle @ 0x1C00958FC (ACPIThermalGetOverrideHandle.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ */
+
 __int64 __fastcall ACPIAmliBuildObjectPathnameUnicode(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int16 v4; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlQueryProcessPlaceholderCompatibilityMode @ 0x1409BD3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char RtlQueryProcessPlaceholderCompatibilityMode()
 {
   unsigned __int64 v0; // rax

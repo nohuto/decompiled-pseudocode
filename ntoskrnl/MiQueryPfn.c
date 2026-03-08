@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiQueryPfn @ 0x1402A4110
+ * Callers:
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ * Callees:
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ */
+
 char __fastcall MiQueryPfn(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

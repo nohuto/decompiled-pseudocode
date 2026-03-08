@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindImeHotKeyByKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@III@Z @ 0x1C0009EC4
+ * Callers:
+ *     ?CheckImeHotKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAUtagQ@@I_J@Z @ 0x1C00DAA80 (-CheckImeHotKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAUtagQ@@I_J@Z.c)
+ * Callees:
+ *     ?GetHotKeyLangID@@YAGK@Z @ 0x1C00D8934 (-GetHotKeyLangID@@YAGK@Z.c)
+ *     ?GetLangIdMatchLevel@@YAHPEAUHKL__@@G@Z @ 0x1C01FE638 (-GetLangIdMatchLevel@@YAHPEAUHKL__@@G@Z.c)
+ */
+
 struct _tagIMEHOTKEYOBJ *__fastcall FindImeHotKeyByKey(struct _tagIMEHOTKEYOBJ *a1, int a2, int a3, int a4)
 {
   struct _tagIMEHOTKEYOBJ *v8; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of SleepstudyHelperBlockerActiveReference @ 0x1402F1100
+ * Callers:
+ *     PopPowerRequestStatsSetActive @ 0x14073BEE8 (PopPowerRequestStatsSetActive.c)
+ *     PopPowerRequestStatsNotifyScenarioStateChange @ 0x1408525EC (PopPowerRequestStatsNotifyScenarioStateChange.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     SshpSetBlockerActive @ 0x1402F11C8 (SshpSetBlockerActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall SleepstudyHelperBlockerActiveReference(PKSPIN_LOCK SpinLock)
 {
   PKSPIN_LOCK v2; // rbx

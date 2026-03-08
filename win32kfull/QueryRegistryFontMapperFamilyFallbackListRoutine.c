@@ -1,3 +1,14 @@
+/*
+ * XREFs of QueryRegistryFontMapperFamilyFallbackListRoutine @ 0x1C03B8900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C02A9148 (--$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPE.c)
+ */
+
 __int64 __fastcall QueryRegistryFontMapperFamilyFallbackListRoutine(
         WCHAR *a1,
         __int64 a2,

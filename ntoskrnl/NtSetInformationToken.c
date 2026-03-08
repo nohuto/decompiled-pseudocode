@@ -1,3 +1,55 @@
+/*
+ * XREFs of NtSetInformationToken @ 0x140741E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlSubAuthorityCountSid @ 0x1402BE730 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     SepRemoveAceFromTokenDefaultDacl @ 0x1402BECA4 (SepRemoveAceFromTokenDefaultDacl.c)
+ *     SepLinkLogonSessions @ 0x1402E832C (SepLinkLogonSessions.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepLocateTokenIntegrity @ 0x14030FEA8 (SepLocateTokenIntegrity.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepIdAssignableAsOwner @ 0x14069D4F0 (SepIdAssignableAsOwner.c)
+ *     SeReleaseAcl @ 0x14070E89C (SeReleaseAcl.c)
+ *     SeCaptureAcl @ 0x14070E8B8 (SeCaptureAcl.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x14070F4F8 (SeReleaseLuidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140710A34 (SeReleaseSid.c)
+ *     SeSetMandatoryPolicyToken @ 0x140742AD4 (SeSetMandatoryPolicyToken.c)
+ *     SepStopReferencingLogonSession @ 0x140742B6C (SepStopReferencingLogonSession.c)
+ *     SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x140742BAC (SepReleaseTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140742BEC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepShouldSetDelinkFlags @ 0x14074333C (SepShouldSetDelinkFlags.c)
+ *     SeSetSessionIdToken @ 0x140743440 (SeSetSessionIdToken.c)
+ *     SepExpandDynamic @ 0x140743D78 (SepExpandDynamic.c)
+ *     SepFreeDefaultDacl @ 0x140743E60 (SepFreeDefaultDacl.c)
+ *     SepAppendDefaultDacl @ 0x140743EAC (SepAppendDefaultDacl.c)
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140743F0C (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SepDereferenceCachedHandlesEntry @ 0x140744278 (SepDereferenceCachedHandlesEntry.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14074438C (SepDereferenceLowBoxNumberEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SeSetPrivateNameSpaceToken @ 0x1409C6608 (SeSetPrivateNameSpaceToken.c)
+ *     SeSetVirtualizationToken @ 0x1409C684C (SeSetVirtualizationToken.c)
+ *     SepAppendPrimaryGroup @ 0x1409C68EC (SepAppendPrimaryGroup.c)
+ *     SepFreePrimaryGroup @ 0x1409C6958 (SepFreePrimaryGroup.c)
+ *     SepModifyTokenPolicyCounter @ 0x1409C69B8 (SepModifyTokenPolicyCounter.c)
+ *     SepCaptureAuditPolicy @ 0x1409CA8D0 (SepCaptureAuditPolicy.c)
+ *     SepReleaseAuditPolicy @ 0x1409CADCC (SepReleaseAuditPolicy.c)
+ *     SepIdAssignableAsGroup @ 0x1409CAEA4 (SepIdAssignableAsGroup.c)
+ *     SepRemoveTokenLogonSession @ 0x1409CD544 (SepRemoveTokenLogonSession.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall NtSetInformationToken(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,

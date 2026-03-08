@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhSshEnterSx @ 0x1C0004DC4
+ * Callers:
+ *     UsbhFdoSetPowerSx_Action @ 0x1C0003F04 (UsbhFdoSetPowerSx_Action.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 LONG __fastcall UsbhSshEnterSx(__int64 a1, int a2)
 {
   __int64 v4; // rsi

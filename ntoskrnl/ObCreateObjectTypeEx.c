@@ -1,3 +1,34 @@
+/*
+ * XREFs of ObCreateObjectTypeEx @ 0x14080CB20
+ * Callers:
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     TtmInit @ 0x14080E764 (TtmInit.c)
+ *     CmpInitializeLightWeightTransactionType @ 0x140816960 (CmpInitializeLightWeightTransactionType.c)
+ *     VRegSetup @ 0x1408543D0 (VRegSetup.c)
+ *     AlpcpInitSystem @ 0x140856E38 (AlpcpInitSystem.c)
+ *     EtwpInitializePrivateSessionDemuxObject @ 0x14085FA1C (EtwpInitializePrivateSessionDemuxObject.c)
+ *     IoCreateObjectTypes @ 0x140B3F3D0 (IoCreateObjectTypes.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpLookupDirectoryEntry @ 0x14076161C (ObpLookupDirectoryEntry.c)
+ *     ObpInsertDirectoryEntry @ 0x14076F04C (ObpInsertDirectoryEntry.c)
+ *     ObpLockDirectoryExclusive @ 0x14076F3D0 (ObpLockDirectoryExclusive.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     ObpAllocateObject @ 0x1407BA8D0 (ObpAllocateObject.c)
+ *     ObpInitObjectTypeSD @ 0x14080D154 (ObpInitObjectTypeSD.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObCreateObjectTypeEx(
         PCUNICODE_STRING SourceString,
         __int128 *a2,

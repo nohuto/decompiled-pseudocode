@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspWritePebAffinityInfo @ 0x14070687C
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x1406FF17C (PspApplyJobLimitsToProcess.c)
+ *     PspSetupUserProcessAddressSpace @ 0x14070733C (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1409ACC60 (PspUpdateSingleProcessAffinity.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspGetProcessAffinityForPeb @ 0x1407069CC (PspGetProcessAffinityForPeb.c)
+ */
+
 void __fastcall PspWritePebAffinityInfo(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

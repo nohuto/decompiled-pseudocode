@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIAmliDoubleToNameWide @ 0x1C000B4F8
+ * Callers:
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D20 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIGetConvertToPnpIDWide @ 0x1C002A650 (ACPIGetConvertToPnpIDWide.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIAmliDoubleToNameWide(_WORD *a1, unsigned int a2, char a3)
 {
   _WORD *v3; // r9

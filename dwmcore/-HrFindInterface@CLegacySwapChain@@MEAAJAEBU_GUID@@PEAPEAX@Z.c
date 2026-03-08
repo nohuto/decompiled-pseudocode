@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180102490
+ * Callers:
+ *     ?HrFindInterface@CConversionSwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029ED20 (-HrFindInterface@CConversionSwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?HrFindInterface@COverlaySwapChainBase@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801024E0 (-HrFindInterface@COverlaySwapChainBase@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::HrFindInterface(CLegacySwapChain *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

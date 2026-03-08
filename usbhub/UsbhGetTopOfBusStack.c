@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetTopOfBusStack @ 0x1C002CD18
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     UsbhReferenceListAdd @ 0x1C0002650 (UsbhReferenceListAdd.c)
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhGetTopOfBusStack(__int64 a1)
 {
   volatile __int64 *v2; // rax

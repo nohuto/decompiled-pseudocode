@@ -1,3 +1,27 @@
+/*
+ * XREFs of KiTpEmulateInstruction @ 0x140AF0944
+ * Callers:
+ *     KiTpCompletion @ 0x140AF0130 (KiTpCompletion.c)
+ *     KiTpParseInstruction @ 0x140AF1450 (KiTpParseInstruction.c)
+ * Callees:
+ *     KiTpAccessMemory @ 0x140AF0008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140AF01F4 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140AF02E0 (KiTpDecodeModRmOperand.c)
+ *     KiTpEmulateGroup0Instruction @ 0x140AF043C (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup11Instruction @ 0x140AF0694 (KiTpEmulateGroup11Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140AF0754 (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateMovRegImm @ 0x140AF10CC (KiTpEmulateMovRegImm.c)
+ *     KiTpEmulateMovzx @ 0x140AF115C (KiTpEmulateMovzx.c)
+ *     KiTpEmulateRegisterPushPop @ 0x140AF126C (KiTpEmulateRegisterPushPop.c)
+ *     KiTpFetchInstructionBytes @ 0x140AF13B4 (KiTpFetchInstructionBytes.c)
+ *     KiTpGetRegisterAddressByIndex @ 0x140AF13F8 (KiTpGetRegisterAddressByIndex.c)
+ *     KiTpReadOperandValue @ 0x140AF1594 (KiTpReadOperandValue.c)
+ *     KiTpSetFlagsZeroSignParity @ 0x140AF17E8 (KiTpSetFlagsZeroSignParity.c)
+ *     KiTpSetImmediateOperandSize @ 0x140AF1858 (KiTpSetImmediateOperandSize.c)
+ *     KiTpSignExtendOperandValue @ 0x140AF1888 (KiTpSignExtendOperandValue.c)
+ *     KiTpWriteRegisterValue @ 0x140AF18B4 (KiTpWriteRegisterValue.c)
+ */
+
 __int64 __fastcall KiTpEmulateInstruction(__int64 a1, __int64 a2)
 {
   int v2; // eax

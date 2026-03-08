@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserRestoreWindowDpiChanges @ 0x1C0012260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRestoreWindowFromDeferredStateIfNeeded @ 0x1C0012344 (xxxRestoreWindowFromDeferredStateIfNeeded.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserRestoreWindowDpiChanges(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VrpAllocateDiffHiveEntry @ 0x140738368
+ * Callers:
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x140737CA8 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ * Callees:
+ *     KeInitializeWaitChain @ 0x1402B61B0 (KeInitializeWaitChain.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406EA4F0 (RtlUpcaseUnicodeChar.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall VrpAllocateDiffHiveEntry(unsigned __int16 *a1, const void **a2)
 {
   __int64 Pool2; // rbx

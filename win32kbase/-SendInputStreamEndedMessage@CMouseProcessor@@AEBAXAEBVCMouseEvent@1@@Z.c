@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendInputStreamEndedMessage@CMouseProcessor@@AEBAXAEBVCMouseEvent@1@@Z @ 0x1C023101C
+ * Callers:
+ *     ??1EndStreamToken@CMouseProcessor@@QEAA@XZ @ 0x1C007D028 (--1EndStreamToken@CMouseProcessor@@QEAA@XZ.c)
+ * Callees:
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ */
+
 void __fastcall CMouseProcessor::SendInputStreamEndedMessage(
         CMouseProcessor *this,
         const struct CMouseProcessor::CMouseEvent *a2,

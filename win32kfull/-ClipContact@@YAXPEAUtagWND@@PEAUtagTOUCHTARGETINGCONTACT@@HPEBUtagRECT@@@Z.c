@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z @ 0x1C01E5034
+ * Callers:
+ *     ?xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTARGS@@UtagRECT@@W4tagTARGETING_PROPERTY@@@Z @ 0x1C01E7030 (-xxxWindowHitTestWithTargeting@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAUtagPNTRWINDOWHITTTESTAR.c)
+ *     xxxTouchTargetWindow @ 0x1C01E8238 (xxxTouchTargetWindow.c)
+ * Callees:
+ *     TouchTargetingClipContact @ 0x1C0250B3C (TouchTargetingClipContact.c)
+ */
+
 void __fastcall ClipContact(
         struct tagWND *a1,
         struct tagTOUCHTARGETINGCONTACT *a2,

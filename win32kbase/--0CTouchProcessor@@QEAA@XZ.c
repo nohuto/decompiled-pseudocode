@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CTouchProcessor@@QEAA@XZ @ 0x1C0097188
+ * Callers:
+ *     ?Initialize@CTouchProcessor@@SAJXZ @ 0x1C00970E8 (-Initialize@CTouchProcessor@@SAJXZ.c)
+ *     ??0CPTPProcessor@@AEAA@XZ @ 0x1C020CBAC (--0CPTPProcessor@@AEAA@XZ.c)
+ * Callees:
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     ?Initialize@CInpLockGuard@@QEAAHXZ @ 0x1C0097318 (-Initialize@CInpLockGuard@@QEAAHXZ.c)
+ */
+
 CTouchProcessor *__fastcall CTouchProcessor::CTouchProcessor(CTouchProcessor *this)
 {
   *((_DWORD *)this + 2) = 1;

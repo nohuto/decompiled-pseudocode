@@ -1,3 +1,15 @@
+/*
+ * XREFs of IntersectWithParents @ 0x1C00FEB48
+ * Callers:
+ *     ?SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z @ 0x1C000D2CC (-SpbTransfer@@YAHPEAUtagSPB@@PEAUtagWND@@H@Z.c)
+ *     xxxGetUpdateRgn @ 0x1C00FC22C (xxxGetUpdateRgn.c)
+ *     xxxGetUpdateRect @ 0x1C00FE78C (xxxGetUpdateRect.c)
+ *     ?ValidateParents@@YAHPEAUtagWND@@H@Z @ 0x1C010220C (-ValidateParents@@YAHPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     PhysicalToLogicalInPlaceRect @ 0x1C005460C (PhysicalToLogicalInPlaceRect.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ */
+
 __int64 __fastcall IntersectWithParents(__int64 a1, __int64 a2)
 {
   __int64 v3; // r8

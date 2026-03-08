@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMapExParametersInitialize @ 0x140727F8C
+ * Callers:
+ *     MiMapViewOfSectionExCommon @ 0x140727CDC (MiMapViewOfSectionExCommon.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiGetUserReservationHighestAddress @ 0x1407D51A4 (MiGetUserReservationHighestAddress.c)
+ */
+
 __int64 __fastcall MiMapExParametersInitialize(__int64 a1, _QWORD *a2, __int64 a3)
 {
   unsigned __int64 v5; // rax

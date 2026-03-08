@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlPrivateRemoveLock @ 0x14053B568
+ * Callers:
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402C19B4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlPrivateLock @ 0x1402C21B0 (FsRtlPrivateLock.c)
+ * Callees:
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402C1DF4 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402C1F78 (FsRtlFastUnlockSingleShared.c)
+ */
+
 __int64 __fastcall FsRtlPrivateRemoveLock(__int64 a1, __int64 a2, char a3)
 {
   int v3; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreePointerDeviceClientList @ 0x1C0077CE8
+ * Callers:
+ *     InitializePointerDevicesPresenceState @ 0x1C0077D60 (InitializePointerDevicesPresenceState.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FreePointerDeviceClientList(__int64 a1)
 {
   _QWORD **v1; // rbx

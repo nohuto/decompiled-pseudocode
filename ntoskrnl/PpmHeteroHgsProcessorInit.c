@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmHeteroHgsProcessorInit @ 0x14037DF70
+ * Callers:
+ *     PpmCheckProcessorInit @ 0x14037DF40 (PpmCheckProcessorInit.c)
+ *     PpmHeteroHgsBackupProcessorInit @ 0x14059C370 (PpmHeteroHgsBackupProcessorInit.c)
+ *     PoInitializePrcb @ 0x140A89C00 (PoInitializePrcb.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14059C38C (PpmHeteroHgsProcessorThreadFeedbackInit.c)
+ *     PpmHeteroInitializeFeedbackClass @ 0x14059C420 (PpmHeteroInitializeFeedbackClass.c)
+ */
+
 void __fastcall PpmHeteroHgsProcessorInit(__int64 a1, char a2, __int64 a3)
 {
   unsigned int v9; // r10d

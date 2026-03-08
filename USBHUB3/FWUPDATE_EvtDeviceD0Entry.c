@@ -1,3 +1,12 @@
+/*
+ * XREFs of FWUPDATE_EvtDeviceD0Entry @ 0x1C003FC60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014388 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FWUPDATE_EvtDeviceD0Entry(__int64 a1)
 {
   __int64 v2; // rax

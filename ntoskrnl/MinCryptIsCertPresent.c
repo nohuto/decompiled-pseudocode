@@ -1,3 +1,11 @@
+/*
+ * XREFs of MinCryptIsCertPresent @ 0x14067503C
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 __int64 __fastcall MinCryptIsCertPresent(const void **a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // ebx

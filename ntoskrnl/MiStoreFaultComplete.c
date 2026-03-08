@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiStoreFaultComplete @ 0x140659C34
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiStoreFaultComplete(ULONG_PTR BugCheckParameter2, _DWORD *a2)
 {
   __int64 v3; // rcx

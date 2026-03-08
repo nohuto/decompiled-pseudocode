@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetProcessorStatus @ 0x1C002B0A4
+ * Callers:
+ *     ACPIGetConvertToDevicePresence @ 0x1C0029F4C (ACPIGetConvertToDevicePresence.c)
+ * Callees:
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIGetProcessorStatus(__int64 a1, __int64 a2, int *a3)
 {
   unsigned int v3; // ebx

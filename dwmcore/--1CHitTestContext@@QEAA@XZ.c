@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CHitTestContext@@QEAA@XZ @ 0x18019F57C
+ * Callers:
+ *     ??1CInputManager@@MEAA@XZ @ 0x18019F5E8 (--1CInputManager@@MEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CHitTestContext::~CHitTestContext(void **this)
 {
   void *v2; // rcx

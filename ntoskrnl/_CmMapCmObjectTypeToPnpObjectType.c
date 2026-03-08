@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmMapCmObjectTypeToPnpObjectType @ 0x1406CEAE4
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     PiDmObjectGetCachedCmProperty @ 0x1406CE8B0 (PiDmObjectGetCachedCmProperty.c)
+ *     PiDmObjectUpdateCachedCmProperty @ 0x1406CE9F8 (PiDmObjectUpdateCachedCmProperty.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1407777AC (PiDmGetCmObjectListFromCache.c)
+ *     _CmRaisePropertyChangeEvent @ 0x14086A444 (_CmRaisePropertyChangeEvent.c)
+ *     _CmRaiseCreateEvent @ 0x14087BC44 (_CmRaiseCreateEvent.c)
+ *     _CmRaiseDeleteEvent @ 0x140A62958 (_CmRaiseDeleteEvent.c)
+ *     _PnpCmMatchCallbackRoutine @ 0x140A67690 (_PnpCmMatchCallbackRoutine.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmMapCmObjectTypeToPnpObjectType(int a1)
 {
   int v1; // ecx

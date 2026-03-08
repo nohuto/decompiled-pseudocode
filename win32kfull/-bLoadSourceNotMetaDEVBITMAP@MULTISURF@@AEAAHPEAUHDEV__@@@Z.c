@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bLoadSourceNotMetaDEVBITMAP@MULTISURF@@AEAAHPEAUHDEV__@@@Z @ 0x1C02B50B0
+ * Callers:
+ *     ?bLoadSource@MULTISURF@@QEAAHPEAUHDEV__@@@Z @ 0x1C014F29A (-bLoadSource@MULTISURF@@QEAAHPEAUHDEV__@@@Z.c)
+ *     ?bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z @ 0x1C014F30A (-bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z.c)
+ * Callees:
+ *     ?bCreateDIB@MULTISURF@@AEAAHXZ @ 0x1C02B4F30 (-bCreateDIB@MULTISURF@@AEAAHXZ.c)
+ */
+
 __int64 __fastcall MULTISURF::bLoadSourceNotMetaDEVBITMAP(MULTISURF *this, HDEV a2)
 {
   SURFACE *v2; // r9

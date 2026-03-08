@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?SmmMapMdlToIommu@@YAJPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z @ 0x1C002A460
+ * Callers:
+ *     ?SysMmMapIommuRange@@YAJPEAUSYSMM_ADAPTER@@_KPEAU_MDL@@_N@Z @ 0x1C002A600 (-SysMmMapIommuRange@@YAJPEAUSYSMM_ADAPTER@@_KPEAU_MDL@@_N@Z.c)
+ *     ?SmmMapContiguousRangeToIommu@@YAJPEAUSYSMM_IOMMU@@_K11_N@Z @ 0x1C006E618 (-SmmMapContiguousRangeToIommu@@YAJPEAUSYSMM_IOMMU@@_K11_N@Z.c)
+ *     SmmMapNonPagedObjectToIommu @ 0x1C006E914 (SmmMapNonPagedObjectToIommu.c)
+ *     SmmMapPagedObjectToIommu @ 0x1C006EAC0 (SmmMapPagedObjectToIommu.c)
+ *     SmmMapLockedPagesToIommu @ 0x1C007138C (SmmMapLockedPagesToIommu.c)
+ * Callees:
+ *     SmmMapIommu @ 0x1C002A438 (SmmMapIommu.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmIommuMapReferenced @ 0x1C006E404 (SmmIommuMapReferenced.c)
+ */
+
 __int64 __fastcall SmmMapMdlToIommu(struct SYSMM_IOMMU *a1, __int64 a2, struct _MDL *a3, unsigned __int8 a4)
 {
   __int64 v4; // r15

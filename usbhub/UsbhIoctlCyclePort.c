@@ -1,3 +1,27 @@
+/*
+ * XREFs of UsbhIoctlCyclePort @ 0x1C003E3F8
+ * Callers:
+ *     UsbhFdoDeviceControl @ 0x1C002A630 (UsbhFdoDeviceControl.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhCycleDevicePort @ 0x1C003725C (UsbhCycleDevicePort.c)
+ *     UsbhAcquireApiLock @ 0x1C003DE98 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C0040FD4 (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041218 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C00415A8 (UsbhReleaseApiLock.c)
+ *     UsbhVerifyCallerIsAdmin @ 0x1C0041610 (UsbhVerifyCallerIsAdmin.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ */
+
 __int64 __fastcall UsbhIoctlCyclePort(__int64 a1, PIRP Irp)
 {
   int v4; // r14d

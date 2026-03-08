@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CalculateContentRect@@YA?AUtagRECT@@PEBUtagWND@@PEAH@Z @ 0x1C00AD290
+ * Callers:
+ *     ?CalculateWindowMargins@CWindowMarginProp@WindowMargins@@QEAA?AUFRAME_MARGIN@@PEBUtagWND@@IW4MarginsFor@?A0x67ef0edd@2@@Z @ 0x1C0042CB8 (-CalculateWindowMargins@CWindowMarginProp@WindowMargins@@QEAA-AUFRAME_MARGIN@@PEBUtagWND@@IW4Mar.c)
+ *     DwmChildRectChange @ 0x1C00AD03C (DwmChildRectChange.c)
+ * Callees:
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01C07C0 (_ScaleSystemMetricForDPIWithoutCache.c)
+ */
+
 struct tagRECT *__fastcall CalculateContentRect(struct tagRECT *__return_ptr retstr, const struct tagWND *a2, int *a3)
 {
   __int64 v3; // r9

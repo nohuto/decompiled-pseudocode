@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$_GetRotationFromDevMode@U_devicemodeW@@@CDS_JOURNAL@@CAJAEBU_devicemodeW@@PEAW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C006ACE0
+ * Callers:
+ *     ?_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BB998 (-_PreVerify@CDS_JOURNAL@@CAJAEBUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDS_JOURNAL::_GetRotationFromDevMode<_devicemodeW>(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r8

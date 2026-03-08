@@ -1,3 +1,34 @@
+/*
+ * XREFs of ScsiToNVMe @ 0x1C00010C0
+ * Callers:
+ *     NVMeHwBuildIo @ 0x1C0001010 (NVMeHwBuildIo.c)
+ * Callees:
+ *     MdlToPrp @ 0x1C0001570 (MdlToPrp.c)
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     NVMeSplitIoCommand @ 0x1C0001CA0 (NVMeSplitIoCommand.c)
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeGetDeviceTelemetryData @ 0x1C0015488 (NVMeGetDeviceTelemetryData.c)
+ *     NVMeGetDeviceTelemetryHeader @ 0x1C0015718 (NVMeGetDeviceTelemetryHeader.c)
+ *     NVMeWriteBufferFirmwareActivate @ 0x1C00180C8 (NVMeWriteBufferFirmwareActivate.c)
+ *     NVMeWriteBufferFirmwareDownload @ 0x1C00183BC (NVMeWriteBufferFirmwareDownload.c)
+ *     ScsiInquiryRequest @ 0x1C0019C74 (ScsiInquiryRequest.c)
+ *     ScsiLogSenseRequest @ 0x1C0019D6C (ScsiLogSenseRequest.c)
+ *     ScsiModeSelectRequest @ 0x1C0019DF8 (ScsiModeSelectRequest.c)
+ *     ScsiModeSenseRequest @ 0x1C0019F94 (ScsiModeSenseRequest.c)
+ *     ScsiPersistentReserveIn @ 0x1C001A12C (ScsiPersistentReserveIn.c)
+ *     ScsiPersistentReserveOut @ 0x1C001A220 (ScsiPersistentReserveOut.c)
+ *     ScsiReadCapacityRequest @ 0x1C001A438 (ScsiReadCapacityRequest.c)
+ *     ScsiReportLunsCommand @ 0x1C001A6DC (ScsiReportLunsCommand.c)
+ *     ScsiSanitizeRequest @ 0x1C001A7F4 (ScsiSanitizeRequest.c)
+ *     ScsiSecurityProtocolInRequest @ 0x1C001AA38 (ScsiSecurityProtocolInRequest.c)
+ *     ScsiSecurityProtocolOutRequest @ 0x1C001AB5C (ScsiSecurityProtocolOutRequest.c)
+ *     ScsiStartStopUnitRequest @ 0x1C001AC80 (ScsiStartStopUnitRequest.c)
+ *     ScsiSyncCacheRequest @ 0x1C001AD60 (ScsiSyncCacheRequest.c)
+ *     ScsiUnmapRequest @ 0x1C001ADEC (ScsiUnmapRequest.c)
+ *     SglToPrp @ 0x1C001B550 (SglToPrp.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiToNVMe(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // r10

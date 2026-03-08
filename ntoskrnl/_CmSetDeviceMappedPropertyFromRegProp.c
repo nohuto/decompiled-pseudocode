@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmSetDeviceMappedPropertyFromRegProp @ 0x14087BF40
+ * Callers:
+ *     _CmSetDeviceMappedProperty @ 0x14076C5D4 (_CmSetDeviceMappedProperty.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ */
+
 NTSTATUS __fastcall CmSetDeviceMappedPropertyFromRegProp(
         __int64 a1,
         __int64 a2,

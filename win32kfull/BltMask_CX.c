@@ -1,3 +1,11 @@
+/*
+ * XREFs of BltMask_CX @ 0x1C025F4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BltMask_CX(__int64 a1)
 {
   char *v1; // r8

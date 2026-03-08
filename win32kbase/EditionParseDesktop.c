@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionParseDesktop @ 0x1C00AA47C
+ * Callers:
+ *     ApiSetEditionParseDesktop @ 0x1C00AA310 (ApiSetEditionParseDesktop.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall EditionParseDesktop(
         __int64 a1,
         __int64 a2,

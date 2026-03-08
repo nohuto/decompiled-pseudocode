@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetTrackedWorkloadUserStatistics@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAU_D3DKMT_GETTRACKEDWORKLOADSTATISTICS@@@Z @ 0x1C0359864
+ * Callers:
+ *     NtDxgkGetTrackedWorkloadStatistics @ 0x1C035B1D0 (NtDxgkGetTrackedWorkloadStatistics.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetStats@CumulativeStats@@QEAAXPEAN000PEA_K@Z @ 0x1C00881E4 (-GetStats@CumulativeStats@@QEAAXPEAN000PEA_K@Z.c)
+ *     ?IsSaturated@TrackedWorkloadMonitor@@QEAA_NXZ @ 0x1C0088468 (-IsSaturated@TrackedWorkloadMonitor@@QEAA_NXZ.c)
+ */
+
 __int64 __fastcall DXGTRACKEDWORKLOAD::GetTrackedWorkloadUserStatistics(
         DXGTRACKEDWORKLOAD *this,
         struct DXGDEVICE *a2,

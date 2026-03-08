@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeBounds@CRedirectedVisualContent@@QEAAXXZ @ 0x18001D2C0
+ * Callers:
+ *     ?GetContentBounds@CRedirectVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18001D250 (-GetContentBounds@CRedirectVisual@@UEAAJPEAV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ * Callees:
+ *     ?Clean@CVisualTree@@IEAAJPEAVCPreComputeContext@@@Z @ 0x1800C4268 (-Clean@CVisualTree@@IEAAJPEAVCPreComputeContext@@@Z.c)
+ */
+
 void __fastcall CRedirectedVisualContent::ComputeBounds(CRedirectedVisualContent *this)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SumPointDistances@CPathLengthOperation@@AEBAMI@Z @ 0x180016468
+ * Callers:
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x180016234 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 float __fastcall CPathLengthOperation::SumPointDistances(CPathLengthOperation *this, unsigned int a2)
 {
   float v2; // xmm6_4

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcGetVacbLargeOffset @ 0x14021BBE0
+ * Callers:
+ *     CcGetVirtualAddressIfMapped @ 0x14021B360 (CcGetVirtualAddressIfMapped.c)
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcGetVacbLargeOffset(__int64 a1, __int64 a2)
 {
   __int64 v3; // r11

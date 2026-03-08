@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiCMCaptureCreateDeviceInputData @ 0x140964CC4
+ * Callers:
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ * Callees:
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406CFA10 (PiControlMakeUserModeCallersCopy.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PiCMCaptureCreateDeviceInputData(unsigned __int64 a1, unsigned int a2, int a3, __int64 a4)
 {
   char PreviousMode; // al

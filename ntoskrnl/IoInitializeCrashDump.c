@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoInitializeCrashDump @ 0x14083643C
+ * Callers:
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140B6E3C0 (IopInitCrashDumpDuringSysInit.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x140392E74 (IopRemoveDumpCapsuleSupport.c)
+ *     IopInitDumpCapsuleSupport @ 0x1403AE334 (IopInitDumpCapsuleSupport.c)
+ *     IopInitializeCrashDump @ 0x140834B28 (IopInitializeCrashDump.c)
+ */
+
 char __fastcall IoInitializeCrashDump(__int64 a1, __int128 *a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

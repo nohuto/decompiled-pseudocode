@@ -1,3 +1,25 @@
+/*
+ * XREFs of IopCancelIrpsInFileObjectList @ 0x14030F360
+ * Callers:
+ *     IopRevokeFileObjectForProcess @ 0x1405566CC (IopRevokeFileObjectForProcess.c)
+ *     NtCancelIoFile @ 0x14076FE10 (NtCancelIoFile.c)
+ *     IopCancelIoFile @ 0x14077006C (IopCancelIoFile.c)
+ *     IopCleanupProcessResources @ 0x14077B318 (IopCleanupProcessResources.c)
+ *     IopCloseFile @ 0x1407BACE0 (IopCloseFile.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     IopCheckListForCancelableIrp @ 0x1402F30DC (IopCheckListForCancelableIrp.c)
+ *     IopInterlockedAdd @ 0x1402F3488 (IopInterlockedAdd.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ */
+
 __int64 __fastcall IopCancelIrpsInFileObjectList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char a6)
 {
   __int64 result; // rax

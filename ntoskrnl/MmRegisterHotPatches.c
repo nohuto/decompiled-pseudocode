@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmRegisterHotPatches @ 0x140B7092C
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ *     VslDetermineHotPatchType @ 0x14093F108 (VslDetermineHotPatchType.c)
+ *     MiAllocateHotPatchRecord @ 0x140A31AD8 (MiAllocateHotPatchRecord.c)
+ *     MiAllocateSecureImageActivePatch @ 0x140A31B5C (MiAllocateSecureImageActivePatch.c)
+ *     MiCompareHotPatchNodes @ 0x140A33944 (MiCompareHotPatchNodes.c)
+ *     MiFindHotPatchRecord @ 0x140A33EBC (MiFindHotPatchRecord.c)
+ *     MiInsertHotPatchRecord @ 0x140A34E80 (MiInsertHotPatchRecord.c)
+ *     MiInsertSecureImageActivePatch @ 0x140A35124 (MiInsertSecureImageActivePatch.c)
+ *     MiLoadHotPatch @ 0x140A352A0 (MiLoadHotPatch.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ */
+
 __int64 __fastcall MmRegisterHotPatches(__int64 a1)
 {
   int v2; // esi

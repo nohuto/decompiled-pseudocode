@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1CPropertySet@@UEAA@XZ @ 0x180097604
+ * Callers:
+ *     ??_GCPropertySet@@UEAAPEAXI@Z @ 0x1800EBAE0 (--_GCPropertySet@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??1CResource@@MEAA@XZ @ 0x18009A0B0 (--1CResource@@MEAA@XZ.c)
+ *     _tlgKeywordOn @ 0x1800BAD18 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BADC0 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 void __fastcall CPropertySet::~CPropertySet(CPropertySet *this)
 {
   int v1; // r9d

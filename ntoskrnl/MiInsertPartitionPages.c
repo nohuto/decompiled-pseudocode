@@ -1,3 +1,44 @@
+/*
+ * XREFs of MiInsertPartitionPages @ 0x140657EB8
+ * Callers:
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiHotAddPartitionMemory @ 0x140A4203C (MiHotAddPartitionMemory.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiIncreaseCommitLimits @ 0x140392864 (MiIncreaseCommitLimits.c)
+ *     MiComputeCommitThresholds @ 0x140392978 (MiComputeCommitThresholds.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A6770 (RtlNumberOfSetBitsEx.c)
+ *     MiRemovePhysicalMemoryBatchComplete @ 0x140619B48 (MiRemovePhysicalMemoryBatchComplete.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140619B70 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiInitializeHugePfnDatabase @ 0x14061E908 (MiInitializeHugePfnDatabase.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiReduceCommitLimits @ 0x140653F84 (MiReduceCommitLimits.c)
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ *     MiAddRangeToPartitionTree @ 0x14065654C (MiAddRangeToPartitionTree.c)
+ *     MiClearPartitionPageBitMap @ 0x1406569F0 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionPageNodes @ 0x140656E28 (MiDeletePartitionPageNodes.c)
+ *     MiFreePartitionNodePages @ 0x1406576A8 (MiFreePartitionNodePages.c)
+ *     MiFreePartitionTree @ 0x1406578D0 (MiFreePartitionTree.c)
+ *     MiMergePageNodes @ 0x14065893C (MiMergePageNodes.c)
+ *     MiPartitionDeleteMemoryNode @ 0x140658BB8 (MiPartitionDeleteMemoryNode.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A42624 (MiUpdatePartitionLargePfnBitMap.c)
+ */
+
 __int64 __fastcall MiInsertPartitionPages(__int16 *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 v9; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpQueryProfileSource @ 0x140505B3C
+ * Callers:
+ *     HalpQueryProfileInformation @ 0x140861248 (HalpQueryProfileInformation.c)
+ * Callees:
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpGetProfileDescriptor @ 0x1403781E0 (HalpGetProfileDescriptor.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpQueryProfileSource(unsigned int a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeUpdateSoftParkRankList @ 0x14038ECCC
+ * Callers:
+ *     PpmParkReportParkedCores @ 0x1402E3AE0 (PpmParkReportParkedCores.c)
+ *     PpmParkApplyPolicy @ 0x14038E5E0 (PpmParkApplyPolicy.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x1402AE38C (KiQuerySubNodeActiveAffinity.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KeUpdateSoftParkRankList()
 {
   _DWORD *v0; // r12

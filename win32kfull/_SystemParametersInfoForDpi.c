@@ -1,3 +1,14 @@
+/*
+ * XREFs of _SystemParametersInfoForDpi @ 0x1C00A21BC
+ * Callers:
+ *     NtUserSystemParametersInfoForDpi @ 0x1C00A2040 (NtUserSystemParametersInfoForDpi.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetWindowNCMetricsForDpi @ 0x1C00A43A0 (GetWindowNCMetricsForDpi.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     GetScaledLogFontForDpi @ 0x1C00A4620 (GetScaledLogFontForDpi.c)
+ */
+
 __int64 __fastcall SystemParametersInfoForDpi(int a1, __int64 a2, _DWORD *a3, __int64 a4, unsigned int a5)
 {
   unsigned int v5; // ebx

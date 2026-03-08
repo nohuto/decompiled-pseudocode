@@ -1,3 +1,15 @@
+/*
+ * XREFs of DxgkPowerRuntimeControlRequestCB @ 0x1C00484D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C00074C0 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     McTemplateK0pj_EtwWriteTransfer @ 0x1C003FC2C (McTemplateK0pj_EtwWriteTransfer.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DxgkPowerRuntimeControlRequestCB(
         __int64 a1,
         __int64 a2,

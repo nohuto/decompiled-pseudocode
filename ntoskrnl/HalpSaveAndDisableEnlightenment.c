@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpSaveAndDisableEnlightenment @ 0x14050A1D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpTimerUpdateApiConsumers @ 0x14051D4B4 (HalpTimerUpdateApiConsumers.c)
+ */
+
 __int64 HalpSaveAndDisableEnlightenment()
 {
   __int64 result; // rax
@@ -8,7 +17,7 @@ __int64 HalpSaveAndDisableEnlightenment()
   {
     dword_140C61E9C = dword_140C6211C;
     qword_140C61EA0 = (__int64)qword_140C62120;
-    dword_140C61E84 = MEMORY[0x140C62104];
+    dword_140C61E84 = dword_140C62104;
     qword_140C61EB0 = qword_140C62130;
     qword_140C61EB8 = qword_140C62138;
     qword_140C61EC0 = qword_140C62140;
@@ -58,7 +67,7 @@ __int64 HalpSaveAndDisableEnlightenment()
     HalpEnlightenment = 0;
     dword_140C6211C = -1;
     qword_140C62120 = 0LL;
-    MEMORY[0x140C62104] = 0;
+    dword_140C62104 = 0;
     qword_140C62130 = 0LL;
     qword_140C62138 = 0LL;
     qword_140C62140 = 0LL;

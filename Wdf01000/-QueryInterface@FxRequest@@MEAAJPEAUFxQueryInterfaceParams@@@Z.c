@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@FxRequest@@MEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0008FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0009030 (-QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z.c)
+ */
+
 int __fastcall FxRequest::QueryInterface(FxRequest *this, FxQueryInterfaceParams *Params)
 {
   unsigned __int16 Offset; // ax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Xp10ExecuteHuffmanEncode @ 0x1409C34F4
+ * Callers:
+ *     Xp10CompressBuffer @ 0x1409C2808 (Xp10CompressBuffer.c)
+ * Callees:
+ *     RtlCopyBitMap @ 0x1402B3480 (RtlCopyBitMap.c)
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x1409C1308 (Xp10BuildAndWriteHuffmanEncodings.c)
+ */
+
 __int64 __fastcall Xp10ExecuteHuffmanEncode(
         __int16 **a1,
         __int64 a2,

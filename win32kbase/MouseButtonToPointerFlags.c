@@ -1,3 +1,11 @@
+/*
+ * XREFs of MouseButtonToPointerFlags @ 0x1C007C950
+ * Callers:
+ *     ?MouseSpeedHitTest@CMouseProcessor@@CA?AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4DIT_HITTESTATTRIBUTES@@KKPEAHPEAU_InputHitTestResult@@@Z @ 0x1C007C734 (-MouseSpeedHitTest@CMouseProcessor@@CA-AUtagINPUTDEST@@PEAUtagPOINT@@PEBU_SUBPIXELS@@GG_KKPEAXW4.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall MouseButtonToPointerFlags(__int16 a1)
 {
   int v2; // r8d

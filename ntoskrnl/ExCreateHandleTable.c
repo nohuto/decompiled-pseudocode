@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExCreateHandleTable @ 0x140706274
+ * Callers:
+ *     ExDupHandleTable @ 0x140705D54 (ExDupHandleTable.c)
+ *     ObInitProcess @ 0x140707D3C (ObInitProcess.c)
+ *     RtlpInitializeHandleTableForAtomTable @ 0x1407DCAAC (RtlpInitializeHandleTableForAtomTable.c)
+ *     AlpcpInitSystem @ 0x140856E38 (AlpcpInitSystem.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x140975E3C (AlpcpAllocateMessageFromExtendedTables.c)
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ *     PspInitializeJobStructures @ 0x140B6FB58 (PspInitializeJobStructures.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpAllocateHandleTable @ 0x140706348 (ExpAllocateHandleTable.c)
+ */
+
 __int64 __fastcall ExCreateHandleTable(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

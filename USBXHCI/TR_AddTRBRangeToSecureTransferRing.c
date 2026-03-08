@@ -1,3 +1,17 @@
+/*
+ * XREFs of TR_AddTRBRangeToSecureTransferRing @ 0x1C0007070
+ * Callers:
+ *     Isoch_Stage_MapIntoRing @ 0x1C0001050 (Isoch_Stage_MapIntoRing.c)
+ *     Control_Transfer_MapIntoRing @ 0x1C00062A0 (Control_Transfer_MapIntoRing.c)
+ *     Bulk_Stage_MapIntoRing @ 0x1C0012A00 (Bulk_Stage_MapIntoRing.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_qiD @ 0x1C0042184 (WPP_RECORDER_SF_qiD.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 void __fastcall TR_AddTRBRangeToSecureTransferRing(
         __int64 a1,
         _QWORD *a2,

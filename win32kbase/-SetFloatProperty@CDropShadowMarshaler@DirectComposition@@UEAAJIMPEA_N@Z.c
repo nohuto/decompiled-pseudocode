@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CDropShadowMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C000CD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CDropShadowMarshaler::SetFloatProperty(
         DirectComposition::CDropShadowMarshaler *this,
         unsigned int a2,

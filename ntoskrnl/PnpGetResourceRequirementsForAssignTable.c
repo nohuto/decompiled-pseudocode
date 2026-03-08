@@ -1,3 +1,21 @@
+/*
+ * XREFs of PnpGetResourceRequirementsForAssignTable @ 0x1406F6080
+ * Callers:
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ *     PnpQueryRebalanceWorker @ 0x14096B728 (PnpQueryRebalanceWorker.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140803C30 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpFilterResourceRequirementsList @ 0x140803FE4 (PnpFilterResourceRequirementsList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140805448 (IopResourceRequirementsListToReqList.c)
+ *     IopRearrangeReqList @ 0x14085097C (IopRearrangeReqList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpGetResourceRequirementsForAssignTable(unsigned __int64 a1, unsigned __int64 a2, _DWORD *a3)
 {
   unsigned __int64 v5; // rbx

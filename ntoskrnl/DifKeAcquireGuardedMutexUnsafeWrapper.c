@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeAcquireGuardedMutexUnsafeWrapper @ 0x1405DFD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifKeAcquireGuardedMutexUnsafeWrapper(PFAST_MUTEX FastMutex)
 {
   __int64 *APIThunkContextById; // rax

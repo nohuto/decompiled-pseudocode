@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLockSiloKeyLockTrackerExclusive @ 0x1408463A4
+ * Callers:
+ *     CmpStartSiloKeyLockTracker @ 0x1408168F8 (CmpStartSiloKeyLockTracker.c)
+ *     CmLockKeyForWrite @ 0x140845EFC (CmLockKeyForWrite.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140A191F8 (CmpStopSiloKeyLockTracker.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 __fastcall CmpLockSiloKeyLockTrackerExclusive(unsigned __int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

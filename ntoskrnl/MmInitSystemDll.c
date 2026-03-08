@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmInitSystemDll @ 0x140B720A8
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PspReferenceSystemDll @ 0x140727C90 (PspReferenceSystemDll.c)
+ *     PsQuerySystemDllInfo @ 0x14076D124 (PsQuerySystemDllInfo.c)
+ */
+
 signed __int64 MmInitSystemDll()
 {
   signed __int64 result; // rax

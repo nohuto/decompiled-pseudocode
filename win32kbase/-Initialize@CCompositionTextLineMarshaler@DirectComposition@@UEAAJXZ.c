@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCompositionTextLineMarshaler@DirectComposition@@UEAAJXZ @ 0x1C025B420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionTextLineMarshaler::Initialize(
         DirectComposition::CCompositionTextLineMarshaler *this)
 {

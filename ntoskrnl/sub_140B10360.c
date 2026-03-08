@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140B10360 @ 0x140B10360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ */
+
 __int64 __fastcall sub_140B10360(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

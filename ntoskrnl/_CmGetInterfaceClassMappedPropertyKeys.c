@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmGetInterfaceClassMappedPropertyKeys @ 0x140A66558
+ * Callers:
+ *     _PnpDispatchInterfaceClass @ 0x1406C59F0 (_PnpDispatchInterfaceClass.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x140A60258 (_CmDeleteInterfaceClassWorker.c)
+ * Callees:
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1406C5750 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmGetInterfaceClassMappedPropertyFromComposite @ 0x140A66450 (_CmGetInterfaceClassMappedPropertyFromComposite.c)
+ */
+
 __int64 __fastcall CmGetInterfaceClassMappedPropertyKeys(
         __int64 a1,
         __int64 a2,

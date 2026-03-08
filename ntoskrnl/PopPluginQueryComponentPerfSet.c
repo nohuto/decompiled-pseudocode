@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginQueryComponentPerfSet @ 0x14058A24C
+ * Callers:
+ *     PopFxPepPerfInfoQuery @ 0x140982744 (PopFxPepPerfInfoQuery.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPluginQueryComponentPerfSet(
         __int64 a1,
         int a2,

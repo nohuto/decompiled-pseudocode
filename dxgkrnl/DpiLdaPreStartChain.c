@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiLdaPreStartChain @ 0x1C00658F4
+ * Callers:
+ *     DpiLdaStartAdapterInChain @ 0x1C03A4064 (DpiLdaStartAdapterInChain.c)
+ * Callees:
+ *     DpiFdoCreateSysMmAdapter @ 0x1C020A044 (DpiFdoCreateSysMmAdapter.c)
+ */
+
 __int64 __fastcall DpiLdaPreStartChain(struct _DEVICE_OBJECT *a1)
 {
   int SysMmAdapter; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _SysCtxRegCreateTree @ 0x140687ACC
+ * Callers:
+ *     _PnpCtxRegCreateTree @ 0x140687A74 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1406D370C (_PnpCtxGetCachedNodeBaseKey.c)
+ * Callees:
+ *     _RegRtlCreateTreeTransacted @ 0x140687B40 (_RegRtlCreateTreeTransacted.c)
+ */
+
 __int64 __fastcall SysCtxRegCreateTree(
         __int64 a1,
         void *a2,

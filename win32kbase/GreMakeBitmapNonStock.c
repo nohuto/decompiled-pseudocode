@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreMakeBitmapNonStock @ 0x1C001D190
+ * Callers:
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C0046684 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ * Callees:
+ *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C001D270 (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     HmgLockAndModifyHandleType @ 0x1C001D290 (HmgLockAndModifyHandleType.c)
+ *     HmgLockEx @ 0x1C004AED0 (HmgLockEx.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ */
+
 unsigned __int64 __fastcall GreMakeBitmapNonStock(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C003B404
+ * Callers:
+ *     UserValidateAndAttachQueueToInputWindowApiExt @ 0x1C003B2D0 (UserValidateAndAttachQueueToInputWindowApiExt.c)
+ * Callees:
+ *     ?AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z @ 0x1C0029A64 (-AttachInputQueueToWindow@@YAJPEAUtagWND@@PEAVIInputQueue@@@Z.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _GetAncestor @ 0x1C00EA498 (_GetAncestor.c)
+ */
+
 __int64 __fastcall ValidateAndAttachQueueToInputWindow(HWND a1, struct IInputQueue *a2)
 {
   __int64 v4; // rdx

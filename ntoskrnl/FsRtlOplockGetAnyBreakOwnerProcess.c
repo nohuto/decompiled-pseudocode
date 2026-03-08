@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlOplockGetAnyBreakOwnerProcess @ 0x14053BAE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 void *__fastcall FsRtlOplockGetAnyBreakOwnerProcess(__int64 *a1)
 {
   __int64 v1; // rdi

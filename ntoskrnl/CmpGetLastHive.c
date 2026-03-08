@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpGetLastHive @ 0x14078A7EC
+ * Callers:
+ *     CmpDoFlushAll @ 0x140243DB8 (CmpDoFlushAll.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpReferenceHive @ 0x1407AB230 (CmpReferenceHive.c)
+ */
+
 __int64 CmpGetLastHive()
 {
   __int64 v0; // rdi

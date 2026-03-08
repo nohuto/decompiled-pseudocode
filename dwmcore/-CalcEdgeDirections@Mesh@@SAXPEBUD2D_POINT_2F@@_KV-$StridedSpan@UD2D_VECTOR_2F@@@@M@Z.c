@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalcEdgeDirections@Mesh@@SAXPEBUD2D_POINT_2F@@_KV?$StridedSpan@UD2D_VECTOR_2F@@@@M@Z @ 0x1800D7410
+ * Callers:
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F2F0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ *     ?CalcVertexAAOffsets@Mesh@@SAXAEBUMeshDesc@1@PEAUVertexAAOffsetDesc@1@_N@Z @ 0x1800725E4 (-CalcVertexAAOffsets@Mesh@@SAXAEBUMeshDesc@1@PEAUVertexAAOffsetDesc@1@_N@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 __int64 __fastcall Mesh::CalcEdgeDirections(__int64 a1, unsigned __int64 a2, __int64 *a3, float a4)
 {
   unsigned int v7; // ebx

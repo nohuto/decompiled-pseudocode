@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmQueryFeatureConfigurationSections @ 0x1407779D8
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140777B1C (CmFcManagerQueryFeatureConfigurationSectionInformation.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall CmQueryFeatureConfigurationSections(
         __int128 *a1,
         int a2,

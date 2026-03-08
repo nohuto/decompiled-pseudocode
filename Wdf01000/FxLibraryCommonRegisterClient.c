@@ -1,3 +1,17 @@
+/*
+ * XREFs of FxLibraryCommonRegisterClient @ 0x1C002C2B8
+ * Callers:
+ *     LibraryRegisterClient @ 0x1C00176A0 (LibraryRegisterClient.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     ?ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z @ 0x1C002BE40 (-ReportDdiFunctionCountMismatch@@YAXPEBU_UNICODE_STRING@@KKE@Z.c)
+ *     GetEnhancedVerifierOptions @ 0x1C002C77C (GetEnhancedVerifierOptions.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C002CAF8 (McGenEventRegister_EtwRegister.c)
+ *     FxAllocateDriverGlobals @ 0x1C0043978 (FxAllocateDriverGlobals.c)
+ *     LockVerifierSection @ 0x1C0045038 (LockVerifierSection.c)
+ *     GetNameFromPath @ 0x1C004E0BC (GetNameFromPath.c)
+ */
+
 __int64 __fastcall FxLibraryCommonRegisterClient(
         _WDF_BIND_INFO *Info,
         _WDF_DRIVER_GLOBALS **WdfDriverGlobals,

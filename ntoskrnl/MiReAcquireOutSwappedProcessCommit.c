@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiReAcquireOutSwappedProcessCommit @ 0x140616AC8
+ * Callers:
+ *     KiInSwapProcesses @ 0x1402C0180 (KiInSwapProcesses.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiBeginProcessClean @ 0x1402DB7FC (MiBeginProcessClean.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeFreezeProcess @ 0x140355C58 (KeFreezeProcess.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x140615DEC (MiLogOutswappedProcessCommitReacquire.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiReAcquireOutSwappedProcessCommit(char *Object)
 {
   char *v2; // rbp

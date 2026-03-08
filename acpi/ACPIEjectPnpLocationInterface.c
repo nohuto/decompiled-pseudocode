@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIEjectPnpLocationInterface @ 0x1C0087570
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryPnpLocationInterface @ 0x1C008653C (ACPIFilterIrpQueryPnpLocationInterface.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C00944D0 (ACPIRootIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ACPIEjectPnpLocationInterface(ULONG_PTR a1, __int64 a2)
 {
   __int64 v2; // rdi

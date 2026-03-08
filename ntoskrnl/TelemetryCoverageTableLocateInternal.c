@@ -1,3 +1,13 @@
+/*
+ * XREFs of TelemetryCoverageTableLocateInternal @ 0x1402F9EA8
+ * Callers:
+ *     EtwpCoverageRecord @ 0x14078E9DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageCheckCP @ 0x1409E54C8 (EtwpCoverageCheckCP.c)
+ *     EtwpCoverageResetCP @ 0x1409E5850 (EtwpCoverageResetCP.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall TelemetryCoverageTableLocateInternal(unsigned int *a1, int a2)
 {
   __int64 v2; // rax

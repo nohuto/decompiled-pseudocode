@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserEnumDisplayDevices @ 0x1C0071780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     DrvEnumDisplayDevices @ 0x1C0071810 (DrvEnumDisplayDevices.c)
+ */
+
 __int64 __fastcall NtUserEnumDisplayDevices(struct _UNICODE_STRING *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

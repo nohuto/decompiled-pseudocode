@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFlipManagerBindingStart @ 0x1C01625D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00EE4B6 (McTemplateK0p_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EtwTraceFlipManagerBindingStart(__int64 a1)
 {
   NTSTATUS result; // eax

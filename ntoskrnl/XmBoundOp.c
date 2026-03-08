@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmBoundOp @ 0x140531FE0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetOffsetAddress @ 0x14039F39C (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     longjmp @ 0x1403D2360 (longjmp.c)
+ */
+
 __int64 __fastcall XmBoundOp(__int64 a1)
 {
   unsigned int v1; // edi

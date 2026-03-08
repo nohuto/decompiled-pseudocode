@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspFreeUserFiberShadowStack @ 0x1409AE1B8
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmUpdateUserShadowStackValue @ 0x1406441CC (MmUpdateUserShadowStackValue.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PspFreeUserFiberShadowStack(PVOID BaseAddress)
 {
   int updated; // edi

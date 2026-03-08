@@ -1,3 +1,20 @@
+/*
+ * XREFs of SdbGetDatabaseMatch @ 0x14079E090
+ * Callers:
+ *     PiIsDriverBlocked @ 0x14079DF64 (PiIsDriverBlocked.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpSearchDB @ 0x14079F878 (SdbpSearchDB.c)
+ *     AslFileMappingDelete @ 0x1407A1D38 (AslFileMappingDelete.c)
+ *     SdbpReleaseSearchDBContext @ 0x1407A1D98 (SdbpReleaseSearchDBContext.c)
+ *     AslFileMappingCreate @ 0x1407A2D8C (AslFileMappingCreate.c)
+ *     SdbpCreateSearchDBContext @ 0x1407A3094 (SdbpCreateSearchDBContext.c)
+ *     SdbTagIDToTagRef @ 0x1408003AC (SdbTagIDToTagRef.c)
+ *     AslFileMappingCreateFromImageView @ 0x140847670 (AslFileMappingCreateFromImageView.c)
+ */
+
 __int64 __fastcall SdbGetDatabaseMatch(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v8; // eax

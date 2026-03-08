@@ -1,3 +1,14 @@
+/*
+ * XREFs of LdrpGetResourceFileName @ 0x1403A1D24
+ * Callers:
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 int __fastcall LdrpGetResourceFileName(
         __int64 a1,
         char a2,

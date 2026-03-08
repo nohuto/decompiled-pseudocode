@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoRegisterIoTracking @ 0x140946000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     IopIrpExtensionControl @ 0x140553530 (IopIrpExtensionControl.c)
+ *     IoPerfInit @ 0x140556AD8 (IoPerfInit.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IoRegisterIoTracking(__int64 a1, _QWORD *a2)
 {
   __int64 Pool2; // rax

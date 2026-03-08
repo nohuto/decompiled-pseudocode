@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmGetSectionRange @ 0x140A2D9B8
+ * Callers:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ */
+
 __int64 __fastcall MmGetSectionRange(unsigned __int64 a1, unsigned __int64 *a2, unsigned int *a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncNotifyWindowMoveForWorkArea @ 0x1C026FDBC
+ * Callers:
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncNotifyWindowMoveForWorkArea(PVOID Object, __int64 a2)
 {
   unsigned int v3; // edi

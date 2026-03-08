@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetPersistedKeyPath @ 0x1C0042E20
+ * Callers:
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00436CC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Ld @ 0x1C00258CC (WPP_RECORDER_SF_Ld.c)
+ */
+
 __int64 __fastcall GetPersistedKeyPath(_QWORD *a1)
 {
   int PersistedStateLocation; // ebx

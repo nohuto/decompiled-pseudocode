@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpCheckPowerButton @ 0x140409BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     HalpShutdown @ 0x140504C74 (HalpShutdown.c)
+ *     InbvCheckDisplayOwnership @ 0x14054C130 (InbvCheckDisplayOwnership.c)
+ */
+
 void HalpCheckPowerButton()
 {
   __int16 v0; // bx

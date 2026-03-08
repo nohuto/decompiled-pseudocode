@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopIdleChooseDozeS4Time @ 0x14059BE38
+ * Callers:
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059BCE8 (PopIdleArmAoAcDozeS4Timer.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopIdleChooseDozeS4Time(unsigned __int64 *a1, int *a2)
 {
   unsigned __int64 v2; // r10

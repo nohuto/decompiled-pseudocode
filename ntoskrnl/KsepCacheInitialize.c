@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsepCacheInitialize @ 0x1407FFE64
+ * Callers:
+ *     KsepEngineInitialize @ 0x140B34E84 (KsepEngineInitialize.c)
+ * Callees:
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ */
+
 _QWORD *__fastcall KsepCacheInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *Paged; // rax

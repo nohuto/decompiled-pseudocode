@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteDiagEntry@VIDPN_MGR@@QEAAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C00021EC
+ * Callers:
+ *     _BmlLogDiagnosticsPacket @ 0x1C016B1CC (_BmlLogDiagnosticsPacket.c)
+ * Callees:
+ *     ?WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000A35C (-WriteDiagnosticEntry@DXGDIAGNOSTICS@@QEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ */
+
 __int64 __fastcall VIDPN_MGR::WriteDiagEntry(struct _KTHREAD **this, struct _DXGK_DIAG_HEADER *a2)
 {
   _DWORD *v2; // rbx

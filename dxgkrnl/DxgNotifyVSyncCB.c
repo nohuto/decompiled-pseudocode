@@ -1,3 +1,14 @@
+/*
+ * XREFs of DxgNotifyVSyncCB @ 0x1C000ECB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C000ED70 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ @ 0x1C01C97C4 (-GetSessionData@DXGGLOBAL@@QEAAPEAVDXGSESSIONDATA@@XZ.c)
+ */
+
 void __fastcall DxgNotifyVSyncCB(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

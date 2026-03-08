@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetStride@CBitmapLock@@UEAAJPEAI@Z @ 0x1800F1B00
+ * Callers:
+ *     ?GetStride@CBitmapLock@@WBI@EAAJPEAI@Z @ 0x18011A810 (-GetStride@CBitmapLock@@WBI@EAAJPEAI@Z.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CBitmapLock::GetStride(CBitmapLock *this, unsigned int *a2)
 {
   __int64 v4; // rcx

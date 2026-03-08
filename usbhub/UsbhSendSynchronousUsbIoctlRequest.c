@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhSendSynchronousUsbIoctlRequest @ 0x1C0021D3C
+ * Callers:
+ *     UsbhSshPropagateResume @ 0x1C0021BE4 (UsbhSshPropagateResume.c)
+ *     UsbhPortResumeTimeout @ 0x1C0038ED0 (UsbhPortResumeTimeout.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003C220 (UsbhFdoSetD0Warm.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhSendSynchronousUsbIoctlRequest(__int64 a1, struct _DEVICE_OBJECT *a2, unsigned int a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtQuerySemaphore @ 0x1409FE990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtQuerySemaphore(HANDLE Handle, int a2, unsigned __int64 a3, int a4, unsigned __int64 a5)
 {
   KPROCESSOR_MODE PreviousMode; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcTranCopyS4D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C02769B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSrcTranCopyS4D32(
         const unsigned __int8 *a1,
         int a2,

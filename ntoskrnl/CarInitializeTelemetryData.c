@@ -1,3 +1,19 @@
+/*
+ * XREFs of CarInitializeTelemetryData @ 0x1405D1970
+ * Callers:
+ *     CarCreateTelemetryData @ 0x1405D161C (CarCreateTelemetryData.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     CarCopyDriverName @ 0x1405D0358 (CarCopyDriverName.c)
+ *     CarGetDriverInfoFromDriverName @ 0x1405D0C20 (CarGetDriverInfoFromDriverName.c)
+ *     CarGetDriverInfoFromViolationStack @ 0x1405D0C78 (CarGetDriverInfoFromViolationStack.c)
+ *     CarCreateViolationHashString @ 0x1405D313C (CarCreateViolationHashString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfUtilGetDriverName @ 0x140ABF6B0 (VfUtilGetDriverName.c)
+ */
+
 __int64 __fastcall CarInitializeTelemetryData(
         __int64 a1,
         unsigned int a2,

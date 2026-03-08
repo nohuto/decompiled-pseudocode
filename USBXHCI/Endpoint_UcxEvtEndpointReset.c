@@ -1,3 +1,15 @@
+/*
+ * XREFs of Endpoint_UcxEvtEndpointReset @ 0x1C003C830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003D8E0 (WPP_RECORDER_SF_ddqd.c)
+ */
+
 void __fastcall Endpoint_UcxEvtEndpointReset(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxLddmLogProcessPrimaryLockCount@@YAXK@Z @ 0x1C01956DC
+ * Callers:
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006D050 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 void __fastcall DxLddmLogProcessPrimaryLockCount(ULONG a1)
 {
   __int64 v1; // rdx

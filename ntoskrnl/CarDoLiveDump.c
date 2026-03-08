@@ -1,3 +1,14 @@
+/*
+ * XREFs of CarDoLiveDump @ 0x1405D35B0
+ * Callers:
+ *     CarWriteLivedump @ 0x1405D3880 (CarWriteLivedump.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     DifiDbgPrint @ 0x1405D3224 (DifiDbgPrint.c)
+ *     CarLiveDump @ 0x1405D3670 (CarLiveDump.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CarDoLiveDump(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
 {
   unsigned int v5; // ebx

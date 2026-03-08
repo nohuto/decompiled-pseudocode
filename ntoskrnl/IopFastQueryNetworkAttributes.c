@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopFastQueryNetworkAttributes @ 0x1409449B8
+ * Callers:
+ *     IoFastQueryNetworkAttributes @ 0x140944400 (IoFastQueryNetworkAttributes.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     FsRtlpCleanupEcps @ 0x14070C240 (FsRtlpCleanupEcps.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 char __fastcall IopFastQueryNetworkAttributes(__int64 a1, int a2, char a3, int a4, __int64 a5, __int64 a6)
 {
   int v10; // ebx

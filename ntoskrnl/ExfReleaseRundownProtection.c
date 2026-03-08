@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExfReleaseRundownProtection @ 0x1402C9DA0
+ * Callers:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 void __stdcall ExfReleaseRundownProtection(PEX_RUNDOWN_REF RunRef)
 {
   unsigned __int64 Count; // r8

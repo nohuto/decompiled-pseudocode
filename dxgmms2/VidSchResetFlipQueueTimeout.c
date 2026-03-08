@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchResetFlipQueueTimeout @ 0x1C0105E14
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchRestartAdapter @ 0x1C01086B0 (VidSchRestartAdapter.c)
+ * Callees:
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C00183C8 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ */
+
 void __fastcall VidSchResetFlipQueueTimeout(__int64 a1)
 {
   unsigned int v1; // r10d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLockFileExtentsExclusive @ 0x140A31480
+ * Callers:
+ *     MiInsertCopyExtents @ 0x14063BA1C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063BFCC (MiMergeCopyExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A31150 (MiDeleteFileExtentList.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 MiLockFileExtentsExclusive()
 {
   struct _KTHREAD *CurrentThread; // rax

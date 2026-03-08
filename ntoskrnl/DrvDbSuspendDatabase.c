@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvDbSuspendDatabase @ 0x14081C16C
+ * Callers:
+ *     PiDrvDbSuspendNodes @ 0x14081C10C (PiDrvDbSuspendNodes.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     DrvDbFindDatabaseNode @ 0x1408661B4 (DrvDbFindDatabaseNode.c)
+ */
+
 __int64 __fastcall DrvDbSuspendDatabase(__int64 a1, const wchar_t *a2, char a3)
 {
   __int64 v3; // rsi

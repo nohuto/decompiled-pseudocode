@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxSetNCFonts @ 0x1C010E91C
+ * Callers:
+ *     xxxSetWindowNCMetrics @ 0x1C010CBC8 (xxxSetWindowNCMetrics.c)
+ * Callees:
+ *     GreCreateFontIndirectW @ 0x1C0025AF8 (GreCreateFontIndirectW.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GetDPIMetrics @ 0x1C009FD5C (GetDPIMetrics.c)
+ *     UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00B7F80 (UpdateDpiMetricsCacheDPISERVERINFO.c)
+ *     InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C010C82C (InvalidateKMDpiMetricsCacheDPIMETRICS.c)
+ *     UserSetAltScaleFont @ 0x1C010E47C (UserSetAltScaleFont.c)
+ *     UserSetFont @ 0x1C010E6E8 (UserSetFont.c)
+ *     GreMarkDeletableFont @ 0x1C010E8B4 (GreMarkDeletableFont.c)
+ *     ?GetLogFontFromUserProfile@@YA?AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z @ 0x1C010EEA8 (-GetLogFontFromUserProfile@@YA-AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     GetCharDimensions @ 0x1C010F9F4 (GetCharDimensions.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall xxxSetNCFonts(struct _UNICODE_STRING *a1, __int64 a2)
 {
   __int64 v3; // r15

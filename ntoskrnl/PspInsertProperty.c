@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspInsertProperty @ 0x1403BEE04
+ * Callers:
+ *     PsSetThreadProperty @ 0x1403BEC70 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1405A1A00 (PsSetJobProperty.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspFindPropertySetEntry @ 0x1402C8774 (PspFindPropertySetEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspInsertProperty(KSPIN_LOCK *a1, __int64 a2, void *a3)
 {
   int v3; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E754
+ * Callers:
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E754 (ACPIInternalFindDeviceExtensionNoLock.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8C4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ * Callees:
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ *     ACPIInternalFindDeviceExtensionNoLock @ 0x1C002E754 (ACPIInternalFindDeviceExtensionNoLock.c)
+ */
+
 __int64 __fastcall ACPIInternalFindDeviceExtensionNoLock(__int64 a1, __int64 a2)
 {
   char *i; // rax

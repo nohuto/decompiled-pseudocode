@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vScale@EPOINTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C02E025C
+ * Callers:
+ *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C008D940 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
+ * Callees:
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ */
+
 void __fastcall EPOINTL::vScale(EPOINTL *this, const struct POINTFL *a2)
 {
   int *v2; // rbx

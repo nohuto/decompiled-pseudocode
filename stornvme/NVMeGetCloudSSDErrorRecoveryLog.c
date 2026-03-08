@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeGetCloudSSDErrorRecoveryLog @ 0x1C001D5EC
+ * Callers:
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 _UNKNOWN **__fastcall NVMeGetCloudSSDErrorRecoveryLog(__int64 a1)
 {
   _UNKNOWN **result; // rax

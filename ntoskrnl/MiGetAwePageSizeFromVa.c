@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetAwePageSizeFromVa @ 0x140648378
+ * Callers:
+ *     MmSetGraphicsPtes @ 0x140A2BE10 (MmSetGraphicsPtes.c)
+ * Callees:
+ *     MiGetAweNode @ 0x1406482F8 (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x14064840C (MiGetAweViewPageSize.c)
+ */
+
 _QWORD *__fastcall MiGetAwePageSizeFromVa(unsigned __int64 a1)
 {
   _QWORD *result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpCorrectErrSrc @ 0x140A8E860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpCorrectGenericErrSrc @ 0x1403A9984 (HalpCorrectGenericErrSrc.c)
+ *     HalpCorrectNMIErrSrc @ 0x1403A99A8 (HalpCorrectNMIErrSrc.c)
+ *     HalpCorrectMachineCheckErrSrc @ 0x140A8E8A4 (HalpCorrectMachineCheckErrSrc.c)
+ */
+
 __int64 __fastcall HalpCorrectErrSrc(__int64 a1, _DWORD *a2)
 {
   int v2; // r8d

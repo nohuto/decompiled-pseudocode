@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSolidFillRow1@@YAXPEAU_ROW@@KJPEAEKJK@Z @ 0x1C0305950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSolidFillRow1(
         struct _ROW *a1,
         unsigned int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EmonMarkCountersReserved @ 0x14051AFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAllocateHalCounters @ 0x1404FFC48 (HalpAllocateHalCounters.c)
+ *     EmonConfigurePebsBuffer @ 0x14051ACA8 (EmonConfigurePebsBuffer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall EmonMarkCountersReserved(__int64 a1)
 {
   unsigned int Number; // r11d

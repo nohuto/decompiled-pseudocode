@@ -1,3 +1,14 @@
+/*
+ * XREFs of _PnpGetObjectList @ 0x14086A038
+ * Callers:
+ *     PiDmObjectManagerPopulate @ 0x14083A17C (PiDmObjectManagerPopulate.c)
+ *     PiCMGetObjectList @ 0x140869E8C (PiCMGetObjectList.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpGetObjectListDispatch @ 0x14086A180 (_PnpGetObjectListDispatch.c)
+ */
+
 __int64 __fastcall PnpGetObjectList(
         __int64 a1,
         unsigned int a2,

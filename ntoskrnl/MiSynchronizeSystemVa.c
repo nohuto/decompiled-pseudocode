@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiSynchronizeSystemVa @ 0x1402228B0
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiLockStealSystemVm @ 0x140394CFC (MiLockStealSystemVm.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiGetSystemCacheReverseMap @ 0x140222030 (MiGetSystemCacheReverseMap.c)
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiUnlockSystemVa @ 0x1402A2820 (MiUnlockSystemVa.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiPageTableStillExists @ 0x1403A3B20 (MiPageTableStillExists.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall MiSynchronizeSystemVa(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v5; // ebp

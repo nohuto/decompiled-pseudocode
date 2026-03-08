@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViIrpDatabaseReleaseLockShared @ 0x1405D01F8
+ * Callers:
+ *     VfIrpDatabaseCheckExFreePool @ 0x140ABD876 (VfIrpDatabaseCheckExFreePool.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ViIrpDatabaseReleaseLockShared(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbx

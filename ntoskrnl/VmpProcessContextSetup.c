@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmpProcessContextSetup @ 0x1409DA930
+ * Callers:
+ *     VmCreateMemoryRange @ 0x1409D96F0 (VmCreateMemoryRange.c)
+ *     VmPreallocateForRangeCreate @ 0x1409D9C10 (VmPreallocateForRangeCreate.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VmpProcessContextCleanup @ 0x1409DA91C (VmpProcessContextCleanup.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VmpProcessContextSetup(unsigned __int64 a1)
 {
   unsigned int v1; // ebx

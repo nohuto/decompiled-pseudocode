@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPICMButtonNotify @ 0x1C0018AC8
+ * Callers:
+ *     ACPICMButtonNotifyByDeviceExtension @ 0x1C0018BB0 (ACPICMButtonNotifyByDeviceExtension.c)
+ *     ACPICMButtonNotifyByDeviceObject @ 0x1C0018BD0 (ACPICMButtonNotifyByDeviceObject.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
+ *     ACPICMExperienceButtonHandleEvent @ 0x1C001961C (ACPICMExperienceButtonHandleEvent.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ */
+
 _QWORD *__fastcall ACPICMButtonNotify(ULONG_PTR a1, __int64 a2, unsigned int a3)
 {
   _QWORD *result; // rax

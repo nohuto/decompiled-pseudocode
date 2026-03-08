@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?IsSupportOverlay@DXGDEVICE@@QEAAEXZ @ 0x1C005425C
+ * Callers:
+ *     DxgkCreateOverlay @ 0x1C0330DB0 (DxgkCreateOverlay.c)
+ *     DxgkDestroyOverlay @ 0x1C0331570 (DxgkDestroyOverlay.c)
+ *     DxgkFlipOverlay @ 0x1C0331B90 (DxgkFlipOverlay.c)
+ *     DxgkGetOverlayState @ 0x1C0332170 (DxgkGetOverlayState.c)
+ *     DxgkUpdateOverlay @ 0x1C0332840 (DxgkUpdateOverlay.c)
+ * Callees:
+ *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0001560 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
+ */
+
 unsigned __int8 __fastcall DXGDEVICE::IsSupportOverlay(DXGDEVICE *this)
 {
   __int64 v1; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopEtEnergyTrackerCleanup @ 0x14099565C
+ * Callers:
+ *     PopEtEnergyTrackerDelete @ 0x140995810 (PopEtEnergyTrackerDelete.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopEtAggregateKeyCleanup @ 0x140702A18 (PopEtAggregateKeyCleanup.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x140768330 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopEtEnergyTrackerCleanup(__int64 a1)
 {
   __int64 v2; // rcx

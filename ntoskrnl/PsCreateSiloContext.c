@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsCreateSiloContext @ 0x140738810
+ * Callers:
+ *     CmpAllocateSiloContext @ 0x1407384A4 (CmpAllocateSiloContext.c)
+ *     PspAssignSiloSystemRootPath @ 0x1409A99E0 (PspAssignSiloSystemRootPath.c)
+ *     ObCreateSiloRootDirectory @ 0x140A70E70 (ObCreateSiloRootDirectory.c)
+ * Callees:
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall PsCreateSiloContext(__int64 a1, __int64 a2, int a3, __int64 a4, _QWORD *a5)
 {
   _QWORD *v5; // rbx

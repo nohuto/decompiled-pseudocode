@@ -1,3 +1,12 @@
+/*
+ * XREFs of Unload @ 0x1C0055B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     PushPost @ 0x1C0053CE0 (PushPost.c)
+ */
+
 __int64 __fastcall Unload(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

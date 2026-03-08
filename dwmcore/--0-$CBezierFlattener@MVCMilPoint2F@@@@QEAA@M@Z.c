@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0?$CBezierFlattener@MVCMilPoint2F@@@@QEAA@M@Z @ 0x1800158B8
+ * Callers:
+ *     ??0CTrimPathOperation@@QEAA@XZ @ 0x18001527C (--0CTrimPathOperation@@QEAA@XZ.c)
+ *     ??0CPathLengthOperation@@QEAA@XZ @ 0x1800157F8 (--0CPathLengthOperation@@QEAA@XZ.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A2A4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ */
+
 float *__fastcall CBezierFlattener<float,CMilPoint2F>::CBezierFlattener<float,CMilPoint2F>(float *a1, float a2)
 {
   float *result; // rax

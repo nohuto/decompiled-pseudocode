@@ -1,3 +1,31 @@
+/*
+ * XREFs of PnpRebalance @ 0x14096B948
+ * Callers:
+ *     PnpProcessRebalance @ 0x140562AF4 (PnpProcessRebalance.c)
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1402B146C (PnpDiagnosticTraceObjectWithStatus.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpFindBestConfiguration @ 0x140803704 (PnpFindBestConfiguration.c)
+ *     PnpBuildCmResourceLists @ 0x140803A38 (PnpBuildCmResourceLists.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140803C30 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopCommitConfiguration @ 0x14084D8A8 (IopCommitConfiguration.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ *     PipClearDevNodeProblem @ 0x14086666C (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     IopMarkDeviceToBeReset @ 0x140954500 (IopMarkDeviceToBeReset.c)
+ *     PnpTraceRebalanceResult @ 0x140968FDC (PnpTraceRebalanceResult.c)
+ *     PnpCancelStopDeviceSubtree @ 0x14096B514 (PnpCancelStopDeviceSubtree.c)
+ *     PnpFindRebalanceCandidates @ 0x14096B548 (PnpFindRebalanceCandidates.c)
+ *     PnpStopDeviceSubtree @ 0x14096BD20 (PnpStopDeviceSubtree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpRebalance(__int64 a1, void *a2, unsigned int a3, int a4)
 {
   __int64 v4; // r12

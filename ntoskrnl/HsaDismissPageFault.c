@@ -1,3 +1,12 @@
+/*
+ * XREFs of HsaDismissPageFault @ 0x14052D1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HsaIommuSendCommand @ 0x14052E1A8 (HsaIommuSendCommand.c)
+ */
+
 __int64 __fastcall HsaDismissPageFault(__int64 a1, unsigned int a2, __int16 a3, unsigned __int16 a4, int a5)
 {
   __int64 v6; // r8

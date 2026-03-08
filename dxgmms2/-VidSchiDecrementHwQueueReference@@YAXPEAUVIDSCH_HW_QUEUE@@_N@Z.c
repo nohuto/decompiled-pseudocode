@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x1C00427B0
+ * Callers:
+ *     VidSchTerminateHwQueue @ 0x1C0045300 (VidSchTerminateHwQueue.c)
+ * Callees:
+ *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0003540 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C002F600 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x1C0042604 (-VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchiDecrementHwQueueReference(char *P)
 {

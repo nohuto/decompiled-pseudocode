@@ -1,3 +1,17 @@
+/*
+ * XREFs of Controller_PopulateHardwareVerifierFlags @ 0x1C0073D3C
+ * Callers:
+ *     Controller_WdfEvtDeviceSelfManagedIoInit @ 0x1C001C340 (Controller_WdfEvtDeviceSelfManagedIoInit.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C001A488 (RtlUnicodeStringPrintf.c)
+ *     WPP_RECORDER_SF_i @ 0x1C001C5CC (WPP_RECORDER_SF_i.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall Controller_PopulateHardwareVerifierFlags(__int64 a1)
 {
   char v2; // cl

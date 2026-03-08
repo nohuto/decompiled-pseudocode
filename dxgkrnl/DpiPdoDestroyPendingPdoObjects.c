@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiPdoDestroyPendingPdoObjects @ 0x1C03A4D90
+ * Callers:
+ *     DpiFdoHandleRemoveDevice @ 0x1C0396F80 (DpiFdoHandleRemoveDevice.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C03A5670 (DpiPdoRemovePdoObjects.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiPdoDestroyPendingPdoObjects(__int64 a1)
 {
   struct _IO_REMOVE_LOCK **v1; // rdi

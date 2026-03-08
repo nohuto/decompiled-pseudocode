@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreMultiUserSetDisplayDriverName @ 0x1C0127298
+ * Callers:
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0127334 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ */
+
 __int64 __fastcall GreMultiUserSetDisplayDriverName(__int64 a1, int a2, const unsigned __int16 *a3, __int64 a4)
 {
   unsigned int v5; // ebx

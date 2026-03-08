@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhBusPause_Action @ 0x1C0012DC0
+ * Callers:
+ *     Usbh_BS_BusRun @ 0x1C001D160 (Usbh_BS_BusRun.c)
+ * Callees:
+ *     UsbhDerefPdo @ 0x1C00019F0 (UsbhDerefPdo.c)
+ *     UsbhSsh_CheckHubIdle @ 0x1C0004570 (UsbhSsh_CheckHubIdle.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhPostInterrupt @ 0x1C001F320 (UsbhPostInterrupt.c)
+ *     UsbhCancelEnumeration @ 0x1C0022424 (UsbhCancelEnumeration.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ */
+
 __int64 __fastcall UsbhBusPause_Action(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   __int64 v2; // r15

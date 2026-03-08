@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViAllocateContextTable @ 0x140AC0FEC
+ * Callers:
+ *     VfInsertContext @ 0x1405CC020 (VfInsertContext.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ */
+
 char *__fastcall ViAllocateContextTable(__int16 a1)
 {
   char *result; // rax

@@ -1,3 +1,34 @@
+/*
+ * XREFs of InitializeInputComponents @ 0x1C009770C
+ * Callers:
+ *     InputInitialize @ 0x1C0096C0C (InputInitialize.c)
+ * Callees:
+ *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C0077CF4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     ?UnInitialize@InputExtensibilityCallout@@SAXXZ @ 0x1C0094980 (-UnInitialize@InputExtensibilityCallout@@SAXXZ.c)
+ *     ?GetInstance@CDesktopInputSink@@CAAEAV1@XZ @ 0x1C0094F6C (-GetInstance@CDesktopInputSink@@CAAEAV1@XZ.c)
+ *     ?Initialize@CActivationObjectManager@@SAJXZ @ 0x1C0096B28 (-Initialize@CActivationObjectManager@@SAJXZ.c)
+ *     ?Initialize@CMasterInputThread@@SAJXZ @ 0x1C0097688 (-Initialize@CMasterInputThread@@SAJXZ.c)
+ *     ?Initialize@CCursorClip@@SAJXZ @ 0x1C0097A98 (-Initialize@CCursorClip@@SAJXZ.c)
+ *     ?Initialize@CFrameIdGenerator@@SAJXZ @ 0x1C0097AE8 (-Initialize@CFrameIdGenerator@@SAJXZ.c)
+ *     ?Initialize@CInputGlobals@@SAJXZ @ 0x1C0097B48 (-Initialize@CInputGlobals@@SAJXZ.c)
+ *     ?Initialize@CInputConfig@@SAJXZ @ 0x1C0097C58 (-Initialize@CInputConfig@@SAJXZ.c)
+ *     ?WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z @ 0x1C0097DB4 (-WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z.c)
+ *     ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C0097F04 (-WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z.c)
+ *     RegisterCoreMsgProviderPreferences @ 0x1C0098030 (RegisterCoreMsgProviderPreferences.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00A07E0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
+ *     ?GetInstance@CContentRects@@CAAEAV1@XZ @ 0x1C00D35D4 (-GetInstance@CContentRects@@CAAEAV1@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019AB48 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
+ *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019ABFC (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
+ *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C019B14C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C019B518 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
+ *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C019C49C (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
+ *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C019C93C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     ?GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ @ 0x1C02174C8 (-GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ.c)
+ */
+
 __int64 __fastcall InitializeInputComponents(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoInitializeWorkItem @ 0x1402FABA0
+ * Callers:
+ *     DifIoInitializeWorkItemWrapper @ 0x1405DDC50 (DifIoInitializeWorkItemWrapper.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall IoInitializeWorkItem(PVOID IoObject, PIO_WORKITEM IoWorkItem)
 {
   if ( (unsigned __int16)(*(_WORD *)IoObject - 3) > 1u )

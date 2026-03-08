@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmMdlPageContentsState @ 0x1402D30C0
+ * Callers:
+ *     SmKmIssueVolumeIo @ 0x1405C91AC (SmKmIssueVolumeIo.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405CD074 (MdlInvariantPostProcessing1.c)
+ *     MdlInvariantPreProcessing1 @ 0x1405CD258 (MdlInvariantPreProcessing1.c)
+ *     SmKmStoreFileWriteHeader @ 0x1409D7778 (SmKmStoreFileWriteHeader.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmMdlPageContentsState(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

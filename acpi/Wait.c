@@ -1,3 +1,18 @@
+/*
+ * XREFs of Wait @ 0x1C0059630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     PushPost @ 0x1C0053CE0 (PushPost.c)
+ *     WaitASLEvent @ 0x1C005525C (WaitASLEvent.c)
+ */
+
 __int64 __fastcall Wait(__int64 a1, __int64 *a2)
 {
   unsigned int v4; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MonitorSetScaleFactorOverride @ 0x1C03C0AAC
+ * Callers:
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C02EFC88 (DxgkIddHandleSetDisplayConfig.c)
+ *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F0840 (DxgkIddHandleSetDisplayConfig2.c)
+ * Callees:
+ *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0001E2C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
+ */
+
 __int64 __fastcall MonitorSetScaleFactorOverride(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

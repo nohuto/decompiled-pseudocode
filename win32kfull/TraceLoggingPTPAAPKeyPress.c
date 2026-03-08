@@ -1,3 +1,13 @@
+/*
+ * XREFs of TraceLoggingPTPAAPKeyPress @ 0x1C0205520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z @ 0x1C0204AB4 (-TraceLoggingPTPKeyToAATimeDeltas@@YAX_J000W4tagPTP_ACTION@@1@Z.c)
+ *     ?TraceLoggingPTPKeyToGestureTiming@@YAX_J0PEBUtagTPTELEMTIMINGS@@00@Z @ 0x1C0204B7C (-TraceLoggingPTPKeyToGestureTiming@@YAX_J0PEBUtagTPTELEMTIMINGS@@00@Z.c)
+ */
+
 signed __int64 __fastcall TraceLoggingPTPAAPKeyPress(__int64 a1)
 {
   int v1; // ebx

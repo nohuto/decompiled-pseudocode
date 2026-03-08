@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SenderDied@@YAXPEAUtagSMS@@@Z @ 0x1C0095A8C
+ * Callers:
+ *     SendMsgCleanup @ 0x1C0094980 (SendMsgCleanup.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     UnlinkSendListSms @ 0x1C0094A8C (UnlinkSendListSms.c)
+ */
+
 void __fastcall SenderDied(struct tagSMS *a1)
 {
   __int64 v1; // r8

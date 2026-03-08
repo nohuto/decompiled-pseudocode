@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_PopulateTestRegistrySettings @ 0x1C001C4E0
+ * Callers:
+ *     Controller_PopulateDeviceFlags @ 0x1C00738B4 (Controller_PopulateDeviceFlags.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_PopulateTestRegistrySettings(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of TR_EnsureInputBufferForTrbs @ 0x1C0041850
+ * Callers:
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     Control_Transfer_Map @ 0x1C0007318 (Control_Transfer_Map.c)
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TR_EnsureInputBufferForTrbs(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // ebx

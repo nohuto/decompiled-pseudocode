@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPccInitializeSubspace @ 0x1C0089A94
+ * Callers:
+ *     ACPIPccInitialize @ 0x1C00894D8 (ACPIPccInitialize.c)
+ *     ACPIPccLegacyInitialize @ 0x1C00897A8 (ACPIPccLegacyInitialize.c)
+ * Callees:
+ *     AcpiPccInterruptSupported @ 0x1C0089C9C (AcpiPccInterruptSupported.c)
+ */
+
 __int64 __fastcall AcpiPccInitializeSubspace(char *DeferredContext)
 {
   char v2; // cl

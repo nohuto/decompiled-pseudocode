@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetSharedPropForFilteredProcesses @ 0x1C021F1BC
+ * Callers:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     NtUserGetProp @ 0x1C00B6C30 (NtUserGetProp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetSharedPropForFilteredProcesses(__int64 a1, __int16 a2)
 {
   __int64 v3; // rax

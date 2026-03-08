@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpQuerySessionDemuxObject @ 0x1409E99F0
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall EtwpQuerySessionDemuxObject(void *a1, _WORD *a2)
 {
   NTSTATUS v3; // eax

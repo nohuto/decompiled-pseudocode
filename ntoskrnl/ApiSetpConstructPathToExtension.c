@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetpConstructPathToExtension @ 0x140A07250
+ * Callers:
+ *     ApiSetpLoadSchemaExtension @ 0x140A07380 (ApiSetpLoadSchemaExtension.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ApiSetpConstructPathToExtension(PCWSTR Source, __int16 a2, UNICODE_STRING *a3)
 {
   __int64 v3; // rdx

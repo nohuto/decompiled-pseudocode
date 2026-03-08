@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeMagnificationFactor@@YAXPEAU_MAGNIFICATION_INPUT_TRANSFORM@@@Z @ 0x1C01F7C48
+ * Callers:
+ *     _SetMagnificationInputTransform @ 0x1C007F160 (_SetMagnificationInputTransform.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ComputeMagnificationFactor(__m128i *a1)
 {
   __int64 v1; // r9

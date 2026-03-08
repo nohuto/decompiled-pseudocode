@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RefreshMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01439F8
+ * Callers:
+ *     ?GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z @ 0x1C01433FC (-GeneratePointerMessageFromMouse@@YAHPEAUtagQMSG@@I0PEAUtagWND@@H@Z.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ */
+
 void __fastcall RefreshMiPIdleNotificationTimer(struct tagWND *a1)
 {
   __int64 v1; // rdi

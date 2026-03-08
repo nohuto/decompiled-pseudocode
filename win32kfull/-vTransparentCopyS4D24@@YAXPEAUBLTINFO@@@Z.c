@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vTransparentCopyS4D24@@YAXPEAUBLTINFO@@@Z @ 0x1C0299AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vTransparentCopyS4D24(struct BLTINFO *a1)
 {
   int v2; // r9d

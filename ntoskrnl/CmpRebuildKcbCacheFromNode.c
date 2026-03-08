@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpRebuildKcbCacheFromNode @ 0x1407A5468
+ * Callers:
+ *     CmDeleteLayeredKey @ 0x1406144A0 (CmDeleteLayeredKey.c)
+ *     CmpCreateTombstone @ 0x140614A00 (CmpCreateTombstone.c)
+ *     CmpRebuildKcbCache @ 0x1406B6498 (CmpRebuildKcbCache.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x140A23050 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A23C40 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A23DDC (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ * Callees:
+ *     CmpCleanUpSubKeyInfo @ 0x1407A5570 (CmpCleanUpSubKeyInfo.c)
+ *     CmpAssignSecurityToKcb @ 0x1407A560C (CmpAssignSecurityToKcb.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1407A751C (CmpCleanUpKcbCachedSymlink.c)
+ */
+
 __int64 __fastcall CmpRebuildKcbCacheFromNode(ULONG_PTR BugCheckParameter3, __int64 a2, __int64 a3, char a4)
 {
   __int64 v4; // rdi

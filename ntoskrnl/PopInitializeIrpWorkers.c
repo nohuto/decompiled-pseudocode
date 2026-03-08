@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopInitializeIrpWorkers @ 0x140B6E534
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopCreatePowerThread @ 0x140300AA4 (PopCreatePowerThread.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ */
+
 NTSTATUS PopInitializeIrpWorkers()
 {
   NTSTATUS result; // eax

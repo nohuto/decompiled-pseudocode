@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiSpacesUpdatePhysicalDevicePath @ 0x14066F1C4
+ * Callers:
+ *     BiUpdateEfiEntry @ 0x140A5C248 (BiUpdateEfiEntry.c)
+ * Callees:
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     SyspartGetPhysicalPartitions @ 0x140A5C57C (SyspartGetPhysicalPartitions.c)
+ *     SyspartIsSpace @ 0x140A5C6E8 (SyspartIsSpace.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiSpacesUpdatePhysicalDevicePath(_OWORD **a1)
 {
   _DWORD *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhGetDeviceFlags @ 0x1C00519E8
+ * Callers:
+ *     UsbhCheckDeviceErrata @ 0x1C00514D4 (UsbhCheckDeviceErrata.c)
+ *     UsbhCheckHubErrata @ 0x1C005182C (UsbhCheckHubErrata.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ */
+
 NTSTATUS __fastcall UsbhGetDeviceFlags(unsigned __int16 *a1, _QWORD *a2, char a3)
 {
   __int64 v3; // rbx

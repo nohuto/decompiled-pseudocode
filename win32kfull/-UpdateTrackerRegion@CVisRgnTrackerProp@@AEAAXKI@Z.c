@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C0044204
+ * Callers:
+ *     ?Update@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C004411C (-Update@CVisRgnTrackerProp@@QEAAXXZ.c)
+ * Callees:
+ *     DwmAsyncUpdateVisRgn @ 0x1C0021F40 (DwmAsyncUpdateVisRgn.c)
+ *     ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C0025360 (-GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z.c)
+ *     ?GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z @ 0x1C0044458 (-GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DwmAsyncUpdateLargeVisRgn @ 0x1C027084C (DwmAsyncUpdateLargeVisRgn.c)
+ */
+
 void __fastcall CVisRgnTrackerProp::UpdateTrackerRegion(CVisRgnTrackerProp *this, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r14d

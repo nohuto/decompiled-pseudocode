@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgDbgTriageDumpCallback @ 0x1C0059820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkpAddTriageAdapterData @ 0x1C0059878 (DxgkpAddTriageAdapterData.c)
+ */
+
 void __fastcall DxgDbgTriageDumpCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

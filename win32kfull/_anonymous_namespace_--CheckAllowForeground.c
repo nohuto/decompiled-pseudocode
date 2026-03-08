@@ -1,3 +1,17 @@
+/*
+ * XREFs of _anonymous_namespace_::CheckAllowForeground @ 0x1C003D0C4
+ * Callers:
+ *     EditionPushExitingAppForegroundPolicy @ 0x1C003F010 (EditionPushExitingAppForegroundPolicy.c)
+ *     ?ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z @ 0x1C003F218 (-ApplyForegroundPolicyConsole@ForegroundLaunch@@YAXPEAU_EPROCESS@@@Z.c)
+ *     _anonymous_namespace_::ApplyForegroundPolicy @ 0x1C003F514 (_anonymous_namespace_--ApplyForegroundPolicy.c)
+ * Callees:
+ *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C003D388 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     _anonymous_namespace_::HasLegacyForegroundActivateRight @ 0x1C00E446C (_anonymous_namespace_--HasLegacyForegroundActivateRight.c)
+ *     Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage @ 0x1C012E440 (Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage.c)
+ */
+
 char __fastcall anonymous_namespace_::CheckAllowForeground(__int64 a1)
 {
   char v1; // di

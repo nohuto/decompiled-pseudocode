@@ -1,3 +1,17 @@
+/*
+ * XREFs of TransformVectorWithInputTargetPrecedence @ 0x1C01442D8
+ * Callers:
+ *     EditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C0145090 (EditionPhysicalToLogicalDPIPointWithInputDestHint.c)
+ *     EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C01AD300 (EditionGetLogicalPointForMouseCaptureButtonEvent.c)
+ *     EditionMouseCaptureHitTest @ 0x1C01E74A0 (EditionMouseCaptureHitTest.c)
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     GetMonitorTransform @ 0x1C00645EC (GetMonitorTransform.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     TransformVector @ 0x1C01E7DD8 (TransformVector.c)
+ */
+
 __int64 __fastcall TransformVectorWithInputTargetPrecedence(const struct tagWND *a1, int a2, int a3)
 {
   _BYTE *v6; // rbx

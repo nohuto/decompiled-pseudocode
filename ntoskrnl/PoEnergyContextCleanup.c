@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoEnergyContextCleanup @ 0x1407046AC
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     RtlStateDurationCapture @ 0x140238458 (RtlStateDurationCapture.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402384D0 (KeQueryTimelineBitmapTime.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x1402EA814 (RtlTimelineBitmapUpdateRange.c)
+ *     PopEtAppIdDereference @ 0x140702A60 (PopEtAppIdDereference.c)
+ *     RtlInternEntryDereference @ 0x140702B20 (RtlInternEntryDereference.c)
+ *     PopEtEnumEnergyTrackers @ 0x1407039F4 (PopEtEnumEnergyTrackers.c)
+ */
+
 void __fastcall PoEnergyContextCleanup(__int64 a1)
 {
   _QWORD *v1; // rdi

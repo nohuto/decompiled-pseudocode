@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DdcciSetVCPFeature@CPhysicalMonitorHandle@@QEAAJKK@Z @ 0x1C026C504
+ * Callers:
+ *     NtGdiDDCCISetVCPFeature @ 0x1C026CE60 (NtGdiDDCCISetVCPFeature.c)
+ * Callees:
+ *     ?DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z @ 0x1C026C384 (-DdcciSendDataToMonitorDevice@CPhysicalMonitorHandle@@AEAAJ_JPEAXK@Z.c)
+ */
+
 __int64 __fastcall CPhysicalMonitorHandle::DdcciSetVCPFeature(CPhysicalMonitorHandle *this, char a2, __int16 a3)
 {
   int v7; // [rsp+48h] [rbp+20h] BYREF

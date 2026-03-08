@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?STROBJ_bGetAdvanceWidthsLinked@@YAHPEAVESTROBJ@@KKPEAU_POINTQF@@@Z @ 0x1C02DB8C0
+ * Callers:
+ *     STROBJ_bGetAdvanceWidths @ 0x1C02DDAD0 (STROBJ_bGetAdvanceWidths.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall STROBJ_bGetAdvanceWidthsLinked(struct ESTROBJ *a1, unsigned int a2, int a3, struct _POINTQF *a4)
 {
   unsigned int v5; // edi

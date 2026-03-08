@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetD2DEffectProperties@CCompositeEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x180254EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositeEffect::SetD2DEffectProperties(CCompositeEffect *this, struct ID2D1Effect *a2)
 {
   int v2; // eax

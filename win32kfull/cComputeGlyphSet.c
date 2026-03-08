@@ -1,3 +1,12 @@
+/*
+ * XREFs of cComputeGlyphSet @ 0x1C00BCF1C
+ * Callers:
+ *     EngComputeGlyphSet @ 0x1C00BCC00 (EngComputeGlyphSet.c)
+ *     cUnicodeRangesSupported @ 0x1C00BCCE0 (cUnicodeRangesSupported.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall cComputeGlyphSet(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, _DWORD *a5)
 {
   _DWORD *v5; // r10

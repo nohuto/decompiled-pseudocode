@@ -1,3 +1,15 @@
+/*
+ * XREFs of MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED @ 0x1403482CC
+ * Callers:
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiCombineWithExisting @ 0x14034A4C4 (MiCombineWithExisting.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140346F70 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ */
+
 _BOOL8 __fastcall MI_WRITE_INVALID_PTE_TB_FLUSH_NEEDED(volatile __int64 *a1, __int64 a2, char a3)
 {
   volatile __int64 v3; // rdi

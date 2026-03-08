@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpMergeFilteredResourceRequirementsList @ 0x14085A248
+ * Callers:
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnpMergeFilteredResourceRequirementsList(_DWORD *Src, _DWORD *a2, unsigned int **a3)
 {
   _DWORD *v5; // rbx

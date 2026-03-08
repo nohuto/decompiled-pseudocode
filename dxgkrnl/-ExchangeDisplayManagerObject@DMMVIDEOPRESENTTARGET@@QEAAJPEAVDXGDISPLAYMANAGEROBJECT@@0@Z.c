@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ExchangeDisplayManagerObject@DMMVIDEOPRESENTTARGET@@QEAAJPEAVDXGDISPLAYMANAGEROBJECT@@0@Z @ 0x1C03AE994
+ * Callers:
+ *     ?DmmClearDisplayManagerReferencesForAdapter@@YAJPEBVDXGADAPTER@@@Z @ 0x1C01D8B5C (-DmmClearDisplayManagerReferencesForAdapter@@YAJPEBVDXGADAPTER@@@Z.c)
+ *     DmmDoForSpecifiedTarget__lambda_533853168684940ab58800475a78e255___ @ 0x1C03A5F1C (DmmDoForSpecifiedTarget__lambda_533853168684940ab58800475a78e255___.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DMMVIDEOPRESENTTARGET::ExchangeDisplayManagerObject(
         DMMVIDEOPRESENTTARGET *this,
         struct DXGDISPLAYMANAGEROBJECT *a2,

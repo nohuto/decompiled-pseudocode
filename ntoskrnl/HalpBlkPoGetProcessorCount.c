@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkPoGetProcessorCount @ 0x1403AF6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpBlkPoGetProcessorCount(int a1)
 {
   unsigned int v1; // r8d

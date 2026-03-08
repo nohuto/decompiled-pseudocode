@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM20_CheckingForOverCurrentOnResume @ 0x1C0012AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ */
+
 __int64 __fastcall HUBPSM20_CheckingForOverCurrentOnResume(__int64 a1)
 {
   __int64 *v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefDigitsFromBits @ 0x1403FFAA0
+ * Callers:
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefDigitsFromBits(unsigned int a1)
 {
   __int64 result; // rax

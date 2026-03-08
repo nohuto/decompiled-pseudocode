@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00C76C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CComponentTransform2DMarshaler::SetFloatProperty(
         DirectComposition::CComponentTransform2DMarshaler *this,
         int a2,

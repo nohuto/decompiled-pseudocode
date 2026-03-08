@@ -1,3 +1,30 @@
+/*
+ * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140409A8C
+ * Callers:
+ *     PpmPerfSnapUtility @ 0x140235210 (PpmPerfSnapUtility.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1402AC810 (KiSearchForNewThreadOnProcessor.c)
+ *     wil_details_IsEnabledFallback @ 0x140409AE0 (wil_details_IsEnabledFallback.c)
+ *     Feature_BamQosGrouping__private_ReportDeviceUsage @ 0x14040A310 (Feature_BamQosGrouping__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage @ 0x14040A378 (Feature_SchedulerAggressiveForegroundBoost__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage @ 0x14040A3E0 (Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerQosPreemption__private_ReportDeviceUsage @ 0x14040A448 (Feature_SchedulerQosPreemption__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerRemoveForegroundBoostDecay__private_ReportDeviceUsage @ 0x14040A4B0 (Feature_SchedulerRemoveForegroundBoostDecay__private_ReportDeviceUsage.c)
+ *     Feature_MultiCoreClasses__private_ReportDeviceUsage @ 0x14040A518 (Feature_MultiCoreClasses__private_ReportDeviceUsage.c)
+ *     Feature_PerProcessorClockTick__private_ReportDeviceUsage @ 0x14040A770 (Feature_PerProcessorClockTick__private_ReportDeviceUsage.c)
+ *     Feature_SoftParkingElections__private_ReportDeviceUsage @ 0x14040B080 (Feature_SoftParkingElections__private_ReportDeviceUsage.c)
+ *     Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage @ 0x14040B7EC (Feature_DisableAutoUserShutdownTimeout__private_ReportDeviceUsage.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage @ 0x14040B9A0 (Feature_HgsPlusParkingSupportRequired__private_ReportDeviceUsage.c)
+ *     Feature_HgsPlusSupportRequired__private_ReportDeviceUsage @ 0x14040BA08 (Feature_HgsPlusSupportRequired__private_ReportDeviceUsage.c)
+ *     Feature_Servicing_DisableWheaResumedFromHibernate_36438331__private_ReportDeviceUsage @ 0x14041149C (Feature_Servicing_DisableWheaResumedFromHibernate_36438331__private_ReportDeviceUsage.c)
+ *     Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage @ 0x140411520 (Feature_AccessRegistryLockAcquireCount__private_ReportDeviceUsage.c)
+ *     Feature_KernelSharedUserDataAslr__private_ReportDeviceUsage @ 0x1404115D8 (Feature_KernelSharedUserDataAslr__private_ReportDeviceUsage.c)
+ *     Feature_XFG_User__private_ReportDeviceUsage @ 0x1404116DC (Feature_XFG_User__private_ReportDeviceUsage.c)
+ *     Feature_IMDSLicensingIntegration__private_ReportDeviceUsage @ 0x140411744 (Feature_IMDSLicensingIntegration__private_ReportDeviceUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(unsigned __int8 a1, int a2, __int64 a3)
 {
   volatile signed __int32 *v3; // r9

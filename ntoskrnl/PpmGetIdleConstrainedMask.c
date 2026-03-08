@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmGetIdleConstrainedMask @ 0x140581D60
+ * Callers:
+ *     PpmEstimateIdleDuration @ 0x14022A74C (PpmEstimateIdleDuration.c)
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall PpmGetIdleConstrainedMask(unsigned __int16 *a1)
 {
   size_t v2; // r8

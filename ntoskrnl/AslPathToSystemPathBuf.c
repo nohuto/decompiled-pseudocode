@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslPathToSystemPathBuf @ 0x140A527A4
+ * Callers:
+ *     SdbpGetPathAppPatch @ 0x140A4FFD0 (SdbpGetPathAppPatch.c)
+ *     AslPathToSystemPath @ 0x140A526E4 (AslPathToSystemPath.c)
+ *     AslEnvGetSystem32DirPathBuf @ 0x140A547B8 (AslEnvGetSystem32DirPathBuf.c)
+ * Callees:
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslPathToSystemPathBuf(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR pszSrc)
 {
   size_t v6; // r8

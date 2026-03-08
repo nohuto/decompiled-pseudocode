@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HelperCreateLiveDumpWithWdLogs@@YAXJW4_DISPLAY_INFO_FAILURE_POINT@@@Z @ 0x1C019082C
+ * Callers:
+ *     NtUserDisplayConfigGetDeviceInfo @ 0x1C0021D40 (NtUserDisplayConfigGetDeviceInfo.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HelperCreateLiveDumpWithWdLogs(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

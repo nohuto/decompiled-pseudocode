@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlinkSessionWorkingSet @ 0x140200794
+ * Callers:
+ *     MiDereferenceSessionFinal @ 0x14067E7A0 (MiDereferenceSessionFinal.c)
+ * Callees:
+ *     MiUnlinkWorkingSet @ 0x1402A4D2C (MiUnlinkWorkingSet.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUnlinkSessionWorkingSet(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IcAddGicInstance @ 0x1C009EAFC
+ * Callers:
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ *     IrqLibpParseMadt @ 0x1C00ABC98 (IrqLibpParseMadt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IcAddGicInstance(int a1)
 {
   __int64 Pool2; // rax

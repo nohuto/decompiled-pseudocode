@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetChipHacks @ 0x140B354FC
+ * Callers:
+ *     HalpPiix4Detect @ 0x140A85B70 (HalpPiix4Detect.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HalpGetChipHacks(__int16 a1, __int16 a2, unsigned __int8 a3, _DWORD *a4)
 {
   __int64 v5; // rcx

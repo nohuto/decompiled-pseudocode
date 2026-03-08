@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateFrameIndices@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004CFE4
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ * Callees:
+ *     ?ReleaseResponses@CFrameInfo@@QEAAXXZ @ 0x18004D0C8 (-ReleaseResponses@CFrameInfo@@QEAAXXZ.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     McTemplateU0qqqq_EventWriteTransfer @ 0x18012A6F8 (McTemplateU0qqqq_EventWriteTransfer.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::UpdateFrameIndices(CPartitionVerticalBlankScheduler *this)
 {
   __int64 v2; // rcx

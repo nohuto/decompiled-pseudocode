@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionPointerActivate @ 0x1C0146940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z @ 0x1C01C75BC (-xxxPointerActivateInternal@@YAXPEAUtagWND@@F_KPEBUtagPOINTEREVENTINT@@H@Z.c)
+ */
+
 void __fastcall EditionPointerActivate(
         __int64 a1,
         __int16 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserClearWakeMask @ 0x1C01CE8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxClearWakeMask @ 0x1C01B4860 (xxxClearWakeMask.c)
+ */
+
 __int64 NtUserClearWakeMask()
 {
   __int64 v0; // rbx

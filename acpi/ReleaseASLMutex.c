@@ -1,3 +1,14 @@
+/*
+ * XREFs of ReleaseASLMutex @ 0x1C0054DD0
+ * Callers:
+ *     RunContext @ 0x1C0053F34 (RunContext.c)
+ *     Release @ 0x1C0055850 (Release.c)
+ *     ParseAcquire @ 0x1C005A0F0 (ParseAcquire.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ * Callees:
+ *     ParseRelease @ 0x1C005BF70 (ParseRelease.c)
+ */
+
 __int64 __fastcall ReleaseASLMutex(__int64 a1, __int64 a2, char a3)
 {
   int v3; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpFindKcbInHashEntryByCellIndex @ 0x140A14668
+ * Callers:
+ *     CmDeleteLayeredKey @ 0x1406144A0 (CmDeleteLayeredKey.c)
+ *     CmpGetVirtualStoreRoot @ 0x140A16FE4 (CmpGetVirtualStoreRoot.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpFindKcbInHashEntryByCellIndex(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v3; // rbx

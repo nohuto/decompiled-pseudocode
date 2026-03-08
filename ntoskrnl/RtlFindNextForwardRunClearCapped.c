@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindNextForwardRunClearCapped @ 0x1405A5E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindNextForwardRunClearCapped(__int64 a1, unsigned int a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int v4; // ebx

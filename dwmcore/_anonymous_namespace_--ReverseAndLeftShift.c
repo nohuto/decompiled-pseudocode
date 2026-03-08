@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::ReverseAndLeftShift @ 0x1801ACE10
+ * Callers:
+ *     ??$ComputeHandledInteractionsFromLocal@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@CInteractionProcessor@@AEAA?AUInteractionAxis@@PEAV?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@AEBUD2DVector3@@PEAUD2DMatrix@@@Z @ 0x1801A5F0C (--$ComputeHandledInteractionsFromLocal@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFla.c)
+ * Callees:
+ *     _anonymous_namespace_::ConvertVectorArrayToMatrix @ 0x1801AAF54 (_anonymous_namespace_--ConvertVectorArrayToMatrix.c)
+ *     ?D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z @ 0x18027C1D8 (-D3DXVectorAreCloseToZero@@YAHAEBUD2DVector3@@@Z.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::ReverseAndLeftShift(__int64 a1, int *a2)
 {
   int v2; // xmm1_4

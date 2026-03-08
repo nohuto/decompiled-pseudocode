@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopMcCreateBufferEntry @ 0x14055C938
+ * Callers:
+ *     IopIoRingDispatchRegisterBuffers @ 0x140946620 (IopIoRingDispatchRegisterBuffers.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopMcCreateBufferEntry(__int64 a1, unsigned int a2, char a3, __int64 *a4)
 {
   unsigned __int64 v7; // rdi

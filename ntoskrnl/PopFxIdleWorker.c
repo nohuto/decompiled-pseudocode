@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopFxIdleWorker @ 0x14030662C
+ * Callers:
+ *     PopFxComponentWork @ 0x1402F9590 (PopFxComponentWork.c)
+ *     PopFxIdleComponent @ 0x140306A50 (PopFxIdleComponent.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     PopFxIdleWorkerTail @ 0x140306748 (PopFxIdleWorkerTail.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopFxIdleWorker(__int64 *BugCheckParameter2, unsigned int a2)
 {
   __int64 v4; // rsi

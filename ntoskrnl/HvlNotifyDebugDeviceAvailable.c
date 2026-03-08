@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlNotifyDebugDeviceAvailable @ 0x140542AC0
+ * Callers:
+ *     PopHiberCheckResume @ 0x140A9FD30 (PopHiberCheckResume.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 HvlNotifyDebugDeviceAvailable()
 {
   __int16 v0; // bx

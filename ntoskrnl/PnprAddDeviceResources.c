@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnprAddDeviceResources @ 0x1409625E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnprAddMemoryResources @ 0x140962664 (PnprAddMemoryResources.c)
+ *     PnprAddProcessorResources @ 0x14096285C (PnprAddProcessorResources.c)
+ *     PnprIsMemoryDevice @ 0x1409633D0 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x140963488 (PnprIsProcessorDevice.c)
+ */
+
 __int64 __fastcall PnprAddDeviceResources(__int64 a1, __int64 a2)
 {
   struct _DEVICE_OBJECT *v2; // rbx

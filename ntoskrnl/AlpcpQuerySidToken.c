@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpQuerySidToken @ 0x14071872C
+ * Callers:
+ *     AlpcpQuerySidMessage @ 0x1407185C0 (AlpcpQuerySidMessage.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ */
+
 __int64 __fastcall AlpcpQuerySidToken(__int64 a1, void *a2, unsigned int a3, _DWORD *a4)
 {
   int v8; // ebx

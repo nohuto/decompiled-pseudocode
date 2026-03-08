@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateResourceManager @ 0x1403D2470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtCreateResourceManager(
         PHANDLE ResourceManagerHandle,

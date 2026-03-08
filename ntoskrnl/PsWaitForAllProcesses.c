@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsWaitForAllProcesses @ 0x1409B099C
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ */
+
 char PsWaitForAllProcesses()
 {
   unsigned int v0; // esi

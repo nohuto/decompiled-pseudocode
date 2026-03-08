@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtGdiAddFontResourceW @ 0x1C00D0870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00D0A54 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     GreAddFontResourceWInternal @ 0x1C00D0B00 (GreAddFontResourceWInternal.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C011C60C (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z @ 0x1C02C435C (-ProbeAndReadDesignVector@@YAKPEAUtagDESIGNVECTOR@@0@Z.c)
+ */
+
 __int64 __fastcall NtGdiAddFontResourceW(
         const unsigned __int16 *a1,
         unsigned int a2,

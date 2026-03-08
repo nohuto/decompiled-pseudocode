@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiAnyLinkedFonts @ 0x1C00F1FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiAnyLinkedFonts(__int64 a1)
 {
   __int64 v1; // rcx

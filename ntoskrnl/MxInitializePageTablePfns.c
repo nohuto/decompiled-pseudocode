@@ -1,3 +1,11 @@
+/*
+ * XREFs of MxInitializePageTablePfns @ 0x140B4F520
+ * Callers:
+ *     MxZeroPageTablePfns @ 0x140B4F484 (MxZeroPageTablePfns.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 bool __fastcall MxInitializePageTablePfns(__int64 a1, unsigned __int64 a2, int a3)
 {
   char v5; // bl

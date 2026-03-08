@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalReportResourceUsage @ 0x140B45C40
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalpInitSystemHelper @ 0x140A88D44 (HalpInitSystemHelper.c)
+ *     HalpReportResourceUsage @ 0x140B35B2C (HalpReportResourceUsage.c)
+ */
+
 void __fastcall HalReportResourceUsage(int a1)
 {
   int v1; // edx

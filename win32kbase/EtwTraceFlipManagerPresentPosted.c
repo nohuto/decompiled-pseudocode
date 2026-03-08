@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceFlipManagerPresentPosted @ 0x1C0162ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetQpcFrequency @ 0x1C0161710 (GetQpcFrequency.c)
+ *     McTemplateK0qxxxx_EtwWriteTransfer @ 0x1C0167838 (McTemplateK0qxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceFlipManagerPresentPosted(int a1, char a2, __int64 a3)
 {
   __int64 v6; // rax

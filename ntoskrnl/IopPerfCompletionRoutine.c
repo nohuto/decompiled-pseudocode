@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopPerfCompletionRoutine @ 0x140556CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IopPerfCompletionRoutine(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v3; // rbx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of AMLICreateNativeNamespaceObject @ 0x1C00499F8
+ * Callers:
+ *     AcpiReflectNativeObject @ 0x1C0037D80 (AcpiReflectNativeObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     CreateNativeNameSpaceObject @ 0x1C0049D38 (CreateNativeNameSpaceObject.c)
+ *     AMLIGetValidNamespaceName @ 0x1C004ABA8 (AMLIGetValidNamespaceName.c)
+ *     FreeObjData @ 0x1C004B544 (FreeObjData.c)
+ *     NewObjData @ 0x1C004C19C (NewObjData.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 __fastcall AMLICreateNativeNamespaceObject(
         int a1,
         int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportState@TrackedWorkloadMonitor@@QEAAXXZ @ 0x1C035A0A0
+ * Callers:
+ *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0088258 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
+ *     ?ReportState@DXGTRACKEDWORKLOAD@@QEAAXI@Z @ 0x1C0359ED8 (-ReportState@DXGTRACKEDWORKLOAD@@QEAAXI@Z.c)
+ * Callees:
+ *     McTemplateK0pqqqqqggqqqttqggqqqttqggqqqttqggqqqttqggqqqtt_EtwWriteTransfer @ 0x1C00592D8 (McTemplateK0pqqqqqggqqqttqggqqqttqggqqqttqggqqqttqggqqqtt_EtwWriteTransfer.c)
+ */
+
 void __fastcall TrackedWorkloadMonitor::ReportState(TrackedWorkloadMonitor *this)
 {
   __int64 v1; // r8

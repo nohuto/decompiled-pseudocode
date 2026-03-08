@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLockSetPfnPriority @ 0x1402F976C
+ * Callers:
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiUpdateOldPteWorker @ 0x140463E86 (MiUpdateOldPteWorker.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiLockSetPfnPriority(__int64 a1, char a2)
 {
   __int64 result; // rax

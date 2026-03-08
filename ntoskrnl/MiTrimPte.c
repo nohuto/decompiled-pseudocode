@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiTrimPte @ 0x140349060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiTrimWorkingSetTail @ 0x1402E29B0 (MiTrimWorkingSetTail.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiComputeNextWalkPte @ 0x1403491CC (MiComputeNextWalkPte.c)
+ *     MiTrimmedEnough @ 0x140349244 (MiTrimmedEnough.c)
+ *     MiWalkVaCheckCommon @ 0x140349290 (MiWalkVaCheckCommon.c)
+ *     MiTrimPteWorker @ 0x140349308 (MiTrimPteWorker.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ *     MiInsertVmAccessedEntry @ 0x140463768 (MiInsertVmAccessedEntry.c)
+ */
+
 __int64 __fastcall MiTrimPte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v5; // r15

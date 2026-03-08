@@ -1,3 +1,14 @@
+/*
+ * XREFs of XmAddOperands @ 0x1403B3968
+ * Callers:
+ *     XmAddOp @ 0x140397CF0 (XmAddOp.c)
+ *     XmIncOp @ 0x1403B3600 (XmIncOp.c)
+ *     XmAdcOp @ 0x140530E80 (XmAdcOp.c)
+ *     XmXaddOp @ 0x140530F60 (XmXaddOp.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmAddOperands(__int64 a1, int a2)
 {
   int v2; // eax

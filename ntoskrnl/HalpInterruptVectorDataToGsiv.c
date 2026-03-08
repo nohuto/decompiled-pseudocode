@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptVectorDataToGsiv @ 0x1403AD9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpInterruptVectorDataToGsiv(_DWORD *a1, _DWORD *a2)
 {
   __int64 result; // rax

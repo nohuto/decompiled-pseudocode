@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlSplitLocks @ 0x1402C31DC
+ * Callers:
+ *     FsRtlPrivateFastUnlockAll @ 0x1402C16B4 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402C1F78 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402C25E0 (FsRtlPrivateInsertSharedLock.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ */
+
 void __fastcall FsRtlSplitLocks(__int64 a1, _RTL_SPLAY_LINKS *a2, unsigned __int64 *a3, _RTL_SPLAY_LINKS **a4)
 {
   RTL_SPLAY_LINKS *v5; // rbp

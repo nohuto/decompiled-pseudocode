@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpxVirtualUnwind @ 0x140281720
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlpWalkFrameChain @ 0x14027FF40 (RtlpWalkFrameChain.c)
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     RtlVirtualUnwind2 @ 0x140281680 (RtlVirtualUnwind2.c)
+ *     RtlVirtualUnwind @ 0x140364D20 (RtlVirtualUnwind.c)
+ * Callees:
+ *     RtlpUnwindPrologue @ 0x140281BF0 (RtlpUnwindPrologue.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpVirtualPopShadowStack @ 0x140302EB0 (RtlpVirtualPopShadowStack.c)
+ *     RtlpUnwindEpilogue @ 0x14045BDC0 (RtlpUnwindEpilogue.c)
+ *     RtlpUnwindOpSlots @ 0x14045C250 (RtlpUnwindOpSlots.c)
+ *     RtlpSameFunction @ 0x1405AF5A0 (RtlpSameFunction.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlpxVirtualUnwind(
         int a1,
         __int64 a2,

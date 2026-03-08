@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhFdoPnp_QueryPnpDeviceState @ 0x1C0042E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPnp_QueryPnpDeviceState(__int64 a1, PIRP Irp)
 {
   PDEVICE_OBJECT *v4; // rdi

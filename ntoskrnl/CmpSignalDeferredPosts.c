@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpSignalDeferredPosts @ 0x1406B5564
+ * Callers:
+ *     CmpPostNotify @ 0x1406B3790 (CmpPostNotify.c)
+ *     CmpCloseKeyObject @ 0x1406B5340 (CmpCloseKeyObject.c)
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmpProcessLightWeightUOW @ 0x140A19C0C (CmpProcessLightWeightUOW.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ */
+
 _QWORD *__fastcall CmpSignalDeferredPosts(_QWORD **a1)
 {
   _QWORD *result; // rax

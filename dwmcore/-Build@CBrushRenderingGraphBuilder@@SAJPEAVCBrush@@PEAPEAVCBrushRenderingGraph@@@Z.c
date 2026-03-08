@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?Build@CBrushRenderingGraphBuilder@@SAJPEAVCBrush@@PEAPEAVCBrushRenderingGraph@@@Z @ 0x1800299F8
+ * Callers:
+ *     ?EnsureBrushGraph@CNineGridBrush@@MEAAJ_N@Z @ 0x180018E90 (-EnsureBrushGraph@CNineGridBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z @ 0x1800EED10 (-EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CMaskBrush@@MEAAJ_N@Z @ 0x1800F95C0 (-EnsureBrushGraph@CMaskBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z @ 0x18021DB70 (-EnsureBrushGraph@CClipBrush@@MEAAJ_N@Z.c)
+ *     ?EnsureBrushGraph@CRadialGradientBrush@@EEAAJ_N@Z @ 0x18024A3F0 (-EnsureBrushGraph@CRadialGradientBrush@@EEAAJ_N@Z.c)
+ * Callees:
+ *     ??0CBrushRenderingGraph@@IEAA@XZ @ 0x180029AA0 (--0CBrushRenderingGraph@@IEAA@XZ.c)
+ *     ?Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z @ 0x180029B10 (-Build@CBrushRenderingGraphBuilder@@AEAAJPEAVCBrush@@@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EB9F4 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBrushRenderingGraphBuilder::Build(struct CBrush *a1, struct CBrushRenderingGraph **a2)
 {
   CBrushRenderingGraph *v4; // rax

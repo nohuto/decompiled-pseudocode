@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeCheckForZeroPage @ 0x14041BB10
+ * Callers:
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KeCheckForZeroPage(__int64 a1)
 {
   __int64 v1; // rdx

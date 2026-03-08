@@ -1,3 +1,11 @@
+/*
+ * XREFs of BmlGetMonitorModeVSyncPreference @ 0x1C03B8B50
+ * Callers:
+ *     BmlGetMonitorModePreference @ 0x1C016F008 (BmlGetMonitorModePreference.c)
+ * Callees:
+ *     ?DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z @ 0x1C0002AA0 (-DivideAndRound@DMMVIDEOSIGNALMODE@@SA_K_K0@Z.c)
+ */
+
 __int64 __fastcall BmlGetMonitorModeVSyncPreference(__int64 a1)
 {
   int v1; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Receive@CIVChannel@@AEAAJXZ @ 0x1C0229270
+ * Callers:
+ *     ?Initialize@CIVChannel@@QEAAXXZ @ 0x1C022858C (-Initialize@CIVChannel@@QEAAXXZ.c)
+ *     ?PacketCallback@CIVChannel@@AEAAJPEAU_IVSRContext@@@Z @ 0x1C0228DF0 (-PacketCallback@CIVChannel@@AEAAJPEAU_IVSRContext@@@Z.c)
+ *     ?Reconnect@CIVChannel@@AEAAJXZ @ 0x1C022951C (-Reconnect@CIVChannel@@AEAAJXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?ivrIVRecv@@YAJKPEAU_ETHREAD@@0U_IVPacketContext@@KP6AJPEAU_IVSRContext@@@Z@Z @ 0x1C0220F5C (-ivrIVRecv@@YAJKPEAU_ETHREAD@@0U_IVPacketContext@@KP6AJPEAU_IVSRContext@@@Z@Z.c)
+ */
+
 __int64 __fastcall CIVChannel::Receive(CIVChannel *this)
 {
   __int64 (__fastcall *v2)(_QWORD); // rax

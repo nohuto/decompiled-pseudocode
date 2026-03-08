@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbDevice_ReconfigureEndpoint @ 0x1C00495EC
+ * Callers:
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003CE40 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D100 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     UsbDevice_InitializeEndpointContext @ 0x1C000CD28 (UsbDevice_InitializeEndpointContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall UsbDevice_ReconfigureEndpoint(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v6; // rcx

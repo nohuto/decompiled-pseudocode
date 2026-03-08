@@ -1,3 +1,11 @@
+/*
+ * XREFs of memcmp @ 0x1C0044B70
+ * Callers:
+ *     InsertEventEntryInLookUpTable @ 0x1C0044208 (InsertEventEntryInLookUpTable.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl memcmp(const void *Buf1, const void *Buf2, size_t Size)
 {
   signed __int64 v3; // rdx

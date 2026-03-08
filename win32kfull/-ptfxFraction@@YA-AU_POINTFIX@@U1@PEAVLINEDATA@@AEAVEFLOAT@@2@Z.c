@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ptfxFraction@@YA?AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z @ 0x1C01510E2
+ * Callers:
+ *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F4D64 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ */
+
 struct _POINTFIX __fastcall ptfxFraction(
         struct _POINTFIX a1,
         struct LINEDATA *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepAuditTypeList @ 0x1409CB818
+ * Callers:
+ *     SepSetAuditInfoForObjectType @ 0x1409CBFF0 (SepSetAuditInfoForObjectType.c)
+ * Callees:
+ *     <none>
+ */
+
 _UNKNOWN **__fastcall SepAuditTypeList(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4, _BYTE *a5, _BYTE *a6)
 {
   _UNKNOWN **result; // rax

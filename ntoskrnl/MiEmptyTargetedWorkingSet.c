@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiEmptyTargetedWorkingSet @ 0x1406322E8
+ * Callers:
+ *     MiTrimAllSystemPagableMemory @ 0x140632E70 (MiTrimAllSystemPagableMemory.c)
+ * Callees:
+ *     MiReturnWsToExpansionList @ 0x1402A5FD4 (MiReturnWsToExpansionList.c)
+ *     MiEmptyWorkingSetInitiate @ 0x140301814 (MiEmptyWorkingSetInitiate.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiEmptyTargetedWorkingSet(__int64 a1)
 {
   _QWORD *v2; // rax

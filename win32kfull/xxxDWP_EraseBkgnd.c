@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxDWP_EraseBkgnd @ 0x1C00A4F54
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     xxxInternalPaintDesktop @ 0x1C00F9338 (xxxInternalPaintDesktop.c)
+ *     xxxFillWindow @ 0x1C00FC114 (xxxFillWindow.c)
+ */
+
 __int64 __fastcall xxxDWP_EraseBkgnd(__int64 a1, int a2, __int64 a3)
 {
   unsigned __int64 v3; // r9

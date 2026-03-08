@@ -1,3 +1,11 @@
+/*
+ * XREFs of TryUpdatePTPConfigFromRegistry @ 0x1C009C6C8
+ * Callers:
+ *     _GetPrecisionTouchPadConfiguration @ 0x1C009C550 (_GetPrecisionTouchPadConfiguration.c)
+ * Callees:
+ *     GetDWORDSettingValuesEx @ 0x1C009D450 (GetDWORDSettingValuesEx.c)
+ */
+
 char TryUpdatePTPConfigFromRegistry()
 {
   _UNKNOWN **v0; // rax

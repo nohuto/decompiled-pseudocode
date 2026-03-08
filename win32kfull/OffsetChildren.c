@@ -1,3 +1,18 @@
+/*
+ * XREFs of OffsetChildren @ 0x1C004CB34
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z @ 0x1C00A397C (-UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ * Callees:
+ *     OffsetWindow @ 0x1C004C918 (OffsetWindow.c)
+ *     ?IsDpiBoundaryBetweenWindows@@YA_NPEBUtagWND@@0@Z @ 0x1C005004C (-IsDpiBoundaryBetweenWindows@@YA_NPEBUtagWND@@0@Z.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     ScaleDpiOffsetWithSubpixel @ 0x1C01BB208 (ScaleDpiOffsetWithSubpixel.c)
+ */
+
 __int64 __fastcall OffsetChildren(struct tagWND *a1, unsigned int a2, unsigned int a3, __int64 a4)
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBCONNECTOR_RegisterPort @ 0x1C0081CF0
+ * Callers:
+ *     HUBCONNECTOR_MapRootHubPorts @ 0x1C0082524 (HUBCONNECTOR_MapRootHubPorts.c)
+ *     HUBCONNECTOR_MapIntegratedHubPorts @ 0x1C0082838 (HUBCONNECTOR_MapIntegratedHubPorts.c)
+ *     HUBCONNECTOR_MapExternalHubPorts @ 0x1C0082934 (HUBCONNECTOR_MapExternalHubPorts.c)
+ *     HUBCONNECTOR_MapHubPorts @ 0x1C0082A18 (HUBCONNECTOR_MapHubPorts.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBCONNECTOR_RegisterPort(__int64 a1)
 {
   unsigned int v2; // esi

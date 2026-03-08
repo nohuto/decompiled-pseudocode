@@ -1,3 +1,11 @@
+/*
+ * XREFs of _LockWindowStation @ 0x1C00EF170
+ * Callers:
+ *     NtUserLockWindowStation @ 0x1C00EF0F0 (NtUserLockWindowStation.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall LockWindowStation(__int64 a1)
 {
   int v2; // ebx

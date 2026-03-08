@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiTryLockVad @ 0x1403C0FF8
+ * Callers:
+ *     MiDeprioritizeVad @ 0x1403C0F1C (MiDeprioritizeVad.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiTryLockVad(__int64 a1, __int64 a2)
 {
   ULONG_PTR v3; // rdi

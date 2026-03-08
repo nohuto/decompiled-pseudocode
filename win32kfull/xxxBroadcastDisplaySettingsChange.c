@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxBroadcastDisplaySettingsChange @ 0x1C00F7740
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C00F7660 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
+ *     xxxBroadcastModernAppRedraw @ 0x1C01F6FF0 (xxxBroadcastModernAppRedraw.c)
+ * Callees:
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ */
+
 __int64 __fastcall xxxBroadcastDisplaySettingsChange(__int64 a1, int a2, int a3, unsigned int a4)
 {
   __int128 *v5; // rbx

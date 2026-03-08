@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z @ 0x1C022EA20
+ * Callers:
+ *     ?FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z @ 0x1C022E9B4 (-FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z.c)
+ * Callees:
+ *     GreGradientFill @ 0x1C0001610 (GreGradientFill.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall FillGradient(__int64 a1, const struct tagRECT *a2, int a3, int a4)
 {
   struct _TRIVERTEX v4; // [rsp+30h] [rbp-58h] BYREF

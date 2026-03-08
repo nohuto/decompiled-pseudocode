@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmQueryBuildVersionInformation @ 0x14078C8A8
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpQueryDowncastString @ 0x14078C9F4 (CmpQueryDowncastString.c)
+ */
+
 __int64 __fastcall CmQueryBuildVersionInformation(int *a1, int a2, _WORD *a3, unsigned int a4, _DWORD *a5)
 {
   int v6; // edi

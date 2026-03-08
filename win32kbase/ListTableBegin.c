@@ -1,3 +1,12 @@
+/*
+ * XREFs of ListTableBegin @ 0x1C01E3144
+ * Callers:
+ *     RIMCmActiveContactsBegin @ 0x1C00F19A8 (RIMCmActiveContactsBegin.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ListTableIteratorNext @ 0x1C00F1CCE (ListTableIteratorNext.c)
+ */
+
 __int64 *__fastcall ListTableBegin(__int64 *a1, __int64 a2)
 {
   _QWORD v5[5]; // [rsp+20h] [rbp-28h] BYREF

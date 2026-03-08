@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslAllocatePool @ 0x140548688
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VslAllocatePool(unsigned __int64 a1, unsigned int a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
   unsigned int v7; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrawSize @ 0x1C022CAE8
+ * Callers:
+ *     xxxDrawWindowFrame @ 0x1C00A64E4 (xxxDrawWindowFrame.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     BitBltSysBmp @ 0x1C00D04B0 (BitBltSysBmp.c)
+ *     SizeBoxHwnd @ 0x1C024E490 (SizeBoxHwnd.c)
+ */
+
 __int64 __fastcall DrawSize(__int64 a1, HDC a2, int a3, int a4)
 {
   __int64 v6; // rcx

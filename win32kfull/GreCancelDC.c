@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreCancelDC @ 0x1C02AC7D8
+ * Callers:
+ *     NtGdiCancelDC @ 0x1C02C4760 (NtGdiCancelDC.c)
+ * Callees:
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00DC828 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreCancelDC(__int64 a1)
 {
   unsigned int v2; // edi

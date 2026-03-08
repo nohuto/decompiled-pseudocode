@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetPosition@CCursorState@@UEAAXMM@Z @ 0x180277B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ScheduleCompositionPass@CCursorState@@AEAAXXZ @ 0x180277A58 (-ScheduleCompositionPass@CCursorState@@AEAAXXZ.c)
+ *     ?UpdateHardwareCursorOverlay@CCursorState@@AEAAXPEAUMonitorData@1@_N@Z @ 0x18027848C (-UpdateHardwareCursorOverlay@CCursorState@@AEAAXPEAUMonitorData@1@_N@Z.c)
+ */
+
 void __fastcall CCursorState::SetPosition(CCursorState *this, float a2, float a3)
 {
   char v4; // si

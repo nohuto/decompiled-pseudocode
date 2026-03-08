@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpFreeDmaChannels @ 0x140514DEC
+ * Callers:
+ *     IoFreeAdapterChannelV3Internal @ 0x14050DDE4 (IoFreeAdapterChannelV3Internal.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpFreeDmaChannels(__int64 a1)
 {
   __int64 v1; // r14

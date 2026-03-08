@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxUsbDevice@@MEAAPEAXI@Z @ 0x1C005C550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxUsbDevice@@MEAA@XZ @ 0x1C005C440 (--1FxUsbDevice@@MEAA@XZ.c)
+ */
+
 FxUsbDevice *__fastcall FxUsbDevice::`vector deleting destructor'(FxUsbDevice *this, unsigned int a2)
 {
   char v2; // bl

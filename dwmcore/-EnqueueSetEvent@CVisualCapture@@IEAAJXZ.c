@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?EnqueueSetEvent@CVisualCapture@@IEAAJXZ @ 0x18025254C
+ * Callers:
+ *     ?Render@CVisualCapture@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180252B20 (-Render@CVisualCapture@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034A40 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0?$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCD3DDevice@@@Z @ 0x1800CA614 (--0-$com_ptr_t@VCD3DDevice@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCD3DDevice@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z @ 0x180289FD8 (-EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z.c)
+ */
+
 __int64 __fastcall CVisualCapture::EnqueueSetEvent(CVisualCapture *this)
 {
   __int64 v2; // rcx

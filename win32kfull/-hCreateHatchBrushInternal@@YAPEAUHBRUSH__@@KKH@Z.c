@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?hCreateHatchBrushInternal@@YAPEAUHBRUSH__@@KKH@Z @ 0x1C02D2CD4
+ * Callers:
+ *     GreExtCreatePen @ 0x1C00E8994 (GreExtCreatePen.c)
+ *     NtGdiCreateHatchBrushInternal @ 0x1C02D31D0 (NtGdiCreateHatchBrushInternal.c)
+ * Callees:
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C02D2C88 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall hCreateHatchBrushInternal(unsigned int a1, unsigned int a2, int a3)
 {
   __int64 v3; // rbx

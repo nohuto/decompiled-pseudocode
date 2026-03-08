@@ -1,3 +1,36 @@
+/*
+ * XREFs of CmShutdownSystem1 @ 0x140613784
+ * Callers:
+ *     CmShutdownSystem @ 0x140A0E674 (CmShutdownSystem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     LOCK_HIVE_LOAD @ 0x1406C00DC (LOCK_HIVE_LOAD.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406C0154 (UNLOCK_HIVE_LOAD.c)
+ *     CmCloseRmHandle @ 0x14074C258 (CmCloseRmHandle.c)
+ *     CmCloseTmHandle @ 0x14074C280 (CmCloseTmHandle.c)
+ *     CmShutdownCmRM @ 0x14074C37C (CmShutdownCmRM.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140820C84 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140820D0C (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     CmpRecordShutdownStopTime @ 0x140A0EA18 (CmpRecordShutdownStopTime.c)
+ *     CmpShutdownWorkers @ 0x140A0EF30 (CmpShutdownWorkers.c)
+ *     CmFcShutdownSystem @ 0x140A0EFB8 (CmFcShutdownSystem.c)
+ *     CmpTraceShutdownFlushStart @ 0x140A103AC (CmpTraceShutdownFlushStart.c)
+ *     CmpTraceShutdownFlushStop @ 0x140A1041C (CmpTraceShutdownFlushStop.c)
+ *     CmpTraceShutdownStart @ 0x140A104FC (CmpTraceShutdownStart.c)
+ *     CmpWaitForHiveLoadUnloadRundownRelease @ 0x140A1C9D0 (CmpWaitForHiveLoadUnloadRundownRelease.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmShutdownSystem1(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 i; // rcx

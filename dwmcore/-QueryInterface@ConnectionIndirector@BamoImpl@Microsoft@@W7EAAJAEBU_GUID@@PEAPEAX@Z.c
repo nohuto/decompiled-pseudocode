@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@ConnectionIndirector@BamoImpl@Microsoft@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180117AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Microsoft::BamoImpl::ConnectionIndirector::QueryInterface(
         __int64 a1,
         const struct _GUID *a2,

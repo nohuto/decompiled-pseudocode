@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo32BPP_ORDER @ 0x1C025B280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall OutputAATo32BPP_ORDER(
         _DWORD *a1,
         __int64 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?IsHotKey@@YAPEAUtagHOTKEY@@II@Z @ 0x1C00989D0
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     ?IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z @ 0x1C0098C20 (-IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z.c)
+ *     EditionIsHotKey @ 0x1C01C1530 (EditionIsHotKey.c)
+ * Callees:
+ *     ?HKGetHashHead@@YAPEAUtagHOTKEY@@I@Z @ 0x1C0098A7C (-HKGetHashHead@@YAPEAUtagHOTKEY@@I@Z.c)
+ *     GetDesktopView @ 0x1C0099840 (GetDesktopView.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDqq @ 0x1C01C1550 (WPP_RECORDER_AND_TRACE_SF_DDqq.c)
+ */
+
 struct tagHOTKEY *__fastcall IsHotKey(int a1, unsigned int a2)
 {
   struct tagHOTKEY *v4; // rbx

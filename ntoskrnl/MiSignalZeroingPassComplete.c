@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiSignalZeroingPassComplete @ 0x1402E1384
+ * Callers:
+ *     MiZeroNodePages @ 0x14038FAA0 (MiZeroNodePages.c)
+ *     MiDeleteZeroThreadContext @ 0x140652704 (MiDeleteZeroThreadContext.c)
+ *     MiStartZeroEngineThreads @ 0x14076C01C (MiStartZeroEngineThreads.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiSignalZeroingPassComplete(__int64 a1)
 {
   __int64 v2; // rbp

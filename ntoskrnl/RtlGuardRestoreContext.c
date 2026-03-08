@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlGuardRestoreContext @ 0x1402D851C
+ * Callers:
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ * Callees:
+ *     RtlpControlFlowGuardEnforced @ 0x1402D8590 (RtlpControlFlowGuardEnforced.c)
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     bsearch_s @ 0x1403D4390 (bsearch_s.c)
+ *     RtlRestoreContext @ 0x140420880 (RtlRestoreContext.c)
+ *     RtlFailFast2 @ 0x1404217A0 (RtlFailFast2.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x1405AFAC8 (RtlGuardCheckLongJumpTarget.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC (LdrImageDirectoryEntryToLoadConfig.c)
+ */
+
 __int64 __fastcall RtlGuardRestoreContext(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

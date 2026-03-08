@@ -1,3 +1,18 @@
+/*
+ * XREFs of ParseObjName @ 0x1C005BC04
+ * Callers:
+ *     ParsePackage @ 0x1C0058160 (ParsePackage.c)
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     ParseName @ 0x1C005B860 (ParseName.c)
+ */
+
 __int64 __fastcall ParseObjName(__int64 a1, char **a2, __int64 a3, char a4)
 {
   __int64 v7; // rax

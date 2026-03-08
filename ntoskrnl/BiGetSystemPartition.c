@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiGetSystemPartition @ 0x14082B9D0
+ * Callers:
+ *     BcdGetSystemStorePath @ 0x14082C8E8 (BcdGetSystemStorePath.c)
+ * Callees:
+ *     SyspartGetFirmwarePartition @ 0x14082BA5C (SyspartGetFirmwarePartition.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetSystemPartition(_QWORD *a1)
 {
   int FirmwarePartition; // eax

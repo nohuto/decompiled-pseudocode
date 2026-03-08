@@ -1,3 +1,19 @@
+/*
+ * XREFs of ReferenceClass @ 0x1C0109410
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPoolPointerFieldspicnSm@UtagCURSOR@@@tagCLS@@PEAX@Z @ 0x1C0107C3C (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPoolPointerFieldspicnSm@UtagCURSOR@@@tagC.c)
+ *     ??4?$SharedMixedObjectPointerFieldpcls@UtagCLS@@@tagWND@@QEAAPEAUtagCLS@@PEAU2@@Z @ 0x1C0109640 (--4-$SharedMixedObjectPointerFieldpcls@UtagCLS@@@tagWND@@QEAAPEAUtagCLS@@PEAU2@@Z.c)
+ *     ??4?$SharedPointerFieldlpszAnsiClassName@D@tagCLS@@QEAAPEADPEAD@Z @ 0x1C010966C (--4-$SharedPointerFieldlpszAnsiClassName@D@tagCLS@@QEAAPEADPEAD@Z.c)
+ *     ?ClassAllocString@@YAPEAXQEAUtagDESKTOP@@KK@Z @ 0x1C0109698 (-ClassAllocString@@YAPEAXQEAUtagDESKTOP@@KK@Z.c)
+ *     ?ClassAlloc@@YAPEAXPEAUtagDESKTOP@@KK@Z @ 0x1C01096CC (-ClassAlloc@@YAPEAXPEAUtagDESKTOP@@KK@Z.c)
+ *     ??$InitLookAsideRef@UtagCLS@@@@YAEPEAUtagCLS@@@Z @ 0x1C0109770 (--$InitLookAsideRef@UtagCLS@@@@YAEPEAUtagCLS@@@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?ClassFree@@YAXPEAUtagDESKTOP@@PEAD@Z @ 0x1C01BF268 (-ClassFree@@YAXPEAUtagDESKTOP@@PEAD@Z.c)
+ *     ?ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z @ 0x1C01BF2A8 (-ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z.c)
+ */
+
 __int64 __fastcall ReferenceClass(__int64 a1, __int64 a2, unsigned int a3)
 {
   struct tagDESKTOP *v3; // rbx

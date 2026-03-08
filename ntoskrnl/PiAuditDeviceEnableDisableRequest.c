@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiAuditDeviceEnableDisableRequest @ 0x14096C764
+ * Callers:
+ *     PiPnpRtlSetObjectProperty @ 0x140686898 (PiPnpRtlSetObjectProperty.c)
+ *     PiPnpRtlSetDeviceRegProperty @ 0x140876040 (PiPnpRtlSetDeviceRegProperty.c)
+ * Callees:
+ *     PiAuditDeviceOperation @ 0x14096C7A8 (PiAuditDeviceOperation.c)
+ */
+
 unsigned __int8 __fastcall PiAuditDeviceEnableDisableRequest(__int64 a1, char a2, __int64 a3, char a4)
 {
   __int64 v5; // rdx

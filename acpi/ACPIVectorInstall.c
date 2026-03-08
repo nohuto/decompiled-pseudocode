@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIVectorInstall @ 0x1C00442B8
+ * Callers:
+ *     ACPIVectorConnect @ 0x1C0043E40 (ACPIVectorConnect.c)
+ * Callees:
+ *     ACPIGpeIndexToByteIndex @ 0x1C0003564 (ACPIGpeIndexToByteIndex.c)
+ *     ACPIVectorGetEntry @ 0x1C004419C (ACPIVectorGetEntry.c)
+ */
+
 char __fastcall ACPIVectorInstall(__int64 a1, __int64 a2)
 {
   unsigned int v3; // eax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpInterruptSwapProcessorIdentifiers @ 0x140A94CE0
+ * Callers:
+ *     HalpDpReplaceControl @ 0x140A94820 (HalpDpReplaceControl.c)
+ * Callees:
+ *     HalpInterruptIsRemappingRequired @ 0x14028EDCC (HalpInterruptIsRemappingRequired.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpUpdateIrtDestinationId @ 0x140518148 (HalpUpdateIrtDestinationId.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140A92630 (HalpInterruptRestoreAllControllerState.c)
+ *     HalpInterruptEnsureLineSwapComplete @ 0x140A94BF4 (HalpInterruptEnsureLineSwapComplete.c)
+ *     HalpInterruptUpdateLinesPostSwap @ 0x140A94E8C (HalpInterruptUpdateLinesPostSwap.c)
+ *     HalpInterruptUpdateLocalUnitIdentifier @ 0x140A95000 (HalpInterruptUpdateLocalUnitIdentifier.c)
+ */
+
 __int64 __fastcall HalpInterruptSwapProcessorIdentifiers(_DWORD *BugCheckParameter3, ULONG_PTR a2, unsigned int a3)
 {
   int updated; // ebp

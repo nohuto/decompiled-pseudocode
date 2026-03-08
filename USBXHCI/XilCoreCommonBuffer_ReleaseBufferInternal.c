@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreCommonBuffer_ReleaseBufferInternal @ 0x1C0013390
+ * Callers:
+ *     XilCoreCommonBuffer_ReleaseBuffers @ 0x1C000E848 (XilCoreCommonBuffer_ReleaseBuffers.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall XilCoreCommonBuffer_ReleaseBufferInternal(__int64 a1, __int64 a2)
 {
   int v2; // r9d

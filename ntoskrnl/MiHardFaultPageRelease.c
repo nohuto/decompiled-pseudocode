@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiHardFaultPageRelease @ 0x140287C78
+ * Callers:
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ * Callees:
+ *     MiIsPfnCommitNotCharged @ 0x140286190 (MiIsPfnCommitNotCharged.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRemoveLockedPageCharge @ 0x140286E00 (MiRemoveLockedPageCharge.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MiMakeFaultPfnActive @ 0x1402CD4A0 (MiMakeFaultPfnActive.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402DFCF4 (MiInsertProtectedStandbyPage.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiHandleInPageError @ 0x14036A984 (MiHandleInPageError.c)
+ *     MiSwapHardFaultPage @ 0x14066A398 (MiSwapHardFaultPage.c)
+ */
+
 __int64 __fastcall MiHardFaultPageRelease(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

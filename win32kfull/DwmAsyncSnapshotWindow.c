@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncSnapshotWindow @ 0x1C027062C
+ * Callers:
+ *     xxxSnapWindow @ 0x1C022AF08 (xxxSnapWindow.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DwmAsyncSnapshotWindow(PVOID Object, __int64 a2)
 {
   unsigned int v3; // ebx

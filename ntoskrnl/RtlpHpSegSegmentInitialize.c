@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpSegSegmentInitialize @ 0x1403094C8
+ * Callers:
+ *     RtlpHpSegPageRangeAllocate @ 0x1402493A0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037596C (RtlpHpSegContextReserve.c)
+ * Callees:
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ */
+
 __int64 __fastcall RtlpHpSegSegmentInitialize(_BYTE *a1, __int64 a2, unsigned int a3)
 {
   char v3; // al

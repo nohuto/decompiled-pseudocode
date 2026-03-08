@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopInitilizeAcDcSettings @ 0x140380E04
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PopSetNotificationWork @ 0x1402BCB00 (PopSetNotificationWork.c)
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PopFindPowerSettingConfiguration @ 0x14068D434 (PopFindPowerSettingConfiguration.c)
+ */
+
 void PopInitilizeAcDcSettings()
 {
   char v0; // bl

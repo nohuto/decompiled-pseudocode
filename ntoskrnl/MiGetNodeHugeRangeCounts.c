@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetNodeHugeRangeCounts @ 0x14061D9D0
+ * Callers:
+ *     MmFillEtwHugeIoSpaceInformation @ 0x1406153F0 (MmFillEtwHugeIoSpaceInformation.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407059DC (MmManagePartitionMemoryInformation.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiGetNodeHugeRangeCounts(__int64 a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
 {
   volatile LONG *v4; // rbp

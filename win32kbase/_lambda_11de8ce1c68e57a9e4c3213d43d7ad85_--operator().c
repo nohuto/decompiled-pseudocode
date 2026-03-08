@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_11de8ce1c68e57a9e4c3213d43d7ad85_::operator() @ 0x1C0262BC8
+ * Callers:
+ *     ?EmitSetLogAnimationEndedUpdates@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005C2EC (-EmitSetLogAnimationEndedUpdates@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAP.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall lambda_11de8ce1c68e57a9e4c3213d43d7ad85_::operator()(__int64 *a1, _DWORD *a2)
 {
   __int64 v2; // rax

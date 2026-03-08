@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExInterlockedRemoveHeadList @ 0x1402C3C20
+ * Callers:
+ *     PopFxProcessWorkPool @ 0x140351514 (PopFxProcessWorkPool.c)
+ *     KiAltReturnWorkerRoutine @ 0x14057DEA0 (KiAltReturnWorkerRoutine.c)
+ *     WheapWorkQueueWorkerRoutine @ 0x140611660 (WheapWorkQueueWorkerRoutine.c)
+ *     WmipEventNotification @ 0x1408526D0 (WmipEventNotification.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PLIST_ENTRY __stdcall ExInterlockedRemoveHeadList(PLIST_ENTRY ListHead, PKSPIN_LOCK Lock)
 {
   struct _LIST_ENTRY *Flink; // r14

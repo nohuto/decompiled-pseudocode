@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBREG_QueryHubErrataFlags @ 0x1C0084F64
+ * Callers:
+ *     HUBFDO_QueryHubErrataFlags @ 0x1C007C7B4 (HUBFDO_QueryHubErrataFlags.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     HUBMISC_QueryKseDeviceFlags @ 0x1C0033144 (HUBMISC_QueryKseDeviceFlags.c)
+ *     _tlgWriteAgg @ 0x1C00447BC (_tlgWriteAgg.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C00838E4 (HUBREG_OpenCreateUsbflagsDeviceKey.c)
+ */
+
 __int64 __fastcall HUBREG_QueryHubErrataFlags(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

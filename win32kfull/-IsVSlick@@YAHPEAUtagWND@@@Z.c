@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsVSlick@@YAHPEAUtagWND@@@Z @ 0x1C0222BCC
+ * Callers:
+ *     ?Is31TrayWindow@@YAHPEAUtagWND@@@Z @ 0x1C0222B6C (-Is31TrayWindow@@YAHPEAUtagWND@@@Z.c)
+ * Callees:
+ *     GetScreenRectForWindow @ 0x1C014AD54 (GetScreenRectForWindow.c)
+ */
+
 _BOOL8 __fastcall IsVSlick(struct tagWND *a1)
 {
   __int64 v2; // rax

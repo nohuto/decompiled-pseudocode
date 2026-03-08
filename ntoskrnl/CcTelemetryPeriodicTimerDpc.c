@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcTelemetryPeriodicTimerDpc @ 0x1403CFE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall CcTelemetryPeriodicTimerDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

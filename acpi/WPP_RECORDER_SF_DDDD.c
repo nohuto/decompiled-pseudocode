@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_DDDD @ 0x1C00380D0
+ * Callers:
+ *     AcpiConvertObjDataToMethodArguments @ 0x1C0036EF4 (AcpiConvertObjDataToMethodArguments.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_DDDD(__int64 a1, __int64 a2, unsigned int a3, unsigned __int16 a4, int a5, ...)
 {
   unsigned __int64 v7; // rbx

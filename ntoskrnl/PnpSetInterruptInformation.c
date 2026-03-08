@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpSetInterruptInformation @ 0x140855984
+ * Callers:
+ *     PnpSetDevicePropertyData @ 0x140863B28 (PnpSetDevicePropertyData.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpSetInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
 {
   unsigned int *Pool2; // rax

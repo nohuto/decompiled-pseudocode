@@ -1,3 +1,12 @@
+/*
+ * XREFs of RegisterTelemetryProvider @ 0x1C004DB60
+ * Callers:
+ *     FxLibraryCommonCommission @ 0x1C002BFD8 (FxLibraryCommonCommission.c)
+ * Callees:
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C0086BDC (InitializeTelemetryAssertsKMWorkerInternal.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00B0350 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 int __fastcall RegisterTelemetryProvider(
         __int64 a1,
         void (__fastcall *a2)(const _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, _EVENT_FILTER_DESCRIPTOR *, void *),

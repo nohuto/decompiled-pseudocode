@@ -1,3 +1,16 @@
+/*
+ * XREFs of _anonymous_namespace_::ApplyForegroundPolicy @ 0x1C003F514
+ * Callers:
+ *     EditionApplyForegroundPolicyStartingApp @ 0x1C003EF30 (EditionApplyForegroundPolicyStartingApp.c)
+ * Callees:
+ *     _anonymous_namespace_::CheckAllowForeground @ 0x1C003D0C4 (_anonymous_namespace_--CheckAllowForeground.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sD @ 0x1C003EE58 (WPP_RECORDER_AND_TRACE_SF_sD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dD @ 0x1C003F98C (WPP_RECORDER_AND_TRACE_SF_dD.c)
+ *     Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage @ 0x1C012E440 (Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::ApplyForegroundPolicy(__int64 a1)
 {
   char v2; // bl

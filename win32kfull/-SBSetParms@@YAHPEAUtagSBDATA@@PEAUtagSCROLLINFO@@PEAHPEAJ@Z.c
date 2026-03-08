@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z @ 0x1C00A62D8
+ * Callers:
+ *     xxxSetScrollBar @ 0x1C00A60D8 (xxxSetScrollBar.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SBSetParms(struct tagSBDATA *a1, struct tagSCROLLINFO *a2, int *a3, int *a4)
 {
   int v4; // r10d

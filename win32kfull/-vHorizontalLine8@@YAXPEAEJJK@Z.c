@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vHorizontalLine8@@YAXPEAEJJK@Z @ 0x1C02FE310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall vHorizontalLine8(unsigned __int8 *a1, int a2, int a3, unsigned int a4)
 {
   size_t v4; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGdiGetDIBitsInternal @ 0x1C0089270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C0089BF0 (-GreGetDIBitsInternalImpl@@YAHPEAUHDC__@@PEAUHBITMAP__@@IIAEAV-$umptr_w@E@@PEAUtagBITMAPINFO@@II.c)
+ *     ?init_probe@?$umptr_w@E@@SA?AV1@PEAE_K1@Z @ 0x1C008C0F0 (-init_probe@-$umptr_w@E@@SA-AV1@PEAE_K1@Z.c)
+ *     GreGetBitmapBitsSize @ 0x1C0091230 (GreGetBitmapBitsSize.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGetDIBitsInternal(
         __int64 a1,
         __int64 a2,

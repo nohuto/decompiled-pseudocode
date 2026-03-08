@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLockPageTablePage @ 0x14026A4D0
+ * Callers:
+ *     MiProbeLockFrame @ 0x140268ED0 (MiProbeLockFrame.c)
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     MiLockPageTableRange @ 0x14064AAA8 (MiLockPageTableRange.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiChargePartitionResidentAvailable @ 0x140348ED0 (MiChargePartitionResidentAvailable.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiLockPageTablePage(__int64 a1, int a2)
 {
   unsigned int v2; // esi

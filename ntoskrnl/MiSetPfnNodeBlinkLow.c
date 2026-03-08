@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiSetPfnNodeBlinkLow @ 0x1402DF430
+ * Callers:
+ *     MiUpdatePfnOnSlabStandbyList @ 0x1402C7778 (MiUpdatePfnOnSlabStandbyList.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1402C77BC (MiUnlinkNumaStandbyPage.c)
+ *     MiExclusiveInsertPfnChainInList @ 0x1402D3138 (MiExclusiveInsertPfnChainInList.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B3040 (MiConvertSmallPageRangeToLarge.c)
+ *     MiReplaceNumaStandbyPage @ 0x1403BE8B8 (MiReplaceNumaStandbyPage.c)
+ *     MiUpdateLargePageSectionPfns @ 0x140626B50 (MiUpdateLargePageSectionPfns.c)
+ *     MiInsertNumaStandbyPage @ 0x14064E1CC (MiInsertNumaStandbyPage.c)
+ *     MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY @ 0x140654130 (MI_SET_SLAB_STANDBY_PAGE_SLAB_ENTRY.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall MiSetPfnNodeBlinkLow(__int64 a1, int a2)
 {
   signed __int64 v2; // r9

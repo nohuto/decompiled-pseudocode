@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsAssociatedWithSystemVisual@CCrossChannelParentVisualMarshaler@DirectComposition@@MEAA_NVResourceHandle@@@Z @ 0x1C000B8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CCrossChannelParentVisualMarshaler::IsAssociatedWithSystemVisual(__int64 a1, int a2)
 {
   __int64 v2; // r8

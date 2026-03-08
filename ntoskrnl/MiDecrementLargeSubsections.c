@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiDecrementLargeSubsections @ 0x14063A2E8
+ * Callers:
+ *     MiReferenceDataSubsections @ 0x14020FEC8 (MiReferenceDataSubsections.c)
+ *     MiRemoveMappedPtes @ 0x1403474D0 (MiRemoveMappedPtes.c)
+ *     MiIncrementLargeSubsections @ 0x14063B558 (MiIncrementLargeSubsections.c)
+ *     MiDereferenceDataSubsections @ 0x140668B28 (MiDereferenceDataSubsections.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiCloneLargeFileOnlyVad @ 0x140A309C4 (MiCloneLargeFileOnlyVad.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ * Callees:
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChargeLargeProtoSubsection @ 0x140A30984 (MiChargeLargeProtoSubsection.c)
+ */
+
 void __fastcall MiDecrementLargeSubsections(__int64 *a1, __int64 *a2)
 {
   __int64 *v2; // rdi

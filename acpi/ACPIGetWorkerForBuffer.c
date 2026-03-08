@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIGetWorkerForBuffer @ 0x1C002B2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 void __fastcall ACPIGetWorkerForBuffer(__int64 a1, int a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v6; // edi

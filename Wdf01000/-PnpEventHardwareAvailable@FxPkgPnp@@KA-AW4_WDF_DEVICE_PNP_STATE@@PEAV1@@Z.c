@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006A930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z @ 0x1C006BCB4 (-PnpPrepareHardware@FxPkgPnp@@IEAAJPEAEPEAW4FxCxCallbackProgress@@@Z.c)
+ *     ?QueryForCapabilities@FxPkgPnp@@IEAAJXZ @ 0x1C0075194 (-QueryForCapabilities@FxPkgPnp@@IEAAJXZ.c)
+ *     ?PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z @ 0x1C007D66C (-PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z.c)
+ *     ?CreatePowerThreadIfNeeded@FxPkgPnp@@AEAAJXZ @ 0x1C00816C8 (-CreatePowerThreadIfNeeded@FxPkgPnp@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PnpEventHardwareAvailable(FxPkgPnp *This)
 {
   FxPkgPnp_vtbl *v1; // rax

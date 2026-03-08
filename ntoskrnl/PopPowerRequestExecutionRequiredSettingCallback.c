@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerRequestExecutionRequiredSettingCallback @ 0x1408523C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestSetExecutionRequiredTimeoutTimer @ 0x14085245C (PopPowerRequestSetExecutionRequiredTimeoutTimer.c)
+ *     PopPowerRequestHandleExecutionEnablementUpdate @ 0x1408525A4 (PopPowerRequestHandleExecutionEnablementUpdate.c)
+ */
+
 __int64 __fastcall PopPowerRequestExecutionRequiredSettingCallback(_QWORD *a1, int *a2, int a3)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViThunkCreateThunkTable @ 0x140AD8784
+ * Callers:
+ *     VfThunkAddDriverThunks @ 0x140AD7F7C (VfThunkAddDriverThunks.c)
+ *     VfThunkAddSpecialDriverThunks @ 0x140AD8020 (VfThunkAddSpecialDriverThunks.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ViThunkCreateThunkTable(void *Src, unsigned int a2, __int64 a3)
 {
   unsigned int v5; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of VrpPreQueryKeyName @ 0x140A700A4
+ * Callers:
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall VrpPreQueryKeyName(__int64 a1)
 {
   __int64 v2; // r15

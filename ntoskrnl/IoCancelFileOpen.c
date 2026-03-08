@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoCancelFileOpen @ 0x140943D90
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     IopCloseFileObjectExtension @ 0x140293FAC (IopCloseFileObjectExtension.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IopDequeueIrpFromThread @ 0x14030F160 (IopDequeueIrpFromThread.c)
+ *     IopAllocateIrpMustSucceed @ 0x14030F2F0 (IopAllocateIrpMustSucceed.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoCallDriver @ 0x1405543F0 (IoCallDriver.c)
+ */
+
 void __stdcall IoCancelFileOpen(PDEVICE_OBJECT DeviceObject, PFILE_OBJECT FileObject)
 {
   bool v2; // zf

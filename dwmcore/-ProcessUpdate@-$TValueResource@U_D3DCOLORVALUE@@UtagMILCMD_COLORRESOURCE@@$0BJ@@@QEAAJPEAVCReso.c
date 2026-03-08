@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessUpdate@?$TValueResource@U_D3DCOLORVALUE@@UtagMILCMD_COLORRESOURCE@@$0BJ@@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COLORRESOURCE@@@Z @ 0x1801C2D7C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TValueResource<_D3DCOLORVALUE,tagMILCMD_COLORRESOURCE,25>::ProcessUpdate(
         __int64 *a1,
         __int64 a2,

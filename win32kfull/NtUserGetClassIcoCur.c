@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetClassIcoCur @ 0x1C00E1170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetClassIcoCur @ 0x1C00E123C (GetClassIcoCur.c)
+ */
+
 __int64 __fastcall NtUserGetClassIcoCur(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

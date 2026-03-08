@@ -1,3 +1,17 @@
+/*
+ * XREFs of DxgkMiracastStopAllMiracastSessions @ 0x1C01C5790
+ * Callers:
+ *     DxgkSessionDisconnected @ 0x1C01C5D50 (DxgkSessionDisconnected.c)
+ *     ?DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C02B8080 (-DodTerminateIndirectOutput@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     DpiMiracastConnectedStandbyDelayWork @ 0x1C039A200 (DpiMiracastConnectedStandbyDelayWork.c)
+ *     DpiMiracastHandlePowerCallback @ 0x1C039A910 (DpiMiracastHandlePowerCallback.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastAddRefMiracastDeviceContext @ 0x1C005F23C (DpiMiracastAddRefMiracastDeviceContext.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ */
+
 LONG __fastcall DxgkMiracastStopAllMiracastSessions(char a1, union _LARGE_INTEGER *a2, unsigned int a3)
 {
   char *v6; // rsi

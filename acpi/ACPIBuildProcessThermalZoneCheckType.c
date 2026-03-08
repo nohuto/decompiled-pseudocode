@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIBuildProcessThermalZoneCheckType @ 0x1C00124A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIBuildDelayedDependencyRequest @ 0x1C000BD28 (ACPIBuildDelayedDependencyRequest.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessThermalZoneCheckType(__int64 a1)
 {
   __int64 v1; // rdi

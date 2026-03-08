@@ -1,3 +1,33 @@
+/*
+ * XREFs of GreCombineRgn @ 0x1C0041BD0
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     EngCombineRgn @ 0x1C0019AD0 (EngCombineRgn.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     NtGdiCombineRgn @ 0x1C003DE70 (NtGdiCombineRgn.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     UserSetDCVisRgn @ 0x1C0044E20 (UserSetDCVisRgn.c)
+ *     UserValidateCopyRgn @ 0x1C00A9370 (UserValidateCopyRgn.c)
+ *     EngCopyRgn @ 0x1C0197690 (EngCopyRgn.c)
+ *     EngIntersectRgn @ 0x1C0197820 (EngIntersectRgn.c)
+ *     EngSubtractRgn @ 0x1C0197990 (EngSubtractRgn.c)
+ *     EngUnionRgn @ 0x1C0197A30 (EngUnionRgn.c)
+ *     EngXorRgn @ 0x1C0197AD0 (EngXorRgn.c)
+ * Callees:
+ *     ?iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z @ 0x1C0042720 (-iCombine@RGNOBJAPI@@QEAAJAEAVRGNOBJ@@0J@Z.c)
+ *     ?bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z @ 0x1C00434E0 (-bCopy@RGNOBJAPI@@QEAAHAEAVRGNOBJ@@@Z.c)
+ *     ?iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z @ 0x1C0044F90 (-iCombine@RGNOBJ@@QEAAJAEAV1@0J@Z.c)
+ *     ?bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z @ 0x1C0045420 (-bSwap@RGNOBJAPI@@QEAAHPEAVRGNOBJ@@@Z.c)
+ *     ?iComplexity@RGNCOREOBJ@@QEBAJXZ @ 0x1C004832C (-iComplexity@RGNCOREOBJ@@QEBAJXZ.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C005173C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ?vSet@RGNOBJ@@QEAAXXZ @ 0x1C0053560 (-vSet@RGNOBJ@@QEAAXXZ.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0055304 (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C0056EF8 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall GreCombineRgn(HRGN a1, HRGN a2, HRGN a3, int a4)
 {
   __int64 v8; // rax

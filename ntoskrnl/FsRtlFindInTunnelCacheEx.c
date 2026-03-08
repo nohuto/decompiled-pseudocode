@@ -1,3 +1,18 @@
+/*
+ * XREFs of FsRtlFindInTunnelCacheEx @ 0x140752810
+ * Callers:
+ *     FsRtlFindInTunnelCache @ 0x14093AAE0 (FsRtlFindInTunnelCache.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     FsRtlCompareNodeAndKey @ 0x1402C1AA8 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x1402C1B10 (FsRtlEmptyFreePoolList.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x140752970 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 char __fastcall FsRtlFindInTunnelCacheEx(
         PFAST_MUTEX FastMutex,
         unsigned __int64 a2,

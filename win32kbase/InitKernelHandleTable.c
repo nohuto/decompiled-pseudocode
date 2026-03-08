@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitKernelHandleTable @ 0x1C031E1A8
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     Win32CreateSection @ 0x1C002D5F4 (Win32CreateSection.c)
+ */
+
 __int64 __fastcall InitKernelHandleTable(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

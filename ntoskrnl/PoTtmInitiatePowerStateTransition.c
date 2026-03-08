@@ -1,3 +1,17 @@
+/*
+ * XREFs of PoTtmInitiatePowerStateTransition @ 0x140994BF8
+ * Callers:
+ *     TtmpInitiateModernStandbyTransition @ 0x1409A23F0 (TtmpInitiateModernStandbyTransition.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopTriggerMonitorPowerEvent @ 0x1407570F8 (PopTriggerMonitorPowerEvent.c)
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PopStartStopTtmSxTranstion @ 0x140987998 (PopStartStopTtmSxTranstion.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PoTtmInitiatePowerStateTransition(char a1, int a2)
 {
   int v4; // ecx

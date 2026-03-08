@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiIpiSendRequest @ 0x140233230
+ * Callers:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiIpiSendPacket @ 0x1402376C0 (KiIpiSendPacket.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ * Callees:
+ *     HalRequestIpiSpecifyVector @ 0x140230C90 (HalRequestIpiSpecifyVector.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     KiIpiSetTargetAffinity @ 0x140233704 (KiIpiSetTargetAffinity.c)
+ *     KiIpiEnlightenedGuestPriorityKick @ 0x140233850 (KiIpiEnlightenedGuestPriorityKick.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x140250570 (EtwGetKernelTraceTimestampSilo.c)
+ *     HalRequestIpi @ 0x1402EF7C0 (HalRequestIpi.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PerfInfoLogIpiSend @ 0x1405FC690 (PerfInfoLogIpiSend.c)
+ */
+
 __int64 __fastcall KiIpiSendRequest(__int64 a1, int a2, int a3, _OWORD *a4, __int64 a5)
 {
   int v5; // r15d

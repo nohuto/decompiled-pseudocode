@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMGetDevicePreparsedDataLockfree @ 0x1C01A5220
+ * Callers:
+ *     NtRIMGetDevicePreparsedDataLockfree @ 0x1C01A1FE0 (NtRIMGetDevicePreparsedDataLockfree.c)
+ *     RIMGetDevicePreparsedData @ 0x1C01A4FD0 (RIMGetDevicePreparsedData.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall RIMGetDevicePreparsedDataLockfree(char *a1, char *a2, _DWORD *a3, int a4)
 {
   int v7; // esi

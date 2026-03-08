@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhAcpiEnumChildren @ 0x1C0029940
+ * Callers:
+ *     UsbhGetAcpiPortAttributes @ 0x1C002B2AC (UsbhGetAcpiPortAttributes.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall UsbhAcpiEnumChildren(__int64 a1, _DWORD *a2, unsigned int a3)
 {
   __int64 OutputBufferLength; // r14

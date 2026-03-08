@@ -1,38 +1,55 @@
-__int64 __fastcall std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Find_lower_bound__anonymous_namespace_::AnimationId_(
+/*
+ * XREFs of std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180036E18
+ * Callers:
+ *     _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo @ 0x180036504 (_anonymous_namespace_--FrameSequenceInfo--FrameSequenceInfo.c)
+ * Callees:
+ *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180036EC0 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_nodes_std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_tag_ @ 0x180036F18 (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0x155_ea_180036F18.c)
+ *     ?_Min@?$_Tree_val@U?$_Tree_simple_types@_K@std@@@std@@SAPEAU?$_Tree_node@_KPEAX@2@PEAU32@@Z @ 0x18010CCB4 (-_Min@-$_Tree_val@U-$_Tree_simple_types@_K@std@@@std@@SAPEAU-$_Tree_node@_KPEAX@2@PEAU32@@Z.c)
+ */
+
+__int64 __fastcall std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______(
         __int64 a1,
         __int64 a2,
-        unsigned __int64 *a3)
+        char a3)
 {
-  __int64 v3; // rax
-  __int64 *v4; // rcx
-  unsigned __int64 v5; // r9
-  int v6; // eax
+  __int64 v5; // rax
+  __int64 v6; // r9
+  _QWORD *v7; // r8
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 *v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  __int64 i; // rcx
 
-  v3 = *(_QWORD *)(a1 + 8);
-  *(_DWORD *)(a2 + 8) = 0;
-  *(_QWORD *)(a2 + 16) = v3;
-  v4 = *(__int64 **)(v3 + 8);
-  *(_QWORD *)a2 = v4;
-  if ( !*((_BYTE *)v4 + 25) )
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  v5 = std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______();
+  LOBYTE(v6) = a3;
+  *(_QWORD *)(a1 + 8) = v5;
+  *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL) = std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_nodes_std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_tag_(
+                                             a1,
+                                             *(_QWORD *)(*(_QWORD *)(a2 + 8) + 8LL),
+                                             v5,
+                                             v6);
+  v7 = *(_QWORD **)(a1 + 8);
+  *(_QWORD *)(a1 + 16) = *(_QWORD *)(a2 + 16);
+  v8 = v7[1];
+  if ( *(_BYTE *)(v8 + 25) )
   {
-    v5 = *a3;
-    do
-    {
-      *(_QWORD *)a2 = v4;
-      if ( v4[4] >= v5 || *((_DWORD *)v4 + 10) >= *((_DWORD *)a3 + 2) )
-      {
-        *(_QWORD *)(a2 + 16) = v4;
-        v6 = 1;
-        v4 = (__int64 *)*v4;
-      }
-      else
-      {
-        v4 = (__int64 *)v4[2];
-        v6 = 0;
-      }
-      *(_DWORD *)(a2 + 8) = v6;
-    }
-    while ( !*((_BYTE *)v4 + 25) );
+    *v7 = v7;
+    *(_QWORD *)(*(_QWORD *)(a1 + 8) + 16LL) = *(_QWORD *)(a1 + 8);
   }
-  return a2;
+  else
+  {
+    v9 = std::_Tree_val<std::_Tree_simple_types<unsigned __int64>>::_Min(v8);
+    *v10 = v9;
+    v11 = *(_QWORD *)(a1 + 8);
+    v12 = *(_QWORD *)(v11 + 8);
+    for ( i = *(_QWORD *)(v12 + 16); !*(_BYTE *)(i + 25); i = *(_QWORD *)(i + 16) )
+      v12 = i;
+    *(_QWORD *)(v11 + 16) = v12;
+  }
+  return a1;
 }

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpTraceLostWppEvent @ 0x1405FA3B8
+ * Callers:
+ *     EtwpTraceMessageVa @ 0x140205450 (EtwpTraceMessageVa.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpTraceLostWppEvent(ULONGLONG a1, __int16 a2, unsigned __int16 *a3, int a4)
 {
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+48h] [rbp-9h] BYREF

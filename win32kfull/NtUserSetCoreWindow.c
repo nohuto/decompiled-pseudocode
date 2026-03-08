@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserSetCoreWindow @ 0x1C0097AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     SetWindowSubtreeCoreWindowStatus @ 0x1C0097A0C (SetWindowSubtreeCoreWindowStatus.c)
+ *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0099FC0 (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserSetCoreWindow(HWND a1, int a2)
 {
   __int64 v4; // rdi

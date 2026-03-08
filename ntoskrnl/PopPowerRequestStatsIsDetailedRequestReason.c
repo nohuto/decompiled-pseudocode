@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerRequestStatsIsDetailedRequestReason @ 0x14073C588
+ * Callers:
+ *     PopPowerRequestStatsGetIdForRequest @ 0x14073C3F4 (PopPowerRequestStatsGetIdForRequest.c)
+ * Callees:
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 char __fastcall PopPowerRequestStatsIsDetailedRequestReason(__int64 a1)
 {
   char v1; // bl

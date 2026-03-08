@@ -1,3 +1,11 @@
+/*
+ * XREFs of FindCachedSMP @ 0x1C0252520
+ * Callers:
+ *     GetCachedSMP @ 0x1C0252734 (GetCachedSMP.c)
+ * Callees:
+ *     CreateStandardMonoPattern @ 0x1C0254780 (CreateStandardMonoPattern.c)
+ */
+
 __int64 **__fastcall FindCachedSMP(__int64 a1, int a2)
 {
   int v2; // r12d

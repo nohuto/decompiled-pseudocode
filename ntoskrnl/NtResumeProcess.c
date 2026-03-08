@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtResumeProcess @ 0x1409B2FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsMultiResumeProcess @ 0x1402FF188 (PsMultiResumeProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtResumeProcess(ULONG_PTR a1)
 {
   char PreviousMode; // r9

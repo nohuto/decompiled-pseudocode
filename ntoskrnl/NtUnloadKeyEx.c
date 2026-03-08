@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUnloadKeyEx @ 0x140873010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmUnloadKey @ 0x140749BD8 (CmUnloadKey.c)
+ */
+
 __int64 NtUnloadKeyEx()
 {
   void *v0; // r9

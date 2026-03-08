@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIDetectDuplicateHID @ 0x1C001A3CC
+ * Callers:
+ *     ACPIBuildProcessDevicePhaseSta @ 0x1C0010780 (ACPIBuildProcessDevicePhaseSta.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ */
+
 void __fastcall ACPIDetectDuplicateHID(_QWORD *BugCheckParameter2)
 {
   __int64 v1; // rdx

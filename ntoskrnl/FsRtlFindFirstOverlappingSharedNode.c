@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlFindFirstOverlappingSharedNode @ 0x1402C272C
+ * Callers:
+ *     FsRtlCheckNoSharedConflict @ 0x140200DCC (FsRtlCheckNoSharedConflict.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402C1F78 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x1402C25E0 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402C30F4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlGetNextFileLock @ 0x14053B030 (FsRtlGetNextFileLock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FsRtlFindFirstOverlappingSharedNode(
         __int64 a1,
         unsigned __int64 *a2,

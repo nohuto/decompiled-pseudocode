@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpInterruptGetX2ApicPolicy @ 0x1403739AC
+ * Callers:
+ *     HalSocRequestConfigurationData @ 0x1403731C8 (HalSocRequestConfigurationData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpHvIsX2ApicRecommended @ 0x140509168 (HalpHvIsX2ApicRecommended.c)
+ */
+
 bool HalpInterruptGetX2ApicPolicy()
 {
   char v0; // r11

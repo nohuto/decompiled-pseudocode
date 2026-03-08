@@ -1,3 +1,17 @@
+/*
+ * XREFs of PdcTaskClientRequest @ 0x14067F048
+ * Callers:
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x14067EF08 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopPowerAggregatorSessionSwitchWorker @ 0x140990F20 (PopPowerAggregatorSessionSwitchWorker.c)
+ * Callees:
+ *     PdcPortSendMessageSynchronously @ 0x140200B80 (PdcPortSendMessageSynchronously.c)
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PdcAcquireRwLockExclusive @ 0x14067F16C (PdcAcquireRwLockExclusive.c)
+ */
+
 __int64 __fastcall PdcTaskClientRequest(__int64 a1, char a2)
 {
   signed __int64 *v4; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeWindow@CDwmAppHost@@AEAAJXZ @ 0x140003E08
+ * Callers:
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ *     IsChangeWindowMessageFilterExPresent @ 0x140006428 (IsChangeWindowMessageFilterExPresent.c)
+ */
+
 __int64 __fastcall CDwmAppHost::InitializeWindow(CDwmAppHost *this)
 {
   unsigned int v1; // ebx

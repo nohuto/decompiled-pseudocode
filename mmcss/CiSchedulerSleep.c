@@ -1,3 +1,15 @@
+/*
+ * XREFs of CiSchedulerSleep @ 0x1C00014A0
+ * Callers:
+ *     CiSchedulerWait @ 0x1C0001680 (CiSchedulerWait.c)
+ * Callees:
+ *     CiSchedulerProcessDeadlines @ 0x1C0001250 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerQueryCurrentTime @ 0x1C0001630 (CiSchedulerQueryCurrentTime.c)
+ *     CiSchedulerUpdateTimer @ 0x1C0002050 (CiSchedulerUpdateTimer.c)
+ *     CiLogSchedulerSleep @ 0x1C0003F8C (CiLogSchedulerSleep.c)
+ *     CiLogSchedulerWakeup @ 0x1C0004010 (CiLogSchedulerWakeup.c)
+ */
+
 __int64 __fastcall CiSchedulerSleep(unsigned int a1, unsigned int a2, unsigned __int32 *a3)
 {
   __int64 v4; // rsi

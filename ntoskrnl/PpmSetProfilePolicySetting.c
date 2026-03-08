@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmSetProfilePolicySetting @ 0x140825A60
+ * Callers:
+ *     PopSetNewPolicyValue @ 0x140825FDC (PopSetNewPolicyValue.c)
+ *     PpmProcessSettingsFromQueryTable @ 0x14099A414 (PpmProcessSettingsFromQueryTable.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmInfoAdjustSetting @ 0x140825E18 (PpmInfoAdjustSetting.c)
+ *     PpmInfoReleaseLocks @ 0x1408260E0 (PpmInfoReleaseLocks.c)
+ *     PpmEventTraceProfileSetting @ 0x140826110 (PpmEventTraceProfileSetting.c)
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PpmGetPolicyAction @ 0x1408264A4 (PpmGetPolicyAction.c)
+ *     PpmReapplyIdlePolicy @ 0x14097FAC4 (PpmReapplyIdlePolicy.c)
+ */
+
 __int64 __fastcall PpmSetProfilePolicySetting(_QWORD *a1, _QWORD *a2, int a3, __int64 a4, int a5)
 {
   unsigned int v5; // edi

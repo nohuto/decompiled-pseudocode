@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyInvalid@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEAUMsgCallState@@@Z @ 0x1801B6FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::NotifyInvalid(
         Microsoft::BamoImpl::BufferingMessageCallHost *this,
         struct MsgCallState *a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAdtOpenRegAndSetupNotification @ 0x140841434
+ * Callers:
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     NtNotifyChangeKey @ 0x1406B4D70 (NtNotifyChangeKey.c)
+ *     SepRegOpenKey @ 0x140739428 (SepRegOpenKey.c)
+ */
+
 NTSTATUS SepAdtOpenRegAndSetupNotification()
 {
   NTSTATUS result; // eax

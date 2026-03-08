@@ -1,3 +1,12 @@
+/*
+ * XREFs of RaspGetCacheEntry @ 0x1403823F4
+ * Callers:
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     RaspGetXExtent @ 0x140382254 (RaspGetXExtent.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall RaspGetCacheEntry(__int64 **a1, __int16 a2, int a3, int a4, __int64 a5, _QWORD *a6)
 {
   __int64 *v6; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcgrpSetTargetProcessorDpcEx @ 0x1C008A6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcgrpSetTargetProcessorDpcEx(_KDPC *Dpc, _PROCESSOR_NUMBER *ProcNumber)
 {
   unsigned __int8 *v2; // rax

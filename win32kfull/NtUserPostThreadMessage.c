@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserPostThreadMessage @ 0x1C0037190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PostThreadMessageEx @ 0x1C0037298 (_PostThreadMessageEx.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004C87C (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     GetDesktopView @ 0x1C0099840 (GetDesktopView.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00CBE58 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     IsPrivileged @ 0x1C00DD9E0 (IsPrivileged.c)
+ */
+
 __int64 __fastcall NtUserPostThreadMessage(unsigned int a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rax

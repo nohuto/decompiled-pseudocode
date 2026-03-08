@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMFindTouchDigitizerWithSize @ 0x1C01BD3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C0088EF0 (RawInputManagerDeviceObjectReference.c)
+ */
+
 void __fastcall RIMFindTouchDigitizerWithSize(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   _QWORD **v6; // rsi

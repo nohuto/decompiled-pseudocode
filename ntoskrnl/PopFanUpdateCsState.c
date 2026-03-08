@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFanUpdateCsState @ 0x14099463C
+ * Callers:
+ *     PopConnectedStandbySettingCallback @ 0x140864610 (PopConnectedStandbySettingCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopFanEndCsFanPeriod @ 0x140994200 (PopFanEndCsFanPeriod.c)
+ */
+
 void __fastcall PopFanUpdateCsState(char a1)
 {
   PopAcquireRwLockExclusive((ULONG_PTR)&PopFanLock);

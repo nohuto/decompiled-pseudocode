@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipLinkDeviceObjectAndDependencyNode @ 0x140838D98
+ * Callers:
+ *     IoResolveDependency @ 0x1403943F0 (IoResolveDependency.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipLinkDeviceObjectAndDependencyNode(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

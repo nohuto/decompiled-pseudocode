@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceAmlEvaluation @ 0x1C00078AC
+ * Callers:
+ *     FreeContext @ 0x1C0053624 (FreeContext.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 void __fastcall AcpiDiagTraceAmlEvaluation(__int64 a1, unsigned __int8 a2)
 {
   __int16 v3; // bx

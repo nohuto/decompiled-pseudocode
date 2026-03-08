@@ -1,3 +1,11 @@
+/*
+ * XREFs of PciExpressWakeControl @ 0x1C0034840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WRITE_PM1_ENABLE @ 0x1C0039094 (WRITE_PM1_ENABLE.c)
+ */
+
 void __fastcall PciExpressWakeControl(__int64 a1, char a2)
 {
   KIRQL v3; // di

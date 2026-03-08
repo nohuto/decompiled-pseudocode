@@ -1,3 +1,11 @@
+/*
+ * XREFs of DebugHelp @ 0x1C004D940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall DebugHelp(__int64 a1, const char *a2, int a3)
 {
   int v3; // r8d

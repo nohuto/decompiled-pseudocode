@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x14056C4D8
+ * Callers:
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     KeQueryEffectivePriorityThread @ 0x1403A9A40 (KeQueryEffectivePriorityThread.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056C0C8 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ */
+
 __int64 __fastcall KiUpdateVpBackingThreadPriorityOnPriorityQuery(ULONG_PTR BugCheckParameter1)
 {
   unsigned __int8 CurrentIrql; // di

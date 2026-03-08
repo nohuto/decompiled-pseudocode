@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpAbortLightWeightTransaction @ 0x140781F48
+ * Callers:
+ *     CmpRollbackLightWeightTransaction @ 0x140781EE0 (CmpRollbackLightWeightTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x140A197CC (CmpCommitLightWeightTransaction.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpTransMgrRollback @ 0x140781FE8 (CmpTransMgrRollback.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140782064 (CmpCleanupLightWeightTransaction.c)
+ */
+
 void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
 {
   ULONG_PTR v2; // rbx

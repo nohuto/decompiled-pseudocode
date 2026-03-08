@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_609c7463f0af8f0b222c22162fb8f533_::operator() @ 0x1C0118824
+ * Callers:
+ *     UmfdLoadFontFileView @ 0x1C011859C (UmfdLoadFontFileView.c)
+ * Callees:
+ *     ?MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z @ 0x1C01150C4 (-MapFontFiles@@YA_NKPEAPEAU_FONTFILEVIEW@@PEAPEAXPEAK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall lambda_609c7463f0af8f0b222c22162fb8f533_::operator()(__int64 a1, char a2, int a3)
 {
   if ( !a2

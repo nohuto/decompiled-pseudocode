@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExpSetKernelDataProtection @ 0x14075B0D0
+ * Callers:
+ *     ExpGetLicenseTamperState @ 0x140606C7C (ExpGetLicenseTamperState.c)
+ *     ExpSetLicenseTamperState @ 0x140607004 (ExpSetLicenseTamperState.c)
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ *     ExSetLicenseTamperState @ 0x1409F6950 (ExSetLicenseTamperState.c)
+ *     sub_1409F6C60 @ 0x1409F6C60 (sub_1409F6C60.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409F78B4 (SLUpdateLicenseDataInternal.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     sub_14075B378 @ 0x14075B378 (sub_14075B378.c)
+ *     sub_14084DF70 @ 0x14084DF70 (sub_14084DF70.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpSetKernelDataProtection(__int64 a1, __int64 a2, char a3, char a4)
 {
   void *v7; // rcx

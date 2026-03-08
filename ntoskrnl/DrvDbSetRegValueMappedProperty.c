@@ -1,3 +1,17 @@
+/*
+ * XREFs of DrvDbSetRegValueMappedProperty @ 0x1407FFCCC
+ * Callers:
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1407FFABC (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbSetDeviceIdMappedProperty @ 0x140A6A0FC (DrvDbSetDeviceIdMappedProperty.c)
+ *     DrvDbSetDriverFileMappedProperty @ 0x140A6A2BC (DrvDbSetDriverFileMappedProperty.c)
+ *     DrvDbSetDriverInfFileMappedProperty @ 0x140A6A3F0 (DrvDbSetDriverInfFileMappedProperty.c)
+ *     DrvDbSetDriverPackageMappedProperty @ 0x140A6A524 (DrvDbSetDriverPackageMappedProperty.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ */
+
 NTSTATUS __fastcall DrvDbSetRegValueMappedProperty(__int64 a1, void *a2, __int64 a3, int a4, int *a5, ULONG a6)
 {
   int v6; // ebx

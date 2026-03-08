@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlLogCcFlushError @ 0x14093A170
+ * Callers:
+ *     CcMmLogLostDelayedWriteError @ 0x140535454 (CcMmLogLostDelayedWriteError.c)
+ * Callees:
+ *     MmIsWriteErrorFatal @ 0x140212D9C (MmIsWriteErrorFatal.c)
+ *     IoAllocateErrorLogEntry @ 0x1403C11C0 (IoAllocateErrorLogEntry.c)
+ *     IoWriteErrorLogEntry @ 0x1403C13F0 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoRaiseInformationalHardError @ 0x140554960 (IoRaiseInformationalHardError.c)
+ */
+
 NTSTATUS __stdcall FsRtlLogCcFlushError(
         PUNICODE_STRING FileName,
         PDEVICE_OBJECT DeviceObject,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiReleaseProcessReferenceToSessionDataPage @ 0x14072665C
+ * Callers:
+ *     MiDereferenceSessionGlobal @ 0x1406350F4 (MiDereferenceSessionGlobal.c)
+ *     MiGetNextSessionGlobal @ 0x14063510C (MiGetNextSessionGlobal.c)
+ *     MmDeleteProcessAddressSpace @ 0x140726E8C (MmDeleteProcessAddressSpace.c)
+ *     MiSessionObjectDelete @ 0x140A2F890 (MiSessionObjectDelete.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     MiPartitionIdToPointer @ 0x14036CC64 (MiPartitionIdToPointer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiUnlinkSessionList @ 0x140635284 (MiUnlinkSessionList.c)
+ *     MiFreeSessionId @ 0x140A2F7B4 (MiFreeSessionId.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReleaseProcessReferenceToSessionDataPage(_QWORD *P)
 {
   unsigned int v2; // edi

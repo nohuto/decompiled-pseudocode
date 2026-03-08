@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyAtlasEntryInvalidated@CGradientBrush@@UEAAXXZ @ 0x18024A190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyAtlasEntryInvalidated@CGradientSource@@MEAAXXZ @ 0x18024A23C (-NotifyAtlasEntryInvalidated@CGradientSource@@MEAAXXZ.c)
+ */
+
 void __fastcall CGradientBrush::NotifyAtlasEntryInvalidated(CGradientBrush *this)
 {
   CGradientSource::NotifyAtlasEntryInvalidated(this);

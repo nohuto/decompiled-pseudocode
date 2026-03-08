@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViKeIrqlLogCommon @ 0x140ABD682
+ * Callers:
+ *     VfKeIrqlLogLower @ 0x140AD2C84 (VfKeIrqlLogLower.c)
+ *     VfKeIrqlLogRaise @ 0x140AD2CB0 (VfKeIrqlLogRaise.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ */
+
 void __fastcall ViKeIrqlLogCommon(__int64 a1, ULONG a2)
 {
   PVOID *v2; // r8

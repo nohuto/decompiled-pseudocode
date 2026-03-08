@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiLockSectionControlArea @ 0x1403638A8
+ * Callers:
+ *     MmOnlySystemCacheViewsPresent @ 0x1402A3534 (MmOnlySystemCacheViewsPresent.c)
+ *     MmDisableModifiedWriteOfSection @ 0x1402EE070 (MmDisableModifiedWriteOfSection.c)
+ *     MmChangeSectionBackingFile @ 0x1402F34E4 (MmChangeSectionBackingFile.c)
+ *     MiForceSectionClosed @ 0x1402F3AB0 (MiForceSectionClosed.c)
+ *     MmUpdateSectionIoAttribution @ 0x1402F4F04 (MmUpdateSectionIoAttribution.c)
+ *     MiReferenceExistingControlArea @ 0x140361BD4 (MiReferenceExistingControlArea.c)
+ *     MmGetImageFileSignatureInformation @ 0x140361CA0 (MmGetImageFileSignatureInformation.c)
+ *     MmEnoughMemoryForWrite @ 0x1403637E0 (MmEnoughMemoryForWrite.c)
+ *     MiFlushDataSection @ 0x140368CA0 (MiFlushDataSection.c)
+ *     MiCopyHeaderIfResident @ 0x140368D84 (MiCopyHeaderIfResident.c)
+ *     MmIsFileSectionActive @ 0x1403BFA30 (MmIsFileSectionActive.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiLockSectionControlArea(_QWORD *a1, int a2, KIRQL *a3)
 {
   KIRQL v6; // al

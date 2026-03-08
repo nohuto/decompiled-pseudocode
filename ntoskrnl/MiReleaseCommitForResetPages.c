@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiReleaseCommitForResetPages @ 0x140616CA8
+ * Callers:
+ *     MmOutSwapProcess @ 0x1402C00EC (MmOutSwapProcess.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x140615D8C (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogResetPagesCommitRelease @ 0x14061603C (MiLogResetPagesCommitRelease.c)
+ *     MiWalkResetCommitPages @ 0x140617208 (MiWalkResetCommitPages.c)
+ */
+
 LONG __fastcall MiReleaseCommitForResetPages(ULONG_PTR a1)
 {
   _QWORD *SharedVm; // rax

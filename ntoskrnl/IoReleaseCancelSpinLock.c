@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoReleaseCancelSpinLock @ 0x140337D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall IoReleaseCancelSpinLock(KIRQL Irql)
 {
   unsigned __int64 v1; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetBridgeWindowChild @ 0x1C01DB5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     ValidateHwndIAM @ 0x1C009A070 (ValidateHwndIAM.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     xxxSetBridgeWindowChild @ 0x1C01F4014 (xxxSetBridgeWindowChild.c)
+ */
+
 __int64 __fastcall NtUserSetBridgeWindowChild(__int64 a1, __int64 a2)
 {
   int v4; // eax

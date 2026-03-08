@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteDisconnect @ 0x1C00F6DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ */
+
 __int64 NtUserRemoteDisconnect()
 {
   unsigned int v0; // ebx

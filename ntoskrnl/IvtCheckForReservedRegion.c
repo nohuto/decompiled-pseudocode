@@ -1,3 +1,13 @@
+/*
+ * XREFs of IvtCheckForReservedRegion @ 0x14080BF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DmrGetNextRemappingStructure @ 0x14037BFAC (DmrGetNextRemappingStructure.c)
+ *     DmrGetNextDeviceScope @ 0x14037C0D0 (DmrGetNextDeviceScope.c)
+ *     HalpIvtCheckIdPathMatch @ 0x14037C118 (HalpIvtCheckIdPathMatch.c)
+ */
+
 char __fastcall IvtCheckForReservedRegion(_DWORD *a1)
 {
   __int64 i; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeRelativeOutlinePosition@Bounds@CCpuClipAntialiasSink@@QEBAMM@Z @ 0x18007D6F8
+ * Callers:
+ *     ?FillVertexUVs@CCpuClipAntialiasDrawListEntry@@QEBAXAEBUBounds@CCpuClipAntialiasSink@@AEBV?$StridedSpan@UUVxN@CCpuClipAntialiasSink@@@@_K@Z @ 0x18007D530 (-FillVertexUVs@CCpuClipAntialiasDrawListEntry@@QEBAXAEBUBounds@CCpuClipAntialiasSink@@AEBV-$Stri.c)
+ * Callees:
+ *     ceilf_0 @ 0x1801176EC (ceilf_0.c)
+ */
+
 float __fastcall CCpuClipAntialiasSink::Bounds::ComputeRelativeOutlinePosition(
         CCpuClipAntialiasSink::Bounds *this,
         float a2)

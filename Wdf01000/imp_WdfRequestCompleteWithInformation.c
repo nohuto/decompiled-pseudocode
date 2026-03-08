@@ -1,3 +1,15 @@
+/*
+ * XREFs of imp_WdfRequestCompleteWithInformation @ 0x1C00039B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0003A80 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C0006288 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C00183B0 (WPP_IFR_SF_qqqd.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     Vf_VerifyRequestComplete @ 0x1C00B9FFC (Vf_VerifyRequestComplete.c)
+ */
+
 void __fastcall imp_WdfRequestCompleteWithInformation(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         unsigned __int64 Request,

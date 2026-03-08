@@ -1,3 +1,15 @@
+/*
+ * XREFs of BuildExpandAAInfo @ 0x1C025C820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     _ALIGN_MEM @ 0x1C014B81A (_ALIGN_MEM.c)
+ *     BuildRepData @ 0x1C025D17C (BuildRepData.c)
+ */
+
 _DWORD *__fastcall BuildExpandAAInfo(
         __int64 a1,
         int a2,

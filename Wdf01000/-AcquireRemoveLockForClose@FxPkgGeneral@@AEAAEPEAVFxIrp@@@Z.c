@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AcquireRemoveLockForClose@FxPkgGeneral@@AEAAEPEAVFxIrp@@@Z @ 0x1C0084E50
+ * Callers:
+ *     ?OnClose@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1C00859BC (-OnClose@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z.c)
+ * Callees:
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0001F2C (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 unsigned __int8 __fastcall FxPkgGeneral::AcquireRemoveLockForClose(FxPkgGeneral *this, FxIrp *FxIrp)
 {
   FxDeviceBase *m_DeviceBase; // r8

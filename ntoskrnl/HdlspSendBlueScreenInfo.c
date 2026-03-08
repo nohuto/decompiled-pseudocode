@@ -1,3 +1,13 @@
+/*
+ * XREFs of HdlspSendBlueScreenInfo @ 0x140AE83D0
+ * Callers:
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ */
+
 __int64 __fastcall HdlspSendBlueScreenInfo(int a1)
 {
   KSPIN_LOCK i; // rbx

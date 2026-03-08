@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDispatchIrpCreateClose @ 0x1C0024570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIDispatchIrpCreateClose(__int64 a1, IRP *a2)
 {
   unsigned int v2; // ebx

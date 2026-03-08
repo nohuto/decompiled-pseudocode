@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInitializeGhesRecovery @ 0x1403A39F0
+ * Callers:
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 (__fastcall *HalpInitializeGhesRecovery())()
 {
   _QWORD *v0; // rax

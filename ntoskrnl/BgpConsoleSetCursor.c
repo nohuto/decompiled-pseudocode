@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgpConsoleSetCursor @ 0x140AEECD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpConsoleDrawCursor @ 0x140AEE928 (BgpConsoleDrawCursor.c)
+ */
+
 __int64 __fastcall BgpConsoleSetCursor(unsigned int a1, unsigned int a2, unsigned int a3)
 {
   _DWORD *v6; // rax

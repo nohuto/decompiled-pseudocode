@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadRegistryBitfields@CSettingsManager@@AEAAXW4DwmSettingType@@PEAUBitfieldRegistrySetting@@IPEAK@Z @ 0x140004330
+ * Callers:
+ *     ?RefreshPreferencesAndPolicies@CSettingsManager@@QEAAXXZ @ 0x140004228 (-RefreshPreferencesAndPolicies@CSettingsManager@@QEAAXXZ.c)
+ * Callees:
+ *     ?GetDword@CSettingsManager@@AEAAJW4DwmSettingType@@PEBGPEAK@Z @ 0x140004440 (-GetDword@CSettingsManager@@AEAAJW4DwmSettingType@@PEBGPEAK@Z.c)
+ */
+
 void __fastcall CSettingsManager::ReadRegistryBitfields(
         __int64 a1,
         unsigned int a2,

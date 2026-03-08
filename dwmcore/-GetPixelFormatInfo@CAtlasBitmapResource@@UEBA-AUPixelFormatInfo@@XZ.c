@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CAtlasBitmapResource@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E8220
+ * Callers:
+ *     ?GetPixelFormatInfo@CAtlasBitmapResource@@$4PPPPPPPM@GA@EBA?AUPixelFormatInfo@@XZ @ 0x18011A530 (-GetPixelFormatInfo@CAtlasBitmapResource@@$4PPPPPPPM@GA@EBA-AUPixelFormatInfo@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CAtlasBitmapResource::GetPixelFormatInfo(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rax

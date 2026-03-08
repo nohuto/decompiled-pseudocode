@@ -1,3 +1,30 @@
+/*
+ * XREFs of PfpPrivSourceEnum @ 0x1407E7DC0
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiFillSessionWorkingSetEntry @ 0x1402FBCF0 (MiFillSessionWorkingSetEntry.c)
+ *     MmQuerySystemMemoryInformation @ 0x1402FCE88 (MmQuerySystemMemoryInformation.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     RtlStringCbCopyA @ 0x14035BCD8 (RtlStringCbCopyA.c)
+ *     SmStoreExistsForProcess @ 0x14035BD70 (SmStoreExistsForProcess.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x140650B98 (MmQueryProcessWorkingSetSwapPages.c)
+ *     ExGetNextProcess @ 0x1406A8CF4 (ExGetNextProcess.c)
+ *     PsQueryProcessAttributes @ 0x1406D3448 (PsQueryProcessAttributes.c)
+ *     SeIsAppContainerOrIdentifyLevelContext @ 0x14073AC00 (SeIsAppContainerOrIdentifyLevelContext.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PfpPrivSourceAdd @ 0x1407E83E0 (PfpPrivSourceAdd.c)
+ *     PsGetProcessDeepFreezeStats @ 0x1407E844C (PsGetProcessDeepFreezeStats.c)
+ *     SmProcessQueryStoreStats @ 0x1408A1FF4 (SmProcessQueryStoreStats.c)
+ */
+
 __int64 __fastcall PfpPrivSourceEnum(__int64 a1, KPROCESSOR_MODE a2, _DWORD *a3)
 {
   __int64 *v5; // r15

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxFindAndReferenceAcpiDevice @ 0x140587F40
+ * Callers:
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x14059E7BC (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ */
+
 __int64 __fastcall PopFxFindAndReferenceAcpiDevice(__int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

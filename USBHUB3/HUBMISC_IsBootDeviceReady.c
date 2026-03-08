@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBMISC_IsBootDeviceReady @ 0x1C00338AC
+ * Callers:
+ *     HUBBOOT_IsBootDeviceReady @ 0x1C003F9E0 (HUBBOOT_IsBootDeviceReady.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBHTX_GetPortStatusForBootDevice @ 0x1C0006744 (HUBHTX_GetPortStatusForBootDevice.c)
+ *     HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice @ 0x1C0033B30 (HUBMISC_PerformPostSurpriseRemovalRecoveryActionsIfBootDevice.c)
+ */
+
 char __fastcall HUBMISC_IsBootDeviceReady(__int64 a1)
 {
   __int64 v1; // rax

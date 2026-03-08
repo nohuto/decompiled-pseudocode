@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReleaseInPageRefs @ 0x1402C6460
+ * Callers:
+ *     MiInvalidateCollidedIos @ 0x1402C6204 (MiInvalidateCollidedIos.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402CFBF0 (MiDereferenceControlAreaPfnList.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReleaseInPageRefs(ULONG_PTR BugCheckParameter2)
 {
   __int64 v2; // r8

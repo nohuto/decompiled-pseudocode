@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlStringCbPrintfExW @ 0x1402986C0
+ * Callers:
+ *     RtlQueryPackageClaims @ 0x1402983B0 (RtlQueryPackageClaims.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14084FEDC (WmipGenerateBinaryMofNotification.c)
+ *     PiNormalizeDeviceText @ 0x14086EE68 (PiNormalizeDeviceText.c)
+ *     EtwpQueryPsmKey @ 0x1409E4448 (EtwpQueryPsmKey.c)
+ *     ConvertDevpropcompkeyToString @ 0x140A6B464 (ConvertDevpropcompkeyToString.c)
+ *     ConvertDevpropertyToString @ 0x140A6B5A0 (ConvertDevpropertyToString.c)
+ *     PipCreateComputerId @ 0x140B56980 (PipCreateComputerId.c)
+ * Callees:
+ *     RtlStringVPrintfWorkerW @ 0x1402987DC (RtlStringVPrintfWorkerW.c)
+ *     RtlStringExHandleFillBehindNullW @ 0x1403AE140 (RtlStringExHandleFillBehindNullW.c)
+ *     StringExHandleOtherFlagsW @ 0x14055D3D8 (StringExHandleOtherFlagsW.c)
+ */
+
 NTSTATUS RtlStringCbPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cbDest,

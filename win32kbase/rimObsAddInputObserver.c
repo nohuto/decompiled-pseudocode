@@ -1,3 +1,23 @@
+/*
+ * XREFs of rimObsAddInputObserver @ 0x1C01DADB0
+ * Callers:
+ *     NtRIMAddInputObserver @ 0x1C01A1830 (NtRIMAddInputObserver.c)
+ *     RIMAddInputObserver @ 0x1C01A31F0 (RIMAddInputObserver.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     rimConvertUserToKernelEventHandle @ 0x1C0039ED8 (rimConvertUserToKernelEventHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DDDD @ 0x1C00D305C (WPP_RECORDER_AND_TRACE_SF_DDDD.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RawInputManagerInputObserverObjectCreate @ 0x1C01BF834 (RawInputManagerInputObserverObjectCreate.c)
+ *     RawInputManagerInputObserverObjectResolveHandle @ 0x1C01BF998 (RawInputManagerInputObserverObjectResolveHandle.c)
+ *     rimObsCheckForRegistrationConflicts @ 0x1C01DA69C (rimObsCheckForRegistrationConflicts.c)
+ *     rimObsStartStopDeviceRead @ 0x1C01DD4D4 (rimObsStartStopDeviceRead.c)
+ */
+
 __int64 __fastcall rimObsAddInputObserver(
         __int64 a1,
         unsigned int a2,

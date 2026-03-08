@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SysMmCreateIoSpacePhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@W4_MEMORY_CACHING_TYPE@@QEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C006F1B0
+ * Callers:
+ *     DxgkCreatePhysicalMemoryObjectCB @ 0x1C0052100 (DxgkCreatePhysicalMemoryObjectCB.c)
+ *     SysMmTestCreateIoSpacePhysicalObject @ 0x1C0071710 (SysMmTestCreateIoSpacePhysicalObject.c)
+ * Callees:
+ *     SmmCreatePhysicalObject @ 0x1C00130BC (SmmCreatePhysicalObject.c)
+ */
+
 __int64 __fastcall SysMmCreateIoSpacePhysicalObject(
         struct SYSMM_ADAPTER *a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess @ 0x1C0017D80
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C0017920 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess(__int64 a1, IRP *a2)
 {
   __int64 v4; // rax

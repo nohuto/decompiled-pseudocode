@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionInitiateMouseEventProcessing @ 0x1C00DB4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WakeRIT @ 0x1C00DB568 (WakeRIT.c)
+ *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01FA214 (-xxxUserBeep@@YAHKK_N@Z.c)
+ */
+
 __int64 __fastcall EditionInitiateMouseEventProcessing(__int64 a1, int a2)
 {
   int v3; // ebx

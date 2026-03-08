@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0012994
+ * Callers:
+ *     VidSchResumeAdapter @ 0x1C00AD540 (VidSchResumeAdapter.c)
+ *     VidSchSuspendAdapter @ 0x1C00AE170 (VidSchSuspendAdapter.c)
+ * Callees:
+ *     VidSchiDecrementDeviceReference @ 0x1C0012D90 (VidSchiDecrementDeviceReference.c)
+ *     VidSchSuspendResumeDevice @ 0x1C0012E60 (VidSchSuspendResumeDevice.c)
+ */
+
 void __fastcall VidSchiSuspendResumeDevicesForPowerTransition(__int64 a1, char a2)
 {
   KSPIN_LOCK *v2; // r15

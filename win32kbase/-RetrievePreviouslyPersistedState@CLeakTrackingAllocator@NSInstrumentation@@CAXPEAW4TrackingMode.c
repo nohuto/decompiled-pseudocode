@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RetrievePreviouslyPersistedState@CLeakTrackingAllocator@NSInstrumentation@@CAXPEAW4TrackingMode@LeakTrackingAllocatorCore@2@PEAW4PoolLeakState@12@PEAII2@Z @ 0x1C00D4F44
+ * Callers:
+ *     ?Create@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z @ 0x1C00D4E64 (-Create@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z.c)
+ * Callees:
+ *     ?PlatformRetrieveConfig32@NSInstrumentation@@YAXPEAGQEAPEBGPEAIPEA_N_K@Z @ 0x1C00D5054 (-PlatformRetrieveConfig32@NSInstrumentation@@YAXPEAGQEAPEBGPEAIPEA_N_K@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall NSInstrumentation::CLeakTrackingAllocator::RetrievePreviouslyPersistedState(
         enum NSInstrumentation::LeakTrackingAllocatorCore::TrackingMode *a1,
         enum NSInstrumentation::CLeakTrackingAllocator::PoolLeakState *a2,

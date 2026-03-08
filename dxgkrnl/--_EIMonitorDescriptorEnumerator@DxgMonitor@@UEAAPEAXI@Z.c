@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_EIMonitorDescriptorEnumerator@DxgMonitor@@UEAAPEAXI@Z @ 0x1C006C910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 DxgMonitor::IMonitorDescriptorEnumerator *__fastcall DxgMonitor::IMonitorDescriptorEnumerator::`vector deleting destructor'(
         DxgMonitor::IMonitorDescriptorEnumerator *this,
         char a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringVPrintfWorkerW @ 0x1C004BB80
+ * Callers:
+ *     RtlStringCchPrintfExW @ 0x1C004B8F0 (RtlStringCchPrintfExW.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringVPrintfWorkerW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

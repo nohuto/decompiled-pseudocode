@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUCContactState@@0@Z @ 0x1C0235178
+ * Callers:
+ *     ?FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z @ 0x1C023783C (-FindGestureAndMarkGesturingContactsAsNonResting@CPTPEngine@@AEAAHPEBUPTPInput@@@Z.c)
+ *     ?UpdateContactRestingState@CPTPEngine@@AEAAXUtagPOINT@@_KPEAUCContactState@@@Z @ 0x1C023A830 (-UpdateContactRestingState@CPTPEngine@@AEAAXUtagPOINT@@_KPEAUCContactState@@@Z.c)
+ * Callees:
+ *     ?ndotprod@@YA_NHHHHPEAN@Z @ 0x1C023B168 (-ndotprod@@YA_NHHHHPEAN@Z.c)
+ */
+
 __int64 __fastcall CPTPEngine::AreTheseTwoContactsAPan(
         CPTPEngine *this,
         const struct CContactState *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@CAtlasBitmapResource@@UEAAKXZ @ 0x1800E6BB4
+ * Callers:
+ *     ?Release@CAtlasBitmapResource@@$4PPPPPPPM@A@EAAKXZ @ 0x18011A570 (-Release@CAtlasBitmapResource@@$4PPPPPPPM@A@EAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CAtlasBitmapResource::Release(CAtlasBitmapResource *this)
 {
   char *v1; // rsi

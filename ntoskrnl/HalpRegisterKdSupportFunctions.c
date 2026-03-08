@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRegisterKdSupportFunctions @ 0x140B31FD4
+ * Callers:
+ *     HalpDbgInitSystem @ 0x140A85F50 (HalpDbgInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *HalpRegisterKdSupportFunctions()
 {
   __int64 *result; // rax

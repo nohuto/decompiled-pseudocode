@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommuDomainConfigure @ 0x1409326E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IommupHvConfigureDeviceDomain @ 0x1405222C4 (IommupHvConfigureDeviceDomain.c)
+ */
+
 __int64 __fastcall IommuDomainConfigure(__int64 a1, __int64 a2, __int64 a3)
 {
   if ( *(_DWORD *)(a1 + 8) != 2 )

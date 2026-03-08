@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Update@ManipulationThreadTelemetryData@@QEAAXAEBUtagPOINTER_INFO@@AEBUtagTELEMETRY_POINTER_FRAME_TIMES@@I@Z @ 0x18019EFB0
+ * Callers:
+ *     ?ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019C478 (-ProcessManipulationInfo@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ManipulationThreadTelemetryData::Update(
         LARGE_INTEGER *this,
         const struct tagPOINTER_INFO *a2,

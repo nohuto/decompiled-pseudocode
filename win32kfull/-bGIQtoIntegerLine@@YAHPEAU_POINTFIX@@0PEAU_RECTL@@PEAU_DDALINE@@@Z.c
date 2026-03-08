@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bGIQtoIntegerLine@@YAHPEAU_POINTFIX@@0PEAU_RECTL@@PEAU_DDALINE@@@Z @ 0x1C02FD8E4
+ * Callers:
+ *     ?vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C02FDD10 (-vDrawLine@@YAXPEAU_POINTFIX@@0PEAEJKPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bGIQtoIntegerLine(
         struct _POINTFIX *a1,
         struct _POINTFIX *a2,

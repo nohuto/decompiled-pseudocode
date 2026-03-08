@@ -1,3 +1,11 @@
+/*
+ * XREFs of W32kCddLineTo @ 0x1C0272D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngLineTo @ 0x1C028FDB0 (EngLineTo.c)
+ */
+
 BOOL __fastcall W32kCddLineTo(
         SURFOBJ *a1,
         CLIPOBJ *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CVector3Force@@QEAA@PEAUIAccelerator@@00@Z @ 0x180238750
+ * Callers:
+ *     ?InitializeForces@CNaturalAnimation@@AEAAXXZ @ 0x1802398F8 (-InitializeForces@CNaturalAnimation@@AEAAXXZ.c)
+ * Callees:
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E4D30 (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ *     ?InternalAddRef@?$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ @ 0x1800F1F6C (-InternalAddRef@-$ComPtr@UIInteractionContextWrapper@@@WRL@Microsoft@@IEBAXXZ.c)
+ */
+
 CVector3Force *__fastcall CVector3Force::CVector3Force(
         CVector3Force *this,
         struct IAccelerator *a2,

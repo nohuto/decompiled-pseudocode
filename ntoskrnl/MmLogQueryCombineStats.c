@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmLogQueryCombineStats @ 0x14079BD2C
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwTraceSiloDcEvent @ 0x1405FB110 (EtwTraceSiloDcEvent.c)
+ */
+
 void __fastcall MmLogQueryCombineStats(__int64 a1, unsigned int *a2, _DWORD *a3)
 {
   int v5; // eax

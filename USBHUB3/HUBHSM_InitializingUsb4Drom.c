@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_InitializingUsb4Drom @ 0x1C000A020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall HUBHSM_InitializingUsb4Drom(__int64 a1)
 {
   __int64 v1; // rbx

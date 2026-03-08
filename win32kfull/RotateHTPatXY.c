@@ -1,3 +1,11 @@
+/*
+ * XREFs of RotateHTPatXY @ 0x1C0255480
+ * Callers:
+ *     Generate_HTSC_WORD @ 0x1C02550F0 (Generate_HTSC_WORD.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RotateHTPatXY(__int64 a1, _WORD *a2, int a3, int a4, int a5, int a6, int a7)
 {
   int v7; // ebp

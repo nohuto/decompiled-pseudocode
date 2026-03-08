@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiSetSystemPriorityThread @ 0x1402E9F30
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     KeDisconnectInterrupt @ 0x14028E38C (KeDisconnectInterrupt.c)
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmTryAcquireLock @ 0x1402D2BC8 (PpmTryAcquireLock.c)
+ *     KeSetSystemPriorityThread @ 0x140574720 (KeSetSystemPriorityThread.c)
+ *     MiDemoteSlabEntries @ 0x1406541E4 (MiDemoteSlabEntries.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KiSetSystemPriorityThread(ULONG_PTR BugCheckParameter1, int a2, int a3)
 {
   char v3; // di

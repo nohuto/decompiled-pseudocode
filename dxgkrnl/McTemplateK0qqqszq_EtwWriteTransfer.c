@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0qqqszq_EtwWriteTransfer @ 0x1C004C2A8
+ * Callers:
+ *     ?AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C02FE6F8 (-AddActiveTime@DripsBlockerTrackingHelper@@IEAAXII@Z.c)
+ *     ?AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ @ 0x1C02FE7F0 (-AddD0LagTimeToLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXXZ.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqqszq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

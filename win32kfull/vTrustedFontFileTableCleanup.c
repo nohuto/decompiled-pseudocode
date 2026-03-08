@@ -1,3 +1,11 @@
+/*
+ * XREFs of vTrustedFontFileTableCleanup @ 0x1C00F6530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 vTrustedFontFileTableCleanup()
 {
   __int64 result; // rax

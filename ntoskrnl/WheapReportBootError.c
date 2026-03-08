@@ -1,3 +1,15 @@
+/*
+ * XREFs of WheapReportBootError @ 0x14060E01C
+ * Callers:
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ * Callees:
+ *     WheapGetErrorSourceFunction @ 0x14037D8DC (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     WheapAllocErrorRecord @ 0x14060E78C (WheapAllocErrorRecord.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapWorkQueueAddItem @ 0x1406115E4 (WheapWorkQueueAddItem.c)
+ */
+
 char __fastcall WheapReportBootError(__int64 a1)
 {
   _QWORD *WheaInfo; // rdi

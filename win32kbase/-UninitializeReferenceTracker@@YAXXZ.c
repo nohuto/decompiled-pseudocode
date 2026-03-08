@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UninitializeReferenceTracker@@YAXXZ @ 0x1C00A0090
+ * Callers:
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     ??1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ @ 0x1C019B8B0 (--1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ.c)
+ */
+
 void __fastcall UninitializeReferenceTracker(__int64 a1)
 {
   __int64 v1; // rbx

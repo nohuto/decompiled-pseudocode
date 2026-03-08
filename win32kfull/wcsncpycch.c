@@ -1,3 +1,14 @@
+/*
+ * XREFs of wcsncpycch @ 0x1C01093D4
+ * Callers:
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ *     NtUserRemoteConnect @ 0x1C00EF850 (NtUserRemoteConnect.c)
+ *     ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C0109318 (-CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C02287C0 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wcsncpycch(_WORD *a1, __int64 a2, int a3)
 {
   _WORD *v3; // r9

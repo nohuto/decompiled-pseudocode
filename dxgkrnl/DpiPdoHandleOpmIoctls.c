@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiPdoHandleOpmIoctls @ 0x1C039DD08
+ * Callers:
+ *     DpiPdoDispatchInternalIoctl @ 0x1C0168D80 (DpiPdoDispatchInternalIoctl.c)
+ * Callees:
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0063168 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     DxgkAttemptOpmVmBusRedirect @ 0x1C02BD7E4 (DxgkAttemptOpmVmBusRedirect.c)
+ */
+
 __int64 __fastcall DpiPdoHandleOpmIoctls(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

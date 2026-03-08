@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncGhostChange @ 0x1C026F224
+ * Callers:
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F687C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncGhostChange(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

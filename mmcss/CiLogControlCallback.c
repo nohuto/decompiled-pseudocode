@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiLogControlCallback @ 0x1C000C2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CiLogControlCallback(LPCGUID SourceId, ULONG ControlCode, UCHAR Level, ULONGLONG MatchAnyKeyword)
 {
   if ( ControlCode )

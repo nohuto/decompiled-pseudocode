@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpRegisterPartitionPages @ 0x1405FF04C
+ * Callers:
+ *     EtwpAllocatePartitionMemory @ 0x1405FEEF0 (EtwpAllocatePartitionMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwpMdlHashTableAllocator @ 0x1405FF00C (EtwpMdlHashTableAllocator.c)
+ *     EtwpMdlHashTableDeallocator @ 0x1405FF030 (EtwpMdlHashTableDeallocator.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall EtwpRegisterPartitionPages(__int64 a1, __int64 a2, __int64 a3)
 {
   char v6; // bp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopDispatchSessionNotifications @ 0x140945560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall IopDispatchSessionNotifications(_QWORD *CallbackContext, int *Argument1, PVOID Argument2)
 {
   __int64 v3; // rax

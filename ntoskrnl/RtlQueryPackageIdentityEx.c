@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlQueryPackageIdentityEx @ 0x140298350
+ * Callers:
+ *     RtlQueryPackageIdentity @ 0x140298300 (RtlQueryPackageIdentity.c)
+ *     PspIdentityBasedJobBreakaway @ 0x14079BB70 (PspIdentityBasedJobBreakaway.c)
+ * Callees:
+ *     RtlQueryPackageClaims @ 0x1402983B0 (RtlQueryPackageClaims.c)
+ */
+
 __int64 __fastcall RtlQueryPackageIdentityEx(
         __int64 a1,
         __int64 a2,

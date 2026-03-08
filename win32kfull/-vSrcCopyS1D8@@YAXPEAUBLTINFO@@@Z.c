@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcCopyS1D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02EC9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall vSrcCopyS1D8(struct BLTINFO *a1)
 {
   __int64 v1; // rax

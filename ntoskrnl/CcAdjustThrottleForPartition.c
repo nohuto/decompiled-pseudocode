@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcAdjustThrottleForPartition @ 0x14053360C
+ * Callers:
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     CcAdjustCurrentThresholdWrtTop @ 0x1405335AC (CcAdjustCurrentThresholdWrtTop.c)
+ */
+
 unsigned __int64 __fastcall CcAdjustThrottleForPartition(_QWORD *a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v4; // r11

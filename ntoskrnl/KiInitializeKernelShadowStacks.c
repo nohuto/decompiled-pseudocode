@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeKernelShadowStacks @ 0x140A8EB30
+ * Callers:
+ *     KiSystemStartup @ 0x140A84010 (KiSystemStartup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiInitializeKernelShadowStacks(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rdx

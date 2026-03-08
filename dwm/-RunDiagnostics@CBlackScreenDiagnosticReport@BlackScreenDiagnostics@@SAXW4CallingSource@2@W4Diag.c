@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?RunDiagnostics@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@SAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D484
+ * Callers:
+ *     ?RunDiagnosticsFromHotkey@BlackScreenDiagnostics@@YAXXZ @ 0x14000D5D8 (-RunDiagnosticsFromHotkey@BlackScreenDiagnostics@@YAXXZ.c)
+ *     ?RunDiagnosticsFromLongPowerButtonHold@BlackScreenDiagnostics@@YAXAEBU_GUID@@@Z @ 0x14000D690 (-RunDiagnosticsFromLongPowerButtonHold@BlackScreenDiagnostics@@YAXAEBU_GUID@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     ?Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D134 (-Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFla.c)
+ *     TraceLoggingRegisterEx_EventRegister_EventSetInformation @ 0x14000DA0C (TraceLoggingRegisterEx_EventRegister_EventSetInformation.c)
+ *     _tlgKeywordOn @ 0x14000DB68 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x14000DB9C (_tlgWriteTransfer_EventWriteTransfer.c)
+ */
+
 void __fastcall BlackScreenDiagnostics::CBlackScreenDiagnosticReport::RunDiagnostics(
         unsigned int a1,
         unsigned int a2,

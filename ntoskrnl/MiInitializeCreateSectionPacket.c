@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeCreateSectionPacket @ 0x1407D0AE0
+ * Callers:
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiHugePagesSupported @ 0x1403C1984 (MiHugePagesSupported.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ */
+
 NTSTATUS __fastcall MiInitializeCreateSectionPacket(
         int *a1,
         __int64 a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchReportAdapter @ 0x1C0107F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EF9C (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C002F600 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     VidSchiSchedulerNodeToDriverNode @ 0x1C003C618 (VidSchiSchedulerNodeToDriverNode.c)
+ *     McTemplateK0pppp_EtwWriteTransfer @ 0x1C003DCE8 (McTemplateK0pppp_EtwWriteTransfer.c)
+ *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C003DD88 (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003DE9C (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchReportAdapter(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

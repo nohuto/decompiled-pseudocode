@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFxNotifyPreDIrpCompletion @ 0x1402BA43C
+ * Callers:
+ *     PopRequestCompletion @ 0x1402BB410 (PopRequestCompletion.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1405876D8 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ */
+
 __int64 __fastcall PopFxNotifyPreDIrpCompletion(ULONG_PTR BugCheckParameter3, __int64 a2, int a3)
 {
   __int64 result; // rax

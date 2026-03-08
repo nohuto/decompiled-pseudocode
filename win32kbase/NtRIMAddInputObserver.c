@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtRIMAddInputObserver @ 0x1C01A1830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     rimObsAddInputObserver @ 0x1C01DADB0 (rimObsAddInputObserver.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C01DB780 (rimObsCheckForObservationPermissions.c)
+ */
+
 __int64 __fastcall NtRIMAddInputObserver(
         int a1,
         __int64 a2,

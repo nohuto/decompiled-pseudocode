@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360
+ * Callers:
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ *     xxxSleepThread2 @ 0x1C006D200 (xxxSleepThread2.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0047BD0 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
+ *     zzzCalcStartCursorHide @ 0x1C00612C0 (zzzCalcStartCursorHide.c)
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     xxxDesktopThreadWaiter @ 0x1C0094300 (xxxDesktopThreadWaiter.c)
+ *     ClientDeliverUserApc @ 0x1C00B8288 (ClientDeliverUserApc.c)
+ *     ?CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z @ 0x1C00E8454 (-CheckProcessForeground@@YAJPEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C012C5E4 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C012C60C (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     xxxDoSysExpungeIfNeeded @ 0x1C012F440 (xxxDoSysExpungeIfNeeded.c)
+ *     EditionxxxComputeInputSinkInfo @ 0x1C01BAC00 (EditionxxxComputeInputSinkInfo.c)
+ */
+
 __int64 __fastcall xxxRealSleepThread(unsigned int a1, union _LARGE_INTEGER *a2, int a3, int a4, enum SLEEP_STATUS *a5)
 {
   int v5; // r11d

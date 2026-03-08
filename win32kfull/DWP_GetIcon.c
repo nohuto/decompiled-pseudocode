@@ -1,3 +1,12 @@
+/*
+ * XREFs of DWP_GetIcon @ 0x1C00E542C
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ */
+
 __int64 __fastcall DWP_GetIcon(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

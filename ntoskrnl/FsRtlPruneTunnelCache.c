@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlPruneTunnelCache @ 0x140752970
+ * Callers:
+ *     FsRtlAddToTunnelCacheEx @ 0x1407524E0 (FsRtlAddToTunnelCacheEx.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x140752810 (FsRtlFindInTunnelCacheEx.c)
+ * Callees:
+ *     FsRtlRemoveNodeFromTunnel @ 0x1402C1A0C (FsRtlRemoveNodeFromTunnel.c)
+ */
+
 __int64 __fastcall FsRtlPruneTunnelCache(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessTransactionList@FxTransactionedList@@IEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C004FA14
+ * Callers:
+ *     ?UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C004FE14 (-UnlockFromEnum@FxTransactionedList@@QEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxTransactionedList::ProcessTransactionList(FxTransactionedList *this, _LIST_ENTRY *ReleaseHead)
 {
   _LIST_ENTRY *p_m_TransactionHead; // rsi

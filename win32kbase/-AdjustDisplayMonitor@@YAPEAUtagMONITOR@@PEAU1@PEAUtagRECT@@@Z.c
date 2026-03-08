@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AdjustDisplayMonitor@@YAPEAUtagMONITOR@@PEAU1@PEAUtagRECT@@@Z @ 0x1C00CB114
+ * Callers:
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ * Callees:
+ *     IntersectRect @ 0x1C003B560 (IntersectRect.c)
+ *     GetMonitorRect @ 0x1C003DBB4 (GetMonitorRect.c)
+ */
+
 struct tagMONITOR *__fastcall AdjustDisplayMonitor(struct tagMONITOR *a1, struct tagRECT *a2)
 {
   __int64 i; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIntPartInit @ 0x140B437B4
+ * Callers:
+ *     KiIntSteerInit @ 0x140B43678 (KiIntSteerInit.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     IntPartCreate @ 0x140B43808 (IntPartCreate.c)
+ *     IntPartGetClassAffinityGroup @ 0x140B43A84 (IntPartGetClassAffinityGroup.c)
+ */
+
 __int64 KiIntPartInit()
 {
   ULONG ActiveProcessorCount; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WilApiImpl_GetFeatureEnabledState@details@wil@@YA?AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@@PEAH@Z @ 0x1800FCC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsFeatureConfigured@details@wil@@YA_NPEAUwil_FeatureState@@I_NW4wil_FeatureStore@@PEAH@Z @ 0x1800FCCF0 (-IsFeatureConfigured@details@wil@@YA_NPEAUwil_FeatureState@@I_NW4wil_FeatureStore@@PEAH@Z.c)
+ */
+
 __int64 __fastcall wil::details::WilApiImpl_GetFeatureEnabledState(
         wil::details *this,
         unsigned int a2,

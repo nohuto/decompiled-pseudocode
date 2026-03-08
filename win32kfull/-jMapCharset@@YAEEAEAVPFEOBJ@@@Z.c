@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?jMapCharset@@YAEEAEAVPFEOBJ@@@Z @ 0x1C011CA08
+ * Callers:
+ *     ?bFilteredOut@PFEOBJ@@QEAAHPEAU_EFFILTER_INFO@@@Z @ 0x1C0004090 (-bFilteredOut@PFEOBJ@@QEAAHPEAU_EFFILTER_INFO@@@Z.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C011B94C (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ * Callees:
+ *     ?pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C01502CC (-pGetLinkedFontList@PFEOBJ@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ */
+
 unsigned __int8 __fastcall jMapCharset(__int64 a1, struct PFEOBJ *a2)
 {
   char v3; // bl

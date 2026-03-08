@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitSetViewboxAnimationCommand@CImageLegacyMilBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02598D8
+ * Callers:
+ *     ?EmitUpdateCommands@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C025A0F0 (-EmitUpdateCommands@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CImageLegacyMilBrushMarshaler::EmitSetViewboxAnimationCommand(
         DirectComposition::CImageLegacyMilBrushMarshaler *this,
         struct DirectComposition::CBatch ***a2)

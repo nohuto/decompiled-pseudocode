@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0VIDMM_PHYSICAL_ADAPTER@@QEAA@XZ @ 0x1C0018BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 VIDMM_PHYSICAL_ADAPTER *__fastcall VIDMM_PHYSICAL_ADAPTER::VIDMM_PHYSICAL_ADAPTER(VIDMM_PHYSICAL_ADAPTER *this)
 {
   *((_QWORD *)this + 60) = (char *)this + 472;

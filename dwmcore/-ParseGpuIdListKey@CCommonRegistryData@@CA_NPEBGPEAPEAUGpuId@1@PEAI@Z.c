@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?ParseGpuIdListKey@CCommonRegistryData@@CA_NPEBGPEAPEAUGpuId@1@PEAI@Z @ 0x180101A24
+ * Callers:
+ *     ?IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z @ 0x1800D0C68 (-IsShaderLinkingBlacklistedGpu@CCommonRegistryData@@SA_NII@Z.c)
+ * Callees:
+ *     ?DetachData@?$DynArrayImpl@$0A@@@IEAAJIPEAPEAX@Z @ 0x18001A2B0 (-DetachData@-$DynArrayImpl@$0A@@@IEAAJIPEAPEAX@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??1?$unique_ptr@$$BY0A@DU?$default_delete@$$BY0A@D@std@@@std@@QEAA@XZ @ 0x180116DF0 (--1-$unique_ptr@$$BY0A@DU-$default_delete@$$BY0A@D@std@@@std@@QEAA@XZ.c)
+ *     ??1?$DynArrayIA@M$01$0A@@@QEAA@XZ @ 0x180251060 (--1-$DynArrayIA@M$01$0A@@@QEAA@XZ.c)
+ *     ?AddMultipleAndSet@?$DynArray@UGpuId@CCommonRegistryData@@$0A@@@QEAAJPEFBUGpuId@CCommonRegistryData@@I@Z @ 0x18026E8AC (-AddMultipleAndSet@-$DynArray@UGpuId@CCommonRegistryData@@$0A@@@QEAAJPEFBUGpuId@CCommonRegistryD.c)
+ */
+
 char __fastcall CCommonRegistryData::ParseGpuIdListKey(
         const unsigned __int16 *a1,
         struct CCommonRegistryData::GpuId **a2,

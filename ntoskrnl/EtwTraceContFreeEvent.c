@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceContFreeEvent @ 0x1403BD880
+ * Callers:
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall EtwTraceContFreeEvent(__int64 a1, __int64 a2)
 {
   REGHANDLE v2; // rbx

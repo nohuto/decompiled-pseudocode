@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogRetpolineImageLoadEvents @ 0x140784A44
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiApplyBootLoadedDriversFixups @ 0x140B3ACB4 (MiApplyBootLoadedDriversFixups.c)
+ * Callees:
+ *     RtlIsImageFullyRetpolined @ 0x1402F4538 (RtlIsImageFullyRetpolined.c)
+ *     MiLogNonRetpolineImageLoadEvent @ 0x140850640 (MiLogNonRetpolineImageLoadEvent.c)
+ *     MiConstructNonRetpolineImageLoadRecord @ 0x140A31548 (MiConstructNonRetpolineImageLoadRecord.c)
+ */
+
 _QWORD *__fastcall MiLogRetpolineImageLoadEvents(__int64 a1)
 {
   _QWORD *result; // rax

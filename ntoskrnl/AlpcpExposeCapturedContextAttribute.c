@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpExposeCapturedContextAttribute @ 0x140768DC4
+ * Callers:
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AlpcpExposeCapturedContextAttribute(int a1, _DWORD *a2, int a3, __int64 a4)
 {
   __int64 v5; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpSetTimeZoneInformationWorker @ 0x1409BA84C
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ *     RtlSetDynamicTimeZoneInformation @ 0x1409BA810 (RtlSetDynamicTimeZoneInformation.c)
+ *     RtlSetTimeZoneInformation @ 0x1409BA830 (RtlSetTimeZoneInformation.c)
+ *     ExpSetTimeZoneInformation @ 0x1409F484C (ExpSetTimeZoneInformation.c)
+ * Callees:
+ *     wcsnlen @ 0x1403D5F60 (wcsnlen.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1407736C4 (RtlpGetTimeZoneInfoHandle.c)
+ */
+
 __int64 __fastcall RtlpSetTimeZoneInformationWorker(wchar_t *ValueData, unsigned int a2)
 {
   char *v2; // r14

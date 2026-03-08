@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetPolicy@FxInterrupt@@QEAAXW4_WDF_INTERRUPT_POLICY@@W4_WDF_INTERRUPT_PRIORITY@@PEAU_GROUP_AFFINITY@@@Z @ 0x1C007F7CC
+ * Callers:
+ *     imp_WdfInterruptSetExtendedPolicy @ 0x1C0068350 (imp_WdfInterruptSetExtendedPolicy.c)
+ *     imp_WdfInterruptSetPolicy @ 0x1C0068470 (imp_WdfInterruptSetPolicy.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxInterrupt::SetPolicy(
         FxInterrupt *this,
         _WDF_INTERRUPT_POLICY Policy,

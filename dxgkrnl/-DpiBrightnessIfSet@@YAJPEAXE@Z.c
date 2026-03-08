@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C039D330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiCallDrvSetBrightness @ 0x1C039DC30 (DpiCallDrvSetBrightness.c)
+ */
+
 __int64 __fastcall DpiBrightnessIfSet(_QWORD *a1, unsigned __int8 a2)
 {
   __int64 v2; // rbx

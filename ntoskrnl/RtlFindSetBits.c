@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlFindSetBits @ 0x14030D990
+ * Callers:
+ *     MiFindDriverNonPagedSections @ 0x14072715C (MiFindDriverNonPagedSections.c)
+ *     HvpRemoveFreeCellHint @ 0x1407A6200 (HvpRemoveFreeCellHint.c)
+ *     HvpFindFreeCell @ 0x1407A6710 (HvpFindFreeCell.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ *     SmcStorePlacementGet @ 0x1409D8878 (SmcStorePlacementGet.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlFindSetBits(PRTL_BITMAP BitMapHeader, ULONG NumberToFind, ULONG HintIndex)
 {
   unsigned int SizeOfBitMap; // r13d

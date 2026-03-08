@@ -1,3 +1,34 @@
+/*
+ * XREFs of ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610
+ * Callers:
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ * Callees:
+ *     ?IsStillWindowC@@YAHPEAUHWND__@@@Z @ 0x1C0015B14 (-IsStillWindowC@@YAHPEAUHWND__@@@Z.c)
+ *     ?SetTopmostEnum@@YAXPEAUtagWND@@HH@Z @ 0x1C0021308 (-SetTopmostEnum@@YAXPEAUtagWND@@HH@Z.c)
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0026674 (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     xxxCheckFullScreen @ 0x1C0033340 (xxxCheckFullScreen.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     ?xxxProcessPreemptiveDpiChange@@YAXPEAUtagWND@@PEAUtagCVR@@@Z @ 0x1C006A4D8 (-xxxProcessPreemptiveDpiChange@@YAXPEAUtagWND@@PEAUtagCVR@@@Z.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     GetMonitorRectForDpi @ 0x1C00A2698 (GetMonitorRectForDpi.c)
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00A35E4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00A3628 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     ?GetWindowCoordinateSpaceDpi@@YAGPEBUtagWND@@@Z @ 0x1C00A3840 (-GetWindowCoordinateSpaceDpi@@YAGPEBUtagWND@@@Z.c)
+ *     ?ValidateZorder@@YAHPEAUtagCVR@@@Z @ 0x1C00A5428 (-ValidateZorder@@YAHPEAUtagCVR@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     GetNewMonitor @ 0x1C00AB0FC (GetNewMonitor.c)
+ *     ?IsSingleThreadAttached@tagQ@@QEBA_NXZ @ 0x1C00CE1A4 (-IsSingleThreadAttached@tagQ@@QEBA_NXZ.c)
+ *     GetAppCompatFlags @ 0x1C00DBDF0 (GetAppCompatFlags.c)
+ *     ?CuratedWindowHidden@NotifyShell@@YAXPEAUtagWND@@W4HideSource@1@@Z @ 0x1C00EC8F0 (-CuratedWindowHidden@NotifyShell@@YAXPEAUtagWND@@W4HideSource@1@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     xxxAppAdjustDpiCandidateRect @ 0x1C01BB984 (xxxAppAdjustDpiCandidateRect.c)
+ *     DwmAsyncNotifyWindowMoveForWorkArea @ 0x1C026FDBC (DwmAsyncNotifyWindowMoveForWorkArea.c)
+ */
+
 __int64 __fastcall xxxCalcValidRects(struct tagSMWP *a1, HWND *a2)
 {
   HWND *v3; // r12

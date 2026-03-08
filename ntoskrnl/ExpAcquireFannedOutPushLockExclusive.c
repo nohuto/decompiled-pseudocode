@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpAcquireFannedOutPushLockExclusive @ 0x1403CA3BC
+ * Callers:
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14023A860 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     FsRtlInsertPerStreamContext @ 0x1402C99C0 (FsRtlInsertPerStreamContext.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ */
+
 unsigned int __fastcall ExpAcquireFannedOutPushLockExclusive(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

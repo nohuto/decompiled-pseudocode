@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiFdoHandleQueryFlexibleIovInterface @ 0x1C039DF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065114 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiGetPartitionedInterfaceContextPointer @ 0x1C039EB94 (DpiGetPartitionedInterfaceContextPointer.c)
+ */
+
 __int64 __fastcall DpiFdoHandleQueryFlexibleIovInterface(
         __int64 a1,
         unsigned __int16 a2,

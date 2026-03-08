@@ -1,3 +1,48 @@
+/*
+ * XREFs of RawInputThread @ 0x1C007A0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     ?CleanupRitTimerScanWakeEvent@CRitTimerScanWakeSystem@@SAXXZ @ 0x1C0077C24 (-CleanupRitTimerScanWakeEvent@CRitTimerScanWakeSystem@@SAXXZ.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxRegisterForDeviceClassNotifications @ 0x1C00787C0 (xxxRegisterForDeviceClassNotifications.c)
+ *     RitTakeOver @ 0x1C0078910 (RitTakeOver.c)
+ *     ?SetWinlogonHotKeys@@YAXXZ @ 0x1C0078988 (-SetWinlogonHotKeys@@YAXXZ.c)
+ *     CheckPointerDeviceConfiguration @ 0x1C0078CE8 (CheckPointerDeviceConfiguration.c)
+ *     ?PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z @ 0x1C0078E18 (-PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z.c)
+ *     ?SetPenHotKeys@@YAXXZ @ 0x1C0078F0C (-SetPenHotKeys@@YAXXZ.c)
+ *     SetDebugHotKeys @ 0x1C0078FDC (SetDebugHotKeys.c)
+ *     ?ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z @ 0x1C007933C (-ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z.c)
+ *     ?InitTimerPowerSaving@@YAXXZ @ 0x1C00794AC (-InitTimerPowerSaving@@YAXXZ.c)
+ *     ?SetWindowArrangementHotKeys@@YAXXZ @ 0x1C0079514 (-SetWindowArrangementHotKeys@@YAXXZ.c)
+ *     ?TraceLoggingMouseWheelRoutingValueAtStartup@@YAXXZ @ 0x1C0079570 (-TraceLoggingMouseWheelRoutingValueAtStartup@@YAXXZ.c)
+ *     CreatePointerDeviceProcessEvents @ 0x1C0079724 (CreatePointerDeviceProcessEvents.c)
+ *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0079CC4 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     xxxTimersProc @ 0x1C007AFD0 (xxxTimersProc.c)
+ *     ?GetRITWakeReason@@YAHPEAK@Z @ 0x1C007B42C (-GetRITWakeReason@@YAHPEAK@Z.c)
+ *     InitKeyboard @ 0x1C007B470 (InitKeyboard.c)
+ *     GreStartTimers @ 0x1C007B498 (GreStartTimers.c)
+ *     TransitionCursorSuppressionState @ 0x1C007B640 (TransitionCursorSuppressionState.c)
+ *     ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C0093010 (--_GLegacyInputDispatcher@@QEAAPEAXI@Z.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00946F4 (xxxRemoveQueueCompletion.c)
+ *     ?CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z @ 0x1C00BD4DC (-CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z.c)
+ *     ?Initialize@InkProcessor@@SAJXZ @ 0x1C00F8078 (-Initialize@InkProcessor@@SAJXZ.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     Feature_ReportShellHotKey__private_IsEnabledDeviceUsage @ 0x1C012C740 (Feature_ReportShellHotKey__private_IsEnabledDeviceUsage.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01AA558 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ?xxxIVSyncForeground@IVContainerForegroundSync@@YAXXZ @ 0x1C01AF370 (-xxxIVSyncForeground@IVContainerForegroundSync@@YAXXZ.c)
+ *     xxxClientEnableMMCSS @ 0x1C0214C30 (xxxClientEnableMMCSS.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@@Z @ 0x1C0242C8C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapBuffer@U_UNICODE_STRING@@@@@-$_tlgWriteTemplate@$$A6AJPEBU_.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0242D44 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall RawInputThread(__int64 *a1)
 {

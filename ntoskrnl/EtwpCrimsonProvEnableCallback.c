@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpCrimsonProvEnableCallback @ 0x140798ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwProviderEnabled @ 0x140367E30 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpPsProvCaptureState @ 0x1409ECBF4 (EtwpPsProvCaptureState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall EtwpCrimsonProvEnableCallback(
         LPCGUID SourceId,
         ULONG ControlCode,

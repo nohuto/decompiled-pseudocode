@@ -1,3 +1,15 @@
+/*
+ * XREFs of EmpEvaluateUpdateRuleEvalState @ 0x14039DD9C
+ * Callers:
+ *     EmpUpdateRuleState @ 0x1402D6550 (EmpUpdateRuleState.c)
+ * Callees:
+ *     EmpEvaluateTargetRule @ 0x1402D6300 (EmpEvaluateTargetRule.c)
+ *     EmpEvaluatePermuteRuleEntries @ 0x14039DE48 (EmpEvaluatePermuteRuleEntries.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EmpEvaluateUpdateRuleEvalState(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

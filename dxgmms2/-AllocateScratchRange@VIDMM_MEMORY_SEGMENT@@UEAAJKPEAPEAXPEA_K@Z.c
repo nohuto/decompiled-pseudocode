@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateScratchRange@VIDMM_MEMORY_SEGMENT@@UEAAJKPEAPEAXPEA_K@Z @ 0x1C00F9040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C00AFB74 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall VIDMM_MEMORY_SEGMENT::AllocateScratchRange(
         VIDMM_LINEAR_POOL **this,
         unsigned int a2,

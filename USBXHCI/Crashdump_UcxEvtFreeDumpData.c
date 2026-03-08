@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_UcxEvtFreeDumpData @ 0x1C004D0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Crashdump_FreeDeviceContext @ 0x1C004C300 (Crashdump_FreeDeviceContext.c)
+ */
+
 ULONG __fastcall Crashdump_UcxEvtFreeDumpData(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

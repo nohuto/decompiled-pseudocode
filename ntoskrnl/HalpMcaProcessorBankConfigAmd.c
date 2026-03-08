@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMcaProcessorBankConfigAmd @ 0x140503F88
+ * Callers:
+ *     HalpMcaProcessorBankConfig @ 0x14037D0B4 (HalpMcaProcessorBankConfig.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpMcaProcessorBankConfigAmd(__int64 a1, int a2)
 {
   unsigned int v3; // edi

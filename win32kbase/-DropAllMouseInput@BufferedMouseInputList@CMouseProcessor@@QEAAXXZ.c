@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DropAllMouseInput@BufferedMouseInputList@CMouseProcessor@@QEAAXXZ @ 0x1C00D1E10
+ * Callers:
+ *     ?MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ @ 0x1C00D1DA0 (-MasterInputThreadDeactivated@CMouseProcessor@@UEAAXXZ.c)
+ *     ?ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z @ 0x1C0230F1C (-ResolveIdToMessage@BufferedMouseInputList@CMouseProcessor@@QEAAPEAUMouseInputMessage@2@_K@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ??_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z @ 0x1C022ABFC (--_GMouseInputMessage@CMouseProcessor@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CMouseProcessor::BufferedMouseInputList::DropAllMouseInput(
         CMouseProcessor::BufferedMouseInputList *this,
         unsigned int a2)

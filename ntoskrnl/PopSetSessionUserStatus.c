@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopSetSessionUserStatus @ 0x14073C8E4
+ * Callers:
+ *     PopSessionDisconnected @ 0x14067FF58 (PopSessionDisconnected.c)
+ *     PopAdaptiveGetConsoleSessionState @ 0x14073C624 (PopAdaptiveGetConsoleSessionState.c)
+ *     PopAdaptiveGetRemoteSessionState @ 0x14085CC70 (PopAdaptiveGetRemoteSessionState.c)
+ * Callees:
+ *     PopPrintEx @ 0x1402BDCD4 (PopPrintEx.c)
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PopPrintUserActivityPresence @ 0x14073C9D8 (PopPrintUserActivityPresence.c)
+ *     PopDiagTraceSessionState @ 0x14073CA10 (PopDiagTraceSessionState.c)
+ *     PopEvaluateGlobalUserStatus @ 0x14073CA7C (PopEvaluateGlobalUserStatus.c)
+ *     PopExtendConnectionState @ 0x14082AC74 (PopExtendConnectionState.c)
+ */
+
 __int64 __fastcall PopSetSessionUserStatus(unsigned int a1, unsigned int a2)
 {
   unsigned __int64 v3; // rbx

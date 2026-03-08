@@ -1,3 +1,18 @@
+/*
+ * XREFs of GetControllerMaxTransferSize @ 0x1C0007A5C
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ *     FirmwareDownload @ 0x1C0011914 (FirmwareDownload.c)
+ *     FormInquiryBlockLimitsData @ 0x1C0011F6C (FormInquiryBlockLimitsData.c)
+ *     NVMeGetLogPageFirmwareSlotCompletion @ 0x1C0015A60 (NVMeGetLogPageFirmwareSlotCompletion.c)
+ *     NVMeWriteBufferFirmwareDownload @ 0x1C00183BC (NVMeWriteBufferFirmwareDownload.c)
+ *     ProtocolCommandToNVMe @ 0x1C00187F4 (ProtocolCommandToNVMe.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C001944C (QueryProtocolInfoLogPageData.c)
+ *     NVMeGetControllerInitiatedTelemetryLog @ 0x1C001DC54 (NVMeGetControllerInitiatedTelemetryLog.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetControllerMaxTransferSize(_DWORD *a1)
 {
   __int64 result; // rax

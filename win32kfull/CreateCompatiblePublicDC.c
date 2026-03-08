@@ -1,3 +1,22 @@
+/*
+ * XREFs of CreateCompatiblePublicDC @ 0x1C02421AC
+ * Callers:
+ *     xxxClientExtTextOutW @ 0x1C0214CF4 (xxxClientExtTextOutW.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0215674 (xxxClientGetTextExtentPointW.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C0215A80 (xxxClientLpkDrawTextEx.c)
+ *     xxxClientPSMTextOut @ 0x1C0215E88 (xxxClientPSMTextOut.c)
+ * Callees:
+ *     NtGdiGetDCObject @ 0x1C004CC30 (NtGdiGetDCObject.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     GreGetLayout @ 0x1C0111738 (GreGetLayout.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     GreGetTextAlign @ 0x1C02D9A84 (GreGetTextAlign.c)
+ *     GreSetTextAlign @ 0x1C02D9B10 (GreSetTextAlign.c)
+ */
+
 HDC __fastcall CreateCompatiblePublicDC(HDC a1, __int64 *a2)
 {
   HDC result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FC2A4
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z @ 0x1800FC314 (--0CMessageConversationHost@@AEAA@PEAUIMessageSession@@@Z.c)
+ *     ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800FC370 (-Initialize@CMessageConversationHost@@AEAAJXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Disconnect@CMessageConversationHost@@QEAAXXZ @ 0x1801B4424 (-Disconnect@CMessageConversationHost@@QEAAXXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CMessageConversationHost::Create(struct IMessageSession *a1, struct CMessageConversationHost **a2)
 {
   CMessageConversationHost *v4; // rax

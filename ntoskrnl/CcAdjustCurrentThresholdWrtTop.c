@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcAdjustCurrentThresholdWrtTop @ 0x1405335AC
+ * Callers:
+ *     CcAdjustThrottleForPartition @ 0x14053360C (CcAdjustThrottleForPartition.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CcAdjustCurrentThresholdWrtTop(
         unsigned __int64 *a1,
         unsigned __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidAccessFilterAce @ 0x1409B8B94
+ * Callers:
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall RtlpValidAccessFilterAce(__int64 a1)
 {
   __int64 v2; // rcx

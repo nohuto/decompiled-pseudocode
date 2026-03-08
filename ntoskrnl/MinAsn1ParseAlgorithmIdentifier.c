@@ -1,3 +1,12 @@
+/*
+ * XREFs of MinAsn1ParseAlgorithmIdentifier @ 0x140A6D684
+ * Callers:
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x140A6C4E8 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6C590 (MinCryptDecodeSignatureAlgorithmIdentifier.c)
+ * Callees:
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 __int64 __fastcall MinAsn1ParseAlgorithmIdentifier(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

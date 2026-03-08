@@ -1,3 +1,14 @@
+/*
+ * XREFs of PoNotifyMediaBuffering @ 0x1403AA200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall PoNotifyMediaBuffering(char a1)
 {
   char v2; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprReplaceStart @ 0x140963EEC
+ * Callers:
+ *     PnprInitiateReplaceOperation @ 0x140A99894 (PnprInitiateReplaceOperation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 PnprReplaceStart()
 {
   _DWORD *v0; // rdi

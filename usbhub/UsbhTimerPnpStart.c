@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhTimerPnpStart @ 0x1C003BCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhReferenceListAdd @ 0x1C0002650 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall UsbhTimerPnpStart(PVOID DeferredContext)
 {
   _DWORD *v2; // rdi

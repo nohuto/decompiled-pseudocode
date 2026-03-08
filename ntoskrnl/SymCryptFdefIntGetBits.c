@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntGetBits @ 0x1403FD878
+ * Callers:
+ *     SymCryptIntGetBits @ 0x1403F386C (SymCryptIntGetBits.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefIntGetBits(__int64 a1, unsigned int a2, char a3)
 {
   int v4; // eax

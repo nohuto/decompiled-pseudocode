@@ -1,3 +1,12 @@
+/*
+ * XREFs of CancelTimerCallbacksAndDeleteTimer @ 0x1C039C5F4
+ * Callers:
+ *     TlgUnregisterAggregateProvider @ 0x1C039C4B8 (TlgUnregisterAggregateProvider.c)
+ *     DestroyAggregateSession @ 0x1C039C5B4 (DestroyAggregateSession.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CancelTimerCallbacksAndDeleteTimer(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

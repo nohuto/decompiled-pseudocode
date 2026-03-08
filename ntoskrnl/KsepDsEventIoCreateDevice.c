@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventIoCreateDevice @ 0x14057F76C
+ * Callers:
+ *     KseDsHookIoCreateDevice @ 0x14057EF80 (KseDsHookIoCreateDevice.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall KsepDsEventIoCreateDevice(__int64 a1, __int64 a2, int a3, int a4, unsigned __int8 a5, char a6)
 {
   REGHANDLE v6; // rbx

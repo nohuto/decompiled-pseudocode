@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpInsertStringAtom @ 0x1407DBB30
+ * Callers:
+ *     RtlAddAtomToAtomTableEx @ 0x1403546F0 (RtlAddAtomToAtomTableEx.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ *     ExCreateHandleEx @ 0x1407D8ABC (ExCreateHandleEx.c)
+ */
+
 char __fastcall RtlpInsertStringAtom(__int64 a1, __int64 a2)
 {
   __int64 Handle; // rax

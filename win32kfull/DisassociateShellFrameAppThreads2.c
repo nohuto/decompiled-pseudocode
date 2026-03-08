@@ -1,3 +1,12 @@
+/*
+ * XREFs of DisassociateShellFrameAppThreads2 @ 0x1C01B42DC
+ * Callers:
+ *     NtUserAttachThreadInput @ 0x1C0011210 (NtUserAttachThreadInput.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DisassociateShellFrameAppThreads2(struct _LIST_ENTRY *a1, __int64 a2)
 {
   struct _LIST_ENTRY *i; // rcx

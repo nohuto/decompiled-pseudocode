@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPITableUnload @ 0x1C003F7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C00137D8 (ACPIBuildSpecialSynchronizationRequest.c)
+ *     ACPIFlushQueuesUnload @ 0x1C0014558 (ACPIFlushQueuesUnload.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C002BE44 (ACPIGpeBuildEventMasks.c)
+ *     ACPIGpeClearEventMasks @ 0x1C002C0D8 (ACPIGpeClearEventMasks.c)
+ *     ACPIBuildFlushQueue @ 0x1C007D42C (ACPIBuildFlushQueue.c)
+ */
+
 __int64 __fastcall ACPITableUnload(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v3; // edi

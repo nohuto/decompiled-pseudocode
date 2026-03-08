@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F3D60
+ * Callers:
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F373C (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDirectFlipInfo::EnableIndependentFlip(CDirectFlipInfo *this)
 {
   __int64 v1; // rsi

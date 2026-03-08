@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopIrpHasValidCombinationOfExtensionTypes @ 0x14035AA40
+ * Callers:
+ *     IopSetCopyInformationExtension @ 0x14035A9EC (IopSetCopyInformationExtension.c)
+ *     IopPerfCallDriver @ 0x14045728A (IopPerfCallDriver.c)
+ *     IoSetAdapterCryptoEngineExtension @ 0x140556980 (IoSetAdapterCryptoEngineExtension.c)
+ *     IoSetFsTrackOffsetState @ 0x1405569E0 (IoSetFsTrackOffsetState.c)
+ *     IoSetFsZeroingOffsetRequired @ 0x140556A80 (IoSetFsZeroingOffsetRequired.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IopIrpHasValidCombinationOfExtensionTypes(__int64 a1, int a2)
 {
   __int64 v3; // r8

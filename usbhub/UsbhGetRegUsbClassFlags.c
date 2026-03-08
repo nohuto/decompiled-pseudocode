@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhGetRegUsbClassFlags @ 0x1C00454E8
+ * Callers:
+ *     UsbhGetUsbDeviceFlags @ 0x1C00388EC (UsbhGetUsbDeviceFlags.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ */
+
 void __fastcall UsbhGetRegUsbClassFlags(__int64 a1, __int64 a2)
 {
   unsigned __int8 *v3; // rax

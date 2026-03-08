@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0001DB8
+ * Callers:
+ *     ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C0095F98 (--1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ.c)
+ *     ??1VIDMM_PROCESS_HEAP@@UEAA@XZ @ 0x1C0103198 (--1VIDMM_PROCESS_HEAP@@UEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGFASTMUTEX::~DXGFASTMUTEX(DXGFASTMUTEX *this)
 {
   if ( *((_QWORD *)this + 3) )

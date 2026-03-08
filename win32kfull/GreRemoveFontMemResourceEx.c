@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreRemoveFontMemResourceEx @ 0x1C0290DB8
+ * Callers:
+ *     NtGdiAddFontMemResourceEx @ 0x1C02C4500 (NtGdiAddFontMemResourceEx.c)
+ *     NtGdiRemoveFontMemResourceEx @ 0x1C02C6D60 (NtGdiRemoveFontMemResourceEx.c)
+ * Callees:
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01181FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z @ 0x1C014CD9A (-GetPFFFromId@@YAPEAVPFF@@PEAVPFT@@IPEAPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall GreRemoveFontMemResourceEx(Gre::Base *a1)
 {
   unsigned int v1; // edi

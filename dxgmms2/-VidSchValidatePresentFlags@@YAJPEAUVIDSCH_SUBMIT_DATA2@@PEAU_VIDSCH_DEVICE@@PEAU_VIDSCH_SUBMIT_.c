@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0002C54
+ * Callers:
+ *     VidSchSubmitCommandContextless @ 0x1C0040AC0 (VidSchSubmitCommandContextless.c)
+ *     VidSchSubmitCommandToHwQueue @ 0x1C0044510 (VidSchSubmitCommandToHwQueue.c)
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ * Callees:
+ *     VidSchiUpdatePresentParameters @ 0x1C0002440 (VidSchiUpdatePresentParameters.c)
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VidSchValidatePresentFlags(
         struct VIDSCH_SUBMIT_DATA2 *a1,
         struct _VIDSCH_DEVICE *a2,

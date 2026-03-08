@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpBusTypeGuidGet @ 0x14079AB44
+ * Callers:
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ */
+
 __int64 __fastcall PnpBusTypeGuidGet(unsigned __int16 a1, _OWORD *a2)
 {
   unsigned int v2; // ebx

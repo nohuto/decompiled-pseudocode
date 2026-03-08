@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimHidP_GetSpecificButtonCaps @ 0x1C01B2070
+ * Callers:
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMSendLatencyMgtDeviceRequest @ 0x1C01AFB54 (RIMSendLatencyMgtDeviceRequest.c)
+ *     RIMAssignTouchType @ 0x1C01B3810 (RIMAssignTouchType.c)
+ *     RIMGetDeviceButtons @ 0x1C01B5D38 (RIMGetDeviceButtons.c)
+ *     RIMGetPointerDeviceProperties @ 0x1C01B70A0 (RIMGetPointerDeviceProperties.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C01B93B4 (RIMRetrieveAllLinkIndexUsages.c)
+ *     rimIDECheckConfidenceSupport @ 0x1C01C1014 (rimIDECheckConfidenceSupport.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_GetSpecificButtonCaps(
         __int64 a1,
         __int64 a2,

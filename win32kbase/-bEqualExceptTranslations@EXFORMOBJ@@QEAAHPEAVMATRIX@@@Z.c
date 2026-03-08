@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bEqualExceptTranslations@EXFORMOBJ@@QEAAHPEAVMATRIX@@@Z @ 0x1C00A4650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall EXFORMOBJ::bEqualExceptTranslations(float **this, struct MATRIX *a2)
 {
   float *v2; // rax

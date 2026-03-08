@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpTimeRefreshWork @ 0x140A8EE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExReleaseTimeRefreshLock @ 0x1407E2A30 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407E2A54 (ExAcquireTimeRefreshLock.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140A850B4 (ExUpdateSystemTimeFromCmos.c)
+ */
+
 _BOOL8 ExpTimeRefreshWork()
 {
   struct _LIST_ENTRY *Blink; // rcx

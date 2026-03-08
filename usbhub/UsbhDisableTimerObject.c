@@ -1,3 +1,27 @@
+/*
+ * XREFs of UsbhDisableTimerObject @ 0x1C00084D0
+ * Callers:
+ *     UsbhSshEnterSx @ 0x1C0004DC4 (UsbhSshEnterSx.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000ABD0 (UsbhSshSetPortsBusyState.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000D270 (UsbhFdoSystemPowerState.c)
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     Usbh_PIND_Disable_Action @ 0x1C002F6AC (Usbh_PIND_Disable_Action.c)
+ *     Usbh_PIND_SetAuto_Action @ 0x1C002F814 (Usbh_PIND_SetAuto_Action.c)
+ *     UsbhFreeTimerObject @ 0x1C003BC10 (UsbhFreeTimerObject.c)
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ *     UsbhHubStart @ 0x1C0043560 (UsbhHubStart.c)
+ *     UsbhInitCallbackWorker @ 0x1C00438C0 (UsbhInitCallbackWorker.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0056570 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhHubSSH_PnpStop @ 0x1C0058F40 (UsbhHubSSH_PnpStop.c)
+ *     UsbhSshDisabled @ 0x1C00592A0 (UsbhSshDisabled.c)
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 void __fastcall UsbhDisableTimerObject(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

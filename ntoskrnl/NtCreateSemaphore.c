@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateSemaphore @ 0x1407D0F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeSemaphore @ 0x140343A50 (KeInitializeSemaphore.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateSemaphore(unsigned __int64 a1, unsigned int a2, int a3, LONG a4, int Limit)
 {
   _QWORD *v7; // rdi

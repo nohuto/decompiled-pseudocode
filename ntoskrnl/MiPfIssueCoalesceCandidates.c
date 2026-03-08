@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPfIssueCoalesceCandidates @ 0x14062F8D4
+ * Callers:
+ *     MiPfCoalesceAndIssueIOs @ 0x1402F6158 (MiPfCoalesceAndIssueIOs.c)
+ * Callees:
+ *     MiIssueHardFaultIo @ 0x1403435F0 (MiIssueHardFaultIo.c)
+ *     MiPfIssueCoalescedSupport @ 0x14062F98C (MiPfIssueCoalescedSupport.c)
+ */
+
 __int64 __fastcall MiPfIssueCoalesceCandidates(_QWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebp

@@ -1,3 +1,14 @@
+/*
+ * XREFs of FreeTmpBuffer @ 0x1C003C850
+ * Callers:
+ *     NtGdiPolyPolyDraw @ 0x1C000C360 (NtGdiPolyPolyDraw.c)
+ *     NtGdiExtCreateRegion @ 0x1C0019720 (NtGdiExtCreateRegion.c)
+ *     NtGdiGetRegionData @ 0x1C003C400 (NtGdiGetRegionData.c)
+ *     NtGdiOpenDCW @ 0x1C003D110 (NtGdiOpenDCW.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall FreeTmpBuffer(__int64 a1)
 {
   __int64 v2; // rax

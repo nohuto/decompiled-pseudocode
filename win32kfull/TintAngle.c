@@ -1,3 +1,11 @@
+/*
+ * XREFs of TintAngle @ 0x1C0258144
+ * Callers:
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TintAngle(int a1, __int64 a2, int *a3, int *a4)
 {
   __int64 result; // rax

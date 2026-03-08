@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1VIDPNSOURCEINFO@@QEAA@XZ @ 0x1C02F1700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C017B878 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ */
+
 void __fastcall VIDPNSOURCEINFO::~VIDPNSOURCEINFO(VIDPNSOURCEINFO *this)
 {
   __int64 v1; // rcx

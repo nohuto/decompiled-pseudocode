@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSubtreeEnumeratorBeginForKcbStack @ 0x140A1D878
+ * Callers:
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A1DB88 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ * Callees:
+ *     CmpPopulateKeyNodeStackFromKcbStack @ 0x140A1D1EC (CmpPopulateKeyNodeStackFromKcbStack.c)
+ */
+
 __int64 __fastcall CmpSubtreeEnumeratorBeginForKcbStack(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SPCallServerHandleFileUsnQuery @ 0x1407FA620
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     FsRtlKernelFsControlFile @ 0x1407DB1B0 (FsRtlKernelFsControlFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SPCallServerHandleFileUsnQuery(__int64 a1, void *a2, int a3, __int64 a4)
 {
   unsigned int *v6; // rcx

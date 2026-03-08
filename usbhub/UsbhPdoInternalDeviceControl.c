@@ -1,3 +1,40 @@
+/*
+ * XREFs of UsbhPdoInternalDeviceControl @ 0x1C0015370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoReturnPortStatus @ 0x1C0015DF0 (UsbhFdoReturnPortStatus.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhFdoGetMsDescriptorPdo @ 0x1C002A894 (UsbhFdoGetMsDescriptorPdo.c)
+ *     UsbhFdoReturnDeviceHandle @ 0x1C002A9F0 (UsbhFdoReturnDeviceHandle.c)
+ *     UsbhFdoReturnTtDeviceHandle @ 0x1C002AAA8 (UsbhFdoReturnTtDeviceHandle.c)
+ *     UsbhFdoSelectConfigurationPdo @ 0x1C002AC9C (UsbhFdoSelectConfigurationPdo.c)
+ *     UsbhFdoSelectInterfacePdo @ 0x1C002AF54 (UsbhFdoSelectInterfacePdo.c)
+ *     UsbhFdoValidateConnectionPdo @ 0x1C002B084 (UsbhFdoValidateConnectionPdo.c)
+ *     UsbhPdoTrapFatal_Dbg @ 0x1C002D6F8 (UsbhPdoTrapFatal_Dbg.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     UsbhFdoCyclePdoPort @ 0x1C00303A4 (UsbhFdoCyclePdoPort.c)
+ *     UsbhFdoHandleFreeDumpDataIoctl @ 0x1C003050C (UsbhFdoHandleFreeDumpDataIoctl.c)
+ *     UsbhFdoHandleGetDumpDataIoctl @ 0x1C0030570 (UsbhFdoHandleGetDumpDataIoctl.c)
+ *     UsbhFdoHandleNotifyForwardProgress @ 0x1C0030664 (UsbhFdoHandleNotifyForwardProgress.c)
+ *     UsbhFdoRecordFailure @ 0x1C003074C (UsbhFdoRecordFailure.c)
+ *     UsbhFdoResetPdoPort @ 0x1C0030944 (UsbhFdoResetPdoPort.c)
+ *     UsbhFdoReturnControllerName @ 0x1C0030D44 (UsbhFdoReturnControllerName.c)
+ *     UsbhFdoReturnDeviceBusInfo @ 0x1C0030DA8 (UsbhFdoReturnDeviceBusInfo.c)
+ *     UsbhFdoReturnDeviceConfigInfo @ 0x1C0030E68 (UsbhFdoReturnDeviceConfigInfo.c)
+ *     UsbhFdoReturnHubCount @ 0x1C0031078 (UsbhFdoReturnHubCount.c)
+ *     UsbhFdoReturnHubName @ 0x1C0031120 (UsbhFdoReturnHubName.c)
+ *     UsbhFdoReturnRootHubPdo @ 0x1C00311C0 (UsbhFdoReturnRootHubPdo.c)
+ *     UsbhFdoReturnTopologyAddress @ 0x1C00312B0 (UsbhFdoReturnTopologyAddress.c)
+ *     UsbhFdoSubmitPdoIdleNotification @ 0x1C003136C (UsbhFdoSubmitPdoIdleNotification.c)
+ *     UsbhSetPdo_AllowIo @ 0x1C003D708 (UsbhSetPdo_AllowIo.c)
+ *     UsbhIdleIrp_Event @ 0x1C0057F68 (UsbhIdleIrp_Event.c)
+ */
+
 __int64 __fastcall UsbhPdoInternalDeviceControl(_QWORD *BugCheckParameter3, IRP *BugCheckParameter4)
 {
   _IO_STACK_LOCATION *v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C0115C50
+ * Callers:
+ *     cjCopyFontDataW @ 0x1C0004330 (cjCopyFontDataW.c)
+ *     ?bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C01157C4 (-bInit@PFEMEMOBJ@@QEAAHPEAVPFF@@KPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@2HPEAU_UNIVERSAL_FONT_ID@@.c)
+ * Callees:
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0115CAC (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ */
+
 __int64 __fastcall PFEOBJ::dpNtmi(PFEOBJ *this)
 {
   unsigned int v1; // ebx

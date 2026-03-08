@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhBusIfAddDevice @ 0x1C004BC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhGetBusInterface @ 0x1C004C410 (UsbhGetBusInterface.c)
+ *     Usbh_HubIsRoot @ 0x1C004C6F4 (Usbh_HubIsRoot.c)
+ */
+
 __int64 __fastcall UsbhBusIfAddDevice(__int64 a1)
 {
   unsigned __int16 v2; // r14

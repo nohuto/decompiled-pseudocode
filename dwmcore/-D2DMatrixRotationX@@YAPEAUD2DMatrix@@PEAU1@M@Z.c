@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?D2DMatrixRotationX@@YAPEAUD2DMatrix@@PEAU1@M@Z @ 0x18027A6F4
+ * Callers:
+ *     ?Matrix4x4FromRotationX@CExpressionValueStack@@QEAAJI@Z @ 0x18025BE08 (-Matrix4x4FromRotationX@CExpressionValueStack@@QEAAJI@Z.c)
+ * Callees:
+ *     cosf_0 @ 0x1801176F8 (cosf_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixRotationX(struct D2DMatrix *a1, float a2)
 {
   float v3; // xmm7_4

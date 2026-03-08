@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostParentToD0@FxChildList@@QEAAXXZ @ 0x1C0025530
+ * Callers:
+ *     ?PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ @ 0x1C007D5B4 (-PowerPolicyPostParentToD0ToChildren@FxPkgPnp@@AEAAXXZ.c)
+ * Callees:
+ *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C006F604 (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
+ */
+
 void __fastcall FxChildList::PostParentToD0(FxChildList *this)
 {
   unsigned __int64 *p_m_ListLock; // rsi

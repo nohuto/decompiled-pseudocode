@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmInstallNewIdleStates @ 0x14039AA50
+ * Callers:
+ *     PpmIdleInstallDefaultStates @ 0x14039AA30 (PpmIdleInstallDefaultStates.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PpmDeepestHardwareIdleState @ 0x14039AF88 (PpmDeepestHardwareIdleState.c)
+ *     PpmResetIdlePolicy @ 0x14039AFC8 (PpmResetIdlePolicy.c)
+ *     PpmUpdateProcessorIdleAccounting @ 0x14039B154 (PpmUpdateProcessorIdleAccounting.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v6; // ebx
@@ -187,7 +205,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
         KxAcquireSpinLock(&PpmIdleVetoLock);
         v28 = *(_DWORD **)v45;
         *(_QWORD *)v45 = v44;
-        KxReleaseSpinLock(&PpmIdleVetoLock);
+        KxReleaseSpinLock((volatile signed __int64 *)&PpmIdleVetoLock);
         if ( v40 )
           *(_DWORD *)(v44 + 36) = v28[9];
         if ( !v28 || (v29 = v28[6], v29 >= (unsigned int)v8) )
@@ -218,7 +236,7 @@ __int64 __fastcall PpmInstallNewIdleStates(__int64 a1, __int64 a2, int a3)
           *(_DWORD *)(v26 + 8) = *(_DWORD *)(v30 + 8) + 1;
         v46[0] = 2097153;
         memset(&v46[1], 0, 0x104uLL);
-        KeAddProcessorAffinityEx(v46, *(unsigned int *)(v31 + 36));
+        KeAddProcessorAffinityEx((unsigned __int16 *)v46, *(_DWORD *)(v31 + 36));
         LOBYTE(v32) = PpmDeepestHardwareIdleState(v44);
         ((void (__fastcall *)(__int64, _DWORD *))off_140C01AB8[0])(v32, v46);
         if ( *(_DWORD *)(v44 + 44) != 1 && *(_BYTE *)v44 == 1 )

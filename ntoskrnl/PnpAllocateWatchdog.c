@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpAllocateWatchdog @ 0x140203B14
+ * Callers:
+ *     PnpEnableWatchdog @ 0x14068A5EC (PnpEnableWatchdog.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     PnpWatchdogTimerAllocate @ 0x14068A648 (PnpWatchdogTimerAllocate.c)
+ */
+
 __int64 __fastcall PnpAllocateWatchdog(PCUNICODE_STRING SourceString)
 {
   __int64 v2; // rdi

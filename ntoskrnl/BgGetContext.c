@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgGetContext @ 0x140AEE26C
+ * Callers:
+ *     BgkResumePrepare @ 0x140A969F4 (BgkResumePrepare.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     ResFwGetContext @ 0x140AEF010 (ResFwGetContext.c)
+ */
+
 __int64 BgGetContext()
 {
   __int64 v1; // rbx

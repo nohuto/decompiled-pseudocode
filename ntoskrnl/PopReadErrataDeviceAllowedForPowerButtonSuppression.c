@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopReadErrataDeviceAllowedForPowerButtonSuppression @ 0x140B93660
+ * Callers:
+ *     PopPowerButtonSuppressionInit @ 0x140B72154 (PopPowerButtonSuppressionInit.c)
+ * Callees:
+ *     EmClientQueryRuleState @ 0x140A85190 (EmClientQueryRuleState.c)
+ */
+
 bool PopReadErrataDeviceAllowedForPowerButtonSuppression()
 {
   char v0; // bl

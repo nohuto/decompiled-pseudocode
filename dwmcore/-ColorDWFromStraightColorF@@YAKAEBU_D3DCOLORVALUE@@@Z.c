@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z @ 0x18007E818
+ * Callers:
+ *     ?ComputeColorAndUV@CDrawListEntryBuilder@@AEBAXPEBUPrimitiveVertexAttributesDesc@@V?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@V?$StridedSpan@UVertexAAFixup_UVxN@@@@@Z @ 0x18006FAB0 (-ComputeColorAndUV@CDrawListEntryBuilder@@AEBAXPEBUPrimitiveVertexAttributesDesc@@V-$StridedSpan.c)
+ *     ?FillVertexColor@CCpuClipAntialiasDrawListEntry@@QEBAX_NMAEBV?$StridedSpan@K@@@Z @ 0x18007D418 (-FillVertexColor@CCpuClipAntialiasDrawListEntry@@QEBAX_NMAEBV-$StridedSpan@K@@@Z.c)
+ *     ?UpdatePremultipliedColor@CDrawListPrimitive@@QEAAXAEBU_D3DCOLORVALUE@@@Z @ 0x1801FEC78 (-UpdatePremultipliedColor@CDrawListPrimitive@@QEAAXAEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x180241464 (-CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ColorDWFromStraightColorF(const struct _D3DCOLORVALUE *a1)
 {
   float v1; // xmm0_4

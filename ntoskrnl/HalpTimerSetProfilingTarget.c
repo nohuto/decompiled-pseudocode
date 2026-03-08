@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerSetProfilingTarget @ 0x140378214
+ * Callers:
+ *     EmonSetInterval @ 0x140378050 (EmonSetInterval.c)
+ *     Amd64SetInterval @ 0x140527C30 (Amd64SetInterval.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpTimerSetProfilingTarget(int a1, int a2)
 {
   __int64 result; // rax

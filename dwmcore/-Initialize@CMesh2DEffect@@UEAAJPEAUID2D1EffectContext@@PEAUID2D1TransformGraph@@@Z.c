@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@CMesh2DEffect@@UEAAJPEAUID2D1EffectContext@@PEAUID2D1TransformGraph@@@Z @ 0x1802BB7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMesh2DEffect::Initialize(
         CMesh2DEffect *this,
         struct ID2D1EffectContext *a2,

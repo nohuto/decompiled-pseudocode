@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?LogicalWorkArea@MonitorData@CMonitorTopology@@QEBA?AUtagRECT@@PEBUtagWND@@@Z @ 0x1C01F4350
+ * Callers:
+ *     _anonymous_namespace_::xxxMigrateWindowPosition @ 0x1C00FBCB8 (_anonymous_namespace_--xxxMigrateWindowPosition.c)
+ *     _anonymous_namespace_::GetArrangedOptions @ 0x1C023E328 (_anonymous_namespace_--GetArrangedOptions.c)
+ *     _anonymous_namespace_::xxxMigrateWindowCheckpoint @ 0x1C023F6F0 (_anonymous_namespace_--xxxMigrateWindowCheckpoint.c)
+ *     ?xxxRestoreToPosAndState@AdvancedWindowPos@@YA_NPEAUtagWND@@AEBUMonitorData@CMonitorTopology@@W4State@1@UtagRECT@@3W4ApplyOption@1@PEAK@Z @ 0x1C023FD9C (-xxxRestoreToPosAndState@AdvancedWindowPos@@YA_NPEAUtagWND@@AEBUMonitorData@CMonitorTopology@@W4.c)
+ * Callees:
+ *     CalculateLogicalMonitorRect @ 0x1C00A3510 (CalculateLogicalMonitorRect.c)
+ */
+
 struct tagRECT *__fastcall CMonitorTopology::MonitorData::LogicalWorkArea(
         CMonitorTopology::MonitorData *this,
         struct tagRECT *__return_ptr retstr,

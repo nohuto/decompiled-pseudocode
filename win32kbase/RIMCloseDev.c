@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMCloseDev @ 0x1C00308E4
+ * Callers:
+ *     rimOnPnpRemoveComplete @ 0x1C0030730 (rimOnPnpRemoveComplete.c)
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ *     RIMOpenDev @ 0x1C0089058 (RIMOpenDev.c)
+ *     rimFakePnpRemoveComplete @ 0x1C01C8360 (rimFakePnpRemoveComplete.c)
+ *     rimOnPnpQueryRemove @ 0x1C01C854C (rimOnPnpQueryRemove.c)
+ * Callees:
+ *     ??0PoWin32CalloutDeadlockTracker@@QEAA@W4_POPWIN32CALLOUT_WATCHDOG_STATE_INDEX@@@Z @ 0x1C00DCD58 (--0PoWin32CalloutDeadlockTracker@@QEAA@W4_POPWIN32CALLOUT_WATCHDOG_STATE_INDEX@@@Z.c)
+ *     ??1PoWin32CalloutDeadlockTracker@@QEAA@XZ @ 0x1C00DCDE8 (--1PoWin32CalloutDeadlockTracker@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall RIMCloseDev(__int64 a1)
 {
   unsigned int v2; // edi

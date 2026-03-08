@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtSetDefaultHardErrorPort @ 0x14085E740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rbx

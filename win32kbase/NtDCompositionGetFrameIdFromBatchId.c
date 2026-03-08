@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtDCompositionGetFrameIdFromBatchId @ 0x1C000A0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005F334 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtDCompositionGetFrameIdFromBatchId(unsigned int a1, int a2, unsigned __int64 *a3)
 {
   struct DirectComposition::CApplicationChannel *v5; // r8

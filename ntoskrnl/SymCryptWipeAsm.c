@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptWipeAsm @ 0x1403F02D0
+ * Callers:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptWipeAsm(__int64 a1, unsigned __int64 a2)
 {
   bool v2; // cf

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBID_BuildContainerID @ 0x1C001EA90
+ * Callers:
+ *     HUBPDO_AssignPDOIds @ 0x1C007EB7C (HUBPDO_AssignPDOIds.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringCbCatStringN @ 0x1C001D9D4 (RtlUnicodeStringCbCatStringN.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBID_BuildContainerID(__int64 a1, __int64 a2)
 {
   int v2; // eax

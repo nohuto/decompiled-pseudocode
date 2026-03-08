@@ -1,3 +1,13 @@
+/*
+ * XREFs of DequeueAndReadyContext @ 0x1C00548A4
+ * Callers:
+ *     WriteCookAccess @ 0x1C0005DA0 (WriteCookAccess.c)
+ *     SignalASLEvent @ 0x1C0054E2C (SignalASLEvent.c)
+ *     ParseRelease @ 0x1C005BF70 (ParseRelease.c)
+ * Callees:
+ *     InsertReadyQueue @ 0x1C00057E4 (InsertReadyQueue.c)
+ */
+
 char *__fastcall DequeueAndReadyContext(char **a1)
 {
   char *v2; // rdi

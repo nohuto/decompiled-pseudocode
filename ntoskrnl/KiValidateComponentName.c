@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiValidateComponentName @ 0x140568864
+ * Callers:
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405682D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ *     IopLiveDumpAddTriageDumpData @ 0x140A97160 (IopLiveDumpAddTriageDumpData.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     RtlStringCbLengthA @ 0x14051D3D0 (RtlStringCbLengthA.c)
+ */
+
 char __fastcall KiValidateComponentName(__int64 psz, _DWORD *a2)
 {
   unsigned __int64 v4; // rbx

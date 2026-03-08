@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmVerifyCallbackFunctionCheckFlags @ 0x140388FBC
+ * Callers:
+ *     PsSetCreateThreadNotifyRoutineEx @ 0x1408191D0 (PsSetCreateThreadNotifyRoutineEx.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140819698 (PspSetCreateProcessNotifyRoutine.c)
+ *     ObRegisterCallbacks @ 0x140854730 (ObRegisterCallbacks.c)
+ *     MmVerifyCallbackFunction @ 0x140A2DAA8 (MmVerifyCallbackFunction.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ */
+
 __int64 __fastcall MmVerifyCallbackFunctionCheckFlags(unsigned __int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

@@ -1,3 +1,16 @@
+/*
+ * XREFs of XmGroup45General @ 0x140398BB0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetOffsetAddress @ 0x14039F39C (XmGetOffsetAddress.c)
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x1403B41C8 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ *     longjmp @ 0x1403D2360 (longjmp.c)
+ */
+
 __int64 __fastcall XmGroup45General(__int64 a1)
 {
   __int64 result; // rax

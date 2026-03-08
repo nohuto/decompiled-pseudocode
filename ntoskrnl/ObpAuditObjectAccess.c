@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObpAuditObjectAccess @ 0x140979114
+ * Callers:
+ *     NtWriteFile @ 0x1406B3A60 (NtWriteFile.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObReferenceFileObjectForWrite @ 0x1407DF2CC (ObReferenceFileObjectForWrite.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ExLockHandleTableEntry @ 0x140352148 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ExpGetHandleExtraInfo @ 0x1408A6B3A (ExpGetHandleExtraInfo.c)
+ *     SeOperationAuditAlarm @ 0x1409C84FC (SeOperationAuditAlarm.c)
+ */
+
 char __fastcall ObpAuditObjectAccess(__int64 a1, __int64 a2, __int64 *a3, __int64 a4, int a5)
 {
   int v7; // r13d

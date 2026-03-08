@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpGetBootStatusPath @ 0x1403C03F4
+ * Callers:
+ *     RtlLockBootStatusData @ 0x14073DD00 (RtlLockBootStatusData.c)
+ * Callees:
+ *     RtlpGetBootStatusPathFromRegistry @ 0x1403C0450 (RtlpGetBootStatusPathFromRegistry.c)
+ *     RtlIsStateSeparationEnabled @ 0x140792EC0 (RtlIsStateSeparationEnabled.c)
+ */
+
 __int64 __fastcall RtlpGetBootStatusPath(const wchar_t **a1, char *a2)
 {
   __int64 result; // rax

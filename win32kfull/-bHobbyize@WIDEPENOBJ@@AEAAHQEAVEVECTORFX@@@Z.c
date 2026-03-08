@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bHobbyize@WIDEPENOBJ@@AEAAHQEAVEVECTORFX@@@Z @ 0x1C0150B0A
+ * Callers:
+ *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C02F38EC (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ * Callees:
+ *     ?bBeginFigure@WIDEPATHOBJ@@QEAAHXZ @ 0x1C01509EA (-bBeginFigure@WIDEPATHOBJ@@QEAAHXZ.c)
+ *     ?vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z @ 0x1C015143C (-vAddPoint@WIDEPATHOBJ@@QEAAXPEBU_POINTFIX@@H@Z.c)
+ *     ?vEndFigure@WIDEPATHOBJ@@QEAAXXZ @ 0x1C0151742 (-vEndFigure@WIDEPATHOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall WIDEPENOBJ::bHobbyize(WIDEPENOBJ *this, struct EVECTORFX *const a2)
 {
   int v3; // r8d

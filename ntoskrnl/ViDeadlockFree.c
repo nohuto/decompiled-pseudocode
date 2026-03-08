@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViDeadlockFree @ 0x140AD6280
+ * Callers:
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405CF408 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405CF568 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x140AD4738 (VfDeadlockInitializeResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD4ECC (VfDeadlockReleaseResource.c)
+ *     ViDeadlockEmptyDatabase @ 0x140AD5E40 (ViDeadlockEmptyDatabase.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ */
+
 void __fastcall ViDeadlockFree(PVOID Entry, int a2)
 {
   int v2; // edx

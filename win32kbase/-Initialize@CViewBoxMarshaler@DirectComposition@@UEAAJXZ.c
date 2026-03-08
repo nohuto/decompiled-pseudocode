@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CViewBoxMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0253FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CViewBoxMarshaler::Initialize(DirectComposition::CViewBoxMarshaler *this)
 {
   *((_DWORD *)this + 20) = 2;

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C0072040
+ * Callers:
+ *     ?QueryForPowerThread@FxPkgPdo@@EEAAJXZ @ 0x1C0069690 (-QueryForPowerThread@FxPkgPdo@@EEAAJXZ.c)
+ *     ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C0078520 (-QueryForPowerThread@FxPkgFdo@@EEAAJXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?ExitThread@FxSystemThread@@QEAAEXZ @ 0x1C008939C (-ExitThread@FxSystemThread@@QEAAEXZ.c)
+ *     ?_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C00896E8 (-_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE.c)
+ */
+
 int __fastcall FxPkgPnp::CreatePowerThread(FxPkgPnp *this)
 {
   WDFDEVICE__ *ObjectHandleUnchecked; // rax

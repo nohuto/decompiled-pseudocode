@@ -1,3 +1,34 @@
+/*
+ * XREFs of CcWorkerThread @ 0x140215D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcPerformReadAhead @ 0x14020B9E0 (CcPerformReadAhead.c)
+ *     CcShouldWorkOnThisQueue @ 0x140215CEC (CcShouldWorkOnThisQueue.c)
+ *     CcFindNextWorkQueueEntry @ 0x14021746C (CcFindNextWorkQueueEntry.c)
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcWriteBehind @ 0x140219768 (CcWriteBehind.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140219E24 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140391D54 (CcPerfLogWorkItemEnqueue.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403BBE2C (CcNotifyWriteBehindVolume.c)
+ *     CcReEngageWorkerThreads @ 0x1403CEBD0 (CcReEngageWorkerThreads.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CcDebugExceptionFilter @ 0x140409EA0 (CcDebugExceptionFilter.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ *     CcLogExtraWBThreadAction @ 0x1405344A8 (CcLogExtraWBThreadAction.c)
+ *     CcOkToAddWriteBehindThread @ 0x140534778 (CcOkToAddWriteBehindThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcWorkerThread(__int64 a1)
 {
   _QWORD *v1; // rdi

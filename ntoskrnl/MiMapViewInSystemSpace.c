@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiMapViewInSystemSpace @ 0x1406A55B8
+ * Callers:
+ *     NtGetNlsSectionPtr @ 0x14069E7D0 (NtGetNlsSectionPtr.c)
+ *     AlpcpCreateView @ 0x1406A0978 (AlpcpCreateView.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406A5EE0 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MmMapViewInSessionSpace @ 0x14078FC80 (MmMapViewInSessionSpace.c)
+ *     MmMapViewInSystemSpaceEx @ 0x140791CC0 (MmMapViewInSystemSpaceEx.c)
+ *     KsepSdbMapToMemory @ 0x14079D24C (KsepSdbMapToMemory.c)
+ *     CmFcpMapSection @ 0x1408182C4 (CmFcpMapSection.c)
+ *     ExInitializeLeapSecondData @ 0x140850BB0 (ExInitializeLeapSecondData.c)
+ *     EtwpCoverageEnsureContext @ 0x1408537B4 (EtwpCoverageEnsureContext.c)
+ *     NtCreateIoRing @ 0x140947140 (NtCreateIoRing.c)
+ *     PspApiSetCopyToSystemSpace @ 0x1409A98F8 (PspApiSetCopyToSystemSpace.c)
+ *     PspSiloInitializeUserSharedData @ 0x1409AA8E8 (PspSiloInitializeUserSharedData.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x1409F042C (EtwpCoverageSamplerSetBloomFilter.c)
+ *     SLUpdateLicenseDataInternal @ 0x1409F78B4 (SLUpdateLicenseDataInternal.c)
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ * Callees:
+ *     MiInsertInSystemSpace @ 0x14020EB30 (MiInsertInSystemSpace.c)
+ *     MiCheckPurgeAndUpMapCount @ 0x140334140 (MiCheckPurgeAndUpMapCount.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiDereferenceControlArea @ 0x14036CC30 (MiDereferenceControlArea.c)
+ */
+
 __int64 __fastcall MiMapViewInSystemSpace(
         __int64 a1,
         _QWORD *a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiZeroPageWrite @ 0x1403BB864
+ * Callers:
+ *     MmZeroPageWrite @ 0x1403BB7E4 (MmZeroPageWrite.c)
+ * Callees:
+ *     MiIsRetryIoStatus @ 0x140212D58 (MiIsRetryIoStatus.c)
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MiSynchronousPageWrite @ 0x1403BBAD8 (MiSynchronousPageWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiRetardMdl @ 0x14061A580 (MiRetardMdl.c)
+ */
+
 __int64 __fastcall MiZeroPageWrite(__int64 a1, _QWORD *a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // r15

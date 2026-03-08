@@ -1,3 +1,12 @@
+/*
+ * XREFs of D3DXVec4Transform @ 0x1C0144E20
+ * Callers:
+ *     BuildVertexList @ 0x1C0144D14 (BuildVertexList.c)
+ *     GetInertiaRegionInVirtualizedScreen @ 0x1C01F8A64 (GetInertiaRegionInVirtualizedScreen.c)
+ * Callees:
+ *     <none>
+ */
+
 float *__fastcall D3DXVec4Transform(float *a1, float *a2, float *a3)
 {
   float *result; // rax

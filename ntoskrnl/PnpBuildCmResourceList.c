@@ -1,3 +1,22 @@
+/*
+ * XREFs of PnpBuildCmResourceList @ 0x140804D9C
+ * Callers:
+ *     PnpBuildCmResourceLists @ 0x140803A38 (PnpBuildCmResourceLists.c)
+ *     IopAllocateBootResourcesInternal @ 0x1408046F8 (IopAllocateBootResourcesInternal.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     IopParentToRawTranslation @ 0x1408051F8 (IopParentToRawTranslation.c)
+ *     IopChildToRootTranslation @ 0x140805284 (IopChildToRootTranslation.c)
+ *     IopWriteResourceList @ 0x140806358 (IopWriteResourceList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int __fastcall PnpBuildCmResourceList(__int64 a1, int a2)
 {
   __int64 v2; // r13

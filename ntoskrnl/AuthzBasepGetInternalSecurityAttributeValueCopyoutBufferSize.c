@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize @ 0x1402E7594
+ * Callers:
+ *     AuthzBasepGetInternalSecurityAttributesCopyoutBufferSize @ 0x140771558 (AuthzBasepGetInternalSecurityAttributesCopyoutBufferSize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepGetInternalSecurityAttributeValueCopyoutBufferSize(__int64 a1, unsigned int *a2)
 {
   unsigned int v4; // r8d

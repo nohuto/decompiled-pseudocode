@@ -1,3 +1,21 @@
+/*
+ * XREFs of VfNotifyVerifierOfEvent @ 0x140ABF120
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     IoShutdownSystem @ 0x140A96AB4 (IoShutdownSystem.c)
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     IoInitSystem @ 0x140B5E3E0 (IoInitSystem.c)
+ * Callees:
+ *     VfClearVerifierSettings @ 0x1405CB9FC (VfClearVerifierSettings.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     DifUpdatePluginState @ 0x1405D2FF0 (DifUpdatePluginState.c)
+ *     VfInitializeBranchTracing @ 0x140AD0860 (VfInitializeBranchTracing.c)
+ *     VfStartBranchTracing @ 0x140AD09E0 (VfStartBranchTracing.c)
+ *     VfStopBranchTracing @ 0x140AD0A6C (VfStopBranchTracing.c)
+ */
+
 void __fastcall VfNotifyVerifierOfEvent(int a1)
 {
   int v1; // ecx

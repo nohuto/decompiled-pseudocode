@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0014D1C
+ * Callers:
+ *     VidSchiSignalRegisteredSyncObjects @ 0x1C0014C54 (VidSchiSignalRegisteredSyncObjects.c)
+ *     VidSchiProcessCrossAdapterSignaledSyncObjects @ 0x1C003AC40 (VidSchiProcessCrossAdapterSignaledSyncObjects.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C003EF80 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchTimeoutSyncObject @ 0x1C0040B90 (VidSchTimeoutSyncObject.c)
+ * Callees:
+ *     VidSchiUnwaitMonitoredFences @ 0x1C00037C0 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiPropagateCrossAdapterSignal @ 0x1C003B454 (VidSchiPropagateCrossAdapterSignal.c)
+ */
+
 void __fastcall _VIDSCH_SYNC_OBJECT::SetToAlwaysSignaled(
         _VIDSCH_SYNC_OBJECT *this,
         struct HwQueueStagingList *a2,

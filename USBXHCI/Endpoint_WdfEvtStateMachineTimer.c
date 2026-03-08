@@ -1,3 +1,12 @@
+/*
+ * XREFs of Endpoint_WdfEvtStateMachineTimer @ 0x1C003D660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Endpoint_WdfEvtStateMachineTimer(__int64 a1)
 {
   __int64 v1; // rax

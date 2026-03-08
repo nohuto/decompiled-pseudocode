@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcpCreateRegion @ 0x1406A0608
+ * Callers:
+ *     AlpcpCreateSectionView @ 0x1406A050C (AlpcpCreateSectionView.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x1407CBB50 (AlpcpAllocateBlob.c)
+ */
+
 __int64 __fastcall AlpcpCreateRegion(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax

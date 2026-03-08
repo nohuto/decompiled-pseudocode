@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopRundownThermalRequests @ 0x1409803F0
+ * Callers:
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceThermalRequest @ 0x14085CD54 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x14085D84C (PopDiagTraceCoolingExtension.c)
+ */
+
 void PopRundownThermalRequests()
 {
   __int64 i; // rbx

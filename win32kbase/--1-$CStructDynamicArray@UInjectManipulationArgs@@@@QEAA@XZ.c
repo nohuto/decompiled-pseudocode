@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1?$CStructDynamicArray@UInjectManipulationArgs@@@@QEAA@XZ @ 0x1C024A27C
+ * Callers:
+ *     ??_ECManipulationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C024A9E0 (--_ECManipulationMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Reset@?$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C024B128 (-Reset@-$CDynamicArray@PEAUInjectManipulationArgs@@$0HHHAHDFF@@@QEAAX_N@Z.c)
+ */
+
 __int64 __fastcall CStructDynamicArray<InjectManipulationArgs>::~CStructDynamicArray<InjectManipulationArgs>(
         __int64 a1)
 {

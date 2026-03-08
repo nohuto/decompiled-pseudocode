@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CExternalD3DRenderer@@AEAA@XZ @ 0x1802846FC
+ * Callers:
+ *     ?Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z @ 0x180284808 (-Create@CExternalD3DRenderer@@SAJPEAVCD3DDevice@@PEAUIUnknown@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CD3DResource@@IEAA@_N@Z @ 0x1800D0454 (--0CD3DResource@@IEAA@_N@Z.c)
+ */
+
 CExternalD3DRenderer *__fastcall CExternalD3DRenderer::CExternalD3DRenderer(CExternalD3DRenderer *this)
 {
   CExternalD3DRenderer *v1; // r11

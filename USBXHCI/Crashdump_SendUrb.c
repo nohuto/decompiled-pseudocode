@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_SendUrb @ 0x1C004CEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Crashdump_DoBulkTransfer @ 0x1C004C20C (Crashdump_DoBulkTransfer.c)
+ *     Crashdump_ResetPipe @ 0x1C004CE40 (Crashdump_ResetPipe.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004F524 (Crashdump_Endpoint_SendControlTransfer.c)
+ */
+
 __int64 __fastcall Crashdump_SendUrb(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rcx

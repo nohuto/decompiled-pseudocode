@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreePageToSlabAllocator @ 0x1402CE4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiReInitializeFreeSlabPfn @ 0x1402CE68C (MiReInitializeFreeSlabPfn.c)
+ *     MiFreePageToSlabEntry @ 0x1402CE6EC (MiFreePageToSlabEntry.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14034A0A8 (MiUpdateSlabPagePlaceholderState.c)
+ */
+
 __int64 __fastcall MiFreePageToSlabAllocator(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rax

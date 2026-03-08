@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxCreateStaticWorkPoolThread @ 0x14084D3B4
+ * Callers:
+ *     PopFxInitializeWorkPool @ 0x14084D2FC (PopFxInitializeWorkPool.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ */
+
 __int64 __fastcall PopFxCreateStaticWorkPoolThread(__int64 a1)
 {
   int v1; // ebx

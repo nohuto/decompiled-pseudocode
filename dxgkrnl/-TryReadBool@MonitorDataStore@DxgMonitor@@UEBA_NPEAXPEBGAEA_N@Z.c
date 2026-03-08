@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryReadBool@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBGAEA_N@Z @ 0x1C03CA6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NPEAXPEBGAEAK@Z @ 0x1C01D1D10 (--$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NPEAXPEBGAEAK@Z.c)
+ */
+
 char __fastcall DxgMonitor::MonitorDataStore::TryReadBool(
         DxgMonitor::MonitorDataStore *this,
         void *a2,

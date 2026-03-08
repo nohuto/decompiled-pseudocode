@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140786E00 @ 0x140786E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_140786E00(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,30 @@
+/*
+ * XREFs of xxxUserSetDisplayConfig @ 0x1C0011DE0
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00B3E28 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0159D70 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015B374 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     xxxDisplayDiagBlackScreenDetected @ 0x1C015E940 (xxxDisplayDiagBlackScreenDetected.c)
+ *     NtUserSetDisplayConfig @ 0x1C0176190 (NtUserSetDisplayConfig.c)
+ *     ?DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESKTOP@@PEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C018E59C (-DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESK.c)
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0193490 (DrvDisplayConfigSetDeviceInfo.c)
+ * Callees:
+ *     LogDiagSDC @ 0x1C001049C (LogDiagSDC.c)
+ *     PowerDimUndimResend @ 0x1C00108AC (PowerDimUndimResend.c)
+ *     ?TrackFullscreenMode@@YAXH@Z @ 0x1C0010A90 (-TrackFullscreenMode@@YAXH@Z.c)
+ *     DrvQueryMDEVPowerState @ 0x1C0011490 (DrvQueryMDEVPowerState.c)
+ *     ?CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C00121E8 (-CreateCachedMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ *     SafeEnableMDEV @ 0x1C00D8A70 (SafeEnableMDEV.c)
+ *     SafeDisableMDEV @ 0x1C00D8AC0 (SafeDisableMDEV.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     DrvSetDisplayConfigValidateParams @ 0x1C00E2170 (DrvSetDisplayConfigValidateParams.c)
+ *     ?xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z @ 0x1C0157044 (-xxxDispBrokerSetDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N@Z.c)
+ *     LogDiagSDCAccessDenied @ 0x1C01955E4 (LogDiagSDCAccessDenied.c)
+ */
+
 __int64 __fastcall xxxUserSetDisplayConfig(
         unsigned int a1,
         struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a2,

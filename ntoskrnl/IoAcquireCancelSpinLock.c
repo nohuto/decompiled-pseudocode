@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoAcquireCancelSpinLock @ 0x1402CFAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ */
+
 void __stdcall IoAcquireCancelSpinLock(PKIRQL Irql)
 {
   KIRQL CurrentIrql; // bl

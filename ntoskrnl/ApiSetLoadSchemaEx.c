@@ -1,3 +1,16 @@
+/*
+ * XREFs of ApiSetLoadSchemaEx @ 0x140A070AC
+ * Callers:
+ *     ApiSetLoadSchemaWithExtensions @ 0x140A0717C (ApiSetLoadSchemaWithExtensions.c)
+ *     ApiSetpLoadSchemaExtension @ 0x140A07380 (ApiSetpLoadSchemaExtension.c)
+ * Callees:
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ApiSetpFindImageSection @ 0x140A072FC (ApiSetpFindImageSection.c)
+ *     ApiSetpLoadSchemaImage @ 0x140A075CC (ApiSetpLoadSchemaImage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ApiSetLoadSchemaEx(__int64 a1, _QWORD *a2, size_t *a3)
 {
   int v5; // ebx

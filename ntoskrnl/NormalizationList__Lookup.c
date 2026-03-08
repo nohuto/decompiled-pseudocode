@@ -1,3 +1,11 @@
+/*
+ * XREFs of NormalizationList__Lookup @ 0x1405B36C8
+ * Callers:
+ *     RtlpGetNormalization @ 0x1409C5918 (RtlpGetNormalization.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall NormalizationList__Lookup(int a1)
 {
   _DWORD *v1; // rax

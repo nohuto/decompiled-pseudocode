@@ -1,3 +1,12 @@
+/*
+ * XREFs of RemoveProcessFromJob @ 0x1C003BE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall RemoveProcessFromJob(__int64 a1)
 {
   __int64 v1; // rbx

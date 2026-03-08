@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ivHandlePnpSyncPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMIDERemoveInjectionDevice @ 0x1C01A64F8 (RIMIDERemoveInjectionDevice.c)
+ *     RIMShouldVirtualDeviceBeClosed @ 0x1C01C7BC4 (RIMShouldVirtualDeviceBeClosed.c)
+ *     RIMVirtQueueRootPnpEndSyncAsyncWorkItem @ 0x1C01D11C4 (RIMVirtQueueRootPnpEndSyncAsyncWorkItem.c)
+ *     IsRimObjectUnregistered @ 0x1C0221F28 (IsRimObjectUnregistered.c)
+ */
+
 __int64 __fastcall CBaseInput::ivHandlePnpSyncPacket(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v3; // rdi

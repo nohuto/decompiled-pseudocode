@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C017F7A0
+ * Callers:
+ *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
+ * Callees:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C001A878 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C00BAADC (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ *     ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C00EED00 (-bSetDefaultRegion@DC@@QEAAHXZ.c)
+ */
+
 __int64 __fastcall DC::bMakeInfoDC(DC *this, int a2)
 {
   int v2; // eax

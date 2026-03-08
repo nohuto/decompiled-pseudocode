@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmParkFreeParkNodes @ 0x14079C034
+ * Callers:
+ *     PpmParkFreeAllParkNodes @ 0x14067CCA8 (PpmParkFreeAllParkNodes.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PpmParkFreeParkNodes(_QWORD *P, unsigned int a2)
 {
   unsigned __int8 *v3; // rbx

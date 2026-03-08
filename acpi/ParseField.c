@@ -1,3 +1,24 @@
+/*
+ * XREFs of ParseField @ 0x1C005AB30
+ * Callers:
+ *     ParseFieldList @ 0x1C005B230 (ParseFieldList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     RtlStringCchCopyNA @ 0x1C002BADC (RtlStringCchCopyNA.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintIndent @ 0x1C004E484 (PrintIndent.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     ParseFieldConnection @ 0x1C005AF60 (ParseFieldConnection.c)
+ *     ParsePackageLen @ 0x1C005BEFC (ParsePackageLen.c)
+ */
+
 __int64 __fastcall ParseField(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, unsigned __int8 *a5, _DWORD **a6)
 {
   unsigned int v6; // ebp

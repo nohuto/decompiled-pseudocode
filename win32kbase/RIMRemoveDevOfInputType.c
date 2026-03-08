@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMRemoveDevOfInputType @ 0x1C00C986C
+ * Callers:
+ *     RIMRemoveInputOfType @ 0x1C00C9690 (RIMRemoveInputOfType.c)
+ * Callees:
+ *     rimOnPnpRemoveComplete @ 0x1C0030730 (rimOnPnpRemoveComplete.c)
+ *     RIMFreeSpecificDev @ 0x1C00BBF88 (RIMFreeSpecificDev.c)
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     rimResetPnpRemovePendingStateBits @ 0x1C00D0020 (rimResetPnpRemovePendingStateBits.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMRemoveDevOfInputType(__int64 a1, int a2)
 {
   __int64 *v3; // rbp

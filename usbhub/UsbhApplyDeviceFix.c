@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhApplyDeviceFix @ 0x1C005137C
+ * Callers:
+ *     UsbhCheck4GlobalErrata @ 0x1C0051470 (UsbhCheck4GlobalErrata.c)
+ *     UsbhCheckDeviceErrata @ 0x1C00514D4 (UsbhCheckDeviceErrata.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 _DWORD *__fastcall UsbhApplyDeviceFix(__int64 a1, __int64 a2, int a3)
 {
   _DWORD *result; // rax

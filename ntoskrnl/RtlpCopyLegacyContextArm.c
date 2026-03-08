@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpCopyLegacyContextArm @ 0x1405A8A14
+ * Callers:
+ *     RtlpCopyLegacyContext @ 0x14036519C (RtlpCopyLegacyContext.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlpCopyLegacyContextArm(char a1, __int64 a2, int a3, __int64 a4)
 {
   _OWORD *v4; // rcx

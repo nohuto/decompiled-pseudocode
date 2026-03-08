@@ -1,3 +1,15 @@
+/*
+ * XREFs of IrqLibFreeMessageTarget @ 0x1C0099250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IrqLibAcquireArbiterLock @ 0x1C005CC88 (IrqLibAcquireArbiterLock.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C005CD28 (IrqLibReleaseArbiterLock.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005DFF0 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     ProcessorIdtEntryToGsiv @ 0x1C009AD78 (ProcessorIdtEntryToGsiv.c)
+ */
+
 KIRQL __fastcall IrqLibFreeMessageTarget(PVOID Owner, unsigned int a2, __int64 a3)
 {
   KIRQL result; // al

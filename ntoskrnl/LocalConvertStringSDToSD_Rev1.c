@@ -1,3 +1,22 @@
+/*
+ * XREFs of LocalConvertStringSDToSD_Rev1 @ 0x14074E300
+ * Callers:
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1402C0CD0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ * Callees:
+ *     RtlSetOwnerSecurityDescriptor @ 0x14068E3D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140744590 (RtlSetGroupSecurityDescriptor.c)
+ *     RtlAbsoluteToSelfRelativeSD @ 0x14074E600 (RtlAbsoluteToSelfRelativeSD.c)
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     LocalGetSidForString @ 0x140750A70 (LocalGetSidForString.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ *     LocalGetSDControlForString @ 0x1407FF648 (LocalGetSDControlForString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalConvertStringSDToSD_Rev1(__int64 a1, __int64 a2, __int64 a3, wchar_t *a4, PVOID *a5, ULONG *a6)
 {
   wchar_t *v6; // rax

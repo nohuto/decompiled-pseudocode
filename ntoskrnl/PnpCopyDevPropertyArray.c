@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpCopyDevPropertyArray @ 0x140807540
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x1408071C4 (PiSwCompleteCreate.c)
+ *     PiSwInterfaceCreate @ 0x140808CA8 (PiSwInterfaceCreate.c)
+ *     PiSwQueuedCreateInfoCreate @ 0x140964A90 (PiSwQueuedCreateInfoCreate.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     PnpCopyDevProperty @ 0x140807610 (PnpCopyDevProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCopyDevPropertyArray(ULONGLONG ullMultiplicand, __int64 a2, __int64 a3, _DWORD *a4, PVOID *a5)
 {
   PVOID *v5; // rbx

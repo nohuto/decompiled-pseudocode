@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001E980
+ * Callers:
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001F510 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
+ *     ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0021B70 (ACPIDeviceRecordBlockedOnPhase3List.c)
+ *     ACPIIsPhase3ListEmptyOfUnblockedItems @ 0x1C0021D74 (ACPIIsPhase3ListEmptyOfUnblockedItems.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerEnumerateAssociatedPowerNodes(
         __int64 a1,
         __int64 (__fastcall *a2)(__int64, __int64, __int64, __int64),

@@ -1,3 +1,23 @@
+/*
+ * XREFs of Controller_Start @ 0x1C0014F3C
+ * Callers:
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C0013F90 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     Register_GetExtendedTBCTRBStatusSupported @ 0x1C0013524 (Register_GetExtendedTBCTRBStatusSupported.c)
+ *     Register_GetExtendedTBCEnable @ 0x1C001354C (Register_GetExtendedTBCEnable.c)
+ *     WPP_RECORDER_SF_I @ 0x1C00138F8 (WPP_RECORDER_SF_I.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x1C0032EF4 (Controller_DetectFrameMicroframeBoundary.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall Controller_Start(__int64 a1)
 {
   unsigned int v1; // edi

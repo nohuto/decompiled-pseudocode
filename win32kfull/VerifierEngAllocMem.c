@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerifierEngAllocMem @ 0x1C02A9350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C02A923C (-VerifierRandomFailure@@YAHK@Z.c)
+ */
+
 __int64 __fastcall VerifierEngAllocMem(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // ebx

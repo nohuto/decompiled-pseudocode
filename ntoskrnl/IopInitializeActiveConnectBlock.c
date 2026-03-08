@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopInitializeActiveConnectBlock @ 0x1406F490C
+ * Callers:
+ *     IoDisconnectInterrupt @ 0x1406F41C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x140847284 (IopAcquireReleaseConnectLockInternal.c)
+ *     IopInsertActiveConnectListLocked @ 0x140851B0C (IopInsertActiveConnectListLocked.c)
+ */
+
 void *__fastcall IopInitializeActiveConnectBlock(__int64 a1, _QWORD *a2)
 {
   void *result; // rax

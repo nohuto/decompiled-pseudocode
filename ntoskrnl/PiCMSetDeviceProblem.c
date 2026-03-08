@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiCMSetDeviceProblem @ 0x1409679A8
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406C4454 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReturnBasicResultData @ 0x1406C7AF0 (PiCMReturnBasicResultData.c)
+ *     _CmValidateDeviceName @ 0x1406D3DF0 (_CmValidateDeviceName.c)
+ *     PiAuDoesClientHavePrivilege @ 0x140958948 (PiAuDoesClientHavePrivilege.c)
+ *     PiCMCaptureProblemInputData @ 0x14096502C (PiCMCaptureProblemInputData.c)
+ *     PiCMSetProblem @ 0x140967AB4 (PiCMSetProblem.c)
+ */
+
 __int64 __fastcall PiCMSetDeviceProblem(
         _OWORD *a1,
         unsigned int a2,

@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiLockProtoPoolPage @ 0x140283CA0
+ * Callers:
+ *     MiMigratePfn @ 0x140272370 (MiMigratePfn.c)
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiAllocateInPageSupport @ 0x14028A6A0 (MiAllocateInPageSupport.c)
+ *     MiDeleteMergedPte @ 0x14029CAD8 (MiDeleteMergedPte.c)
+ *     MiCombineWithStandbyExisting @ 0x14029F020 (MiCombineWithStandbyExisting.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiWalkVaRange @ 0x1402CECEC (MiWalkVaRange.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402DD950 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ *     MiResolveProtoCombine @ 0x140345A28 (MiResolveProtoCombine.c)
+ *     MiCombineWithExisting @ 0x14034A4C4 (MiCombineWithExisting.c)
+ *     MiSoftFaultMappedView @ 0x14034A9A0 (MiSoftFaultMappedView.c)
+ *     MiDeleteSubsectionPages @ 0x14034B8E0 (MiDeleteSubsectionPages.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiReplaceLockedPage @ 0x14063487C (MiReplaceLockedPage.c)
+ *     MiGetPageFileSectionForReservation @ 0x140638834 (MiGetPageFileSectionForReservation.c)
+ *     MiClearDriverHotPatchPtes @ 0x14063F9FC (MiClearDriverHotPatchPtes.c)
+ *     MmMapHotPatchTablePage @ 0x140640C8C (MmMapHotPatchTablePage.c)
+ *     MiInsertLargeVadMapping @ 0x140643BA8 (MiInsertLargeVadMapping.c)
+ * Callees:
+ *     MiAreChargesNeededToLockPage @ 0x140284D60 (MiAreChargesNeededToLockPage.c)
+ *     MiLockOwnedProtoPage @ 0x1402871A0 (MiLockOwnedProtoPage.c)
+ *     MiChargeForLockedPage @ 0x140287410 (MiChargeForLockedPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiLockProtoPoolPage(unsigned __int64 a1, unsigned __int8 *a2)
 {
   unsigned __int64 *v3; // r15

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvpAllocateBin @ 0x140730410
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpDropPagedBins @ 0x140820B14 (HvpDropPagedBins.c)
+ *     HvpAddDummyBinToHive @ 0x140A1AF8C (HvpAddDummyBinToHive.c)
+ *     HvpMapHiveImage @ 0x140A1B050 (HvpMapHiveImage.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvpAllocateNonPagedBin @ 0x140A274CC (HvpAllocateNonPagedBin.c)
+ */
+
 __int64 __fastcall HvpAllocateBin(__int64 a1, __int64 a2, int a3, unsigned int a4, __int64 *a5)
 {
   __int64 (__fastcall *v5)(__int64, __int64, _QWORD); // rax

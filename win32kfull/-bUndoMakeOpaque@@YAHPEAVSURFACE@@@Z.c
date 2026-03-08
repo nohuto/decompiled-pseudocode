@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A8F5C
+ * Callers:
+ *     ??0REDIRDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z @ 0x1C02A67B4 (--0REDIRDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z.c)
+ *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C02A6824 (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A8DD8 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bUndoMakeOpaque(HDEV *a1)
 {
   unsigned int v2; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HMGrowHandleTable@@YAHXZ @ 0x1C00ADCB4
+ * Callers:
+ *     HMAllocObjectEx @ 0x1C00122BC (HMAllocObjectEx.c)
+ *     HMCreateHandleForObject @ 0x1C0088D60 (HMCreateHandleForObject.c)
+ *     HMInitHandleTable @ 0x1C031F424 (HMInitHandleTable.c)
+ * Callees:
+ *     CommitReadOnlyMemory @ 0x1C00ADE80 (CommitReadOnlyMemory.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 HMGrowHandleTable(void)
 {
   char *v0; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfCheckForResource @ 0x140AE138C
+ * Callers:
+ *     ExpCheckForResource @ 0x140608878 (ExpCheckForResource.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x140303394 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     VfPoolIsInternalFree @ 0x1405CF77C (VfPoolIsInternalFree.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall VfCheckForResource(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   ULONG_PTR *v4; // rax

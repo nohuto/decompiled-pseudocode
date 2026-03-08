@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppClassicProviderCallback @ 0x1C0044BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WppClassicProviderCallback(__int64 a1, unsigned __int8 a2, __int64 *a3, __int64 a4)
 {
   __int64 result; // rax

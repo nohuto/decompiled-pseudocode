@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopRemoveLegacyDeviceNode @ 0x140801EC8
+ * Callers:
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ * Callees:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     IopDestroyDeviceNode @ 0x140782FD0 (IopDestroyDeviceNode.c)
+ */
+
 void __fastcall IopRemoveLegacyDeviceNode(__int64 a1, char *a2)
 {
   _QWORD *v4; // rcx

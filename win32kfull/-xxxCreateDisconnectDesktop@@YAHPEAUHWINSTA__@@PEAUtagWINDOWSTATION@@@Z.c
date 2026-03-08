@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxCreateDisconnectDesktop@@YAHPEAUHWINSTA__@@PEAUtagWINDOWSTATION@@@Z @ 0x1C00C1594
+ * Callers:
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     ?ClearClipRgnOrMaxClip@tagWND@@QEAAXXZ @ 0x1C002774C (-ClearClipRgnOrMaxClip@tagWND@@QEAAXXZ.c)
+ *     _CloseDesktop @ 0x1C00938E8 (_CloseDesktop.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ *     ?SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z @ 0x1C00C1764 (-SetDisconnectDesktopSecurity@@YAJPEAUHDESK__@@@Z.c)
+ */
+
 __int64 __fastcall xxxCreateDisconnectDesktop(HWINSTA a1, struct tagWINDOWSTATION *a2, __int64 a3, __int64 a4)
 {
   __int64 EmptyRgnPublic; // rbx

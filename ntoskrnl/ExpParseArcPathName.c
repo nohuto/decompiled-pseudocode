@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpParseArcPathName @ 0x1409F9F48
+ * Callers:
+ *     ExpTranslateArcPath @ 0x1409FB1E4 (ExpTranslateArcPath.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     towlower @ 0x1403D5C20 (towlower.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ */
+
 __int64 __fastcall ExpParseArcPathName(_WORD *a1, _QWORD *a2, _QWORD *a3, _DWORD *a4, char *a5)
 {
   _WORD *v5; // r15

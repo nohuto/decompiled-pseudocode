@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRegionAssignmentSort @ 0x140B671E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiRegionAssignmentSort(_DWORD *a1, _DWORD *a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiRevertValidPte @ 0x140322DC0
+ * Callers:
+ *     MiSetReadOnlyOnSectionView @ 0x14020AAF0 (MiSetReadOnlyOnSectionView.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x140228730 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiUserPdeOrAbove @ 0x1402D39A0 (MiUserPdeOrAbove.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiRewritePteWithLockBit @ 0x140371830 (MiRewritePteWithLockBit.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ */
+
 void __fastcall MiRevertValidPte(__int64 a1, __int64 a2, int a3, unsigned __int64 a4, __int64 a5)
 {
   unsigned __int64 v5; // rbp

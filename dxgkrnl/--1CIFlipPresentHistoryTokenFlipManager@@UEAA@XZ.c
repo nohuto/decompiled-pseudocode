@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CIFlipPresentHistoryTokenFlipManager@@UEAA@XZ @ 0x1C0051DC4
+ * Callers:
+ *     ??_GCIFlipPresentHistoryTokenFlipManager@@UEAAPEAXI@Z @ 0x1C0051E60 (--_GCIFlipPresentHistoryTokenFlipManager@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ */
+
 void __fastcall CIFlipPresentHistoryTokenFlipManager::~CIFlipPresentHistoryTokenFlipManager(
         CIFlipPresentHistoryTokenFlipManager *this)
 {

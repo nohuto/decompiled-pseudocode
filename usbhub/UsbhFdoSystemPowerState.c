@@ -1,3 +1,31 @@
+/*
+ * XREFs of UsbhFdoSystemPowerState @ 0x1C000D270
+ * Callers:
+ *     UsbhFdoPower_SetPower @ 0x1C001F580 (UsbhFdoPower_SetPower.c)
+ * Callees:
+ *     UsbhFdoSetPowerSx_Action @ 0x1C0003F04 (UsbhFdoSetPowerSx_Action.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     UsbhEtwLogHubPowerEvent @ 0x1C00096F0 (UsbhEtwLogHubPowerEvent.c)
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C001AB8C (UsbhAcquireFdoPwrLock.c)
+ *     UsbhFdoSetPowerS0_Action @ 0x1C0020F48 (UsbhFdoSetPowerS0_Action.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0031BEC (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003C7C0 (UsbhPoStartNextPowerIrp_Fdo.c)
+ *     UsbhSetFdoPowerState @ 0x1C003C87C (UsbhSetFdoPowerState.c)
+ *     Usbh_HubRootHubInitNotification @ 0x1C003C958 (Usbh_HubRootHubInitNotification.c)
+ *     Usbh_FDO_Pnp_State @ 0x1C0044348 (Usbh_FDO_Pnp_State.c)
+ *     UsbhEtwGetActivityId @ 0x1C005B53C (UsbhEtwGetActivityId.c)
+ */
+
 __int64 __fastcall UsbhFdoSystemPowerState(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   unsigned int LowPart; // r13d

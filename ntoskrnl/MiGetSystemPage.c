@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetSystemPage @ 0x1402141C8
+ * Callers:
+ *     MiGetPageForHeader @ 0x1402140A4 (MiGetPageForHeader.c)
+ * Callees:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ */
+
 __int64 __fastcall MiGetSystemPage(__int64 a1, __int64 a2)
 {
   unsigned __int32 v3; // ebx

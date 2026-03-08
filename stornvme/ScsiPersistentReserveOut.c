@@ -1,3 +1,17 @@
+/*
+ * XREFs of ScsiPersistentReserveOut @ 0x1C001A220
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeReservationAcquireCommand @ 0x1C0016CB8 (NVMeReservationAcquireCommand.c)
+ *     NVMeReservationRegisterAndMoveCommand @ 0x1C0016E5C (NVMeReservationRegisterAndMoveCommand.c)
+ *     NVMeReservationRegisterCommand @ 0x1C0016FEC (NVMeReservationRegisterCommand.c)
+ *     NVMeReservationReleaseCommand @ 0x1C00171E0 (NVMeReservationReleaseCommand.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiPersistentReserveOut(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int64 v3; // r10

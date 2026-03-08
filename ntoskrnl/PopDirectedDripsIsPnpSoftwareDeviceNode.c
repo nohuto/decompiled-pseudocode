@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsIsPnpSoftwareDeviceNode @ 0x140980964
+ * Callers:
+ *     PopIssueDirectedPowerTransition @ 0x140988CE0 (PopIssueDirectedPowerTransition.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ * Callees:
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140240A5C (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ */
+
 bool __fastcall PopDirectedDripsIsPnpSoftwareDeviceNode(__int64 a1)
 {
   __int64 v1; // rbx

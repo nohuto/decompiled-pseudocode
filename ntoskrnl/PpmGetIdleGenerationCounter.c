@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmGetIdleGenerationCounter @ 0x14023602C
+ * Callers:
+ *     PpmSnapPerformanceAccumulation @ 0x140234F00 (PpmSnapPerformanceAccumulation.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ED59C (PpmPerfApplyProcessorState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmGetIdleGenerationCounter(__int64 a1)
 {
   signed __int64 v2; // rax

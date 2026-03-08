@@ -1,3 +1,31 @@
+/*
+ * XREFs of KiDeferGroupSchedulingPreemption @ 0x1402ADC48
+ * Callers:
+ *     KiDispatchInterrupt @ 0x140255DA0 (KiDispatchInterrupt.c)
+ * Callees:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402584D0 (KiAddThreadToPrcbQueue.c)
+ *     KiStartRescheduleContext @ 0x140258AD0 (KiStartRescheduleContext.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiShouldPreemptionBeDeferred @ 0x1402ADF34 (KiShouldPreemptionBeDeferred.c)
+ *     KiCheckPrcbAffinityEx @ 0x1402ADF54 (KiCheckPrcbAffinityEx.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x1402ADFD8 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x1402AE004 (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiCommitRescheduleContext @ 0x1402AE04C (KiCommitRescheduleContext.c)
+ *     KiAddThreadToScbQueue @ 0x1402AE688 (KiAddThreadToScbQueue.c)
+ *     KiIsPrcbThread @ 0x1402AEFCC (KiIsPrcbThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402C3F04 (KiDoesThreadDominateRescheduleContextEntry.c)
+ *     KiCompleteRescheduleContext @ 0x140302484 (KiCompleteRescheduleContext.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1403428F0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiInsertDeferredReadyList @ 0x140343778 (KiInsertDeferredReadyList.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1403554AC (KiInsertDeferredPreemptionApc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 bool __fastcall KiDeferGroupSchedulingPreemption(__int64 a1, __int64 a2)
 {
   __int64 v3; // r14

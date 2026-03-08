@@ -1,3 +1,12 @@
+/*
+ * XREFs of TransformPoint @ 0x1801AD558
+ * Callers:
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x1801AAFC0 (_anonymous_namespace_--DecomposeMatrix.c)
+ *     ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x1802B73A0 (-TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_U.c)
+ * Callees:
+ *     <none>
+ */
+
 float *__fastcall TransformPoint(int *a1, int *a2, float a3, float a4, float *a5, float *a6)
 {
   float v6; // xmm2_4

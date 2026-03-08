@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiPnpRtlGetFilteredDeviceInterfaceList @ 0x140777504
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x14077761C (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1407777AC (PiDmGetCmObjectListFromCache.c)
+ */
+
 NTSTATUS __fastcall PiPnpRtlGetFilteredDeviceInterfaceList(__int64 a1)
 {
   bool v2; // zf

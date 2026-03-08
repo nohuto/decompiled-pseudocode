@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiCopyXStateArea @ 0x140570100
+ * Callers:
+ *     KxContextToKframes @ 0x1402D7DC0 (KxContextToKframes.c)
+ *     KeContextFromKframes @ 0x1403620F0 (KeContextFromKframes.c)
+ *     PspSetContext @ 0x1407603A0 (PspSetContext.c)
+ *     PspGetContext @ 0x1407ED060 (PspGetContext.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall KiCopyXStateArea(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

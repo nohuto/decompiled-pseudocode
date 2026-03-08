@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiSetClockInterval @ 0x1403ACBC4
+ * Callers:
+ *     ExpUpdateTimerConfigurationWorker @ 0x1403BCB70 (ExpUpdateTimerConfigurationWorker.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x14045A080 (KiSetVirtualHeteroClockIntervalRequest.c)
+ * Callees:
+ *     KiSetNextClockTickDueTime @ 0x14022FD10 (KiSetNextClockTickDueTime.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1402D9468 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiSetClockTimerKTimerDeadlines @ 0x1402DF1B0 (KiSetClockTimerKTimerDeadlines.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14056DA7C (KiSetClockIntervalToMinimumRequested.c)
+ */
+
 __int64 __fastcall KiSetClockInterval(unsigned int a1, char a2, unsigned __int64 a3)
 {
   __int64 v6; // rdx

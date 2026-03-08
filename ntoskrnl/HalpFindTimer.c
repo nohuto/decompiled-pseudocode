@@ -1,3 +1,25 @@
+/*
+ * XREFs of HalpFindTimer @ 0x140377CA8
+ * Callers:
+ *     HalpTimerQueryCycleCounter @ 0x140376AA0 (HalpTimerQueryCycleCounter.c)
+ *     HalpTimerFindIdealWatchdog @ 0x140376AFC (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ *     HalpTimerFindIdealClockSource @ 0x140377568 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerNoteHpetMaskingBehavior @ 0x14037764C (HalpTimerNoteHpetMaskingBehavior.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x140377A10 (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x140377AB0 (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpTimerSaveProcessorFrequency @ 0x140377B98 (HalpTimerSaveProcessorFrequency.c)
+ *     HalpTscAdvSynchLeader @ 0x140387D38 (HalpTscAdvSynchLeader.c)
+ *     HalpTscSynchronization @ 0x140396C20 (HalpTscSynchronization.c)
+ *     HalpTimerInitializeEarlyStallSource @ 0x1403A05F0 (HalpTimerInitializeEarlyStallSource.c)
+ *     HalpInitializeTimers @ 0x1403A06E0 (HalpInitializeTimers.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403ADC54 (HalpTimerConfigureQpcBypass.c)
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B13E0 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x14050A680 (HalpTimerMeasureProcessorsWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG_PTR *__fastcall HalpFindTimer(int a1, int a2, int a3, int a4, char a5)
 {
   ULONG_PTR *v9; // r8

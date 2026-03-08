@@ -1,3 +1,16 @@
+/*
+ * XREFs of InternalMapVirtualKeyEx @ 0x1C0081970
+ * Callers:
+ *     _GetKeyNameText @ 0x1C00114E0 (_GetKeyNameText.c)
+ *     NtUserMapVirtualKeyEx @ 0x1C00818E0 (NtUserMapVirtualKeyEx.c)
+ *     ?xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z @ 0x1C020FB30 (-xxxDownlevelInput@CPTPProcessor@@CAJPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@@Z.c)
+ *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C021419C (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C021A6EC (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C021A7E0 (ProcessKeyboardInputWorker.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 unsigned int __fastcall InternalMapVirtualKeyEx(unsigned int a1, int a2, __int64 a3)
 {
   int v3; // r9d

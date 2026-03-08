@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C00D4724
+ * Callers:
+ *     EditionParseDesktop @ 0x1C00D45C0 (EditionParseDesktop.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     DesktopAlloc @ 0x1C00A09E0 (DesktopAlloc.c)
+ *     CreateDesktopHeap @ 0x1C00D4A60 (CreateDesktopHeap.c)
+ *     GetDesktopHeapSize @ 0x1C00D4B20 (GetDesktopHeapSize.c)
+ */
+
 __int64 __fastcall xxxCreateDesktopEx2(
         struct tagWINDOWSTATION *a1,
         struct _ACCESS_STATE *a2,

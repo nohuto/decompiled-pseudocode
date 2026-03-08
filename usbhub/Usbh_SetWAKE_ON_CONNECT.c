@@ -1,3 +1,13 @@
+/*
+ * XREFs of Usbh_SetWAKE_ON_CONNECT @ 0x1C0047C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 __int64 __fastcall Usbh_SetWAKE_ON_CONNECT(__int64 a1, __int64 a2, _DWORD *a3, int a4)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspJobIoRateQueryHistory @ 0x14035C418
+ * Callers:
+ *     PspQueryRateControlHistory @ 0x1407E8B5C (PspQueryRateControlHistory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PspJobIoRateQueryHistory(__int64 a1, _QWORD *a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 v8; // rcx

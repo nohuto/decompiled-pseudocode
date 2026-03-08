@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?iOpenGLExtEscapeHelper@@YAXPEAX@Z @ 0x1C0279D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C02E2F44 (-Escape@PDEVOBJ@@QEAAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ */
+
 void __fastcall iOpenGLExtEscapeHelper(PVOID Parameter)
 {
   *((_DWORD *)Parameter + 11) = PDEVOBJ::Escape(

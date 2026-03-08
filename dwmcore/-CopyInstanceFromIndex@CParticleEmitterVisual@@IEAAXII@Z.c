@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CopyInstanceFromIndex@CParticleEmitterVisual@@IEAAXII@Z @ 0x180241464
+ * Callers:
+ *     ?CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z @ 0x1802415C4 (-CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z.c)
+ * Callees:
+ *     ?ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z @ 0x18007E818 (-ColorDWFromStraightColorF@@YAKAEBU_D3DCOLORVALUE@@@Z.c)
+ *     ?make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA?AUquaternion@123@AEBUfloat3@123@M@Z @ 0x180243C5C (-make_quaternion_from_axis_angle@Numerics@Foundation@Windows@@YA-AUquaternion@123@AEBUfloat3@123.c)
+ */
+
 void __fastcall CParticleEmitterVisual::CopyInstanceFromIndex(
         CParticleEmitterVisual *this,
         unsigned int a2,

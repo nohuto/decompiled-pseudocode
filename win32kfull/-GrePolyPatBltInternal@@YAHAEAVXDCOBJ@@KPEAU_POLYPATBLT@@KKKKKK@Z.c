@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C008B840
+ * Callers:
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1C0055DA0 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     DrawEdge @ 0x1C0088404 (DrawEdge.c)
+ *     NtGdiPolyPatBlt @ 0x1C008B680 (NtGdiPolyPatBlt.c)
+ * Callees:
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00272BC (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x1C0050D68 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     GreMaskBlt @ 0x1C007F6E8 (GreMaskBlt.c)
+ *     ?bFullScreen@XDCOBJ@@QEAAHXZ @ 0x1C007FBDC (-bFullScreen@XDCOBJ@@QEAAHXZ.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C008219C (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     bCvtPts1 @ 0x1C0086D84 (bCvtPts1.c)
+ *     ?GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z @ 0x1C008BC60 (-GrePatBltLockedDC@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVERECTL@@KPEAVSURFACE@@KKKK@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ @ 0x1C012F910 (-bTightBoundsToRegion@DEVLOCKOBJ@@QEAAHXZ.c)
+ */
+
 __int64 __fastcall GrePolyPatBltInternal(
         struct XDCOBJ *this,
         int a2,

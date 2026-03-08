@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeProcessPageTableCommitmentBitMaps @ 0x1402A63C4
+ * Callers:
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializeProcessPageTableCommitmentBitMaps(__int64 a1)
 {
   _QWORD *v1; // rdx

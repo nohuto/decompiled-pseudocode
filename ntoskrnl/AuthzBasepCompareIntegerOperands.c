@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepCompareIntegerOperands @ 0x14066CF0C
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x140366314 (AuthzBasepEvaluateExpression.c)
+ * Callees:
+ *     AuthzBasepCompareUnsigned @ 0x14066D170 (AuthzBasepCompareUnsigned.c)
+ */
+
 __int64 __fastcall AuthzBasepCompareIntegerOperands(unsigned __int8 a1, __int64 a2)
 {
   unsigned int v2; // r8d

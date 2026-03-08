@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_UsbDevice_ResetPort @ 0x1C0050A40
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_ResetDevice @ 0x1C004CD40 (Crashdump_ResetDevice.c)
+ * Callees:
+ *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004FA68 (Crashdump_UsbDevice_ChangePortFeature.c)
+ *     Crashdump_UsbDevice_GetPortStatus @ 0x1C00503E8 (Crashdump_UsbDevice_GetPortStatus.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_ResetPort(_QWORD *a1, int a2, int a3)
 {
   int v6; // edi

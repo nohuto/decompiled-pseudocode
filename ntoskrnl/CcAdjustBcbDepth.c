@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcAdjustBcbDepth @ 0x140422F00
+ * Callers:
+ *     CcBcbProfiler @ 0x1403DD7C0 (CcBcbProfiler.c)
+ *     sub_14067C010 @ 0x14067C010 (sub_14067C010.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcAdjustBcbDepth(
         __int64 a1,
         __int64 a2,

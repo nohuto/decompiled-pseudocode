@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?PostHidInput@@YAHPEAUDEVICEINFO@@PEAXKPEAUtagQ@@PEAUtagWND@@_K@Z @ 0x1C01AA924
+ * Callers:
+ *     xxxProcessHidInput @ 0x1C0141C40 (xxxProcessHidInput.c)
+ * Callees:
+ *     AllocateHidData @ 0x1C0009078 (AllocateHidData.c)
+ *     FreeHidData @ 0x1C000DC20 (FreeHidData.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?DeliverRawInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@_N@Z @ 0x1C0141AEA (-DeliverRawInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@_N@Z.c)
+ */
+
 __int64 __fastcall PostHidInput(
         struct DEVICEINFO *a1,
         void *a2,

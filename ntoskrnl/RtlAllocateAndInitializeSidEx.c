@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlAllocateAndInitializeSidEx @ 0x1409B90AC
+ * Callers:
+ *     EtwpUserInAdminOrLogUsersGroup @ 0x1409E218C (EtwpUserInAdminOrLogUsersGroup.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall RtlAllocateAndInitializeSidEx(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4)
 {
   __int64 Pool2; // rax

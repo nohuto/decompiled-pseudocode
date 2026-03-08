@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpInitializePreloadedHive @ 0x140B52F50
+ * Callers:
+ *     CmpInitializePreloadedHives @ 0x140B51BF0 (CmpInitializePreloadedHives.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmpSetupLoggingState @ 0x140818BD0 (CmpSetupLoggingState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpGetSystemRelativeRegistryHiveFilePath @ 0x140B95024 (CmpGetSystemRelativeRegistryHiveFilePath.c)
+ */
+
 __int64 __fastcall CmpInitializePreloadedHive(__int64 a1, __int64 a2)
 {
   int v4; // ebx

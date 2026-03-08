@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessChannelStarted @ 0x1C03628E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ProcessChannelStarted()
 {
   __int64 result; // rax

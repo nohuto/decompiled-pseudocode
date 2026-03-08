@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiReplenishPageSlist @ 0x14034E120
+ * Callers:
+ *     MiGetPerfectColorHeadPage @ 0x140270750 (MiGetPerfectColorHeadPage.c)
+ * Callees:
+ *     MiIncreaseAvailablePages @ 0x140288238 (MiIncreaseAvailablePages.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiUpdateZeroFreeBitmap @ 0x1402E6598 (MiUpdateZeroFreeBitmap.c)
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiNodeFreeZeroPages @ 0x14034EAD4 (MiNodeFreeZeroPages.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ *     MiDecreaseAvailablePages @ 0x1403504C0 (MiDecreaseAvailablePages.c)
+ *     InterlockedPushListSList @ 0x140420510 (InterlockedPushListSList.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ */
+
 __int64 __fastcall MiReplenishPageSlist(__int64 a1, int a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // rsi

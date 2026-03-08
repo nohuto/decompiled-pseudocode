@@ -1,3 +1,30 @@
+/*
+ * XREFs of HalpPiix4Detect @ 0x140A85B70
+ * Callers:
+ *     HalpAcpiDetectPiix4Work @ 0x140801C80 (HalpAcpiDetectPiix4Work.c)
+ *     HaliInitPowerManagement @ 0x140801CA0 (HaliInitPowerManagement.c)
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalSetBusDataByOffset @ 0x140370180 (HalSetBusDataByOffset.c)
+ *     HalGetBusData @ 0x140370320 (HalGetBusData.c)
+ *     HalGetBusDataByOffset @ 0x140370350 (HalGetBusDataByOffset.c)
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptSetLineSpecificOverride @ 0x14050342C (HalpInterruptSetLineSpecificOverride.c)
+ *     HalpInterruptSetMsiOverride @ 0x14050354C (HalpInterruptSetMsiOverride.c)
+ *     HalpWhackICHUsbSmi @ 0x14051EBA4 (HalpWhackICHUsbSmi.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x14051ED2C (HalpUsbLegacyStopUhciInterrupt.c)
+ *     HalpGetChipHacks @ 0x140B354FC (HalpGetChipHacks.c)
+ */
+
 __int16 __fastcall HalpPiix4Detect(unsigned __int8 a1)
 {
   int v1; // edi

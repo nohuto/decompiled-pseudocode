@@ -1,3 +1,18 @@
+/*
+ * XREFs of FsRtlpOplockSendModernAppTermination @ 0x1402EF888
+ * Callers:
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x14023AB60 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14023BD20 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockBreakToII @ 0x1402F3B90 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053C500 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOplockBreakNotify @ 0x14093B518 (FsRtlpOplockBreakNotify.c)
+ * Callees:
+ *     FsRtlSendModernAppTermination @ 0x1402EF950 (FsRtlSendModernAppTermination.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall FsRtlpOplockSendModernAppTermination(__int64 a1, __int64 a2)
 {
   char v2; // bp

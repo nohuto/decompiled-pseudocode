@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMRegOpenKey @ 0x1C0030AE8
+ * Callers:
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C0030B48 (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMRegQueryDWord @ 0x1C00DA0B8 (RIMRegQueryDWord.c)
+ *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C01C74DC (RIMPopulateExtendedPointerDeviceProperties.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall RIMRegOpenKey(struct _UNICODE_STRING *a1)
 {
   __int64 v1; // rbx

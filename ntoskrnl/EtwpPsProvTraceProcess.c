@@ -1,3 +1,26 @@
+/*
+ * XREFs of EtwpPsProvTraceProcess @ 0x1407E8D90
+ * Callers:
+ *     EtwpWriteProcessEvent @ 0x1407E9594 (EtwpWriteProcessEvent.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409ECC80 (EtwpPsProvProcessEnumCallback.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmGetSessionId @ 0x140299600 (MmGetSessionId.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SeQueryTokenIntegrity @ 0x14035C400 (SeQueryTokenIntegrity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     ObGetProcessHandleCount @ 0x14071172C (ObGetProcessHandleCount.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 unsigned int __fastcall EtwpPsProvTraceProcess(__int64 a1, char a2, unsigned int *a3, int *a4, __int16 a5)
 {
   unsigned int result; // eax

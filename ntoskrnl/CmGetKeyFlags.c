@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmGetKeyFlags @ 0x14079C210
+ * Callers:
+ *     CmQueryLayeredKey @ 0x1402F262C (CmQueryLayeredKey.c)
+ *     CmQueryKey @ 0x1407AE5C0 (CmQueryKey.c)
+ * Callees:
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ *     CmListGetPrevElement @ 0x140776A40 (CmListGetPrevElement.c)
+ */
+
 __int64 __fastcall CmGetKeyFlags(__int64 a1, __int64 a2)
 {
   int v2; // ebx

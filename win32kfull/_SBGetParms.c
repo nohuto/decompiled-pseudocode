@@ -1,3 +1,12 @@
+/*
+ * XREFs of _SBGetParms @ 0x1C00DB920
+ * Callers:
+ *     NtUserSBGetParms @ 0x1C00DB7E0 (NtUserSBGetParms.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SBGetParms(__int64 a1, int a2, _DWORD *a3, _DWORD *a4)
 {
   int v5; // r11d

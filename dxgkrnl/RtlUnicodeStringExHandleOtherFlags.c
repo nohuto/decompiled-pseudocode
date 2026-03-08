@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeStringExHandleOtherFlags @ 0x1C0065F14
+ * Callers:
+ *     ?RtlUnicodeStringPrintfEx@@YAJPEAU_UNICODE_STRING@@0KPEBGZZ @ 0x1C0022714 (-RtlUnicodeStringPrintfEx@@YAJPEAU_UNICODE_STRING@@0KPEBGZZ.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringExHandleOtherFlags(
         wchar_t *pszDest,
         size_t cchDest,

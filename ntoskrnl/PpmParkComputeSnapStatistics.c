@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmParkComputeSnapStatistics @ 0x1402D3C1C
+ * Callers:
+ *     PpmParkRecordNodeStatistics @ 0x1402D3A10 (PpmParkRecordNodeStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmParkComputeSnapStatistics(
         int a1,
         unsigned __int8 a2,

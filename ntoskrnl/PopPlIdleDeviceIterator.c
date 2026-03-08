@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPlIdleDeviceIterator @ 0x14059EE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     PopPlLookupDevicePowerProfile @ 0x14059EEB4 (PopPlLookupDevicePowerProfile.c)
+ */
+
 char __fastcall PopPlIdleDeviceIterator(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

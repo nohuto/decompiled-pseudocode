@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopCancelAlertedRequest @ 0x14094140C
+ * Callers:
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IopWaitForSynchronousIo @ 0x140299468 (IopWaitForSynchronousIo.c)
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ *     IopSynchronousApiServiceTail @ 0x14076E298 (IopSynchronousApiServiceTail.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     IoSetInformation @ 0x14087E920 (IoSetInformation.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS __fastcall IopCancelAlertedRequest(_DWORD *Object, PIRP Irp)
 {
   unsigned __int8 CurrentIrql; // bl

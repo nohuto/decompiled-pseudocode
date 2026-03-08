@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiProcessWsInSwapRanges @ 0x140200438
+ * Callers:
+ *     MiProcessWsInSwapSupport @ 0x140200298 (MiProcessWsInSwapSupport.c)
+ * Callees:
+ *     MiReleaseOutSwapReservations @ 0x1402004DC (MiReleaseOutSwapReservations.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MmPrefetchVirtualMemory @ 0x14067E690 (MmPrefetchVirtualMemory.c)
+ */
+
 struct _KTHREAD *__fastcall MiProcessWsInSwapRanges(_QWORD *a1, __int64 a2, char a3)
 {
   int v6; // edi

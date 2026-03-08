@@ -1,3 +1,11 @@
+/*
+ * XREFs of __guard_retpoline_switchtable_jump_r13 @ 0x140AF6240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _guard_retpoline_switchtable_jump_r13()
 {
   void *v0; // r13

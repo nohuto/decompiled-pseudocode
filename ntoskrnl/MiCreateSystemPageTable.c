@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCreateSystemPageTable @ 0x140348960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiGetPageTablePages @ 0x140348AF8 (MiGetPageTablePages.c)
+ *     MiMakeSystemLeavesNonZero @ 0x1403B9838 (MiMakeSystemLeavesNonZero.c)
+ *     MiMakeLargePageTable @ 0x140634BEC (MiMakeLargePageTable.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ */
+
 __int64 __fastcall MiCreateSystemPageTable(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // rdi

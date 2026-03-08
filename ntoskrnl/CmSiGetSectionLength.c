@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmSiGetSectionLength @ 0x1402B2B8C
+ * Callers:
+ *     HvpViewMapStart @ 0x140730468 (HvpViewMapStart.c)
+ * Callees:
+ *     ZwQuerySection @ 0x140412D30 (ZwQuerySection.c)
+ */
+
 __int64 __fastcall CmSiGetSectionLength(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

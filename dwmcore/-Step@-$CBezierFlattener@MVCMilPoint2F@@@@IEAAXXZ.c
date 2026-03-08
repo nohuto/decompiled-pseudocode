@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Step@?$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ @ 0x18001662C
+ * Callers:
+ *     ?Flatten@?$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z @ 0x18001655C (-Flatten@-$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CBezierFlattener<float,CMilPoint2F>::Step(__int64 a1)
 {
   float v1; // xmm4_4

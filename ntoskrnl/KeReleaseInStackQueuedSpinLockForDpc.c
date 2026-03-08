@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeReleaseInStackQueuedSpinLockForDpc @ 0x14056F0C0
+ * Callers:
+ *     KeInsertByKeyDeviceQueue @ 0x140457FE0 (KeInsertByKeyDeviceQueue.c)
+ *     KeInsertDeviceQueue @ 0x140570C90 (KeInsertDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueue @ 0x140570D20 (KeRemoveByKeyDeviceQueue.c)
+ *     KeRemoveByKeyDeviceQueueIfBusy @ 0x140570E00 (KeRemoveByKeyDeviceQueueIfBusy.c)
+ *     KeRemoveDeviceQueue @ 0x140570ED0 (KeRemoveDeviceQueue.c)
+ *     DifKeReleaseInStackQueuedSpinLockForDpcWrapper @ 0x1405E2490 (DifKeReleaseInStackQueuedSpinLockForDpcWrapper.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall KeReleaseInStackQueuedSpinLockForDpc(PKLOCK_QUEUE_HANDLE LockHandle)
 {
   unsigned __int64 OldIrql; // rbx

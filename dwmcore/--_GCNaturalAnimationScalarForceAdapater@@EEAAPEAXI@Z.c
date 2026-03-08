@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GCNaturalAnimationScalarForceAdapater@@EEAAPEAXI@Z @ 0x180238980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CNaturalAnimationScalarForceAdapater *__fastcall CNaturalAnimationScalarForceAdapater::`scalar deleting destructor'(
         CNaturalAnimationScalarForceAdapater *this,
         char a2)

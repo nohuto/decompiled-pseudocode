@@ -1,3 +1,32 @@
+/*
+ * XREFs of PspGetContextThreadInternal @ 0x1407EE524
+ * Callers:
+ *     WbGetTrapFrame @ 0x1406AF738 (WbGetTrapFrame.c)
+ *     WbSetTrapFrame @ 0x1406AF9A4 (WbSetTrapFrame.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x14077C1CC (PspWow64SetContextThread.c)
+ *     NtGetContextThread @ 0x140792A70 (NtGetContextThread.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     PsGetContextThread @ 0x1408A11D0 (PsGetContextThread.c)
+ *     PspPicoGetContextThreadEx @ 0x1409B2BC0 (PspPicoGetContextThreadEx.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     RtlpSanitizeContextFlags @ 0x140364D9C (RtlpSanitizeContextFlags.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspGetSetContextSpecialApc @ 0x140420250 (PspGetSetContextSpecialApc.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpWriteExtendedContext @ 0x14077CA08 (RtlpWriteExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1407EDC30 (RtlpReadExtendedContext.c)
+ */
+
 __int64 __fastcall PspGetContextThreadInternal(struct _KTHREAD *a1, __int64 a2, char a3, char a4, char a5)
 {
   struct _KTHREAD *CurrentThread; // r15

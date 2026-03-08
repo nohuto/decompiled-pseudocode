@@ -1,3 +1,16 @@
+/*
+ * XREFs of IsPciBusAsync @ 0x1C0035270
+ * Callers:
+ *     ACPIBuildProcessRunMethodPhaseCheckBridge @ 0x1C0011430 (ACPIBuildProcessRunMethodPhaseCheckBridge.c)
+ *     IsPciBusAsyncWorker @ 0x1C0035350 (IsPciBusAsyncWorker.c)
+ *     IsPciDeviceWorker @ 0x1C0035980 (IsPciDeviceWorker.c)
+ *     IsNsobjPciBus @ 0x1C008A678 (IsNsobjPciBus.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpipAllocatePciBusState @ 0x1C00348CC (AcpipAllocatePciBusState.c)
+ *     IsPciBusAsyncWorker @ 0x1C0035350 (IsPciBusAsyncWorker.c)
+ */
+
 __int64 __fastcall IsPciBusAsync(volatile signed __int32 *a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int64 v8; // rax

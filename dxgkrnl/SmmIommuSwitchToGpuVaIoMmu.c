@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmmIommuSwitchToGpuVaIoMmu @ 0x1C03D11C0
+ * Callers:
+ *     ?SysMmEnableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x1C03D1B20 (-SysMmEnableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     SmmAssignDomain @ 0x1C006DD94 (SmmAssignDomain.c)
+ *     SmmMapExistingMemoryToDomain @ 0x1C006E778 (SmmMapExistingMemoryToDomain.c)
+ *     SmmIommuCreatePasidDomain @ 0x1C03D10D4 (SmmIommuCreatePasidDomain.c)
+ *     SmmIommuDeleteDomain @ 0x1C03D1194 (SmmIommuDeleteDomain.c)
+ *     SmmSwapDomains @ 0x1C03D1710 (SmmSwapDomains.c)
+ */
+
 __int64 __fastcall SmmIommuSwitchToGpuVaIoMmu(__int64 a1)
 {
   __int64 v1; // r12

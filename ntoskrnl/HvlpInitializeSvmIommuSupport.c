@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpInitializeSvmIommuSupport @ 0x140545EE4
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     HvlGetSystemPasidCapabilities @ 0x140542050 (HvlGetSystemPasidCapabilities.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 HvlpInitializeSvmIommuSupport()
 {
   int v0; // ebx

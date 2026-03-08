@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsCoplanar@CVisualDepthGeometry@@AEBA_NAEBV1@@Z @ 0x180009890
+ * Callers:
+ *     ?GetRelativeOrder@CVisualDepthGeometry@@QEBA?AW4RelativeOrder@@AEBV1@@Z @ 0x180008BB8 (-GetRelativeOrder@CVisualDepthGeometry@@QEBA-AW4RelativeOrder@@AEBV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CVisualDepthGeometry::IsCoplanar(CVisualDepthGeometry *this, const struct CVisualDepthGeometry *a2)
 {
   return COERCE_FLOAT(COERCE_UNSIGNED_INT(*((float *)this + 40) - *((float *)a2 + 40)) & _xmm) <= 0.000039999999

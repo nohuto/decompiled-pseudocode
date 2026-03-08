@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z @ 0x1C00046BC
+ * Callers:
+ *     cjCopyFontDataW @ 0x1C0004330 (cjCopyFontDataW.c)
+ * Callees:
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ */
+
 __int64 __fastcall bIFIMetricsToTextMetricW2(
         struct XDCOBJ *a1,
         __int64 a2,

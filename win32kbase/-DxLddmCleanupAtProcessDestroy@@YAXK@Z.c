@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006D050
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ * Callees:
+ *     GreUnlockDisplayDevice @ 0x1C001F8B0 (GreUnlockDisplayDevice.c)
+ *     GreLockDisplayDevice @ 0x1C001F900 (GreLockDisplayDevice.c)
+ *     GreUnlockSprite @ 0x1C001F940 (GreUnlockSprite.c)
+ *     GreLockSprite @ 0x1C001F9A0 (GreLockSprite.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E7E8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E850 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C006BF4C (-bRenderLddmDriver@PDEVOBJ@@QEAAHXZ.c)
+ *     ??$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z @ 0x1C006D990 (--$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1C00BD294 (-DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?DxLddmLogProcessPrimaryLockCount@@YAXK@Z @ 0x1C01956DC (-DxLddmLogProcessPrimaryLockCount@@YAXK@Z.c)
+ */
+
 void __fastcall DxLddmCleanupAtProcessDestroy(unsigned int a1)
 {
   HDEV v2; // rbx

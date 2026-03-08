@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiGetSystemServiceTraceTable @ 0x140972A44
+ * Callers:
+ *     KeSetSystemServiceCallback @ 0x140972890 (KeSetSystemServiceCallback.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     KiSystemServiceTraceTableCompareFunction @ 0x140972B84 (KiSystemServiceTraceTableCompareFunction.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 KiGetSystemServiceTraceTable()
 {
   __int64 Pool2; // rax

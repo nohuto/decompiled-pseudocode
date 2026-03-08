@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateAttributes@CDxHandleAdvancedDirectFlipBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1802AEFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1800149C0 (-UpdateAttributes@CDxHandleBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::UpdateAttributes(
         CDxHandleAdvancedDirectFlipBitmapRealization *this,
         const struct CSM_BUFFER_ATTRIBUTES *a2)

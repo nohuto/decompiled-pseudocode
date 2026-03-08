@@ -1,3 +1,14 @@
+/*
+ * XREFs of EmpAcquirePagingReference @ 0x140A85380
+ * Callers:
+ *     EmClientQueryRuleState @ 0x140A85190 (EmClientQueryRuleState.c)
+ *     EmClientRuleEvaluate @ 0x140A85280 (EmClientRuleEvaluate.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 char EmpAcquirePagingReference()
 {
   char v0; // bl

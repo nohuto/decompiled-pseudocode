@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpCaptureContextAttribute32 @ 0x140782174
+ * Callers:
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpCaptureContextAttribute32(__int64 a1, _DWORD *a2, __int64 a3, _QWORD *a4)
 {
   __int64 v5; // rcx

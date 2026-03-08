@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpQueryInterface @ 0x140821F64
+ * Callers:
+ *     HalpDispatchPnp @ 0x140821D00 (HalpDispatchPnp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpQueryInterface(
         __int64 a1,
         _QWORD *a2,

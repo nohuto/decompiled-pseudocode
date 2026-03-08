@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiDetectHardwareSpecControlFeatures @ 0x14037EC84
+ * Callers:
+ *     KiSetHardwareSpeculationControlFeatures @ 0x14037DE1C (KiSetHardwareSpeculationControlFeatures.c)
+ *     KiIsKvaShadowNeededForBranchConfusion @ 0x14037E13C (KiIsKvaShadowNeededForBranchConfusion.c)
+ *     KiDetermineRetpolineEnablement @ 0x1403ACCB4 (KiDetermineRetpolineEnablement.c)
+ * Callees:
+ *     HviGetEnlightenmentInformation @ 0x14037E1E0 (HviGetEnlightenmentInformation.c)
+ *     KiIsBranchConfusionPresent @ 0x14037F118 (KiIsBranchConfusionPresent.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14037F140 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiIsRfdsPresent @ 0x14040AD00 (KiIsRfdsPresent.c)
+ *     KiIsSrsoPresent @ 0x14040ADE4 (KiIsSrsoPresent.c)
+ */
+
 char *__fastcall KiDetectHardwareSpecControlFeatures(__int64 a1, char a2, __int64 a3, char *a4)
 {
   int v4; // r15d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmReadProcessPageTables @ 0x14064325C
+ * Callers:
+ *     KiMonitorCacheErrata @ 0x140576EC0 (KiMonitorCacheErrata.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ *     ExTryAcquireSpinLockSharedAtDpcLevel @ 0x140462EB0 (ExTryAcquireSpinLockSharedAtDpcLevel.c)
+ */
+
 __int64 __fastcall MmReadProcessPageTables(__int64 a1)
 {
   unsigned __int64 ValidPte; // rax

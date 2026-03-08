@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimStartDeviceReadIfAllowed @ 0x1C0009E48
+ * Callers:
+ *     rimIssueReads @ 0x1C0039C14 (rimIssueReads.c)
+ * Callees:
+ *     RIMStartDeviceSpecificRead @ 0x1C0087454 (RIMStartDeviceSpecificRead.c)
+ */
+
 __int64 __fastcall rimStartDeviceReadIfAllowed(__int64 a1, __int64 a2)
 {
   int v2; // eax

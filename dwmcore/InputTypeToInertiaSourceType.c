@@ -1,3 +1,11 @@
+/*
+ * XREFs of InputTypeToInertiaSourceType @ 0x180197968
+ * Callers:
+ *     ?ReportInertiaStartHelper@@YAH_KIMMAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DMATRIX@@@Z @ 0x1801979A4 (-ReportInertiaStartHelper@@YAH_KIMMAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InputTypeToInertiaSourceType(int a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BiEnumerateBootEntries @ 0x140830608
+ * Callers:
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ * Callees:
+ *     ZwEnumerateBootEntries @ 0x140413FB0 (ZwEnumerateBootEntries.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiEnumerateBootEntries(_QWORD *a1, unsigned int *a2)
 {
   int v4; // ebx

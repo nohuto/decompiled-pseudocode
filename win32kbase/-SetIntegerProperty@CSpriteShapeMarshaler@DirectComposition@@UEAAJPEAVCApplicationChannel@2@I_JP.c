@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C000B160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetIntegerProperty(
         DirectComposition::CSpriteShapeMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

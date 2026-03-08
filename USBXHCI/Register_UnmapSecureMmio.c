@@ -1,3 +1,12 @@
+/*
+ * XREFs of Register_UnmapSecureMmio @ 0x1C003F120
+ * Callers:
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0079480 (Controller_WdfEvtDeviceReleaseHardware.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall Register_UnmapSecureMmio(__int64 a1)
 {
   __int64 v1; // rax

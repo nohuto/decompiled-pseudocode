@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlIsDaxVolume @ 0x14053A5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FsRtlIsDaxVolume(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUnicodeToMultiByteSize @ 0x1407A35C0
+ * Callers:
+ *     wcstombs @ 0x1403D6080 (wcstombs.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeToMultiByteSize(
         PULONG BytesInMultiByteString,
         PCWCH UnicodeString,

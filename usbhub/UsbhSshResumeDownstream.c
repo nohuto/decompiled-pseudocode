@@ -1,3 +1,33 @@
+/*
+ * XREFs of UsbhSshResumeDownstream @ 0x1C000E1B0
+ * Callers:
+ *     Usbh_SSH_HubSuspended @ 0x1C00050BC (Usbh_SSH_HubSuspended.c)
+ *     Usbh_SSH_HubPendingResume @ 0x1C00076A0 (Usbh_SSH_HubPendingResume.c)
+ *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C00596BC (Usbh_SSH_HubPendingResumeAfterSuspend.c)
+ * Callees:
+ *     UsbhRefPdo @ 0x1C00012A0 (UsbhRefPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhSyncSuspendPdoPort @ 0x1C0009B88 (UsbhSyncSuspendPdoPort.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C0020A80 (UsbhDisarmHubForWakeDetect.c)
+ *     UsbhSshPropagateResume @ 0x1C0021BE4 (UsbhSshPropagateResume.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhPCE_ResumeTimeout @ 0x1C0034B04 (UsbhPCE_ResumeTimeout.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 void __fastcall UsbhSshResumeDownstream(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int16 v6; // di

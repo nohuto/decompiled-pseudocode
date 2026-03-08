@@ -1,3 +1,11 @@
+/*
+ * XREFs of LZNT1FindMatchStandard @ 0x140A84B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LZNT1FindMatchStandard(unsigned __int8 *a1, __int64 a2)
 {
   unsigned __int64 v2; // r11

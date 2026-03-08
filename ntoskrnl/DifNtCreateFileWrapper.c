@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifNtCreateFileWrapper @ 0x1405E59E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     NtCreateFile @ 0x1407CE510 (NtCreateFile.c)
+ */
+
 NTSTATUS __fastcall DifNtCreateFileWrapper(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,

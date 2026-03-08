@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiAllocateWsle @ 0x14026D1B0
+ * Callers:
+ *     MiMakeSystemCacheRangeValid @ 0x140221870 (MiMakeSystemCacheRangeValid.c)
+ *     MiCompletePrivateZeroFault @ 0x14026C360 (MiCompletePrivateZeroFault.c)
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x14028D690 (MiCompleteRestrictedImageFault.c)
+ *     MiInitializeWorkingSetList @ 0x1402A6260 (MiInitializeWorkingSetList.c)
+ *     MiMakeSystemCachePteValid @ 0x1402DA87C (MiMakeSystemCachePteValid.c)
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ *     MiResolveProtoCombine @ 0x140345A28 (MiResolveProtoCombine.c)
+ *     MiCreateForkWsle @ 0x140661588 (MiCreateForkWsle.c)
+ * Callees:
+ *     MiProcessWsInSwapFault @ 0x140200008 (MiProcessWsInSwapFault.c)
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiAddWorkingSetEntries @ 0x14026D700 (MiAddWorkingSetEntries.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiFillVirtualFaultInfo @ 0x140464314 (MiFillVirtualFaultInfo.c)
+ *     MiGetVirtualFaultPageInfo @ 0x14046438E (MiGetVirtualFaultPageInfo.c)
+ *     MiIncrementVmFaultCount @ 0x140619DDC (MiIncrementVmFaultCount.c)
+ *     MiLogAllocateWsleEvent @ 0x140619E1C (MiLogAllocateWsleEvent.c)
+ *     MiCompleteSecureProcessFault @ 0x1406435E4 (MiCompleteSecureProcessFault.c)
+ */
+
 __int64 __fastcall MiAllocateWsle(
         __int64 a1,
         unsigned __int64 *a2,

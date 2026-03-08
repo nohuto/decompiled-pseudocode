@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiPopulateSubNodes @ 0x140B66970
+ * Callers:
+ *     KiPerformGroupConfiguration @ 0x140B66804 (KiPerformGroupConfiguration.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 KiPopulateSubNodes()
 {
   unsigned __int16 v0; // bx

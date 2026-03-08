@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C029B570
+ * Callers:
+ *     UMPDCachedResourceCleanupWrap @ 0x1C00DAE00 (UMPDCachedResourceCleanupWrap.c)
+ *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C029B5E4 (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
+ *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C029CA14 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DestroyUMPDHeap(struct _UMPDHEAP *a1)
 {
   void *v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpParseChannelCount @ 0x14039F7AC
+ * Callers:
+ *     HalpInitializeConfigurationFromMadt @ 0x140B633D4 (HalpInitializeConfigurationFromMadt.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140B8DF8C (HalpGetNumaProcMemoryCount.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpParseChannelCount()
 {
   unsigned int v1; // ecx

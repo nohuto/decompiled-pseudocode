@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopBootStatCheckIntegrity @ 0x14084B00C
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlUnlockBootStatusData @ 0x14073D1B0 (RtlUnlockBootStatusData.c)
+ *     RtlLockBootStatusData @ 0x14073DD00 (RtlLockBootStatusData.c)
+ *     PopBootStatAccessCheck @ 0x140798D98 (PopBootStatAccessCheck.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     RtlCheckBootStatusIntegrity @ 0x14084B14C (RtlCheckBootStatusIntegrity.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopBootStatCheckIntegrity(__int64 a1)
 {
   __int64 Pool2; // rdi

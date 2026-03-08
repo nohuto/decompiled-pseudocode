@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VerifyIntegrity@VIDMM_LINEAR_POOL@@QEAAJH@Z @ 0x1C0102F38
+ * Callers:
+ *     ?VerifyIntegrity@VIDMM_SEGMENT@@UEAAJXZ @ 0x1C0100910 (-VerifyIntegrity@VIDMM_SEGMENT@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ @ 0x1C002DF40 (-GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ.c)
+ */
+
 __int64 __fastcall VIDMM_LINEAR_POOL::VerifyIntegrity(VIDMM_LINEAR_POOL *this)
 {
   __int64 v1; // rsi

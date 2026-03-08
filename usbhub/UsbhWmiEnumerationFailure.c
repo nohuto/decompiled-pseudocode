@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhWmiEnumerationFailure @ 0x1C004A2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ */
+
 __int64 __fastcall UsbhWmiEnumerationFailure(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   __int64 v6; // r11

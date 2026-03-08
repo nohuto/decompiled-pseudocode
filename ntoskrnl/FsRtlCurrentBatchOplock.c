@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlCurrentBatchOplock @ 0x140768A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlCurrentBatchOplock(POPLOCK Oplock)
 {
   BOOLEAN v1; // dl

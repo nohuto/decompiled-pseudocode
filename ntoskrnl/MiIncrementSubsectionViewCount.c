@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiIncrementSubsectionViewCount @ 0x140332840
+ * Callers:
+ *     MiPrepareSegmentForDeletion @ 0x140214F04 (MiPrepareSegmentForDeletion.c)
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MiSetSubsectionBase @ 0x1402A4B24 (MiSetSubsectionBase.c)
+ *     MiRetainSubsection @ 0x1402F9278 (MiRetainSubsection.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiReferenceActiveSubsection @ 0x1403323F0 (MiReferenceActiveSubsection.c)
+ *     MiReferenceSubsection @ 0x1403327C0 (MiReferenceSubsection.c)
+ *     MiCreatePrototypePtes @ 0x14036862C (MiCreatePrototypePtes.c)
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ * Callees:
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x14034C584 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140368520 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x140668EB4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ */
+
 __int64 __fastcall MiIncrementSubsectionViewCount(_QWORD *BugCheckParameter2, __int64 a2)
 {
   __int64 v2; // r9

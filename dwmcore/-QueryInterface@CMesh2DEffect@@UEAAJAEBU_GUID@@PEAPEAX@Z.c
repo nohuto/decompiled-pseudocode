@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@CMesh2DEffect@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802BBC00
+ * Callers:
+ *     ?QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011FEF0 (-QueryInterface@CMesh2DEffect@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ */
+
 __int64 __fastcall CMesh2DEffect::QueryInterface(CMesh2DEffect *this, const struct _GUID *a2, void **a3)
 {
   unsigned int v3; // ebx

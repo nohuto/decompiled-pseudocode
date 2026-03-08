@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserLayoutCompleted @ 0x1C0098EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     GreWindowLayoutComplete @ 0x1C0098D74 (GreWindowLayoutComplete.c)
+ *     EtwTraceLayoutChangeStop @ 0x1C0098E78 (EtwTraceLayoutChangeStop.c)
+ *     PostIAMShellHookMessage @ 0x1C009C174 (PostIAMShellHookMessage.c)
+ *     HandleAsyncResizeComplete @ 0x1C01F3408 (HandleAsyncResizeComplete.c)
+ *     DwmAsyncCancelRotationDelay @ 0x1C026F07C (DwmAsyncCancelRotationDelay.c)
+ */
+
 __int64 __fastcall NtUserLayoutCompleted(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RECTFromSIZERECT @ 0x1C00D21BC
+ * Callers:
+ *     xxxCheckFullScreen @ 0x1C0033340 (xxxCheckFullScreen.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RECTFromSIZERECT(_DWORD *a1, _DWORD *a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateScaleAnimationDuration@CInteractionTracker@@AEAAMM@Z @ 0x18022E558
+ * Callers:
+ *     ?ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ @ 0x180230098 (-ProcessMousewheelManipulation@CInteractionTracker@@AEAAXXZ.c)
+ * Callees:
+ *     ?ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z @ 0x18022E784 (-ClampValueToBoundary@CInteractionTracker@@QEAAMW4ScrollAxis@@M@Z.c)
+ */
+
 float __fastcall CInteractionTracker::CalculateScaleAnimationDuration(CInteractionTracker *this, float a2)
 {
   double v3; // xmm0_8

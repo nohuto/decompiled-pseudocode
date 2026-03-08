@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PlatformPersistConfig32@NSInstrumentation@@YAXPEAGQEAPEBGPEBIPEA_N_K@Z @ 0x1C00D4BE0
+ * Callers:
+ *     ?PersistState@CLeakTrackingAllocator@NSInstrumentation@@AEAAXXZ @ 0x1C00D4D04 (-PersistState@CLeakTrackingAllocator@NSInstrumentation@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall NSInstrumentation::PlatformPersistConfig32(
         NSInstrumentation *this,
         unsigned __int16 *a2,

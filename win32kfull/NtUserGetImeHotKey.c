@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetImeHotKey @ 0x1C01D2B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetImeHotKey@@YAHKPEAI0PEAPEAUHKL__@@@Z @ 0x1C01FE59C (-GetImeHotKey@@YAHKPEAI0PEAPEAUHKL__@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetImeHotKey(__int64 a1, unsigned int *a2, unsigned int *a3, HKL *a4)
 {
   unsigned int v7; // ebx

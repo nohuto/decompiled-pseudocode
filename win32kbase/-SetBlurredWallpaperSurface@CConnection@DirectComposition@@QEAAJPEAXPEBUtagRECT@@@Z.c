@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetBlurredWallpaperSurface@CConnection@DirectComposition@@QEAAJPEAXPEBUtagRECT@@@Z @ 0x1C0091358
+ * Callers:
+ *     ?OnProcessDestruction@CConnection@DirectComposition@@SAXPEAVCProcessData@2@@Z @ 0x1C006BA74 (-OnProcessDestruction@CConnection@DirectComposition@@SAXPEAVCProcessData@2@@Z.c)
+ *     NtDCompositionSetBlurredWallpaperSurface @ 0x1C0091270 (NtDCompositionSetBlurredWallpaperSurface.c)
+ * Callees:
+ *     ?SetBlurredWallpaperSurfaceInternal@CConnection@DirectComposition@@AEAAJPEAXPEBUtagRECT@@@Z @ 0x1C00913F0 (-SetBlurredWallpaperSurfaceInternal@CConnection@DirectComposition@@AEAAJPEAXPEBUtagRECT@@@Z.c)
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CConnection::SetBlurredWallpaperSurface(
         DirectComposition::CConnection *this,
         void *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIIoctlCalculateOutputBufferV2 @ 0x1C00040B2
+ * Callers:
+ *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C00040B2 (ACPIIoctlCalculateOutputBufferV2.c)
+ *     ACPIIoctlEvalPostProcessingV2 @ 0x1C000449A (ACPIIoctlEvalPostProcessingV2.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0003FB0 (ACPIIoctlCalculateOutputBufferSizeV2.c)
+ *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C00040B2 (ACPIIoctlCalculateOutputBufferV2.c)
+ */
+
 __int64 __fastcall ACPIIoctlCalculateOutputBufferV2(__int64 a1, unsigned __int64 a2, char a3, char a4)
 {
   __int16 v5; // cx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopWakeSourceSize @ 0x140984C8C
+ * Callers:
+ *     PopCopyWakeSource @ 0x1409841D4 (PopCopyWakeSource.c)
+ *     PopGetWakeSource @ 0x140984368 (PopGetWakeSource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopWakeSourceSize(__int64 a1)
 {
   int v1; // r8d

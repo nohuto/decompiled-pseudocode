@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetFrameCountInternal@CDebugFrameCounter@@IEAAIXZ @ 0x1801EFB5C
+ * Callers:
+ *     ?GetCPUTimePerFrame@CDebugFrameCounter@@QEAAIXZ @ 0x1801EFB0C (-GetCPUTimePerFrame@CDebugFrameCounter@@QEAAIXZ.c)
+ *     ?GetFrameRate@CDebugFrameCounter@@QEAAIXZ @ 0x1801EFB90 (-GetFrameRate@CDebugFrameCounter@@QEAAIXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDebugFrameCounter::GetFrameCountInternal(CDebugFrameCounter *this)
 {
   unsigned int v1; // r8d

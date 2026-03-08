@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpInitMachineFrameEntries @ 0x140B704B8
+ * Callers:
+ *     RtlInitializeHistoryTable @ 0x140B687EC (RtlInitializeHistoryTable.c)
+ *     RtlInitKernelModeSpecialMachineFrameEntries @ 0x140B939CC (RtlInitKernelModeSpecialMachineFrameEntries.c)
+ * Callees:
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ */
+
 void __fastcall RtlpInitMachineFrameEntries(unsigned __int64 *a1, unsigned int a2)
 {
   __int64 v3; // rdi

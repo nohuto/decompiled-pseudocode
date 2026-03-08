@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDevice@CRemoteAppRenderTarget@@UEBAPEAVCD3DDevice@@XZ @ 0x1801E7A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct CD3DDevice *__fastcall CRemoteAppRenderTarget::GetDevice(CRemoteAppRenderTarget *this)
 {
   __int64 v1; // rcx

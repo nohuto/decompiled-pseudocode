@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopBsdFlush @ 0x14073AE24
+ * Callers:
+ *     PopBsdHandleRequest @ 0x1402B8B24 (PopBsdHandleRequest.c)
+ *     PopBsdUpdateWorker @ 0x140872C90 (PopBsdUpdateWorker.c)
+ *     PopBsdFlushWorker @ 0x14097D620 (PopBsdFlushWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopWriteBsdPoInfo @ 0x1402B9F3C (PopWriteBsdPoInfo.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 LONG __fastcall PopBsdFlush(char a1)
 {
   LARGE_INTEGER Timeout; // [rsp+48h] [rbp+10h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetValidAweProtection @ 0x1406484D8
+ * Callers:
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetValidAweProtection(__int64 a1, __int16 a2)
 {
   unsigned int v2; // ecx

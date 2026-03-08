@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiCompleteKernelInit @ 0x140A89D30
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeAttachProcess @ 0x1402F8D80 (KeAttachProcess.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KiUpdateThreadPriority @ 0x1403437B0 (KiUpdateThreadPriority.c)
+ *     KiSetProcessorIdle @ 0x14037DFEC (KiSetProcessorIdle.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiInitializeThreadCycleTable @ 0x140A89F10 (KiInitializeThreadCycleTable.c)
+ *     KiAddCpuToSystemCpuPartition @ 0x140A89F80 (KiAddCpuToSystemCpuPartition.c)
+ *     KiCreateCpuSetForProcessor @ 0x140A89FC8 (KiCreateCpuSetForProcessor.c)
+ *     KiAllocateHeteroConfigBuffer @ 0x140A8BB88 (KiAllocateHeteroConfigBuffer.c)
+ */
+
 __int64 __fastcall KiCompleteKernelInit(__int64 a1, __int64 a2, int a3)
 {
   char v3; // bl

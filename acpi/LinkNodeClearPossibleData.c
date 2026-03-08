@@ -1,3 +1,13 @@
+/*
+ * XREFs of LinkNodeClearPossibleData @ 0x1C0099300
+ * Callers:
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C009E540 (IrqArbpQueryConflictIsa.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *LinkNodeClearPossibleData()
 {
   __int64 v0; // rcx

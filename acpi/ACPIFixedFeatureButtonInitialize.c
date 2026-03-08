@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIFixedFeatureButtonInitialize @ 0x1C003CBA8
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     ACPIBuildFixedButtonExtension @ 0x1C000D3DC (ACPIBuildFixedButtonExtension.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ */
+
 void ACPIFixedFeatureButtonInitialize()
 {
   KIRQL v0; // al

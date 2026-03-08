@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionFreeMoveSizeDataOnThreadDestroy @ 0x1C023E0C4
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionFreeMoveSizeDataOnThreadDestroy(__int64 a1))(_QWORD)
 {
   char v2; // bl

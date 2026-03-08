@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExInitLicenseCallback @ 0x14086174C
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ */
+
 NTSTATUS ExInitLicenseCallback()
 {
   struct _LIST_ENTRY *Blink; // rbx

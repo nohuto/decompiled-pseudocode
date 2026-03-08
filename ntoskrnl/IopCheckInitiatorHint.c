@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopCheckInitiatorHint @ 0x14035E260
+ * Callers:
+ *     IopAllocRealFileObject @ 0x1407BA090 (IopAllocRealFileObject.c)
+ * Callees:
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopSetFileObjectExtensionFlag @ 0x140294D78 (IopSetFileObjectExtensionFlag.c)
+ *     IoGetInitiatorProcess @ 0x1403026B0 (IoGetInitiatorProcess.c)
+ *     RtlIsSandboxedToken @ 0x140741410 (RtlIsSandboxedToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall IopCheckInitiatorHint(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PcMapTransfer @ 0x140519B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PcMapTransfer(__int64 *a1, __int64 a2, char a3, __int64 a4, unsigned __int64 a5, unsigned int a6)
 {
   unsigned int v7; // r10d

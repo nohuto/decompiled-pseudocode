@@ -1,3 +1,11 @@
+/*
+ * XREFs of CarpBugcheckInit @ 0x1405D34B4
+ * Callers:
+ *     CarInit @ 0x1405D18E4 (CarInit.c)
+ * Callees:
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ */
+
 BOOLEAN CarpBugcheckInit()
 {
   dword_140C34B6C = CarTipTag;

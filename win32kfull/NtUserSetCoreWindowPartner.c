@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetCoreWindowPartner @ 0x1C01DC380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z @ 0x1C0099FC0 (-ValidateHWNDND@@YAHPEAUHWND__@@PEAPEAUtagWND@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0223130 (-RemoveComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ *     ?xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C022325C (-xxxSetHost@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ */
+
 __int64 __fastcall NtUserSetCoreWindowPartner(HWND a1, int a2, int a3)
 {
   __int64 v6; // rcx

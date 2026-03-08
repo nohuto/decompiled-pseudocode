@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTranslationUpdateOffsetDWM @ 0x1C01987A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C0165DC4 (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EtwTranslationUpdateOffsetDWM(__int64 a1, int a2, __int64 a3)
 {
   NTSTATUS result; // eax

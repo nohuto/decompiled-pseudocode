@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoInitializeDP @ 0x1C001D4C0
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiFdoCleanupDP @ 0x1C005E8E4 (DpiFdoCleanupDP.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ */
+
 __int64 __fastcall DpiFdoInitializeDP(__int64 a1)
 {
   _QWORD *v1; // rsi

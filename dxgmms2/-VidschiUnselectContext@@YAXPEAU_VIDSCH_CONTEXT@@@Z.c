@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0016500
+ * Callers:
+ *     VidSchiRun_PriorityTable @ 0x1C00BA0C0 (VidSchiRun_PriorityTable.c)
+ * Callees:
+ *     VidSchiUpdateContextStatus @ 0x1C0008230 (VidSchiUpdateContextStatus.c)
+ */
+
 void __fastcall VidschiUnselectContext(struct _VIDSCH_CONTEXT *a1)
 {
   KSPIN_LOCK *v2; // rcx

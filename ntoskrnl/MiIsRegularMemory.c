@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiIsRegularMemory @ 0x140B4FF44
+ * Callers:
+ *     MxMovePageTables @ 0x140B4F948 (MxMovePageTables.c)
+ *     MxMarkValidMappings @ 0x140B4FB8C (MxMarkValidMappings.c)
+ *     MxCreatePfnsForPtes @ 0x140B4FD40 (MxCreatePfnsForPtes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIsRegularMemory(__int64 a1, unsigned __int64 a2)
 {
   __int64 result; // rax

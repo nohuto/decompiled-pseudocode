@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ @ 0x1C017D324
+ * Callers:
+ *     ??1DXGDEADLOCK_TRACKER@@QEAA@XZ @ 0x1C017D26C (--1DXGDEADLOCK_TRACKER@@QEAA@XZ.c)
+ *     ?StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ @ 0x1C01E1084 (-StopDeadlockTrackers@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C000AA90 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$01@@U?$_tlgWrapperByVal@$07@@U2@U2@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U3@U?$_tlgWrapSz@G@@U2@U1@U3@U3@U3@U3@U2@U3@U3@U3@U3@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$01@@AEBU?$_tlgWrapperByVal@$07@@44AEBU?$_tlgWrapperByVal@$03@@5555AEBU?$_tlgWrapSz@G@@43555545555555@Z @ 0x1C003D904 (--$Write@U-$_tlgWrapperByVal@$01@@U-$_tlgWrapperByVal@$07@@U2@U2@U-$_tlgWrapperByVa_ea_1C003D904.c)
+ */
+
 void __fastcall DXGDEADLOCK_TRACKER::Cancel(DXGDEADLOCK_TRACKER *this)
 {
   ULONGLONG UnbiasedInterruptTime; // rsi

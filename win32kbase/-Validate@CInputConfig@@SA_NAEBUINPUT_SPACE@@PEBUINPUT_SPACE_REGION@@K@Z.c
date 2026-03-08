@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Validate@CInputConfig@@SA_NAEBUINPUT_SPACE@@PEBUINPUT_SPACE_REGION@@K@Z @ 0x1C0213A70
+ * Callers:
+ *     NtConfigureInputSpace @ 0x1C0169520 (NtConfigureInputSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CInputConfig::Validate(const struct INPUT_SPACE *a1, const struct INPUT_SPACE_REGION *a2, int a3)
 {
   unsigned int v5; // r8d

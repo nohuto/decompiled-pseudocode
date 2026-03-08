@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiUnlockLoaderEntry @ 0x1402A6ACC
+ * Callers:
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiSetPagingOfDriver @ 0x1402AFF28 (MiSetPagingOfDriver.c)
+ *     MmProtectDriverSection @ 0x140302930 (MmProtectDriverSection.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ *     MiFindDriverNonPagedSections @ 0x14072715C (MiFindDriverNonPagedSections.c)
+ *     MiFreeInitializationCode @ 0x14072A51C (MiFreeInitializationCode.c)
+ *     MiLockdownSections @ 0x14072E408 (MiLockdownSections.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 int __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rdi

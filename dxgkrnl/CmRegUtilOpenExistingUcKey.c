@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRegUtilOpenExistingUcKey @ 0x1C0393A34
+ * Callers:
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C0393AAC (CmRegUtilOpenExistingWstrKey.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CmRegUtilOpenExistingUcKey(void *a1, struct _UNICODE_STRING *a2, ACCESS_MASK a3, void **a4)
 {
   NTSTATUS result; // eax

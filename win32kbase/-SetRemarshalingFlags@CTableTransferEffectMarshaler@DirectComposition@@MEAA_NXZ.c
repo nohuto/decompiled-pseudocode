@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CTableTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024F810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CTableTransferEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CTableTransferEffectMarshaler *this)
 {

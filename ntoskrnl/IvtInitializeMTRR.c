@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtInitializeMTRR @ 0x1403A64E8
+ * Callers:
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IvtInitializeMTRR(__int64 a1)
 {
   _QWORD *v1; // r11

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VF_FIND_BUFFER @ 0x140AC17A8
+ * Callers:
+ *     ViSpecialFreeCommonBuffer @ 0x140AC6FA8 (ViSpecialFreeCommonBuffer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int16 *__fastcall VF_FIND_BUFFER(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi

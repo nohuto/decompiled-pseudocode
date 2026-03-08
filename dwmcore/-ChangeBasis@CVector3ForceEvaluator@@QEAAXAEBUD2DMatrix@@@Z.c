@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x180273A34
+ * Callers:
+ *     ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180238A9C (-CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ * Callees:
+ *     _lambda_c2661e01401ae061a9dc9ee442c48f39_::operator() @ 0x180273934 (_lambda_c2661e01401ae061a9dc9ee442c48f39_--operator().c)
+ *     ?D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z @ 0x180279A80 (-D2DMatrixInverse@@YAPEAUD2DMatrix@@PEAU1@PEAMPEBU1@@Z.c)
+ */
+
 void __fastcall CVector3ForceEvaluator::ChangeBasis(CVector3ForceEvaluator *this, const struct D2DMatrix *a2)
 {
   _OWORD *v2; // rdi

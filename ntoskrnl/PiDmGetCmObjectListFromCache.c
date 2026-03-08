@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDmGetCmObjectListFromCache @ 0x1407777AC
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     PiPnpRtlGetFilteredDeviceList @ 0x140777284 (PiPnpRtlGetFilteredDeviceList.c)
+ *     PiPnpRtlGetFilteredDeviceInterfaceList @ 0x140777504 (PiPnpRtlGetFilteredDeviceInterfaceList.c)
+ * Callees:
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406CEAE4 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     PiDmGetObjectList @ 0x140777800 (PiDmGetObjectList.c)
+ */
+
 __int64 __fastcall PiDmGetCmObjectListFromCache(int a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   int v6; // eax

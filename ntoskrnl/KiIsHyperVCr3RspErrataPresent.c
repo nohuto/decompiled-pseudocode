@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiIsHyperVCr3RspErrataPresent @ 0x140576E08
+ * Callers:
+ *     KiIsBranchConfusionMitigationSupported @ 0x1405718BC (KiIsBranchConfusionMitigationSupported.c)
+ * Callees:
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     HviIsHypervisorVendorMicrosoft @ 0x14037FCF0 (HviIsHypervisorVendorMicrosoft.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HviGetHypervisorVersion @ 0x14061301C (HviGetHypervisorVersion.c)
+ */
+
 __int64 __fastcall KiIsHyperVCr3RspErrataPresent(__int64 a1)
 {
   bool v1; // zf

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhasePep @ 0x1C000F780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhasePep(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwActivityIdControl @ 0x140244870
+ * Callers:
+ *     IoReuseIrp @ 0x1402B1EB0 (IoReuseIrp.c)
+ *     IoSetActivityIdIrp @ 0x1402B2080 (IoSetActivityIdIrp.c)
+ *     IopInitActivityIdIrp @ 0x140553324 (IopInitActivityIdIrp.c)
+ *     VrpPostQueryKey @ 0x1406C14A4 (VrpPostQueryKey.c)
+ *     VrpPreOpenOrCreate @ 0x1406C1A34 (VrpPreOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ *     VrpRegistryCallback @ 0x1406C2D60 (VrpRegistryCallback.c)
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpPostEnumerateKey @ 0x140736428 (VrpPostEnumerateKey.c)
+ *     VrpIoctlDeviceDispatch @ 0x140736DF0 (VrpIoctlDeviceDispatch.c)
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140949354 (IoWriteDeferredLiveDumpData.c)
+ *     VrpPostUnloadKey @ 0x140A6FF3C (VrpPostUnloadKey.c)
+ *     VrpPreFlushKey @ 0x140A6FFDC (VrpPreFlushKey.c)
+ *     VrpPreQueryKeyName @ 0x140A700A4 (VrpPreQueryKeyName.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall EtwActivityIdControl(ULONG ControlCode, LPGUID ActivityId)
 {
   volatile signed __int64 *EtwSupport; // rax

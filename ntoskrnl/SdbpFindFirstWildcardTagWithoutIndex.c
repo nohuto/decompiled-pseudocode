@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpFindFirstWildcardTagWithoutIndex @ 0x140A4DF28
+ * Callers:
+ *     SdbGetDatabaseMatchEx @ 0x1407A1A40 (SdbGetDatabaseMatchEx.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A4EEE0 (SdbpFindFirstNamedTagHelper.c)
+ */
+
 __int64 __fastcall SdbpFindFirstWildcardTagWithoutIndex(
         __int64 a1,
         unsigned __int16 a2,

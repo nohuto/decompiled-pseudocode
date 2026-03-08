@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtAlpcDeleteSectionView @ 0x14077A830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpEnumerateResourcesPort @ 0x140715088 (AlpcpEnumerateResourcesPort.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteView @ 0x1407155FC (AlpcpDeleteView.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
 {
   struct _KTHREAD *CurrentThread; // rax

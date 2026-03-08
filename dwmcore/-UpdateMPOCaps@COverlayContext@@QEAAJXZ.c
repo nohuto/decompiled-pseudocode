@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?UpdateMPOCaps@COverlayContext@@QEAAJXZ @ 0x1800C8D58
+ * Callers:
+ *     ?OnSwapChainCreated@COverlayContext@@QEAAJXZ @ 0x1800C8744 (-OnSwapChainCreated@COverlayContext@@QEAAJXZ.c)
+ *     ?UpdateMPOCaps@CLegacyRenderTarget@@UEAAJXZ @ 0x1800C8D30 (-UpdateMPOCaps@CLegacyRenderTarget@@UEAAJXZ.c)
+ *     ?UpdateMPOCaps@CDDisplayRenderTarget@@UEAAJXZ @ 0x1801C71C0 (-UpdateMPOCaps@CDDisplayRenderTarget@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180089410 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801292C6 (McTemplateU0qq_EventWriteTransfer.c)
+ *     ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x1801D9EF8 (-EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z.c)
+ *     ?DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F3CD0 (-DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall COverlayContext::UpdateMPOCaps(CDirectFlipInfo **this)
 {
   unsigned int v2; // ebx

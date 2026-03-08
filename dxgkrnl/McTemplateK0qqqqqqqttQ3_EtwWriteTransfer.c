@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqqqqqqttQ3_EtwWriteTransfer @ 0x1C0047608
+ * Callers:
+ *     ?DxgkCddLogEvent@@YAXIEPEAU_DXGKETW_PARAMS@@@Z @ 0x1C0166990 (-DxgkCddLogEvent@@YAXIEPEAU_DXGKETW_PARAMS@@@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqqqqqqttQ3_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

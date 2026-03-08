@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiDoubleFaultAbort @ 0x140425980
+ * Callers:
+ *     KiDoubleFaultAbortShadow @ 0x140AF3540 (KiDoubleFaultAbortShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiDoubleFaultAbort @ 0x140425980 (KiDoubleFaultAbort.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __fastcall __noreturn KiDoubleFaultAbort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

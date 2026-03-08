@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiNdisThrottle @ 0x1C000A0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ */
+
 void __fastcall CiNdisThrottle(PDEVICE_OBJECT DeviceObject, PVOID Context)
 {
   NTSTATUS v2; // ebx

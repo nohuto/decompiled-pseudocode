@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpRegisterUMProvider @ 0x140694950
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpUpdateEnableMask @ 0x140692F88 (EtwpUpdateEnableMask.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406934E8 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140694C98 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140694E30 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpAddUmRegEntry @ 0x140695184 (EtwpAddUmRegEntry.c)
+ *     EtwpTrackProviderRegistration @ 0x1406952D0 (EtwpTrackProviderRegistration.c)
+ *     EtwpApplyScopeFilters @ 0x140695404 (EtwpApplyScopeFilters.c)
+ *     EtwpEventWriteTemplateSessAndProv @ 0x1408A20CA (EtwpEventWriteTemplateSessAndProv.c)
+ *     EtwpCopySchematizedFilters @ 0x1409F23CC (EtwpCopySchematizedFilters.c)
+ */
+
 __int64 __fastcall EtwpRegisterUMProvider(int a1, __int64 a2, unsigned int a3, char a4, _DWORD *a5)
 {
   int v8; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiHeteroComputeThreadImportance @ 0x140459632
+ * Callers:
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14045969C (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KiEvaluatePreemptionSwapTarget @ 0x140574C20 (KiEvaluatePreemptionSwapTarget.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140574F74 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall KiHeteroComputeThreadImportance(int a1, char a2)
 {
   unsigned __int16 v3; // [rsp+0h] [rbp-28h]

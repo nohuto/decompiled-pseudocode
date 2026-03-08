@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhPCE_Check @ 0x1C003439C
+ * Callers:
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ */
+
 __int64 __fastcall UsbhPCE_Check(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rdx

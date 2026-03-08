@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseD2DResources@CDeviceTextureTarget@@MEAAXXZ @ 0x18029C670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDeviceTextureTarget::ReleaseD2DResources(CDeviceTextureTarget *this)
 {
   __int64 v2; // rcx

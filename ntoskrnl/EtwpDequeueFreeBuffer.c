@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpDequeueFreeBuffer @ 0x14020620C
+ * Callers:
+ *     EtwpSwitchBuffer @ 0x140205FF4 (EtwpSwitchBuffer.c)
+ *     EtwpRotateCompressionTarget @ 0x1406006D8 (EtwpRotateCompressionTarget.c)
+ * Callees:
+ *     EtwpDequeueBuffer @ 0x140206388 (EtwpDequeueBuffer.c)
+ *     EtwpUnlockBufferList @ 0x140206498 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402064E4 (EtwpLockBufferList.c)
+ *     EtwpResetBufferHeader @ 0x14020657C (EtwpResetBufferHeader.c)
+ *     EtwpEnqueueOverflowBuffer @ 0x140300FB4 (EtwpEnqueueOverflowBuffer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     EtwpDisableCompression @ 0x140600498 (EtwpDisableCompression.c)
+ */
+
 unsigned int *__fastcall EtwpDequeueFreeBuffer(__int64 a1)
 {
   char v1; // bp

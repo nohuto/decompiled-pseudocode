@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepFindTokenAttribute @ 0x14066C6D4
+ * Callers:
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x14066C748 (AuthzBasepQueryTokenAttributeAndValues.c)
+ * Callees:
+ *     AuthzBasepEqualUnicodeString @ 0x140297EF8 (AuthzBasepEqualUnicodeString.c)
+ */
+
 __int64 **__fastcall AuthzBasepFindTokenAttribute(const UNICODE_STRING *a1)
 {
   __int64 v1; // rbx

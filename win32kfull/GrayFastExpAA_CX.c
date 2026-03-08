@@ -1,3 +1,11 @@
+/*
+ * XREFs of GrayFastExpAA_CX @ 0x1C0264F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GrayFastExpAA_CX(__int64 a1, __int64 a2, _WORD *a3, _WORD *a4, int a5)
 {
   __int64 v5; // rax

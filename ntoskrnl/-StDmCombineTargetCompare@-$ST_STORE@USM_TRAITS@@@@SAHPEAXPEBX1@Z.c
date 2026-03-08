@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StDmCombineTargetCompare@?$ST_STORE@USM_TRAITS@@@@SAHPEAXPEBX1@Z @ 0x14045D2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ST_STORE<SM_TRAITS>::StDmCombineTargetCompare(_QWORD *a1, _DWORD *a2, _DWORD *a3)
 {
   unsigned int v3; // eax

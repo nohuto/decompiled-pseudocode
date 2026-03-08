@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsMakeSiloContextPermanent @ 0x1409A96D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PspStorageMakeSlotReadOnly @ 0x1407359D8 (PspStorageMakeSlotReadOnly.c)
+ */
+
 __int64 __fastcall PsMakeSiloContextPermanent(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

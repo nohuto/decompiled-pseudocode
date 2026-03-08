@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserSurfaceAccessCheck @ 0x1C00A3930
+ * Callers:
+ *     UserScreenAccessCheck @ 0x1C00A3900 (UserScreenAccessCheck.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UserSurfaceAccessCheck(__int64 a1)
 {
   unsigned int v2; // ebx

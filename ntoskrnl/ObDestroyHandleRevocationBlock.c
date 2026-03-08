@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObDestroyHandleRevocationBlock @ 0x1407DAD2C
+ * Callers:
+ *     SepDeleteLogonSessionTrack @ 0x1407DAE44 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x14097838C (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ */
+
 void __fastcall ObDestroyHandleRevocationBlock(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

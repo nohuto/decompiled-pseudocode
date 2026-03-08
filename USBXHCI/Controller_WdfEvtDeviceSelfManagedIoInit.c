@@ -1,3 +1,18 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceSelfManagedIoInit @ 0x1C001C340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Controller_InUseByDebugger @ 0x1C001C410 (Controller_InUseByDebugger.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_PopulateDeviceFlags @ 0x1C00738B4 (Controller_PopulateDeviceFlags.c)
+ *     Controller_PopulateHardwareVerifierFlags @ 0x1C0073D3C (Controller_PopulateHardwareVerifierFlags.c)
+ *     Controller_SetDeviceDescription @ 0x1C0073EEC (Controller_SetDeviceDescription.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoInit(__int64 a1)
 {
   char v1; // di

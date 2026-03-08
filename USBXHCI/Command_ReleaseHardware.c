@@ -1,3 +1,12 @@
+/*
+ * XREFs of Command_ReleaseHardware @ 0x1C0077ED0
+ * Callers:
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0079480 (Controller_WdfEvtDeviceReleaseHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     XilCommand_FreeResources @ 0x1C00316D4 (XilCommand_FreeResources.c)
+ */
+
 void __fastcall Command_ReleaseHardware(__int64 a1)
 {
   int v2; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C021419C
+ * Callers:
+ *     ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C0214388 (-xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z.c)
+ * Callees:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ *     InternalMapVirtualKeyEx @ 0x1C0081970 (InternalMapVirtualKeyEx.c)
+ */
+
 void __fastcall xxxAdjustPushState(
         struct tagTHREADINFO *a1,
         __int64 a2,

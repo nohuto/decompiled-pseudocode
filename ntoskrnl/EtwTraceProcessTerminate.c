@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceProcessTerminate @ 0x140355D5C
+ * Callers:
+ *     PspTerminateProcess @ 0x1407DC198 (PspTerminateProcess.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwTraceProcessTerminate(__int64 a1)
 {
   int v1; // eax

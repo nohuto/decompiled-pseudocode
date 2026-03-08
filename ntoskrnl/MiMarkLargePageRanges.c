@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkLargePageRanges @ 0x140B4F274
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiMarkLargePageMappings @ 0x140B4F638 (MiMarkLargePageMappings.c)
+ */
+
 void __fastcall MiMarkLargePageRanges(__int64 a1)
 {
   unsigned int v2; // esi

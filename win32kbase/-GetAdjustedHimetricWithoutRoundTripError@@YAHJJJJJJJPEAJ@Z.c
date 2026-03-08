@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdjustedHimetricWithoutRoundTripError@@YAHJJJJJJJPEAJ@Z @ 0x1C02173F4
+ * Callers:
+ *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C02172A4 (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ * Callees:
+ *     ConvertCoordinates @ 0x1C0217828 (ConvertCoordinates.c)
+ */
+
 __int64 __fastcall GetAdjustedHimetricWithoutRoundTripError(
         int a1,
         int a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReturnPfnList @ 0x140371724
+ * Callers:
+ *     MiInitializeDynamicBitmap @ 0x14080A0E4 (MiInitializeDynamicBitmap.c)
+ *     MiDeleteSparseRange @ 0x140A404AC (MiDeleteSparseRange.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReturnPfnList(__int64 a1)
 {
   __int64 v1; // rdi

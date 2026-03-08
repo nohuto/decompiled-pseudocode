@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopDripsWatchdogTakeAction @ 0x14099E1CC
+ * Callers:
+ *     PopDripsWatchdogDiagnosticWorker @ 0x140999490 (PopDripsWatchdogDiagnosticWorker.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     PpmIdlePrevetoWatchdog @ 0x140582DB0 (PpmIdlePrevetoWatchdog.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140586854 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDiagTraceCsDripsWatchdog @ 0x14058F848 (PopDiagTraceCsDripsWatchdog.c)
+ *     PopDiagTraceCsDripsWatchdogPerfTrack @ 0x14058FA44 (PopDiagTraceCsDripsWatchdogPerfTrack.c)
+ *     PopDeviceConstraintsEnforced @ 0x1405A06C0 (PopDeviceConstraintsEnforced.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopCheckTestsigningEnabled @ 0x14097D660 (PopCheckTestsigningEnabled.c)
+ *     PopFxDestroyDripsBlockingDeviceList @ 0x140981B94 (PopFxDestroyDripsBlockingDeviceList.c)
+ */
+
 void __fastcall PopDripsWatchdogTakeAction(__int64 a1, __int16 a2, int a3)
 {
   __int64 v5; // rcx

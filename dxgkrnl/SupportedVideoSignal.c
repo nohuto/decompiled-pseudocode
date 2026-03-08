@@ -1,3 +1,11 @@
+/*
+ * XREFs of SupportedVideoSignal @ 0x1C03C839C
+ * Callers:
+ *     ?_IsModeInActiveSizeRange@MonitorModes@DxgMonitor@@AEBAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_ALGORITHM@@PEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C03C8BBC (-_IsModeInActiveSizeRange@MonitorModes@DxgMonitor@@AEBAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_M.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SupportedVideoSignal(_DWORD *a1, unsigned int *a2, int a3)
 {
   __int64 v6; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VrpInitializeLoadedDifferencingHives @ 0x140854594
+ * Callers:
+ *     VRegSetup @ 0x1408543D0 (VRegSetup.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 VrpInitializeLoadedDifferencingHives()
 {
   unsigned int v0; // ebx

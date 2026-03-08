@@ -1,3 +1,16 @@
+/*
+ * XREFs of VrpGetNextToken @ 0x1406C24E8
+ * Callers:
+ *     VrpPreOpenOrCreate @ 0x1406C1A34 (VrpPreOpenOrCreate.c)
+ *     VrpCountPathComponents @ 0x1406C1E90 (VrpCountPathComponents.c)
+ *     VrpTranslatePath @ 0x1406C1EF8 (VrpTranslatePath.c)
+ *     VrpComparePath @ 0x1406C2400 (VrpComparePath.c)
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpCreateNamespaceNode @ 0x140737348 (VrpCreateNamespaceNode.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall VrpGetNextToken(unsigned __int16 *a1, __int64 *a2, __int64 a3)
 {
   __int64 v5; // r10

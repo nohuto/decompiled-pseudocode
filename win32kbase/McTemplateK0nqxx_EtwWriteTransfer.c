@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0nqxx_EtwWriteTransfer @ 0x1C0165970
+ * Callers:
+ *     EtwTraceUIPIMsgError @ 0x1C00C4A30 (EtwTraceUIPIMsgError.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0nqxx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwSetValueKeyWrapper @ 0x1405F57B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwSetValueKeyWrapper(
         HANDLE KeyHandle,
         PUNICODE_STRING ValueName,

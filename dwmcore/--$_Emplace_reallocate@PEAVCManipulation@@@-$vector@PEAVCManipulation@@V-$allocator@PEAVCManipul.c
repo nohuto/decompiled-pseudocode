@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@PEAVCManipulation@@@?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@QEAAPEAPEAVCManipulation@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x1802702F0
+ * Callers:
+ *     ?ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETMANIPULATIONS@@PEBUMarshaledManipulationInfo@@@Z @ 0x18027195C (-ProcessSetManipulations@InteractionSourceManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERA.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCManipulation@@V?$allocator@PEAVCManipulation@@@std@@@std@@AEAAXQEAPEAVCManipulation@@_K1@Z @ 0x1802720D0 (-_Change_array@-$vector@PEAVCManipulation@@V-$allocator@PEAVCManipulation@@@std@@@std@@AEAAXQEAP.c)
+ */
+
 char *__fastcall std::vector<CManipulation *>::_Emplace_reallocate<CManipulation *>(
         const void **a1,
         _BYTE *a2,

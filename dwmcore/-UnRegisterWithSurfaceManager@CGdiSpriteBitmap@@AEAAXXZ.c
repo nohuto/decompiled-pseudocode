@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800AB9F0
+ * Callers:
+ *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800A87C4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
+ *     ??1CGdiSpriteBitmap@@MEAA@XZ @ 0x1800A99F4 (--1CGdiSpriteBitmap@@MEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CGdiSpriteBitmap::UnRegisterWithSurfaceManager(CGdiSpriteBitmap *this)
 {
   char *v2; // rax

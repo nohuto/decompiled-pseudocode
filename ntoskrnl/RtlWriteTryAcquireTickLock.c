@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlWriteTryAcquireTickLock @ 0x14036B174
+ * Callers:
+ *     KeFreezeExecution @ 0x14036ADA0 (KeFreezeExecution.c)
+ *     KiSchedulerDpc @ 0x14066B0D0 (KiSchedulerDpc.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlWriteTryAcquireTickLock(signed __int64 *a1)
 {
   signed __int64 v1; // r8

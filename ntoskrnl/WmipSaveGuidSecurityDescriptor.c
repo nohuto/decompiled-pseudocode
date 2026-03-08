@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipSaveGuidSecurityDescriptor @ 0x14085BE20
+ * Callers:
+ *     WmipSecurityMethod @ 0x14076BC30 (WmipSecurityMethod.c)
+ * Callees:
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlLengthSecurityDescriptor @ 0x14071C8F0 (RtlLengthSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipSaveGuidSecurityDescriptor(__int64 a1, void *a2)
 {
   void *Pool2; // rbx

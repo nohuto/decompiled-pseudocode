@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiFreeSlabEntry @ 0x1403B33B0
+ * Callers:
+ *     MiReplenishSlabAllocator @ 0x1403496D8 (MiReplenishSlabAllocator.c)
+ *     MiFreeSlabEntries @ 0x140361050 (MiFreeSlabEntries.c)
+ * Callees:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x14029A144 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14034A0A8 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     MiFreeLargePageMemory @ 0x1403505C0 (MiFreeLargePageMemory.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiFreeSlabEntry(__int64 a1, __int64 a2)
 {
   __int64 v3; // r15

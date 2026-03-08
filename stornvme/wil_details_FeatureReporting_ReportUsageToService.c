@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_FeatureReporting_ReportUsageToService @ 0x1C0003A6C
+ * Callers:
+ *     wil_details_IsEnabledFallback @ 0x1C0003E74 (wil_details_IsEnabledFallback.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1C0003AE8 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_MapReportingKind @ 0x1C0003F04 (wil_details_MapReportingKind.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0004200 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportUsageToService(
         __int64 a1,
         __int64 a2,

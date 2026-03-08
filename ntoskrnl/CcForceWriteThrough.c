@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcForceWriteThrough @ 0x1402FD990
+ * Callers:
+ *     CcPrepareMdlWrite @ 0x1402FD600 (CcPrepareMdlWrite.c)
+ * Callees:
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x140290B30 (CcGetPrivateVolumeCacheMapFromFileObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcForceWriteThrough(__int64 a1, int a2, __int64 a3, char a4)
 {
   char v4; // r15

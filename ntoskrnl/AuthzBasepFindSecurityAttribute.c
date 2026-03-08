@@ -1,3 +1,21 @@
+/*
+ * XREFs of AuthzBasepFindSecurityAttribute @ 0x1402478D0
+ * Callers:
+ *     SeSecurityAttributePresent @ 0x1402464F0 (SeSecurityAttributePresent.c)
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     SepDetermineGlobalTableCheckNeededForQuery @ 0x14024753C (SepDetermineGlobalTableCheckNeededForQuery.c)
+ *     AuthzBasepGetSecurityAttributesCopyoutBufferSize @ 0x140247720 (AuthzBasepGetSecurityAttributesCopyoutBufferSize.c)
+ *     AuthzBasepAddSecurityAttribute @ 0x140296FB0 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140297E80 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepCopyoutSecurityAttributes @ 0x1402D5E70 (AuthzBasepCopyoutSecurityAttributes.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140776804 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A57160 (AuthzBasepCompareSecurityAttributesInformation.c)
+ * Callees:
+ *     AuthzBasepEqualUnicodeString @ 0x140297EF8 (AuthzBasepEqualUnicodeString.c)
+ *     AuthzBasepEqualUnicodeStringCaseSensitive @ 0x1402F707C (AuthzBasepEqualUnicodeStringCaseSensitive.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 *__fastcall AuthzBasepFindSecurityAttribute(__int64 a1, const UNICODE_STRING *a2)
 {
   _QWORD *v2; // rbx

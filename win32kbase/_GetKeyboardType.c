@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetKeyboardType @ 0x1C021B0F8
+ * Callers:
+ *     NtUserGetKeyboardType @ 0x1C0170330 (NtUserGetKeyboardType.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetKeyboardType(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

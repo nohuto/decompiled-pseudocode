@@ -1,3 +1,43 @@
+/*
+ * XREFs of SLUpdateLicenseDataInternal @ 0x1409F78B4
+ * Callers:
+ *     ExUpdateLicenseData @ 0x14079C4D0 (ExUpdateLicenseData.c)
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpGetLicenseTamperState @ 0x140606C7C (ExpGetLicenseTamperState.c)
+ *     ExpLicUpdateChecksum @ 0x140606DE8 (ExpLicUpdateChecksum.c)
+ *     ExpSetLicenseTamperState @ 0x140607004 (ExpSetLicenseTamperState.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     ExpSetKernelDataProtection @ 0x14075B0D0 (ExpSetKernelDataProtection.c)
+ *     ExpReducedLicenseData @ 0x14079C520 (ExpReducedLicenseData.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     sub_14081A8B4 @ 0x14081A8B4 (sub_14081A8B4.c)
+ *     sub_140831820 @ 0x140831820 (sub_140831820.c)
+ *     ntoskrnl_24 @ 0x1409F6C30 (ntoskrnl_24.c)
+ *     sub_1409F72BC @ 0x1409F72BC (sub_1409F72BC.c)
+ *     SLSendPolicyChangeNotifications @ 0x1409F788C (SLSendPolicyChangeNotifications.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SLUpdateLicenseDataInternal(__int64 a1, int a2, unsigned int *a3)
 {
   PVOID v6; // rsi

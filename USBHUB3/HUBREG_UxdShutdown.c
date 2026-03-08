@@ -1,9 +1,20 @@
+/*
+ * XREFs of HUBREG_UxdShutdown @ 0x1C0087BB0
+ * Callers:
+ *     HUBFDO_EvtDeviceShutdownPreprocess @ 0x1C000D2F0 (HUBFDO_EvtDeviceShutdownPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_QueryGlobalUxdSettings @ 0x1C0086AA4 (HUBREG_QueryGlobalUxdSettings.c)
+ *     HUBREG_DeleteUxdSubKeys @ 0x1C0087990 (HUBREG_DeleteUxdSubKeys.c)
+ */
+
 __int64 __fastcall HUBREG_UxdShutdown(__int64 a1)
 {
   __int64 v2; // rsi
   int v3; // ebx
-  int v4; // edx
-  int v5; // r9d
+  unsigned __int16 v4; // r9
+  __int64 v6; // [rsp+28h] [rbp-28h]
   __int64 v7; // [rsp+70h] [rbp+20h] BYREF
   __int64 v8; // [rsp+78h] [rbp+28h] BYREF
   __int64 v9; // [rsp+80h] [rbp+30h] BYREF
@@ -53,16 +64,16 @@ __int64 __fastcall HUBREG_UxdShutdown(__int64 a1)
              &v7);
       if ( v3 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       {
-        v5 = 114;
+        v4 = 114;
 LABEL_8:
-        LOBYTE(v4) = 2;
+        LODWORD(v6) = v3;
         WPP_RECORDER_SF_d(
           *(_QWORD *)(a1 + 2520),
+          2u,
+          3u,
           v4,
-          3,
-          v5,
           (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
-          v3);
+          v6);
       }
     }
     else if ( v3 >= 0 )
@@ -71,7 +82,7 @@ LABEL_8:
     }
     else if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
     {
-      v5 = 115;
+      v4 = 115;
       goto LABEL_8;
     }
   }

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MapApertureRange@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K11PEAU_MDL@@HH@Z @ 0x1C0087800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DriverId@VIDMM_SEGMENT@@QEAAKXZ @ 0x1C0001414 (-DriverId@VIDMM_SEGMENT@@QEAAKXZ.c)
+ *     McTemplateK0ppxt_EtwWriteTransfer @ 0x1C00326E0 (McTemplateK0ppxt_EtwWriteTransfer.c)
+ *     ?MapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1PEAU_MDL@@KHH@Z @ 0x1C0087620 (-MapVideoApertureSegmentInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@I_K1PEAU_MDL@@KHH@.c)
+ */
+
 void __fastcall VIDMM_APERTURE_SEGMENT::MapApertureRange(
         VIDMM_APERTURE_SEGMENT *this,
         struct _VIDMM_GLOBAL_ALLOC *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtDCompositionGetFrameStatistics @ 0x1C00776D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0099D20 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall NtDCompositionGetFrameStatistics(unsigned __int64 a1, unsigned __int64 a2)
 {
   int v4; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiGetNumFlipAllocAttribs @ 0x1C010A590
+ * Callers:
+ *     VidSchCollectDbgInfo @ 0x1C0109A80 (VidSchCollectDbgInfo.c)
+ * Callees:
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C00183C8 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ */
+
 __int64 __fastcall VidSchiGetNumFlipAllocAttribs(__int64 a1, int a2)
 {
   unsigned int v2; // esi

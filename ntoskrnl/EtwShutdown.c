@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwShutdown @ 0x1409DFD2C
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PspDeleteExternalServerSiloState @ 0x1409A9DE8 (PspDeleteExternalServerSiloState.c)
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpStopTrace @ 0x140745044 (EtwpStopTrace.c)
+ *     EtwpTraceSystemShutdown @ 0x1409E40C4 (EtwpTraceSystemShutdown.c)
+ *     EtwpFlushCoverage @ 0x1409E5BAC (EtwpFlushCoverage.c)
+ */
+
 void __fastcall EtwShutdown(char a1)
 {
   struct _LIST_ENTRY *Flink; // rsi

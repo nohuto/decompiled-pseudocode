@@ -1,3 +1,28 @@
+/*
+ * XREFs of PipOpenServiceEnumKeys @ 0x1406C1280
+ * Callers:
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PiProcessDriverInstance @ 0x140770360 (PiProcessDriverInstance.c)
+ *     IoOpenDriverRegistryKey @ 0x140771840 (IoOpenDriverRegistryKey.c)
+ *     IopGetOriginalServiceName @ 0x1408031F4 (IopGetOriginalServiceName.c)
+ *     PipDmgGetDriverDmarCompatLevel @ 0x14084274C (PipDmgGetDriverDmarCompatLevel.c)
+ *     PipApplyFunctionToServiceInstances @ 0x140847BFC (PipApplyFunctionToServiceInstances.c)
+ *     PnpDriverLoadingFailed @ 0x14085EEA4 (PnpDriverLoadingFailed.c)
+ *     PiGetServiceNameInfo @ 0x140870010 (PiGetServiceNameInfo.c)
+ *     PipHardwareConfigActivateService @ 0x140875A78 (PipHardwareConfigActivateService.c)
+ *     PiDevCfgVerifyService @ 0x140876750 (PiDevCfgVerifyService.c)
+ *     PipGetDriverKsrGuid @ 0x140950230 (PipGetDriverKsrGuid.c)
+ *     PipServiceInstanceToDeviceInstance @ 0x1409553B0 (PipServiceInstanceToDeviceInstance.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x14095BA4C (PiDevCfgMakeServiceBootStart.c)
+ *     PpDevCfgInit @ 0x140B5ACF8 (PpDevCfgInit.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxGetCachedNodeBaseKey @ 0x1406D370C (_PnpCtxGetCachedNodeBaseKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ */
+
 NTSTATUS __fastcall PipOpenServiceEnumKeys(UNICODE_STRING *a1, ACCESS_MASK a2, HANDLE *a3, HANDLE *a4, char a5)
 {
   NTSTATUS result; // eax

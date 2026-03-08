@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?s_OnReceiveInputThreadMessage@CInputManager@@KAJPEAXPEBXH@Z @ 0x18019FA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180195018 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z @ 0x18020AA34 (-OnEdgyDetected@CManipulation@@QEAAXPEBUEdgyDetectedParams@@@Z.c)
+ */
+
 __int64 __fastcall CInputManager::s_OnReceiveInputThreadMessage(
         void *a1,
         const struct EdgyDetectedParams *a2,

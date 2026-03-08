@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvlpSlowFlushListTb @ 0x140547974
+ * Callers:
+ *     HvlpFlushRangeListTb @ 0x1403C68E4 (HvlpFlushRangeListTb.c)
+ * Callees:
+ *     HvlpCopyFlushVaList @ 0x1403C6E98 (HvlpCopyFlushVaList.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     VslFlushSecureAddressSpace @ 0x140548BFC (VslFlushSecureAddressSpace.c)
+ *     VslSlowFlushSecureRangeList @ 0x14054A5BC (VslSlowFlushSecureRangeList.c)
+ */
+
 char __fastcall HvlpSlowFlushListTb(__int64 a1, char a2, char a3, unsigned int a4, __int64 *a5, unsigned int a6)
 {
   char v9; // bp

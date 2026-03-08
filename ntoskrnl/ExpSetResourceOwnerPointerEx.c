@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExpSetResourceOwnerPointerEx @ 0x1402911D0
+ * Callers:
+ *     ExSetResourceOwnerPointerEx @ 0x140291140 (ExSetResourceOwnerPointerEx.c)
+ *     ExSetResourceOwnerPointer @ 0x140291180 (ExSetResourceOwnerPointer.c)
+ * Callees:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     PsBoostThreadIoQoS @ 0x14029176C (PsBoostThreadIoQoS.c)
+ *     ExpResourceEnforcesOwnershipTransfer @ 0x1402917A4 (ExpResourceEnforcesOwnershipTransfer.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     PerfLogExecutiveResourceSetOwnerPointer @ 0x1405FE674 (PerfLogExecutiveResourceSetOwnerPointer.c)
+ */
+
 __int64 __fastcall ExpSetResourceOwnerPointerEx(
         ULONG_PTR BugCheckParameter1,
         ULONG_PTR BugCheckParameter4,

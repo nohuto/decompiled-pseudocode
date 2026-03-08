@@ -1,3 +1,12 @@
+/*
+ * XREFs of VmpVaMemoryRangeGetNext @ 0x1405F9314
+ * Callers:
+ *     VmpConvertPortionVpnRangeToGpnRange @ 0x1405F68BC (VmpConvertPortionVpnRangeToGpnRange.c)
+ *     VmpMergeMemoryRanges @ 0x1405F7BB4 (VmpMergeMemoryRanges.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VmpVaMemoryRangeGetNext(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // r8

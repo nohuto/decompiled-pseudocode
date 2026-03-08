@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExIsFastResourceHeldExclusive2 @ 0x14040E7A0
+ * Callers:
+ *     ExIsResourceAcquiredExclusiveLite @ 0x1402C3360 (ExIsResourceAcquiredExclusiveLite.c)
+ *     ExIsFastResourceHeldExclusive @ 0x1403C4E10 (ExIsFastResourceHeldExclusive.c)
+ *     ExpFastResourceLegacyAcquireShared2 @ 0x140410068 (ExpFastResourceLegacyAcquireShared2.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x1404100C8 (ExpFastResourceLegacyAcquireSharedStarveExclusive2.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 bool __fastcall ExIsFastResourceHeldExclusive2(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int8 CurrentIrql; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViPtInitAvlTrees @ 0x140ADBDB0
+ * Callers:
+ *     VfPoolTrackingEntry @ 0x1405CFD08 (VfPoolTrackingEntry.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ */
+
 void ViPtInitAvlTrees()
 {
   ViUpdateStackInfo = 1;

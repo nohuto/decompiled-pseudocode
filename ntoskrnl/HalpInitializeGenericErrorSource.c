@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpInitializeGenericErrorSource @ 0x140A880EC
+ * Callers:
+ *     HalpInitializeErrSrc @ 0x140A87F30 (HalpInitializeErrSrc.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     HalpRegisterPeiErrorSource @ 0x140516778 (HalpRegisterPeiErrorSource.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x140A88304 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpGenInitialRead @ 0x140A88528 (HalpGenInitialRead.c)
+ *     HalpInitGenericErrorSourcePollingRoutine @ 0x140A8EB74 (HalpInitGenericErrorSourcePollingRoutine.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140A93104 (HalpInitGenericErrorSourceEntryV2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpInitializeGenericErrorSource(int a1, __int64 a2)
 {
   int v3; // eax

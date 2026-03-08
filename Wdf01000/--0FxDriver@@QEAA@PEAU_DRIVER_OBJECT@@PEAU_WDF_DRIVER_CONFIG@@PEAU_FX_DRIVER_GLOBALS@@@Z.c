@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0FxDriver@@QEAA@PEAU_DRIVER_OBJECT@@PEAU_WDF_DRIVER_CONFIG@@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C003FD48
+ * Callers:
+ *     imp_WdfDriverCreate @ 0x1C0037350 (imp_WdfDriverCreate.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001AA5C (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ??0FxCallbackMutexLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0038A58 (--0FxCallbackMutexLock@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxDriver::FxDriver(
         FxDriver *this,
         _DRIVER_OBJECT *ArgDriverObject,

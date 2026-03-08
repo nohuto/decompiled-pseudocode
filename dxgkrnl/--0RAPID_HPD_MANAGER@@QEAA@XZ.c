@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0RAPID_HPD_MANAGER@@QEAA@XZ @ 0x1C001FD60
+ * Callers:
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C0207C44 (--0DXGGLOBAL@@AEAA@XZ.c)
+ * Callees:
+ *     Feature_RapidHpdDeferRecalc__private_ReportDeviceUsage @ 0x1C0026458 (Feature_RapidHpdDeferRecalc__private_ReportDeviceUsage.c)
+ */
+
 RAPID_HPD_MANAGER *__fastcall RAPID_HPD_MANAGER::RAPID_HPD_MANAGER(RAPID_HPD_MANAGER *this)
 {
   RAPID_HPD_MANAGER *result; // rax

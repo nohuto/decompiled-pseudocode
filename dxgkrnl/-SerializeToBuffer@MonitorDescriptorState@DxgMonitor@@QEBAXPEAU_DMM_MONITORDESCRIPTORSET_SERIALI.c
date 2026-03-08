@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SerializeToBuffer@MonitorDescriptorState@DxgMonitor@@QEBAXPEAU_DMM_MONITORDESCRIPTORSET_SERIALIZATION@@I@Z @ 0x1C03C7754
+ * Callers:
+ *     ?_SerializeMonitor@DXGMONITOR@@QEBAJPEA_KPEAU_DMM_MONITOR_SERIALIZATION@@@Z @ 0x1C03C520C (-_SerializeMonitor@DXGMONITOR@@QEBAJPEA_KPEAU_DMM_MONITOR_SERIALIZATION@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DxgMonitor::MonitorDescriptorState::SerializeToBuffer(
         DxgMonitor::MonitorDescriptorState *this,
         struct _DMM_MONITORDESCRIPTORSET_SERIALIZATION *a2,

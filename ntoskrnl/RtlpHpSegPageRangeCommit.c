@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpSegPageRangeCommit @ 0x1402499A0
+ * Callers:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegLfhVsCommit @ 0x1402498A0 (RtlpHpSegLfhVsCommit.c)
+ *     RtlpHpSegPageRangeCoalesce @ 0x14024DF10 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegLfhVsDecommit @ 0x14030A650 (RtlpHpSegLfhVsDecommit.c)
+ *     RtlpHpMetadataCommit @ 0x1403C1314 (RtlpHpMetadataCommit.c)
+ * Callees:
+ *     RtlpHpSegPageRangeHandleCommit @ 0x140248A30 (RtlpHpSegPageRangeHandleCommit.c)
+ *     RtlpHpSegMgrCommit @ 0x140248BE0 (RtlpHpSegMgrCommit.c)
+ */
+
 __int64 __fastcall RtlpHpSegPageRangeCommit(
         __int64 a1,
         __int64 a2,

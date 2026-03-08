@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C022C2A0
+ * Callers:
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01BC260 (safe_cast_fnid_to_PSBWND.c)
+ *     xxxInvalidateRect @ 0x1C0217D5C (xxxInvalidateRect.c)
+ */
+
 __int64 __fastcall xxxEnableSBCtlArrows(struct tagWND *a1, int a2)
 {
   __int64 v4; // rax

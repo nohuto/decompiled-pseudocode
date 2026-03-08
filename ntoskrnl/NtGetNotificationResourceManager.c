@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGetNotificationResourceManager @ 0x1403D2510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtGetNotificationResourceManager(
         HANDLE ResourceManagerHandle,

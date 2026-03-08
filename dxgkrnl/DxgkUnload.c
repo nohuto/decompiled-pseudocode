@@ -1,3 +1,20 @@
+/*
+ * XREFs of DxgkUnload @ 0x1C0305A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DxgkEtwShutdown @ 0x1C004D7AC (DxgkEtwShutdown.c)
+ *     ?DxgkDiagShutdown@@YAJXZ @ 0x1C004DB94 (-DxgkDiagShutdown@@YAJXZ.c)
+ *     ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C004E140 (-DxgkCleanupTelemetry@@YAXXZ.c)
+ *     MonitorCleanupGlobal @ 0x1C006AF64 (MonitorCleanupGlobal.c)
+ *     ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C030D864 (-DestroyGlobal@DXGGLOBAL@@SAXXZ.c)
+ *     DpiCleanUpGlobalState @ 0x1C03957C0 (DpiCleanUpGlobalState.c)
+ *     DxgkCleanupPower @ 0x1C0395C18 (DxgkCleanupPower.c)
+ */
+
 void DxgkUnload()
 {
   __int64 v0; // rdx

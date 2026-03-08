@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopGetEnergyEstimationInfo @ 0x1405815A4
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopGetEnergyEstimationInfo(_DWORD *a1)
 {
   _DWORD *v1; // r9

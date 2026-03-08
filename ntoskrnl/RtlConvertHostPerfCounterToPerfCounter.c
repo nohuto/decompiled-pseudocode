@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlConvertHostPerfCounterToPerfCounter @ 0x1405A5100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetMultiTimePrecise @ 0x1402F9390 (RtlGetMultiTimePrecise.c)
+ */
+
 __int64 __fastcall RtlConvertHostPerfCounterToPerfCounter(LARGE_INTEGER a1, unsigned __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfSnOperationProcess @ 0x14097C840
+ * Callers:
+ *     PfSnSetPrefetcherInformation @ 0x1407E2E70 (PfSnSetPrefetcherInformation.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfSnEndProcessTrace @ 0x140796460 (PfSnEndProcessTrace.c)
+ *     PfSnBeginScenario @ 0x1407E4764 (PfSnBeginScenario.c)
+ *     PfSnFindImageFileName @ 0x1407E4EF4 (PfSnFindImageFileName.c)
+ *     PfSnCheckScenario @ 0x1407E6F8C (PfSnCheckScenario.c)
+ *     PfCalculateProcessHash @ 0x1407E7450 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnOperationProcess(__int64 a1)
 {
   bool v2; // zf

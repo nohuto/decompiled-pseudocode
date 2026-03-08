@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpAssociateIoCompletionPort @ 0x140689FD8
+ * Callers:
+ *     NtAlpcSetInformation @ 0x140689DC0 (NtAlpcSetInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x1402917C0 (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1402925F4 (AlpcpQueueIoCompletionPort.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x14068A4D8 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall AlpcpAssociateIoCompletionPort(__int64 a1, void *a2, __int64 a3)
 {
   volatile signed __int64 *v6; // rdi

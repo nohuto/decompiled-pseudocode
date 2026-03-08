@@ -1,3 +1,15 @@
+/*
+ * XREFs of GdiMultiUserFontCleanup @ 0x1C00B6E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00B6EE0 (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00B76C0 (-CleanUpEUDC@@YAXXZ.c)
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00B8080 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vCleanupPrintKViewList@@YAXXZ @ 0x1C02B98A4 (-vCleanupPrintKViewList@@YAXXZ.c)
+ */
+
 void GdiMultiUserFontCleanup()
 {
   Gre::Base *v0; // rcx

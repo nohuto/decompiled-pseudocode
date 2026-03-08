@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@@Z @ 0x1C00C23E8
+ * Callers:
+ *     NtUserSetImeInfoEx @ 0x1C00C2070 (NtUserSetImeInfoEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetImeInfoEx(struct tagWINDOWSTATION *a1, struct tagIMEINFOEX *a2)
 {
   _QWORD *v2; // rcx

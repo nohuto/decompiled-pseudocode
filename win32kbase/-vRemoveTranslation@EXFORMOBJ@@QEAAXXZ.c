@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vRemoveTranslation@EXFORMOBJ@@QEAAXXZ @ 0x1C00B9D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EXFORMOBJ::vRemoveTranslation(EXFORMOBJ *this)
 {
   __int64 v1; // rax

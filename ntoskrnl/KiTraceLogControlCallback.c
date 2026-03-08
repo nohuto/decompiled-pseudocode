@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiTraceLogControlCallback @ 0x14085BEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiTraceLogHeteroRundown @ 0x1403AB22C (KiTraceLogHeteroRundown.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall KiTraceLogControlCallback(
         __int64 a1,
         __int64 a2,

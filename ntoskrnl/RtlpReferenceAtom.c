@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpReferenceAtom @ 0x140354B9C
+ * Callers:
+ *     RtlAddAtomToAtomTableEx @ 0x1403546F0 (RtlAddAtomToAtomTableEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall RtlpReferenceAtom(__int64 a1, __int64 a2)
 {
   __int16 result; // ax

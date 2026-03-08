@@ -1,3 +1,15 @@
+/*
+ * XREFs of PipCheckDependencies @ 0x140B59300
+ * Callers:
+ *     IopInitializeSystemDrivers @ 0x140B57B44 (IopInitializeSystemDrivers.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     PipLookupGroupName @ 0x140B5935C (PipLookupGroupName.c)
+ */
+
 __int64 __fastcall PipCheckDependencies(void *a1)
 {
   PVOID v2; // rsi

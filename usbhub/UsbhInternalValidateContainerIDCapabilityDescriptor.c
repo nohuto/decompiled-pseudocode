@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInternalValidateContainerIDCapabilityDescriptor @ 0x1C0051E4C
+ * Callers:
+ *     UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051EEC (UsbhInternalValidateDeviceCapabilityDescriptor.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhInternalValidateContainerIDCapabilityDescriptor(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 *v2; // r10

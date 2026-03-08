@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0cpttttttpppqqq_EtwWriteTransfer @ 0x1C01650D4
+ * Callers:
+ *     EtwTraceBeginDelegatedInputWorker @ 0x1C00EDBE0 (EtwTraceBeginDelegatedInputWorker.c)
+ *     EtwTraceEndDelegatedInputWorker @ 0x1C00EDCE0 (EtwTraceEndDelegatedInputWorker.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0cpttttttpppqqq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

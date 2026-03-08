@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetWaitForQueueAttach @ 0x1C01DE110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetWaitForQueueAttach @ 0x1C01B4820 (_SetWaitForQueueAttach.c)
+ */
+
 __int64 __fastcall NtUserSetWaitForQueueAttach(int a1)
 {
   __int64 v2; // rbx

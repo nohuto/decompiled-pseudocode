@@ -1,3 +1,18 @@
+/*
+ * XREFs of HsaIommuSendCommand @ 0x14052E1A8
+ * Callers:
+ *     HsaDismissPageFault @ 0x14052D1E0 (HsaDismissPageFault.c)
+ *     HsaFlushDeviceTbOnly @ 0x14052D470 (HsaFlushDeviceTbOnly.c)
+ *     HsaFlushTbInternal @ 0x14052D57C (HsaFlushTbInternal.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x14052E114 (HsaInvalidateRemappingTableEntries.c)
+ *     HsaUpdateDeviceTableEntry @ 0x14052E900 (HsaUpdateDeviceTableEntry.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 KSPIN_LOCK __fastcall HsaIommuSendCommand(KSPIN_LOCK *a1, KSPIN_LOCK *a2, int a3)
 {
   unsigned __int8 CurrentIrql; // di

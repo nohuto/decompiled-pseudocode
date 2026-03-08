@@ -1,3 +1,13 @@
+/*
+ * XREFs of SbpWaitForVmbus @ 0x140B98D18
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoUnregisterPlugPlayNotification @ 0x1406F4390 (IoUnregisterPlugPlayNotification.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ */
+
 __int64 SbpWaitForVmbus()
 {
   NTSTATUS v0; // ebx

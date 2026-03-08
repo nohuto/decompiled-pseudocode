@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeSetAuditParameter @ 0x1402CCF10
+ * Callers:
+ *     CmpReportAuditVirtualizationEvent @ 0x140A18D84 (CmpReportAuditVirtualizationEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall SeSetAuditParameter(
         PSE_ADT_PARAMETER_ARRAY AuditParameters,
         SE_ADT_PARAMETER_TYPE Type,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of TmPropagationComplete @ 0x1403D2A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall TmPropagationComplete(
         PKRESOURCEMANAGER ResourceManager,

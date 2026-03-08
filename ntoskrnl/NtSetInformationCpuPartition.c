@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtSetInformationCpuPartition @ 0x1409AD830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtSetInformationCpuPartition(
         __int64 a1,
         __int64 a2,

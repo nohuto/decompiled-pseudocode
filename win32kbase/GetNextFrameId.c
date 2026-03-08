@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetNextFrameId @ 0x1C00F4130
+ * Callers:
+ *     ?CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z @ 0x1C01ED628 (-CommitRimCompleteFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAURIMCOMPLETEFRAME@@_N1@Z.c)
+ * Callees:
+ *     ??1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ @ 0x1C00C98C8 (--1CInpLockGuardExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C00C99B0 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ApiSetResetLastSeenFrameId @ 0x1C02460AC (ApiSetResetLastSeenFrameId.c)
+ */
+
 __int64 __fastcall GetNextFrameId(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v4; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpInitGlobalQuotaAllowed @ 0x140B50998
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ */
+
 __int64 CmpInitGlobalQuotaAllowed()
 {
   unsigned __int64 v0; // rdx

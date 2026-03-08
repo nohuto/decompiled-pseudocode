@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00467B8
+ * Callers:
+ *     ?vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C000A224 (-vAddToList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C000A2AC (-vRemoveFromList@XEPALOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     GreMarkDCUnreadable @ 0x1C0010A28 (GreMarkDCUnreadable.c)
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     GreIsRendering @ 0x1C003E610 (GreIsRendering.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C0046798 (--1DCOBJA@@QEAA@XZ.c)
+ *     GreSetDCOrg @ 0x1C005ACD0 (GreSetDCOrg.c)
+ *     GreGetDCOrgEx @ 0x1C00C2510 (GreGetDCOrgEx.c)
+ *     GreLockVisRgnSharedOrExclusive @ 0x1C0197440 (GreLockVisRgnSharedOrExclusive.c)
+ *     GreSelectVisRgnShared @ 0x1C0197EE0 (GreSelectVisRgnShared.c)
+ * Callees:
+ *     ?TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0046C4C (-TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ?ReleaseEntryLock@GdiHandleEntryTable@@QEAAXI@Z @ 0x1C004A620 (-ReleaseEntryLock@GdiHandleEntryTable@@QEAAXI@Z.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PEAI@Z @ 0x1C004B500 (-_RetrieveTableAndTableEntryIndex@GdiHandleEntryDirectory@@AEAA_NIPEAPEAVGdiHandleEntryTable@@PE.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ */
+
 void __fastcall XDCOBJ::vAltUnlockFast(XDCOBJ *this)
 {
   __int64 v1; // rbx

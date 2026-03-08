@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwPropagationComplete @ 0x140414B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwPropagationComplete(__int64 a1, __int64 a2)
 {
   _disable();

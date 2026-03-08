@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhDriverUnload @ 0x1C00429E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     USBHUB_FreeBugCheck @ 0x1C0041BBC (USBHUB_FreeBugCheck.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C0073008 (wil_UninitializeFeatureStaging.c)
+ *     WppCleanupKm @ 0x1C0073330 (WppCleanupKm.c)
+ */
+
 __int64 __fastcall UsbhDriverUnload(__int64 a1, int a2)
 {
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )

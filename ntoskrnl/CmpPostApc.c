@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpPostApc @ 0x140785260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     CmpFreeSubordinatePost @ 0x1406B4E5C (CmpFreeSubordinatePost.c)
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ */
+
 void __fastcall CmpPostApc(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   _QWORD *v6; // rbx

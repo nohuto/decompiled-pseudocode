@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitSkuSessionParameters @ 0x140B6FC38
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     ExIsMultiSessionSku @ 0x14085DFB4 (ExIsMultiSessionSku.c)
+ */
+
 __int64 InitSkuSessionParameters()
 {
   __int64 result; // rax

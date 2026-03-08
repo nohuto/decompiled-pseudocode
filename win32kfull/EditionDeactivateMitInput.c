@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionDeactivateMitInput @ 0x1C00DB260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WakeRIT @ 0x1C00DB568 (WakeRIT.c)
+ *     WaitForRitToCompleteLastCommand @ 0x1C00DB5C8 (WaitForRitToCompleteLastCommand.c)
+ *     MasterInputThreadPrepareForRitTakeover @ 0x1C00DB6BC (MasterInputThreadPrepareForRitTakeover.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 EditionDeactivateMitInput()
 {

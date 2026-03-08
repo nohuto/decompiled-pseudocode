@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsChildWindowCoordinateSpaceBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C0016AA8
+ * Callers:
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 char __fastcall IsChildWindowCoordinateSpaceBoundary(const struct tagWND *a1)
 {
   char v1; // r8

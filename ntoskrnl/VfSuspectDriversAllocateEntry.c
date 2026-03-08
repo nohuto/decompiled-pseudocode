@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfSuspectDriversAllocateEntry @ 0x140AD7394
+ * Callers:
+ *     VfDriverEnableVerifierForAll @ 0x140AC7618 (VfDriverEnableVerifierForAll.c)
+ *     VfSuspectDriversLoadCallback @ 0x140AD7704 (VfSuspectDriversLoadCallback.c)
+ *     VfAddVerifierEntry @ 0x140ADA630 (VfAddVerifierEntry.c)
+ *     VfVolatileApplyDifVerification @ 0x140ADAA10 (VfVolatileApplyDifVerification.c)
+ *     VfSuspectDriversParseRegistryString @ 0x140B93B7C (VfSuspectDriversParseRegistryString.c)
+ *     VfTriageAddDrivers @ 0x140B93E98 (VfTriageAddDrivers.c)
+ * Callees:
+ *     RtlUShortAdd @ 0x140202574 (RtlUShortAdd.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall VfSuspectDriversAllocateEntry(const void **a1)
 {
   USHORT v2; // cx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of umptr_r_unsigned_char_::read_advance_if_unsigned_char__lambda_dbbf8546bc340ff511f2cff186eaaf73___ @ 0x1C02ACDF4
+ * Callers:
+ *     ?GrePolyDraw@@YAHPEAUHDC__@@AEAV?$umptr_r@UtagPOINT@@@@AEAV?$umptr_r@E@@K@Z @ 0x1C02AD894 (-GrePolyDraw@@YAHPEAUHDC__@@AEAV-$umptr_r@UtagPOINT@@@@AEAV-$umptr_r@E@@K@Z.c)
+ * Callees:
+ *     ??$read@E@?$umptr_r@E@@QEBA_NPEAE_K_J@Z @ 0x1C02ACB60 (--$read@E@-$umptr_r@E@@QEBA_NPEAE_K_J@Z.c)
+ *     ?ssizet_add_to_sizet@?$umptr@E@@SA_N_K_JPEA_K@Z @ 0x1C02ADE18 (-ssizet_add_to_sizet@-$umptr@E@@SA_N_K_JPEA_K@Z.c)
+ */
+
 char __fastcall umptr_r_unsigned_char_::read_advance_if_unsigned_char__lambda_dbbf8546bc340ff511f2cff186eaaf73___(
         __int64 a1,
         _BYTE *a2)

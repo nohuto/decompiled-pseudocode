@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeLastVSyncFromPreviousFrame@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x180101FE8
+ * Callers:
+ *     ?ComputeVSyncInfo@CPartitionVerticalBlankScheduler@@AEAAJXZ @ 0x18004E1FC (-ComputeVSyncInfo@CPartitionVerticalBlankScheduler@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::ComputeLastVSyncFromPreviousFrame(
         CPartitionVerticalBlankScheduler *this)
 {

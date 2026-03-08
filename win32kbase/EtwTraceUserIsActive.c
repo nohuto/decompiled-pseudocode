@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceUserIsActive @ 0x1C00C14F0
+ * Callers:
+ *     ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0080790 (-UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z.c)
+ * Callees:
+ *     McTemplateK0qqm_EtwWriteTransfer @ 0x1C0166698 (McTemplateK0qqm_EtwWriteTransfer.c)
+ */
+
 unsigned __int64 __fastcall EtwTraceUserIsActive(_DWORD *a1, unsigned __int64 *a2)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@FxNPagedLookasideList@@UEAAJ_KPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0041480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InitializeLookaside@FxLookasideList@@IEAAJGGPEAU_WDF_OBJECT_ATTRIBUTES@@@Z @ 0x1C0042F1C (-InitializeLookaside@FxLookasideList@@IEAAJGGPEAU_WDF_OBJECT_ATTRIBUTES@@@Z.c)
+ */
+
 __int64 __fastcall FxNPagedLookasideList::Initialize(
         FxNPagedLookasideList *this,
         unsigned __int64 BufferSize,

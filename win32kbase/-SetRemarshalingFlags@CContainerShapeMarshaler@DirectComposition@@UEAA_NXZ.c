@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CContainerShapeMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C0254410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CContainerShapeMarshaler::SetRemarshalingFlags(
         DirectComposition::CContainerShapeMarshaler *this)
 {

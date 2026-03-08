@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TargetBufferedFrames@CManipulationManager@@IEAAXIPEAXK@Z @ 0x18019E2E4
+ * Callers:
+ *     ?TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z @ 0x18019E3BC (-TargetFrameInput@CManipulationManager@@IEAAXPEAVCManipulationFrame@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CManipulationManager::TargetBufferedFrames(
         CManipulationManager *this,
         int a2,

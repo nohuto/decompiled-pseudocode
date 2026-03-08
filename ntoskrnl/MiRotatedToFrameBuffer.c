@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiRotatedToFrameBuffer @ 0x140630A34
+ * Callers:
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402EF244 (MiMakeVaRangeNoAccess.c)
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ *     MiRevertValidPte @ 0x140322DC0 (MiRevertValidPte.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ *     NtUnlockVirtualMemory @ 0x1403479C0 (NtUnlockVirtualMemory.c)
+ *     MiLockStealUserVm @ 0x1403B7F90 (MiLockStealUserVm.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1406157F0 (MiCheckCommitReleaseFromVad.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 bool __fastcall MiRotatedToFrameBuffer(unsigned __int64 a1)
 {
   unsigned __int64 v2; // rax

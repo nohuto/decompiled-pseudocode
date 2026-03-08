@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiActivePageClaimCandidate @ 0x1403B68D8
+ * Callers:
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     MiCheckContiguityTradeEligible @ 0x140646880 (MiCheckContiguityTradeEligible.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetBaseResidentPage @ 0x140350A30 (MiGetBaseResidentPage.c)
+ *     MiPfnLargeBitSet @ 0x1403B6D48 (MiPfnLargeBitSet.c)
+ *     MiHyperPage @ 0x1403B6DD0 (MiHyperPage.c)
+ *     MiVaIsPageFileHash @ 0x1403B7060 (MiVaIsPageFileHash.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x1403D146C (MiRequestIoPageMdlCacheRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiActivePageClaimCandidate(__int64 a1, __int64 a2, char a3, int a4, _DWORD *a5)
 {
   int v7; // ebp

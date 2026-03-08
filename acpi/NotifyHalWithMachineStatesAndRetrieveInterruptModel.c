@@ -1,3 +1,19 @@
+/*
+ * XREFs of NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00A7BFC
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_s @ 0x1C000AEC4 (WPP_RECORDER_SF_s.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIEvalPackageElement @ 0x1C0047D64 (AMLIEvalPackageElement.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall NotifyHalWithMachineStatesAndRetrieveInterruptModel(int *a1)
 {
   _BYTE *Pool2; // r15

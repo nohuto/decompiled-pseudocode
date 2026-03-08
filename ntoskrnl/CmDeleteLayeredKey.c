@@ -1,3 +1,48 @@
+/*
+ * XREFs of CmDeleteLayeredKey @ 0x1406144A0
+ * Callers:
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ * Callees:
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     CmpCreateTombstone @ 0x140614A00 (CmpCreateTombstone.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1406B6550 (CmpUnlockHashEntryByKcb.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1406B7DC0 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpLockKcbStackExclusive @ 0x1406B7DF8 (CmpLockKcbStackExclusive.c)
+ *     CmpLockKcbStackTopExclusiveRestShared @ 0x1406BA388 (CmpLockKcbStackTopExclusiveRestShared.c)
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     CmpMarkKeyDirty @ 0x1406BAB64 (CmpMarkKeyDirty.c)
+ *     CmpMarkKeyUnbacked @ 0x14074AD64 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDiscardKcb @ 0x14074B098 (CmpDiscardKcb.c)
+ *     CmpHashCompressedComponent @ 0x14074BDE4 (CmpHashCompressedComponent.c)
+ *     CmpInitializeKcbStack @ 0x14078361C (CmpInitializeKcbStack.c)
+ *     CmpCleanupKcbStack @ 0x1407836C4 (CmpCleanupKcbStack.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1407A5468 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpLockHashEntryExclusiveByKcb @ 0x1407AB174 (CmpLockHashEntryExclusiveByKcb.c)
+ *     CmpUnlockKcbStack @ 0x1407ABFF8 (CmpUnlockKcbStack.c)
+ *     CmpFindSubKeyByNumber @ 0x1407AD320 (CmpFindSubKeyByNumber.c)
+ *     CmpReportNotifyForKcbStack @ 0x1407AEF5C (CmpReportNotifyForKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindKcbInHashEntryByCellIndex @ 0x140A14668 (CmpFindKcbInHashEntryByCellIndex.c)
+ *     CmpIncrementKcbSequenceNumber @ 0x140A147D0 (CmpIncrementKcbSequenceNumber.c)
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1CBE4 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A1CF98 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ *     CmpInitializeDiscardReplaceContext @ 0x140A1D060 (CmpInitializeDiscardReplaceContext.c)
+ *     CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1D2A4 (CmpPrepareDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ *     CmpFreeKeyValues @ 0x140A1F1C0 (CmpFreeKeyValues.c)
+ *     CmpGetSubKeyCountForKcbStack @ 0x140A20860 (CmpGetSubKeyCountForKcbStack.c)
+ *     CmpPromoteKey @ 0x140A238FC (CmpPromoteKey.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmDeleteLayeredKey(__int64 a1, __int64 a2, _QWORD **a3)
 {
   char v5; // si

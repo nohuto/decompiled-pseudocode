@@ -1,3 +1,12 @@
+/*
+ * XREFs of StRtlIoStorInfoSetNvCachePriority @ 0x140674868
+ * Callers:
+ *     IoAsynchronousPageWrite @ 0x1402FE3CC (IoAsynchronousPageWrite.c)
+ * Callees:
+ *     IoGetGenericIrpExtension @ 0x1402CAC60 (IoGetGenericIrpExtension.c)
+ *     IoSetGenericIrpExtension @ 0x140390920 (IoSetGenericIrpExtension.c)
+ */
+
 __int64 __fastcall StRtlIoStorInfoSetNvCachePriority(__int64 a1, unsigned __int8 a2)
 {
   __int64 result; // rax

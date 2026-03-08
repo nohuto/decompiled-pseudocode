@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiComputePageCommitment @ 0x140345CE0
+ * Callers:
+ *     MiPerformVadSplitting @ 0x1402D581C (MiPerformVadSplitting.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ *     MiCountCommittedPages @ 0x140644EA8 (MiCountCommittedPages.c)
+ * Callees:
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402B0EB0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiIsPteDecommittedPage @ 0x140345F34 (MiIsPteDecommittedPage.c)
+ *     MiGetNextPageTable @ 0x1403468E0 (MiGetNextPageTable.c)
+ */
+
 __int64 __fastcall MiComputePageCommitment(
         unsigned __int64 a1,
         unsigned __int64 a2,

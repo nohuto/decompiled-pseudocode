@@ -1,3 +1,19 @@
+/*
+ * XREFs of ViGenericVerifyIrpStackDownward @ 0x140AC00C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     ViErrorReport6 @ 0x1405CDBC0 (ViErrorReport6.c)
+ *     VfMajorIsNewRequest @ 0x140ACFFD8 (VfMajorIsNewRequest.c)
+ *     VfMajorIsValidIrpStatus @ 0x140AD0058 (VfMajorIsValidIrpStatus.c)
+ *     ViErrorDisplayDescription @ 0x140AD06D0 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140AD0724 (ViErrorFinishReport.c)
+ */
+
 __int64 __fastcall ViGenericVerifyIrpStackDownward(
         __int64 a1,
         __int64 a2,

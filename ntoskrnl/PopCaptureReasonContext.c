@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopCaptureReasonContext @ 0x1402BD4D4
+ * Callers:
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ * Callees:
+ *     PopSafeCopyUnicodeString @ 0x1402BD794 (PopSafeCopyUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopCaptureReasonContext(__int64 a1, char a2, bool *a3, __int64 *a4)
 {
   unsigned __int64 v7; // r15

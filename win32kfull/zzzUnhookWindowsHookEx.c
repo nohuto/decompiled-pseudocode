@@ -1,3 +1,21 @@
+/*
+ * XREFs of zzzUnhookWindowsHookEx @ 0x1C009C50C
+ * Callers:
+ *     zzzCancelJournalling @ 0x1C001D3F4 (zzzCancelJournalling.c)
+ *     NtUserUnhookWindowsHookEx @ 0x1C009C2B0 (NtUserUnhookWindowsHookEx.c)
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ *     zzzUnhookWindowsHook @ 0x1C01BCE2C (zzzUnhookWindowsHook.c)
+ * Callees:
+ *     PhkFirstGlobalValid @ 0x1C001D640 (PhkFirstGlobalValid.c)
+ *     FreeHook @ 0x1C0039160 (FreeHook.c)
+ *     ??0?$ObjectLockRecursive@$$V@?$DomainExclusiveRecursive@VDLT_HOOK@@@?$DomainSharedRecursive@$$V@@QEAA@XZ @ 0x1C0039408 (--0-$ObjectLockRecursive@$$V@-$DomainExclusiveRecursive@VDLT_HOOK@@@-$DomainSharedRecursive@$$V@.c)
+ *     PhkNextValid @ 0x1C0039A4C (PhkNextValid.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D328 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     ?zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z @ 0x1C01BC76C (-zzzJournalAttach@@YAHPEAUtagTHREADINFO@@H@Z.c)
+ */
+
 __int64 __fastcall zzzUnhookWindowsHookEx(struct tagHOOK *a1)
 {
   __int64 v2; // r9

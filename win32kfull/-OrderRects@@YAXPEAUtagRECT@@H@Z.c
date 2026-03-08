@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OrderRects@@YAXPEAUtagRECT@@H@Z @ 0x1C01BEC80
+ * Callers:
+ *     MirrorRegion @ 0x1C002779C (MirrorRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall OrderRects(struct tagRECT *a1, int a2)
 {
   __int64 v2; // r9

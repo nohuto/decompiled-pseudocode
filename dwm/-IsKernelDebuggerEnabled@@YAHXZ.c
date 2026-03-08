@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsKernelDebuggerEnabled@@YAHXZ @ 0x14000E2D0
+ * Callers:
+ *     ?MilInstrumentationBreak@@YAXK_N@Z @ 0x14000E39C (-MilInstrumentationBreak@@YAXK_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 IsKernelDebuggerEnabled(void)
 {
   NTSTATUS SystemInformation; // eax

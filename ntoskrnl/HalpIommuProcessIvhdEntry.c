@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpIommuProcessIvhdEntry @ 0x14052C244
+ * Callers:
+ *     HalpIommuHsaDiscover @ 0x140B6C630 (HalpIommuHsaDiscover.c)
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14037C950 (HalRegisterPermanentAddressUsage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpHsaAllocateReservedDomainList @ 0x14052BD08 (HalpHsaAllocateReservedDomainList.c)
+ *     HalpIommuProcessDeviceEntries @ 0x14052BF84 (HalpIommuProcessDeviceEntries.c)
+ *     HsaProcessIvmd @ 0x14052E53C (HsaProcessIvmd.c)
+ *     ExtEnvRegisterIommu @ 0x140B3CFD4 (ExtEnvRegisterIommu.c)
+ */
+
 int __fastcall HalpIommuProcessIvhdEntry(__int64 a1, __int64 a2, char *a3)
 {
   char v6; // bl

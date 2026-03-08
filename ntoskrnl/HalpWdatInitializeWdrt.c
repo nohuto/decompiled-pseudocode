@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpWdatInitializeWdrt @ 0x14051CBC0
+ * Callers:
+ *     HalpWdatInitialize @ 0x14051CAB0 (HalpWdatInitialize.c)
+ * Callees:
+ *     WdInstrInitializeInstruction @ 0x1405281DC (WdInstrInitializeInstruction.c)
+ */
+
 __int64 __fastcall HalpWdatInitializeWdrt(__int64 a1)
 {
   __int64 v1; // rbp

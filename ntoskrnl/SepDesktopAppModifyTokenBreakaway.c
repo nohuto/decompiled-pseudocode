@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepDesktopAppModifyTokenBreakaway @ 0x1405B5AC4
+ * Callers:
+ *     SepDesktopAppxSubProcessToken @ 0x1402980AC (SepDesktopAppxSubProcessToken.c)
+ * Callees:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ */
+
 __int64 __fastcall SepDesktopAppModifyTokenBreakaway(__int64 a1, int *a2, char a3)
 {
   int v4; // r8d

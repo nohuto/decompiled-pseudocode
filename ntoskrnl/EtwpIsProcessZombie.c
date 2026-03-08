@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpIsProcessZombie @ 0x14080E0B0
+ * Callers:
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409ECC80 (EtwpPsProvProcessEnumCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall EtwpIsProcessZombie(__int64 a1)
 {
   return (*(_DWORD *)(a1 + 1124) & 4) != 0

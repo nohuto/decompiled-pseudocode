@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExInitializeFastOwnerEntry @ 0x1402D3ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExInitializeFastOwnerEntry2 @ 0x14040E26C (ExInitializeFastOwnerEntry2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 struct _KTHREAD *__fastcall ExInitializeFastOwnerEntry(__int64 a1)
 {
   struct _KTHREAD *result; // rax

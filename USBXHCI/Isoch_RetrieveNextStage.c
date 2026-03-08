@@ -1,3 +1,28 @@
+/*
+ * XREFs of Isoch_RetrieveNextStage @ 0x1C0003800
+ * Callers:
+ *     Isoch_MappingLoop @ 0x1C0001D18 (Isoch_MappingLoop.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ * Callees:
+ *     Isoch_TransferData_Initialize @ 0x1C0004940 (Isoch_TransferData_Initialize.c)
+ *     WPP_RECORDER_SF_DDqDDDD @ 0x1C0004EC0 (WPP_RECORDER_SF_DDqDDDD.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0006DF0 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDqd @ 0x1C0007E70 (WPP_RECORDER_SF_DDqd.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage @ 0x1C001F91C (Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ *     Isoch_GetPacketLength @ 0x1C00445B8 (Isoch_GetPacketLength.c)
+ *     Isoch_Stage_Acquire @ 0x1C0045208 (Isoch_Stage_Acquire.c)
+ *     Isoch_TransferUrb_MarkLatePackets @ 0x1C00453C4 (Isoch_TransferUrb_MarkLatePackets.c)
+ *     Isoch_Transfer_Complete @ 0x1C00454C0 (Isoch_Transfer_Complete.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0045590 (Isoch_Transfer_CompleteCancelable.c)
+ */
+
 _BOOL8 __fastcall Isoch_RetrieveNextStage(__int64 a1)
 {
   int v2; // ebp

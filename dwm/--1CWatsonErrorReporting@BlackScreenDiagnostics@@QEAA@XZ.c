@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CWatsonErrorReporting@BlackScreenDiagnostics@@QEAA@XZ @ 0x14000DC94
+ * Callers:
+ *     ?Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D134 (-Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFla.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x14000C484 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall BlackScreenDiagnostics::CWatsonErrorReporting::~CWatsonErrorReporting(
         BlackScreenDiagnostics::CWatsonErrorReporting *this)
 {

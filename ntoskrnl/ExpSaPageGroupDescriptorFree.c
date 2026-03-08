@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpSaPageGroupDescriptorFree @ 0x1403CFF54
+ * Callers:
+ *     ExpSaAllocatorOptimizeList @ 0x1403CFEC8 (ExpSaAllocatorOptimizeList.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpSaBinaryArrayRemove @ 0x1403D00EC (ExpSaBinaryArrayRemove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpSaPageGroupDescriptorFree(unsigned int *P)
 {
   ULONG MaximumProcessorCount; // eax

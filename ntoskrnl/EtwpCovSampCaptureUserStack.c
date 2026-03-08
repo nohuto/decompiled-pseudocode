@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureUserStack @ 0x1408A3DD6
+ * Callers:
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A3D6C (EtwpCovSampCaptureUserAddresses.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     EtwpCovSampCaptureBufferOptimizeIP @ 0x140461A24 (EtwpCovSampCaptureBufferOptimizeIP.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureUserStack(__int64 a1)
 {
   unsigned int v1; // ebx

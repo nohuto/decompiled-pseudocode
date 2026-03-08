@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1FxSystemWorkItem@@UEAA@XZ @ 0x1C0042BDC
+ * Callers:
+ *     ??_GFxSystemWorkItem@@UEAAPEAXI@Z @ 0x1C0042C60 (--_GFxSystemWorkItem@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?Free@MxWorkItem@@QEAAXXZ @ 0x1C0040A18 (-Free@MxWorkItem@@QEAAXXZ.c)
+ */
+
 void __fastcall FxSystemWorkItem::~FxSystemWorkItem(FxSystemWorkItem *this, unsigned int a2)
 {
   bool v2; // zf

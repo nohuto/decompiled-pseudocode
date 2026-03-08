@@ -1,3 +1,19 @@
+/*
+ * XREFs of _PnpSetPropertyWorker @ 0x140687D54
+ * Callers:
+ *     _PnpSetGenericStoreProperty @ 0x1406872D8 (_PnpSetGenericStoreProperty.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ */
+
 __int64 __fastcall PnpSetPropertyWorker(
         __int64 a1,
         __int64 a2,

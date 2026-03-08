@@ -1,3 +1,24 @@
+/*
+ * XREFs of VrpIoctlDeviceDispatch @ 0x140736DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140736258 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x140736830 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140736B44 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VRegEnabledInJob @ 0x140736F40 (VRegEnabledInJob.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A6F45C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpHandleIoctlGetVirtualRootKey @ 0x140A6F7DC (VrpHandleIoctlGetVirtualRootKey.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x140A6F964 (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     VrpHandleIoctlModifyFlags @ 0x140A6FB9C (VrpHandleIoctlModifyFlags.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140A6FD28 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ */
+
 __int64 __fastcall VrpIoctlDeviceDispatch(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

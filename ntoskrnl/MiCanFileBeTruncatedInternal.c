@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiCanFileBeTruncatedInternal @ 0x1402A492C
+ * Callers:
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MmCanFileBeTruncated @ 0x1402A48B0 (MmCanFileBeTruncated.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiFindLastSubsection @ 0x1402A5010 (MiFindLastSubsection.c)
+ *     MmFlushImageSection @ 0x1402E1460 (MmFlushImageSection.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiEndingOffset @ 0x140324248 (MiEndingOffset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char *__fastcall MiCanFileBeTruncatedInternal(
         PSECTION_OBJECT_POINTERS SectionObjectPointer,
         unsigned __int64 *a2,

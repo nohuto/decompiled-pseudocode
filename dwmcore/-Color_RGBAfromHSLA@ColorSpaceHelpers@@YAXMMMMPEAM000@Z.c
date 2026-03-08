@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Color_RGBAfromHSLA@ColorSpaceHelpers@@YAXMMMMPEAM000@Z @ 0x180016038
+ * Callers:
+ *     ?InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180015B1C (-InterpolateHsl@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@.c)
+ *     ?ColorLerpHsl@CExpressionValueStack@@QEAAJXZ @ 0x180015CD4 (-ColorLerpHsl@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?ColorHsl@CExpressionValueStack@@QEAAJXZ @ 0x180259330 (-ColorHsl@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     fmod_0 @ 0x180117734 (fmod_0.c)
+ */
+
 void __fastcall ColorSpaceHelpers::Color_RGBAfromHSLA(
         ColorSpaceHelpers *this,
         float a2,

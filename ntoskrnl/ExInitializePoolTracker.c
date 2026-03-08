@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExInitializePoolTracker @ 0x140B63C80
+ * Callers:
+ *     ExInitializePoolHeapManagement @ 0x140374D0C (ExInitializePoolHeapManagement.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     ExpPlFindLimitEntry @ 0x1402F00EC (ExpPlFindLimitEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpInitializePoolTrackerTable @ 0x14039FCEC (ExpInitializePoolTrackerTable.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403B53DC (ExpPoolTrackerChargeEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ *     ExpSeedHotTags @ 0x140B63E9C (ExpSeedHotTags.c)
+ */
+
 __int64 ExInitializePoolTracker()
 {
   struct _KPRCB *CurrentPrcb; // r8

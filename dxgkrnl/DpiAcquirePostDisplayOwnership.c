@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiAcquirePostDisplayOwnership @ 0x1C0395658
+ * Callers:
+ *     DpAcquirePostDisplayOwnership @ 0x1C0394160 (DpAcquirePostDisplayOwnership.c)
+ *     DpAcquirePostDisplayOwnership2 @ 0x1C0394180 (DpAcquirePostDisplayOwnership2.c)
+ *     DpGetPostDisplayInfoPlusEdid @ 0x1C03944C0 (DpGetPostDisplayInfoPlusEdid.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DpiAcquirePostDisplayOwnership(__int64 a1, _OWORD *a2, _DWORD *a3)
 {
   unsigned int v6; // ebx

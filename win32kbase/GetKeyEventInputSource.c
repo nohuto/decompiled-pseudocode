@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetKeyEventInputSource @ 0x1C00804A0
+ * Callers:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GetKeyEventInputSource(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   bool v4; // di

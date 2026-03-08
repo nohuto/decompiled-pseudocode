@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtAcquireCrossVmMutant @ 0x140A02A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpAcquireCrossVmMutant @ 0x140A02D7C (ExpAcquireCrossVmMutant.c)
+ */
+
 __int64 __fastcall NtAcquireCrossVmMutant(void *a1, unsigned __int64 a2)
 {
   KPROCESSOR_MODE PreviousMode; // di

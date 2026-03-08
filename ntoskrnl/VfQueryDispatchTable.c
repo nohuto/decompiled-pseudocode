@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfQueryDispatchTable @ 0x1405CC2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void *__fastcall VfQueryDispatchTable(int a1, unsigned int a2)
 {
   __int64 v2; // r8

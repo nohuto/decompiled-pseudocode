@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetWindowContextHelpId @ 0x1C01DE150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserSetWindowContextHelpId(__int64 a1, int a2)
 {
   __int64 v4; // rax

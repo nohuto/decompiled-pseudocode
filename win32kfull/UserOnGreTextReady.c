@@ -1,3 +1,15 @@
+/*
+ * XREFs of UserOnGreTextReady @ 0x1C00B8554
+ * Callers:
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00B842C (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ * Callees:
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00B7E08 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ *     SetMinMetrics @ 0x1C010CA78 (SetMinMetrics.c)
+ *     xxxSetWindowNCMetrics @ 0x1C010CBC8 (xxxSetWindowNCMetrics.c)
+ */
+
 _BOOL8 UserOnGreTextReady()
 {
   __int64 v0; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfMiscObfReferenceObject_Exit @ 0x140ADD650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall VfMiscObfReferenceObject_Exit(__int64 a1)
 {
   __int64 result; // rax

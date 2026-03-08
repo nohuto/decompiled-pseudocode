@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TraceLoggingSlowLowLevelHook@@YAXI_K0@Z @ 0x1C02051B0
+ * Callers:
+ *     ??1CCheckLLHookTime@@QEAA@XZ @ 0x1C014AA3E (--1CCheckLLHookTime@@QEAA@XZ.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall TraceLoggingSlowLowLevelHook()
 {
   __int64 v0; // r9

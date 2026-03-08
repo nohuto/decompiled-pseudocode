@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckEasPolicyChange @ 0x1C01BC0B0
+ * Callers:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 CheckEasPolicyChange()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmGetControlAreaPartition @ 0x1402A1224
+ * Callers:
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ *     CcGetFlushedValidData @ 0x1402A1120 (CcGetFlushedValidData.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402A42CC (CcNotifyOfMappedWriteComplete.c)
+ *     CcDeleteSectionsForPartition @ 0x140536B34 (CcDeleteSectionsForPartition.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmGetControlAreaPartition(__int64 a1)
 {
   unsigned __int64 v2; // rdi

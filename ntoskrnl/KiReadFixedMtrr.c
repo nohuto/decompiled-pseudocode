@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiReadFixedMtrr @ 0x140A8C908
+ * Callers:
+ *     KeLoadMTRR @ 0x140A8C4C0 (KeLoadMTRR.c)
+ *     KiInitializeMTRR @ 0x140B5FED0 (KiInitializeMTRR.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiReadFixedMtrr(_QWORD *a1)
 {
   unsigned __int64 v1; // r8

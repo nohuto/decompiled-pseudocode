@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindNextForwardRunSetEx @ 0x1405A5FA4
+ * Callers:
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A32268 (MiApplyHotPatchToDriverDataPages.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlFindNextForwardRunSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // r11

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipCreateNewDependencyEdge @ 0x1403945C4
+ * Callers:
+ *     PipAddDependencyEdgeBetweenNodes @ 0x140394528 (PipAddDependencyEdgeBetweenNodes.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PipReferenceDependencyNode @ 0x140838B50 (PipReferenceDependencyNode.c)
+ *     PipAddRequestToEdge @ 0x140838B5C (PipAddRequestToEdge.c)
+ *     PipNotifyDependenciesChanged @ 0x140838D1C (PipNotifyDependenciesChanged.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall PipCreateNewDependencyEdge(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 Pool2; // rax

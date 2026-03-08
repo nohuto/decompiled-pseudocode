@@ -1,3 +1,11 @@
+/*
+ * XREFs of AdtpLookupDriveLetter @ 0x14083DCF8
+ * Callers:
+ *     AdtpSubstituteDriveLetter @ 0x14083DC80 (AdtpSubstituteDriveLetter.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 char __fastcall AdtpLookupDriveLetter(PCUNICODE_STRING String1, unsigned __int16 *a2, _WORD *a3)
 {
   UNICODE_STRING *v4; // rbx

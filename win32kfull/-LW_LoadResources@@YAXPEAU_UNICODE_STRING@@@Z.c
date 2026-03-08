@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LW_LoadResources@@YAXPEAU_UNICODE_STRING@@@Z @ 0x1C00EF53C
+ * Callers:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall LW_LoadResources(struct _UNICODE_STRING *a1)
 {

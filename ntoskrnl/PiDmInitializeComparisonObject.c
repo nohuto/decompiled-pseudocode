@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDmInitializeComparisonObject @ 0x1406D04C0
+ * Callers:
+ *     PiDmLookupObject @ 0x140680C78 (PiDmLookupObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406CEB28 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 __fastcall PiDmInitializeComparisonObject(_WORD *a1, int a2, __int64 a3)
 {
   unsigned int v3; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspIoRateEntryVolumeDelete @ 0x1405A1FA0
+ * Callers:
+ *     PspJobIoRateVolumeEntryRemoveAll @ 0x1402919C8 (PspJobIoRateVolumeEntryRemoveAll.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall PspIoRateEntryVolumeDelete(_QWORD *a1, __int64 a2)
 {
   _QWORD *result; // rax

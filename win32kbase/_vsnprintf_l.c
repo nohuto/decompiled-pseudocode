@@ -1,3 +1,13 @@
+/*
+ * XREFs of _vsnprintf_l @ 0x1C00DA974
+ * Callers:
+ *     _vsnprintf @ 0x1C00DA954 (_vsnprintf.c)
+ * Callees:
+ *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C006BF40 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
+ *     _flsbuf @ 0x1C00DB008 (_flsbuf.c)
+ *     _output_l @ 0x1C00DB018 (_output_l.c)
+ */
+
 int __cdecl vsnprintf_l(char *DstBuf, size_t MaxCount, const char *Format, _locale_t Locale, va_list ArgList)
 {
   int v6; // edi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiUpdateBugcheckRecoveryProgress @ 0x1405793F8
+ * Callers:
+ *     KiAttemptBugcheckRecovery @ 0x140577FAC (KiAttemptBugcheckRecovery.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x140578228 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405786C8 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiDeferredBugcheckRecoveryWorker @ 0x140578960 (KiDeferredBugcheckRecoveryWorker.c)
+ *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x140578E88 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
+ *     KiSaveBugCheckRecoveryStatusPhase0 @ 0x140578EE4 (KiSaveBugCheckRecoveryStatusPhase0.c)
+ *     KiSaveBugCheckRecoveryStatusPhase1 @ 0x140578F68 (KiSaveBugCheckRecoveryStatusPhase1.c)
+ *     KiSaveBugCheckRecoveryStatusPhase2 @ 0x140578FBC (KiSaveBugCheckRecoveryStatusPhase2.c)
+ * Callees:
+ *     KiSendThawExecution @ 0x14036B330 (KiSendThawExecution.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     IoSaveInitialBugCheckProgress @ 0x14054E7F0 (IoSaveInitialBugCheckProgress.c)
+ *     IoUpdateBugCheckProgressEnvVariable @ 0x14054EC04 (IoUpdateBugCheckProgressEnvVariable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057833C (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ */
+
 __int64 __fastcall KiUpdateBugcheckRecoveryProgress(_DWORD *a1)
 {
   unsigned int v3; // ebx

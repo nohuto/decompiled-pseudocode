@@ -1,3 +1,13 @@
+/*
+ * XREFs of _lambda_1fab3903b5a8bfcd713af340c69f2789_::operator() @ 0x1C00DF4BC
+ * Callers:
+ *     _lambda_1fab3903b5a8bfcd713af340c69f2789_::_lambda_invoker_cdecl_ @ 0x1C00DF4A0 (_lambda_1fab3903b5a8bfcd713af340c69f2789_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     RIMIsWakeCapableDevice @ 0x1C00BBEF0 (RIMIsWakeCapableDevice.c)
+ *     RIMSetDeviceInputMode @ 0x1C00BC07C (RIMSetDeviceInputMode.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall lambda_1fab3903b5a8bfcd713af340c69f2789_::operator()(__int64 a1, __int64 a2, unsigned int *a3)
 {
   __int64 v3; // rbx

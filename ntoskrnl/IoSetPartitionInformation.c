@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoSetPartitionInformation @ 0x14093DA80
+ * Callers:
+ *     DifIoSetPartitionInformationWrapper @ 0x1405DF060 (DifIoSetPartitionInformationWrapper.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ??0SC_DISK@@QEAA@XZ @ 0x140672D88 (--0SC_DISK@@QEAA@XZ.c)
+ *     ??1SC_DISK@@UEAA@XZ @ 0x140672EB0 (--1SC_DISK@@UEAA@XZ.c)
+ *     ?SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140673750 (-SetPartition@SC_DISK@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14093D4C8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ */
+
 NTSTATUS __stdcall IoSetPartitionInformation(
         PDEVICE_OBJECT DeviceObject,
         ULONG SectorSize,

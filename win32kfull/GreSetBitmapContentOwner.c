@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreSetBitmapContentOwner @ 0x1C00DFBB4
+ * Callers:
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ *     ChangeWindowBitmapOwner @ 0x1C01BDDD4 (ChangeWindowBitmapOwner.c)
+ *     GreSetLWContentOwner @ 0x1C02D71EC (GreSetLWContentOwner.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreSetBitmapContentOwner(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v6; // edi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of BiGetPhysicalDriveName @ 0x140A5A720
+ * Callers:
+ *     BiCreatePartitionDevice @ 0x14082FDBC (BiCreatePartitionDevice.c)
+ *     BiGetDriveLayoutBlock @ 0x140830E1C (BiGetDriveLayoutBlock.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     BiGetVolumeDiskExtentsInformation @ 0x140A5A870 (BiGetVolumeDiskExtentsInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetPhysicalDriveName(PCWSTR SourceString, wchar_t **a2)
 {
   NTSTATUS v3; // ebx

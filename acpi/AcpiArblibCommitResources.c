@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiArblibCommitResources @ 0x1C007CE1C
+ * Callers:
+ *     ACPIBusIrpStartDevice @ 0x1C00814F0 (ACPIBusIrpStartDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall AcpiArblibCommitResources(__int64 a1, __int64 a2)
 {
   PRTL_RANGE_LIST *v2; // r14

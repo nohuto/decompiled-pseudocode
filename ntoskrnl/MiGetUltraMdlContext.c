@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiGetUltraMdlContext @ 0x14065F3EC
+ * Callers:
+ *     MmMapMdl @ 0x14062CC90 (MmMapMdl.c)
+ * Callees:
+ *     MiCreateUltraThreadContextHelper @ 0x1402445C4 (MiCreateUltraThreadContextHelper.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDeleteUltraMapContext @ 0x1403513B4 (MiDeleteUltraMapContext.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PSLIST_ENTRY MiGetUltraMdlContext()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIsPartialPlaceholderFileHandle @ 0x1409BD2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ */
+
 NTSTATUS __fastcall RtlIsPartialPlaceholderFileHandle(void *a1, bool *a2)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiChangeGhostFont @ 0x1C02C4780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreChangeGhostFont @ 0x1C027A490 (GreChangeGhostFont.c)
+ */
+
 __int64 __fastcall NtGdiChangeGhostFont(Gre::Base **a1, int a2)
 {
   unsigned int v3; // ebx

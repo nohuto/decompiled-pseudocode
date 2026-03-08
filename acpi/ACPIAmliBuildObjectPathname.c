@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIAmliBuildObjectPathname @ 0x1C000B0E0
+ * Callers:
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     ACPIBuildDockExtension @ 0x1C000CEDC (ACPIBuildDockExtension.c)
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ *     AcpiGetFullyQualifiedBiosName @ 0x1C0083FF0 (AcpiGetFullyQualifiedBiosName.c)
+ *     ACPIBusIommuBusInterface @ 0x1C008736C (ACPIBusIommuBusInterface.c)
+ *     LinkNodeFindByName @ 0x1C0099388 (LinkNodeFindByName.c)
+ *     PcisuppSetRoutingInfo @ 0x1C009A1E8 (PcisuppSetRoutingInfo.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AMLIGetNameSpaceObjectPath @ 0x1C00485CC (AMLIGetNameSpaceObjectPath.c)
+ */
+
 __int64 __fastcall ACPIAmliBuildObjectPathname(__int64 a1, PVOID *a2, char a3)
 {
   unsigned int v6; // r13d

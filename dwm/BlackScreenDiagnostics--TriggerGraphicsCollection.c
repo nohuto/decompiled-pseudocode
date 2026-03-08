@@ -1,3 +1,13 @@
+/*
+ * XREFs of BlackScreenDiagnostics::TriggerGraphicsCollection @ 0x14000D6A8
+ * Callers:
+ *     ?DoDisplayModeReset@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXAEBU_GUID@@@Z @ 0x14000C764 (-DoDisplayModeReset@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXAEBU_GUID@@@Z.c)
+ *     ?Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D134 (-Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFla.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgs @ 0x14000DF68 (MicrosoftTelemetryAssertTriggeredArgs.c)
+ */
+
 __int64 __fastcall BlackScreenDiagnostics::TriggerGraphicsCollection(
         unsigned __int8 a1,
         unsigned __int8 a2,

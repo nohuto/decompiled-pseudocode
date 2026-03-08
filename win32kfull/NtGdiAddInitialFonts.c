@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiAddInitialFonts @ 0x1C00B7D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C00B842C (-AddInitialFonts@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ */
+
 __int64 __fastcall NtGdiAddInitialFonts(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

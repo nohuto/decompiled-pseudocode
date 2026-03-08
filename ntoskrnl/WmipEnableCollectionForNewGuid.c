@@ -1,3 +1,19 @@
+/*
+ * XREFs of WmipEnableCollectionForNewGuid @ 0x140868484
+ * Callers:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ *     WmipGenerateRegistrationNotification @ 0x1408682E0 (WmipGenerateRegistrationNotification.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14069CD88 (WmipSendWmiIrp.c)
+ *     WmipDoDisableRequest @ 0x140786F08 (WmipDoDisableRequest.c)
+ *     WmipReleaseCollectionEnabled @ 0x140872A3C (WmipReleaseCollectionEnabled.c)
+ */
+
 int __fastcall WmipEnableCollectionForNewGuid(_QWORD *a1, __int64 a2)
 {
   volatile signed __int64 *GEByGuid; // rax

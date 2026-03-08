@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopFreePoDeviceNotifyListHead @ 0x140A9B874
+ * Callers:
+ *     IoBuildPoDeviceNotifyList @ 0x140A9B078 (IoBuildPoDeviceNotifyList.c)
+ *     IoFreePoDeviceNotifyList @ 0x140A9B6D4 (IoFreePoDeviceNotifyList.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopFreePoDeviceNotifyListHead(_QWORD *a1)
 {
   _QWORD *v2; // rbx

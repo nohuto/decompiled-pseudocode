@@ -1,3 +1,16 @@
+/*
+ * XREFs of SecureDump_ReInitialize @ 0x14055C0B8
+ * Callers:
+ *     IoProvisionCrashDumpKey @ 0x14054E504 (IoProvisionCrashDumpKey.c)
+ * Callees:
+ *     BCryptCloseAlgorithmProvider @ 0x1403892D4 (BCryptCloseAlgorithmProvider.c)
+ *     SecureDump_ProvisionCrashDumpKey @ 0x1403B1104 (SecureDump_ProvisionCrashDumpKey.c)
+ *     SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055B7B4 (SecureDump_EncryptSymmetricKeyWithPublicKey.c)
+ *     SecureDump_SymmetricEncryptionSetup @ 0x14055C294 (SecureDump_SymmetricEncryptionSetup.c)
+ *     BCryptDestroyKey @ 0x1405B52AC (BCryptDestroyKey.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SecureDump_ReInitialize(__int64 a1, ULONG a2)
 {
   ULONG v3; // edx

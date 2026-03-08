@@ -1,3 +1,11 @@
+/*
+ * XREFs of ApplySecurityAttributesToWinsta @ 0x1C002EB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall ApplySecurityAttributesToWinsta(__int64 a1, void *a2)
 {
   __int64 v4; // rdx

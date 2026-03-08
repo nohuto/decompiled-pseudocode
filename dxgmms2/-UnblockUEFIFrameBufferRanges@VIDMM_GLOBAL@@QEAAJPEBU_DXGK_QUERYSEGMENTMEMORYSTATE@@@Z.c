@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnblockUEFIFrameBufferRanges@VIDMM_GLOBAL@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x1C00E83AC
+ * Callers:
+ *     VidMmUnblockUEFIFrameBufferRanges @ 0x1C002D570 (VidMmUnblockUEFIFrameBufferRanges.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C01003AC (-UnblockMemoryRanges@VIDMM_SEGMENT@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::UnblockUEFIFrameBufferRanges(
         VIDMM_GLOBAL *this,
         const struct _DXGK_QUERYSEGMENTMEMORYSTATE *a2)

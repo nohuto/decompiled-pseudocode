@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSelectIdealProcessor @ 0x1403599D8
+ * Callers:
+ *     KeSelectIdealProcessor @ 0x140359930 (KeSelectIdealProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiSelectIdealProcessor(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   char v5; // r10

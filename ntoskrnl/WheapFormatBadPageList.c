@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapFormatBadPageList @ 0x14060FF08
+ * Callers:
+ *     WheapInsertPageToList @ 0x140610044 (WheapInsertPageToList.c)
+ * Callees:
+ *     qsort_s @ 0x1403D4C90 (qsort_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 _UNKNOWN **__fastcall WheapFormatBadPageList(char *a1, unsigned int a2, unsigned int *a3)
 {
   _UNKNOWN **result; // rax

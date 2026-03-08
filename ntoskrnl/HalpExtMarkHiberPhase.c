@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpExtMarkHiberPhase @ 0x140A92F20
+ * Callers:
+ *     HaliLocateHiberRanges @ 0x140A92C20 (HaliLocateHiberRanges.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void HalpExtMarkHiberPhase()
 {
   unsigned int i; // ebx

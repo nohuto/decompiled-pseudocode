@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Register_UpdateDeviceSlotInfo @ 0x1C004E0E8
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Register_UpdateDeviceSlotInfo(__int64 *a1, signed __int32 a2, __int64 *a3)
 {
   __int64 v3; // rax

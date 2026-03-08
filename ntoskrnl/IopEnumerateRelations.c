@@ -1,3 +1,22 @@
+/*
+ * XREFs of IopEnumerateRelations @ 0x140863508
+ * Callers:
+ *     PiRestartRemovalRelations @ 0x14085F6D8 (PiRestartRemovalRelations.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140862FDC (PnpUnlinkDeviceRemovalRelations.c)
+ *     PiEventBuildPdoList @ 0x140863160 (PiEventBuildPdoList.c)
+ *     PnpDeleteLockedDeviceNodes @ 0x1408632A0 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCompileDeviceInstancePaths @ 0x1408633B8 (PnpCompileDeviceInstancePaths.c)
+ *     PnpInvalidateRelationsInList @ 0x14087CBE8 (PnpInvalidateRelationsInList.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14087E79C (PnpQueuePendingSurpriseRemoval.c)
+ *     PnpBuildUnsafeRemovalDeviceList @ 0x14087F410 (PnpBuildUnsafeRemovalDeviceList.c)
+ *     PnpFinalizeDeviceRemovalForReset @ 0x14095486C (PnpFinalizeDeviceRemovalForReset.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140961AFC (PnpTrackQueryRemoveDevices.c)
+ *     IopCheckIfMergeRequired @ 0x1409699BC (IopCheckIfMergeRequired.c)
+ * Callees:
+ *     PipDeviceObjectListElementAt @ 0x1408702B8 (PipDeviceObjectListElementAt.c)
+ */
+
 bool __fastcall IopEnumerateRelations(unsigned int **a1, int *a2, _QWORD *a3, _DWORD *a4, _DWORD *a5)
 {
   bool v5; // r11

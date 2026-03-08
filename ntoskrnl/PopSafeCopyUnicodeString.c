@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopSafeCopyUnicodeString @ 0x1402BD794
+ * Callers:
+ *     PopCaptureReasonContext @ 0x1402BD4D4 (PopCaptureReasonContext.c)
+ * Callees:
+ *     RtlStringCbCopyUnicodeString @ 0x1402BD854 (RtlStringCbCopyUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PopSafeCopyUnicodeString(PCUNICODE_STRING SourceString, wchar_t **a2, __int64 a3, char a4)
 {
   wchar_t *v4; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CRectangleGeometry::sc_TopLeftRadiusY__ @ 0x180002D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CRectangleGeometry::sc_TopLeftRadiusY__()
 {
   __int64 result; // rax

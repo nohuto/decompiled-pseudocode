@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiFreeLargeProcessPagesToCache @ 0x140666064
+ * Callers:
+ *     MiFreeLargePages @ 0x140665C70 (MiFreeLargePages.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCoalesceActivePagesIntoFree @ 0x14065AF0C (MiCoalesceActivePagesIntoFree.c)
+ *     MiAppendTailList @ 0x14066509C (MiAppendTailList.c)
+ */
+
 void __fastcall MiFreeLargeProcessPagesToCache(ULONG_PTR *a1, __int64 a2)
 {
   ULONG_PTR *v3; // rbx

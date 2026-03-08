@@ -1,3 +1,14 @@
+/*
+ * XREFs of IvtCreateDevice @ 0x14037C4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtpGetNextInternalDeviceScope @ 0x14037C09C (IvtpGetNextInternalDeviceScope.c)
+ *     HalpIvtCheckIdPathMatch @ 0x14037C118 (HalpIvtCheckIdPathMatch.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14051D13C (ExtEnvFreeMemory.c)
+ */
+
 __int64 __fastcall IvtCreateDevice(__int64 a1, __int64 a2, char a3, __int64 a4, _QWORD *a5)
 {
   __int64 v7; // rdi

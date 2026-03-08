@@ -1,3 +1,12 @@
+/*
+ * XREFs of OSNotifyCreateOperationRegionWorker @ 0x1C00329C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C0039ADC (EnableDisableRegionSpacesForDevice.c)
+ */
+
 void __fastcall OSNotifyCreateOperationRegionWorker(_QWORD *P, __int64 a2)
 {
   ULONG_PTR v2; // rbx

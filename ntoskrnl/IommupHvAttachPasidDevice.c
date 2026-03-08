@@ -1,3 +1,15 @@
+/*
+ * XREFs of IommupHvAttachPasidDevice @ 0x140521E7C
+ * Callers:
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvAttachPasidDevice(__int64 a1)
 {
   int v1; // edi

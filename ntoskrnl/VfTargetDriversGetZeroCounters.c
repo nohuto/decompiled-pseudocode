@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfTargetDriversGetZeroCounters @ 0x140AC8578
+ * Callers:
+ *     VfSuspectDriversGetVerifierInformation @ 0x140AD744C (VfSuspectDriversGetVerifierInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VfTargetDriversGetZeroCounters(_QWORD *a1, int a2)
 {
   __int64 result; // rax

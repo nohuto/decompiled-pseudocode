@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildProcessSynchronizationList @ 0x1C00123A0
+ * Callers:
+ *     ACPIBuildDeviceDpc @ 0x1C000BE30 (ACPIBuildDeviceDpc.c)
+ * Callees:
+ *     ACPIBuildProcessGenericComplete @ 0x1C0010C40 (ACPIBuildProcessGenericComplete.c)
+ *     WPP_RECORDER_SF_sqss @ 0x1C0015EC4 (WPP_RECORDER_SF_sqss.c)
+ */
+
 __int64 ACPIBuildProcessSynchronizationList()
 {
   PVOID *v0; // rbx

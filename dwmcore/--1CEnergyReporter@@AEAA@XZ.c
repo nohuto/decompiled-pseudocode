@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CEnergyReporter@@AEAA@XZ @ 0x1801CF100
+ * Callers:
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CEnergyReporter::~CEnergyReporter(PTP_WORK *this)
 {
   void (__fastcall ***v2)(_QWORD, _QWORD); // rcx

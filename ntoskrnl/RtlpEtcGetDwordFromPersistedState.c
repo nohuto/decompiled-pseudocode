@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpEtcGetDwordFromPersistedState @ 0x14040BD88
+ * Callers:
+ *     RtlpEcReadPolicyState @ 0x14040BC60 (RtlpEcReadPolicyState.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlpEtcGetDwordFromRegistry @ 0x14040BE44 (RtlpEtcGetDwordFromRegistry.c)
+ *     RtlpGetPersistedRegistryLocation @ 0x14040BFA8 (RtlpGetPersistedRegistryLocation.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall RtlpEtcGetDwordFromPersistedState(
         const WCHAR *a1,
         __int64 a2,

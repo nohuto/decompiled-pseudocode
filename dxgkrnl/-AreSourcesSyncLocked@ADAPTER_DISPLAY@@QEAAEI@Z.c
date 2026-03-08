@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AreSourcesSyncLocked@ADAPTER_DISPLAY@@QEAAEI@Z @ 0x1C02B6538
+ * Callers:
+ *     ?ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ @ 0x1C02B676C (-ConfigChangesOnMultipleOutputs@ADAPTER_DISPLAY@@QEAAEXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ADAPTER_DISPLAY::AreSourcesSyncLocked(ADAPTER_DISPLAY *this, int a2)
 {
   unsigned int v2; // eax

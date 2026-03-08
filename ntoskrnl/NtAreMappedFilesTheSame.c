@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtAreMappedFilesTheSame @ 0x14086F640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiUnlockVadShared @ 0x1402A5B30 (MiUnlockVadShared.c)
+ *     MiDereferenceVad @ 0x1402DC3A4 (MiDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x14031F870 (MiLockVadShared.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiVadIsMetadataBitmap @ 0x1407D76A0 (MiVadIsMetadataBitmap.c)
+ */
+
 __int64 __fastcall NtAreMappedFilesTheSame(unsigned __int64 a1, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // r13

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnCancelTraceTimer @ 0x14035B3D0
+ * Callers:
+ *     PfSnDeactivateTrace @ 0x14035B244 (PfSnDeactivateTrace.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PfSnCancelTraceTimer(__int64 a1)
 {
   volatile signed __int64 *v1; // rbx

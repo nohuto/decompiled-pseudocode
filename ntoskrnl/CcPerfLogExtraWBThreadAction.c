@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcPerfLogExtraWBThreadAction @ 0x140538378
+ * Callers:
+ *     CcLogExtraWBThreadAction @ 0x1405344A8 (CcLogExtraWBThreadAction.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall CcPerfLogExtraWBThreadAction(int a1, int a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _DWORD *v5; // [rsp+30h] [rbp-48h] BYREF

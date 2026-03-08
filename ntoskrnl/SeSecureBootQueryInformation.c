@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeSecureBootQueryInformation @ 0x140791990
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SeSecureBootQueryInformation(int a1, __int64 a2, unsigned int a3, unsigned int *a4)
 {
   __int64 v4; // rsi

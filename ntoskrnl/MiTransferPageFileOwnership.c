@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiTransferPageFileOwnership @ 0x14029D878
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140662368 (MiHandleForkTransitionPte.c)
+ * Callees:
+ *     MiUpdatePageFileBlockOwner @ 0x1406646BC (MiUpdatePageFileBlockOwner.c)
+ */
+
 char __fastcall MiTransferPageFileOwnership(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r9d

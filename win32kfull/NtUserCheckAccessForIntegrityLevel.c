@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCheckAccessForIntegrityLevel @ 0x1C01CE4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ */
+
 __int64 __fastcall NtUserCheckAccessForIntegrityLevel(__int64 a1, __int64 a2, _DWORD *a3)
 {
   void *v4; // rsi

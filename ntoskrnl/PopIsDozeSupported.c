@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopIsDozeSupported @ 0x14097DB04
+ * Callers:
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059BCE8 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopUpdateSystemIdleContext @ 0x14082A808 (PopUpdateSystemIdleContext.c)
+ *     PopDeferDoze @ 0x140988614 (PopDeferDoze.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopIsHibernateSupported @ 0x140870C14 (PopIsHibernateSupported.c)
+ */
+
 char __fastcall PopIsDozeSupported(_BYTE *a1)
 {
   __int64 v1; // rcx

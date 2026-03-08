@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhSyncResumePort @ 0x1C003A460
+ * Callers:
+ *     UsbhBusIf_ResumeChildHub @ 0x1C0004460 (UsbhBusIf_ResumeChildHub.c)
+ *     UsbhCycleDevicePort @ 0x1C003725C (UsbhCycleDevicePort.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003A2F8 (UsbhSyncResumeDeviceInternal.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_Enable @ 0x1C0034698 (UsbhPCE_Enable.c)
+ *     UsbhPCE_Resume @ 0x1C003495C (UsbhPCE_Resume.c)
+ *     UsbhWaitForPortResume @ 0x1C003A71C (UsbhWaitForPortResume.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhSyncResumePort(struct _DEVICE_OBJECT *a1, __int64 a2, unsigned __int16 a3)
 {
   int v3; // edi

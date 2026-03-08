@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiCheckForTimerExpiration @ 0x14022F940
+ * Callers:
+ *     KeAccumulateTicks @ 0x14022F310 (KeAccumulateTicks.c)
+ * Callees:
+ *     HalpInterruptSendIpi @ 0x140230870 (HalpInterruptSendIpi.c)
+ *     RtlBackoff @ 0x140241660 (RtlBackoff.c)
+ *     KiResetClockIntervalOneShot @ 0x1402D935C (KiResetClockIntervalOneShot.c)
+ *     KiSetClockIntervalOneShot @ 0x1402D93BC (KiSetClockIntervalOneShot.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall KiCheckForTimerExpiration(__int64 a1, unsigned int a2)
 {
   _BYTE *v3; // rbx

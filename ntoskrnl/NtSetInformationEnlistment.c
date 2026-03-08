@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtSetInformationEnlistment @ 0x1403D27D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtSetInformationEnlistment(
         HANDLE EnlistmentHandle,

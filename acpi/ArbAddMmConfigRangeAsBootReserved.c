@@ -1,3 +1,15 @@
+/*
+ * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x1C00A0984
+ * Callers:
+ *     ACPIBusIrpStartDevice @ 0x1C00814F0 (ACPIBusIrpStartDevice.c)
+ * Callees:
+ *     RtlAddRange_0 @ 0x1C0001A43 (RtlAddRange_0.c)
+ *     ZwClose_0 @ 0x1C0001A67 (ZwClose_0.c)
+ *     ZwOpenKey_0 @ 0x1C0001AE5 (ZwOpenKey_0.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ArbpGetRegistryValue @ 0x1C00A2FAC (ArbpGetRegistryValue.c)
+ */
+
 NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, struct _RTL_RANGE_LIST *a2)
 {
   unsigned int *v2; // rsi

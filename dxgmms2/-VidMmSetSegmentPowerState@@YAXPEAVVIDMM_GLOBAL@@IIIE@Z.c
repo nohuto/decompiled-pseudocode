@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmSetSegmentPowerState@@YAXPEAVVIDMM_GLOBAL@@IIIE@Z @ 0x1C002CE60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyMemorySegmentIdle@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z @ 0x1C002E0E0 (-NotifyMemorySegmentIdle@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_SEGMENT@@@Z.c)
+ */
+
 void __fastcall VidMmSetSegmentPowerState(struct VIDMM_GLOBAL *a1, unsigned int a2, int a3, int a4, char a5)
 {
   __int64 v5; // rcx

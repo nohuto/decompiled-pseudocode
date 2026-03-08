@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiHvInterruptSubDispatch @ 0x14041DE10
+ * Callers:
+ *     KiHvInterruptDispatch @ 0x14041D590 (KiHvInterruptDispatch.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402566F0 (KiEndThreadAccountingPeriod.c)
+ *     KiEntropyQueueDpc @ 0x1402F31A0 (KiEntropyQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlSharedIsr @ 0x140456D60 (HvlSharedIsr.c)
+ *     PerfInfoLogInterruptHv @ 0x14045FDE0 (PerfInfoLogInterruptHv.c)
+ *     HvlDummyInterruptCallback @ 0x14053D1B0 (HvlDummyInterruptCallback.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ */
+
 __int64 __fastcall KiHvInterruptSubDispatch(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rbp

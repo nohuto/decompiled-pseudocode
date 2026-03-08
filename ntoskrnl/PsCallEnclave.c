@@ -1,3 +1,31 @@
+/*
+ * XREFs of PsCallEnclave @ 0x1409B3880
+ * Callers:
+ *     NtCallEnclave @ 0x1404212A0 (NtCallEnclave.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwTerminateProcess @ 0x140412890 (ZwTerminateProcess.c)
+ *     PsGetBaseTrapFrame @ 0x14045B2A0 (PsGetBaseTrapFrame.c)
+ *     RtlCreateEnclaveReturnFrame @ 0x14045C298 (RtlCreateEnclaveReturnFrame.c)
+ *     RtlPrepareEnclaveCall @ 0x14045C3AE (RtlPrepareEnclaveCall.c)
+ *     VslCallEnclave @ 0x1408A00F8 (VslCallEnclave.c)
+ *     PsDereferenceVsmEnclave @ 0x1408A1324 (PsDereferenceVsmEnclave.c)
+ *     PspFindVsmEnclaveThread @ 0x1408A13DC (PspFindVsmEnclaveThread.c)
+ *     PspSelectVsmEnclaveByNumber @ 0x1408A13FA (PspSelectVsmEnclaveByNumber.c)
+ *     PspPrepareEnclaveThreadWait @ 0x1409B4A9C (PspPrepareEnclaveThreadWait.c)
+ *     PspReleaseEnclaveThread @ 0x1409B4B30 (PspReleaseEnclaveThread.c)
+ *     PspRemoveEnclaveThreadWait @ 0x1409B4B8C (PspRemoveEnclaveThreadWait.c)
+ *     MmSelectVsmEnclaveByAddress @ 0x140A3BD94 (MmSelectVsmEnclaveByAddress.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PsCallEnclave(unsigned __int64 a1, __int64 a2, NTSTATUS a3, __int64 *a4)
 {
   __int64 v5; // r12

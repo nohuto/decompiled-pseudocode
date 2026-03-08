@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspDereferenceQuotaBlock @ 0x140696A94
+ * Callers:
+ *     PsReturnSharedPoolQuota @ 0x140696A48 (PsReturnSharedPoolQuota.c)
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ *     PspAssignProcessQuotaBlock @ 0x140745228 (PspAssignProcessQuotaBlock.c)
+ *     ObpFreeObject @ 0x1407C3980 (ObpFreeObject.c)
+ * Callees:
+ *     PspReturnResourceQuota @ 0x1402953A0 (PspReturnResourceQuota.c)
+ *     PspRemoveQuotaBlock @ 0x1409AB0BC (PspRemoveQuotaBlock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PspDereferenceQuotaBlock(volatile signed __int32 *P)
 {
   signed int v2; // esi

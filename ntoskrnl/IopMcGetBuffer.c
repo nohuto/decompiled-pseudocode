@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopMcGetBuffer @ 0x14094E810
+ * Callers:
+ *     IopIoRingGetBuffer @ 0x140946E9C (IopIoRingGetBuffer.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopMcDereferenceMdl @ 0x14055CB10 (IopMcDereferenceMdl.c)
+ *     IopMcReferenceBufferEntry @ 0x14055CD38 (IopMcReferenceBufferEntry.c)
+ *     IopMcCreateBufferEntryMdl @ 0x14094E6D0 (IopMcCreateBufferEntryMdl.c)
+ *     IopMcCreatePartialMdl @ 0x14094E75C (IopMcCreatePartialMdl.c)
+ */
+
 __int64 __fastcall IopMcGetBuffer(
         ULONG_PTR BugCheckParameter2,
         unsigned __int64 a2,

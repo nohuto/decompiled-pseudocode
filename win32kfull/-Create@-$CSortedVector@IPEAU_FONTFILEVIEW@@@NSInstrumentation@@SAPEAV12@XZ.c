@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@?$CSortedVector@IPEAU_FONTFILEVIEW@@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00BD294
+ * Callers:
+ *     ?InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z @ 0x1C00BAEC0 (-InitializeUmfdAndRegisterHost@UmfdHostLifeTimeManager@@SAHPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *NSInstrumentation::CSortedVector<unsigned int,_FONTFILEVIEW *>::Create()
 {
   _QWORD *Pool2; // rbx

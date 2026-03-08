@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiDecrementSubsectionViewCount @ 0x140334C10
+ * Callers:
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MiAppendSubsectionChain @ 0x1402A5090 (MiAppendSubsectionChain.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiRemoveViewsFromSection @ 0x140334A28 (MiRemoveViewsFromSection.c)
+ *     MiDecrementSubsections @ 0x140334B70 (MiDecrementSubsections.c)
+ *     MiDeleteSubsectionPages @ 0x14034B8E0 (MiDeleteSubsectionPages.c)
+ *     MiCreatePrototypePtes @ 0x14036862C (MiCreatePrototypePtes.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1406238BC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ * Callees:
+ *     MiControlAreaExemptFromCrossPartitionCharges @ 0x14034C584 (MiControlAreaExemptFromCrossPartitionCharges.c)
+ *     MiGetSubsectionHoldingCrossPartitionReferences @ 0x140368520 (MiGetSubsectionHoldingCrossPartitionReferences.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140668AE8 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x140668EB4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ */
+
 __int64 __fastcall MiDecrementSubsectionViewCount(_QWORD *BugCheckParameter2, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

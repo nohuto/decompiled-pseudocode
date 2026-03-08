@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmGetDeviceContainerMappedPropertyKeys @ 0x140A61518
+ * Callers:
+ *     _PnpDispatchDeviceContainer @ 0x140682AC0 (_PnpDispatchDeviceContainer.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x140A60E84 (_CmDeleteDeviceContainerWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetDeviceContainerMappedPropertyKeys(
         __int64 a1,
         __int64 a2,

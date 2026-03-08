@@ -1,3 +1,22 @@
+/*
+ * XREFs of PciConfigSpaceHandlerWorker @ 0x1C0036080
+ * Callers:
+ *     PciConfigInternal @ 0x1C0035ECC (PciConfigInternal.c)
+ *     PciConfigSpaceHandler @ 0x1C0035F80 (PciConfigSpaceHandler.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0025F5C (ACPIWriteEventLogEntry.c)
+ *     GetOpRegionScope @ 0x1C0034B60 (GetOpRegionScope.c)
+ *     GetPciAddress @ 0x1C0034D48 (GetPciAddress.c)
+ *     WPP_RECORDER_SF_ss @ 0x1C003660C (WPP_RECORDER_SF_ss.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall PciConfigSpaceHandlerWorker(__int64 a1, __int64 a2, const char *a3, __int64 a4)
 {
   unsigned int *v4; // rdi

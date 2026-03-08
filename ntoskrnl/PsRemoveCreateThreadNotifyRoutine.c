@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsRemoveCreateThreadNotifyRoutine @ 0x1409B2C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x140388EF8 (ExCompareExchangeCallBack.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall PsRemoveCreateThreadNotifyRoutine(PCREATE_THREAD_NOTIFY_ROUTINE NotifyRoutine)
 {
   struct _KTHREAD *CurrentThread; // rsi

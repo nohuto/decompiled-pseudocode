@@ -1,3 +1,12 @@
+/*
+ * XREFs of UpdateInputSettingWnfState @ 0x1C017BAE0
+ * Callers:
+ *     UpdateTPCurrentActiveState @ 0x1C0031AA0 (UpdateTPCurrentActiveState.c)
+ *     EnablePTPDevices @ 0x1C015CA90 (EnablePTPDevices.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UpdateInputSettingWnfState(int a1)
 {
   _DWORD *v1; // rdx

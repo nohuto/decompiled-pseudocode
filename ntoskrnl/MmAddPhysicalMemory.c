@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmAddPhysicalMemory @ 0x140A2A460
+ * Callers:
+ *     WheapClearPoison @ 0x140A05870 (WheapClearPoison.c)
+ * Callees:
+ *     MiAddPhysicalMemoryChunks @ 0x140A2919C (MiAddPhysicalMemoryChunks.c)
+ */
+
 NTSTATUS __stdcall MmAddPhysicalMemory(PPHYSICAL_ADDRESS StartAddress, PLARGE_INTEGER NumberOfBytes)
 {
   LONGLONG QuadPart; // rax

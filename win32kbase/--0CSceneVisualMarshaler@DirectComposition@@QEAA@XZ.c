@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CSceneVisualMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024C238
+ * Callers:
+ *     ?GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z @ 0x1C006A574 (-GeneratedCreatePrivateMarshaler@DirectComposition@@YAJIPEAPEAVCResourceMarshaler@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CSceneVisualMarshaler *__fastcall DirectComposition::CSceneVisualMarshaler::CSceneVisualMarshaler(
         DirectComposition::CSceneVisualMarshaler *this)
 {

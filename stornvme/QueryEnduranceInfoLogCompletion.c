@@ -1,3 +1,13 @@
+/*
+ * XREFs of QueryEnduranceInfoLogCompletion @ 0x1C0018A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ */
+
 __int64 __fastcall QueryEnduranceInfoLogCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rbx

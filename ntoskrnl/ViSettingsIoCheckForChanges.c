@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViSettingsIoCheckForChanges @ 0x140AD7F18
+ * Callers:
+ *     VfInitVerifierComponents @ 0x140ABFE40 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x140AD7DA4 (VfSettingsCheckForChanges.c)
+ * Callees:
+ *     IoVerifierCheckForSettingsChange @ 0x140ABDBF0 (IoVerifierCheckForSettingsChange.c)
+ *     VfWdCheckForSettingsChange @ 0x140ADB034 (VfWdCheckForSettingsChange.c)
+ */
+
 void __fastcall ViSettingsIoCheckForChanges(unsigned int a1)
 {
   unsigned int v1; // ebx

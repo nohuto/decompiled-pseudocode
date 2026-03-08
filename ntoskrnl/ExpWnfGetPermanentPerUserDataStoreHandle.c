@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140793848
+ * Callers:
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140793770 (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140851C0C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     RtlLengthSidAsUnicodeString @ 0x140747878 (RtlLengthSidAsUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407479E0 (RtlConvertSidToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfGetPermanentPerUserDataStoreHandle(unsigned __int8 *Sid, PHANDLE KeyHandle)
 {
   __int64 result; // rax

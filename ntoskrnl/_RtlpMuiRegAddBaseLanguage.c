@@ -1,3 +1,16 @@
+/*
+ * XREFs of _RtlpMuiRegAddBaseLanguage @ 0x140A726D0
+ * Callers:
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A72CB8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpLangNameInMultiSzString @ 0x140843B4C (RtlpLangNameInMultiSzString.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x140844394 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14085B02C (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x140A72004 (RtlpMuiRegGetLanguageSpec.c)
+ */
+
 __int64 __fastcall RtlpMuiRegAddBaseLanguage(__int64 *a1, _WORD *a2, unsigned int a3, __int64 a4, wchar_t *Str2)
 {
   char v6; // r15

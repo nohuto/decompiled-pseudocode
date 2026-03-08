@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetOpenClipboardWindow @ 0x1C00169F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 NtUserGetOpenClipboardWindow()
 {
   struct tagWINDOWSTATION *v0; // rax

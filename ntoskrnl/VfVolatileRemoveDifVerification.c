@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfVolatileRemoveDifVerification @ 0x140ADAB38
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ViSuspectDriversLookupEntry @ 0x140AD7CE0 (ViSuspectDriversLookupEntry.c)
+ *     MmEnableOrDisableVerifierForDriver @ 0x140AE503C (MmEnableOrDisableVerifierForDriver.c)
+ */
+
 __int64 __fastcall VfVolatileRemoveDifVerification(const UNICODE_STRING *a1)
 {
   __int64 result; // rax

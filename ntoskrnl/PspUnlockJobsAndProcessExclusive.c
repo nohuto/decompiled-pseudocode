@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspUnlockJobsAndProcessExclusive @ 0x140700DD0
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PspUnlockJobChain @ 0x1406F8F60 (PspUnlockJobChain.c)
+ */
+
 void __fastcall PspUnlockJobsAndProcessExclusive(int *a1, __int64 a2, __int64 a3)
 {
   int v3; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetExtendedStandbyPage @ 0x14064E0CC
+ * Callers:
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiGetSpecialPurposeMemoryPartitionForCaching @ 0x14065DC44 (MiGetSpecialPurposeMemoryPartitionForCaching.c)
+ */
+
 void __fastcall MiGetExtendedStandbyPage(__int64 a1, __int16 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // r11

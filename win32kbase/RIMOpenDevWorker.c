@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMOpenDevWorker @ 0x1C0089188
+ * Callers:
+ *     RIMOpenDev @ 0x1C0089058 (RIMOpenDev.c)
+ * Callees:
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C017D810 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdDSd @ 0x1C019EBE4 (WPP_RECORDER_AND_TRACE_SF_qdDSd.c)
+ */
+
 __int64 __fastcall RIMOpenDevWorker(
         __int64 a1,
         struct _OBJECT_ATTRIBUTES *a2,

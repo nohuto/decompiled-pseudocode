@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_DispatchInternalIOCtrl@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C01690AC
+ * Callers:
+ *     DpiPdoDispatchInternalIoctl @ 0x1C0168D80 (DpiPdoDispatchInternalIoctl.c)
+ * Callees:
+ *     ?OnInternalIoctl@MonitorDescriptorState@DxgMonitor@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0215D74 (-OnInternalIoctl@MonitorDescriptorState@DxgMonitor@@QEAAJKKPEAXK0PEA_K@Z.c)
+ *     ?OnBrightnessNitsUpdated@MonitorColorState@DxgMonitor@@QEAAXI@Z @ 0x1C03C960C (-OnBrightnessNitsUpdated@MonitorColorState@DxgMonitor@@QEAAXI@Z.c)
+ */
+
 __int64 __fastcall DXGMONITOR::_DispatchInternalIOCtrl(
         DxgMonitor::MonitorDescriptorState **this,
         __int64 a2,

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiInitializePfnForOtherProcess @ 0x140348804
+ * Callers:
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ *     MiDuplicateCloneLeaf @ 0x140661AA8 (MiDuplicateCloneLeaf.c)
+ *     MiMapPageFileHash @ 0x140663D0C (MiMapPageFileHash.c)
+ *     MiAllocateTopLevelPage @ 0x140728F6C (MiAllocateTopLevelPage.c)
+ *     MiInitializeShadowPageTable @ 0x14080B974 (MiInitializeShadowPageTable.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiLockAndIncrementShareCount @ 0x14034824C (MiLockAndIncrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiInitializePfnForOtherProcess(__int64 a1, __int64 a2, __int64 a3, __int16 a4)
 {
   __int16 v4; // si

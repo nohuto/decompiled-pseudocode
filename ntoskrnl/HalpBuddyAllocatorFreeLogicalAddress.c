@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpBuddyAllocatorFreeLogicalAddress @ 0x140456A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x14052FBC0 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltPopBuddy @ 0x14052FE04 (HalpBuddyAllocatorBltPopBuddy.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorFreeLogicalAddress(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeReenumerateNameSpaceCompare @ 0x1C002197C
+ * Callers:
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     NVMeIsLunActive @ 0x1C001695C (NVMeIsLunActive.c)
+ */
+
 __int64 __fastcall NVMeReenumerateNameSpaceCompare(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

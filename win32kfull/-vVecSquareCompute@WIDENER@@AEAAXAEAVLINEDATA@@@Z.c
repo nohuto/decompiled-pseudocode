@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vVecSquareCompute@WIDENER@@AEAAXAEAVLINEDATA@@@Z @ 0x1C02F538C
+ * Callers:
+ *     ?vAddEndCap@WIDENER@@IEAAXXZ @ 0x1C01511BA (-vAddEndCap@WIDENER@@IEAAXXZ.c)
+ *     ?vAddStartCap@WIDENER@@IEAAXXZ @ 0x1C01515D0 (-vAddStartCap@WIDENER@@IEAAXXZ.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02F3F58 (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
+ */
+
 void __fastcall WIDENER::vVecSquareCompute(WIDENER *this, struct LINEDATA *a2)
 {
   float v3; // xmm6_4

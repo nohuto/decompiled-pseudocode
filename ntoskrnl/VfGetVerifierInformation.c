@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfGetVerifierInformation @ 0x1405CFC58
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x140AD744C (VfSuspectDriversGetVerifierInformation.c)
+ */
+
 __int64 __fastcall VfGetVerifierInformation(void *a1, size_t Size, unsigned int *a3, int a4)
 {
   unsigned int v7; // eax

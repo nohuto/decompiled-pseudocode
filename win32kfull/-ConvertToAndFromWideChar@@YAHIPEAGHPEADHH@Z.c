@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C00BCE20
+ * Callers:
+ *     cUnicodeRangesSupported @ 0x1C00BCCE0 (cUnicodeRangesSupported.c)
+ *     RtlMBMessageWParamCharToWCS @ 0x1C024EA38 (RtlMBMessageWParamCharToWCS.c)
+ *     RtlWCSMessageWParamCharToMB @ 0x1C024EB88 (RtlWCSMessageWParamCharToMB.c)
+ *     WCSToMBEx @ 0x1C024ECB4 (WCSToMBEx.c)
+ *     EngMultiByteToWideChar @ 0x1C027C160 (EngMultiByteToWideChar.c)
+ *     EngWideCharToMultiByte @ 0x1C027C2D0 (EngWideCharToMultiByte.c)
+ *     ?bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z @ 0x1C02D80F0 (-bExtendGlyphSet@@YA_NPEAPEAU_FD_GLYPHSET@@0@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?ConvertToAndFromWideCharSymCP@@YAHPEAGHPEADHH@Z @ 0x1C027BC1C (-ConvertToAndFromWideCharSymCP@@YAHPEAGHPEADHH@Z.c)
+ *     ?GetNlsTablePath@@YAHIPEAG@Z @ 0x1C027BCE4 (-GetNlsTablePath@@YAHIPEAG@Z.c)
+ */
+
 __int64 __fastcall ConvertToAndFromWideChar(
         unsigned int a1,
         unsigned __int16 *a2,

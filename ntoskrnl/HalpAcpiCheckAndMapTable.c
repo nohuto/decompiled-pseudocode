@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpAcpiCheckAndMapTable @ 0x14029AD4C
+ * Callers:
+ *     HalpAcpiGetTableFromBios @ 0x14029ABA0 (HalpAcpiGetTableFromBios.c)
+ *     HalpAcpiGetRsdt @ 0x14029C328 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetFacsMapping @ 0x1403705F8 (HalpAcpiGetFacsMapping.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14037A8C8 (HalpAcpiGetAllTablesWork.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 __int64 __fastcall HalpAcpiCheckAndMapTable(
         __int64 a1,
         __int64 a2,

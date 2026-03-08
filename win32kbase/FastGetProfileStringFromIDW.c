@@ -1,3 +1,13 @@
+/*
+ * XREFs of FastGetProfileStringFromIDW @ 0x1C0018E40
+ * Callers:
+ *     xxxODI_ColorInit @ 0x1C0018A90 (xxxODI_ColorInit.c)
+ * Callees:
+ *     RtlLoadStringOrError @ 0x1C0018EE0 (RtlLoadStringOrError.c)
+ *     FastGetProfileStringW @ 0x1C0074270 (FastGetProfileStringW.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall FastGetProfileStringFromIDW(
         PCUNICODE_STRING Source,
         __int64 a2,

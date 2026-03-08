@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiDeleteEmptySubsections @ 0x14036AC38
+ * Callers:
+ *     MiDereferenceSegmentThread @ 0x1403A2790 (MiDereferenceSegmentThread.c)
+ * Callees:
+ *     MiReduceUnusedSubsectionCount @ 0x140214D4C (MiReduceUnusedSubsectionCount.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiDeleteEmptySubsections(__int64 a1)
 {
   volatile LONG *v1; // rbp

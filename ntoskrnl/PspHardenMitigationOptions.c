@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspHardenMitigationOptions @ 0x140791198
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PspHardenMitigationOptions(__m128i *a1)
 {
   __int64 v2; // xmm2_8

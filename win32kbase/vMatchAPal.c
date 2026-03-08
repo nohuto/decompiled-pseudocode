@@ -1,3 +1,12 @@
+/*
+ * XREFs of vMatchAPal @ 0x1C0184D50
+ * Callers:
+ *     ?vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z @ 0x1C019925C (-vDynamicSwitchPalettes@@YAXPEAVSURFACE@@PEAVPDEV@@1@Z.c)
+ * Callees:
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C017E42C (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C0184CFC (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ */
+
 _DWORD *vMatchAPal(__int64 a1, ...)
 {
   __int64 v1; // rdx

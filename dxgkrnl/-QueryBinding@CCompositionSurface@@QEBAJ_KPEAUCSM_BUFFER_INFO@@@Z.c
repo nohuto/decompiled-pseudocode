@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryBinding@CCompositionSurface@@QEBAJ_KPEAUCSM_BUFFER_INFO@@@Z @ 0x1C000D620
+ * Callers:
+ *     NtQueryCompositionSurfaceBinding @ 0x1C000D130 (NtQueryCompositionSurfaceBinding.c)
+ * Callees:
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C000D670 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionSurface::QueryBinding(
         CCompositionSurface *this,
         unsigned __int64 a2,

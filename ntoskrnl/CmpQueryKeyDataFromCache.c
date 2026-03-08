@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpQueryKeyDataFromCache @ 0x1407ABC40
+ * Callers:
+ *     CmpQueryKeyData @ 0x1407ADD50 (CmpQueryKeyData.c)
+ * Callees:
+ *     CmGetVisibleSubkeyCount @ 0x1406B7D28 (CmGetVisibleSubkeyCount.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmGetKeyLastWriteTime @ 0x1407ABE44 (CmGetKeyLastWriteTime.c)
+ *     CmGetVisibleMaxValueNameLenAndDataLen @ 0x1407ABEBC (CmGetVisibleMaxValueNameLenAndDataLen.c)
+ *     CmGetVisibleMaxNameLenAndClassLen @ 0x1407ABF48 (CmGetVisibleMaxNameLenAndClassLen.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpQueryKeyDataFromCache(__int64 a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, __int64 a6)
 {
   __int64 v9; // rax

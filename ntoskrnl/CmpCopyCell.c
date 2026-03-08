@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpCopyCell @ 0x14078F10C
+ * Callers:
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpCopyValue @ 0x1408A6FF4 (CmpCopyValue.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A1E428 (CmpCopyMergeOfLayeredKeyNode.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A23124 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpLightWeightCreateSetValueData @ 0x140A25E14 (CmpLightWeightCreateSetValueData.c)
+ *     CmpLightWeightPrepareRenameKeyUoW @ 0x140A266F0 (CmpLightWeightPrepareRenameKeyUoW.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpCopyCell(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, __int64 a3, int a4, int *a5)
 {
   unsigned int v8; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_StopEndpointToOffloadedEndpointCompletion @ 0x1C0049CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall UsbDevice_StopEndpointToOffloadedEndpointCompletion(__int64 a1, int a2, int a3, int a4)
 {
   __int64 result; // rax

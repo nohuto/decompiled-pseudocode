@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSetThreadPpmPolicy @ 0x14077DB40
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     KeSetThreadPpmPolicy @ 0x1402ED02C (KeSetThreadPpmPolicy.c)
+ */
+
 __int64 __fastcall PspSetThreadPpmPolicy(__int64 a1, int a2)
 {
   __int64 result; // rax

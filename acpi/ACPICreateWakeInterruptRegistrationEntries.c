@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPICreateWakeInterruptRegistrationEntries @ 0x1C0098B50
+ * Callers:
+ *     ACPIWakeEmulationPrepare @ 0x1C0098BFC (ACPIWakeEmulationPrepare.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPICreateWakeInterruptRegistrationEntries(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   unsigned int v4; // edi

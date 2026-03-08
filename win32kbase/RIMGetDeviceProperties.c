@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMGetDeviceProperties @ 0x1C01A5390
+ * Callers:
+ *     NtRIMGetDeviceProperties @ 0x1C01A2000 (NtRIMGetDeviceProperties.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMGetDevicePropertiesLockfree @ 0x1C01A55D0 (RIMGetDevicePropertiesLockfree.c)
+ */
+
 __int64 __fastcall RIMGetDeviceProperties(char *a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v5; // r14

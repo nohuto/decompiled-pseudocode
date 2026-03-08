@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreDxgkEnableUnorderedWaitsForDevice @ 0x1C000D930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreDxgkEnableUnorderedWaitsForDevice(unsigned int a1, char a2)
 {
   __int64 DxgkWin32kInterface; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpUnlockHashEntryByKcb @ 0x1406B6550
+ * Callers:
+ *     CmpRemoveHiveFromNamespace @ 0x1402BFC14 (CmpRemoveHiveFromNamespace.c)
+ *     CmDeleteLayeredKey @ 0x1406144A0 (CmDeleteLayeredKey.c)
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E1630 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1641C (CmpDoBuildVirtualStack.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ */
+
 __int64 __fastcall CmpUnlockHashEntryByKcb(__int64 a1)
 {
   __int64 v1; // rdi

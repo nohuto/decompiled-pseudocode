@@ -1,3 +1,24 @@
+/*
+ * XREFs of PiDevCfgResolveVariableDeviceProperty @ 0x1408776A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpValidateRegistryDword @ 0x1403C0C9C (PnpValidateRegistryDword.c)
+ *     PnpValidateRegistryString @ 0x1403C1BE8 (PnpValidateRegistryString.c)
+ *     PnpValidateStringData @ 0x1403C1C24 (PnpValidateStringData.c)
+ *     PnpValidateMultiSzData @ 0x1403C2404 (PnpValidateMultiSzData.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     PnpGetObjectProperty @ 0x1406CEE90 (PnpGetObjectProperty.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     PnpRegSzToString @ 0x1407707FC (PnpRegSzToString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgResolveVariableDeviceProperty(__int64 *a1, void *a2, __int64 a3)
 {
   int RegistryValue; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUnlinkWorkingSet @ 0x1402A4D2C
+ * Callers:
+ *     MiUnlinkSessionWorkingSet @ 0x140200794 (MiUnlinkSessionWorkingSet.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MmDeleteProcessAddressSpace @ 0x140726E8C (MmDeleteProcessAddressSpace.c)
+ * Callees:
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiUnlinkWorkingSet(__int64 a1, struct _KLOCK_QUEUE_HANDLE *a2)
 {
   struct _KLOCK_QUEUE_HANDLE *p_LockHandle; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpLockAppHiveLoadList @ 0x1406BE50C
+ * Callers:
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 CmpLockAppHiveLoadList()
 {
   struct _KTHREAD *CurrentThread; // rax

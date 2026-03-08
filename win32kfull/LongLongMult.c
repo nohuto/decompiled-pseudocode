@@ -1,3 +1,11 @@
+/*
+ * XREFs of LongLongMult @ 0x1C0293DE4
+ * Callers:
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C02913F8 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LongLongMult(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxInitializeBugCheckDriverInfo @ 0x1C0088B50
+ * Callers:
+ *     FxLibraryGlobalsCommission @ 0x1C0043F0C (FxLibraryGlobalsCommission.c)
+ * Callees:
+ *     RtlStringCopyWorkerA @ 0x1C0017958 (RtlStringCopyWorkerA.c)
+ */
+
 void FxInitializeBugCheckDriverInfo()
 {
   _QWORD *Pool2; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpGetStateSepKeysRedirectionPathValue @ 0x140B34C18
+ * Callers:
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140B34BB0 (CmpFindRedirectedDriverServiceStateNode.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x1407FE71C (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ *     CmpFindHiveSubKey @ 0x140B32F34 (CmpFindHiveSubKey.c)
+ */
+
 char __fastcall CmpGetStateSepKeysRedirectionPathValue(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

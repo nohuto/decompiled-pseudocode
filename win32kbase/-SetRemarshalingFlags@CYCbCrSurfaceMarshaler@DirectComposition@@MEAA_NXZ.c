@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CYCbCrSurfaceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0262510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CYCbCrSurfaceMarshaler::SetRemarshalingFlags(
         DirectComposition::CYCbCrSurfaceMarshaler *this)
 {

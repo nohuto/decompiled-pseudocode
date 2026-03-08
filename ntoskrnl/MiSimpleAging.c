@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiSimpleAging @ 0x1402F0B90
+ * Callers:
+ *     MiReduceWs @ 0x1402F0810 (MiReduceWs.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiSimpleAging(__int64 a1, __int8 a2)
 {
   unsigned __int128 v4; // rax

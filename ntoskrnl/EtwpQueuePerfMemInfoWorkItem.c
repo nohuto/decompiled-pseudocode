@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpQueuePerfMemInfoWorkItem @ 0x14045F908
+ * Callers:
+ *     EtwpLogMemInfoTimerCallback @ 0x14045F4B0 (EtwpLogMemInfoTimerCallback.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall EtwpQueuePerfMemInfoWorkItem(struct _LIST_ENTRY *a1)
 {
   struct _WORK_QUEUE_ITEM *Pool2; // rax

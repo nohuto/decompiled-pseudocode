@@ -1,3 +1,12 @@
+/*
+ * XREFs of Win32UAFMAllocateFromPagedLookasideList @ 0x1C017D350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C009D8BC (-AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
+ *     ?GenerateCookie@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIXZ @ 0x1C017D510 (-GenerateCookie@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIX.c)
+ */
+
 _QWORD *__fastcall Win32UAFMAllocateFromPagedLookasideList(NSInstrumentation::CLeakTrackingAllocator *a1, _DWORD *a2)
 {
   _QWORD *v3; // rbx

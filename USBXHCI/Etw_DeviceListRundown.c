@@ -1,3 +1,12 @@
+/*
+ * XREFs of Etw_DeviceListRundown @ 0x1C0013C10
+ * Callers:
+ *     Etw_ControllerRundown @ 0x1C0013EAC (Etw_ControllerRundown.c)
+ * Callees:
+ *     Etw_DeviceRundown @ 0x1C000FFA0 (Etw_DeviceRundown.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Etw_DeviceListRundown(__int64 a1, __int64 a2)
 {
   KSPIN_LOCK *v2; // rsi

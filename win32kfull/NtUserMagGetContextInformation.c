@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserMagGetContextInformation @ 0x1C01D7910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     MagGetLensContextInformation @ 0x1C01A43C0 (MagGetLensContextInformation.c)
+ */
+
 __int64 __fastcall NtUserMagGetContextInformation(__int64 a1, int a2, char *a3, ULONG64 a4)
 {
   _BYTE *v7; // r14

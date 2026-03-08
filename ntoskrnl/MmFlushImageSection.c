@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmFlushImageSection @ 0x1402E1460
+ * Callers:
+ *     MiCanFileBeTruncatedInternal @ 0x1402A492C (MiCanFileBeTruncatedInternal.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiAttemptSectionDelete @ 0x1402F3B10 (MiAttemptSectionDelete.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall MmFlushImageSection(PSECTION_OBJECT_POINTERS SectionObjectPointer, MMFLUSH_TYPE FlushType)
 {
   unsigned __int64 v4; // rbx

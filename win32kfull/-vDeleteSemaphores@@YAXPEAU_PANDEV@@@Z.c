@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDeleteSemaphores@@YAXPEAU_PANDEV@@@Z @ 0x1C029FD7C
+ * Callers:
+ *     ?PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C029E3D0 (-PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEA.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vDeleteSemaphores(struct _PANDEV *a1)
 {
   HSEMAPHORE v2; // rcx

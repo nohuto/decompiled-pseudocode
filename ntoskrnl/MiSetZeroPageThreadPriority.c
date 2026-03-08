@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiSetZeroPageThreadPriority @ 0x140357538
+ * Callers:
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ *     MiZeroPageMakeHot @ 0x140653630 (MiZeroPageMakeHot.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiSetZeroPageThreadPriority(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r14

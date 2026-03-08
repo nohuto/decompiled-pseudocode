@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vUpdateStyleState@XCLIPOBJ@@QEAAXXZ @ 0x1C02F64C0
+ * Callers:
+ *     ?bEnumStartLine@XCLIPOBJ@@QEAAHK@Z @ 0x1C02F56CC (-bEnumStartLine@XCLIPOBJ@@QEAAHK@Z.c)
+ * Callees:
+ *     RtlEnlargedUnsignedDivide @ 0x1C02F661C (RtlEnlargedUnsignedDivide.c)
+ */
+
 void __fastcall XCLIPOBJ::vUpdateStyleState(XCLIPOBJ *this)
 {
   __int64 v1; // r9

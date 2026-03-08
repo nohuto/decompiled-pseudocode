@@ -1,3 +1,21 @@
+/*
+ * XREFs of AlpcpDeletePort @ 0x140714C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x1402917C0 (AlpcpFreeCompletionPacketLookaside.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SeDeleteClientSecurity @ 0x1406D4FF0 (SeDeleteClientSecurity.c)
+ *     AlpcpSendCloseMessage @ 0x140714B20 (AlpcpSendCloseMessage.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDestroyPort @ 0x140717B30 (AlpcpDestroyPort.c)
+ */
+
 char __fastcall AlpcpDeletePort(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

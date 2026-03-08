@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonReserveProfileResources @ 0x14051C110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EmonAllocateResources @ 0x14051A90C (EmonAllocateResources.c)
+ */
+
 __int64 __fastcall EmonReserveProfileResources(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   int v3; // edi

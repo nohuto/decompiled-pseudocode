@@ -1,3 +1,13 @@
+/*
+ * XREFs of LdrpVerifyAlternateResourceModuleEx @ 0x1403A7A78
+ * Callers:
+ *     LdrLoadAlternateResourceModuleEx @ 0x14035D07C (LdrLoadAlternateResourceModuleEx.c)
+ * Callees:
+ *     LdrpGetRcConfig @ 0x14035CDC4 (LdrpGetRcConfig.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     LdrResGetRCConfig @ 0x1407928C4 (LdrResGetRCConfig.c)
+ */
+
 char __fastcall LdrpVerifyAlternateResourceModuleEx(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4, int a5)
 {
   __int64 v7; // rdx

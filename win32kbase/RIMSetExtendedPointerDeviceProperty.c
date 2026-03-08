@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMSetExtendedPointerDeviceProperty @ 0x1C01C7680
+ * Callers:
+ *     NtRIMSetExtendedDeviceProperty @ 0x1C01A2AA0 (NtRIMSetExtendedDeviceProperty.c)
+ *     ?CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z @ 0x1C0224464 (-CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z.c)
+ * Callees:
+ *     ?EnvironmentChanged@CPTPProcessor@@SAXXZ @ 0x1C0031E80 (-EnvironmentChanged@CPTPProcessor@@SAXXZ.c)
+ *     ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C01C72DC (-ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@.c)
+ */
+
 __int64 __fastcall RIMSetExtendedPointerDeviceProperty(
         struct tagHID_POINTER_DEVICE_INFO *a1,
         struct tagPOINTER_DEVICE_EXTENDED_PROPERTY *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiComputeAgingPercent @ 0x140360274
+ * Callers:
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ */
+
 __int64 __fastcall MiComputeAgingPercent(_QWORD *a1)
 {
   __int64 v1; // rbx

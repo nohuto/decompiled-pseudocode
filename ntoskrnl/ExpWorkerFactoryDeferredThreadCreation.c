@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpWorkerFactoryDeferredThreadCreation @ 0x1402FA7F4
+ * Callers:
+ *     ExpWorkerFactoryManagerThread @ 0x14038AA00 (ExpWorkerFactoryManagerThread.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpWorkerFactoryCheckCreate @ 0x140340CC0 (ExpWorkerFactoryCheckCreate.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ */
+
 LONG_PTR ExpWorkerFactoryDeferredThreadCreation()
 {
   LONG_PTR result; // rax

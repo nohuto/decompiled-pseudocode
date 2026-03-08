@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAddProcessorToCoreControlBlock @ 0x14037E0F4
+ * Callers:
+ *     KiInitializeTopologyStructures @ 0x140A8A348 (KiInitializeTopologyStructures.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall KiAddProcessorToCoreControlBlock(unsigned __int8 *a1, ULONG_PTR a2)
 {
   __int64 v2; // rax

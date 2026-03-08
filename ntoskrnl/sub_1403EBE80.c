@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_1403EBE80 @ 0x1403EBE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 void __fastcall sub_1403EBE80(__int64 a1)
 {
   void *v2; // rcx

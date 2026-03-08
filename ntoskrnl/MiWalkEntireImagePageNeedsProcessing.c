@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiWalkEntireImagePageNeedsProcessing @ 0x140653AF8
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ * Callees:
+ *     MiDoesPageRequireRetpolineImportFixups @ 0x140209788 (MiDoesPageRequireRetpolineImportFixups.c)
+ *     MiPageHasRelocations @ 0x14069F28C (MiPageHasRelocations.c)
+ */
+
 __int64 __fastcall MiWalkEntireImagePageNeedsProcessing(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v4; // esi

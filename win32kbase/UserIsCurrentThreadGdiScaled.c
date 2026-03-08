@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserIsCurrentThreadGdiScaled @ 0x1C00D83A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 UserIsCurrentThreadGdiScaled()
 {
   int CurrentThreadDpiAwarenessContext; // edi

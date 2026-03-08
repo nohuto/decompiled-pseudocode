@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserfnINOUTNEXTMENU @ 0x1C01E3160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserfnINOUTNEXTMENU(__int64 a1, unsigned int a2, __int64 a3, ULONG64 a4, __int64 a5, char a6)
 {
   _BYTE *v10; // rdx

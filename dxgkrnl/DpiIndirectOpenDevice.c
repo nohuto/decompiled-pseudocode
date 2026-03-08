@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiIndirectOpenDevice @ 0x1C03A0200
+ * Callers:
+ *     DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C01F3348 (DpiFdoOpenDeviceFileObjectIfNeeded.c)
+ * Callees:
+ *     ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C039F91C (-DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z.c)
+ */
+
 __int64 __fastcall DpiIndirectOpenDevice(struct _DEVICE_OBJECT *a1, PVOID *a2)
 {
   PDEVICE_OBJECT DeviceAttachmentBaseRef; // rax

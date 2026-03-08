@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionInitGlobalCursorSizes @ 0x1C00F4640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C001D944 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ */
+
 __int64 EditionInitGlobalCursorSizes()
 {
   __int64 v0; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtDCompositionCreateSharedResourceHandle @ 0x1C00A18F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CreateSharedResourceObject @ 0x1C00A19E4 (CreateSharedResourceObject.c)
+ */
+
 __int64 __fastcall NtDCompositionCreateSharedResourceHandle(__int64 a1, _QWORD *a2)
 {
   NTSTATUS v3; // ebx

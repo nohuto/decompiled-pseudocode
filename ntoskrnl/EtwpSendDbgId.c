@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpSendDbgId @ 0x1409E9094
+ * Callers:
+ *     EtwpSendTraceEvent @ 0x14039D2E8 (EtwpSendTraceEvent.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpProviderArrivalCallback @ 0x140775208 (EtwpProviderArrivalCallback.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EtwpAddDebugInfoEvents @ 0x140772068 (EtwpAddDebugInfoEvents.c)
+ *     EtwpGetMaxTrackingEventBufferSize @ 0x140790E3C (EtwpGetMaxTrackingEventBufferSize.c)
+ *     EtwpInitializeProviderInfoBuffer @ 0x140790EB0 (EtwpInitializeProviderInfoBuffer.c)
+ *     EtwpSendBufferToDebugger @ 0x1409E8F6C (EtwpSendBufferToDebugger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpSendDbgId(__int64 a1)
 {
   signed __int32 v2; // eax

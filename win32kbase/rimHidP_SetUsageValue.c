@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimHidP_SetUsageValue @ 0x1C01B2248
+ * Callers:
+ *     RIMConfigureDeviceFeedback @ 0x1C01ACF00 (RIMConfigureDeviceFeedback.c)
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMAddSimulatedPointerDeviceData @ 0x1C01B2DEC (RIMAddSimulatedPointerDeviceData.c)
+ *     RIMIDESetLinkCollectionUsageValues @ 0x1C01C5080 (RIMIDESetLinkCollectionUsageValues.c)
+ *     ?RetrieveSegmentedBlob@@YAJPEAU_DEVICE_OBJECT@@PEAU_FILE_OBJECT@@PEAPEAD2PEAU_HIDP_CAPS@@PEAU_HIDP_PREPARSED_DATA@@U_HIDP_VALUE_CAPS@@@Z @ 0x1C01E08B4 (-RetrieveSegmentedBlob@@YAJPEAU_DEVICE_OBJECT@@PEAU_FILE_OBJECT@@PEAPEAD2PEAU_HIDP_CAPS@@PEAU_HI.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_SetUsageValue(
         __int64 a1,
         __int64 a2,

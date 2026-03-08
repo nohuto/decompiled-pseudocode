@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetFontResourceInfoInternalW @ 0x1C0305498
+ * Callers:
+ *     NtGdiGetFontResourceInfoInternalW @ 0x1C02C56E0 (NtGdiGetFontResourceInfoInternalW.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C011D0B8 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ *     vIFIMetricsToLogFontW @ 0x1C02B5CC4 (vIFIMetricsToLogFontW.c)
+ *     ?QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z @ 0x1C02E3154 (-QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z.c)
+ */
+
 __int64 __fastcall GetFontResourceInfoInternalW(
         Gre::Base *a1,
         unsigned int a2,

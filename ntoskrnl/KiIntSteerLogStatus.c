@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiIntSteerLogStatus @ 0x1402A8FAC
+ * Callers:
+ *     KeIntSteerPeriodic @ 0x1402A8BB0 (KeIntSteerPeriodic.c)
+ *     KiIntSteerEventTraceControlCallback @ 0x140861B80 (KiIntSteerEventTraceControlCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KiIntSteerLogState @ 0x1402903C8 (KiIntSteerLogState.c)
+ *     KiIntSteerEtwEventEnabled @ 0x1402A9098 (KiIntSteerEtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int __fastcall KiIntSteerLogStatus(char a1)
 {
   const EVENT_DESCRIPTOR *v2; // rbx

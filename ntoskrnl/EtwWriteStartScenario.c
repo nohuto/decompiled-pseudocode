@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwWriteStartScenario @ 0x14085A170
+ * Callers:
+ *     PopDiagTracePowerTransitionStart @ 0x14098E148 (PopDiagTracePowerTransitionStart.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     PerfDiagInitialize @ 0x140B6C6B4 (PerfDiagInitialize.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     EtwGetProviderIdFromHandle @ 0x1402FDB04 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwTraceControl @ 0x140415D70 (ZwTraceControl.c)
+ *     WdipStartEndScenario @ 0x140796650 (WdipStartEndScenario.c)
+ */
+
 __int64 __fastcall EtwWriteStartScenario(
         ULONG_PTR *RegHandle,
         PCEVENT_DESCRIPTOR EventDescriptor,

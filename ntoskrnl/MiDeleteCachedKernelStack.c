@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDeleteCachedKernelStack @ 0x140236DFC
+ * Callers:
+ *     MiAdjustCachedStacks @ 0x1402364D4 (MiAdjustCachedStacks.c)
+ *     MiPruneCachedStackList @ 0x140236C6C (MiPruneCachedStackList.c)
+ *     MiEmptyKernelStackCache @ 0x1406423A0 (MiEmptyKernelStackCache.c)
+ * Callees:
+ *     MiDeleteKernelStack @ 0x14032D7F0 (MiDeleteKernelStack.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiDeleteCachedKernelStack(__int64 a1)
 {
   ULONG_PTR v1; // r9

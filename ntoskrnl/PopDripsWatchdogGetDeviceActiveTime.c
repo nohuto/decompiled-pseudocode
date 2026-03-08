@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDripsWatchdogGetDeviceActiveTime @ 0x14059BF48
+ * Callers:
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopDripsWatchdogGetDeviceActiveTime(__int64 a1)
 {
   volatile signed __int64 *v1; // rbp

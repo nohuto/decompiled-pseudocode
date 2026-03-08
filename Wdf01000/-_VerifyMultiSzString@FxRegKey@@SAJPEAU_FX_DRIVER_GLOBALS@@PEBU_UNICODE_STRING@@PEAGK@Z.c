@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z @ 0x1C004E45C
+ * Callers:
+ *     ?IsCompanionRequiredForDevice@FxCompanionLibrary@@QEAAEPEAVFxDevice@@PEAPEBG@Z @ 0x1C002CE74 (-IsCompanionRequiredForDevice@FxCompanionLibrary@@QEAAEPEAVFxDevice@@PEAPEBG@Z.c)
+ *     FxVerifierReadObjectDebugInfo @ 0x1C0044CF0 (FxVerifierReadObjectDebugInfo.c)
+ *     imp_WdfRegistryQueryMultiString @ 0x1C004B470 (imp_WdfRegistryQueryMultiString.c)
+ * Callees:
+ *     WPP_IFR_SF_Zd @ 0x1C002DB60 (WPP_IFR_SF_Zd.c)
+ */
+
 __int64 __fastcall FxRegKey::_VerifyMultiSzString(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         const _UNICODE_STRING *RegValueName,

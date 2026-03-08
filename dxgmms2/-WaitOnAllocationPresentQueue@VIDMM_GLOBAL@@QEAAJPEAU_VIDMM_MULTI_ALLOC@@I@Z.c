@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00EBBC4
+ * Callers:
+ *     VidMmWaitOnAllocationPresentQueue @ 0x1C002D650 (VidMmWaitOnAllocationPresentQueue.c)
+ *     ?VidMmProcessAsyncOperation@@YAXPEAX@Z @ 0x1C00B31D0 (-VidMmProcessAsyncOperation@@YAXPEAX@Z.c)
+ * Callees:
+ *     VidSchiInterlockedRemoveEntryList @ 0x1C0014268 (VidSchiInterlockedRemoveEntryList.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ @ 0x1C001BCB2 (-HasOutstandingPresentReferences@_VIDMM_GLOBAL_ALLOC_NONPAGED@@QEAA_NXZ.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ *     VidSchRegisterCompletionEvent @ 0x1C00AE0A4 (VidSchRegisterCompletionEvent.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::WaitOnAllocationPresentQueue(VIDMM_GLOBAL *this, struct _VIDMM_MULTI_ALLOC *a2)
 {
   _VIDMM_GLOBAL_ALLOC_NONPAGED *v2; // rsi

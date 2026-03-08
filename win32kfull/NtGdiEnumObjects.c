@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiEnumObjects @ 0x1C02D5100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall NtGdiEnumObjects(HDC a1, int a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int *v4; // rbx

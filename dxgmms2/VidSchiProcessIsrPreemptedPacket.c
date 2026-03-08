@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiProcessIsrPreemptedPacket @ 0x1C00175D0
+ * Callers:
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000B910 (VidSchiUpdateContextRunningTimeAtISR.c)
+ */
+
 void __fastcall VidSchiProcessIsrPreemptedPacket(__int64 a1, int a2, int a3, __int64 a4)
 {
   union _SLIST_HEADER *v5; // rbp

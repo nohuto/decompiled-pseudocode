@@ -1,3 +1,13 @@
+/*
+ * XREFs of PerfLogExecutiveResourceInitialize @ 0x1405FE3D8
+ * Callers:
+ *     ExReinitializeResourceLite @ 0x1402CB110 (ExReinitializeResourceLite.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PerfLogExecutiveResourceInitialize(int a1, __int64 a2, int a3, int a4)
 {
   struct _KPRCB *CurrentPrcb; // rax

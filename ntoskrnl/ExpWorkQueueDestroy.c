@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpWorkQueueDestroy @ 0x1409FDC74
+ * Callers:
+ *     ExpPartitionCreatePoolInternal @ 0x1408483B0 (ExpPartitionCreatePoolInternal.c)
+ *     ExpPartitionDestroy @ 0x1409FDA98 (ExpPartitionDestroy.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeRundownPriQueue @ 0x14057C5D0 (KeRundownPriQueue.c)
+ */
+
 char __fastcall ExpWorkQueueDestroy(unsigned __int64 a1)
 {
   signed __int32 v2; // eax

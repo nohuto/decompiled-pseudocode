@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C0016028
+ * Callers:
+ *     ?FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@H@Z @ 0x1C0001880 (-FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DP.c)
+ * Callees:
+ *     ??PDpiInternal@@YA_NAEBUtagSIZE@@0@Z @ 0x1C00160F8 (--PDpiInternal@@YA_NAEBUtagSIZE@@0@Z.c)
+ */
+
 void __fastcall DpiInternal::CalculateMinMaxOverride(
         DpiInternal *this,
         __int64 a2,

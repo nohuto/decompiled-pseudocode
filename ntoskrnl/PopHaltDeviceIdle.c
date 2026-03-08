@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopHaltDeviceIdle @ 0x140585020
+ * Callers:
+ *     PoInitializeBroadcast @ 0x140988BE4 (PoInitializeBroadcast.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS PopHaltDeviceIdle()
 {
   __int128 *v0; // rbx

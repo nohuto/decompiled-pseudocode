@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiSetLeafFillToUninitializedWsle @ 0x14065F8B8
+ * Callers:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiSetLeafFillToUninitializedWsle(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcAddExternalCacheInternal @ 0x1403D1300
+ * Callers:
+ *     CcRegisterExternalCache @ 0x1403D1220 (CcRegisterExternalCache.c)
+ *     CcAddExternalCacheToVolume @ 0x1403D12A4 (CcAddExternalCacheToVolume.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcAddExternalCacheInternal(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // rdi

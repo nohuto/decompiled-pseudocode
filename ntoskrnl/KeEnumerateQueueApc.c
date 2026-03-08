@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeEnumerateQueueApc @ 0x140570A50
+ * Callers:
+ *     DbgkpLkmdSnapThread @ 0x140539BD4 (DbgkpLkmdSnapThread.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeEnumerateQueueApc(
         __int64 a1,
         void (__fastcall *a2)(_QWORD *, __int64, __int64),

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepFilterPrivilegeAudits @ 0x14076FBA8
+ * Callers:
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x14069976C (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x140699B5C (SePrivilegedServiceAuditAlarm.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall SepFilterPrivilegeAudits(char a1, unsigned int *a2)
 {
   int v2; // r9d

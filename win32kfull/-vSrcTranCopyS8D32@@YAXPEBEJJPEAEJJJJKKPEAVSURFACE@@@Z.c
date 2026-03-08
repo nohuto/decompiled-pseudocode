@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcTranCopyS8D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0091F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vSrcTranCopyS8D32Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0092220 (-vSrcTranCopyS8D32Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ */
+
 void __fastcall vSrcTranCopyS8D32(
         const unsigned __int8 *a1,
         int a2,

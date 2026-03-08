@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmRotatePhysicalView @ 0x140A2EF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140630618 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiGetVadCacheAttribute @ 0x14065E5C4 (MiGetVadCacheAttribute.c)
+ *     MiLogVirtualRotateEvent @ 0x140A2E6F4 (MiLogVirtualRotateEvent.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140A2E748 (MiReplaceRotateWithDemandZero.c)
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A2ECE4 (MiRotateToFrameBufferNoCopy.c)
+ */
+
 NTSTATUS __stdcall MmRotatePhysicalView(
         PVOID VirtualAddress,
         PSIZE_T NumberOfBytes,

@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiMoveDirtyBitsToPfns @ 0x14032F870
+ * Callers:
+ *     MiBeginHoldingDirtyFaults @ 0x14063F804 (MiBeginHoldingDirtyFaults.c)
+ *     NtResetWriteWatch @ 0x140755F20 (NtResetWriteWatch.c)
+ *     MiProcessVaRangesInfoClass @ 0x14075C744 (MiProcessVaRangesInfoClass.c)
+ * Callees:
+ *     MiLocateLockedVadEvent @ 0x14020DC68 (MiLocateLockedVadEvent.c)
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiUnlockVadCore @ 0x1402CA9D4 (MiUnlockVadCore.c)
+ *     MiGetVadMandatoryPageSize @ 0x1402CAA10 (MiGetVadMandatoryPageSize.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiMakePteClean @ 0x14032F6D0 (MiMakePteClean.c)
+ *     MiLockVadCore @ 0x140330E20 (MiLockVadCore.c)
+ *     MiGetNextPageTable @ 0x1403468E0 (MiGetNextPageTable.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiMoveDirtyBitsToPfns(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, char a4)
 {
   __int64 v4; // rbp

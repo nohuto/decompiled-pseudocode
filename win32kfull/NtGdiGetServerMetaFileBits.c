@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetServerMetaFileBits @ 0x1C02D4BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGetServerMetaFileBits(
         __int64 a1,
         __int64 a2,

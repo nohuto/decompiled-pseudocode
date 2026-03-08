@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_InitializingEnumRetryCountInEnum @ 0x1C0020940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_InitializingEnumRetryCountInEnum(__int64 a1)
 {
   __int64 v1; // rax

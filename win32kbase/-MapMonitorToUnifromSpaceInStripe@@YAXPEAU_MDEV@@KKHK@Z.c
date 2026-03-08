@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapMonitorToUnifromSpaceInStripe@@YAXPEAU_MDEV@@KKHK@Z @ 0x1C0190964
+ * Callers:
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0022E20 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MapMonitorToUnifromSpaceInStripe(struct _MDEV *a1, unsigned int a2, unsigned int a3, int a4)
 {
   __int64 v5; // rbx

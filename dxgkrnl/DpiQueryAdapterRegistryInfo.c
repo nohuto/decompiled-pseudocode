@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiQueryAdapterRegistryInfo @ 0x1C0394FE4
+ * Callers:
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ */
+
 __int64 __fastcall DpiQueryAdapterRegistryInfo(__int64 a1, char *a2)
 {
   char v4; // bl

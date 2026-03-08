@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuGetReservedRanges @ 0x140515DE0
+ * Callers:
+ *     HalpDmaGetReservedRegionsForTranslateDomain @ 0x140510718 (HalpDmaGetReservedRegionsForTranslateDomain.c)
+ * Callees:
+ *     IidAreIdsStrictlyEqual @ 0x14067175C (IidAreIdsStrictlyEqual.c)
+ */
+
 __int64 __fastcall HalpIommuGetReservedRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   ULONG_PTR *i; // r11

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeOptimizeSpecCtrlSettings @ 0x140396CC4
+ * Callers:
+ *     KiDynamicProcessorInitialization @ 0x140569868 (KiDynamicProcessorInitialization.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x140396D40 (KeIpiGenericCall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KeOptimizeSpecCtrlSettings()
 {
   unsigned __int8 CurrentIrql; // bl

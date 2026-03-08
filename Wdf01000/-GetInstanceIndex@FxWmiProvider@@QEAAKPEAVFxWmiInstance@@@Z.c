@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetInstanceIndex@FxWmiProvider@@QEAAKPEAVFxWmiInstance@@@Z @ 0x1C0028414
+ * Callers:
+ *     ?FireEvent@FxWmiInstance@@QEAAJPEAXK@Z @ 0x1C0028CB8 (-FireEvent@FxWmiInstance@@QEAAJPEAXK@Z.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ */
+
 __int64 __fastcall FxWmiProvider::GetInstanceIndex(FxWmiProvider *this, _LIST_ENTRY **Instance, unsigned __int8 a3)
 {
   FxWmiIrpHandler *m_Parent; // rcx

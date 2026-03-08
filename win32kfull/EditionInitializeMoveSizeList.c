@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionInitializeMoveSizeList @ 0x1C00F6440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 *EditionInitializeMoveSizeList()
 {
   __int64 *result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepRegistryQueryDWORD @ 0x1407FFF18
+ * Callers:
+ *     KsepEngineReadFlags @ 0x140B34F48 (KsepEngineReadFlags.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ */
+
 NTSTATUS __fastcall KsepRegistryQueryDWORD(HANDLE KeyHandle, PCWSTR SourceString, _DWORD *a3)
 {
   NTSTATUS result; // eax

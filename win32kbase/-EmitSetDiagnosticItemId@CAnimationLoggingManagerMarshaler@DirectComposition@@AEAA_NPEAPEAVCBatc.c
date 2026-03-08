@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EmitSetDiagnosticItemId@CAnimationLoggingManagerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005C368
+ * Callers:
+ *     ?EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005C1A0 (-EmitUpdateCommands@CAnimationLoggingManagerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@.c)
+ * Callees:
+ *     ?SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C005C3EC (-SetCount@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C005F8A4 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_050ea75d8595f0edb25d7def78c25e14___ @ 0x1C0262A84 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_050ea75d8595f0edb25d7def78c25e1.c)
+ */
+
 char __fastcall DirectComposition::CAnimationLoggingManagerMarshaler::EmitSetDiagnosticItemId(
         DirectComposition::CAnimationLoggingManagerMarshaler *this,
         struct DirectComposition::CBatch **a2)

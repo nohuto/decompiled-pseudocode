@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDevCfgParsePropertyKeyName @ 0x14055FD1C
+ * Callers:
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     PnpStringToDwordValue @ 0x1403C2438 (PnpStringToDwordValue.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ */
+
 bool __fastcall PiDevCfgParsePropertyKeyName(unsigned __int16 *a1, GUID *a2, unsigned int *a3)
 {
   bool v4; // cf

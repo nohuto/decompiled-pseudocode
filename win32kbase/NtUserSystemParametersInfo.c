@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtUserSystemParametersInfo @ 0x1C01788A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckAccess @ 0x1C0016F70 (CheckAccess.c)
+ *     EtwTraceUIPISystemError @ 0x1C003A8B0 (EtwTraceUIPISystemError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     PrivateAPI::_anonymous_namespace_::IsValidGuiContext @ 0x1C004FD4C (PrivateAPI--_anonymous_namespace_--IsValidGuiContext.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0068600 (Win32AllocPoolWithQuotaZInit.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ *     PushW32ThreadLock @ 0x1C00A7FD0 (PushW32ThreadLock.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C00A8740 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     SetLastNtError @ 0x1C0247ACC (SetLastNtError.c)
+ */
+
 __int64 __fastcall NtUserSystemParametersInfo(__int64 a1, size_t Size, ULONG64 Src, char a4)
 {
   __int64 v5; // r13

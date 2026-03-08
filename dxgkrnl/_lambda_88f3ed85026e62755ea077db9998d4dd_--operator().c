@@ -1,3 +1,13 @@
+/*
+ * XREFs of _lambda_88f3ed85026e62755ea077db9998d4dd_::operator() @ 0x1C0081868
+ * Callers:
+ *     ?PurgeSkippedTokens@CFlipManager@@AEAAX_K_N@Z @ 0x1C0084228 (-PurgeSkippedTokens@CFlipManager@@AEAAX_K_N@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?ReleaseKernelPresentUpdateReferences@CFlipManager@@AEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C0084480 (-ReleaseKernelPresentUpdateReferences@CFlipManager@@AEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ */
+
 __int64 __fastcall lambda_88f3ed85026e62755ea077db9998d4dd_::operator()(struct CFlipPresentUpdate **a1)
 {
   struct CFlipPresentUpdate *v2; // rcx

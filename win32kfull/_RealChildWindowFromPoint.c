@@ -1,3 +1,14 @@
+/*
+ * XREFs of _RealChildWindowFromPoint @ 0x1C023336C
+ * Callers:
+ *     NtUserRealChildWindowFromPoint @ 0x1C01D9D80 (NtUserRealChildWindowFromPoint.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C0048F7C (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ?PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C00DEEB0 (-PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z.c)
+ */
+
 tagWND *__fastcall RealChildWindowFromPoint(tagWND *this, struct tagPOINT a2)
 {
   tagWND *v2; // rdi

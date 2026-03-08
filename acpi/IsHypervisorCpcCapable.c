@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsHypervisorCpcCapable @ 0x1C0094B98
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 bool IsHypervisorCpcCapable()
 {
   char v0; // bl

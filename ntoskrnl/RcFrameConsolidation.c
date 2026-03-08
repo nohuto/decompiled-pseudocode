@@ -1,3 +1,13 @@
+/*
+ * XREFs of RcFrameConsolidation @ 0x140420BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCheckStackAndTargetAddress @ 0x1402DC470 (KeCheckStackAndTargetAddress.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeKernelShadowStackRestoreContext @ 0x1405795E0 (KeKernelShadowStackRestoreContext.c)
+ */
+
 void __fastcall RcFrameConsolidation(
         __int64 a1,
         __int64 a2,

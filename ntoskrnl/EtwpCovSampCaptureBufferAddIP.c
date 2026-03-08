@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureBufferAddIP @ 0x140461944
+ * Callers:
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A3D6C (EtwpCovSampCaptureUserAddresses.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EtwpCovSampCaptureBufferAddIP(__int64 a1, unsigned __int64 a2)
 {
   int v2; // eax

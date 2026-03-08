@@ -1,3 +1,11 @@
+/*
+ * XREFs of tolower @ 0x1403D5B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __pctype_func @ 0x1403D7BE4 (__pctype_func.c)
+ */
+
 int __cdecl tolower(int C)
 {
   int v1; // ebx

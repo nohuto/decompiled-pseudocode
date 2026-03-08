@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFxRemoveDevice @ 0x140589250
+ * Callers:
+ *     PopFxUnregisterDevice @ 0x140982DC4 (PopFxUnregisterDevice.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 void __fastcall PopFxRemoveDevice(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

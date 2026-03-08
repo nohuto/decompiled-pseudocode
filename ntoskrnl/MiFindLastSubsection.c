@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFindLastSubsection @ 0x1402A5010
+ * Callers:
+ *     MiCanFileBeTruncatedInternal @ 0x1402A492C (MiCanFileBeTruncatedInternal.c)
+ *     MiComputeDataFlushRange @ 0x1403324D0 (MiComputeDataFlushRange.c)
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ *     MmFlushVirtualMemory @ 0x14075ED38 (MmFlushVirtualMemory.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFindLastSubsection(__int64 a1, int a2)
 {
   KIRQL v3; // bl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmIssueMemoryListCommand @ 0x14085E358
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ *     PfpLogEventRequest @ 0x14097ADD8 (PfpLogEventRequest.c)
+ * Callees:
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ */
+
 __int64 __fastcall MmIssueMemoryListCommand(unsigned int *a1, unsigned int a2, KPROCESSOR_MODE a3)
 {
   unsigned int v3; // ebx

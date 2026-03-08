@@ -1,3 +1,16 @@
+/*
+ * XREFs of Bulk_MapTransfers @ 0x1C0011EA8
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_EP_StartMapping @ 0x1C0011CB0 (Bulk_EP_StartMapping.c)
+ *     Bulk_WdfEvtIoQueueReadyNotification @ 0x1C0011E20 (Bulk_WdfEvtIoQueueReadyNotification.c)
+ *     Bulk_EvtDmaCallback @ 0x1C00227B0 (Bulk_EvtDmaCallback.c)
+ *     Bulk_CommonBufferCallback @ 0x1C0046A90 (Bulk_CommonBufferCallback.c)
+ * Callees:
+ *     Bulk_MappingLoop @ 0x1C0011F10 (Bulk_MappingLoop.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 __int64 __fastcall Bulk_MapTransfers(__int64 a1)
 {
   char i; // di

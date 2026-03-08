@@ -1,3 +1,11 @@
+/*
+ * XREFs of XDCOBJ_vCleanupColorTransformWrap @ 0x1C00D22C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1C029CEC0 (-bDelete@COLORTRANSFORMOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ */
+
 __int64 __fastcall XDCOBJ_vCleanupColorTransformWrap(struct XDCOBJ *a1, __int64 a2)
 {
   __int64 result; // rax

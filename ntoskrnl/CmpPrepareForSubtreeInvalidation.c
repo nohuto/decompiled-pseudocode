@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpPrepareForSubtreeInvalidation @ 0x14074C0F0
+ * Callers:
+ *     CmpTransMgrFreeVolatileData @ 0x1406B617C (CmpTransMgrFreeVolatileData.c)
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ *     CmpSaveBootControlSet @ 0x140A078D8 (CmpSaveBootControlSet.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback @ 0x140A1D450 (CmpPrepareToInvalidateAllHigherLayerKcbsPostCallback.c)
+ * Callees:
+ *     CmpEnumerateAllOpenSubKeys @ 0x14074B88C (CmpEnumerateAllOpenSubKeys.c)
+ */
+
 __int64 __fastcall CmpPrepareForSubtreeInvalidation(__int64 a1, int a2, __int64 a3)
 {
   __int64 result; // rax

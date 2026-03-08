@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlpEndPageListIteration @ 0x140547D2C
+ * Callers:
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x140544D14 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x140544F20 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1405458B8 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpEndSecurePageListIteration @ 0x140547D58 (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x14054800C (HvlpStartSecurePageListIteration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 *__fastcall HvlpEndPageListIteration(int a1)
 {
   __int16 *result; // rax

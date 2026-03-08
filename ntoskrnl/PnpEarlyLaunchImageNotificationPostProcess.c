@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpEarlyLaunchImageNotificationPostProcess @ 0x140B65630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 void __fastcall PnpEarlyLaunchImageNotificationPostProcess(__int64 a1, __int64 a2, int *a3, int *a4, __int64 a5)
 {
   __int64 v7; // rdx

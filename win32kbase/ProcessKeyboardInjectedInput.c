@@ -1,3 +1,14 @@
+/*
+ * XREFs of ProcessKeyboardInjectedInput @ 0x1C000E730
+ * Callers:
+ *     NtMITSynthesizeKeyboardInput @ 0x1C00087B0 (NtMITSynthesizeKeyboardInput.c)
+ *     ProcessKeyboardInjectedInputViaRim @ 0x1C000EE14 (ProcessKeyboardInjectedInputViaRim.c)
+ * Callees:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     VKFromVSC @ 0x1C021B5D0 (VKFromVSC.c)
+ */
+
 __int64 __fastcall ProcessKeyboardInjectedInput(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v3; // rsi

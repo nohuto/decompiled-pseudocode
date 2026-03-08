@@ -1,3 +1,15 @@
+/*
+ * XREFs of CalculateLogicalMonitorRect @ 0x1C00A3510
+ * Callers:
+ *     GetScreenRectForDpi @ 0x1C00A2874 (GetScreenRectForDpi.c)
+ *     _MonitorFromPoint @ 0x1C00A2920 (_MonitorFromPoint.c)
+ *     ?LogicalMonitorRect@MonitorData@CMonitorTopology@@QEBA?AUtagRECT@@PEBUtagWND@@@Z @ 0x1C00FEAF0 (-LogicalMonitorRect@MonitorData@CMonitorTopology@@QEBA-AUtagRECT@@PEBUtagWND@@@Z.c)
+ *     ?LogicalWorkArea@MonitorData@CMonitorTopology@@QEBA?AUtagRECT@@PEBUtagWND@@@Z @ 0x1C01F4350 (-LogicalWorkArea@MonitorData@CMonitorTopology@@QEBA-AUtagRECT@@PEBUtagWND@@@Z.c)
+ * Callees:
+ *     ExpandMonitorSpaceVertex @ 0x1C00A3584 (ExpandMonitorSpaceVertex.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ */
+
 __int64 *__fastcall CalculateLogicalMonitorRect(
         __int64 *a1,
         _OWORD *a2,

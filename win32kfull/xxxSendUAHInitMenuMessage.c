@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxSendUAHInitMenuMessage @ 0x1C023A454
+ * Callers:
+ *     xxxMenuDraw @ 0x1C0238E5C (xxxMenuDraw.c)
+ *     xxxPaintMenuBar @ 0x1C02392F4 (xxxPaintMenuBar.c)
+ *     xxxMNCompute @ 0x1C023B4C8 (xxxMNCompute.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     MNInitUAHMenu @ 0x1C02376B4 (MNInitUAHMenu.c)
+ */
+
 __int64 __fastcall xxxSendUAHInitMenuMessage(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 *v3; // rcx

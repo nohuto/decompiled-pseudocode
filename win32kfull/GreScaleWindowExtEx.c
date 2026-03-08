@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreScaleWindowExtEx @ 0x1C02D22F4
+ * Callers:
+ *     NtGdiScaleWindowExtEx @ 0x1C02C71D0 (NtGdiScaleWindowExtEx.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C02D179C (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreScaleWindowExtEx(HDC a1, int a2, int a3, int a4, int a5, _QWORD *a6)
 {
   unsigned int v9; // ebx

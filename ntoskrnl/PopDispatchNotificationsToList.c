@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDispatchNotificationsToList @ 0x14073CE68
+ * Callers:
+ *     PopDispatchNotifications @ 0x14073CE20 (PopDispatchNotifications.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopFreeRegistration @ 0x14067F624 (PopFreeRegistration.c)
+ *     PopMarshalSettingValues @ 0x14073D054 (PopMarshalSettingValues.c)
+ */
+
 struct _KTHREAD *__fastcall PopDispatchNotificationsToList(__int64 **a1)
 {
   __int64 v2; // rdx

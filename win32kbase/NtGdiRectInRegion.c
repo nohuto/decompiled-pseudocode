@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiRectInRegion @ 0x1C0185920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreRectInRegion @ 0x1C00A65A0 (GreRectInRegion.c)
+ */
+
 __int64 __fastcall NtGdiRectInRegion(HRGN a1, ULONG64 a2)
 {
   struct _RECTL *v2; // rbx

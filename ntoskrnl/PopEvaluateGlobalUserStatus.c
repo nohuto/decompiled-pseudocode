@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopEvaluateGlobalUserStatus @ 0x14073CA7C
+ * Callers:
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopUserPresentOverride @ 0x140998B50 (PopUserPresentOverride.c)
+ * Callees:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     PopPrintEx @ 0x1402BDCD4 (PopPrintEx.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopPrintUserActivityPresence @ 0x14073C9D8 (PopPrintUserActivityPresence.c)
+ *     PopDiagTraceSessionStateCounted @ 0x14079C390 (PopDiagTraceSessionStateCounted.c)
+ */
+
 void PopEvaluateGlobalUserStatus()
 {
   unsigned int v0; // ebx

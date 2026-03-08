@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bCheckFntFileInfo@PFFOBJ@@QEAAHXZ @ 0x1C012068C
+ * Callers:
+ *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C01205AC (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
+ *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C01223D8 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PFFOBJ::bCheckFntFileInfo(PFFOBJ *this)
 {
   __int64 v1; // rdx

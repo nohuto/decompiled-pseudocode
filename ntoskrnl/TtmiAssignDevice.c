@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmiAssignDevice @ 0x14099FACC
+ * Callers:
+ *     TtmpDispatchAssignDevice @ 0x1409A33A8 (TtmpDispatchAssignDevice.c)
+ * Callees:
+ *     TtmpFindDeviceByDeviceId @ 0x1409A06A4 (TtmpFindDeviceByDeviceId.c)
+ *     TtmpPublishDeviceEvent @ 0x1409A0904 (TtmpPublishDeviceEvent.c)
+ *     TtmiScheduleSessionWorker @ 0x1409A1AC4 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceToTerminalAssigned @ 0x1409A4EBC (TtmiLogDeviceToTerminalAssigned.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ */
+
 __int64 __fastcall TtmiAssignDevice(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v4; // edi

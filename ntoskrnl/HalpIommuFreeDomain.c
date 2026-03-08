@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIommuFreeDomain @ 0x140512F14
+ * Callers:
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051567C (HalpIommuDereferenceHardwareDomain.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuFlushDomainTB @ 0x140454AAA (HalpIommuFlushDomainTB.c)
+ *     HalpIommuFreeDomainId @ 0x140512F78 (HalpIommuFreeDomainId.c)
+ */
+
 void __fastcall HalpIommuFreeDomain(__int64 a1, __int64 a2)
 {
   void (__fastcall *v4)(_QWORD, __int64, _QWORD); // rax

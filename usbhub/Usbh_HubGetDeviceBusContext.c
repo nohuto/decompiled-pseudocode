@@ -1,3 +1,12 @@
+/*
+ * XREFs of Usbh_HubGetDeviceBusContext @ 0x1C002E294
+ * Callers:
+ *     UsbhGetDeviceBusInfo @ 0x1C002BA9C (UsbhGetDeviceBusInfo.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Usbh_HubGetDeviceBusContext(__int64 a1, __int64 a2, _QWORD *a3)
 {
   _DWORD *v5; // rax

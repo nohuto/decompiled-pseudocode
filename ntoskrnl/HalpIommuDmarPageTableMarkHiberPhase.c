@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuDmarPageTableMarkHiberPhase @ 0x1405249C8
+ * Callers:
+ *     HalpDmaMarkHiberAdapter @ 0x1404FF5CC (HalpDmaMarkHiberAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void __fastcall HalpIommuDmarPageTableMarkHiberPhase(
         PVOID MemoryMap,
         __int64 a2,

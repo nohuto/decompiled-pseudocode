@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhParseDescriptors @ 0x1C0032074
+ * Callers:
+ *     UsbhParseConfigurationDescriptorEx @ 0x1C0031F38 (UsbhParseConfigurationDescriptorEx.c)
+ * Callees:
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 unsigned __int8 *__fastcall UsbhParseDescriptors(int a1, __int64 a2, unsigned int a3, unsigned __int8 *a4)
 {
   __int64 v4; // rbx

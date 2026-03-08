@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerQueryAndResetRtcErrors @ 0x1404FCE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 bool __fastcall HalpTimerQueryAndResetRtcErrors(char a1)
 {
   __int32 v1; // ebx

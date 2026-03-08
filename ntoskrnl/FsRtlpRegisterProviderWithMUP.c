@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlpRegisterProviderWithMUP @ 0x14084F0A8
+ * Callers:
+ *     FsRtlpRegisterUncProvider @ 0x14084EEE8 (FsRtlpRegisterUncProvider.c)
+ * Callees:
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     ZwFsControlFile @ 0x140412A30 (ZwFsControlFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall FsRtlpRegisterProviderWithMUP(HANDLE Handle, const void **a2, __int64 a3, __int64 a4)
 {
   ULONG InputBufferLength; // edi

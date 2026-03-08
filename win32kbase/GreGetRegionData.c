@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreGetRegionData @ 0x1C003C510
+ * Callers:
+ *     EngGetRgnData @ 0x1C000D450 (EngGetRgnData.c)
+ *     NtGdiGetRegionData @ 0x1C003C400 (NtGdiGetRegionData.c)
+ * Callees:
+ *     ?vDownload@RGNOBJ@@QEAAXPEAX@Z @ 0x1C003C610 (-vDownload@RGNOBJ@@QEAAXPEAX@Z.c)
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall GreGetRegionData(HRGN a1, unsigned int a2, __int64 a3)
 {
   __int64 v5; // rdi

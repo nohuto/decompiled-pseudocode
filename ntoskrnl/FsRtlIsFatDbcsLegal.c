@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlIsFatDbcsLegal @ 0x1407F1480
+ * Callers:
+ *     FsRtlIsFatDbcsLegal @ 0x1407F1480 (FsRtlIsFatDbcsLegal.c)
+ * Callees:
+ *     FsRtlIsFatDbcsLegal @ 0x1407F1480 (FsRtlIsFatDbcsLegal.c)
+ *     FsRtlDoesDbcsContainWildCards @ 0x1408A0090 (FsRtlDoesDbcsContainWildCards.c)
+ *     FsRtlDissectDbcs @ 0x14093BFE0 (FsRtlDissectDbcs.c)
+ */
+
 BOOLEAN __stdcall FsRtlIsFatDbcsLegal(
         ANSI_STRING *DbcsName,
         BOOLEAN WildCardsPermissible,

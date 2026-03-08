@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpAddAliasEntry @ 0x140B94C88
+ * Callers:
+ *     CmpCreateHardwareProfiles @ 0x140B50B04 (CmpCreateHardwareProfiles.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     CmpAddDockingInfo @ 0x140B50F94 (CmpAddDockingInfo.c)
+ */
+
 __int64 __fastcall CmpAddAliasEntry(void *a1, __int64 a2, int a3)
 {
   unsigned int v5; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcCopyS16D16@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ @ 0x1C02DE8B8 (-pfnXlateBetweenBitfields@XLATE@@QEAAP6AKPEAU_XLATEOBJ@@K@ZXZ.c)
+ */
+
 void __fastcall vSrcCopyS16D16(XLATE **a1)
 {
   XLATE *v1; // rbp

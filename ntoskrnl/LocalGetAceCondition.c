@@ -1,3 +1,13 @@
+/*
+ * XREFs of LocalGetAceCondition @ 0x140750740
+ * Callers:
+ *     LocalConvertAclToString @ 0x14074FD70 (LocalConvertAclToString.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     LocalGetStringForRelativeAttribute @ 0x1409D2E2C (LocalGetStringForRelativeAttribute.c)
+ *     LocalpGetStringForCondition @ 0x1409D3684 (LocalpGetStringForCondition.c)
+ */
+
 __int64 __fastcall LocalGetAceCondition(
         unsigned __int8 *a1,
         void *a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBACPI_ExecuteDSM @ 0x1C0089994
+ * Callers:
+ *     HUBPSM20_DisengagingSDM845HighSpeedWorkaround @ 0x1C0011D50 (HUBPSM20_DisengagingSDM845HighSpeedWorkaround.c)
+ *     HUBPSM20_EngagingSDM845HighSpeedWorkaround @ 0x1C0011DC0 (HUBPSM20_EngagingSDM845HighSpeedWorkaround.c)
+ * Callees:
+ *     WPP_RECORDER_SF__guid_d @ 0x1C003F248 (WPP_RECORDER_SF__guid_d.c)
+ *     WPP_RECORDER_SF_q_guid_L @ 0x1C003F328 (WPP_RECORDER_SF_q_guid_L.c)
+ *     WPP_RECORDER_SF_q_guid_LLLLL @ 0x1C003F42C (WPP_RECORDER_SF_q_guid_LLLLL.c)
+ *     WPP_RECORDER_SF_q_guid_Ld @ 0x1C003F5C0 (WPP_RECORDER_SF_q_guid_Ld.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     memcpy_s @ 0x1C0044960 (memcpy_s.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBACPI_ExecuteDSM(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // r12

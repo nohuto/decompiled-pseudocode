@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllowsOcclusion@CShape@@UEBA_NXZ @ 0x1800DDFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CShape::AllowsOcclusion(CShape *this)
 {
   char v1; // bl

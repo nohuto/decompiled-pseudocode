@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwQueryIoCompletion @ 0x140414E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwQueryIoCompletion(__int64 a1, __int64 a2)
 {
   _disable();

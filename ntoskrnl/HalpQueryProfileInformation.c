@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpQueryProfileInformation @ 0x140861248
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpCollectProfileCorruptionStatus @ 0x14050532C (HalpCollectProfileCorruptionStatus.c)
+ *     HalpCollectProfileOwnershipStatus @ 0x140505470 (HalpCollectProfileOwnershipStatus.c)
+ *     HalpQueryProfileSource @ 0x140505B3C (HalpQueryProfileSource.c)
+ *     HalpQueryProfileSourceList @ 0x140505CD8 (HalpQueryProfileSourceList.c)
+ */
+
 __int64 __fastcall HalpQueryProfileInformation(int a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   int v4; // eax

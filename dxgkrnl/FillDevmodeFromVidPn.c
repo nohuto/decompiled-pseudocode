@@ -1,3 +1,12 @@
+/*
+ * XREFs of FillDevmodeFromVidPn @ 0x1C016CAE8
+ * Callers:
+ *     _BmlGetPathModalityForAdapter @ 0x1C016D3D0 (_BmlGetPathModalityForAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?PopulateGdiDisplayModeFromPath@VIDPN_MGR@@SAJPEBVDMMVIDPNPRESENTPATH@@PEAU_CDD_DEVMODE@@@Z @ 0x1C016C838 (-PopulateGdiDisplayModeFromPath@VIDPN_MGR@@SAJPEBVDMMVIDPNPRESENTPATH@@PEAU_CDD_DEVMODE@@@Z.c)
+ */
+
 __int64 __fastcall FillDevmodeFromVidPn(__int64 a1, int a2, void *a3)
 {
   unsigned int v6; // edi

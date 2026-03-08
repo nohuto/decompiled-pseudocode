@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhAcquireBusInfo @ 0x1C00489A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhGetDeviceBusInfo @ 0x1C002BA9C (UsbhGetDeviceBusInfo.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ */
+
 __int64 __fastcall UsbhAcquireBusInfo(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4, _DWORD *a5)
 {
   unsigned int DeviceBusInfo; // eax

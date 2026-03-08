@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpPmcInterrupt @ 0x1405FBB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpPmcInterrupt(__int64 a1, __int16 a2)
 {
   unsigned __int64 v2; // r8

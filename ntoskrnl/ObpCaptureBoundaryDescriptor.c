@@ -1,3 +1,21 @@
+/*
+ * XREFs of ObpCaptureBoundaryDescriptor @ 0x140743538
+ * Callers:
+ *     NtOpenPrivateNamespace @ 0x140741560 (NtOpenPrivateNamespace.c)
+ *     NtCreatePrivateNamespace @ 0x140741A50 (NtCreatePrivateNamespace.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObpCheckDuplicateEntries @ 0x1407437B0 (ObpCheckDuplicateEntries.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140743B80 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x1407C9AF0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpCaptureBoundaryDescriptor(__m128i *Src, __int64 *a2)
 {
   __m128i *v4; // rax

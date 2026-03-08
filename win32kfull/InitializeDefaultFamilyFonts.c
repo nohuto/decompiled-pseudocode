@@ -1,3 +1,15 @@
+/*
+ * XREFs of InitializeDefaultFamilyFonts @ 0x1C03B6ADC
+ * Callers:
+ *     vInitMapper @ 0x1C03B6370 (vInitMapper.c)
+ * Callees:
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00B96F0 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00BAA08 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 int InitializeDefaultFamilyFonts()
 {
   int result; // eax

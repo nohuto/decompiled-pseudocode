@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInitializeHgsPlusWorkloadClasses @ 0x140A8AE74
+ * Callers:
+ *     KiSetFeatureBits @ 0x140A8A714 (KiSetFeatureBits.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KiInitializeHgsPlusWorkloadClasses(__int64 a1, unsigned int a2)
 {
   ULONG_PTR v3; // r10

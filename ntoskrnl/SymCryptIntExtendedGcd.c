@@ -1,3 +1,31 @@
+/*
+ * XREFs of SymCryptIntExtendedGcd @ 0x1403F81E4
+ * Callers:
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F1A48 (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptCrtGenerateForTwoCoprimes @ 0x1403F7FE0 (SymCryptCrtGenerateForTwoCoprimes.c)
+ * Callees:
+ *     KeReadStateSemaphore @ 0x1402CBA80 (KeReadStateSemaphore.c)
+ *     SymCryptDivisorCreate @ 0x1403F36D8 (SymCryptDivisorCreate.c)
+ *     SymCryptIntAddMixedSize @ 0x1403F3708 (SymCryptIntAddMixedSize.c)
+ *     SymCryptIntBitsizeOfObject @ 0x1403F3738 (SymCryptIntBitsizeOfObject.c)
+ *     SymCryptIntConditionalCopy @ 0x1403F3768 (SymCryptIntConditionalCopy.c)
+ *     SymCryptIntConditionalSwap @ 0x1403F3780 (SymCryptIntConditionalSwap.c)
+ *     SymCryptIntCopyMixedSize @ 0x1403F37B0 (SymCryptIntCopyMixedSize.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntDivMod @ 0x1403F37E0 (SymCryptIntDivMod.c)
+ *     SymCryptIntFromDivisor @ 0x1403F3824 (SymCryptIntFromDivisor.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F3884 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntMulMixedSize @ 0x1403F38E4 (SymCryptIntMulMixedSize.c)
+ *     SymCryptIntSetValueUint32 @ 0x1403F3934 (SymCryptIntSetValueUint32.c)
+ *     SymCryptIntShr1 @ 0x1403F3964 (SymCryptIntShr1.c)
+ *     SymCryptIntSubMixedSize @ 0x1403F397C (SymCryptIntSubMixedSize.c)
+ *     SymCryptIntSubSameSize @ 0x1403F3994 (SymCryptIntSubSameSize.c)
+ *     SymCryptIntToDivisor @ 0x1403F39C4 (SymCryptIntToDivisor.c)
+ *     SymCryptSizeofDivisorFromDigits @ 0x1403F3ED8 (SymCryptSizeofDivisorFromDigits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ */
+
 __int64 __fastcall SymCryptIntExtendedGcd(
         PRKSEMAPHORE Semaphore,
         PRKSEMAPHORE a2,

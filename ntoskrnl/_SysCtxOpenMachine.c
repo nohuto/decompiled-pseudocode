@@ -1,3 +1,19 @@
+/*
+ * XREFs of _SysCtxOpenMachine @ 0x1408520D0
+ * Callers:
+ *     _PnpCtxCreateNode @ 0x140851F88 (_PnpCtxCreateNode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDuplicateObject @ 0x140412A90 (ZwDuplicateObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406D43A0 (_RegRtlOpenKeyTransacted.c)
+ *     RtlGetVersion @ 0x1407A1380 (RtlGetVersion.c)
+ *     _SysCtxOpenControlSet @ 0x140852308 (_SysCtxOpenControlSet.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SysCtxOpenMachine(
         unsigned int a1,
         __int64 a2,

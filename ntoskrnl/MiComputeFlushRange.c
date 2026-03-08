@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiComputeFlushRange @ 0x140331078
+ * Callers:
+ *     MmTrimSection @ 0x14029FF98 (MmTrimSection.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiDoesControlAreaHaveUserWritableReferences @ 0x1402DFDB4 (MiDoesControlAreaHaveUserWritableReferences.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputeDataFlushRange @ 0x1403324D0 (MiComputeDataFlushRange.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiComputeFlushRange(__int64 *a1, int a2, int a3, int a4, __int64 a5)
 {
   KIRQL v9; // al

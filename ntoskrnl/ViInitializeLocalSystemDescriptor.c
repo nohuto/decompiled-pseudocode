@@ -1,3 +1,17 @@
+/*
+ * XREFs of ViInitializeLocalSystemDescriptor @ 0x140ABFA28
+ * Callers:
+ *     VfUtilIsLocalSystem @ 0x140ABF724 (VfUtilIsLocalSystem.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PSECURITY_DESCRIPTOR ViInitializeLocalSystemDescriptor()
 {
   void *Pool2; // rax

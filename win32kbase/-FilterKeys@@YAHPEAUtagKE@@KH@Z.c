@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C0240100 (ApiSetEditionKillAccessibilityTimer.c)
+ *     ApiSetEditionPostRitSound @ 0x1C0241DC8 (ApiSetEditionPostRitSound.c)
+ *     ApiSetEditionSetAccessibilityTimer @ 0x1C0242AAC (ApiSetEditionSetAccessibilityTimer.c)
+ */
+
 _BOOL8 __fastcall FilterKeys(struct tagKE *a1, __int64 a2, int a3)
 {
   char v4; // di

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeRetpoline @ 0x140B39F78
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     RtlIsImageFullyRetpolined @ 0x1402F4538 (RtlIsImageFullyRetpolined.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlCreateRetpolineStubsFunctionTable @ 0x1405AFD28 (RtlCreateRetpolineStubsFunctionTable.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiMarkRetpolineBits @ 0x140A317C0 (MiMarkRetpolineBits.c)
+ *     MiCreateRetpolineBitmap @ 0x140B966F0 (MiCreateRetpolineBitmap.c)
+ *     MiLockRetpolineStubs @ 0x140B967E0 (MiLockRetpolineStubs.c)
+ */
+
 __int64 MiInitializeRetpoline()
 {
   struct _KTHREAD *CurrentThread; // rbx

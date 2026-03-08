@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfTCreateTraceDump @ 0x1407E51A0
+ * Callers:
+ *     PfTGenerateTrace @ 0x1407E5150 (PfTGenerateTrace.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfTFreeBufferList @ 0x1407E5940 (PfTFreeBufferList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfTCreateTraceDump(__int64 *a1)
 {
   __int64 v1; // rax

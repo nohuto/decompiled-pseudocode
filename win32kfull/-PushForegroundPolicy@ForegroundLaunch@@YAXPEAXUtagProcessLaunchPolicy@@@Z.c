@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?PushForegroundPolicy@ForegroundLaunch@@YAXPEAXUtagProcessLaunchPolicy@@@Z @ 0x1C0011C58
+ * Callers:
+ *     EditionPushProcessLaunchForegroundPolicy @ 0x1C0011C40 (EditionPushProcessLaunchForegroundPolicy.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ddDs @ 0x1C0011E80 (WPP_RECORDER_AND_TRACE_SF_ddDs.c)
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0022210 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     _anonymous_namespace_::RecordParentPidLegacyPolicy @ 0x1C003F13C (_anonymous_namespace_--RecordParentPidLegacyPolicy.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     ??1?$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrumentation@@QEAA@XZ @ 0x1C012DCC4 (--1-$CAutoExclusiveCReaderWriterLock@VCPlatformReaderWriterLock@NSInstrumentation@@@NSInstrument.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall ForegroundLaunch::PushForegroundPolicy(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

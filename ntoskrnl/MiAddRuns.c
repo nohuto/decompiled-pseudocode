@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddRuns @ 0x140A2B004
+ * Callers:
+ *     MmQueryMemoryRanges @ 0x140859AF0 (MmQueryMemoryRanges.c)
+ * Callees:
+ *     MiPageToNode @ 0x1406153B0 (MiPageToNode.c)
+ *     MiAddRun @ 0x140A2AED0 (MiAddRun.c)
+ */
+
 __int64 __fastcall MiAddRuns(__int64 a1, __int64 *a2, int a3, unsigned __int64 a4, __int16 a5)
 {
   int v5; // ebx

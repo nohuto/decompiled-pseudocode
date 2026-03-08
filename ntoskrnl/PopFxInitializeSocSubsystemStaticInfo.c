@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopFxInitializeSocSubsystemStaticInfo @ 0x140981C30
+ * Callers:
+ *     PopFxEnablePlatformStates @ 0x140587D90 (PopFxEnablePlatformStates.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     RtlHashUnicodeString @ 0x140680AE0 (RtlHashUnicodeString.c)
+ *     PopFxLookupSocSubsystemsByPlatformIdleState @ 0x140879AD8 (PopFxLookupSocSubsystemsByPlatformIdleState.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x140983348 (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemCount @ 0x140983554 (PopPluginQuerySocSubsystemCount.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxInitializeSocSubsystemStaticInfo(int a1)
 {
   __int64 v2; // rcx

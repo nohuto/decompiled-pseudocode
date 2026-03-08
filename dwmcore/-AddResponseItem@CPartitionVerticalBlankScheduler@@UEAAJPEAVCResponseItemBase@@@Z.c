@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddResponseItem@CPartitionVerticalBlankScheduler@@UEAAJPEAVCResponseItemBase@@@Z @ 0x1801CEA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddResponse@CFrameInfo@@QEAAJPEAVCResponseItemBase@@@Z @ 0x1801EE688 (-AddResponse@CFrameInfo@@QEAAJPEAVCResponseItemBase@@@Z.c)
+ */
+
 __int64 __fastcall CPartitionVerticalBlankScheduler::AddResponseItem(
         CPartitionVerticalBlankScheduler *this,
         struct CResponseItemBase *a2)

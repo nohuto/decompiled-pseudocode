@@ -1,3 +1,11 @@
+/*
+ * XREFs of ComputeEventEntryHash @ 0x1C00E0B40
+ * Callers:
+ *     InsertEventEntryInLookUpTable @ 0x1C00E08F8 (InsertEventEntryInLookUpTable.c)
+ * Callees:
+ *     RunningHash @ 0x1C00E0BD0 (RunningHash.c)
+ */
+
 __int64 __fastcall ComputeEventEntryHash(char a1, unsigned __int8 a2, __int64 a3)
 {
   unsigned __int8 v6; // bl

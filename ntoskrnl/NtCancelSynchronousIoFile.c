@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCancelSynchronousIoFile @ 0x140944F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x140941564 (IopCancelSynchronousIrpsForThread.c)
+ */
+
 NTSTATUS __fastcall NtCancelSynchronousIoFile(void *a1, __int64 a2, unsigned __int64 a3)
 {
   KPROCESSOR_MODE PreviousMode; // r9

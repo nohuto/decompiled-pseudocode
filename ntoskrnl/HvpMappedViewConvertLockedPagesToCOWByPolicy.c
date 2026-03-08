@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpMappedViewConvertLockedPagesToCOWByPolicy @ 0x1407329FC
+ * Callers:
+ *     HvpViewMapConvertLockedPagesToCOWByPolicy @ 0x140732960 (HvpViewMapConvertLockedPagesToCOWByPolicy.c)
+ * Callees:
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140732864 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ */
+
 __int64 __fastcall HvpMappedViewConvertLockedPagesToCOWByPolicy(__int64 a1, _QWORD *a2)
 {
   __int64 v4; // rdx

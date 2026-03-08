@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCaptureSparsePages @ 0x140A40264
+ * Callers:
+ *     MiDeleteSparseRange @ 0x140A404AC (MiDeleteSparseRange.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiSetPfnLink @ 0x1402898EC (MiSetPfnLink.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiCaptureSparsePages(unsigned __int64 a1, __int64 a2)
 {
   __int64 v3; // rsi

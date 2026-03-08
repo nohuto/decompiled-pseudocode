@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsDiagInitialize @ 0x140B4407C
+ * Callers:
+ *     PopDirectedDripsInitializePhase3 @ 0x140B698FC (PopDirectedDripsInitializePhase3.c)
+ *     PopDirectedDripsInitializePhase0 @ 0x140B6E9FC (PopDirectedDripsInitializePhase0.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 void __fastcall PopDirectedDripsDiagInitialize(int a1)
 {
   if ( a1 )

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmClassPropertyRead @ 0x1402C0BC8
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x14074E0A8 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A60700 (_CmSetInstallerClassRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CmClassPropertyRead(int a1)
 {
   int v1; // ecx

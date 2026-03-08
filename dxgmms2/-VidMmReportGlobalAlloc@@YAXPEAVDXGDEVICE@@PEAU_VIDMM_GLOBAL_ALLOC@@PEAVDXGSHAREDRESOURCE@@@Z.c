@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidMmReportGlobalAlloc@@YAXPEAVDXGDEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@PEAVDXGSHAREDRESOURCE@@@Z @ 0x1C00C4460
+ * Callers:
+ *     VidMmReportMultiGlobalAlloc @ 0x1C00C4740 (VidMmReportMultiGlobalAlloc.c)
+ *     VidMmReportContextAllocList @ 0x1C00F1B20 (VidMmReportContextAllocList.c)
+ * Callees:
+ *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C002E6AC (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
+ *     McTemplateK0puu_EtwWriteTransfer @ 0x1C002F2DC (McTemplateK0puu_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidMmReportGlobalAlloc(struct DXGDEVICE *a1, struct _VIDMM_GLOBAL_ALLOC *a2, __int64 a3)
 {
   __int64 v3; // rsi

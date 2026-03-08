@@ -1,3 +1,27 @@
+/*
+ * XREFs of HalpQueryMaximumRegisteredProcessorCount @ 0x140372460
+ * Callers:
+ *     HalEnumerateProcessors @ 0x140371430 (HalEnumerateProcessors.c)
+ *     HalpInterruptGetNextProcessorLocalId @ 0x140371D58 (HalpInterruptGetNextProcessorLocalId.c)
+ *     HalStartNextProcessor @ 0x140371EB0 (HalStartNextProcessor.c)
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ *     HalpTscReserveResources @ 0x1403AC968 (HalpTscReserveResources.c)
+ *     HalStartDynamicProcessor @ 0x140502C20 (HalStartDynamicProcessor.c)
+ *     HalpHvInitMcaStatusMsrCache @ 0x140509010 (HalpHvInitMcaStatusMsrCache.c)
+ *     EmonAllocateResources @ 0x14051A90C (EmonAllocateResources.c)
+ *     HalpTscReportSyncStatus @ 0x14085DD54 (HalpTscReportSyncStatus.c)
+ *     EmonInitializeProfiling @ 0x140A868F0 (EmonInitializeProfiling.c)
+ *     HalpMcaInitializePcrContext @ 0x140A8CFF8 (HalpMcaInitializePcrContext.c)
+ *     EmonCompleteInitializeProfiling @ 0x140A8DD80 (EmonCompleteInitializeProfiling.c)
+ *     HalpDpStartProcessor @ 0x140A94AF4 (HalpDpStartProcessor.c)
+ *     Amd64InitializeProfiling @ 0x140A95700 (Amd64InitializeProfiling.c)
+ *     HalpPreAllocateKInterrupts @ 0x140B7228C (HalpPreAllocateKInterrupts.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ */
+
 __int64 HalpQueryMaximumRegisteredProcessorCount()
 {
   __int64 result; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of KyRaiseException @ 0x140576670
+ * Callers:
+ *     KiRaiseException @ 0x140576490 (KiRaiseException.c)
+ * Callees:
+ *     KeVerifyContextXStateCetU @ 0x1403649C8 (KeVerifyContextXStateCetU.c)
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     RtlpSanitizeContextFlags @ 0x140364D9C (RtlpSanitizeContextFlags.c)
+ *     KeVerifyContextRecord @ 0x1403653D4 (KeVerifyContextRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeContextToKframes @ 0x140416130 (KeContextToKframes.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpReadExtendedContext @ 0x1407EDC30 (RtlpReadExtendedContext.c)
+ */
+
 __int64 __fastcall KyRaiseException(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

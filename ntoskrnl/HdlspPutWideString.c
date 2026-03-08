@@ -1,3 +1,13 @@
+/*
+ * XREFs of HdlspPutWideString @ 0x140AE830C
+ * Callers:
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ * Callees:
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     HdlspUTF8Encode @ 0x140604540 (HdlspUTF8Encode.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ */
+
 __int64 __fastcall HdlspPutWideString(unsigned __int16 *a1)
 {
   unsigned __int16 *v1; // rbx

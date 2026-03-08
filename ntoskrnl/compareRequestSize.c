@@ -1,3 +1,11 @@
+/*
+ * XREFs of compareRequestSize @ 0x1403F0FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall compareRequestSize(const void *a1, const void *a2)
 {
   unsigned __int64 v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmGetRegistrationInfo @ 0x140840AC0
+ * Callers:
+ *     SmProcessRegistrationRequest @ 0x1408409FC (SmProcessRegistrationRequest.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SmRegistrationInfoFill @ 0x140840B78 (SmRegistrationInfoFill.c)
+ *     SmRegistrationCtxStart @ 0x14085DAC0 (SmRegistrationCtxStart.c)
+ */
+
 __int64 __fastcall SmGetRegistrationInfo(__int64 a1, char a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

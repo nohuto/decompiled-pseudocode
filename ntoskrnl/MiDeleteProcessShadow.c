@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiDeleteProcessShadow @ 0x1402A5828
+ * Callers:
+ *     MiDeleteFinalPageTables @ 0x1402A54F4 (MiDeleteFinalPageTables.c)
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1407ED630 (PspDisablePrimaryTokenExchange.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     KeFlushProcessTb @ 0x1402A566C (KeFlushProcessTb.c)
+ *     MiDeleteTopLevelPage @ 0x1402A568C (MiDeleteTopLevelPage.c)
+ *     KeMakeUserDirectoryTableBase @ 0x1402A6428 (KeMakeUserDirectoryTableBase.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ */
+
 void __fastcall MiDeleteProcessShadow(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // r14

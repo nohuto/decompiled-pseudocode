@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspRemoveEnclaveThreadWait @ 0x1409B4B8C
+ * Callers:
+ *     PsCallEnclave @ 0x1409B3880 (PsCallEnclave.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall PspRemoveEnclaveThreadWait(__int64 a1, __int64 *a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

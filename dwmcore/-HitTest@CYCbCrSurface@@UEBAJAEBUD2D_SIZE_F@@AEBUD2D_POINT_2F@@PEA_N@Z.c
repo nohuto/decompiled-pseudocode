@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HitTest@CYCbCrSurface@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x18021C1D0
+ * Callers:
+ *     ?HitTest@CYCbCrSurface@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180118870 (-HitTest@CYCbCrSurface@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CYCbCrSurface::HitTest(
         CYCbCrSurface *this,
         const struct D2D_SIZE_F *a2,

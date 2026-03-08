@@ -1,3 +1,12 @@
+/*
+ * XREFs of _PnpUpdateInterfacesCallback @ 0x14079BC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _PnpNotifyDerivedKeys @ 0x14068799C (_PnpNotifyDerivedKeys.c)
+ */
+
 char __fastcall PnpUpdateInterfacesCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   bool v4; // zf

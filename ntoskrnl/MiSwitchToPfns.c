@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiSwitchToPfns @ 0x140B37268
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     MiCreatePfnTemplate @ 0x1403708F4 (MiCreatePfnTemplate.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvlChangeIsolatedMemoryVisibility @ 0x1406767D0 (HvlChangeIsolatedMemoryVisibility.c)
+ *     MiCreateDescriptorPfns @ 0x140B373F4 (MiCreateDescriptorPfns.c)
+ *     MiCreateFreePfns @ 0x140B37598 (MiCreateFreePfns.c)
+ */
+
 __int64 __fastcall MiSwitchToPfns(__int64 a1)
 {
   __int64 v2; // r8

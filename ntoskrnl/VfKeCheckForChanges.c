@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfKeCheckForChanges @ 0x140AD2BC0
+ * Callers:
+ *     VfInitVerifierComponents @ 0x140ABFE40 (VfInitVerifierComponents.c)
+ *     VfSettingsCheckForChanges @ 0x140AD7DA4 (VfSettingsCheckForChanges.c)
+ * Callees:
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall VfKeCheckForChanges(char a1)
 {
   void *Pool3; // rax

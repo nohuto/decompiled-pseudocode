@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagTraceDisplayBurstWin32kCallout @ 0x14098B884
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceDisplayBurstWin32kCallout(__int64 a1, __int64 a2, char a3)
 {
   char result; // al

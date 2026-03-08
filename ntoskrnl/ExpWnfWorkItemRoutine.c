@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWnfWorkItemRoutine @ 0x14078D6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x14078D724 (ExpWnfDispatchKernelSubscription.c)
+ */
+
 char ExpWnfWorkItemRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax

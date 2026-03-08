@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiCreateSharedZeroPages @ 0x14028A420
+ * Callers:
+ *     MiResolveDemandZeroFault @ 0x14026B720 (MiResolveDemandZeroFault.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiInitializePfn @ 0x140289DB0 (MiInitializePfn.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiSharedVaToPartition @ 0x1402E21A4 (MiSharedVaToPartition.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ *     MiGetClusterPage @ 0x140667A14 (MiGetClusterPage.c)
+ */
+
 __int64 __fastcall MiCreateSharedZeroPages(int *a1, unsigned __int64 *a2)
 {
   __int64 *v2; // rdi

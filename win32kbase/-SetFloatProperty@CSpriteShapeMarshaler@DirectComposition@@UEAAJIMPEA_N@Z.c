@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C000CCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetFloatProperty(
         DirectComposition::CSpriteShapeMarshaler *this,
         unsigned int a2,

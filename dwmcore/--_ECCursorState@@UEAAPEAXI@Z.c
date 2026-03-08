@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECCursorState@@UEAAPEAXI@Z @ 0x180275DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CCursorState@@UEAA@XZ @ 0x180275B1C (--1CCursorState@@UEAA@XZ.c)
+ */
+
 CCursorState *__fastcall CCursorState::`vector deleting destructor'(CCursorState *this, char a2)
 {
   CCursorState::~CCursorState(this);

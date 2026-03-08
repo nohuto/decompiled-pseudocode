@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreSetMiterLimit @ 0x1C02C3294
+ * Callers:
+ *     NtGdiSetMiterLimit @ 0x1C02C7660 (NtGdiSetMiterLimit.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetMiterLimit(HDC a1, float a2, _DWORD *a3)
 {
   __int64 v4; // rcx

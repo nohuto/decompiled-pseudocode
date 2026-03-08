@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeVerifyContextXStateCetU @ 0x1403649C8
+ * Callers:
+ *     KiContinuePreviousModeUser @ 0x1403647F4 (KiContinuePreviousModeUser.c)
+ *     KyRaiseException @ 0x140576670 (KyRaiseException.c)
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ * Callees:
+ *     KiVerifyContextXStateCetUEnabled @ 0x140457B0C (KiVerifyContextXStateCetUEnabled.c)
+ *     RtlLocateExtendedFeature2 @ 0x14045BC40 (RtlLocateExtendedFeature2.c)
+ */
+
 __int64 __fastcall KeVerifyContextXStateCetU(__int64 a1, __int64 a2, unsigned __int64 *a3)
 {
   __int64 result; // rax

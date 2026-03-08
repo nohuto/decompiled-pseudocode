@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxFileObjectInfo@@QEAA@XZ @ 0x1C0084CC4
+ * Callers:
+ *     ?Initialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0085608 (-Initialize@FxPkgGeneral@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxFileObjectInfo::FxFileObjectInfo(FxFileObjectInfo *this)
 {
   this->AutoForwardCleanupClose = WdfUseDefault;

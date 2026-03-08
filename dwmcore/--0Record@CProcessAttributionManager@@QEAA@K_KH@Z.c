@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0Record@CProcessAttributionManager@@QEAA@K_KH@Z @ 0x1800ABB40
+ * Callers:
+ *     ?GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z @ 0x1800AAD08 (-GetProcessAttribution@CProcessAttributionManager@@QEAAJK_KPEAPEAVCProcessAttribution@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 CProcessAttributionManager::Record *__fastcall CProcessAttributionManager::Record::Record(
         CProcessAttributionManager::Record *this,
         int a2,

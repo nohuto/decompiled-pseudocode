@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpAcpiPmRegisterRead @ 0x14039CF90
+ * Callers:
+ *     HalpCheckPowerButton @ 0x140409BC0 (HalpCheckPowerButton.c)
+ *     HaliHaltSystem @ 0x140504A30 (HaliHaltSystem.c)
+ *     HalpShutdown @ 0x140504C74 (HalpShutdown.c)
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ *     HalpCheckFixedWakeSources @ 0x140A93A7C (HalpCheckFixedWakeSources.c)
+ *     HalpDpPostReplace @ 0x140A94408 (HalpDpPostReplace.c)
+ *     HalpDpPreReplace @ 0x140A94700 (HalpDpPreReplace.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpAcpiPmRegisterRead(int a1, unsigned int a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   __int64 v5; // rbx

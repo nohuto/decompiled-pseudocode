@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBREG_GetUxdPnpValue @ 0x1C0087514
+ * Callers:
+ *     HUBID_BuildUxdPnpId @ 0x1C001DC7C (HUBID_BuildUxdPnpId.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_GetUxdPnpValue(__int64 a1, const GUID *a2, __int64 a3)
 {
   NTSTATUS v6; // eax

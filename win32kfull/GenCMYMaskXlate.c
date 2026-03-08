@@ -1,3 +1,11 @@
+/*
+ * XREFs of GenCMYMaskXlate @ 0x1C0257F10
+ * Callers:
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall GenCMYMaskXlate(_BYTE *a1, int a2, int a3, int a4, int a5)
 {
   char result; // al

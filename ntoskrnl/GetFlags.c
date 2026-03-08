@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetFlags @ 0x1409D06C8
+ * Callers:
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringToInt64 @ 0x1409BA6A0 (RtlUnicodeStringToInt64.c)
+ */
+
 __int64 __fastcall GetFlags(PCWSTR SourceString, PWSTR *EndPointer, _DWORD *a3)
 {
   unsigned int v5; // ebx

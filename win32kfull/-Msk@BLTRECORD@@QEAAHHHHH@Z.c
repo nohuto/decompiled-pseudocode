@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Msk@BLTRECORD@@QEAAHHHHH@Z @ 0x1C029CCE0
+ * Callers:
+ *     GreMaskBlt @ 0x1C007F6E8 (GreMaskBlt.c)
+ * Callees:
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z @ 0x1C00881C4 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@_K@Z.c)
+ */
+
 __int64 __fastcall BLTRECORD::Msk(struct _POINTL *this, LONG a2, LONG a3, LONG a4, LONG a5)
 {
   struct _POINTL *v5; // rsi

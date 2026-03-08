@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DestroyHandleFirstPass@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C015C150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     HMDestroyObject @ 0x1C0086830 (HMDestroyObject.c)
+ */
+
 void __fastcall DestroyHandleFirstPass(struct _HANDLEENTRY *a1)
 {
   _QWORD *v1; // rdi

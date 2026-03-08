@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddRef@CAtlasBitmapResource@@UEAAKXZ @ 0x1800E6FBC
+ * Callers:
+ *     ?AddRef@CAtlasBitmapResource@@$4PPPPPPPM@A@EAAKXZ @ 0x18011A510 (-AddRef@CAtlasBitmapResource@@$4PPPPPPPM@A@EAAKXZ.c)
+ * Callees:
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CAtlasBitmapResource::AddRef(CAtlasBitmapResource *this)
 {
   int v3; // eax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ApiSetComposeSchema @ 0x1406125BC
+ * Callers:
+ *     ApiSetpLoadSchemaExtension @ 0x140A07380 (ApiSetpLoadSchemaExtension.c)
+ * Callees:
+ *     ApiSetpSearchForApiSet @ 0x1402F3974 (ApiSetpSearchForApiSet.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ApiSetValidateSchemaFormat @ 0x14061231C (ApiSetValidateSchemaFormat.c)
+ *     AsiAddDataToSchema @ 0x140612CB0 (AsiAddDataToSchema.c)
+ *     AsiPopulateHashes @ 0x140612D48 (AsiPopulateHashes.c)
+ *     AsiSortValueList @ 0x140612EA0 (AsiSortValueList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ApiSetComposeSchema(unsigned int **a1, unsigned int *a2, _DWORD *a3, int a4)
 {
   unsigned int *v4; // r13

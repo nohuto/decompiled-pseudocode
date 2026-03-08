@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiMarkHugePfnGood @ 0x14061F9B8
+ * Callers:
+ *     MiUnlinkBadPages @ 0x1406288F4 (MiUnlinkBadPages.c)
+ * Callees:
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiHugePfnPartition @ 0x14061E808 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiUnlinkHugeRange @ 0x140620680 (MiUnlinkHugeRange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiMarkHugePfnGood(ULONG_PTR a1)
 {
   unsigned __int64 v2; // rdi

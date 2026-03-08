@@ -1,3 +1,35 @@
+/*
+ * XREFs of KeRemoveQueueEx @ 0x140315D50
+ * Callers:
+ *     KeRemoveQueue @ 0x1402E9390 (KeRemoveQueue.c)
+ *     IoRemoveIoCompletion @ 0x140315A70 (IoRemoveIoCompletion.c)
+ * Callees:
+ *     KiEndThreadCycleAccumulation @ 0x140227260 (KiEndThreadCycleAccumulation.c)
+ *     KiFastExitThreadWait @ 0x140239300 (KiFastExitThreadWait.c)
+ *     KiAbProcessContextSwitch @ 0x140239508 (KiAbProcessContextSwitch.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ *     KiTestForAlertPending @ 0x1402E4408 (KiTestForAlertPending.c)
+ *     KiAttemptFastRemoveQueue @ 0x1402E90E8 (KiAttemptFastRemoveQueue.c)
+ *     KiSetThreadState @ 0x1403439D0 (KiSetThreadState.c)
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSwitchQueue @ 0x1403555E0 (KiSwitchQueue.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14035867C (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiSwapContext @ 0x14041F890 (KiSwapContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdatePriorityMatrixForRunningTransition @ 0x140576224 (KiUpdatePriorityMatrixForRunningTransition.c)
+ *     EtwTraceDequeueWork @ 0x1405FA650 (EtwTraceDequeueWork.c)
+ */
+
 ULONG __stdcall KeRemoveQueueEx(
         PKQUEUE Queue,
         KPROCESSOR_MODE WaitMode,

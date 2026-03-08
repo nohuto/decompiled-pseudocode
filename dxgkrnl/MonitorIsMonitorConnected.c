@@ -1,3 +1,16 @@
+/*
+ * XREFs of MonitorIsMonitorConnected @ 0x1C0167278
+ * Callers:
+ *     ?CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01670E0 (-CompleteTopologyTransitionCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     DxgkGetAllMonitorDevicesFromSessionView @ 0x1C01A6DD8 (DxgkGetAllMonitorDevicesFromSessionView.c)
+ *     ?IsMonitorConnected@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z @ 0x1C01E8310 (-IsMonitorConnected@DXGDMM_INTERFACE_V1_IMPL@@YAJQEAXIPEAE@Z.c)
+ *     DxgkIsMonitorConnected @ 0x1C02CE070 (DxgkIsMonitorConnected.c)
+ *     _lambda_961dd2ddbdb089c6faa321d2112de61f_::operator() @ 0x1C02EF208 (_lambda_961dd2ddbdb089c6faa321d2112de61f_--operator().c)
+ *     _lambda_ba9a8767fe334596bf562779960bba36_::operator() @ 0x1C02EF4CC (_lambda_ba9a8767fe334596bf562779960bba36_--operator().c)
+ * Callees:
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01AAC00 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ */
+
 __int64 __fastcall MonitorIsMonitorConnected(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int64 v5; // rsi

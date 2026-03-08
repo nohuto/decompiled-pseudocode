@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CSceneNode@@MEAA@XZ @ 0x18024D5FC
+ * Callers:
+ *     ??_GCSceneNode@@MEAAPEAXI@Z @ 0x18024D6D0 (--_GCSceneNode@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?SetParent@CSceneNode@@AEAAXPEAV1@@Z @ 0x18024DCE4 (-SetParent@CSceneNode@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CSceneNode::~CSceneNode(CSceneNode *this)
 {
   CSceneNode **v2; // rsi

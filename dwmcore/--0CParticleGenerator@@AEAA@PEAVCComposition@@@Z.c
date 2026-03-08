@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CParticleGenerator@@AEAA@PEAVCComposition@@@Z @ 0x18011120C
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CParticleGenerator *__fastcall CParticleGenerator::CParticleGenerator(
         CParticleGenerator *this,
         struct CComposition *a2)

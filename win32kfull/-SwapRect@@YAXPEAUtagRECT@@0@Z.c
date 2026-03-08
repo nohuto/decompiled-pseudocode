@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SwapRect@@YAXPEAUtagRECT@@0@Z @ 0x1C01EBEEC
+ * Callers:
+ *     ?xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z @ 0x1C01ECE40 (-xxxCommitMoveSize@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SwapRect(struct tagRECT *a1, struct tagRECT *a2)
 {
   signed __int64 v2; // rcx

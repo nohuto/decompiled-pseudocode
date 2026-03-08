@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkpAdapterRefCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C02B2110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00096F0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0009754 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DxgkpAdapterRefCallback(struct DXGADAPTER *a1, _DWORD *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptParallelHashSetNextWork @ 0x1403F0DE8
+ * Callers:
+ *     SymCryptParallelHashProcess @ 0x1403F09A0 (SymCryptParallelHashProcess.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x140411B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 char __fastcall SymCryptParallelHashSetNextWork(__int64 *a1, unsigned int **a2)
 {
   unsigned int *v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommuMapIdentityRange @ 0x140523A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuDomainMapIdentityRange @ 0x140515774 (HalpIommuDomainMapIdentityRange.c)
+ *     IommupValidateMdl @ 0x140524838 (IommupValidateMdl.c)
+ */
+
 __int64 __fastcall IommuMapIdentityRange(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // eax

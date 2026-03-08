@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MapToDisplayPath@CInputSpaceRegion@@QEAAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C0010320
+ * Callers:
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C00130D0 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ * Callees:
+ *     RIMUpdatePointerDeviceScalingInfo @ 0x1C000FF84 (RIMUpdatePointerDeviceScalingInfo.c)
+ *     ?PopulatePanelId@CInputSpaceRegion@@QEAAXXZ @ 0x1C0030364 (-PopulatePanelId@CInputSpaceRegion@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CInputSpaceRegion::MapToDisplayPath(
         CInputSpaceRegion *this,
         const struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a2)

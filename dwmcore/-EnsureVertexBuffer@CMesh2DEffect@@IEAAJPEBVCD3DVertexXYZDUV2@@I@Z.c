@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EnsureVertexBuffer@CMesh2DEffect@@IEAAJPEBVCD3DVertexXYZDUV2@@I@Z @ 0x1802BB500
+ * Callers:
+ *     ?SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z @ 0x1802BBD40 (-SetVertices@CMesh2DEffect@@QEAAJPEBEI@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMesh2DEffect::EnsureVertexBuffer(
         CMesh2DEffect *this,
         const struct CD3DVertexXYZDUV2 *a2,

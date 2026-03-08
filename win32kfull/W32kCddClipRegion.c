@@ -1,3 +1,12 @@
+/*
+ * XREFs of W32kCddClipRegion @ 0x1C0272C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00508E4 (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0270F18 (--0EngModeState@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall W32kCddClipRegion(HRGN a1, HRGN a2, __int64 a3)
 {
   struct RGNOBJ *v6; // rbx

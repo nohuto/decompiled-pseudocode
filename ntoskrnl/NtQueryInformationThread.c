@@ -1,3 +1,46 @@
+/*
+ * XREFs of NtQueryInformationThread @ 0x1406A7BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryTotalCycleTimeThread @ 0x1402288B0 (KeQueryTotalCycleTimeThread.c)
+ *     KeQueryValuesThread @ 0x14022B320 (KeQueryValuesThread.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PsGetEffectiveContainerId @ 0x1402D4BE0 (PsGetEffectiveContainerId.c)
+ *     KeQueryBasePriorityThread @ 0x1402DD398 (KeQueryBasePriorityThread.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1402E03D0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     KeQueryUserAffinityThread @ 0x140301774 (KeQueryUserAffinityThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsGetWorkOnBehalfThread @ 0x14033E134 (PsGetWorkOnBehalfThread.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403B1960 (xKdEnumerateDebuggingDevices.c)
+ *     KeSetIdealProcessorThreadByNumber @ 0x1403C91E4 (KeSetIdealProcessorThreadByNumber.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeQueryHeteroCpuPolicyThread @ 0x14056C830 (KeQueryHeteroCpuPolicyThread.c)
+ *     KeQueryPrimaryGroupAffinityThread @ 0x14056C854 (KeQueryPrimaryGroupAffinityThread.c)
+ *     KeQueryCpuSetsThread @ 0x140572C98 (KeQueryCpuSetsThread.c)
+ *     PsQueryThreadStartAddress @ 0x1405A1A94 (PsQueryThreadStartAddress.c)
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ *     PsGetThreadExitStatus @ 0x140797F00 (PsGetThreadExitStatus.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     MiCopyVirtualMemory @ 0x1407C5950 (MiCopyVirtualMemory.c)
+ *     VslGetSecureTebAddress @ 0x14093F5CC (VslGetSecureTebAddress.c)
+ *     PspGetThreadPpmPolicy @ 0x1409AB4B8 (PspGetThreadPpmPolicy.c)
+ *     PspQueryLastCallThread @ 0x1409AC330 (PspQueryLastCallThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtQueryInformationThread(
         ULONG_PTR BugCheckParameter1,
         int a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopFxAllocatePowerIrpLegacy @ 0x14040B520
+ * Callers:
+ *     PopAllocateIrp @ 0x1402BA774 (PopAllocateIrp.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusive @ 0x1402CC9C0 (ExReleaseSpinLockExclusive.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ */
+
 __int64 __fastcall PopFxAllocatePowerIrpLegacy(
         __int64 a1,
         __int64 a2,

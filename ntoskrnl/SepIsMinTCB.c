@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepIsMinTCB @ 0x14070E10C
+ * Callers:
+ *     SeQuerySigningPolicy @ 0x14070DD2C (SeQuerySigningPolicy.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     SepIsImageInMinTcbList @ 0x14070E2F8 (SepIsImageInMinTcbList.c)
+ *     SepSetSystemPaths @ 0x1408529D0 (SepSetSystemPaths.c)
+ */
+
 __int64 __fastcall SepIsMinTCB(
         PCUNICODE_STRING String2,
         unsigned int a2,

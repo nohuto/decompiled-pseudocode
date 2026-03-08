@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhIsHighSpeedCapable @ 0x1C002D368
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 bool __fastcall UsbhIsHighSpeedCapable(__int64 a1)
 {
   _DWORD *v2; // rbx

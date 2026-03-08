@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIrtReleaseDeviceAperture @ 0x140931AF0
+ * Callers:
+ *     HalpIrtAllocateIndex @ 0x14080BD48 (HalpIrtAllocateIndex.c)
+ *     HalpIrtFreeIndex @ 0x1409319B4 (HalpIrtFreeIndex.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ */
+
 void __fastcall HalpIrtReleaseDeviceAperture(int a1, int a2)
 {
   __int64 *i; // rax

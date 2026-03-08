@@ -1,3 +1,26 @@
+/*
+ * XREFs of HalpPostSleepMP @ 0x140A93F28
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     HalpHvIsReferenceTscConfigured @ 0x140377E60 (HalpHvIsReferenceTscConfigured.c)
+ *     HalpInterruptReinitializeThisProcessor @ 0x140377F50 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptEnableNmi @ 0x140378254 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptEnablePerformanceEvents @ 0x1403789F8 (HalpInterruptEnablePerformanceEvents.c)
+ *     HalpMcUpdateMicrocode @ 0x14037CB18 (HalpMcUpdateMicrocode.c)
+ *     HalpTscSynchronizationWorker @ 0x140387F60 (HalpTscSynchronizationWorker.c)
+ *     HalpTscInitializeSynchronizationContext @ 0x140396E74 (HalpTscInitializeSynchronizationContext.c)
+ *     HalpInterruptRestoreClock @ 0x140503318 (HalpInterruptRestoreClock.c)
+ *     HalpRestartProfiling @ 0x140505F14 (HalpRestartProfiling.c)
+ *     HalpTimerMarkWake @ 0x140506BAC (HalpTimerMarkWake.c)
+ *     HalpTimerRestoreProcessorCounter @ 0x140508DAC (HalpTimerRestoreProcessorCounter.c)
+ *     HalpHvSetMachineCheckHandlerState @ 0x140509C30 (HalpHvSetMachineCheckHandlerState.c)
+ *     HalpSetResumeTime @ 0x14051A258 (HalpSetResumeTime.c)
+ *     HalpErrataApplyPerProcessor @ 0x140A87B18 (HalpErrataApplyPerProcessor.c)
+ *     KeLoadMTRR @ 0x140A8C4C0 (KeLoadMTRR.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140A9218C (HalpMcaResumeProcessorConfig.c)
+ */
+
 char __fastcall HalpPostSleepMP(ULONG a1, __int64 a2)
 {
   bool IsReferenceTscConfigured; // al

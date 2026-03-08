@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LookupCommon@CPointerHashTable@NSInstrumentation@@AEAAPEAUENTRY@12@PEBX@Z @ 0x1C00C42A0
+ * Callers:
+ *     ?ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z @ 0x1C00C3FAC (-ObtainKernelmodeAllocation@UmfdAllocation@@SAPEAXW4FontDriverType@@_KPEAXIPEA_NP6A_N22I@Z@Z.c)
+ *     ?_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z @ 0x1C00C4600 (-_FindAndReferenceExistingKernelmodeAllocation@UmfdAllocation@@CAPEAV1@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct NSInstrumentation::CPointerHashTable::ENTRY *__fastcall NSInstrumentation::CPointerHashTable::LookupCommon(
         NSInstrumentation::CPointerHashTable *this,
         unsigned __int64 a2)

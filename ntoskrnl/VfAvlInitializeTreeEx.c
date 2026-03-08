@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfAvlInitializeTreeEx @ 0x140ABA4D4
+ * Callers:
+ *     VfAvlInitializeTree @ 0x1405CF7F0 (VfAvlInitializeTree.c)
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall VfAvlInitializeTreeEx(
         _QWORD *TableContext,
         __int64 a2,

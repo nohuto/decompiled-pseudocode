@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserChangeClipboardChain @ 0x1C01CE360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxChangeClipboardChain @ 0x1C0200878 (xxxChangeClipboardChain.c)
+ */
+
 __int64 __fastcall NtUserChangeClipboardChain(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

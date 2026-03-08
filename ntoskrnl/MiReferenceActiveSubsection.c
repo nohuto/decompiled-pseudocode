@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiReferenceActiveSubsection @ 0x1403323F0
+ * Callers:
+ *     MiInsertInSystemSpace @ 0x14020EB30 (MiInsertInSystemSpace.c)
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ *     MiSessionInsertImage @ 0x14036BEC4 (MiSessionInsertImage.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ * Callees:
+ *     MiRemoveUnusedSubsection @ 0x140214CC0 (MiRemoveUnusedSubsection.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x140332840 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiGetCommittedPages @ 0x14034C3F0 (MiGetCommittedPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComputeCrossPartitionSectionCharges @ 0x140668AE8 (MiComputeCrossPartitionSectionCharges.c)
+ *     MiGetSubsectionCharges @ 0x140668BC8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiReferenceActiveSubsection(__int64 *BugCheckParameter2, int a2, KIRQL a3)
 {
   __int64 v3; // r14

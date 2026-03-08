@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtRequestPort @ 0x14077B630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ */
+
 __int64 __fastcall NtRequestPort(HANDLE Handle, __int64 a2)
 {
   NTSTATUS v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?make_float4x4_scale@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@0@Z @ 0x18026E34C
+ * Callers:
+ *     ?SetScale@CMILMatrix@@QEAAXMMMMMM@Z @ 0x1800B0D18 (-SetScale@CMILMatrix@@QEAAXMMMMMM@Z.c)
+ *     ?Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z @ 0x18026D058 (-Set2DAffineMatrix@CMILMatrix@@QEAAXAEBUfloat2@Numerics@Foundation@Windows@@M000@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_scale(__int64 a1, float *a2, float *a3)
 {
   float v3; // xmm0_4

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchTerminateDevice @ 0x1C00A8E60
+ * Callers:
+ *     VidSchiCreateDeviceInternal @ 0x1C00AC5B0 (VidSchiCreateDeviceInternal.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     VidSchiDecrementDeviceReference @ 0x1C0012D90 (VidSchiDecrementDeviceReference.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?DdiDestroyDevice@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C002C84C (-DdiDestroyDevice@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
+ *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C003DD88 (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
+ *     VidSchFlushDevice @ 0x1C00AB9F0 (VidSchFlushDevice.c)
+ *     VidSchiCloseProcessAdapterInfo @ 0x1C00AC8E4 (VidSchiCloseProcessAdapterInfo.c)
+ *     VidSchControlVSyncDevice @ 0x1C00AD1E0 (VidSchControlVSyncDevice.c)
+ */
+
 __int64 __fastcall VidSchTerminateDevice(char *P)
 {
   __int64 v2; // rbp

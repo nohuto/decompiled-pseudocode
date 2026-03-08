@@ -1,3 +1,11 @@
+/*
+ * XREFs of VslpIumPhase0InitializeNtKd @ 0x140B90664
+ * Callers:
+ *     VslpIumPhase0Initialize @ 0x140B903AC (VslpIumPhase0Initialize.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VslpIumPhase0InitializeNtKd(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

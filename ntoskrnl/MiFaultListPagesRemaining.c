@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFaultListPagesRemaining @ 0x1402DFDD8
+ * Callers:
+ *     MiComputeMaximumFaultCluster @ 0x14026AFC0 (MiComputeMaximumFaultCluster.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiFaultListPagesRemaining(unsigned __int64 *a1)
 {
   __int64 v1; // r8

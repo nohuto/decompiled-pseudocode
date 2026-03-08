@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RealizePendingRecreateTouchInjectionDevices@@YAHPEAUtagPROCESSINFO@@H@Z @ 0x1C01B05C0
+ * Callers:
+ *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AFF24 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
+ * Callees:
+ *     _InitializeTouchInjectionWorker @ 0x1C01B1800 (_InitializeTouchInjectionWorker.c)
+ */
+
 __int64 __fastcall RealizePendingRecreateTouchInjectionDevices(struct tagPROCESSINFO *a1, int a2)
 {
   __int64 v2; // rbx

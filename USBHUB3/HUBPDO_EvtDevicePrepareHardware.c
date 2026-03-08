@@ -1,3 +1,37 @@
+/*
+ * XREFs of HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0001008 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     McTemplateK0ppqzznhUR6zuqQ6qqqqqqqqqsssuuxttqq_EtwWriteTransfer @ 0x1C000180C (McTemplateK0ppqzznhUR6zuqQ6qqqqqqqqqsssuuxttqq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001497C (WPP_RECORDER_SF_DDD.c)
+ *     HUBPDO_GetPortPath @ 0x1C001A014 (HUBPDO_GetPortPath.c)
+ *     HUBPDO_HandlePLDRRecovery @ 0x1C001A06C (HUBPDO_HandlePLDRRecovery.c)
+ *     HUBMISC_GetDeviceInterfacePath @ 0x1C0033628 (HUBMISC_GetDeviceInterfacePath.c)
+ *     DereferenceDeviceResetInterface @ 0x1C0043E24 (DereferenceDeviceResetInterface.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C00842FC (HUBREG_AssignUsbflagsValueForDevice.c)
+ *     HUBREG_QueryValuesInDeviceHardwareKey @ 0x1C0086210 (HUBREG_QueryValuesInDeviceHardwareKey.c)
+ *     HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00867FC (HUBREG_WriteValueToDeviceHardwareKey.c)
+ *     HUBREG_WriteStringToDeviceHardwareKey @ 0x1C008695C (HUBREG_WriteStringToDeviceHardwareKey.c)
+ *     HUBREG_UpdateSqmFlags @ 0x1C0088158 (HUBREG_UpdateSqmFlags.c)
+ *     WMI_RegisterDevice @ 0x1C008C18C (WMI_RegisterDevice.c)
+ *     WMI_FireNotification @ 0x1C008C428 (WMI_FireNotification.c)
+ *     TUNNEL_AcquireUsb4HostPowerReferenceForPort @ 0x1C008F214 (TUNNEL_AcquireUsb4HostPowerReferenceForPort.c)
+ *     QueryDeviceResetInterface @ 0x1C008F7E8 (QueryDeviceResetInterface.c)
+ *     InitializeResetActionWorkItem @ 0x1C008FB6C (InitializeResetActionWorkItem.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDevicePrepareHardware(__int64 a1)
 {
   __int64 v1; // rdi
@@ -126,7 +160,7 @@ __int64 __fastcall HUBPDO_EvtDevicePrepareHardware(__int64 a1)
   if ( !(unsigned int)Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage() )
     TUNNEL_AcquireUsb4HostPowerReferenceForPort(v3[1]);
   _InterlockedOr((volatile signed __int32 *)v3 + 409, 0x4000u);
-  HUBREG_QueryValuesInDeviceHardwareKey((__int64)v3);
+  HUBREG_QueryValuesInDeviceHardwareKey(v3);
   IsEnabledDeviceUsage = Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage();
   v6 = v3[1];
   v7 = IsEnabledDeviceUsage != 0;
@@ -158,7 +192,7 @@ __int64 __fastcall HUBPDO_EvtDevicePrepareHardware(__int64 a1)
     HUBREG_AssignUsbflagsValueForDevice(v3, L".0", v3 + 310, 8LL);
     *((_DWORD *)v3 + 617) |= 4u;
   }
-  HUBREG_UpdateSqmFlags((__int64)v3);
+  HUBREG_UpdateSqmFlags(v3);
   if ( (v3[308] & 1) != 0 )
     HUBREG_WriteValueToDeviceHardwareKey((_DWORD)v3, (unsigned int)&g_MsOs20Flags, 4, 4, (__int64)(v3 + 308));
   HUBREG_WriteValueToDeviceHardwareKey((_DWORD)v3, (unsigned int)L"*,", 4, 4, (__int64)(v3 + 4));

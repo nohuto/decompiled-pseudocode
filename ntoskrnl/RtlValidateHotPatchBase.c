@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlValidateHotPatchBase @ 0x140A73A54
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiCaptureHotPatchInfo @ 0x140A334F8 (MiCaptureHotPatchInfo.c)
+ * Callees:
+ *     RtlGetHotPatchSize @ 0x1406786D8 (RtlGetHotPatchSize.c)
+ *     RtlDetermineHotPatchExtent @ 0x140A736B4 (RtlDetermineHotPatchExtent.c)
+ */
+
 char __fastcall RtlValidateHotPatchBase(
         _DWORD *a1,
         __int64 a2,

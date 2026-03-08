@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLogSlabEntryAllocateFailure @ 0x140654B1C
+ * Callers:
+ *     MiAllocateSlabEntry @ 0x140349850 (MiAllocateSlabEntry.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     InsertEventEntryInLookUpTable @ 0x14035EE9C (InsertEventEntryInLookUpTable.c)
+ *     ExtractAggregateFieldTypes @ 0x14035F37C (ExtractAggregateFieldTypes.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiNodeAvailablePages @ 0x140464746 (MiNodeAvailablePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiLogSlabEntryAllocateFailure(__int64 a1, int a2, int a3, int a4, char a5)
 {
   unsigned __int16 *v7; // r12

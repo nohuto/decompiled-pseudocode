@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FreeCancels@CFlipManager@@AEAAXXZ @ 0x1C00830AC
+ * Callers:
+ *     ?Delete@CFlipManager@@MEAAJPEAX@Z @ 0x1C0082E80 (-Delete@CFlipManager@@MEAAJPEAX@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CFlipManager::FreeCancels(CFlipManager *this)
 {
   _QWORD *v1; // rbx

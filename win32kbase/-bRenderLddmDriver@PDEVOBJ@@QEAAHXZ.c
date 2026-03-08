@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bRenderLddmDriver@PDEVOBJ@@QEAAHXZ @ 0x1C006BF4C
+ * Callers:
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006D050 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C018B320 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ * Callees:
+ *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00D3D44 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
+ */
+
 __int64 __fastcall PDEVOBJ::bRenderLddmDriver(PDEVOBJ *this)
 {
   __int64 v2; // rdx

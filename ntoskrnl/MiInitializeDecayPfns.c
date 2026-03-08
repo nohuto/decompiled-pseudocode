@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeDecayPfns @ 0x140B60264
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 PSLIST_ENTRY MiInitializeDecayPfns()
 {
   __int64 v0; // rdi

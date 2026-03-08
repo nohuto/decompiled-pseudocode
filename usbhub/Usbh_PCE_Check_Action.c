@@ -1,3 +1,15 @@
+/*
+ * XREFs of Usbh_PCE_Check_Action @ 0x1C00356AC
+ * Callers:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLockPcqWithTag @ 0x1C001FF20 (UsbhLockPcqWithTag.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035444 (UsbhUnlockPcqWithTag.c)
+ */
+
 _DWORD *__fastcall Usbh_PCE_Check_Action(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int64 v8; // rdx

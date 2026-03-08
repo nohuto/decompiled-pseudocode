@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcAddExternalCacheToVolume @ 0x1403D12A4
+ * Callers:
+ *     CcRegisterExternalCache @ 0x1403D1220 (CcRegisterExternalCache.c)
+ * Callees:
+ *     CcCreatePrivateVolumeCacheMap @ 0x1402DA2F4 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcAddExternalCacheInternal @ 0x1403D1300 (CcAddExternalCacheInternal.c)
+ */
+
 __int64 __fastcall CcAddExternalCacheToVolume(__int64 a1)
 {
   int v2; // edi

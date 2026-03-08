@@ -1,3 +1,17 @@
+/*
+ * XREFs of _handle_errorf @ 0x1403D7FDC
+ * Callers:
+ *     sqrtf @ 0x1403D5290 (sqrtf.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _call_matherr @ 0x1403D7D60 (_call_matherr.c)
+ *     _exception_enabled @ 0x1403D7DDC (_exception_enabled.c)
+ *     _raise_excf @ 0x1403D86D4 (_raise_excf.c)
+ *     _ctrlfp @ 0x1403D872C (_ctrlfp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 float __fastcall handle_errorf(
         __int64 a1,
         int a2,

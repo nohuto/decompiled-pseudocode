@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateWindowInputSinkHints@CPreComputeContext@@AEAAXXZ @ 0x1800C4DC8
+ * Callers:
+ *     ?PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z @ 0x1800C4598 (-PreCompute@CPreComputeContext@@IEAAJPEAVCVisualTree@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPreComputeContext::UpdateWindowInputSinkHints(CPreComputeContext *this)
 {
   char *v1; // rbx

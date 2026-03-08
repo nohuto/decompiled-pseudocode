@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringCchPrintfW @ 0x1C008D258
+ * Callers:
+ *     WmsgpConnect @ 0x1C0301300 (WmsgpConnect.c)
+ * Callees:
+ *     _vsnwprintf @ 0x1C00DAA34 (_vsnwprintf.c)
+ */
+
 HRESULT StringCchPrintfW(STRSAFE_LPWSTR pszDest, size_t cchDest, STRSAFE_LPCWSTR pszFormat, ...)
 {
   size_t v4; // rsi

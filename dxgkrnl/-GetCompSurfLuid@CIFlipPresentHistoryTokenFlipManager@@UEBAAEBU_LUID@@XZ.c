@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCompSurfLuid@CIFlipPresentHistoryTokenFlipManager@@UEBAAEBU_LUID@@XZ @ 0x1C0019610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 const struct _LUID *__fastcall CIFlipPresentHistoryTokenFlipManager::GetCompSurfLuid(
         CIFlipPresentHistoryTokenFlipManager *this)
 {

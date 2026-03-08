@@ -1,3 +1,31 @@
+/*
+ * XREFs of RIMOnPnpNotification @ 0x1C00383E0
+ * Callers:
+ *     NtRIMOnPnpNotification @ 0x1C0034A30 (NtRIMOnPnpNotification.c)
+ *     ?OnPnpNotification@CBaseInput@@AEAAJXZ @ 0x1C009A800 (-OnPnpNotification@CBaseInput@@AEAAJXZ.c)
+ * Callees:
+ *     rimSignalReadComplete @ 0x1C0003CE8 (rimSignalReadComplete.c)
+ *     RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C00043BC (RIMTransferInjectionDeviceDataFifoToDataBuffer.c)
+ *     rimStackAttachAndProcessInput @ 0x1C00044C4 (rimStackAttachAndProcessInput.c)
+ *     rimOnPnpRemoveComplete @ 0x1C0030730 (rimOnPnpRemoveComplete.c)
+ *     RIMSignalAllPriorPnpWorkToCompleteWaiters @ 0x1C0037614 (RIMSignalAllPriorPnpWorkToCompleteWaiters.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C0087454 (RIMStartDeviceSpecificRead.c)
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     rimDoScheduledUserModeRimPnpRegistration @ 0x1C00D751C (rimDoScheduledUserModeRimPnpRegistration.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqSd @ 0x1C01A81EC (WPP_RECORDER_AND_TRACE_SF_qqSd.c)
+ *     rimProcessAnyQueuedCompleteFrames @ 0x1C01D2AB4 (rimProcessAnyQueuedCompleteFrames.c)
+ */
+
 __int64 __fastcall RIMOnPnpNotification(__int64 a1)
 {
   char v2; // dl

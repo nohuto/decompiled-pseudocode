@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?JobCalloutTerminate@@YAHPEAUtagW32JOB@@@Z @ 0x1C0008CC8
+ * Callers:
+ *     UserJobCallout @ 0x1C003C000 (UserJobCallout.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 __int64 __fastcall JobCalloutTerminate(struct tagW32JOB *a1)
 {
   bool v2; // dl

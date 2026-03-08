@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseEntryLock@GdiHandleEntryDirectory@@QEAAXI@Z @ 0x1C004A580
+ * Callers:
+ *     INC_SHARE_REF_CNT @ 0x1C0047B70 (INC_SHARE_REF_CNT.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C0049850 (DEC_SHARE_REF_CNT.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GdiHandleEntryDirectory::ReleaseEntryLock(GdiHandleEntryDirectory *this, unsigned int a2)
 {
   unsigned int v2; // r9d

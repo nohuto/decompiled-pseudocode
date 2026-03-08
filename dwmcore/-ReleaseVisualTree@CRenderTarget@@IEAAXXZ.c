@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReleaseVisualTree@CRenderTarget@@IEAAXXZ @ 0x1800C73AC
+ * Callers:
+ *     ??1CRenderTarget@@MEAA@XZ @ 0x1800C6CF0 (--1CRenderTarget@@MEAA@XZ.c)
+ *     ?SetVisualTree@CRenderTarget@@IEAAXPEAVCVisualTree@@@Z @ 0x1800C6DFC (-SetVisualTree@CRenderTarget@@IEAAXPEAVCVisualTree@@@Z.c)
+ * Callees:
+ *     ?RemoveTreeClient@CVisualTree@@QEAAXPEAVIVisualTreeClient@@@Z @ 0x1800C6D30 (-RemoveTreeClient@CVisualTree@@QEAAXPEAVIVisualTreeClient@@@Z.c)
+ *     ?reset@?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F5598 (-reset@-$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CRenderTarget::ReleaseVisualTree(CRenderTarget *this)
 {
   CVisualTree *v2; // rcx

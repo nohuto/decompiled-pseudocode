@@ -1,3 +1,13 @@
+/*
+ * XREFs of zzzShowStartGlass @ 0x1C01B48F8
+ * Callers:
+ *     NtUserShowStartGlass @ 0x1C01DFD80 (NtUserShowStartGlass.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     zzzCalcStartCursorHide @ 0x1C00612C0 (zzzCalcStartCursorHide.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzShowStartGlass(__int64 a1)
 {

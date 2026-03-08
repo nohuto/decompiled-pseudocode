@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopComputeCounterShifts @ 0x140380C64
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PopComputeCounterShifts(unsigned __int64 a1, _DWORD *a2, _DWORD *a3)
 {
   unsigned __int64 result; // rax

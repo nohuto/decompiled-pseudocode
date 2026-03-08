@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Unload@FxDriver@@SAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C00403D0
+ * Callers:
+ *     imp_WdfDriverMiniportUnload @ 0x1C00387E0 (imp_WdfDriverMiniportUnload.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ *     FxDestroy @ 0x1C0043AD0 (FxDestroy.c)
+ */
+
 void __fastcall FxDriver::Unload(_DRIVER_OBJECT *DriverObject)
 {
   FxObject **DriverObjectExtension; // rax

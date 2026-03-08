@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlOplockIsSharedRequest @ 0x14076F9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlOplockIsSharedRequest(PIRP Irp)
 {
   ULONG LowPart; // edx

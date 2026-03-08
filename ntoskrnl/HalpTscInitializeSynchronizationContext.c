@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscInitializeSynchronizationContext @ 0x140396E74
+ * Callers:
+ *     HalpTscSynchronization @ 0x140396C20 (HalpTscSynchronization.c)
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ */
+
 ULONG __fastcall HalpTscInitializeSynchronizationContext(__int64 a1, char a2, int *a3, ULONG *a4)
 {
   int v4; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of TlgUnregisterAggregateProvider @ 0x1C0301934
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     DestroyAggregateSession @ 0x1C0301A30 (DestroyAggregateSession.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C0301A70 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     LookUpTableFlushComplete @ 0x1C0301AEC (LookUpTableFlushComplete.c)
+ */
+
 NTSTATUS __fastcall TlgUnregisterAggregateProvider(__int64 a1)
 {
   void *v2; // rsi

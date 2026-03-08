@@ -1,3 +1,32 @@
+/*
+ * XREFs of MmCreateKernelStack @ 0x140317B10
+ * Callers:
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140317800 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     KiAllocateProcessorStacks @ 0x1403723C0 (KiAllocateProcessorStacks.c)
+ *     KiEnableOptionalXStateFeatures @ 0x14057033C (KiEnableOptionalXStateFeatures.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x1406B180C (PspRecheckThreadOptionalXStateFeatures.c)
+ *     KeUserModeCallback @ 0x1407DA1F0 (KeUserModeCallback.c)
+ *     KeAllocateCalloutStackEx @ 0x14086F550 (KeAllocateCalloutStackEx.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AB970 (PspEnableProcessOptionalXStateFeatures.c)
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiSetPfnKernelStack @ 0x1402A7DF0 (MiSetPfnKernelStack.c)
+ *     KasanTrackAddress @ 0x1402EA400 (KasanTrackAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAllocateKernelStackPages @ 0x14031D830 (MiAllocateKernelStackPages.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     FirstEntrySList @ 0x140420450 (FirstEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogKernelStackEvent @ 0x140642970 (MiLogKernelStackEvent.c)
+ */
+
 __int64 __fastcall MmCreateKernelStack(unsigned int a1, unsigned int a2, unsigned __int64 a3)
 {
   __int64 v3; // r15

@@ -1,3 +1,27 @@
+/*
+ * XREFs of ACPIInitStartDevice @ 0x1C002DA2C
+ * Callers:
+ *     ACPIEcStartDevice @ 0x1C0025450 (ACPIEcStartDevice.c)
+ *     ACPIBusIrpStartDevice @ 0x1C00814F0 (ACPIBusIrpStartDevice.c)
+ *     ACPICMButtonStart @ 0x1C00820F4 (ACPICMButtonStart.c)
+ *     ACPIFilterIrpStartDevice @ 0x1C00867A0 (ACPIFilterIrpStartDevice.c)
+ *     ACPIInternalDeviceClockIrpStartDevice @ 0x1C0087020 (ACPIInternalDeviceClockIrpStartDevice.c)
+ *     ACPIProcessorContainerStartDevice @ 0x1C008CA50 (ACPIProcessorContainerStartDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIDeviceInternalDeviceRequest @ 0x1C001D3A8 (ACPIDeviceInternalDeviceRequest.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAD8 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     PnpCmResourcesToBiosResources @ 0x1C0092820 (PnpCmResourcesToBiosResources.c)
+ */
+
 __int64 __fastcall ACPIInitStartDevice(
         ULONG_PTR a1,
         __int64 a2,

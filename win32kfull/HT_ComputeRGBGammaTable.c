@@ -1,3 +1,12 @@
+/*
+ * XREFs of HT_ComputeRGBGammaTable @ 0x1C0252900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ */
+
 LONG __stdcall HT_ComputeRGBGammaTable(
         USHORT GammaTableEntries,
         USHORT GammaTableType,

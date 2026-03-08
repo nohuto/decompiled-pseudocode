@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiScanPagefiles @ 0x140361A24
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     MiFreePageFileHashPfns @ 0x1403619CC (MiFreePageFileHashPfns.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ */
+
 char __fastcall MiScanPagefiles(__int64 a1)
 {
   unsigned int v1; // eax

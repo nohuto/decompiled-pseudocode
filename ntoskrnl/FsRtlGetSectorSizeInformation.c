@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlGetSectorSizeInformation @ 0x14086B030
+ * Callers:
+ *     RawQueryVolumeInformation @ 0x1406F362C (RawQueryVolumeInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     FsRtlIssueDeviceIoControl @ 0x14086B440 (FsRtlIssueDeviceIoControl.c)
+ */
+
 __int64 __fastcall FsRtlGetSectorSizeInformation(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   __int64 result; // rax

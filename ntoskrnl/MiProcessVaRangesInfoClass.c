@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiProcessVaRangesInfoClass @ 0x14075C744
+ * Callers:
+ *     NtSetInformationVirtualMemory @ 0x14075BCB0 (NtSetInformationVirtualMemory.c)
+ *     MmSetPriorityVaRanges @ 0x140A2E530 (MmSetPriorityVaRanges.c)
+ * Callees:
+ *     MiIsVadLarge @ 0x1402899E4 (MiIsVadLarge.c)
+ *     MiWalkVaRange @ 0x1402CECEC (MiWalkVaRange.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadSupportsPrivateCommit @ 0x14031EE80 (MiVadSupportsPrivateCommit.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14032F870 (MiMoveDirtyBitsToPfns.c)
+ */
+
 __int64 __fastcall MiProcessVaRangesInfoClass(unsigned __int64 a1, __int128 *a2, int a3, unsigned int a4)
 {
   unsigned int v4; // ebx

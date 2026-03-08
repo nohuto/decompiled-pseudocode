@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiConvertEntireLargePageToSmall @ 0x140277140
+ * Callers:
+ *     MiResolvePrivateZeroFault @ 0x14026BD60 (MiResolvePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiProcessPageGroupInfo @ 0x1402B4BE0 (MiProcessPageGroupInfo.c)
+ *     MiInsertLargePageChain @ 0x1402CADB0 (MiInsertLargePageChain.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiDemoteLocalLargePage @ 0x14034E760 (MiDemoteLocalLargePage.c)
+ *     MiLargeFreePageToMdl @ 0x1403D1BC4 (MiLargeFreePageToMdl.c)
+ *     MiFindLargeNodePage @ 0x14061B228 (MiFindLargeNodePage.c)
+ *     MiUpdateLargePageSectionPfns @ 0x140626B50 (MiUpdateLargePageSectionPfns.c)
+ *     MiPrefetchPreallocatePages @ 0x14062FD08 (MiPrefetchPreallocatePages.c)
+ *     MiProcessVaContiguityInformation @ 0x14065B3D4 (MiProcessVaContiguityInformation.c)
+ *     MiGetClusterPage @ 0x140667A14 (MiGetClusterPage.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ *     MiCreateKernelHalSlabRange @ 0x140B3B690 (MiCreateKernelHalSlabRange.c)
+ *     MiInitializeNonPagedPool @ 0x140B5EDA4 (MiInitializeNonPagedPool.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FB09C (EtwTraceShouldYieldProcessor.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ */
+
 __int64 __fastcall MiConvertEntireLargePageToSmall(
         __int64 a1,
         int a2,

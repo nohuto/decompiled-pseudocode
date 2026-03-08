@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifFindThreadContextData @ 0x1405D2280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DifFindThreadContextData(int a1)
 {
   __int64 v2; // rdx

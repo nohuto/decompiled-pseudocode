@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiSetSubsectionBase @ 0x1402A4B24
+ * Callers:
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiIncrementSubsectionViewCount @ 0x140332840 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiSetSubsectionBase(__int64 *BugCheckParameter2, __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // rbx

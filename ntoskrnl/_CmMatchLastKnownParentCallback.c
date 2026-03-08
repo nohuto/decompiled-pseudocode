@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmMatchLastKnownParentCallback @ 0x140A604E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 bool __fastcall CmMatchLastKnownParentCallback(__int64 a1, __int64 a2, __int64 a3, const wchar_t *a4)
 {
   char v4; // bl

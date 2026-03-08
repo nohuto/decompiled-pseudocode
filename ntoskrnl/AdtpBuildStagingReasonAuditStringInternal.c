@@ -1,3 +1,19 @@
+/*
+ * XREFs of AdtpBuildStagingReasonAuditStringInternal @ 0x14066E738
+ * Callers:
+ *     AdtpBuildAccessReasonAuditString @ 0x14066D780 (AdtpBuildAccessReasonAuditString.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AdtpFormatPrefix @ 0x14066EAE4 (AdtpFormatPrefix.c)
+ *     StringCchPrintfExW @ 0x14066EC40 (StringCchPrintfExW.c)
+ *     AdtpBuildAccessesString @ 0x140A58C90 (AdtpBuildAccessesString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildStagingReasonAuditStringInternal(
         int a1,
         int a2,

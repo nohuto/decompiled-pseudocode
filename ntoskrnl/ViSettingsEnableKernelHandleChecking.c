@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViSettingsEnableKernelHandleChecking @ 0x140AD7EBC
+ * Callers:
+ *     VfSettingsCheckForChanges @ 0x140AD7DA4 (VfSettingsCheckForChanges.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140AD7E88 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ * Callees:
+ *     PsSetProcessHandleTracingInformation @ 0x1409AB674 (PsSetProcessHandleTracingInformation.c)
+ */
+
 __int64 __fastcall ViSettingsEnableKernelHandleChecking(int a1)
 {
   __int64 result; // rax

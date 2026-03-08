@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbpGetFirstIndexedRecord @ 0x14079F5A8
+ * Callers:
+ *     SdbFindFirstStringIndexedTag @ 0x14079F36C (SdbFindFirstStringIndexedTag.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpBinarySearchUnique @ 0x14079E1DC (SdbpBinarySearchUnique.c)
+ *     SdbpBinarySearchFirst @ 0x14079F190 (SdbpBinarySearchFirst.c)
+ *     SdbpGetMappedTagData @ 0x1407A2238 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbpGetFirstIndexedRecord(__int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
 {
   unsigned int v6; // esi

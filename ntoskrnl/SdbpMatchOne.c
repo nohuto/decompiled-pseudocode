@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpMatchOne @ 0x140A4EA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SdbpMatchList @ 0x1407A2310 (SdbpMatchList.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 __fastcall SdbpMatchOne(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5, __int64 a6)
 {
   unsigned int v7; // r14d

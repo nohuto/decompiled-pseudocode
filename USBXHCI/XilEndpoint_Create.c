@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilEndpoint_Create @ 0x1C000B114
+ * Callers:
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     XilEndpoint_CreateSecureObject @ 0x1C0038E80 (XilEndpoint_CreateSecureObject.c)
+ *     XilEndpoint_FreeResources @ 0x1C0039144 (XilEndpoint_FreeResources.c)
+ */
+
 __int64 __fastcall XilEndpoint_Create(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rbx

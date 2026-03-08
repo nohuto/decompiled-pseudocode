@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserTranslateMessage @ 0x1C00E4E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxTranslateMessage @ 0x1C00E4F1C (xxxTranslateMessage.c)
+ */
+
 __int64 __fastcall NtUserTranslateMessage(__int128 *a1, unsigned int a2)
 {
   __int64 v4; // rcx

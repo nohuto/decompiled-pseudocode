@@ -1,3 +1,19 @@
+/*
+ * XREFs of WbAllocateSlots @ 0x140754BA0
+ * Callers:
+ *     sub_140754B04 @ 0x140754B04 (sub_140754B04.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     sub_140754DBC @ 0x140754DBC (sub_140754DBC.c)
+ */
+
 __int64 __fastcall WbAllocateSlots(__int64 a1, unsigned int a2, int a3, unsigned int a4)
 {
   signed __int64 *v4; // rdi

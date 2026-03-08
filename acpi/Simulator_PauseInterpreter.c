@@ -1,3 +1,11 @@
+/*
+ * XREFs of Simulator_PauseInterpreter @ 0x1C004950C
+ * Callers:
+ *     Simulator_CallbackWorker @ 0x1C0048FB0 (Simulator_CallbackWorker.c)
+ * Callees:
+ *     AMLIPauseInterpreter @ 0x1C0048968 (AMLIPauseInterpreter.c)
+ */
+
 __int64 Simulator_PauseInterpreter()
 {
   struct _KEVENT *Pool2; // rax

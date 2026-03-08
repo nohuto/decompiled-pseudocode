@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpSetTargetDeviceRemove @ 0x140862DC8
+ * Callers:
+ *     PiDevCfgProcessDeviceCallback @ 0x140842090 (PiDevCfgProcessDeviceCallback.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x14096B0E0 (PnpQueueQueryAndRemoveEvent.c)
+ * Callees:
+ *     PnpInsertEventInQueue @ 0x140688D90 (PnpInsertEventInQueue.c)
+ *     PnpAllocateCriticalMemory @ 0x1408637CC (PnpAllocateCriticalMemory.c)
+ *     PnpInitializeTargetDeviceRemoveEvent @ 0x140863884 (PnpInitializeTargetDeviceRemoveEvent.c)
+ */
+
 __int64 __fastcall PnpSetTargetDeviceRemove(
         _QWORD *Object,
         int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpCovGetSectionInfo @ 0x14072D598
+ * Callers:
+ *     MiConstructLoaderEntry @ 0x14072CE24 (MiConstructLoaderEntry.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 char *__fastcall ExpCovGetSectionInfo(char *a1, _DWORD *a2)
 {
   __int64 v4; // rax

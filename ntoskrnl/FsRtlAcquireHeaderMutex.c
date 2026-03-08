@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlAcquireHeaderMutex @ 0x140240F70
+ * Callers:
+ *     FsRtlpWaitForIoAtEof @ 0x140240CC0 (FsRtlpWaitForIoAtEof.c)
+ * Callees:
+ *     ExpAcquireFastMutexContended @ 0x1402410FC (ExpAcquireFastMutexContended.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 volatile signed __int32 *__fastcall FsRtlAcquireHeaderMutex(__int64 a1, volatile signed __int32 *a2)
 {
   __int64 v2; // rbx

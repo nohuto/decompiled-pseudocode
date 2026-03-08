@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiIterateOverPartitions @ 0x140626FE0
+ * Callers:
+ *     MiFinishResume @ 0x1406244A0 (MiFinishResume.c)
+ *     MiMirrorBlackPhase @ 0x1406247B4 (MiMirrorBlackPhase.c)
+ *     MiResumeFromHibernate @ 0x1406263EC (MiResumeFromHibernate.c)
+ *     MiMirrorDiscardPageContents @ 0x14064CE84 (MiMirrorDiscardPageContents.c)
+ *     MiLockAllMemoryLists @ 0x14064E354 (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x140650214 (MiUnlockAllMemoryLists.c)
+ *     MiSendParkedCoreUpdateToAllChildPartitions @ 0x140652D30 (MiSendParkedCoreUpdateToAllChildPartitions.c)
+ *     MmEnumerateBadPages @ 0x140A2CF14 (MmEnumerateBadPages.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiIterateOverPartitions(void (__fastcall *a1)(__int64, __int64), __int64 a2)
 {
   unsigned int v2; // ebx

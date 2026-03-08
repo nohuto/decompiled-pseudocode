@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfTFreeBufferList @ 0x1407E5940
+ * Callers:
+ *     PfTCreateTraceDump @ 0x1407E51A0 (PfTCreateTraceDump.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfTLbInitialize @ 0x1407E5A08 (PfTLbInitialize.c)
+ */
+
 __int64 __fastcall PfTFreeBufferList(unsigned int *a1)
 {
   _QWORD *v1; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopPepDeviceDState @ 0x1402B9C4C
+ * Callers:
+ *     PopFxHandleReportDevicePoweredOn @ 0x1402B90C0 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopIrpWorker @ 0x1402B9440 (PopIrpWorker.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1402BB4F0 (PopHandleDevicePowerIrpCompletion.c)
+ * Callees:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ *     PopPlNotifyDeviceDState @ 0x1402B9D3C (PopPlNotifyDeviceDState.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1402F28E0 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1402F295C (PopPepUpdateIdleStateRefCount.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x140589C50 (PopFxUpdateComponentPerfStateNominalChange.c)
+ *     PopFxUpdateDeviceAccountingEnhanced @ 0x140589D38 (PopFxUpdateDeviceAccountingEnhanced.c)
+ */
+
 NTSTATUS __fastcall PopPepDeviceDState(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebp

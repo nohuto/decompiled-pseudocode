@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionBaseDriverUnloadUninitialize @ 0x1C008DAFC
+ * Callers:
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C008D904 (-Win32kNtUserCleanup@@YAHXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionBaseDriverUnloadUninitialize()
 {
   char v0; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhCallModule @ 0x1C0042708
+ * Callers:
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbhCallModule(__int64 a1, __int64 a2, __int64 a3, _LIST_ENTRY *a4, int a5, __int64 a6, __int64 a7)
 {
   unsigned int v7; // ebx

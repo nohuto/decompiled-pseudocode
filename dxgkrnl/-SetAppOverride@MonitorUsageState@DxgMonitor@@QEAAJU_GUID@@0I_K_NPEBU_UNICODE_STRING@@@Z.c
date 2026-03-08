@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetAppOverride@MonitorUsageState@DxgMonitor@@QEAAJU_GUID@@0I_K_NPEBU_UNICODE_STRING@@@Z @ 0x1C03C9E7C
+ * Callers:
+ *     MonitorSetAppOverride @ 0x1C03C03F8 (MonitorSetAppOverride.c)
+ * Callees:
+ *     ??$invoke@P6AXPEAU_UNICODE_STRING@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_UNICODE_STRING@@@ZAEAPEAU1@@Z @ 0x1C0024184 (--$invoke@P6AXPEAU_UNICODE_STRING@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_UNICODE_STRING@@@ZAEAPEAU.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?_GetAppOverrideKey@MonitorUsageState@DxgMonitor@@AEBAJAEBU_UNICODE_STRING@@PEA_K@Z @ 0x1C03CA064 (-_GetAppOverrideKey@MonitorUsageState@DxgMonitor@@AEBAJAEBU_UNICODE_STRING@@PEA_K@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorUsageState::SetAppOverride(
         __int64 **this,
         GUID *Guid,

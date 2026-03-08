@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpErrorDeferredHandler @ 0x1405171B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpFreeDrsPool @ 0x140517200 (HalpFreeDrsPool.c)
+ *     HalpMemoryErrorDeferredHandler @ 0x1405173D0 (HalpMemoryErrorDeferredHandler.c)
+ *     HalpPmemErrorDeferredHandler @ 0x1405175AC (HalpPmemErrorDeferredHandler.c)
+ */
+
 __int64 __fastcall HalpErrorDeferredHandler(__int64 a1, __int128 *a2)
 {
   __int128 v2; // xmm1

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetFreeLargePagesSearchTypes @ 0x14034F8C0
+ * Callers:
+ *     MiUnlinkNodeLargePages @ 0x14034EB80 (MiUnlinkNodeLargePages.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ * Callees:
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiGetFreeLargePage @ 0x14034FBD0 (MiGetFreeLargePage.c)
+ */
+
 int __fastcall MiGetFreeLargePagesSearchTypes(__int64 a1)
 {
   int v1; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??8CRoundedRectangleGeometryData@@QEBA_NAEBU0@@Z @ 0x18007F4E8
+ * Callers:
+ *     ?TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z @ 0x180080580 (-TryOptimizedCombinePaths@CShape@@CAJPEAV1@PEBVCMILMatrix@@01W4Enum@MilCombineMode@@PEAPEAV1@@Z.c)
+ *     ?IsSameGeometry@CRectangleGeometry@@UEBA_NPEBVCGeometry@@@Z @ 0x1800F78A0 (-IsSameGeometry@CRectangleGeometry@@UEBA_NPEBVCGeometry@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CRoundedRectangleGeometryData::operator==(__int64 a1, __int64 a2)
 {
   char v2; // r8

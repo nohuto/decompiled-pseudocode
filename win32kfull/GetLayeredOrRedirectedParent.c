@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetLayeredOrRedirectedParent @ 0x1C00C74F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall GetLayeredOrRedirectedParent(_QWORD *a1)
 {
   _QWORD *v1; // rdx

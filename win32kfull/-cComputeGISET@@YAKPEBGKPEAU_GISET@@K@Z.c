@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?cComputeGISET@@YAKPEBGKPEAU_GISET@@K@Z @ 0x1C0113274
+ * Callers:
+ *     ?bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z @ 0x1C0115D54 (-bComputeGISET@@YAHPEAU_IFIMETRICS@@PEAVPFE@@PEAPEAU_GISET@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall cComputeGISET(const unsigned __int16 *a1, unsigned int a2, struct _GISET *a3, int a4)
 {
   int v4; // esi

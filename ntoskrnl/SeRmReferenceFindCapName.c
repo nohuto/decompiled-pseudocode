@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeRmReferenceFindCapName @ 0x1405B7318
+ * Callers:
+ *     AdtpBuildContextFromSecurityDescriptor @ 0x14066E690 (AdtpBuildContextFromSecurityDescriptor.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepRmReferenceFindCap @ 0x1405B7498 (SepRmReferenceFindCap.c)
+ *     SepValidateCAPIDs @ 0x1405B75BC (SepValidateCAPIDs.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SeRmReferenceFindCapName(PSID Sid1, _DWORD *a2, __int64 *a3)
 {
   int v3; // edi

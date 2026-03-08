@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetCsrApiPortHandle @ 0x1C00D2E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetCsrApiPortHandle(void *a1)
 {
   NTSTATUS v1; // ebx

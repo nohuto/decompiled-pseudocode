@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmKmGetStoreList @ 0x1409D5EB0
+ * Callers:
+ *     SmProcessListRequest @ 0x1409D3FBC (SmProcessListRequest.c)
+ * Callees:
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ */
+
 __int64 __fastcall SmKmGetStoreList(__int64 a1)
 {
   unsigned int i; // r9d

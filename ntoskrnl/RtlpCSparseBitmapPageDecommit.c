@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpCSparseBitmapPageDecommit @ 0x1403046C4
+ * Callers:
+ *     RtlCSparseBitmapBitsClear @ 0x140309068 (RtlCSparseBitmapBitsClear.c)
+ * Callees:
+ *     MmFreePoolMemory @ 0x14020DD58 (MmFreePoolMemory.c)
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     RtlCSparseBitmapEnterLockingRegion @ 0x140307000 (RtlCSparseBitmapEnterLockingRegion.c)
+ *     RtlpCSparseBitmapLock @ 0x140307040 (RtlpCSparseBitmapLock.c)
+ *     RtlCSparseBitmapLeaveLockingRegion @ 0x140308370 (RtlCSparseBitmapLeaveLockingRegion.c)
+ *     RtlpCSparseBitmapUnlock @ 0x1403083A8 (RtlpCSparseBitmapUnlock.c)
+ *     RtlpCSparseBitmapWaitOnAddress @ 0x1405B50C0 (RtlpCSparseBitmapWaitOnAddress.c)
+ */
+
 __int64 __fastcall RtlpCSparseBitmapPageDecommit(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v5; // r9

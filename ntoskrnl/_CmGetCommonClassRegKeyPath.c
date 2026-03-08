@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmGetCommonClassRegKeyPath @ 0x1406C5348
+ * Callers:
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1406C50D8 (_CmOpenCommonClassRegKeyWorker.c)
+ *     PiDqGetRelativeObjectRegPath @ 0x140747694 (PiDqGetRelativeObjectRegPath.c)
+ *     _CmDeleteCommonClassRegKeyWorker @ 0x140A5E4A8 (_CmDeleteCommonClassRegKeyWorker.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     _CmValidateInstallerClassName @ 0x1406C4F20 (_CmValidateInstallerClassName.c)
+ */
+
 int __fastcall CmGetCommonClassRegKeyPath(
         __int64 a1,
         const WCHAR *a2,

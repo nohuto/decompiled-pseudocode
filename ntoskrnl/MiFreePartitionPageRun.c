@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreePartitionPageRun @ 0x140657734
+ * Callers:
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ * Callees:
+ *     MiFreeMdlPageRun @ 0x14027AF50 (MiFreeMdlPageRun.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ */
+
 __int64 __fastcall MiFreePartitionPageRun(unsigned __int16 *a1, ULONG_PTR a2, unsigned __int64 a3, int a4)
 {
   __int64 result; // rax

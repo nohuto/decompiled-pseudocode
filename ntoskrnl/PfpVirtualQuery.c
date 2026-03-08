@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfpVirtualQuery @ 0x14097C070
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PfpVirtualQuery(__int64 a1, char a2, _DWORD *a3)
 {
   __int64 v6; // rax

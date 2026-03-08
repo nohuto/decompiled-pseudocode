@@ -1,3 +1,28 @@
+/*
+ * XREFs of FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8
+ * Callers:
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1406220F4 (MiFlushControlArea.c)
+ *     MmFlushVirtualMemory @ 0x14075ED38 (MmFlushVirtualMemory.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRef @ 0x1402409C0 (IoGetDeviceAttachmentBaseRef.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x140336990 (ExIsResourceAcquiredSharedLite.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x140343B10 (IoGetBaseFileSystemDeviceObject.c)
+ *     FsFilterCtrlInit @ 0x140343B50 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140343BE0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140343C70 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x140343F88 (FsFilterCtrlFree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall FsRtlAcquireFileForCcFlushEx(PFILE_OBJECT FileObject)
 {
   signed int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShellWindowPos::_anonymous_namespace_::AWPSOptionFromShellRequest @ 0x1C021F98C
+ * Callers:
+ *     ?xxxProcessPositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z @ 0x1C022181C (-xxxProcessPositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z.c)
+ * Callees:
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ */
+
 __int64 __fastcall ShellWindowPos::_anonymous_namespace_::AWPSOptionFromShellRequest(const struct tagRECT *a1)
 {
   LONG bottom; // r8d

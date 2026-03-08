@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpSizeHeapInternal @ 0x1405ABE4C
+ * Callers:
+ *     RtlSizeHeap @ 0x1405A7940 (RtlSizeHeap.c)
+ * Callees:
+ *     RtlpProbeUserBufferSafe @ 0x1405ABB9C (RtlpProbeUserBufferSafe.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpHpVsChunkSize @ 0x1405B4FE4 (RtlpHpVsChunkSize.c)
+ */
+
 __int64 __fastcall RtlpSizeHeapInternal(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // esi

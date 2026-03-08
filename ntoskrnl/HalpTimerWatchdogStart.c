@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTimerWatchdogStart @ 0x1405096C0
+ * Callers:
+ *     HalpTimerInitializeSystemWatchdog @ 0x14050956C (HalpTimerInitializeSystemWatchdog.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpSetTimer @ 0x1402CBEE0 (HalpSetTimer.c)
+ *     HalpTimerWatchdogWakeSetDueTime @ 0x1403CE8CC (HalpTimerWatchdogWakeSetDueTime.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void HalpTimerWatchdogStart()
 {
   __int64 v0; // rbx

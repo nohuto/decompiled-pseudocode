@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiAssignSessionRanges @ 0x140B6BF00
+ * Callers:
+ *     MiInitializeDynamicVa @ 0x140B6BDEC (MiInitializeDynamicVa.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 MiAssignSessionRanges()
 {
   __int64 v0; // r12

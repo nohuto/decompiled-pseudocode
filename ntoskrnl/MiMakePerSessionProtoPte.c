@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMakePerSessionProtoPte @ 0x140662CD4
+ * Callers:
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ */
+
 __int64 __fastcall MiMakePerSessionProtoPte(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int SessionId; // r14d

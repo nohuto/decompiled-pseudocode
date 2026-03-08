@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiReadCommandFromContextQueue @ 0x1C003B4EC
+ * Callers:
+ *     VidSchiDrainContextFromWorkerThread @ 0x1C003A850 (VidSchiDrainContextFromWorkerThread.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiUpdateContextStatus @ 0x1C0008230 (VidSchiUpdateContextStatus.c)
+ *     VidSchiSetNextRunPacket @ 0x1C0010A40 (VidSchiSetNextRunPacket.c)
+ */
+
 __int64 __fastcall VidSchiReadCommandFromContextQueue(__int64 a1, int a2, _BYTE *a3)
 {
   __int64 v3; // r14

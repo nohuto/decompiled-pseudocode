@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCreateKey @ 0x1405FED84
+ * Callers:
+ *     EtwpCreateKeyTreeForPath @ 0x1405FEE28 (EtwpCreateKeyTreeForPath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 __int64 __fastcall EtwpCreateKey(PCWSTR SourceString)
 {
   NTSTATUS v1; // ebx

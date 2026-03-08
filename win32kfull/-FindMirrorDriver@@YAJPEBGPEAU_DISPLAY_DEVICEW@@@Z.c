@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FindMirrorDriver@@YAJPEBGPEAU_DISPLAY_DEVICEW@@@Z @ 0x1C0205904
+ * Callers:
+ *     xxxRemoteConsoleShadowStart @ 0x1C02063C0 (xxxRemoteConsoleShadowStart.c)
+ * Callees:
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00BE504 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall FindMirrorDriver(PCWSTR SourceString, struct _DISPLAY_DEVICEW *a2)
 {
   char v3; // bl

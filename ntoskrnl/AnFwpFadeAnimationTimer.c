@@ -1,3 +1,17 @@
+/*
+ * XREFs of AnFwpFadeAnimationTimer @ 0x140AEA110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     BgpGxDrawRectangle @ 0x1403817FC (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     LogFwStat @ 0x140AEA85C (LogFwStat.c)
+ */
+
 void __fastcall AnFwpFadeAnimationTimer(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

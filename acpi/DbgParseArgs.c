@@ -1,3 +1,11 @@
+/*
+ * XREFs of DbgParseArgs @ 0x1C0059E48
+ * Callers:
+ *     DbgExecuteCmd @ 0x1C004E878 (DbgExecuteCmd.c)
+ * Callees:
+ *     DbgParseOneArg @ 0x1C0059EC4 (DbgParseOneArg.c)
+ */
+
 __int64 __fastcall DbgParseArgs(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4, char **Context)
 {
   unsigned int v5; // ebx

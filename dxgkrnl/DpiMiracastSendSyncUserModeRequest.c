@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiMiracastSendSyncUserModeRequest @ 0x1C039B354
+ * Callers:
+ *     DpiMiracastInterfaceChange @ 0x1C005F540 (DpiMiracastInterfaceChange.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ * Callees:
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001D678 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     DxgkIsAdapterCoreSyncAcquired @ 0x1C01E5204 (DxgkIsAdapterCoreSyncAcquired.c)
+ */
+
 __int64 __fastcall DpiMiracastSendSyncUserModeRequest(
         __int64 a1,
         ULONG a2,

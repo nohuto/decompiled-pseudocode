@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepAdtAuditThisEventByCategoryWithContext @ 0x140699890
+ * Callers:
+ *     SeAuditingAnyFileEventsWithContextEx @ 0x140207950 (SeAuditingAnyFileEventsWithContextEx.c)
+ *     SeAuditingFileEventsWithContextEx @ 0x1405B6960 (SeAuditingFileEventsWithContextEx.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1406995C8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ * Callees:
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ */
+
 char __fastcall SepAdtAuditThisEventByCategoryWithContext(
         unsigned int a1,
         int a2,

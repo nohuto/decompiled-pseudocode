@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_14042CA80 @ 0x14042CA80
+ * Callers:
+ *     sub_14042CA40 @ 0x14042CA40 (sub_14042CA40.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_14042CA80(int a1)
 {
   __int64 result; // rax

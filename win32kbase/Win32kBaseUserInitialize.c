@@ -1,3 +1,15 @@
+/*
+ * XREFs of Win32kBaseUserInitialize @ 0x1C00C6170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     InitializeGreCSRSS @ 0x1C009F4FC (InitializeGreCSRSS.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     InitializePowerRequestList @ 0x1C031F97C (InitializePowerRequestList.c)
+ */
+
 __int64 __fastcall Win32kBaseUserInitialize(HANDLE Handle, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbp

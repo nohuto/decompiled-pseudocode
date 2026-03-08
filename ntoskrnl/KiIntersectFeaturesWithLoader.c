@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIntersectFeaturesWithLoader @ 0x140A8CD54
+ * Callers:
+ *     KiInitializeXSave @ 0x140A8CAA0 (KiInitializeXSave.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiIntersectFeaturesWithLoader(__int64 a1, __int64 *a2)
 {
   __int64 result; // rax

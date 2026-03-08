@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMDirectStopUserModeRimDeviceClassNotifications @ 0x1C00BDA0C
+ * Callers:
+ *     ?HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z @ 0x1C00BD9D0 (-HandleTSRequestForUserModeRimDevices@CHidInput@@EEAAXW4InputTSRequest@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMSyncWalkRimObjList @ 0x1C00BDC0C (RIMSyncWalkRimObjList.c)
+ */
+
 __int64 RIMDirectStopUserModeRimDeviceClassNotifications()
 {
   bool v0; // dl

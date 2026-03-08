@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBFDO_CompleteGetDescriptorRequest @ 0x1C000EA68
+ * Callers:
+ *     HUBSM_FindAndSetTargetState @ 0x1C000A96C (HUBSM_FindAndSetTargetState.c)
+ *     HUBDTX_GetDeviceDescriptorComplete @ 0x1C002D8C0 (HUBDTX_GetDeviceDescriptorComplete.c)
+ *     HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb @ 0x1C002D9F4 (HUBDTX_GetDescriptorForFdoRequestUsingPreformattedUrb.c)
+ *     HUBFDO_IoctlGetDescriptorFromNodeConnection @ 0x1C007A918 (HUBFDO_IoctlGetDescriptorFromNodeConnection.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBFDO_CompleteGetDescriptorRequest(__int64 a1, int a2, __int64 a3, int a4, unsigned int a5)
 {
   __int64 v9; // rcx

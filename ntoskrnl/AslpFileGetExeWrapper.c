@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslpFileGetExeWrapper @ 0x140A55740
+ * Callers:
+ *     AslpFileGetPeExportNameExeWrapper @ 0x140A5609C (AslpFileGetPeExportNameExeWrapper.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x140A55E4C (AslpFileGetImageNtHeader.c)
+ *     AslpFileHasActiveMarkWrapper @ 0x140A561C4 (AslpFileHasActiveMarkWrapper.c)
+ *     AslpFileHasSecuromWrapper @ 0x140A5630C (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x140A56788 (AslpHasStarForceWrapper.c)
+ */
+
 __int64 __fastcall AslpFileGetExeWrapper(_DWORD *a1, __int64 a2)
 {
   int ImageNtHeader; // ebx

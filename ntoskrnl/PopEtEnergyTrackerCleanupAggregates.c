@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEtEnergyTrackerCleanupAggregates @ 0x140768330
+ * Callers:
+ *     PopEtEnergyTrackerQuery @ 0x140767578 (PopEtEnergyTrackerQuery.c)
+ *     PopEtEnergyTrackerCleanup @ 0x14099565C (PopEtEnergyTrackerCleanup.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopEtAggregateKeyCleanup @ 0x140702A18 (PopEtAggregateKeyCleanup.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall PopEtEnergyTrackerCleanupAggregates(__int64 a1)
 {
   _QWORD **v1; // rdi

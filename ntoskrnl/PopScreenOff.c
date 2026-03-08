@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopScreenOff @ 0x140995234
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     PopBlockSessionSwitch @ 0x140994CF0 (PopBlockSessionSwitch.c)
+ *     PopControlMonitor @ 0x140994D70 (PopControlMonitor.c)
+ */
+
 __int64 __fastcall PopScreenOff(int a1)
 {
   unsigned int v3; // [rsp+30h] [rbp+8h] BYREF

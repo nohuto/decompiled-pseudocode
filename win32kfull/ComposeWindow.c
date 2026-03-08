@@ -1,3 +1,24 @@
+/*
+ * XREFs of ComposeWindow @ 0x1C002297C
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     DecomposeWindowIfNeeded @ 0x1C00228F4 (DecomposeWindowIfNeeded.c)
+ *     ComposeWindowIfNeeded @ 0x1C002D850 (ComposeWindowIfNeeded.c)
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ * Callees:
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     _SetLayeredWindowAttributes @ 0x1C002BBFC (_SetLayeredWindowAttributes.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     UpdateWindowSpriteMonitor @ 0x1C002C598 (UpdateWindowSpriteMonitor.c)
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall ComposeWindow(struct tagWND *a1, char a2)
 {
   __int64 v4; // rcx

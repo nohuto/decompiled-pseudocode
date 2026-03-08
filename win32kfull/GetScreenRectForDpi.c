@@ -1,3 +1,15 @@
+/*
+ * XREFs of GetScreenRectForDpi @ 0x1C00A2874
+ * Callers:
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C004524C (xxxInitSendValidateMinMaxInfoEx.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     GetScreenRectForWindow @ 0x1C014AD54 (GetScreenRectForWindow.c)
+ * Callees:
+ *     GetMonitorRectForDpi @ 0x1C00A2698 (GetMonitorRectForDpi.c)
+ *     CalculateLogicalMonitorRect @ 0x1C00A3510 (CalculateLogicalMonitorRect.c)
+ */
+
 __m128i *__fastcall GetScreenRectForDpi(__m128i *a1, unsigned __int16 a2)
 {
   __int64 *DispInfo; // rax

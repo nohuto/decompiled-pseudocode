@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMVirtDeviceNotifyAsyncWorkItem @ 0x1C01D09D8
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C000431C (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C0037E30 (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RIMIDERemoveInjectionDevice @ 0x1C01A64F8 (RIMIDERemoveInjectionDevice.c)
+ */
+
 char __fastcall RIMVirtDeviceNotifyAsyncWorkItem(__int64 a1)
 {
   _UNKNOWN **v1; // rax

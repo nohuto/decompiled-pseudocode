@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkCleanupPower @ 0x1C0395C18
+ * Callers:
+ *     DxgkUnload @ 0x1C0305A60 (DxgkUnload.c)
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 void DxgkCleanupPower()
 {
   signed __int64 v0; // rax

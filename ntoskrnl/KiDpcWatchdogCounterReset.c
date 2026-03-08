@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiDpcWatchdogCounterReset @ 0x1402DAE78
+ * Callers:
+ *     KeAccumulateTicks @ 0x14022F310 (KeAccumulateTicks.c)
+ *     KiDpcWatchdog @ 0x14057A100 (KiDpcWatchdog.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceCumulativeDpcSoftTimeout @ 0x1405FA514 (EtwTraceCumulativeDpcSoftTimeout.c)
+ */
+
 __int64 __fastcall KiDpcWatchdogCounterReset(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

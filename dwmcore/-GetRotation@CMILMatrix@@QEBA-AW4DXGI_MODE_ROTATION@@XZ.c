@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetRotation@CMILMatrix@@QEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x180012A10
+ * Callers:
+ *     ?RecordTransformAndColorSpace@CFlipExSwapchainStatistics@@UEAA_N_NAEBVCMILMatrix@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800129E0 (-RecordTransformAndColorSpace@CFlipExSwapchainStatistics@@UEAA_N_NAEBVCMILMatrix@@W4DXGI_COLOR_S.c)
+ *     ?GetScaleAndRotation@CCursorState@@CA_NAEBVCMILMatrix@@PEAMPEAW4DXGI_MODE_ROTATION@@@Z @ 0x180276D74 (-GetScaleAndRotation@CCursorState@@CA_NAEBVCMILMatrix@@PEAMPEAW4DXGI_MODE_ROTATION@@@Z.c)
+ * Callees:
+ *     ?CalcMatrixEpsilonValue@@YA?AW4MatrixEpsilonValue@@M@Z @ 0x180012A88 (-CalcMatrixEpsilonValue@@YA-AW4MatrixEpsilonValue@@M@Z.c)
+ *     ?Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ @ 0x1800B25B0 (-Is2DAxisAlignedPreserving@CMILMatrix@@QEBA_NXZ.c)
+ */
+
 __int64 __fastcall CMILMatrix::GetRotation(CMILMatrix *this)
 {
   unsigned int v1; // ebx

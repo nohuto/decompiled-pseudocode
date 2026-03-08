@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiFormCopyExtents @ 0x14063B1D8
+ * Callers:
+ *     MiInsertCopyExtents @ 0x14063BA1C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063BFCC (MiMergeCopyExtents.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 unsigned int *__fastcall MiFormCopyExtents(__int64 a1, unsigned int a2)
 {
   unsigned int *result; // rax

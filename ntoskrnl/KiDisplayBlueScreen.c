@@ -1,3 +1,24 @@
+/*
+ * XREFs of KiDisplayBlueScreen @ 0x140567D34
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     HeadlessDispatch @ 0x140372650 (HeadlessDispatch.c)
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlStringCbPrintfExA @ 0x1404FB9CC (RtlStringCbPrintfExA.c)
+ *     InbvAcquireDisplayOwnership @ 0x14054C0D0 (InbvAcquireDisplayOwnership.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     KeGetBugMessageText @ 0x140567014 (KeGetBugMessageText.c)
+ *     KiBugCheckConvertParameterValueToUnicodeString @ 0x1405671DC (KiBugCheckConvertParameterValueToUnicodeString.c)
+ *     KiDumpParameterImages @ 0x1405680C8 (KiDumpParameterImages.c)
+ *     KiHeadlessDisplayString @ 0x1405682A0 (KiHeadlessDisplayString.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ */
+
 __int64 __fastcall KiDisplayBlueScreen(int a1)
 {
   __int64 v2; // r14

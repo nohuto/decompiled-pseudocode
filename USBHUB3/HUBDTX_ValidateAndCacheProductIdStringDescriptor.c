@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheProductIdStringDescriptor @ 0x1C002CB14
+ * Callers:
+ *     HUBDSM_ValidatingLanguageSpecificProductIdString @ 0x1C0020830 (HUBDSM_ValidatingLanguageSpecificProductIdString.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003C360 (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheProductIdStringDescriptor(__int64 a1)
 {
   int v1; // ebx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PsGetNextPartitionUnsafe @ 0x140305364
+ * Callers:
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     CcForEachPartition @ 0x140305240 (CcForEachPartition.c)
+ *     CcUnmapInactiveViews @ 0x140535E58 (CcUnmapInactiveViews.c)
+ *     ExSwapinWorkerThreads @ 0x1409FD778 (ExSwapinWorkerThreads.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _UNKNOWN **__fastcall PsGetNextPartitionUnsafe(_QWORD *Object)
 {
   _UNKNOWN **v2; // rbp

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReturnEnclavePage @ 0x140646460
+ * Callers:
+ *     MiAddPagesToEnclave @ 0x14064445C (MiAddPagesToEnclave.c)
+ *     MiAllocateEnclavePages @ 0x1406447E4 (MiAllocateEnclavePages.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3A34C (MiCopyPagesIntoEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140AAA540 (MiReturnReservedEnclavePages.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140B96A34 (MiInitializeEnclaveMetadataPage.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReturnEnclavePage(ULONG_PTR a1)
 {
   __int64 v2; // rdi

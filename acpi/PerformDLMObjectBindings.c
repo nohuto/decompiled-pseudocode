@@ -1,3 +1,11 @@
+/*
+ * XREFs of PerformDLMObjectBindings @ 0x1C004C95C
+ * Callers:
+ *     ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C0011B70 (ACPIBuildProcessRunMethodPhasePostProcessResult.c)
+ * Callees:
+ *     ParseDLMObjectInternal @ 0x1C004C718 (ParseDLMObjectInternal.c)
+ */
+
 __int64 __fastcall PerformDLMObjectBindings(__int64 a1, __int64 a2)
 {
   _DWORD *v3; // rbx

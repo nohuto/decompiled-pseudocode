@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C002D3FC
+ * Callers:
+ *     ?Init@FxCompanionTarget@@AEAAJPEAVFxDevice@@@Z @ 0x1C002DF78 (-Init@FxCompanionTarget@@AEAAJPEAVFxDevice@@@Z.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ @ 0x1C002CDF8 (-CloseCompanionLibraryInterface@FxCompanionLibrary@@AEAAXXZ.c)
+ *     ?OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002D96C (-OpenCompanionLibraryInterface@FxCompanionLibrary@@AEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?RtlUShortAdd@@YAJGGPEAG@Z @ 0x1C002DA0C (-RtlUShortAdd@@YAJGGPEAG@Z.c)
+ *     RtlStringCbCopyUnicodeString @ 0x1C002DAB0 (RtlStringCbCopyUnicodeString.c)
+ *     GetNameFromPath @ 0x1C004E0BC (GetNameFromPath.c)
+ */
+
 __int64 __fastcall FxCompanionLibrary::LoadCompanion(
         FxCompanionLibrary *this,
         _FX_DRIVER_GLOBALS *DriverGlobals,

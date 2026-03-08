@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HandleMouseReportRateLimitingTimer@MouseRateLimitHoldingFrame@CMouseSensor@@AEAAJ_NK@Z @ 0x1C0214C68
+ * Callers:
+ *     ?FlushMouseReports@CMouseSensor@@AEAAJXZ @ 0x1C00F3B84 (-FlushMouseReports@CMouseSensor@@AEAAJXZ.c)
+ *     ?InitializeHoldingFrame@MouseRateLimitHoldingFrame@CMouseSensor@@QEAAX_NPEAUDEVICEINFO@@@Z @ 0x1C00F3C24 (-InitializeHoldingFrame@MouseRateLimitHoldingFrame@CMouseSensor@@QEAAX_NPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CMouseSensor::MouseRateLimitHoldingFrame::HandleMouseReportRateLimitingTimer(
         CMouseSensor::MouseRateLimitHoldingFrame *this,
         char a2,

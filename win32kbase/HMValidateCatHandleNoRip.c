@@ -1,3 +1,12 @@
+/*
+ * XREFs of HMValidateCatHandleNoRip @ 0x1C0246EEC
+ * Callers:
+ *     UserGetWindowThreadProcessId @ 0x1C017CBD4 (UserGetWindowThreadProcessId.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ValidateHandleSecure @ 0x1C0077D40 (ValidateHandleSecure.c)
+ */
+
 __int64 __fastcall HMValidateCatHandleNoRip(unsigned __int64 a1)
 {
   __int64 v2; // rbx

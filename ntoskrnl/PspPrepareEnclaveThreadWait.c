@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspPrepareEnclaveThreadWait @ 0x1409B4A9C
+ * Callers:
+ *     PsCallEnclave @ 0x1409B3880 (PsCallEnclave.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PspPrepareEnclaveThreadWait(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

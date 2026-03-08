@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCallArbiter @ 0x140805E88
+ * Callers:
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x14055F1D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpReleaseResourcesInternal @ 0x140803D74 (PnpReleaseResourcesInternal.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408059BC (IopSetupArbiterAndTranslators.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IopCallArbiter(__int64 a1, __int64 a2, __int128 *a3)
 {
   __int64 v3; // rbx

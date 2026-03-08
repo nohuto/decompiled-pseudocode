@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeDisableProfiling @ 0x1405719BC
+ * Callers:
+ *     KeTerminateThread @ 0x140353168 (KeTerminateThread.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KeDisableProfiling(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

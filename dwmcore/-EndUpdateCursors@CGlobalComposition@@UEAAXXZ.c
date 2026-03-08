@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EndUpdateCursors@CGlobalComposition@@UEAAXXZ @ 0x1800E9040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetNotificationMode@CCursorVisual@@QEAAXXZ @ 0x180225968 (-SetNotificationMode@CCursorVisual@@QEAAXXZ.c)
+ */
+
 void __fastcall CGlobalComposition::EndUpdateCursors(CGlobalComposition *this)
 {
   CCursorVisual **v1; // rdi

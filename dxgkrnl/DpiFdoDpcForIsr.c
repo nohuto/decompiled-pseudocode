@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoDpcForIsr @ 0x1C000FC00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DpiFdoDpcForIsr(
         struct _KDPC *Dpc,
         _QWORD *DeferredContext,

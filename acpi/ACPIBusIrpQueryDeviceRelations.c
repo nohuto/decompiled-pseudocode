@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIBusIrpQueryDeviceRelations @ 0x1C007F9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C000A844 (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C0016248 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C007DD9C (ACPIBusAndFilterIrpQueryEjectRelations.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C007EC78 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C00812EC (ACPIBusIrpQueryTargetRelation.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryDeviceRelations(PVOID Object, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx

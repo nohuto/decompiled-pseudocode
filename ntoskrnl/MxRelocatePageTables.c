@@ -1,3 +1,16 @@
+/*
+ * XREFs of MxRelocatePageTables @ 0x140B4F790
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MxMovePageTables @ 0x140B4F948 (MxMovePageTables.c)
+ *     MxSwapPages @ 0x140B50198 (MxSwapPages.c)
+ */
+
 __int64 __fastcall MxRelocatePageTables(int a1)
 {
   unsigned __int64 v2; // rcx

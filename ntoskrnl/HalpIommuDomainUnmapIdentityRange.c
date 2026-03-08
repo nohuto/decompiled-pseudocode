@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIommuDomainUnmapIdentityRange @ 0x140515964
+ * Callers:
+ *     IommuUnmapIdentityRange @ 0x140524370 (IommuUnmapIdentityRange.c)
+ *     IommuUnmapIdentityRangeEx @ 0x1405243D0 (IommuUnmapIdentityRangeEx.c)
+ * Callees:
+ *     HalpIommuFlushDomainTbs @ 0x140515C24 (HalpIommuFlushDomainTbs.c)
+ *     IommupHvUnmapDeviceIdentityRange @ 0x140523064 (IommupHvUnmapDeviceIdentityRange.c)
+ *     HalpIommuUnmapLogicalRange @ 0x140524F80 (HalpIommuUnmapLogicalRange.c)
+ */
+
 __int64 __fastcall HalpIommuDomainUnmapIdentityRange(ULONG_PTR a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpAsynchronousCall @ 0x1406885F8
+ * Callers:
+ *     PnpSendIrp @ 0x140202E04 (PnpSendIrp.c)
+ *     PiIrpQueryRemoveDevice @ 0x14096A1AC (PiIrpQueryRemoveDevice.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     IovUtilWatermarkIrp @ 0x1402092B8 (IovUtilWatermarkIrp.c)
+ *     IoGetAttachedDeviceReferenceWithTag @ 0x140240A5C (IoGetAttachedDeviceReferenceWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ */
+
 __int64 __fastcall PnpAsynchronousCall(_QWORD *a1, __int128 *a2, IO_COMPLETION_ROUTINE *a3, void *a4)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReferenceWithTag; // rsi

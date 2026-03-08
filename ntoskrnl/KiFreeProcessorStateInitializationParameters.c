@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiFreeProcessorStateInitializationParameters @ 0x140569A34
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiFreeProcessorStacks @ 0x14056994C (KiFreeProcessorStacks.c)
+ *     KiFreeProcessorNumber @ 0x14056E36C (KiFreeProcessorNumber.c)
+ *     KeUninitThread @ 0x14079B04C (KeUninitThread.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ */
+
 signed __int64 __fastcall KiFreeProcessorStateInitializationParameters(__int64 a1)
 {
   void *v1; // rdi

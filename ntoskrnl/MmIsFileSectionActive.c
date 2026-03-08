@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmIsFileSectionActive @ 0x1403BFA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     MiIsSectionActive @ 0x1403CFE60 (MiIsSectionActive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmIsFileSectionActive(_QWORD *a1, int a2, _DWORD *a3)
 {
   char v4; // bl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CompleteWithPriority@FxRequest@@QEAAJJD@Z @ 0x1C000D2FA
+ * Callers:
+ *     imp_WdfRequestCompleteWithPriorityBoost @ 0x1C000D3D0 (imp_WdfRequestCompleteWithPriorityBoost.c)
+ * Callees:
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0003A80 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C00183B0 (WPP_IFR_SF_qqqd.c)
+ */
+
 __int64 __fastcall FxRequest::CompleteWithPriority(
         FxRequest *this,
         unsigned int Status,

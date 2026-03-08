@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEvent @ 0x1C01D0710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxCsEvent @ 0x1C000DCC0 (xxxCsEvent.c)
+ */
+
 __int64 __fastcall NtUserEvent(unsigned __int64 Src)
 {
   __int64 v2; // rcx

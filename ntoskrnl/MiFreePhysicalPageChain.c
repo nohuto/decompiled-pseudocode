@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiFreePhysicalPageChain @ 0x140647BC4
+ * Callers:
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     NtFreeUserPhysicalPages @ 0x140A3F6B0 (NtFreeUserPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x140A3FC10 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A3FEC0 (NtMapUserPhysicalPagesScatter.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiFreePhysicalRange @ 0x140648248 (MiFreePhysicalRange.c)
+ *     MiGetAweInfoPartition @ 0x1406482AC (MiGetAweInfoPartition.c)
+ *     MiReadyLargeAwePageForFree @ 0x1406496AC (MiReadyLargeAwePageForFree.c)
+ *     MiReturnProcessPhysicalPages @ 0x140A40FBC (MiReturnProcessPhysicalPages.c)
+ */
+
 unsigned __int64 __fastcall MiFreePhysicalPageChain(__int64 a1, _QWORD *a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInitCodePageTable @ 0x14080EBB0
+ * Callers:
+ *     RtlpInitCodePageTables @ 0x14080EA38 (RtlpInitCodePageTables.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlInitCodePageTable(PUSHORT TableBase, PCPTABLEINFO CodePageTable)
 {
   unsigned __int16 *v2; // r10

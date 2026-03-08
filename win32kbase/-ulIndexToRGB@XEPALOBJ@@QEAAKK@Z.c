@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ulIndexToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C0008B50
+ * Callers:
+ *     ulIndexToRGB @ 0x1C0008B00 (ulIndexToRGB.c)
+ * Callees:
+ *     ?ulBitfieldToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C0184AA0 (-ulBitfieldToRGB@XEPALOBJ@@QEAAKK@Z.c)
+ */
+
 __int64 __fastcall XEPALOBJ::ulIndexToRGB(XEPALOBJ *this, unsigned int a2)
 {
   __int64 v2; // rax

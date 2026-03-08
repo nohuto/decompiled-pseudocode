@@ -1,3 +1,11 @@
+/*
+ * XREFs of FractionToMantissa @ 0x1C0255998
+ * Callers:
+ *     Log @ 0x1C014B004 (Log.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FractionToMantissa(int a1, unsigned int a2)
 {
   unsigned int v2; // r8d

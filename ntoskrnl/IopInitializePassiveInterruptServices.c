@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopInitializePassiveInterruptServices @ 0x140B67854
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KeInitializeQueue @ 0x1402A8580 (KeInitializeQueue.c)
+ *     IopCreatePassiveInterruptRealtimeThreads @ 0x140853088 (IopCreatePassiveInterruptRealtimeThreads.c)
+ *     IopQueryPassiveInterruptRegistryOptions @ 0x1408531AC (IopQueryPassiveInterruptRegistryOptions.c)
+ */
+
 __int64 IopInitializePassiveInterruptServices()
 {
   void *v0; // rcx

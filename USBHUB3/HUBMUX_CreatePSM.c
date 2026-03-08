@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBMUX_CreatePSM @ 0x1C000FED8
+ * Callers:
+ *     HUBMUX_CreateChildPSMs @ 0x1C0010474 (HUBMUX_CreateChildPSMs.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qqd @ 0x1C000FD34 (WPP_RECORDER_SF_qqd.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall HUBMUX_CreatePSM(__int64 a1, unsigned __int16 *a2)
 {
   int v4; // eax

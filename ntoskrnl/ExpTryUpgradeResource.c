@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpTryUpgradeResource @ 0x14060DC3C
+ * Callers:
+ *     ExTryToConvertFastResourceSharedToExclusive @ 0x140607EA0 (ExTryToConvertFastResourceSharedToExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x140608A2C (ExpTryConvertSharedToExclusiveLite.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ExpTryUpgradeResource(__int64 a1)
 {
   char result; // al

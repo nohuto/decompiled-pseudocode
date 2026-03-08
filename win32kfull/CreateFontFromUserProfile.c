@@ -1,3 +1,18 @@
+/*
+ * XREFs of CreateFontFromUserProfile @ 0x1C010E764
+ * Callers:
+ *     UserSetFont @ 0x1C010E6E8 (UserSetFont.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01C8BB4 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ * Callees:
+ *     GreCreateFontIndirectW @ 0x1C0025AF8 (GreCreateFontIndirectW.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GreSetLFONTOwner @ 0x1C010E86C (GreSetLFONTOwner.c)
+ *     GreMarkDeletableFont @ 0x1C010E8B4 (GreMarkDeletableFont.c)
+ *     ?GetLogFontFromUserProfile@@YA?AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z @ 0x1C010EEA8 (-GetLogFontFromUserProfile@@YA-AUtagLOGFONTW@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 struct HLFONT__ *__fastcall CreateFontFromUserProfile(struct _UNICODE_STRING *a1, _DWORD *a2, unsigned int a3)
 {
   struct tagLOGFONTW *LogFontFromUserProfile; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilEndpoint_SendRequestToFreeSecureStreamContextArray @ 0x1C00393A4
+ * Callers:
+ *     XilEndpoint_FreeStreamContextArray @ 0x1C003915C (XilEndpoint_FreeStreamContextArray.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 _UNKNOWN **__fastcall XilEndpoint_SendRequestToFreeSecureStreamContextArray(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

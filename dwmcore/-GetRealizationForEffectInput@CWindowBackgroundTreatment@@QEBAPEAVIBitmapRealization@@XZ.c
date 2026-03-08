@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRealizationForEffectInput@CWindowBackgroundTreatment@@QEBAPEAVIBitmapRealization@@XZ @ 0x18000B0B8
+ * Callers:
+ *     ?GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x18000A894 (-GetWindowBackgroundTreatmentEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@.c)
+ * Callees:
+ *     <none>
+ */
+
 struct IBitmapRealization *__fastcall CWindowBackgroundTreatment::GetRealizationForEffectInput(
         CWindowBackgroundTreatment *this)
 {

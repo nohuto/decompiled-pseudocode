@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??0CBaseExpression@@QEAA@PEAVCComposition@@@Z @ 0x180099FD0
+ * Callers:
+ *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180098224 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CExpression@@QEAA@PEAVCComposition@@@Z @ 0x1800E8268 (--0CExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1801BDF64 (--0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CConditionalExpression@@QEAA@PEAVCComposition@@@Z @ 0x180223FEC (--0CConditionalExpression@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z @ 0x18022BA18 (--0CInjectionAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CScrollAnimation@@QEAA@PEAVCComposition@@@Z @ 0x18026120C (--0CScrollAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 CBaseExpression *__fastcall CBaseExpression::CBaseExpression(CBaseExpression *this, struct CComposition *a2)
 {
   *((_DWORD *)this + 2) = 0;

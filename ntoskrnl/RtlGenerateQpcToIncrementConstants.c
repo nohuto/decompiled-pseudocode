@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGenerateQpcToIncrementConstants @ 0x1403BCA7C
+ * Callers:
+ *     KiSetupTimeIncrement @ 0x1403A5E18 (KiSetupTimeIncrement.c)
+ *     KeSetTimeAdjustment @ 0x1403CAA54 (KeSetTimeAdjustment.c)
+ * Callees:
+ *     RtlpComputeFraction @ 0x1403BCAB8 (RtlpComputeFraction.c)
+ */
+
 unsigned __int64 __fastcall RtlGenerateQpcToIncrementConstants(unsigned int a1, char *a2)
 {
   unsigned __int64 result; // rax

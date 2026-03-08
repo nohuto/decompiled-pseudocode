@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDevCfgLogDeviceMigrated @ 0x14095B958
+ * Callers:
+ *     PiDevCfgMigrateDevice @ 0x1408758B8 (PiDevCfgMigrateDevice.c)
+ * Callees:
+ *     McTemplateK0zzjzitd_EtwWriteTransfer @ 0x14055F770 (McTemplateK0zzjzitd_EtwWriteTransfer.c)
+ */
+
 char __fastcall PiDevCfgLogDeviceMigrated(__int64 a1, __int64 a2, int a3)
 {
   char result; // al

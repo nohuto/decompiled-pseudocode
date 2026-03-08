@@ -1,3 +1,19 @@
+/*
+ * XREFs of EmpParseEntryTypes @ 0x140B4D1D4
+ * Callers:
+ *     EmpParseInfDatabase @ 0x140B4CEE0 (EmpParseInfDatabase.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     EmpSearchEntryDatabase @ 0x1403862FC (EmpSearchEntryDatabase.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140B4E09C (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140B4E640 (CmpGetSectionLineIndex.c)
+ */
+
 __int64 __fastcall EmpParseEntryTypes(__int64 a1)
 {
   NTSTATUS v1; // ebx

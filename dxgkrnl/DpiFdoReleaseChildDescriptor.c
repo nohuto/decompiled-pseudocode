@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoReleaseChildDescriptor @ 0x1C03985D0
+ * Callers:
+ *     DpiFdoCreateChildDescriptor @ 0x1C0208C54 (DpiFdoCreateChildDescriptor.c)
+ *     DpiFdoRemoveChildDescriptor @ 0x1C0398644 (DpiFdoRemoveChildDescriptor.c)
+ *     DpiPdoDestroyPdo @ 0x1C03A4CB0 (DpiPdoDestroyPdo.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiFdoReleaseChildDescriptor(PVOID P)
 {
   void *v2; // rcx

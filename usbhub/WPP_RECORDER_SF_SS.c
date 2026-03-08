@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_RECORDER_SF_SS @ 0x1C005B2B4
+ * Callers:
+ *     UsbhGetUxdDeviceKey @ 0x1C005A2BC (UsbhGetUxdDeviceKey.c)
+ *     UsbhGetUxdPortKey @ 0x1C005A540 (UsbhGetUxdPortKey.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005CACC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_SS(
         __int64 a1,
         unsigned __int8 a2,

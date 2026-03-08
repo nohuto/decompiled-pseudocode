@@ -1,3 +1,17 @@
+/*
+ * XREFs of Uart16550InitializePortCommon @ 0x14067A794
+ * Callers:
+ *     IaLpssInitializePort @ 0x14067A1E0 (IaLpssInitializePort.c)
+ *     IaLpssSetPowerD0 @ 0x14067A430 (IaLpssSetPowerD0.c)
+ *     Uart16550InitializePort @ 0x14067A770 (Uart16550InitializePort.c)
+ *     Uart16550LegacyInitializePort @ 0x14067A850 (Uart16550LegacyInitializePort.c)
+ *     Uart16550MmInitializePort @ 0x14067A8C0 (Uart16550MmInitializePort.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     Uart16550SetBaud @ 0x14067AA60 (Uart16550SetBaud.c)
+ *     UartpSetAccess @ 0x14067B1AC (UartpSetAccess.c)
+ */
+
 char __fastcall Uart16550InitializePortCommon(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   char v5; // al

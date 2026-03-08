@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtFindDevice @ 0x14037C000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtpGetNextInternalDeviceScope @ 0x14037C09C (IvtpGetNextInternalDeviceScope.c)
+ *     HalpIvtCheckIdPathMatch @ 0x14037C118 (HalpIvtCheckIdPathMatch.c)
+ */
+
 char __fastcall IvtFindDevice(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
   __int64 v6; // rsi

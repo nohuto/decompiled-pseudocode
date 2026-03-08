@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGetAdapterDebugData @ 0x1C005D9C8
+ * Callers:
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C03092A0 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetAdapterDebugData(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBDRIVER_EtwEnableCallback @ 0x1C0077368
+ * Callers:
+ *     McGenControlCallbackV2 @ 0x1C0001560 (McGenControlCallbackV2.c)
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C000174C (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0ppuq_EtwWriteTransfer @ 0x1C0001C10 (McTemplateK0ppuq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBDRIVER_EtwRundownHub @ 0x1C007685C (HUBDRIVER_EtwRundownHub.c)
+ *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0076D58 (HUBDRIVER_EtwRundownUsbDevice.c)
+ */
+
 __int64 __fastcall HUBDRIVER_EtwEnableCallback(__int64 a1, int a2)
 {
   __int64 v3; // rdi

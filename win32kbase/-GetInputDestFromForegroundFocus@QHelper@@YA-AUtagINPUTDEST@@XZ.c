@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetInputDestFromForegroundFocus@QHelper@@YA?AUtagINPUTDEST@@XZ @ 0x1C022D2DC
+ * Callers:
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C023042C (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ * Callees:
+ *     INPUTDEST_FROM_PWND @ 0x1C0079D90 (INPUTDEST_FROM_PWND.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _OWORD *__fastcall QHelper::GetInputDestFromForegroundFocus(_OWORD *a1)
 {
   __int64 v2; // rdx

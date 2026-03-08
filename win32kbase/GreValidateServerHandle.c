@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreValidateServerHandle @ 0x1C000D4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HmgLockIgnoreOwner @ 0x1C00A93E0 (HmgLockIgnoreOwner.c)
+ *     HmgValidHandle @ 0x1C00C7C20 (HmgValidHandle.c)
+ */
+
 __int64 __fastcall GreValidateServerHandle(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

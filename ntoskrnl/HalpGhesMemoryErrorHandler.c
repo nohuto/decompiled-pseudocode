@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGhesMemoryErrorHandler @ 0x14051735C
+ * Callers:
+ *     HalpGenericErrorSourceRecovery @ 0x140517230 (HalpGenericErrorSourceRecovery.c)
+ * Callees:
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405174A4 (HalpMemoryErrorDeferredRecovery.c)
+ */
+
 __int64 __fastcall HalpGhesMemoryErrorHandler(__int64 *a1)
 {
   unsigned int v2; // ecx

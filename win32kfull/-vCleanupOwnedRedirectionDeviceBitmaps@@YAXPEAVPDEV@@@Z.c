@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@@Z @ 0x1C01251C4
+ * Callers:
+ *     vCleanupOwnedRedirectionDeviceBitmapsWrap @ 0x1C0125280 (vCleanupOwnedRedirectionDeviceBitmapsWrap.c)
+ * Callees:
+ *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C00F5830 (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C0123B1C (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
+ *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0123BD8 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ */
+
 void __fastcall vCleanupOwnedRedirectionDeviceBitmaps(struct PDEV *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rax

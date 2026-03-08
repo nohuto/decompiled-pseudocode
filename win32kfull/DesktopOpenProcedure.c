@@ -1,3 +1,11 @@
+/*
+ * XREFs of DesktopOpenProcedure @ 0x1C00D9AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DesktopOpenProcedure(__int64 a1)
 {
   _DWORD *v1; // rdi

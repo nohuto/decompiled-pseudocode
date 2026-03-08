@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentCount@CRemoteRenderTarget@@UEBAIXZ @ 0x18010A560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CRemoteRenderTarget::GetPresentCount(CRemoteRenderTarget *this)
 {
   __int64 v1; // rcx

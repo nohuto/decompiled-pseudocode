@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?iSetMetaRgn@DC@@QEAAHXZ @ 0x1C0009B28
+ * Callers:
+ *     NtGdiSetMetaRgn @ 0x1C0009AD0 (NtGdiSetMetaRgn.c)
+ * Callees:
+ *     ?iComplexity@RGNOBJ@@QEBAJXZ @ 0x1C008C950 (-iComplexity@RGNOBJ@@QEBAJXZ.c)
+ */
+
 __int64 __fastcall DC::iSetMetaRgn(DC *this)
 {
   __int64 v2; // r9

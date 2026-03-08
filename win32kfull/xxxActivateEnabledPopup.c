@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxActivateEnabledPopup @ 0x1C0225928
+ * Callers:
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00A5C50 (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00EA204 (-xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     DWP_GetEnabledPopup @ 0x1C014A64C (DWP_GetEnabledPopup.c)
+ */
+
 __int64 __fastcall xxxActivateEnabledPopup(struct tagWND *a1)
 {
   struct tagWND *EnabledPopup; // rbx

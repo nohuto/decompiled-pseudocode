@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventDriverStartIo @ 0x14057F5DC
+ * Callers:
+ *     KseDsCallbackHookDriverStartIo @ 0x14057EA00 (KseDsCallbackHookDriverStartIo.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventDriverStartIo(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **v3; // rax

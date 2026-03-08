@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpInternEntryFind @ 0x1407033D0
+ * Callers:
+ *     RtlInternTableIntern @ 0x1407015D8 (RtlInternTableIntern.c)
+ * Callees:
+ *     RtlpInternEntryMatch @ 0x140703894 (RtlpInternEntryMatch.c)
+ */
+
 __int64 __fastcall RtlpInternEntryFind(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // r14d

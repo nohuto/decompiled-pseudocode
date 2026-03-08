@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_AreFrameAndTimeDeltaValuesValid @ 0x1C00325F4
+ * Callers:
+ *     Interrupter_WdfEvtInterruptIsr @ 0x1C0007760 (Interrupter_WdfEvtInterruptIsr.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Controller_AreFrameAndTimeDeltaValuesValid(unsigned int a1, unsigned __int64 a2)
 {
   char v2; // r8

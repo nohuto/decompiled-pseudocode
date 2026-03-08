@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShouldSetNoOwner @ 0x1C00AD7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ShouldSetNoOwner(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

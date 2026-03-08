@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViFilterDispatchGeneric @ 0x140ADC520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ */
+
 NTSTATUS __fastcall ViFilterDispatchGeneric(__int64 a1, IRP *a2)
 {
   __int64 v3; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExReleaseRundownProtectionCacheAware @ 0x1402C79D0
+ * Callers:
+ *     MiProbeUnlockPage @ 0x14027C720 (MiProbeUnlockPage.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 void __stdcall ExReleaseRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware)
 {
   _EX_RUNDOWN_REF *RunRefs; // rdx

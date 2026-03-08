@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetProcessSessionFonts@@YAJPEAU_EPROCESS@@IIPEAI1PEAPEAXPEAG@Z @ 0x1C00D30D8
+ * Callers:
+ *     NtGdiGetProcessSessionFonts @ 0x1C00D2D60 (NtGdiGetProcessSessionFonts.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?PffDuplicateFileHandle@@YAJPEAVPFF@@PEAU_EPROCESS@@1PEAPEAX@Z @ 0x1C026D4C0 (-PffDuplicateFileHandle@@YAJPEAVPFF@@PEAU_EPROCESS@@1PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall GetProcessSessionFonts(
         PRKPROCESS PROCESS,
         __int64 a2,

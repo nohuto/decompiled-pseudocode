@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhFdoCreateDeviceInterfaceForBillBoard @ 0x1C002A4AC
+ * Callers:
+ *     UsbhPublishBillboardDetails @ 0x1C005717C (UsbhPublishBillboardDetails.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall UsbhFdoCreateDeviceInterfaceForBillBoard(
         __int64 a1,
         unsigned __int16 a2,

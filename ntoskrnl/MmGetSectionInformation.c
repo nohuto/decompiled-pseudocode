@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmGetSectionInformation @ 0x140720B20
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     AlpcpMapLegacyPortView @ 0x1407829D0 (AlpcpMapLegacyPortView.c)
+ *     NtQuerySection @ 0x1407850E0 (NtQuerySection.c)
+ *     PspLocateSystemDll @ 0x14084AE64 (PspLocateSystemDll.c)
+ *     DbgkpSendErrorMessage @ 0x14093730C (DbgkpSendErrorMessage.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiGetControlAreaLoadConfig @ 0x14034C364 (MiGetControlAreaLoadConfig.c)
+ *     MiAweControlArea @ 0x14034C968 (MiAweControlArea.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MmGetSectionInformation(__int64 a1, int a2, __int64 a3)
 {
   unsigned __int64 v6; // rax

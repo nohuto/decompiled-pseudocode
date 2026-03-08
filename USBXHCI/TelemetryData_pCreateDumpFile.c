@@ -1,3 +1,12 @@
+/*
+ * XREFs of TelemetryData_pCreateDumpFile @ 0x1C007AFE4
+ * Callers:
+ *     TelemetryData_pWriteDumpFile @ 0x1C007B660 (TelemetryData_pWriteDumpFile.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1C001C700 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TelemetryData_pCreateDumpFile(__int64 a1, void **a2)
 {
   NTSTATUS v4; // edi

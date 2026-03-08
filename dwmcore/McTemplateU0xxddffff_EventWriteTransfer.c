@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxddffff_EventWriteTransfer @ 0x1801ED918
+ * Callers:
+ *     ?ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_CAPTUREBITS@@@Z @ 0x1801ED11C (-ProcessCaptureBits@CMagnifierRenderTarget@@QEAAJPEAVCChannelContext@@PEBUtagMILCMD_MAGNIFIERREN.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0xxddffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-79h] BYREF

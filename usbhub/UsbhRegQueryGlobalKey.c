@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhRegQueryGlobalKey @ 0x1C00468F0
+ * Callers:
+ *     UsbhRegDriverEntry @ 0x1C0046560 (UsbhRegDriverEntry.c)
+ *     UsbhRegQueryGlobalLegacyDeviceKeys @ 0x1C0046A7C (UsbhRegQueryGlobalLegacyDeviceKeys.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_SD @ 0x1C00485E4 (WPP_RECORDER_SF_SD.c)
+ */
+
 __int64 __fastcall UsbhRegQueryGlobalKey(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   PVOID SystemRoutineAddress; // rax

@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopPowerRequestReferenceRelease @ 0x1402BA084
+ * Callers:
+ *     PpmEndHighPerfRequest @ 0x1402B884C (PpmEndHighPerfRequest.c)
+ *     PoClearPowerRequest @ 0x1402B9010 (PoClearPowerRequest.c)
+ *     PpmHighPerfRequestExpiration @ 0x1403B01E0 (PpmHighPerfRequestExpiration.c)
+ *     PpmDisableHighPerfRequestDeferredExpiration @ 0x140595900 (PpmDisableHighPerfRequestDeferredExpiration.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopPowerRequestActionInfo @ 0x14073ACE4 (PopPowerRequestActionInfo.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140879524 (PopPowerAggregatorEnterScreenOff.c)
+ * Callees:
+ *     PopDiagTracePowerRequestChange @ 0x1402BBF38 (PopDiagTracePowerRequestChange.c)
+ *     PopPowerRequestCallbackWorker @ 0x1402BC180 (PopPowerRequestCallbackWorker.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x1402BCCE4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopPowerRequestReferenceRelease(_DWORD *Object, unsigned int a2)
 {
   __int64 v2; // rsi

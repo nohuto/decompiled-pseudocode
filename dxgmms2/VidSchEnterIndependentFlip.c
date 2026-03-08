@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchEnterIndependentFlip @ 0x1C003F270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ??0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z @ 0x1C003D3F0 (--0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z.c)
+ *     McTemplateK0txqqqtxtx_EtwWriteTransfer @ 0x1C003E23C (McTemplateK0txqqqtxtx_EtwWriteTransfer.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 _QWORD *__fastcall VidSchEnterIndependentFlip(
         __int64 a1,

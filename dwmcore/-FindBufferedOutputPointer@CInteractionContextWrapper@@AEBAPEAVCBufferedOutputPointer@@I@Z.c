@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FindBufferedOutputPointer@CInteractionContextWrapper@@AEBAPEAVCBufferedOutputPointer@@I@Z @ 0x180280DF8
+ * Callers:
+ *     ?AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z @ 0x18028061C (-AddBufferedOutput@CInteractionContextWrapper@@AEAAJII_KPEBUINTERACTION_CONTEXT_OUTPUT@@@Z.c)
+ *     ?DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z @ 0x180280D70 (-DepartBufferedOutputPointer@CInteractionContextWrapper@@UEAA_NI@Z.c)
+ *     ?HasBufferedOutput@CInteractionContextWrapper@@UEBA_NI@Z @ 0x180281310 (-HasBufferedOutput@CInteractionContextWrapper@@UEBA_NI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CBufferedOutputPointer *__fastcall CInteractionContextWrapper::FindBufferedOutputPointer(
         CInteractionContextWrapper *this,
         int a2)

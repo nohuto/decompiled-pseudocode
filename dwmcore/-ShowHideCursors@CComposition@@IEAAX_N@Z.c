@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ShowHideCursors@CComposition@@IEAAX_N@Z @ 0x18001D410
+ * Callers:
+ *     ?RenderForCapture@CaptureBitsResponse@@IEAAJXZ @ 0x180020BD4 (-RenderForCapture@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?HideVisuals@COffScreenRenderTarget@@MEAAXXZ @ 0x1801E6C00 (-HideVisuals@COffScreenRenderTarget@@MEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x18012A454 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ *     ?Hide@CExcludeVisualReference@@QEAAXXZ @ 0x18012A46C (-Hide@CExcludeVisualReference@@QEAAXXZ.c)
+ *     ??_GCExcludeVisualReference@@QEAAPEAXI@Z @ 0x1801B148C (--_GCExcludeVisualReference@@QEAAPEAXI@Z.c)
+ *     ?RemoveAt@?$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z @ 0x1801B1EFC (-RemoveAt@-$DynArray@PEAVCExcludeVisualReference@@$0A@@@QEAAJI@Z.c)
+ */
+
 void __fastcall CComposition::ShowHideCursors(CComposition *this, char a2)
 {
   int v2; // ebx

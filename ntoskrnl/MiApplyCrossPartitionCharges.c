@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiApplyCrossPartitionCharges @ 0x14065694C
+ * Callers:
+ *     MiApplyCrossPartitionCharges @ 0x14065694C (MiApplyCrossPartitionCharges.c)
+ *     MiGetCrossPartitionCharges @ 0x1406579B0 (MiGetCrossPartitionCharges.c)
+ * Callees:
+ *     MiApplyCrossPartitionCharges @ 0x14065694C (MiApplyCrossPartitionCharges.c)
+ *     MiConvertCrossPartitionChargeTypeToAggregate @ 0x140656DDC (MiConvertCrossPartitionChargeTypeToAggregate.c)
+ */
+
 __int64 __fastcall MiApplyCrossPartitionCharges(__int64 a1, int a2, __int64 a3)
 {
   __int64 v4; // rbx

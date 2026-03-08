@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetHwndPresentFlags @ 0x1C026AA44
+ * Callers:
+ *     NtUserHwndSetRedirectionInfo @ 0x1C01D5DD0 (NtUserHwndSetRedirectionInfo.c)
+ * Callees:
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C000A514 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ */
+
 __int64 __fastcall GreSetHwndPresentFlags(Gre::Base *a1, int a2)
 {
   unsigned int v4; // esi

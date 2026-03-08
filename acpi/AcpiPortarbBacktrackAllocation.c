@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPortarbBacktrackAllocation @ 0x1C008C1C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlDeleteRange_0 @ 0x1C0001A9D (RtlDeleteRange_0.c)
+ *     AcpiArblibGetNextAlias @ 0x1C007D0A4 (AcpiArblibGetNextAlias.c)
+ */
+
 NTSTATUS __fastcall AcpiPortarbBacktrackAllocation(__int64 a1, ULONGLONG *a2)
 {
   __int64 v2; // rdi

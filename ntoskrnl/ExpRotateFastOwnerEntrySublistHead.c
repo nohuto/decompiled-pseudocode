@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpRotateFastOwnerEntrySublistHead @ 0x1403C589C
+ * Callers:
+ *     ExpReleaseDisownedFastResourceShared @ 0x1403C5540 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExpReleaseFastResourceExclusive @ 0x1403C5EA4 (ExpReleaseFastResourceExclusive.c)
+ *     ExDisownFastResource @ 0x1403C6EF0 (ExDisownFastResource.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1406082E4 (ExpReleaseDisownedFastResourceExclusive.c)
+ * Callees:
+ *     ExpReplaceListEntry @ 0x1403C5D60 (ExpReplaceListEntry.c)
+ */
+
 __int64 __fastcall ExpRotateFastOwnerEntrySublistHead(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v3; // rbx

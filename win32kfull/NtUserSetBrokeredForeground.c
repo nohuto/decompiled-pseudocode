@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserSetBrokeredForeground @ 0x1C00961D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     IsMessageOnlyWindow @ 0x1C00967C0 (IsMessageOnlyWindow.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall NtUserSetBrokeredForeground(__int64 a1)
 {
   int v2; // ebx

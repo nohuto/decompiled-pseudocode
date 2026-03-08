@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetConsoleSwitchInProgress @ 0x1C000FC10
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall SetConsoleSwitchInProgress(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

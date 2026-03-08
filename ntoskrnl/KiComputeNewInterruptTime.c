@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiComputeNewInterruptTime @ 0x1403C9D04
+ * Callers:
+ *     KiUpdateTimeAssist @ 0x1403C9BA8 (KiUpdateTimeAssist.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiComputeNewInterruptTime(unsigned __int64 a1, _QWORD *a2)
 {
   unsigned __int128 v4; // rax

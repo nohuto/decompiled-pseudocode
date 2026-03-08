@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$uninitialized_move@V?$move_iterator@PEAVCUnpinResource@CD3DDevice@@@std@@V?$checked_array_iterator@PEAVCUnpinResource@CD3DDevice@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAVCUnpinResource@CD3DDevice@@@stdext@@V?$move_iterator@PEAVCUnpinResource@CD3DDevice@@@0@0V12@@Z @ 0x18028C11C
+ * Callers:
+ *     ?ensure_extra_capacity@?$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x18028D228 (-ensure_extra_capacity@-$buffer_impl@VCUnpinResource@CD3DDevice@@$06$00Vliberal_expansion_policy.c)
+ * Callees:
+ *     ??0CUnpinResource@CD3DDevice@@QEAA@AEBV01@@Z @ 0x18028C1DC (--0CUnpinResource@CD3DDevice@@QEAA@AEBV01@@Z.c)
+ */
+
 __int64 __fastcall std::uninitialized_move<std::move_iterator<CD3DDevice::CUnpinResource *>,stdext::checked_array_iterator<CD3DDevice::CUnpinResource *>>(
         __int64 a1,
         const struct CD3DDevice::CUnpinResource *a2,

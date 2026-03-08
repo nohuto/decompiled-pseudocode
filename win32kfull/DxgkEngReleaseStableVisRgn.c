@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkEngReleaseStableVisRgn @ 0x1C014D730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgkEngReleaseStableVisRgn(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rbx

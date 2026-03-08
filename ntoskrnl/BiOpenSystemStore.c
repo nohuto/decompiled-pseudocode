@@ -1,3 +1,28 @@
+/*
+ * XREFs of BiOpenSystemStore @ 0x14082CC40
+ * Callers:
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ * Callees:
+ *     BiWasFirmwareModified @ 0x140390280 (BiWasFirmwareModified.c)
+ *     BiSetFirmwareModified @ 0x140390340 (BiSetFirmwareModified.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     BiLoadSystemStore @ 0x14082B7EC (BiLoadSystemStore.c)
+ *     BiCloseStore @ 0x14082BD84 (BiCloseStore.c)
+ *     BiBindEfiNamespaceObjects @ 0x14082BF38 (BiBindEfiNamespaceObjects.c)
+ *     BiIsSystemStore @ 0x14082C6CC (BiIsSystemStore.c)
+ *     BiEnumerateSubKeys @ 0x14082D288 (BiEnumerateSubKeys.c)
+ *     BiGetFirmwareType @ 0x14082D7AC (BiGetFirmwareType.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiOpenKeyNonBcd @ 0x1408310F8 (BiOpenKeyNonBcd.c)
+ *     BiCleanupLoadedStores @ 0x1408311C8 (BiCleanupLoadedStores.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiOpenSystemStore(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // rdi

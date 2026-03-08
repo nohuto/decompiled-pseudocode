@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipDependencyGraphDepthFirstSearch @ 0x1403ADFC4
+ * Callers:
+ *     PipFindDependencyNodePath @ 0x1403ADF2C (PipFindDependencyNodePath.c)
+ *     PipDependencyGraphDepthFirstSearch @ 0x1403ADFC4 (PipDependencyGraphDepthFirstSearch.c)
+ * Callees:
+ *     PipDependencyGraphDepthFirstSearch @ 0x1403ADFC4 (PipDependencyGraphDepthFirstSearch.c)
+ */
+
 char __fastcall PipDependencyGraphDepthFirstSearch(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   _QWORD *v7; // rsi

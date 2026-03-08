@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxSetTrayWindow @ 0x1C0109D38
+ * Callers:
+ *     xxxRemoveFullScreen @ 0x1C0033708 (xxxRemoveFullScreen.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ *     ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C009DE3C (-xxxUpdateTray@@YAXPEAUtagWND@@@Z.c)
+ *     xxxAddFullScreen @ 0x1C00E6AF8 (xxxAddFullScreen.c)
+ * Callees:
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ */
+
 __int64 __fastcall xxxSetTrayWindow(__int64 a1, unsigned __int64 *a2)
 {
   __int64 v2; // rbx

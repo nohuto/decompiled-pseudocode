@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsInputThread @ 0x1C007CC40
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     NtMITSetInputDelegationMode @ 0x1C016BD10 (NtMITSetInputDelegationMode.c)
+ * Callees:
+ *     <none>
+ */
+
 char IsInputThread()
 {
   PKDPC BufferChainingDpc; // rdi

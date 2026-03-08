@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfApplyLatencyHints @ 0x1402EDDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmPerfApplyLatencyHint @ 0x1402EDE2C (PpmPerfApplyLatencyHint.c)
+ */
+
 char PpmPerfApplyLatencyHints()
 {
   __int64 i; // rbx

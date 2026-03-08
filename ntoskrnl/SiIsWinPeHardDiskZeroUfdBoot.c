@@ -1,3 +1,17 @@
+/*
+ * XREFs of SiIsWinPeHardDiskZeroUfdBoot @ 0x140A5D904
+ * Callers:
+ *     SiGetBiosSystemDisk @ 0x140A5D694 (SiGetBiosSystemDisk.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _snwscanf_s @ 0x1403D9280 (_snwscanf_s.c)
+ *     SiIsWinPEBoot @ 0x14076E3F0 (SiIsWinPEBoot.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x14076E690 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x14076E918 (SiTranslateSymbolicLink.c)
+ *     SiIssueSynchronousIoctl @ 0x140A5CA28 (SiIssueSynchronousIoctl.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall SiIsWinPeHardDiskZeroUfdBoot(int a1, __int64 a2, __int64 a3, int a4)
 {
   char v4; // bl

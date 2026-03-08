@@ -1,3 +1,29 @@
+/*
+ * XREFs of HalpTimerRegister @ 0x140373EB4
+ * Callers:
+ *     HalpHpetDiscover @ 0x140372BE0 (HalpHpetDiscover.c)
+ *     HalpRtcDiscover @ 0x140374398 (HalpRtcDiscover.c)
+ *     HalpWdatDiscover @ 0x140375F28 (HalpWdatDiscover.c)
+ *     HalpPmTimerDiscover @ 0x14037604C (HalpPmTimerDiscover.c)
+ *     HalpApicTimerDiscover @ 0x14037614C (HalpApicTimerDiscover.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8 (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpHvWatchdogDiscover @ 0x1403A097C (HalpHvWatchdogDiscover.c)
+ *     HalpHvDiscover @ 0x1403A09D8 (HalpHvDiscover.c)
+ *     HalpTscDiscover @ 0x1403A0B58 (HalpTscDiscover.c)
+ *     HalpArtDiscover @ 0x1403A0C88 (HalpArtDiscover.c)
+ *     HalpVpptTimerRegister @ 0x140507BF4 (HalpVpptTimerRegister.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403741C4 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpPciGetHpetInterruptSource @ 0x140B8F930 (HalpPciGetHpetInterruptSource.c)
+ */
+
 __int64 __fastcall HalpTimerRegister(__int64 a1, UNICODE_STRING *p_DestinationString)
 {
   unsigned int v2; // ebx

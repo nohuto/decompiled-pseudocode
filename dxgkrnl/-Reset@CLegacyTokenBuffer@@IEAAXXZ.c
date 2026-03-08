@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Reset@CLegacyTokenBuffer@@IEAAXXZ @ 0x1C0018C10
+ * Callers:
+ *     ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C0017554 (--_GCLegacyTokenBuffer@@AEAAPEAXI@Z.c)
+ *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0017684 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
+ *     ?ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z @ 0x1C0017BA8 (-ReturnLegacyTokenBuffer@CTokenManager@@QEAAXPEAVCLegacyTokenBuffer@@@Z.c)
+ *     ?ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z @ 0x1C0017FA0 (-ProcessDxgkAdapterTokens@CTokenManager@@IEAAJI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CLegacyTokenBuffer::Reset(CLegacyTokenBuffer *this)
 {
   char *v2; // rdi

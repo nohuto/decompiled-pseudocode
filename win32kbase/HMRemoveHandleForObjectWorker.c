@@ -1,3 +1,12 @@
+/*
+ * XREFs of HMRemoveHandleForObjectWorker @ 0x1C00897F0
+ * Callers:
+ *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00779D0 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     HMRemoveHandleForObject @ 0x1C00896E0 (HMRemoveHandleForObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HMRemoveHandleForObjectWorker(__int64 a1)
 {
   _QWORD *v2; // r8

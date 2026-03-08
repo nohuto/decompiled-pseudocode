@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepSkipDriverUnloadEventDriverUnload @ 0x14058024C
+ * Callers:
+ *     KseSkipDriverUnloadCallbackHookDriverUnload @ 0x1405800F0 (KseSkipDriverUnloadCallbackHookDriverUnload.c)
+ *     KseSkipDriverUnloadHookDriverUntargeted @ 0x140580130 (KseSkipDriverUnloadHookDriverUntargeted.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall KsepSkipDriverUnloadEventDriverUnload(__int64 a1, __int64 a2)
 {
   REGHANDLE v2; // rbx

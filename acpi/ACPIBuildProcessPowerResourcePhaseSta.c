@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildProcessPowerResourcePhaseSta @ 0x1C0011300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessPowerResourcePhaseSta(__int64 a1)
 {
   __int64 v1; // rbx

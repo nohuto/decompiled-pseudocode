@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpSendBufferToDebugger @ 0x1409E8F6C
+ * Callers:
+ *     EtwpSendDbgId @ 0x1409E9094 (EtwpSendDbgId.c)
+ * Callees:
+ *     EtwpGetNextEventOffsetType @ 0x14039D3D8 (EtwpGetNextEventOffsetType.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KdSendTraceData @ 0x140AAE9F8 (KdSendTraceData.c)
+ */
+
 __int64 __fastcall EtwpSendBufferToDebugger(__int128 *a1)
 {
   unsigned int v2; // edi

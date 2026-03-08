@@ -1,3 +1,19 @@
+/*
+ * XREFs of LoadFieldUnitDDB @ 0x1C004FB68
+ * Callers:
+ *     Load @ 0x1C00556C0 (Load.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     LoadDDB @ 0x1C004FA40 (LoadDDB.c)
+ */
+
 __int64 __fastcall LoadFieldUnitDDB(_QWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int Object; // eax

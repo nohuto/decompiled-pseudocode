@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?BringISMUptodate@CActivationObjectManager@@QEBAXXZ @ 0x1C00D2464
+ * Callers:
+ *     _lambda_e0b5bc6a6e53c9aba0ac2786547e6048_::_lambda_invoker_cdecl_ @ 0x1C00D4A80 (_lambda_e0b5bc6a6e53c9aba0ac2786547e6048_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?NotifySystemSateChanged@CActivationObjectManager@@AEBAXPEBVCActivationObject@@W4ACTIVATION_OBJECT_NOTIFICATION_ACTION@@U_tagActivationObjectNotificationForegroundData@@@Z @ 0x1C00839F8 (-NotifySystemSateChanged@CActivationObjectManager@@AEBAXPEBVCActivationObject@@W4ACTIVATION_OBJE.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00B9120 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ */
+
 void __fastcall CActivationObjectManager::BringISMUptodate(CActivationObjectManager *this)
 {
   unsigned __int64 v2; // rcx

@@ -1,3 +1,37 @@
+/*
+ * XREFs of CmFcManagerStartRuntimePhase @ 0x140B53284
+ * Callers:
+ *     CmFcInitSystem2 @ 0x140B51DC0 (CmFcInitSystem2.c)
+ * Callees:
+ *     ExAllocateTimer @ 0x140203BE0 (ExAllocateTimer.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1402C0CD0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1402F03BC (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1402F0450 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlpFcWriteHighLowHigh @ 0x140388CA0 (RtlpFcWriteHighLowHigh.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmSiRWLockReleaseExclusive @ 0x1406A3848 (CmSiRWLockReleaseExclusive.c)
+ *     CmSiRWLockAcquireExclusive @ 0x1406A419C (CmSiRWLockAcquireExclusive.c)
+ *     CmFcpCopySectionState @ 0x140777D7C (CmFcpCopySectionState.c)
+ *     RtlIsStateSeparationEnabled @ 0x140792EC0 (RtlIsStateSeparationEnabled.c)
+ *     CmFcpSwapSectionState @ 0x14079C17C (CmFcpSwapSectionState.c)
+ *     CmFcpInitializeSectionState @ 0x14079C4B4 (CmFcpInitializeSectionState.c)
+ *     RtlpFcSectionTypeToBufferType @ 0x14079C57C (RtlpFcSectionTypeToBufferType.c)
+ *     RtlpFcInitializeDelayedUsageReportBuffer @ 0x14079C7B0 (RtlpFcInitializeDelayedUsageReportBuffer.c)
+ *     RtlpFcBufferManagerUpdateBuffers @ 0x14081811C (RtlpFcBufferManagerUpdateBuffers.c)
+ *     CmFcpManagerCreateSectionFromBuffer @ 0x1408181E8 (CmFcpManagerCreateSectionFromBuffer.c)
+ *     CmFcpMapSection @ 0x1408182C4 (CmFcpMapSection.c)
+ *     CmFcpCleanupSectionState @ 0x140818348 (CmFcpCleanupSectionState.c)
+ *     CmFcpUnmapSection @ 0x140818368 (CmFcpUnmapSection.c)
+ *     RtlGetSwapReferenceIndex @ 0x140818388 (RtlGetSwapReferenceIndex.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ *     CmRegisterMachineHiveLoadedNotification @ 0x1408185D0 (CmRegisterMachineHiveLoadedNotification.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 CmFcManagerStartRuntimePhase()
 {
   __int64 *v0; // rcx

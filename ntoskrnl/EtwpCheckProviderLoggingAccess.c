@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCheckProviderLoggingAccess @ 0x140690144
+ * Callers:
+ *     EtwpIsRegEntryAllowed @ 0x140690060 (EtwpIsRegEntryAllowed.c)
+ * Callees:
+ *     EtwpCheckGuidAccess @ 0x1406910EC (EtwpCheckGuidAccess.c)
+ *     SeCaptureSubjectContextEx @ 0x1407C9AF0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall EtwpCheckProviderLoggingAccess(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v5; // ebx

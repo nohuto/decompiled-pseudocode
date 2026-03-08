@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?KeyboardDeviceSpecificCallout@@YAJPEAXPEAU_UNICODE_STRING@@W4_INTERFACE_TYPE@@KPEAPEAU_KEY_VALUE_FULL_INFORMATION@@W4_CONFIGURATION_TYPE@@K34K3@Z @ 0x1C00F52A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeyboardDeviceSpecificCallout(
         _BYTE *Context,
         PUNICODE_STRING PathName,

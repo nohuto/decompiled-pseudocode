@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CStereoRenderTargetBitmap@@IEAA@PEAVIRenderTargetBitmap@@@Z @ 0x1802B2244
+ * Callers:
+ *     ?Create@CStereoRenderTargetBitmap@@SAJPEAVIDeviceTextureTarget@@PEAPEAVIStereoRenderTargetBitmap@@@Z @ 0x1802B254C (-Create@CStereoRenderTargetBitmap@@SAJPEAVIDeviceTextureTarget@@PEAPEAVIStereoRenderTargetBitmap.c)
+ * Callees:
+ *     ??0?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIRenderTargetBitmap@@@Z @ 0x180034828 (--0-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVIRenderTargetBit.c)
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18003C200 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ *     ??0IRenderTargetBitmap@@QEAA@XZ @ 0x18003C470 (--0IRenderTargetBitmap@@QEAA@XZ.c)
+ */
+
 CStereoRenderTargetBitmap *__fastcall CStereoRenderTargetBitmap::CStereoRenderTargetBitmap(
         CStereoRenderTargetBitmap *this,
         struct IRenderTargetBitmap *a2)

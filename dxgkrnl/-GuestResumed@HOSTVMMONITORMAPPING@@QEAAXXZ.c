@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GuestResumed@HOSTVMMONITORMAPPING@@QEAAXXZ @ 0x1C0057310
+ * Callers:
+ *     ?VmBusChannelStarted@DXG_HOST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z @ 0x1C0375000 (-VmBusChannelStarted@DXG_HOST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HOSTVMMONITORMAPPING::GuestResumed(KSPIN_LOCK *this)
 {
   char *v1; // rbx

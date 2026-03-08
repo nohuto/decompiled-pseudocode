@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECOffScreenRenderTarget@@MEAAPEAXI@Z @ 0x1801E6810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1COffScreenRenderTarget@@MEAA@XZ @ 0x1801E671C (--1COffScreenRenderTarget@@MEAA@XZ.c)
+ */
+
 COffScreenRenderTarget *__fastcall COffScreenRenderTarget::`vector deleting destructor'(
         COffScreenRenderTarget *this,
         char a2)

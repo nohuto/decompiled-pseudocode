@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhUpdateSqmFlags @ 0x1C007389C
+ * Callers:
+ *     UsbhPdoPnp_DeviceUsageNotification @ 0x1C0054E60 (UsbhPdoPnp_DeviceUsageNotification.c)
+ *     UsbhPdoPnp_StartDevice @ 0x1C0056570 (UsbhPdoPnp_StartDevice.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ */
+
 void __fastcall UsbhUpdateSqmFlags(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // rax

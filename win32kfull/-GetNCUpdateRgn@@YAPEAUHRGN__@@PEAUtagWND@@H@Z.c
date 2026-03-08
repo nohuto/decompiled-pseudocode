@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetNCUpdateRgn@@YAPEAUHRGN__@@PEAUtagWND@@H@Z @ 0x1C00FE114
+ * Callers:
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     xxxBeginPaint @ 0x1C00FD4C0 (xxxBeginPaint.c)
+ *     xxxInternalDoSyncPaint @ 0x1C00FDB80 (xxxInternalDoSyncPaint.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     CalcWindowRgn @ 0x1C00FE594 (CalcWindowRgn.c)
+ *     DecPaintCount @ 0x1C00FE604 (DecPaintCount.c)
+ */
+
 unsigned __int64 __fastcall GetNCUpdateRgn(struct tagWND *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

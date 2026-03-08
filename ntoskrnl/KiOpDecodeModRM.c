@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiOpDecodeModRM @ 0x140361D64
+ * Callers:
+ *     KiOpDecode @ 0x140361E00 (KiOpDecode.c)
+ * Callees:
+ *     KiOpFetchNextByte @ 0x140361F68 (KiOpFetchNextByte.c)
+ *     KiOpFetchBytes @ 0x1403B0D18 (KiOpFetchBytes.c)
+ */
+
 __int64 __fastcall KiOpDecodeModRM(__int64 a1)
 {
   bool v1; // zf

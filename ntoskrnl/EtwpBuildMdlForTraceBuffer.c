@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpBuildMdlForTraceBuffer @ 0x1409EA424
+ * Callers:
+ *     EtwpPreserveLogger @ 0x1409EA82C (EtwpPreserveLogger.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ */
+
 __int64 __fastcall EtwpBuildMdlForTraceBuffer(__int64 a1, char *a2, struct _MDL **a3)
 {
   unsigned int v3; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiRepurposeDecayNode @ 0x14065F294
+ * Callers:
+ *     MiLockStandbyOldestPage @ 0x14064E72C (MiLockStandbyOldestPage.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 unsigned __int8 __fastcall MiRepurposeDecayNode(PSLIST_ENTRY ListEntry)
 {
   char v2; // al

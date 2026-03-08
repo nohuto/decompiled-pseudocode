@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetNVMeRegisterAddress @ 0x1C0025DF4
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetNVMeRegisterAddress(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

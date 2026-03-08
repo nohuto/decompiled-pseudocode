@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionNotifyDwmForSystemVisualCreation @ 0x1C00E62D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DwmAsyncCreateDCompositionHwndTarget @ 0x1C00E6368 (DwmAsyncCreateDCompositionHwndTarget.c)
+ */
+
 __int64 __fastcall EditionNotifyDwmForSystemVisualCreation(__int64 a1, __int64 a2, CompositionObject *a3)
 {
   int v4; // edi

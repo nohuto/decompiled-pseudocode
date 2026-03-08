@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlInsertElementGenericTableFull @ 0x1402C2A50
+ * Callers:
+ *     RtlInsertElementGenericTable @ 0x1402C29E0 (RtlInsertElementGenericTable.c)
+ * Callees:
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 PVOID __stdcall RtlInsertElementGenericTableFull(
         PRTL_GENERIC_TABLE Table,
         PVOID Buffer,

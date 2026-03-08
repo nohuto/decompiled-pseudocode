@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlOplockIsFastIoPossible @ 0x14075F830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlOplockIsFastIoPossible(POPLOCK Oplock)
 {
   BOOLEAN result; // al

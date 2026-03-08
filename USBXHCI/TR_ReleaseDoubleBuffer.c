@@ -1,3 +1,12 @@
+/*
+ * XREFs of TR_ReleaseDoubleBuffer @ 0x1C0011C34
+ * Callers:
+ *     Bulk_CompleteTransfers @ 0x1C000E608 (Bulk_CompleteTransfers.c)
+ *     Bulk_Transfer_PrepareForCompletion @ 0x1C0011B14 (Bulk_Transfer_PrepareForCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall TR_ReleaseDoubleBuffer(__int64 a1, _QWORD *a2)
 {
   _QWORD *v4; // rdx

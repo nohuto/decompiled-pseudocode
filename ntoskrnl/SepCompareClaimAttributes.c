@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepCompareClaimAttributes @ 0x140776718
+ * Callers:
+ *     NtCompareTokens @ 0x140776460 (NtCompareTokens.c)
+ *     SepSetTokenClaims @ 0x1407808B8 (SepSetTokenClaims.c)
+ * Callees:
+ *     SepCompareSidAndAttributeArrays @ 0x140776770 (SepCompareSidAndAttributeArrays.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A57160 (AuthzBasepCompareSecurityAttributesInformation.c)
+ */
+
 bool __fastcall SepCompareClaimAttributes(unsigned int *a1, unsigned int *a2)
 {
   char v4; // cl

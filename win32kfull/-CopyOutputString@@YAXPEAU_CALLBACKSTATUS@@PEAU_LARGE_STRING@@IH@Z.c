@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?CopyOutputString@@YAXPEAU_CALLBACKSTATUS@@PEAU_LARGE_STRING@@IH@Z @ 0x1C0109318
+ * Callers:
+ *     SfnOUTSTRING @ 0x1C00EAB40 (SfnOUTSTRING.c)
+ *     xxxClientExpandStringW @ 0x1C0108BE4 (xxxClientExpandStringW.c)
+ *     xxxClientLoadStringW @ 0x1C0108F88 (xxxClientLoadStringW.c)
+ *     ClientGetListboxString @ 0x1C020833C (ClientGetListboxString.c)
+ *     SfnINCNTOUTSTRING @ 0x1C020A090 (SfnINCNTOUTSTRING.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C020A610 (SfnINCNTOUTSTRINGNULL.c)
+ * Callees:
+ *     wcsncpycch @ 0x1C01093D4 (wcsncpycch.c)
+ *     strncpycch @ 0x1C014AD88 (strncpycch.c)
+ *     MBToWCSEx @ 0x1C024E9B4 (MBToWCSEx.c)
+ *     WCSToMBEx @ 0x1C024ECB4 (WCSToMBEx.c)
+ */
+
 void __fastcall CopyOutputString(struct _CALLBACKSTATUS *a1, struct _LARGE_STRING *a2, unsigned int a3, int a4)
 {
   __int64 v6; // rcx

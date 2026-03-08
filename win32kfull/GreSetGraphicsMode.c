@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreSetGraphicsMode @ 0x1C02DFAA4
+ * Callers:
+ *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C01116B0 (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetGraphicsMode(HDC a1, int a2)
 {
   unsigned int v3; // ebx

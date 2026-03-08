@@ -1,3 +1,15 @@
+/*
+ * XREFs of ArbRetestAllocation @ 0x1C00A2730
+ * Callers:
+ *     IrqArbRetestAllocation @ 0x1C009D890 (IrqArbRetestAllocation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     RtlFreeRangeList_0 @ 0x1C0001A1F (RtlFreeRangeList_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ArbpBuildAlternative @ 0x1C00A2EEC (ArbpBuildAlternative.c)
+ */
+
 __int64 __fastcall ArbRetestAllocation(__int64 a1, __int64 ***a2)
 {
   __int64 **v4; // r8

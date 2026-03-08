@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Endpoint_SendBulkTransfer @ 0x1C004F218
+ * Callers:
+ *     Crashdump_DoBulkTransfer @ 0x1C004C20C (Crashdump_DoBulkTransfer.c)
+ * Callees:
+ *     Crashdump_Endpoint_SendTransferAndPollForCompletion @ 0x1C004F708 (Crashdump_Endpoint_SendTransferAndPollForCompletion.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_SendBulkTransfer(__int64 *a1, __int64 a2, _QWORD *a3, char a4)
 {
   _QWORD *v4; // r14

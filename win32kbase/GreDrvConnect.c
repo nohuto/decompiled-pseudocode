@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreDrvConnect @ 0x1C01998F0
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ * Callees:
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C00D90AC (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C00D9220 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreDrvConnect(_QWORD *a1)
 {
   __int64 v2; // rbx

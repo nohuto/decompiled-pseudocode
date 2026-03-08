@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1InkProcessor@@AEAA@XZ @ 0x1C00F6A98
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ * Callees:
+ *     ?RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C00F6CE8 (-RemoveInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
+ *     ?UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z @ 0x1C0241560 (-UnlinkAndReleaseInkDevice@InkProcessor@@AEAAXPEAPEAVInkDevice@@@Z.c)
+ */
+
 void __fastcall InkProcessor::~InkProcessor(InkProcessor **this)
 {
   InkFeedbackServer *v2; // rcx

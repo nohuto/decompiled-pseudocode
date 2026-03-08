@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_LPEEnterExitCallback @ 0x1C00342C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     Controller_InUseByDebugger @ 0x1C001C410 (Controller_InUseByDebugger.c)
+ *     Controller_AcquireWdfPowerReferenceForDebugger @ 0x1C0032530 (Controller_AcquireWdfPowerReferenceForDebugger.c)
+ *     Controller_ReleaseWdfPowerReferenceForDebugger @ 0x1C0034540 (Controller_ReleaseWdfPowerReferenceForDebugger.c)
+ */
+
 __int64 __fastcall Controller_LPEEnterExitCallback(
         LPCGUID SettingGuid,
         _DWORD *Value,

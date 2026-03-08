@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_Command_Stop @ 0x1C004ED20
+ * Callers:
+ *     Crashdump_Cleanup @ 0x1C004BE10 (Crashdump_Cleanup.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004EA78 (Crashdump_Command_PrepareForDump.c)
+ * Callees:
+ *     Crashdump_EventRing_Poll @ 0x1C004E500 (Crashdump_EventRing_Poll.c)
+ */
+
 __int64 __fastcall Crashdump_Command_Stop(__int64 a1, char a2)
 {
   __int64 v4; // rcx

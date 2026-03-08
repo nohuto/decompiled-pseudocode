@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpQueueNotification @ 0x14069039C
+ * Callers:
+ *     EtwpSendDataBlock @ 0x1406901A8 (EtwpSendDataBlock.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     EtwpAddDataSource @ 0x140690534 (EtwpAddDataSource.c)
+ *     EtwpReleaseQueueEntry @ 0x1406909C8 (EtwpReleaseQueueEntry.c)
+ *     PsChargeProcessWakeCounter @ 0x140793DC0 (PsChargeProcessWakeCounter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpQueueNotification(void *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

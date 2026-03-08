@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepRestartOperandValueEnumeration @ 0x1403664A4
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1403663B8 (AuthzBasepEvaluateSetRelationship.c)
+ * Callees:
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ */
+
 __int64 __fastcall AuthzBasepRestartOperandValueEnumeration(__int64 a1)
 {
   bool v1; // zf

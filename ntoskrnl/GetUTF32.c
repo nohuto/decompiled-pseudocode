@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetUTF32 @ 0x1405AD7D4
+ * Callers:
+ *     punycode_encode @ 0x1409BCD88 (punycode_encode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetUTF32(unsigned __int16 *a1)
 {
   int v1; // edx

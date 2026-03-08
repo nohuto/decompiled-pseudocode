@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiProcessIsrSuspendContextCompleted @ 0x1C0045DC0
+ * Callers:
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 const signed __int64 *__fastcall VidSchiProcessIsrSuspendContextCompleted(union _SLIST_HEADER *a1, __int64 a2)
 {

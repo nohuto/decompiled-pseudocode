@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerGetSavedPerformanceCounter @ 0x1404FC68C
+ * Callers:
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ * Callees:
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ */
+
 unsigned __int64 HalpTimerGetSavedPerformanceCounter()
 {
   ULONG_PTR v0; // r11

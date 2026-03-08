@@ -1,3 +1,11 @@
+/*
+ * XREFs of vDirectStretch8 @ 0x1C03046A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall vDirectStretch8(__int64 a1)
 {
   int v2; // r13d

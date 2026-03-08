@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiEmptyWorkingSetPrivatePagesByVa @ 0x140619C68
+ * Callers:
+ *     MiFlushAllPages @ 0x1406377FC (MiFlushAllPages.c)
+ *     MmProcessWorkingSetControl @ 0x140A408A4 (MmProcessWorkingSetControl.c)
+ * Callees:
+ *     MiEmptyWorkingSetInitiate @ 0x140301814 (MiEmptyWorkingSetInitiate.c)
+ *     MiVadSupportsPrivateCommit @ 0x14031EE80 (MiVadSupportsPrivateCommit.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadMapsLargeImage @ 0x140327280 (MiVadMapsLargeImage.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ */
+
 __int64 __fastcall MiEmptyWorkingSetPrivatePagesByVa(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

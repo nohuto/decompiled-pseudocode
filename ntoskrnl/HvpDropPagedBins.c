@@ -1,3 +1,23 @@
+/*
+ * XREFs of HvpDropPagedBins @ 0x140820B14
+ * Callers:
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpPointMapEntriesToBuffer @ 0x140730010 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x140730410 (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x14079AE68 (HvpFreeBin.c)
+ *     CmpReleaseGlobalQuota @ 0x1407A5908 (CmpReleaseGlobalQuota.c)
+ *     HvpMapEntryGetFreeBin @ 0x1407A6910 (HvpMapEntryGetFreeBin.c)
+ *     MmFreeBootRegistry @ 0x140820DAC (MmFreeBootRegistry.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 __int64 __fastcall HvpDropPagedBins(ULONG_PTR BugCheckParameter2)
 {
   void *v2; // r10

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserDestroyInputContext @ 0x1C01CF610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?DestroyInputContext@@YAHPEAUtagIMC@@@Z @ 0x1C01B88F4 (-DestroyInputContext@@YAHPEAUtagIMC@@@Z.c)
+ */
+
 __int64 __fastcall NtUserDestroyInputContext(__int64 a1)
 {
   int v2; // ebx

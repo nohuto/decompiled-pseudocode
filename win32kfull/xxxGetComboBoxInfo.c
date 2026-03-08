@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxGetComboBoxInfo @ 0x1C02334F4
+ * Callers:
+ *     NtUserGetComboBoxInfo @ 0x1C01D1C10 (NtUserGetComboBoxInfo.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     unsafe_cast_fnid_or_class_to_PCOMBOWND @ 0x1C01BC390 (unsafe_cast_fnid_or_class_to_PCOMBOWND.c)
+ *     unsafe_cast_fnid_or_class_to_PLBWND_COMBOLISTBOX @ 0x1C01BC450 (unsafe_cast_fnid_or_class_to_PLBWND_COMBOLISTBOX.c)
+ */
+
 __int64 __fastcall xxxGetComboBoxInfo(struct tagWND *a1, __int128 *a2)
 {
   unsigned int v4; // ebx

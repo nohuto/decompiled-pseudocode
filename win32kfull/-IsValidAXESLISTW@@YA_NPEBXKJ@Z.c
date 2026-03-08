@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValidAXESLISTW@@YA_NPEBXKJ@Z @ 0x1C02BA0A8
+ * Callers:
+ *     ?IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z @ 0x1C02BA1FC (-IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsValidAXESLISTW(char *a1, unsigned int a2, int a3)
 {
   bool result; // al

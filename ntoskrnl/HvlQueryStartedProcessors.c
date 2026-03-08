@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlQueryStartedProcessors @ 0x14053E080
+ * Callers:
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlQueryStartedProcessors(unsigned int *a1, int *a2)
 {
   __int64 result; // rax

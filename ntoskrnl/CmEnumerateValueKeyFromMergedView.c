@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmEnumerateValueKeyFromMergedView @ 0x140A14D34
+ * Callers:
+ *     NtEnumerateValueKey @ 0x1407AB260 (NtEnumerateValueKey.c)
+ *     CmQueryKey @ 0x1407AE5C0 (CmQueryKey.c)
+ * Callees:
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1406B5A64 (CmpTransSearchAddTransFromKeyBody.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindNameInList @ 0x1407A74D8 (CmpFindNameInList.c)
+ *     CmpQueryKeyValueData @ 0x1407AA6A0 (CmpQueryKeyValueData.c)
+ *     CmpLockTwoKcbsShared @ 0x1407ACF00 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1407ACF58 (CmpUnlockTwoKcbs.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmEnumerateValueKeyFromMergedView(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionGetThreadDesktopEntryPoint @ 0x1C00D13C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetThreadDesktop @ 0x1C00D13FC (_GetThreadDesktop.c)
+ */
+
 __int64 __fastcall EditionGetThreadDesktopEntryPoint(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

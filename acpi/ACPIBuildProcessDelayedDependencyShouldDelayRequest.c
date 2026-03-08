@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C000E5D0
+ * Callers:
+ *     ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C000E254 (ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck.c)
+ *     ACPIBuildProcessDelayedDependencyPhase0 @ 0x1C000E320 (ACPIBuildProcessDelayedDependencyPhase0.c)
+ * Callees:
+ *     AreDependenciesSatisfied @ 0x1C0014914 (AreDependenciesSatisfied.c)
+ */
+
 char __fastcall ACPIBuildProcessDelayedDependencyShouldDelayRequest(__int64 a1)
 {
   _QWORD *v1; // rsi

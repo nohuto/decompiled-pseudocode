@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxNotifyIMEStatus@@YAXPEAUtagWND@@KK@Z @ 0x1C00DC278
+ * Callers:
+ *     NtUserNotifyIMEStatus @ 0x1C00DC190 (NtUserNotifyIMEStatus.c)
+ * Callees:
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ */
+
 void __fastcall xxxNotifyIMEStatus(struct tagWND *a1, int a2, int a3)
 {
   __int64 v3; // rdi

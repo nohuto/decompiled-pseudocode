@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDisplayManager@@QEAA@XZ @ 0x180103898
+ * Callers:
+ *     _dynamic_initializer_for__g_DisplayManager__ @ 0x180003DA0 (_dynamic_initializer_for__g_DisplayManager__.c)
+ * Callees:
+ *     <none>
+ */
+
 CDisplayManager *__fastcall CDisplayManager::CDisplayManager(CDisplayManager *this)
 {
   CDisplayManager *result; // rax

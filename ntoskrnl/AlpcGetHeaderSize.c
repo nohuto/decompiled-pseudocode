@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcGetHeaderSize @ 0x1402BC080
+ * Callers:
+ *     AlpcGetMessageAttribute @ 0x1402BBFE0 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x1402BC020 (AlpcInitializeMessageAttribute.c)
+ *     AlpcpInitializeCompletionList @ 0x14097672C (AlpcpInitializeCompletionList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcGetHeaderSize(int a1)
 {
   int v2; // eax

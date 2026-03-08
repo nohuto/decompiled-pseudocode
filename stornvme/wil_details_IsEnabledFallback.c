@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_IsEnabledFallback @ 0x1C0003E74
+ * Callers:
+ *     Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledFallback @ 0x1C0003654 (Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledFallback.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0003A6C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1C0003BD4 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0003CD4 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 __int64 __fastcall wil_details_IsEnabledFallback(__int64 a1, unsigned int a2)
 {
   char v3; // bl

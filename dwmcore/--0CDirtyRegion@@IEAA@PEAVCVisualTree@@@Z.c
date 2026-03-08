@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z @ 0x18003A184
+ * Callers:
+ *     ??0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z @ 0x18003A08C (--0CVisualTree@@IEAA@PEAVCComposition@@PEAVCVisual@@@Z.c)
+ * Callees:
+ *     ??0COcclusionContext@@QEAA@XZ @ 0x18003904C (--0COcclusionContext@@QEAA@XZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A2A4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x18003A304 (--0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ.c)
+ */
+
 CDirtyRegion *__fastcall CDirtyRegion::CDirtyRegion(CDirtyRegion *this, struct CVisualTree *a2)
 {
   __int64 v3; // rdi

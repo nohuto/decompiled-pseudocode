@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlEnumerateBoundaryDescriptorEntries @ 0x140743B80
+ * Callers:
+ *     ObpVerifyCreatorAccessCheck @ 0x140741CB8 (ObpVerifyCreatorAccessCheck.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140743538 (ObpCaptureBoundaryDescriptor.c)
+ *     ObpCheckDuplicateEntries @ 0x1407437B0 (ObpCheckDuplicateEntries.c)
+ *     ObpCompareEntryLevel1 @ 0x140743A90 (ObpCompareEntryLevel1.c)
+ *     ObpLookupNamespaceEntry @ 0x140744190 (ObpLookupNamespaceEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpValidateSidBuffer @ 0x140743CA0 (RtlpValidateSidBuffer.c)
+ */
+
 __int64 __fastcall RtlEnumerateBoundaryDescriptorEntries(
         _DWORD *a1,
         unsigned int (__fastcall *a2)(_DWORD *, __int64),

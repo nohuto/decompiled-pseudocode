@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDiagTraceDeviceReset @ 0x1C0008154
+ * Callers:
+ *     AcpiDeviceReset @ 0x1C0082DA0 (AcpiDeviceReset.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     RtlStringCchLengthA @ 0x1C00091CC (RtlStringCchLengthA.c)
+ *     AMLIGetNameSpaceObjectPath @ 0x1C00485CC (AMLIGetNameSpaceObjectPath.c)
+ */
+
 void __fastcall AcpiDiagTraceDeviceReset(__int64 a1, int a2, int a3)
 {
   __int64 v3; // rcx

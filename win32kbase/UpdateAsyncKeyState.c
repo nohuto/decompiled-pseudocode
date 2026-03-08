@@ -1,3 +1,14 @@
+/*
+ * XREFs of UpdateAsyncKeyState @ 0x1C00922C0
+ * Callers:
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     ?ApplyKeyStateUpdate@@YAXE_N@Z @ 0x1C021D024 (-ApplyKeyStateUpdate@@YAXE_N@Z.c)
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C022F50C (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ * Callees:
+ *     ApiSetEditionUpdateAsyncKeyStateThreads @ 0x1C009243C (ApiSetEditionUpdateAsyncKeyStateThreads.c)
+ *     PostUpdateKeyStateEvent @ 0x1C0092540 (PostUpdateKeyStateEvent.c)
+ */
+
 __int64 __fastcall UpdateAsyncKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v4; // rbp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of InvalidateDCE @ 0x1C0096E74
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     RevalidateDCE @ 0x1C0097390 (RevalidateDCE.c)
+ * Callees:
+ *     GreSelectRedirectionBitmap @ 0x1C0097150 (GreSelectRedirectionBitmap.c)
+ */
+
 __int64 __fastcall InvalidateDCE(__int64 a1)
 {
   int v2; // eax

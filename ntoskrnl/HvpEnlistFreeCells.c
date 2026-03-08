@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvpEnlistFreeCells @ 0x1407A4A50
+ * Callers:
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407FF548 (HvpBuildMapForMemoryBackedHive.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpEnlistFreeCell @ 0x1407A6D78 (HvpEnlistFreeCell.c)
+ *     HvpMarkDirty @ 0x1407D25D0 (HvpMarkDirty.c)
+ */
+
 __int64 __fastcall HvpEnlistFreeCells(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, int a4)
 {
   char v4; // r12

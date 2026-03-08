@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopIssueSystemEnvironmentRequest @ 0x14094E098
+ * Callers:
+ *     IopIssueTrEERequest @ 0x140559560 (IopIssueTrEERequest.c)
+ *     IopEnumerateEnvironmentVariablesSysEnv @ 0x14094D850 (IopEnumerateEnvironmentVariablesSysEnv.c)
+ *     IopGetEnvironmentVariableSysEnv @ 0x14094DD60 (IopGetEnvironmentVariableSysEnv.c)
+ *     IopQueryEnvironmentVariableInfoSysEnv @ 0x14094E210 (IopQueryEnvironmentVariableInfoSysEnv.c)
+ *     IopSetEnvironmentVariableSysEnv @ 0x14094E3E0 (IopSetEnvironmentVariableSysEnv.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeExpandKernelStackAndCalloutEx @ 0x1403155F0 (KeExpandKernelStackAndCalloutEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall IopIssueSystemEnvironmentRequest(
         ULONG IoControlCode,
         BOOLEAN a2,

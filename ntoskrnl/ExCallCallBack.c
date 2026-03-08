@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExCallCallBack @ 0x1407D2DA4
+ * Callers:
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ *     NtFindAtom @ 0x1407DABC0 (NtFindAtom.c)
+ * Callees:
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall ExCallCallBack(signed __int64 *a1, __int64 a2, __int64 a3)
 {
   struct _EX_RUNDOWN_REF *v6; // rax

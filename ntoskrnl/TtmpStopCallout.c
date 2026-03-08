@@ -1,3 +1,19 @@
+/*
+ * XREFs of TtmpStopCallout @ 0x1409A0D8C
+ * Callers:
+ *     TtmiSessionDeviceListWorker @ 0x14099FD30 (TtmiSessionDeviceListWorker.c)
+ *     TtmpCallAssignedToTerminal @ 0x14099FFFC (TtmpCallAssignedToTerminal.c)
+ *     TtmpCallSetBuiltinPanelState @ 0x1409A0098 (TtmpCallSetBuiltinPanelState.c)
+ *     TtmpCallSetDisplayState @ 0x1409A0118 (TtmpCallSetDisplayState.c)
+ *     TtmpCallSetInputMode @ 0x1409A01C8 (TtmpCallSetInputMode.c)
+ *     TtmpUpdatePrimaryDisplayWnf @ 0x1409A0E1C (TtmpUpdatePrimaryDisplayWnf.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     TtmpCalloutDestroyWatchdog @ 0x1409A036C (TtmpCalloutDestroyWatchdog.c)
+ *     TtmpGetCalloutTagFromCalloutType @ 0x1409A0714 (TtmpGetCalloutTagFromCalloutType.c)
+ *     TtmiLogCalloutStop @ 0x1409A3D50 (TtmiLogCalloutStop.c)
+ */
+
 BOOLEAN __fastcall TtmpStopCallout(__int64 a1, int a2)
 {
   __int64 v4; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimSetContactKeepAliveState @ 0x1C01DA45C
+ * Callers:
+ *     rimInsertSimulatedContactKeepAliveStateInFrame @ 0x1C01D8954 (rimInsertSimulatedContactKeepAliveStateInFrame.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimSetContactKeepAliveState(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rbx

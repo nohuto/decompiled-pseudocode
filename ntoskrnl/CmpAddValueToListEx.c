@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpAddValueToListEx @ 0x1407A5A94
+ * Callers:
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpSetValueKeyNew @ 0x1407A5CB0 (CmpSetValueKeyNew.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmpSetValueKeyTombstone @ 0x140A14050 (CmpSetValueKeyTombstone.c)
+ *     CmpMergeKeyValues @ 0x140A1F628 (CmpMergeKeyValues.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A23124 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A26E00 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvReallocateCell @ 0x1407A5D90 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ */
+
 __int64 __fastcall CmpAddValueToListEx(
         ULONG_PTR BugCheckParameter3,
         int a2,

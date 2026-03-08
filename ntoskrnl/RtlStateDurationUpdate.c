@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStateDurationUpdate @ 0x140294E3C
+ * Callers:
+ *     PoEnergyContextUpdateComponentPower @ 0x1406FF3F8 (PoEnergyContextUpdateComponentPower.c)
+ *     PopEtEnergyContextSetState @ 0x140700F30 (PopEtEnergyContextSetState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStateDurationUpdate(unsigned __int64 *a1, unsigned __int8 a2, unsigned int a3)
 {
   unsigned __int64 v3; // rax

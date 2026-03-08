@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetWindowsHookEx @ 0x1C009C5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ??0EnterLeaveCritByVelocityWithDispositionOverride@@QEAA@W4CritOptType@@_NW4HandleToObjILCheck@@@Z @ 0x1C009C860 (--0EnterLeaveCritByVelocityWithDispositionOverride@@QEAA@W4CritOptType@@_NW4HandleToObjILCheck@@.c)
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserSetWindowsHookEx(__int64 a1, ULONG64 a2, __int64 a3, unsigned int a4, __int64 a5, int a6)
 {
   unsigned int v7; // r15d

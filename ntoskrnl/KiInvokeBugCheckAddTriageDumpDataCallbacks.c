@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405682D4
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiCaptureDumpPreRecovery @ 0x14057886C (KiCaptureDumpPreRecovery.c)
+ * Callees:
+ *     KiValidateTriageDumpDataArray @ 0x1403A2C14 (KiValidateTriageDumpDataArray.c)
+ *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14040A2B8 (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1405670E8 (KeValidateBugCheckCallbackRecord.c)
+ *     KiGlobalDeduplicateTriageDumpData @ 0x140568244 (KiGlobalDeduplicateTriageDumpData.c)
+ *     KiValidateComponentName @ 0x140568864 (KiValidateComponentName.c)
+ */
+
 char __fastcall KiInvokeBugCheckAddTriageDumpDataCallbacks(char a1)
 {
   __int64 v1; // rax

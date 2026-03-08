@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteBackTraceDumpBufferCallback@NSInstrumentation@@YAXPEAX00@Z @ 0x1C019D1E0
+ * Callers:
+ *     ??$Enumerate@P6AXPEAX00@Z@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C019C828 (--$Enumerate@P6AXPEAX00@Z@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTrace.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall NSInstrumentation::WriteBackTraceDumpBufferCallback(
         NSInstrumentation *this,
         _OWORD *a2,

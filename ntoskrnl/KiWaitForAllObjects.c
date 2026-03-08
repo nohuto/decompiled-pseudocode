@@ -1,3 +1,26 @@
+/*
+ * XREFs of KiWaitForAllObjects @ 0x1402936D0
+ * Callers:
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ * Callees:
+ *     KiCheckWaitNext @ 0x14022AE00 (KiCheckWaitNext.c)
+ *     KiFastExitThreadWait @ 0x140239300 (KiFastExitThreadWait.c)
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KiBeginThreadWait @ 0x1402934C0 (KiBeginThreadWait.c)
+ *     KiCheckDueTimeExpired @ 0x140293640 (KiCheckDueTimeExpired.c)
+ *     KiWaitSatisfyOther @ 0x140293B88 (KiWaitSatisfyOther.c)
+ *     KiUnlockKobjectArray @ 0x140293BB8 (KiUnlockKobjectArray.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiWaitSatisfyMutant @ 0x140352000 (KiWaitSatisfyMutant.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiWaitForAllObjects(unsigned int a1, __int64 *a2, int a3, char a4, char a5, __int64 a6, __int64 *a7)
 {
   char v7; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0HotKeyCallback@@QEAA@XZ @ 0x14000A76C
+ * Callers:
+ *     ??$MakeAndInitialize@VHotKeyCallback@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVHotKeyCallback@@@Z @ 0x14000A694 (--$MakeAndInitialize@VHotKeyCallback@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVHotKeyCallback@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 HotKeyCallback *__fastcall HotKeyCallback::HotKeyCallback(HotKeyCallback *this)
 {
   *((_QWORD *)this + 3) = 1LL;

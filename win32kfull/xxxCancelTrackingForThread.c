@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxCancelTrackingForThread @ 0x1C01F3CF0
+ * Callers:
+ *     xxxCancelTracking @ 0x1C00D22FC (xxxCancelTracking.c)
+ * Callees:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     IsInsideMenuLoop @ 0x1C00CE5D4 (IsInsideMenuLoop.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ChangeComposableCursor @ 0x1C01AA1C4 (ChangeComposableCursor.c)
+ *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ */
+
 void __fastcall xxxCancelTrackingForThread(__int64 a1)
 {
   __int64 v1; // rdi

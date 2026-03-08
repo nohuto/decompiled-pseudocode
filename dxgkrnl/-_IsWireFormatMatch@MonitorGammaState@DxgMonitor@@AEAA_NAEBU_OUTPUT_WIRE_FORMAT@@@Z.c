@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_IsWireFormatMatch@MonitorGammaState@DxgMonitor@@AEAA_NAEBU_OUTPUT_WIRE_FORMAT@@@Z @ 0x1C0180478
+ * Callers:
+ *     ?_SetColorSpaceTransform@MonitorGammaState@DxgMonitor@@AEAAJKPEAX@Z @ 0x1C0180E6C (-_SetColorSpaceTransform@MonitorGammaState@DxgMonitor@@AEAAJKPEAX@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 bool __fastcall DxgMonitor::MonitorGammaState::_IsWireFormatMatch(
         DxgMonitor::MonitorGammaState *this,
         const struct _OUTPUT_WIRE_FORMAT *a2)

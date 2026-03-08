@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoFxInitPowerManagement @ 0x140B65838
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFxInitializeWorkPool @ 0x14084D2FC (PopFxInitializeWorkPool.c)
+ */
+
 __int64 PoFxInitPowerManagement()
 {
   __int64 result; // rax

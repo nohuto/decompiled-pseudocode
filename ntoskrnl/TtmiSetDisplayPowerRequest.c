@@ -1,3 +1,18 @@
+/*
+ * XREFs of TtmiSetDisplayPowerRequest @ 0x1409A1BBC
+ * Callers:
+ *     TtmpDispatchSetDisplayPowerRequest @ 0x1409A394C (TtmpDispatchSetDisplayPowerRequest.c)
+ * Callees:
+ *     TtmiScheduleSessionWorker @ 0x1409A1AC4 (TtmiScheduleSessionWorker.c)
+ *     TtmpFindPowerRequestEntryById @ 0x1409A22B8 (TtmpFindPowerRequestEntryById.c)
+ *     TtmiLogDisplayPowerRequestSet @ 0x1409A516C (TtmiLogDisplayPowerRequestSet.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiGetTerminalById @ 0x1409A8090 (TtmiGetTerminalById.c)
+ *     TtmiSetPendingOnOffRequest @ 0x1409A84C4 (TtmiSetPendingOnOffRequest.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall TtmiSetDisplayPowerRequest(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // ebx

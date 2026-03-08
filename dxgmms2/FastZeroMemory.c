@@ -1,3 +1,12 @@
+/*
+ * XREFs of FastZeroMemory @ 0x1C0096CC0
+ * Callers:
+ *     ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C0096BE0 (-ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 __int64 __fastcall FastZeroMemory(__m128i *a1, size_t Size)
 {
   size_t v2; // rdi

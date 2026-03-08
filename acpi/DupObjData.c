@@ -1,3 +1,29 @@
+/*
+ * XREFs of DupObjData @ 0x1C004AF04
+ * Callers:
+ *     Simulator_Copy_Arguments @ 0x1C0049088 (Simulator_Copy_Arguments.c)
+ *     Simulator_DuplicateObjData @ 0x1C0049150 (Simulator_DuplicateObjData.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     ParseDLMObjectInternal @ 0x1C004C718 (ParseDLMObjectInternal.c)
+ *     EvalPackageElement @ 0x1C004F6E4 (EvalPackageElement.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ *     RunContext @ 0x1C0053F34 (RunContext.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ *     NestAsyncEvalObject @ 0x1C005496C (NestAsyncEvalObject.c)
+ *     Return @ 0x1C0055B50 (Return.c)
+ *     CopyObject @ 0x1C0056550 (CopyObject.c)
+ *     ProcessLoadTable @ 0x1C0058610 (ProcessLoadTable.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ *     ParseNestedContext @ 0x1C005BB50 (ParseNestedContext.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     NewObjData @ 0x1C004C19C (NewObjData.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall DupObjData(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // ebp

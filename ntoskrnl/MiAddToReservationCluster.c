@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAddToReservationCluster @ 0x140635394
+ * Callers:
+ *     MiBuildReservationCluster @ 0x140635ED4 (MiBuildReservationCluster.c)
+ * Callees:
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14029DAB8 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiAddToReservationCluster(
         __int64 a1,
         __int64 a2,

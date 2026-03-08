@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??1CCachedVisualImage@@MEAA@XZ @ 0x1800B5954
+ * Callers:
+ *     ??1CBackdropVisualImage@@UEAA@XZ @ 0x1800A5A10 (--1CBackdropVisualImage@@UEAA@XZ.c)
+ *     ??_ECCachedVisualImage@@MEAAPEAXI@Z @ 0x1800B5910 (--_ECCachedVisualImage@@MEAAPEAXI@Z.c)
+ *     ??_GCDebugVisualImage@@UEAAPEAXI@Z @ 0x180215000 (--_GCDebugVisualImage@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1COcclusionContext@@QEAA@XZ @ 0x18003BFFC (--1COcclusionContext@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@V?$unique_ptr@VCCachedTarget@CCachedVisualImage@@U?$default_delete@VCCachedTarget@CCachedVisualImage@@@std@@@std@@@std@@@std@@YAXPEAV?$unique_ptr@VCCachedTarget@CCachedVisualImage@@U?$default_delete@VCCachedTarget@CCachedVisualImage@@@std@@@0@QEAV10@AEAV?$allocator@V?$unique_ptr@VCCachedTarget@CCachedVisualImage@@U?$default_delete@VCCachedTarget@CCachedVisualImage@@@std@@@std@@@0@@Z @ 0x1800F3E58 (--$_Destroy_range@V-$allocator@V-$unique_ptr@VCCachedTarget@CCachedVisualImage@@U-$default_delet.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CCachedVisualImage::~CCachedVisualImage(CCachedVisualImage *this)
 {
   __int64 v2; // rcx

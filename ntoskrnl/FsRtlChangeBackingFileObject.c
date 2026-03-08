@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlChangeBackingFileObject @ 0x1403D0BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmChangeSectionBackingFile @ 0x1402F34E4 (MmChangeSectionBackingFile.c)
+ *     CcChangeBackingFileObject @ 0x140532D48 (CcChangeBackingFileObject.c)
+ */
+
 NTSTATUS __stdcall FsRtlChangeBackingFileObject(
         PFILE_OBJECT CurrentFileObject,
         PFILE_OBJECT NewFileObject,

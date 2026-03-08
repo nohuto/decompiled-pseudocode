@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserPaintMonitor @ 0x1C01D9190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxDesktopPaintCallback @ 0x1C00EF1F0 (xxxDesktopPaintCallback.c)
+ */
+
 _BOOL8 __fastcall NtUserPaintMonitor(__int64 a1, HDC a2, RECT *a3)
 {
   __int64 v6; // rdx

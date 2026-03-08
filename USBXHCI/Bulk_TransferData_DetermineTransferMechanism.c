@@ -1,3 +1,12 @@
+/*
+ * XREFs of Bulk_TransferData_DetermineTransferMechanism @ 0x1C00126B0
+ * Callers:
+ *     Bulk_RetrieveNextStage @ 0x1C0011FDC (Bulk_RetrieveNextStage.c)
+ * Callees:
+ *     TR_AcquireDoubleBuffer @ 0x1C00073E0 (TR_AcquireDoubleBuffer.c)
+ *     TR_IsUrbUsingChainedMdl @ 0x1C0007484 (TR_IsUrbUsingChainedMdl.c)
+ */
+
 void __fastcall Bulk_TransferData_DetermineTransferMechanism(__int64 a1)
 {
   unsigned int v1; // r8d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPlLookupDevicePowerProfile @ 0x14059EEB4
+ * Callers:
+ *     PopPlRegisterDevice @ 0x1403937A4 (PopPlRegisterDevice.c)
+ *     PopPlActivateDeviceIterator @ 0x14059ECD0 (PopPlActivateDeviceIterator.c)
+ *     PopPlIdleDeviceIterator @ 0x14059EE20 (PopPlIdleDeviceIterator.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int16 *__fastcall PopPlLookupDevicePowerProfile(__int64 a1, unsigned __int16 *a2)
 {
   unsigned __int64 v2; // r14

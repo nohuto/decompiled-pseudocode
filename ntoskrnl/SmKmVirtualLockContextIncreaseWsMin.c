@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmKmVirtualLockContextIncreaseWsMin @ 0x1405C9B48
+ * Callers:
+ *     SmKmVirtualLockCtxLockMemory @ 0x1405C9C84 (SmKmVirtualLockCtxLockMemory.c)
+ * Callees:
+ *     MmAdjustWorkingSetSizeEx @ 0x14020C61C (MmAdjustWorkingSetSizeEx.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MmQueryWorkingSetInformation @ 0x140299640 (MmQueryWorkingSetInformation.c)
+ */
+
 __int64 __fastcall SmKmVirtualLockContextIncreaseWsMin(ULONG_PTR BugCheckParameter2, __int64 a2, unsigned __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

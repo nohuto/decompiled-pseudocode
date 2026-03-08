@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AssignResources@FxInterrupt@@QEAAXPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@0@Z @ 0x1C007E760
+ * Callers:
+ *     ?PnpMatchResources@FxPkgPnp@@IEAAJXZ @ 0x1C006BA08 (-PnpMatchResources@FxPkgPnp@@IEAAJXZ.c)
+ *     ?Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z @ 0x1C007F178 (-Initialize@FxInterrupt@@QEAAJPEAVFxDevice@@PEAVFxObject@@PEAU_WDF_INTERRUPT_CONFIG@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_ddLLdiDD @ 0x1C007FB04 (WPP_IFR_SF_ddLLdiDD.c)
+ */
+
 void __fastcall FxInterrupt::AssignResources(
         FxInterrupt *this,
         _CM_PARTIAL_RESOURCE_DESCRIPTOR *CmDescRaw,

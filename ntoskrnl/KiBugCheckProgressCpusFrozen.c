@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiBugCheckProgressCpusFrozen @ 0x140567580
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KiBugCheckProgressCpusFrozen(char a1)
 {
   __int64 v1; // rdx

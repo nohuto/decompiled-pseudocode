@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetLPCreateDCompositionDirectInkFactoryPartner @ 0x18029998C
+ * Callers:
+ *     ?CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInkFactoryPartner@@@Z @ 0x180299900 (-CreateDirectInkFactory@CD2DGenericInk@@SAJPEAUID2D1DeviceContext@@PEAPEAUIDCompositionDirectInk.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall GetLPCreateDCompositionDirectInkFactoryPartner(FARPROC *a1)
 {
   signed int v1; // ebx

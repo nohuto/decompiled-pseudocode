@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDriverMonitorNativeTimingOverride@KernelDriver@@UEBAJPEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C021A5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ */
+
 __int64 __fastcall KernelDriver::GetDriverMonitorNativeTimingOverride(
         KernelDriver *this,
         struct _D3DKMDT_VIDEO_SIGNAL_INFO *a2)

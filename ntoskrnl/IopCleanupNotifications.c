@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopCleanupNotifications @ 0x1403A62E8
+ * Callers:
+ *     IopDeleteFileObjectExtension @ 0x140298CFC (IopDeleteFileObjectExtension.c)
+ *     IopDeleteDevice @ 0x140782EF0 (IopDeleteDevice.c)
+ *     IopUnloadDriver @ 0x1408549C8 (IopUnloadDriver.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExUnregisterCallback @ 0x140302720 (ExUnregisterCallback.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopCleanupNotifications(PVOID a1, PVOID a2)
 {
   struct _KTHREAD *CurrentThread; // rax

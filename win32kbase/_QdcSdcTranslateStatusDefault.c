@@ -1,3 +1,14 @@
+/*
+ * XREFs of _QdcSdcTranslateStatusDefault @ 0x1C00221EC
+ * Callers:
+ *     NtUserGetDisplayConfigBufferSizes @ 0x1C00217F0 (NtUserGetDisplayConfigBufferSizes.c)
+ *     NtUserQueryDisplayConfig @ 0x1C0021A60 (NtUserQueryDisplayConfig.c)
+ *     _DeviceInfoTranslateStatusDefault @ 0x1C00221BC (_DeviceInfoTranslateStatusDefault.c)
+ *     NtUserSetDisplayConfig @ 0x1C0176190 (NtUserSetDisplayConfig.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall QdcSdcTranslateStatusDefault(int a1)
 {
   bool v2; // zf

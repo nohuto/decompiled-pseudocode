@@ -1,3 +1,13 @@
+/*
+ * XREFs of RegisterIconTitleClass @ 0x1C00DBAB8
+ * Callers:
+ *     NtUserGetClassInfoEx @ 0x1C002F120 (NtUserGetClassInfoEx.c)
+ *     NtUserRegisterClassExWOW @ 0x1C0030020 (NtUserRegisterClassExWOW.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     InternalRegisterClassEx @ 0x1C0030830 (InternalRegisterClassEx.c)
+ */
+
 __int64 RegisterIconTitleClass()
 {
   __int64 *v0; // rax

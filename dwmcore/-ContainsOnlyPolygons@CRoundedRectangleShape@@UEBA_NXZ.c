@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ContainsOnlyPolygons@CRoundedRectangleShape@@UEBA_NXZ @ 0x18007F870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HasAnyRoundedCorners@CRoundedRectangleGeometryData@@QEBA_NXZ @ 0x180083710 (-HasAnyRoundedCorners@CRoundedRectangleGeometryData@@QEBA_NXZ.c)
+ */
+
 char __fastcall CRoundedRectangleShape::ContainsOnlyPolygons(CRoundedRectangleShape *this)
 {
   __int64 v1; // rcx

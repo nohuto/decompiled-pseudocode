@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIWakeEnableDisableAsyncCallBack @ 0x1C0045850
+ * Callers:
+ *     ACPIWakeDisableAsync @ 0x1C0044CC8 (ACPIWakeDisableAsync.c)
+ *     ACPIWakeEnableDisableAsync @ 0x1C0045348 (ACPIWakeEnableDisableAsync.c)
+ *     ACPIWakeEnableDisableAsyncCallBack @ 0x1C0045850 (ACPIWakeEnableDisableAsyncCallBack.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIWakeEnableDisableAsyncCallBack @ 0x1C0045850 (ACPIWakeEnableDisableAsyncCallBack.c)
+ *     ACPIWakeEnableDisablePciDevice @ 0x1C0045BB4 (ACPIWakeEnableDisablePciDevice.c)
+ *     WPP_RECORDER_SF_LsLLqss @ 0x1C004659C (WPP_RECORDER_SF_LsLLqss.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ */
+
 void __fastcall ACPIWakeEnableDisableAsyncCallBack(__int64 a1, int a2, __int64 a3, _QWORD *a4)
 {
   __int64 v4; // rbx

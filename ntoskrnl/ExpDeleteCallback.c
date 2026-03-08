@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpDeleteCallback @ 0x14067FE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1402F9670 (ExpUnlockCallbackListExclusive.c)
+ */
+
 char __fastcall ExpDeleteCallback(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

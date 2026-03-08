@@ -1,3 +1,13 @@
+/*
+ * XREFs of PHIDTtoPT @ 0x1C01C43EC
+ * Callers:
+ *     _GetPointerDeviceInfoProperties @ 0x1C0146180 (_GetPointerDeviceInfoProperties.c)
+ *     _GetPointerDeviceType @ 0x1C0146218 (_GetPointerDeviceType.c)
+ *     PostPointerEventMessage @ 0x1C01C4440 (PostPointerEventMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PHIDTtoPT(__int64 a1)
 {
   unsigned int v1; // r8d

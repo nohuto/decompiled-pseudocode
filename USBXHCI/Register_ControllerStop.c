@@ -1,3 +1,20 @@
+/*
+ * XREFs of Register_ControllerStop @ 0x1C000EEB0
+ * Callers:
+ *     Controller_D0Exit @ 0x1C000EE10 (Controller_D0Exit.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Register_BiosHandoff @ 0x1C00186F0 (Register_BiosHandoff.c)
+ *     Controller_InitiateRecovery @ 0x1C0033990 (Controller_InitiateRecovery.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall Register_ControllerStop(__int64 a1)
 {
   unsigned int v1; // edi

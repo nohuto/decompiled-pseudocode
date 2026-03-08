@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxGetDummyText@@YAPEAXPEAUtagWINDOWSTATION@@IPEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFFBC
+ * Callers:
+ *     xxxGetClipboardData @ 0x1C02009E4 (xxxGetClipboardData.c)
+ * Callees:
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C0012468 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     xxxGetClipboardData @ 0x1C02009E4 (xxxGetClipboardData.c)
+ */
+
 __int64 __fastcall xxxGetDummyText(struct tagWINDOWSTATION *a1, int a2, struct tagGETCLIPBDATA *a3)
 {
   int v5; // r15d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCheckFatalAccessViolation @ 0x1402FCEDC
+ * Callers:
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ * Callees:
+ *     MiIsStoreProcess @ 0x140229574 (MiIsStoreProcess.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiCheckFatalAccessViolation(ULONG_PTR BugCheckParameter2, __int64 a2, char a3, __int64 a4)
 {
   __int64 result; // rax

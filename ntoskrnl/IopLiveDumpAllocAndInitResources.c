@@ -1,3 +1,31 @@
+/*
+ * XREFs of IopLiveDumpAllocAndInitResources @ 0x1409495FC
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlClearAllBitsEx @ 0x1402D4520 (RtlClearAllBitsEx.c)
+ *     VslIsSecureKernelRunning @ 0x140302F60 (VslIsSecureKernelRunning.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     IopGetPhysicalMemoryBlock @ 0x140392BD0 (IopGetPhysicalMemoryBlock.c)
+ *     RtlSetAllBitsEx @ 0x1403AFA40 (RtlSetAllBitsEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1405579B4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTraceBufferAllocation @ 0x140557D58 (IopLiveDumpTraceBufferAllocation.c)
+ *     IopLiveDumpAllocateDumpBuffers @ 0x140949C84 (IopLiveDumpAllocateDumpBuffers.c)
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14094A230 (IopLiveDumpAllocateExtraBuffers.c)
+ *     IopLiveDumpAllocateIptBuffers @ 0x14094AC38 (IopLiveDumpAllocateIptBuffers.c)
+ *     IopLiveDumpAllocateMappingResources @ 0x14094AE18 (IopLiveDumpAllocateMappingResources.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094AFA4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpExcludeProtectedProcesses @ 0x14094B038 (IopLiveDumpExcludeProtectedProcesses.c)
+ *     IopLiveDumpReleaseResources @ 0x14094BEA8 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9811C (IopLiveDumpEstimateMemoryPages.c)
+ *     IopLiveDumpResetCorralContext @ 0x140A99498 (IopLiveDumpResetCorralContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopLiveDumpAllocAndInitResources(__int64 a1)
 {
   __int64 MillisecondCounter; // rax

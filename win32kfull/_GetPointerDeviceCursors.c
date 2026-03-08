@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetPointerDeviceCursors @ 0x1C01C49DC
+ * Callers:
+ *     NtUserGetPointerDeviceCursors @ 0x1C01D3F00 (NtUserGetPointerDeviceCursors.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall GetPointerDeviceCursors(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 i; // r10

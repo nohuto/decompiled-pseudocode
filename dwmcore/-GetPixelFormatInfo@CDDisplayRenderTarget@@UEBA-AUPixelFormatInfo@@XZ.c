@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CDDisplayRenderTarget@@UEBA?AUPixelFormatInfo@@XZ @ 0x1801C1468
+ * Callers:
+ *     ?GetPixelFormatInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x180118430 (-GetPixelFormatInfo@CDDisplayRenderTarget@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDDisplayRenderTarget::GetPixelFormatInfo(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

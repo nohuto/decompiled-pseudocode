@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiRelinkDecayClusterTimer @ 0x14021456C
+ * Callers:
+ *     MiInsertDecayClusterTimer @ 0x14021450C (MiInsertDecayClusterTimer.c)
+ *     MiEmptyDecayClusterTimers @ 0x140224EE0 (MiEmptyDecayClusterTimers.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiRelinkDecayClusterTimer(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r11

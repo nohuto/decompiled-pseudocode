@@ -1,3 +1,25 @@
+/*
+ * XREFs of SymCryptRsakeySetValue @ 0x1403F1F8C
+ * Callers:
+ *     HashpVerifyPkcs1Signature @ 0x140A7467C (HashpVerifyPkcs1Signature.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptRsakeyCalculatePrivateFields @ 0x1403F1A48 (SymCryptRsakeyCalculatePrivateFields.c)
+ *     SymCryptRsakeyCreateAllObjects @ 0x1403F1E6C (SymCryptRsakeyCreateAllObjects.c)
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptDivisorCreate @ 0x1403F36D8 (SymCryptDivisorCreate.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F3750 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F3884 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntSetValue @ 0x1403F391C (SymCryptIntSetValue.c)
+ *     SymCryptIntToModulus @ 0x1403F3A10 (SymCryptIntToModulus.c)
+ *     SymCryptSizeofDivisorFromDigits @ 0x1403F3ED8 (SymCryptSizeofDivisorFromDigits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptCallbackAlloc @ 0x14067B400 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x14067B438 (SymCryptCallbackFree.c)
+ */
+
 __int64 __fastcall SymCryptRsakeySetValue(
         __int64 a1,
         __int64 a2,

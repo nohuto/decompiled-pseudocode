@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800CAF6C
+ * Callers:
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800CAB14 (-Initialize@CManipulationManager@@IEAAJXZ.c)
+ *     ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x1800CAD30 (-ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CManipulationManager::SetupMessageCallThreadInfo(
         CManipulationManager *this,
         struct IMessageSession *a2,

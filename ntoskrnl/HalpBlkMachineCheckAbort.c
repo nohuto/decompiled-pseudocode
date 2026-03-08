@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkMachineCheckAbort @ 0x140B12280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpBlkHandleMachineCheckAbort @ 0x140B131B0 (HalpBlkHandleMachineCheckAbort.c)
+ *     HalpBlkMceFastForward @ 0x140B132B0 (HalpBlkMceFastForward.c)
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void __fastcall HalpBlkMachineCheckAbort(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {

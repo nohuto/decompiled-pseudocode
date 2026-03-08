@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpReferenceMessageByWaitingThreadPortQueue @ 0x140976EA8
+ * Callers:
+ *     AlpcpReferenceMessageByWaitingThreadPort @ 0x140976D30 (AlpcpReferenceMessageByWaitingThreadPort.c)
+ * Callees:
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ */
+
 _QWORD *__fastcall AlpcpReferenceMessageByWaitingThreadPortQueue(__int64 a1, _QWORD **a2)
 {
   _QWORD *v2; // rbx

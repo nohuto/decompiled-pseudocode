@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0VPTPTouchpad@@QEAA@PEAU_LIST_ENTRY@@@Z @ 0x1C0223C1C
+ * Callers:
+ *     ?FindTouchpadForConfig@VirtualTouchpadProcessor@@AEAAJPEAUVPTP_ID@@AEBUtagVIRTUAL_PTP_CONFIG@@PEAPEAVVPTPTouchpad@@@Z @ 0x1C022497C (-FindTouchpadForConfig@VirtualTouchpadProcessor@@AEAAJPEAUVPTP_ID@@AEBUtagVIRTUAL_PTP_CONFIG@@PE.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 VPTPTouchpad *__fastcall VPTPTouchpad::VPTPTouchpad(VPTPTouchpad *this, struct _LIST_ENTRY *a2)
 {
   struct _LIST_ENTRY *Flink; // rax

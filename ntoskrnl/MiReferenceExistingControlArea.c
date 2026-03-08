@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReferenceExistingControlArea @ 0x140361BD4
+ * Callers:
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiValidateControlAreaPartition @ 0x1403442B4 (MiValidateControlAreaPartition.c)
+ *     MiReferenceActiveControlArea @ 0x14034C41C (MiReferenceActiveControlArea.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReferenceExistingControlArea(__int64 a1)
 {
   __int64 v1; // rax

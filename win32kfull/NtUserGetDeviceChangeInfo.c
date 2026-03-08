@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetDeviceChangeInfo @ 0x1C01D20E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxGetDeviceChangeInfo @ 0x1C01B3C0C (xxxGetDeviceChangeInfo.c)
+ */
+
 __int64 NtUserGetDeviceChangeInfo()
 {
   __int64 v0; // rdx

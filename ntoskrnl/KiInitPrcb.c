@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiInitPrcb @ 0x140A88DD8
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KiInitializeDpcList @ 0x140302F70 (KiInitializeDpcList.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KiIntSteerInitPrcb @ 0x14037DC1C (KiIntSteerInitPrcb.c)
+ *     KiInitializeSoftwareInterruptBatch @ 0x14037DC58 (KiInitializeSoftwareInterruptBatch.c)
+ *     KiInitializeBugcheckRecoveryProcessor @ 0x14037DCA0 (KiInitializeBugcheckRecoveryProcessor.c)
+ *     KiInitializeSharedReadyQueue @ 0x14037DCF8 (KiInitializeSharedReadyQueue.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall KiInitPrcb(__int64 a1, int a2)
 {
   _QWORD *v2; // rax

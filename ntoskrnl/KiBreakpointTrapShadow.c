@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiBreakpointTrapShadow @ 0x140AF32C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall KiBreakpointTrapShadow()
 {

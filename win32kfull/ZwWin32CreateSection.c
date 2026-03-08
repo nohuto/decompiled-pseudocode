@@ -1,3 +1,13 @@
+/*
+ * XREFs of ZwWin32CreateSection @ 0x1C00BC3EC
+ * Callers:
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00BC0F8 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ *     ?vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z @ 0x1C011CC6C (-vUnreferenceFileviewSection@@YAXPEAU_FILEVIEW@@@Z.c)
+ *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C028D380 (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ * Callees:
+ *     ZwWin32CreateSectionRetainHandle @ 0x1C00BC448 (ZwWin32CreateSectionRetainHandle.c)
+ */
+
 __int64 __fastcall ZwWin32CreateSection(int a1, int a2, int a3, int a4, ULONG a5, int a6, void *a7, HANDLE Handle)
 {
   int v8; // ebx

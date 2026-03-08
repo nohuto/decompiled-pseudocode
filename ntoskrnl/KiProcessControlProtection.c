@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiProcessControlProtection @ 0x140579B40
+ * Callers:
+ *     KiControlProtectionFault @ 0x140429740 (KiControlProtectionFault.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiFixupControlProtectionUserModeReturnMismatch @ 0x140579890 (KiFixupControlProtectionUserModeReturnMismatch.c)
+ *     KiLogControlProtectionUserModeReturnMismatch @ 0x1405799EC (KiLogControlProtectionUserModeReturnMismatch.c)
+ *     KiProcessControlProtectionFromKernelMode @ 0x140579EC8 (KiProcessControlProtectionFromKernelMode.c)
+ *     KiCheckUserAddressCetCompat @ 0x14097262C (KiCheckUserAddressCetCompat.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall KiProcessControlProtection(__int64 a1, __int64 a2)
 {
   __int64 v3; // r11

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalBuildMdlFromScatterGatherListV3 @ 0x14050C650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ */
+
 __int64 __fastcall HalBuildMdlFromScatterGatherListV3(__int64 a1, unsigned int *a2, struct _MDL *a3, struct _MDL **a4)
 {
   __int64 v8; // rsi

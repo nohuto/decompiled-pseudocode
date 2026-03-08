@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOpaque@CGdiSpriteBitmap@@UEBA_NXZ @ 0x1800EE800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CGdiSpriteBitmap::IsOpaque(CGdiSpriteBitmap *this)
 {
   char result; // al

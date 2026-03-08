@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CLinearTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024EF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024D500 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ */
+
 __int64 __fastcall DirectComposition::CLinearTransferEffectMarshaler::SetIntegerProperty(
         DirectComposition::CLinearTransferEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

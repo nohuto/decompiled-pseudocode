@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopCacheDisplayOnPhaseDuration @ 0x140597524
+ * Callers:
+ *     PopSetWatchdog @ 0x1402BDFEC (PopSetWatchdog.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopCacheDisplayOnPhaseDuration(int a1, __int64 a2)
 {
   unsigned __int64 v4; // rsi

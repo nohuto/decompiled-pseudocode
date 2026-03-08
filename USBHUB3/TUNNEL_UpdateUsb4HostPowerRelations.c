@@ -1,3 +1,13 @@
+/*
+ * XREFs of TUNNEL_UpdateUsb4HostPowerRelations @ 0x1C008ECD8
+ * Callers:
+ *     TUNNEL_EvtWorkitemPnpInterfaceNotification @ 0x1C008D8F0 (TUNNEL_EvtWorkitemPnpInterfaceNotification.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C0040D80 (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TUNNEL_UpdateUsb4HostPowerRelations(_QWORD *a1, __int64 a2)
 {
   int v4; // eax

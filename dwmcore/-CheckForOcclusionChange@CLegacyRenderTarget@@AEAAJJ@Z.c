@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z @ 0x1800C9100
+ * Callers:
+ *     ?CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ @ 0x1800C8E58 (-CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ.c)
+ *     ?Present@CLegacyRenderTarget@@UEAAJ_N@Z @ 0x1800C8F1C (-Present@CLegacyRenderTarget@@UEAAJ_N@Z.c)
+ * Callees:
+ *     ?UpdateMPOCaps@CLegacyRenderTarget@@UEAAJXZ @ 0x1800C8D30 (-UpdateMPOCaps@CLegacyRenderTarget@@UEAAJXZ.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F1BF8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ */
+
 __int64 __fastcall CLegacyRenderTarget::CheckForOcclusionChange(CLegacyRenderTarget *this, int a2)
 {
   if ( a2 == 142213121 )

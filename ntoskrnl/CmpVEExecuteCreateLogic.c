@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpVEExecuteCreateLogic @ 0x140768C00
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     KCBNeedsVirtualImage @ 0x1402DD15C (KCBNeedsVirtualImage.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmRealKCBToVirtualPath @ 0x140A15968 (CmRealKCBToVirtualPath.c)
+ *     CmpCheckAdminAccess @ 0x140A16150 (CmpCheckAdminAccess.c)
+ *     CmpDoAccessCheckOnKCB @ 0x140A1628C (CmpDoAccessCheckOnKCB.c)
+ *     CmpReparseToVirtualPath @ 0x140A17264 (CmpReparseToVirtualPath.c)
+ *     CmpReplicateKeyToVirtual @ 0x140A17308 (CmpReplicateKeyToVirtual.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140A18BC8 (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140A18D84 (CmpReportAuditVirtualizationEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpVEExecuteCreateLogic(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopNetUpdateDsAccounting @ 0x140596AF0
+ * Callers:
+ *     PdcPoNetworkResiliency @ 0x140994930 (PdcPoNetworkResiliency.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopNetUpdateDsAccounting(char a1)
 {
   unsigned __int64 v2; // rdi

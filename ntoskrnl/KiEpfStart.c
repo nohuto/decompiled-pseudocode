@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiEpfStart @ 0x140576BB4
+ * Callers:
+ *     KeWaitPhysicalFaultCompletion @ 0x140576908 (KeWaitPhysicalFaultCompletion.c)
+ *     KiEpfHandleNotification @ 0x140576B90 (KiEpfHandleNotification.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeSetKernelStackSwapEnable @ 0x140283360 (KeSetKernelStackSwapEnable.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ */
+
 char __fastcall KiEpfStart(unsigned __int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

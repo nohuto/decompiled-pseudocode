@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceAntiStarvationBoost @ 0x14040C6E0
+ * Callers:
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KiNormalPriorityReadyScan @ 0x1402AC070 (KiNormalPriorityReadyScan.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceAntiStarvationBoost(__int64 a1, char a2)
 {
   int v2; // eax

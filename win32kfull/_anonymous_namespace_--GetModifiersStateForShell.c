@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::GetModifiersStateForShell @ 0x1C021FCEC
+ * Callers:
+ *     ?xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z @ 0x1C0221E40 (-xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall anonymous_namespace_::GetModifiersStateForShell(__int64 a1)
 {
   char v1; // r8

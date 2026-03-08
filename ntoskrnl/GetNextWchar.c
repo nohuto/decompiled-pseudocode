@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetNextWchar @ 0x140768840
+ * Callers:
+ *     RtlGenerate8dot3Name @ 0x1407684A0 (RtlGenerate8dot3Name.c)
+ * Callees:
+ *     RtlIsValidOemCharacter @ 0x1409BC230 (RtlIsValidOemCharacter.c)
+ */
+
 __int64 __fastcall GetNextWchar(unsigned __int16 *a1, unsigned int *a2, char a3, char a4)
 {
   unsigned int v4; // r11d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SendWnfNotification@DXGPROCESS@@QEAAJPEBU_WNF_STATE_NAME@@PEAXK@Z @ 0x1C03412A4
+ * Callers:
+ *     ?Reset@DXGDEVICE@@QEAAXE@Z @ 0x1C02E84BC (-Reset@DXGDEVICE@@QEAAXE@Z.c)
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C02E8704 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DXGPROCESS::SendWnfNotification(DXGPROCESS *this, struct _WNF_STATE_NAME *a2, void *a3)
 {
   bool v4; // zf

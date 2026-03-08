@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpRegisterPowerPolicyCallbacks @ 0x140544DF4
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ * Callees:
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ */
+
 NTSTATUS HvlpRegisterPowerPolicyCallbacks()
 {
   GUID **v0; // rbx

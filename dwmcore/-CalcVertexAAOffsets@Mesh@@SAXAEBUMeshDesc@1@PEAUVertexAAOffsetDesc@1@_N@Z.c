@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CalcVertexAAOffsets@Mesh@@SAXAEBUMeshDesc@1@PEAUVertexAAOffsetDesc@1@_N@Z @ 0x1800725E4
+ * Callers:
+ *     ?AppendHWGeometry@CDrawListEntryBuilder@@AEAAXAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005D950 (-AppendHWGeometry@CDrawListEntryBuilder@@AEAAXAEBUMeshDesc@Mesh@@PEBUPrimitiveVertexAttributesDe.c)
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F2F0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ *     ?GenerateGeometry@Mesh@@SAXAEBUMeshDesc@1@PEAUGeometryBuffers@1@@Z @ 0x1800B0C34 (-GenerateGeometry@Mesh@@SAXAEBUMeshDesc@1@PEAUGeometryBuffers@1@@Z.c)
+ *     ?Create@VertexAAOffsetsResource@Mesh@@SAXAEBUMeshDesc@2@PEAPEAV12@@Z @ 0x1800EDFC8 (-Create@VertexAAOffsetsResource@Mesh@@SAXAEBUMeshDesc@2@PEAPEAV12@@Z.c)
+ * Callees:
+ *     ?CalcEdgeDirections@Mesh@@SAXPEBUD2D_POINT_2F@@_KV?$StridedSpan@UD2D_VECTOR_2F@@@@M@Z @ 0x1800D7410 (-CalcEdgeDirections@Mesh@@SAXPEBUD2D_POINT_2F@@_KV-$StridedSpan@UD2D_VECTOR_2F@@@@M@Z.c)
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 void __fastcall Mesh::CalcVertexAAOffsets(
         const struct Mesh::MeshDesc *a1,
         struct Mesh::VertexAAOffsetDesc *a2,

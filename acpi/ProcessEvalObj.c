@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProcessEvalObj @ 0x1C0054C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DumpObject @ 0x1C0051E98 (DumpObject.c)
+ */
+
 __int64 __fastcall ProcessEvalObj(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 ObjectPath; // rax

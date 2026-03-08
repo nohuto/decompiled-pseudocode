@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipSendGuidUpdateNotifications @ 0x140868544
+ * Callers:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ *     WmipGenerateRegistrationNotification @ 0x1408682E0 (WmipGenerateRegistrationNotification.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WmipSendGuidUpdateNotifications(int a1, unsigned int a2, _OWORD **a3)
 {
   __int64 v3; // rbp

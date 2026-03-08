@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGetThreadLangIdByIndex @ 0x1402FBA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlGetThreadLangIdByIndex(int a1, unsigned int a2, _DWORD *a3, unsigned int *a4)
 {
   __int64 v5; // r9

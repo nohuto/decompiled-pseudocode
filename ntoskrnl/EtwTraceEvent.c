@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwTraceEvent @ 0x14045FE22
+ * Callers:
+ *     NtTraceEvent @ 0x140230D30 (NtTraceEvent.c)
+ *     IoWMIWriteEvent @ 0x1403A2D60 (IoWMIWriteEvent.c)
+ * Callees:
+ *     EtwpOpenLogger @ 0x140205B30 (EtwpOpenLogger.c)
+ *     EtwpReleaseTraceBuffer @ 0x140205BD8 (EtwpReleaseTraceBuffer.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     EtwpGetReserveTraceBufferStatus @ 0x1402FF40C (EtwpGetReserveTraceBufferStatus.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ *     EtwpSendTraceEvent @ 0x14039D2E8 (EtwpSendTraceEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpInvokeEventCallback @ 0x1405FEBA4 (EtwpInvokeEventCallback.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall EtwTraceEvent(unsigned __int16 a1, unsigned __int16 *a2, unsigned int a3, int a4, char a5)
 {
   __int64 v5; // rbx

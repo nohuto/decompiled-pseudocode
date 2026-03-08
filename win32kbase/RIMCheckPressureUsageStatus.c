@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMCheckPressureUsageStatus @ 0x1C01B3FBC
+ * Callers:
+ *     RIMPopulatePointerDevice @ 0x1C01AF510 (RIMPopulatePointerDevice.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMCheckPressureUsageStatus(__int64 a1, __int64 a2, __int16 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMUpdateInputObserverRegistration @ 0x1C01A80D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     rimObsUpdateInputObserverRegistration @ 0x1C01DD920 (rimObsUpdateInputObserverRegistration.c)
+ */
+
 __int64 __fastcall RIMUpdateInputObserverRegistration(
         void *a1,
         __int64 a2,

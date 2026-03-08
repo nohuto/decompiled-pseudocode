@@ -1,3 +1,29 @@
+/*
+ * XREFs of UsbhFdoDeviceControl @ 0x1C002A630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoChainIrp @ 0x1C002A33C (UsbhFdoChainIrp.c)
+ *     UsbhIoctlCyclePort @ 0x1C003E3F8 (UsbhIoctlCyclePort.c)
+ *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003EBD8 (UsbhIoctlGetDescriptorFromNodeConnection.c)
+ *     UsbhIoctlGetHubCaps @ 0x1C003EF0C (UsbhIoctlGetHubCaps.c)
+ *     UsbhIoctlGetHubCapsEx @ 0x1C003F180 (UsbhIoctlGetHubCapsEx.c)
+ *     UsbhIoctlGetHubInformationEx @ 0x1C003F448 (UsbhIoctlGetHubInformationEx.c)
+ *     UsbhIoctlGetNodeConnectionAttributes @ 0x1C003F72C (UsbhIoctlGetNodeConnectionAttributes.c)
+ *     UsbhIoctlGetNodeConnectionDriverKeyName @ 0x1C003F9BC (UsbhIoctlGetNodeConnectionDriverKeyName.c)
+ *     UsbhIoctlGetNodeConnectionInfo @ 0x1C003FD3C (UsbhIoctlGetNodeConnectionInfo.c)
+ *     UsbhIoctlGetNodeConnectionInfoEx @ 0x1C003FDD4 (UsbhIoctlGetNodeConnectionInfoEx.c)
+ *     UsbhIoctlGetNodeConnectionInfoExV2 @ 0x1C0040194 (UsbhIoctlGetNodeConnectionInfoExV2.c)
+ *     UsbhIoctlGetNodeConnectionName @ 0x1C00404A8 (UsbhIoctlGetNodeConnectionName.c)
+ *     UsbhIoctlGetNodeInformation @ 0x1C0040798 (UsbhIoctlGetNodeInformation.c)
+ *     UsbhIoctlGetPortConnectorProperties @ 0x1C0040A78 (UsbhIoctlGetPortConnectorProperties.c)
+ *     UsbhIoctlResetStuckHub @ 0x1C0040D6C (UsbhIoctlResetStuckHub.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoDeviceControl(__int64 a1, IRP *a2)
 {
   unsigned int LowPart; // ebx

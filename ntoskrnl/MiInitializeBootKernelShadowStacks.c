@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeBootKernelShadowStacks @ 0x1403B0CCC
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiInitializeBootKernelShadowStack @ 0x140642510 (MiInitializeBootKernelShadowStack.c)
+ *     MiInitializeBootShadowStackPage @ 0x140642570 (MiInitializeBootShadowStackPage.c)
+ */
+
 __int64 __fastcall MiInitializeBootKernelShadowStacks(__int64 a1)
 {
   __int64 result; // rax

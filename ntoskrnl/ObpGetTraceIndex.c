@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpGetTraceIndex @ 0x140979D90
+ * Callers:
+ *     ObpPushRefDerefInfo @ 0x14097A13C (ObpPushRefDerefInfo.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ObpGetTraceIndex(unsigned __int16 *Source2)
 {
   unsigned int v1; // ebp

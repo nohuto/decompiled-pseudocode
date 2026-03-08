@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionPointerParentNotify @ 0x1C01C7B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ThreadLockExchange @ 0x1C010A0D0 (ThreadLockExchange.c)
+ *     xxxSendPointerMessageWorker @ 0x1C01C68A8 (xxxSendPointerMessageWorker.c)
+ */
+
 __int64 __fastcall EditionPointerParentNotify(__int64 a1, void *a2, __int64 a3)
 {
   __int64 v3; // rbx

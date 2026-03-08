@@ -1,3 +1,16 @@
+/*
+ * XREFs of IrqArbBacktrackAllocation @ 0x1C009CE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlDeleteRange_0 @ 0x1C0001A9D (RtlDeleteRange_0.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005DFF0 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     WPP_RECORDER_SF_Dq @ 0x1C005EA58 (WPP_RECORDER_SF_Dq.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IcRemovePossibleReference @ 0x1C009F660 (IcRemovePossibleReference.c)
+ */
+
 NTSTATUS __fastcall IrqArbBacktrackAllocation(__int64 a1, unsigned int *a2, int a3)
 {
   unsigned int *v5; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiUnloadHotPatch @ 0x140A392C0
+ * Callers:
+ *     NtManageHotPatch @ 0x140784740 (NtManageHotPatch.c)
+ * Callees:
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VslRevertHotPatch @ 0x14054A16C (VslRevertHotPatch.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiApplyHotPatchToDriver @ 0x140A321B0 (MiApplyHotPatchToDriver.c)
+ *     MiCompareHotPatchNodes @ 0x140A33944 (MiCompareHotPatchNodes.c)
+ *     MiDeleteHotPatchRecord @ 0x140A33BA4 (MiDeleteHotPatchRecord.c)
+ *     MiHotPatchAllProcesses @ 0x140A34748 (MiHotPatchAllProcesses.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiUnloadHotPatch(unsigned int a1, unsigned int a2)
 {
   unsigned __int64 *v4; // r14

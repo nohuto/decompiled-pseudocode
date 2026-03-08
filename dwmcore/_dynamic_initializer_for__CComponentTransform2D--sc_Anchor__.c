@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CComponentTransform2D::sc_Anchor__ @ 0x180001750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CComponentTransform2D::sc_Anchor__()
 {
   __int64 result; // rax

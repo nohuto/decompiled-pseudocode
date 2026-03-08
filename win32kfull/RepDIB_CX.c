@@ -1,3 +1,11 @@
+/*
+ * XREFs of RepDIB_CX @ 0x1C0265B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RepDIB_CX(__int64 a1, __int16 *a2, __int64 a3, __int64 a4, int a5)
 {
   unsigned __int16 *v5; // r10

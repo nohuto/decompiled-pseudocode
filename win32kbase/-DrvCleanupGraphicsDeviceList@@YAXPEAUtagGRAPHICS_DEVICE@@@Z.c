@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00A01A4
+ * Callers:
+ *     ?MultiUserDrvCleanupGraphicsDeviceList@@YAXXZ @ 0x1C00A0118 (-MultiUserDrvCleanupGraphicsDeviceList@@YAXXZ.c)
+ * Callees:
+ *     DrvCleanupOneGraphicsDevice @ 0x1C00A0200 (DrvCleanupOneGraphicsDevice.c)
+ *     ?DrvRemoveAdapterLuid@@YAJU_LUID@@@Z @ 0x1C00A02D4 (-DrvRemoveAdapterLuid@@YAJU_LUID@@@Z.c)
+ */
+
 void __fastcall DrvCleanupGraphicsDeviceList(struct tagGRAPHICS_DEVICE *a1)
 {
   struct tagGRAPHICS_DEVICE *v1; // rbx

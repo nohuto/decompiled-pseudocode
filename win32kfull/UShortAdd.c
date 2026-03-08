@@ -1,3 +1,11 @@
+/*
+ * XREFs of UShortAdd @ 0x1C00E9C78
+ * Callers:
+ *     AllocateUnicodeString @ 0x1C00E9BB0 (AllocateUnicodeString.c)
+ * Callees:
+ *     <none>
+ */
+
 HRESULT __stdcall UShortAdd(USHORT usAugend, USHORT usAddend, USHORT *pusResult)
 {
   bool v3; // cf

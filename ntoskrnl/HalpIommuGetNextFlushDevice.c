@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuGetNextFlushDevice @ 0x140513058
+ * Callers:
+ *     IvtFlushTbInternal @ 0x1403ABA60 (IvtFlushTbInternal.c)
+ *     HsaFlushTbInternal @ 0x14052D57C (HsaFlushTbInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpIommuGetNextFlushDevice(
         _QWORD *a1,
         _QWORD **a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetLocationIdString @ 0x1C0050690
+ * Callers:
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Short2Bcd @ 0x1C004ED94 (Short2Bcd.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ */
+
 __int64 __fastcall UsbhGetLocationIdString(__int64 a1, __int64 a2, __int16 a3, __int64 a4)
 {
   _DWORD *v6; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoReservedQueuesInitialize @ 0x1C000B674
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ */
+
 char __fastcall IoReservedQueuesInitialize(__int64 a1)
 {
   int v1; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnInitialize@InkDevice@@UEAAXXZ @ 0x1C02474E0
+ * Callers:
+ *     ??1InkDevice@@UEAA@XZ @ 0x1C0245DE4 (--1InkDevice@@UEAA@XZ.c)
+ *     ?Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0246650 (-Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     ?UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ @ 0x1C022AC30 (-UnInitialize@RimBackedDeviceBase@Rim@@UEAAXXZ.c)
+ */
+
 void __fastcall InkDevice::UnInitialize(InkDevice *this)
 {
   void *v2; // rcx

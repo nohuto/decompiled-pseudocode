@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiIsPfnEnclave @ 0x1402C11E0
+ * Callers:
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiFreeSmallPageFromMdl @ 0x140620DF0 (MiFreeSmallPageFromMdl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIsPfnEnclave(__int64 a1)
 {
   _QWORD *v1; // rdx

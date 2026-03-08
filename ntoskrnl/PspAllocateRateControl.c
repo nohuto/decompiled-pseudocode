@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspAllocateRateControl @ 0x14078330C
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x1407833A8 (PspAddSchedulingGroupToJobChain.c)
+ *     PspSetJobRateControl @ 0x1409AFE3C (PspSetJobRateControl.c)
+ * Callees:
+ *     PsChargeSharedPoolQuota @ 0x140696154 (PsChargeSharedPoolQuota.c)
+ *     PspGetRateControlSize @ 0x140783388 (PspGetRateControlSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 *__fastcall PspAllocateRateControl(__int64 a1)
 {
   ULONG_PTR RateControlSize; // rdi

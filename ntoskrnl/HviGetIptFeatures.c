@@ -1,3 +1,14 @@
+/*
+ * XREFs of HviGetIptFeatures @ 0x1406130AC
+ * Callers:
+ *     KiGetIptInfo @ 0x140397F50 (KiGetIptInfo.c)
+ * Callees:
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14037F140 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HviGetHypervisorVendorAndMaxFunction @ 0x140612FD4 (HviGetHypervisorVendorAndMaxFunction.c)
+ */
+
 char __fastcall HviGetIptFeatures(_DWORD *a1)
 {
   __int128 v8; // [rsp+20h] [rbp-38h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dDqss @ 0x1C0027D7C
+ * Callers:
+ *     ACPIFanPrepareImpactZoneSupport @ 0x1C0084960 (ACPIFanPrepareImpactZoneSupport.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_dDqss(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxSend4FingerTapHotkey@@YAXXZ @ 0x1C01F7A30
+ * Callers:
+ *     Send4FingerTapHotkey @ 0x1C01F7C30 (Send4FingerTapHotkey.c)
+ * Callees:
+ *     xxxSendInput @ 0x1C00171A4 (xxxSendInput.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void xxxSend4FingerTapHotkey(void)
 {
   __int64 v0; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlDecompressBufferXpressHuffProgress @ 0x1405B1224
+ * Callers:
+ *     RtlDecompressBufferProgress @ 0x1405B1154 (RtlDecompressBufferProgress.c)
+ * Callees:
+ *     XpressBuildHuffmanDecodingTable @ 0x1402B53E0 (XpressBuildHuffmanDecodingTable.c)
+ *     RtlpMakeXpressCallback @ 0x1405B2518 (RtlpMakeXpressCallback.c)
+ */
+
 __int64 __fastcall RtlDecompressBufferXpressHuffProgress(
         _DWORD *a1,
         unsigned int a2,

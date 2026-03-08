@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetActiveWindow @ 0x1C00EA160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00EA204 (-xxxSetActiveWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetActiveWindow(__int64 a1)
 {
   __int64 v2; // rbx

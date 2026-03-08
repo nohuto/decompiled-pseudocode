@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECVisualBitmap@@MEAAPEAXI@Z @ 0x1801C0B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CVisualBitmap@@MEAA@XZ @ 0x18021B95C (--1CVisualBitmap@@MEAA@XZ.c)
+ */
+
 CVisualBitmap *__fastcall CVisualBitmap::`vector deleting destructor'(CVisualBitmap *this, char a2)
 {
   CVisualBitmap::~CVisualBitmap(this);

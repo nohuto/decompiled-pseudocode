@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPITableLoad @ 0x1C003F170
+ * Callers:
+ *     ACPIInitializeDDBs @ 0x1C00A94A0 (ACPIInitializeDDBs.c)
+ * Callees:
+ *     ACPIBuildRunMethodRequest @ 0x1C0013564 (ACPIBuildRunMethodRequest.c)
+ *     ACPIBuildScheduleDpc @ 0x1C0013794 (ACPIBuildScheduleDpc.c)
+ *     ACPIBuildSpecialSynchronizationRequest @ 0x1C00137D8 (ACPIBuildSpecialSynchronizationRequest.c)
+ *     EnableDisableCMOSRegions @ 0x1C0019E94 (EnableDisableCMOSRegions.c)
+ *     ACPIEcInitOpRegionHandler @ 0x1C00251B0 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIGpeBuildEventMasks @ 0x1C002BE44 (ACPIGpeBuildEventMasks.c)
+ *     ACPIGpeClearEventMasks @ 0x1C002C0D8 (ACPIGpeClearEventMasks.c)
+ *     ACPIQueryDeviceLockMutexSupport @ 0x1C0031DA0 (ACPIQueryDeviceLockMutexSupport.c)
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ */
+
 __int64 __fastcall ACPITableLoad(__int64 a1, int a2, __int64 a3)
 {
   KIRQL v4; // al

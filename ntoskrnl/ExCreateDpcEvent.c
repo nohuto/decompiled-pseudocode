@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExCreateDpcEvent @ 0x140609B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     ObDeleteCapturedInsertInfo @ 0x140768AD0 (ObDeleteCapturedInsertInfo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExCreateDpcEvent(__int64 *a1, _QWORD *a2, __int64 a3)
 {
   __int64 Pool2; // rdi

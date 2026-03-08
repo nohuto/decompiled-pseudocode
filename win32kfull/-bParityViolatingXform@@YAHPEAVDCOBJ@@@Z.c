@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bParityViolatingXform@@YAHPEAVDCOBJ@@@Z @ 0x1C0016194
+ * Callers:
+ *     ?bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KQEAU_POINTL@@H@Z @ 0x1C0110DC8 (-bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@KQEAU_POINTL@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bParityViolatingXform(float **a1)
 {
   float *v1; // r11

@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlNotifyInitializeSync @ 0x1407760A0
+ * Callers:
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140703B40 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyFilterChangeDirectoryLite @ 0x140775CA0 (FsRtlNotifyFilterChangeDirectoryLite.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __stdcall FsRtlNotifyInitializeSync(PNOTIFY_SYNC *NotifySync)
 {
   __int64 Pool2; // rbx

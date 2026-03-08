@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SysMmQueryTestInterface@@YAJPEAXII@Z @ 0x1C0071584
+ * Callers:
+ *     ?DxgkpQueryTestInterface@@YAJPEAXIIW4_DXGKTEST_INTERFACE_TYPE@@@Z @ 0x1C0358E24 (-DxgkpQueryTestInterface@@YAJPEAXIIW4_DXGKTEST_INTERFACE_TYPE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SysMmQueryTestInterface(_QWORD *a1, unsigned int a2, unsigned int a3)
 {
   if ( a3 <= 1 && a2 >= 0x98 )

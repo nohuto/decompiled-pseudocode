@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimQueueApiSetHidRawInputAsyncWorkItem @ 0x1C01DA354
+ * Callers:
+ *     rimProcessHidInput @ 0x1C01D2DF8 (rimProcessHidInput.c)
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01D517C (RIMProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     RIMAllocateAsyncPnpWorkItem @ 0x1C00364E8 (RIMAllocateAsyncPnpWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20 (WPP_RECORDER_AND_TRACE_SF_qqqDSd.c)
+ */
+
 void __fastcall rimQueueApiSetHidRawInputAsyncWorkItem(void *a1, __int64 a2)
 {
   _QWORD *v3; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DxFlipConsumedTelemetry@CWindowNode@@AEBAXPEAVCDrawingContext@@PEAVCCompositionSurfaceBitmap@@@Z @ 0x180252EA8
+ * Callers:
+ *     ?RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A040 (-RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetLastPresentCount@CCompositionSurfaceBitmap@@QEBAIXZ @ 0x18025034C (-GetLastPresentCount@CCompositionSurfaceBitmap@@QEBAIXZ.c)
+ *     ?ConsumeDxFlipRect@CCompositionSurfaceInfo@@QEAA_NPEAUMilRectU@@@Z @ 0x180252E74 (-ConsumeDxFlipRect@CCompositionSurfaceInfo@@QEAA_NPEAUMilRectU@@@Z.c)
+ *     ?GetMonitorTargetId@CDrawingContext@@QEBA_NPEAUtagCOMPOSITION_TARGET_ID@@@Z @ 0x1802530AC (-GetMonitorTargetId@CDrawingContext@@QEBA_NPEAUtagCOMPOSITION_TARGET_ID@@@Z.c)
+ *     McTemplateU0xxxqqqxxqn_EventWriteTransfer @ 0x180253794 (McTemplateU0xxxqqqxxqn_EventWriteTransfer.c)
+ */
+
 void __fastcall CWindowNode::DxFlipConsumedTelemetry(
         CWindowNode *this,
         struct CDrawingContext *a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of NVMeMapError @ 0x1C00200A8
+ * Callers:
+ *     NVMeCompletionDpcRoutine @ 0x1C00023F0 (NVMeCompletionDpcRoutine.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetSrbScsiData @ 0x1C0012B7C (GetSrbScsiData.c)
+ *     NVMeIsAllowedWithinThrottleLimit @ 0x1C00168B4 (NVMeIsAllowedWithinThrottleLimit.c)
+ *     GetLunExtension @ 0x1C001B754 (GetLunExtension.c)
+ *     NVMeAdminCommandErrorLog @ 0x1C001B794 (NVMeAdminCommandErrorLog.c)
+ */
+
 __int64 __fastcall NVMeMapError(__int64 a1, __int64 a2, char a3)
 {
   char v4; // di

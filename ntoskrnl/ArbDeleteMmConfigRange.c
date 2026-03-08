@@ -1,3 +1,13 @@
+/*
+ * XREFs of ArbDeleteMmConfigRange @ 0x140B66F9C
+ * Callers:
+ *     HalpPciReportMmConfigAddressRange @ 0x140B66ED8 (HalpPciReportMmConfigAddressRange.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ */
+
 NTSTATUS ArbDeleteMmConfigRange()
 {
   NTSTATUS result; // eax

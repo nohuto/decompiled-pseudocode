@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiTerminateWsle @ 0x14032AAF0
+ * Callers:
+ *     MiRemoveSystemImagePage @ 0x1402E3EA0 (MiRemoveSystemImagePage.c)
+ *     MiDeleteEmptyPageTable @ 0x1402EBB20 (MiDeleteEmptyPageTable.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ * Callees:
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiRemoveWsle @ 0x140325790 (MiRemoveWsle.c)
+ *     MiRebuildPageTableLeafAges @ 0x14032AD30 (MiRebuildPageTableLeafAges.c)
+ *     MiUnlockWsle @ 0x1403443C0 (MiUnlockWsle.c)
+ *     MiEvictPageTableLock @ 0x140346460 (MiEvictPageTableLock.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140346F70 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ */
+
 __int64 __fastcall MiTerminateWsle(__int64 a1, unsigned __int64 a2, char a3, int *a4)
 {
   int v4; // ebp

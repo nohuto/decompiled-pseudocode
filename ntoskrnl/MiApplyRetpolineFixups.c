@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiApplyRetpolineFixups @ 0x140209950
+ * Callers:
+ *     MiReapplyImportOptimizationWorker @ 0x14063EA90 (MiReapplyImportOptimizationWorker.c)
+ *     MiPerformFixups @ 0x14069F3D0 (MiPerformFixups.c)
+ * Callees:
+ *     RtlpConstructImportRelocationFixup @ 0x140209B30 (RtlpConstructImportRelocationFixup.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6BE4 (RtlApplyImportRelocationToPage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlApplyIndirectRelocationToPage @ 0x140677EB4 (RtlApplyIndirectRelocationToPage.c)
+ *     RtlApplySwitchJumpRelocationToPage @ 0x140677F60 (RtlApplySwitchJumpRelocationToPage.c)
+ */
+
 unsigned __int64 __fastcall MiApplyRetpolineFixups(
         unsigned __int64 a1,
         __int64 a2,

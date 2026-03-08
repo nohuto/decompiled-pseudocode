@@ -1,3 +1,18 @@
+/*
+ * XREFs of SymCryptCrtGenerateForTwoCoprimes @ 0x1403F7FE0
+ * Callers:
+ *     SymCryptCrtGenerateInverses @ 0x1403F8190 (SymCryptCrtGenerateInverses.c)
+ * Callees:
+ *     KeReadStateSemaphore @ 0x1402CBA80 (KeReadStateSemaphore.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F3884 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntToModElement @ 0x1403F39F0 (SymCryptIntToModElement.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptIntExtendedGcd @ 0x1403F81E4 (SymCryptIntExtendedGcd.c)
+ */
+
 __int64 __fastcall SymCryptCrtGenerateForTwoCoprimes(
         PRKSEMAPHORE Semaphore,
         PRKSEMAPHORE a2,

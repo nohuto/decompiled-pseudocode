@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?VidSchiControlIndependentVidPnVSyncThread@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0035840
+ * Callers:
+ *     VidSchiControlVSyncThread @ 0x1C000E940 (VidSchiControlVSyncThread.c)
+ * Callees:
+ *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C000EA94 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
+ *     VidSchiSetVSyncSuspended @ 0x1C000F7DC (VidSchiSetVSyncSuspended.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     ?VidSchiVSyncDisabledOnAllPlanes@@YA_NPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@I@Z @ 0x1C004B204 (-VidSchiVSyncDisabledOnAllPlanes@@YA_NPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@I@Z.c)
+ *     VidSchiControlVSync @ 0x1C00A5D30 (VidSchiControlVSync.c)
+ */
+
 void __fastcall VidSchiControlIndependentVidPnVSyncThread(struct _VIDSCH_GLOBAL *a1)
 {
   struct _ERESOURCE *v1; // r14

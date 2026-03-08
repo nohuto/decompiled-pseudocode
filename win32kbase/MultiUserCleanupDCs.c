@@ -1,3 +1,14 @@
+/*
+ * XREFs of MultiUserCleanupDCs @ 0x1C00B637C
+ * Callers:
+ *     DrvCleanupAndDestroyMDEV @ 0x1C00B61F4 (DrvCleanupAndDestroyMDEV.c)
+ * Callees:
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z @ 0x1C006F140 (-GetNextEntryIndex@GdiHandleManager@@QEAAIIPEAPEAU_ENTRY@@@Z.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C006F338 (-vCleanupDCs@@YAXK@Z.c)
+ */
+
 void MultiUserCleanupDCs()
 {
   unsigned int CurrentProcessId; // eax

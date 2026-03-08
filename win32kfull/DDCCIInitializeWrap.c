@@ -1,3 +1,11 @@
+/*
+ * XREFs of DDCCIInitializeWrap @ 0x1C00F3830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CMonitorAPI@@QEAA@PEAJ@Z @ 0x1C00F38B4 (--0CMonitorAPI@@QEAA@PEAJ@Z.c)
+ */
+
 __int64 __fastcall DDCCIInitializeWrap(__int64 a1)
 {
   unsigned int v1; // ebx

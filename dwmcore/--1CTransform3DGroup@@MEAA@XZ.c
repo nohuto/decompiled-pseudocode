@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CTransform3DGroup@@MEAA@XZ @ 0x180251998
+ * Callers:
+ *     ??_ECTransform3DGroup@@MEAAPEAXI@Z @ 0x1801C0A70 (--_ECTransform3DGroup@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$SAFE_DELETE@VCMILMatrix@@@@YAXAEAPEAVCMILMatrix@@@Z @ 0x18000C0E8 (--$SAFE_DELETE@VCMILMatrix@@@@YAXAEAPEAVCMILMatrix@@@Z.c)
+ */
+
 void __fastcall CTransform3DGroup::~CTransform3DGroup(CTransform3DGroup *this)
 {
   __int64 v1; // rbx

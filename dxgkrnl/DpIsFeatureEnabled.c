@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpIsFeatureEnabled @ 0x1C0394650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpQueryFeatureSupport @ 0x1C021A040 (DpQueryFeatureSupport.c)
+ */
+
 __int64 __fastcall DpIsFeatureEnabled(__int64 a1)
 {
   __int64 v1; // rdx

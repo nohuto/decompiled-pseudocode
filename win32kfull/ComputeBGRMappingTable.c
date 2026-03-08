@@ -1,3 +1,20 @@
+/*
+ * XREFs of ComputeBGRMappingTable @ 0x1C0256580
+ * Callers:
+ *     CreateDyesColorMappingTable @ 0x1C0257C98 (CreateDyesColorMappingTable.c)
+ *     CreateHalftoneBrushPat @ 0x1C02591B0 (CreateHalftoneBrushPat.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     FD6DivL @ 0x1C014AFC0 (FD6DivL.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     MulDivFD6Pairs @ 0x1C0255BE8 (MulDivFD6Pairs.c)
+ *     CacheRGBToXYZ @ 0x1C0256490 (CacheRGBToXYZ.c)
+ *     ScaleRGB @ 0x1C0258074 (ScaleRGB.c)
+ */
+
 __int64 __fastcall ComputeBGRMappingTable(__int64 a1, __int64 a2, __int128 *a3, _BYTE *a4)
 {
   char *v5; // r12

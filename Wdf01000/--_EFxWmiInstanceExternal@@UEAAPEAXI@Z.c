@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxWmiInstanceExternal@@UEAAPEAXI@Z @ 0x1C0028B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxWmiInstanceInternal *__fastcall FxWmiInstanceExternal::`vector deleting destructor'(
         FxWmiInstanceInternal *this,
         unsigned int a2)

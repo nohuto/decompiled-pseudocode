@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMGetContainerId @ 0x1C0030264
+ * Callers:
+ *     RIMApiSetCheckForLegacyTouchPad @ 0x1C003017C (RIMApiSetCheckForLegacyTouchPad.c)
+ *     RIMGetDeviceLocationInfo @ 0x1C01B67F4 (RIMGetDeviceLocationInfo.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01BE49C (rimFindMonitorForDigitizerWithQDCData.c)
+ * Callees:
+ *     RIMGetPointerDevicePDO @ 0x1C0031414 (RIMGetPointerDevicePDO.c)
+ */
+
 __int64 __fastcall RIMGetContainerId(struct _DEVICE_OBJECT *a1, void *a2, _DWORD *a3)
 {
   int v4; // ebx

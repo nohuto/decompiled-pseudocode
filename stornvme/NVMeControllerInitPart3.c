@@ -1,3 +1,27 @@
+/*
+ * XREFs of NVMeControllerInitPart3 @ 0x1C000DCDC
+ * Callers:
+ *     NVMeHwInitialize @ 0x1C00083B0 (NVMeHwInitialize.c)
+ *     NVMeHwPassiveInitialize @ 0x1C0008480 (NVMeHwPassiveInitialize.c)
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerReinitialize @ 0x1C001C9A0 (NVMeControllerReinitialize.c)
+ * Callees:
+ *     NVMeControllerStartFailureEventLog @ 0x1C0007C08 (NVMeControllerStartFailureEventLog.c)
+ *     NVMeControllerSetHostIdentifier @ 0x1C000E854 (NVMeControllerSetHostIdentifier.c)
+ *     NVMeControllerSetWriteCacheEnable @ 0x1C000EAB4 (NVMeControllerSetWriteCacheEnable.c)
+ *     NVMeEnableThrottling @ 0x1C000ECF4 (NVMeEnableThrottling.c)
+ *     NVMeStartAsyncEventCommands @ 0x1C0010780 (NVMeStartAsyncEventCommands.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ *     NVMeConfigAsyncEvent @ 0x1C001C480 (NVMeConfigAsyncEvent.c)
+ *     NVMeGetCloudSSDErrorRecoveryLog @ 0x1C001D5EC (NVMeGetCloudSSDErrorRecoveryLog.c)
+ *     NVMeGetCommandEffectsLog @ 0x1C001D810 (NVMeGetCommandEffectsLog.c)
+ *     NVMeGetControllerInitiatedTelemetry @ 0x1C001D968 (NVMeGetControllerInitiatedTelemetry.c)
+ *     NVMeGetHealthInfoLog @ 0x1C001E084 (NVMeGetHealthInfoLog.c)
+ *     NVMeGetTemperatureThreshold @ 0x1C001EE74 (NVMeGetTemperatureThreshold.c)
+ *     NVMeSyncHostTime @ 0x1C0024318 (NVMeSyncHostTime.c)
+ */
+
 char __fastcall NVMeControllerInitPart3(__int64 a1)
 {
   __int64 v2; // rax

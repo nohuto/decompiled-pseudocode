@@ -1,3 +1,12 @@
+/*
+ * XREFs of RaspAddCacheEntry @ 0x140AEAB60
+ * Callers:
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     RaspGetXExtent @ 0x140382254 (RaspGetXExtent.c)
+ * Callees:
+ *     RaspDestroyCachedBitmap @ 0x140AEAB20 (RaspDestroyCachedBitmap.c)
+ */
+
 __int64 __fastcall RaspAddCacheEntry(__int64 a1, __int64 *a2)
 {
   __int64 result; // rax

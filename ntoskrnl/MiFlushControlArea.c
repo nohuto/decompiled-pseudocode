@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiFlushControlArea @ 0x1406220F4
+ * Callers:
+ *     MiDeleteCachedSegment @ 0x140621514 (MiDeleteCachedSegment.c)
+ *     MiProcessDeleteOnClose @ 0x1406229CC (MiProcessDeleteOnClose.c)
+ * Callees:
+ *     MiRemoveWakeListEntry @ 0x14020181C (MiRemoveWakeListEntry.c)
+ *     MiDecrementModifiedWriteCount @ 0x140212BE4 (MiDecrementModifiedWriteCount.c)
+ *     MmIsWriteErrorFatal @ 0x140212D9C (MmIsWriteErrorFatal.c)
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     MiInsertUnusedSegment @ 0x14034C75C (MiInsertUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPreventControlAreaDelete @ 0x14062297C (MiPreventControlAreaDelete.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14075F248 (FsRtlReleaseFileForCcFlush.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiFlushControlArea(char *P, unsigned __int8 a2, __int64 *a3, struct _FILE_OBJECT **a4)
 {
   unsigned __int64 v4; // rdi

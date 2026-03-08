@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D3DDDIRotationToDXGIRotation@@YA?AW4DXGI_MODE_ROTATION@@W4_D3DDDI_ROTATION@@@Z @ 0x180014B94
+ * Callers:
+ *     ?GetRotation@CDxHandleBitmapRealization@@UEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x180014B80 (-GetRotation@CDxHandleBitmapRealization@@UEBA-AW4DXGI_MODE_ROTATION@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall D3DDDIRotationToDXGIRotation(int a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PipProcessRestartPhase2 @ 0x14096C498
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     IoRequestDeviceEject @ 0x14055D9B0 (IoRequestDeviceEject.c)
+ *     McTemplateK0dz_EtwWriteTransfer @ 0x1405620F8 (McTemplateK0dz_EtwWriteTransfer.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x140681C08 (PnpStartedDeviceNodeDependencyCheck.c)
+ *     PnpRequestDeviceRemoval @ 0x140862294 (PnpRequestDeviceRemoval.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140955E50 (PnpUpdateRebootRequiredReason.c)
+ */
+
 __int64 __fastcall PipProcessRestartPhase2(__int64 a1, __int64 a2, __int64 a3)
 {
   const wchar_t **v3; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of PfSnGetSectionObject @ 0x1406A48D0
+ * Callers:
+ *     PfSnPopulateReadList @ 0x1406A42B0 (PfSnPopulateReadList.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PfpFileCheckAttributesForPrefetch @ 0x1402DC2D0 (PfpFileCheckAttributesForPrefetch.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfSnIsSectionPrefetchedAfterPhase @ 0x1406A4C74 (PfSnIsSectionPrefetchedAfterPhase.c)
+ *     PfpOpenHandleCreate @ 0x1406A5020 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406A5824 (PfpOpenHandleClose.c)
+ *     IopQueryXxxInformation @ 0x14071E6CC (IopQueryXxxInformation.c)
+ *     PfSnPrefetchFileMetadata @ 0x140789C64 (PfSnPrefetchFileMetadata.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     NtCreateSection @ 0x1407D1770 (NtCreateSection.c)
+ */
+
 __int64 __fastcall PfSnGetSectionObject(
         volatile signed __int32 *a1,
         __int64 a2,

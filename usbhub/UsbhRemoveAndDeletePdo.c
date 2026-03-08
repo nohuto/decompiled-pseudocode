@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhRemoveAndDeletePdo @ 0x1C0057614
+ * Callers:
+ *     UsbhDeleteOrphanPdo @ 0x1C0053EF8 (UsbhDeleteOrphanPdo.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ */
+
 void __fastcall UsbhRemoveAndDeletePdo(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // rdi

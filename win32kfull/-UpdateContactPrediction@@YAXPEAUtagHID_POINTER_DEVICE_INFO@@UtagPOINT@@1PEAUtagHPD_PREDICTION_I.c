@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UpdateContactPrediction@@YAXPEAUtagHID_POINTER_DEVICE_INFO@@UtagPOINT@@1PEAUtagHPD_PREDICTION_INFO@@PEAU2@3@Z @ 0x1C01C3108
+ * Callers:
+ *     DoPrediction @ 0x1C0146050 (DoPrediction.c)
+ * Callees:
+ *     ?DeltaOvershootCompensation@Prediction@@YA_J_J0@Z @ 0x1C0145DAE (-DeltaOvershootCompensation@Prediction@@YA_J_J0@Z.c)
+ *     ?Div128by64@@YA_J_J_K0AEA_J@Z @ 0x1C0145DFA (-Div128by64@@YA_J_J_K0AEA_J@Z.c)
+ *     ?Filter@tagRlsFilter@Prediction@@QEAA?AVCFixPred@2@V32@0PEAH@Z @ 0x1C01C2508 (-Filter@tagRlsFilter@Prediction@@QEAA-AVCFixPred@2@V32@0PEAH@Z.c)
+ *     ?Smooth@tagExpoSmoother@Prediction@@QEAA?AVCFixPred@2@V32@@Z @ 0x1C01C2F7C (-Smooth@tagExpoSmoother@Prediction@@QEAA-AVCFixPred@2@V32@@Z.c)
+ */
+
 void __fastcall UpdateContactPrediction(
         struct tagHID_POINTER_DEVICE_INFO *a1,
         struct tagPOINT a2,

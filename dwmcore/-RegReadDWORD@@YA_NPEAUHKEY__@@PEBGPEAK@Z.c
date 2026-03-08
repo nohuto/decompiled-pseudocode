@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x18026E940
+ * Callers:
+ *     ?Startup@@YAJXZ @ 0x1800AD854 (-Startup@@YAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RegReadDWORD(HKEY a1, const unsigned __int16 *a2, unsigned int *a3)
 {
   unsigned int v5; // [rsp+30h] [rbp-18h] BYREF

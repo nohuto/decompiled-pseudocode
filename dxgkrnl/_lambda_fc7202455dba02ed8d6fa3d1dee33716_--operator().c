@@ -1,3 +1,13 @@
+/*
+ * XREFs of _lambda_fc7202455dba02ed8d6fa3d1dee33716_::operator() @ 0x1C03C5858
+ * Callers:
+ *     ?QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C5F48 (-QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CON.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C000AA90 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0014BA0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 char __fastcall lambda_fc7202455dba02ed8d6fa3d1dee33716_::operator()(__int64 *a1)
 {
   __int64 v1; // rax

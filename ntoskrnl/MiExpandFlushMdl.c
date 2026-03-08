@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiExpandFlushMdl @ 0x1402E92E0
+ * Callers:
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall MiExpandFlushMdl(unsigned int *Src, unsigned int a2)
 {
   __int64 v2; // rdi

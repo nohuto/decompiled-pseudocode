@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_UcxEvtEndpointPurge @ 0x1C0018BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddqd @ 0x1C003D8E0 (WPP_RECORDER_SF_ddqd.c)
+ */
+
 _UNKNOWN **__fastcall Endpoint_UcxEvtEndpointPurge(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax

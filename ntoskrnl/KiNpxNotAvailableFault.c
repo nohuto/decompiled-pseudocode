@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiNpxNotAvailableFault @ 0x1404255C0
+ * Callers:
+ *     KiNpxNotAvailableFaultShadow @ 0x140AF34C0 (KiNpxNotAvailableFaultShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiNpxNotAvailableFault @ 0x1404255C0 (KiNpxNotAvailableFault.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x14042BF40 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __noreturn KiNpxNotAvailableFault()
 {
   struct _KTHREAD *CurrentThread; // r10

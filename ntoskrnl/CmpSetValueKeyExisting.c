@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpSetValueKeyExisting @ 0x1406BAE08
+ * Callers:
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmpPreserveSystemHiveData @ 0x140A1F84C (CmpPreserveSystemHiveData.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpFreeValueData @ 0x1406BAAE0 (CmpFreeValueData.c)
+ *     CmpMarkValueDataDirty @ 0x1406BB14C (CmpMarkValueDataDirty.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpSetValueDataExisting @ 0x140796AA4 (CmpSetValueDataExisting.c)
+ *     CmpSetValueDataNew @ 0x1407A4E40 (CmpSetValueDataNew.c)
+ *     HvReallocateCell @ 0x1407A5D90 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpSetValueKeyExisting(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

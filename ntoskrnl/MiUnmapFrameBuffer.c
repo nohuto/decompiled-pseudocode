@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUnmapFrameBuffer @ 0x1406315E0
+ * Callers:
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140630618 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiUnmapFrameBuffer(__int64 *BugCheckParameter2, int a2, unsigned int a3, _QWORD *a4)
 {
   unsigned int v5; // ebp

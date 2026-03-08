@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSoSurfaceData@SFMLOGICALSURFACE@@QEAAJPEAUtagDWMSURFACEDATA@@@Z @ 0x1C001EB70
+ * Callers:
+ *     GreDwmGetSurfaceData @ 0x1C0029774 (GreDwmGetSurfaceData.c)
+ * Callees:
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C001EC6C (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ */
+
 __int64 __fastcall SFMLOGICALSURFACE::GetSoSurfaceData(SFMLOGICALSURFACE *this, struct tagDWMSURFACEDATA *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AMLICreateOverrideObjectDefault @ 0x1C004A82C
+ * Callers:
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     NewObjData @ 0x1C004C19C (NewObjData.c)
+ */
+
 __int64 __fastcall AMLICreateOverrideObjectDefault(_BYTE *Src, size_t Size, __int64 a3)
 {
   size_t v3; // rdi

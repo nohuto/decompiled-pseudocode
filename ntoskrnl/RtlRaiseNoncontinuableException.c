@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlRaiseNoncontinuableException @ 0x140420D50
+ * Callers:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ * Callees:
+ *     RtlpCaptureContext @ 0x140420560 (RtlpCaptureContext.c)
+ */
+
 char __fastcall RtlRaiseNoncontinuableException(
         __int64 a1,
         __int64 a2,

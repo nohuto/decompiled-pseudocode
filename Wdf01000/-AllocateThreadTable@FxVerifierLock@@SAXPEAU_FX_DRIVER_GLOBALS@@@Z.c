@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocateThreadTable@FxVerifierLock@@SAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00468C0
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ */
+
 void __fastcall FxVerifierLock::AllocateThreadTable(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   unsigned __int64 *p_m_Lock; // rdi

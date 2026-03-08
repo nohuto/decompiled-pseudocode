@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiEndingOffset @ 0x140324248
+ * Callers:
+ *     MiInitializeImageProtos @ 0x140213DD0 (MiInitializeImageProtos.c)
+ *     MiCanFileBeTruncatedInternal @ 0x1402A492C (MiCanFileBeTruncatedInternal.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiEndingOffsetWithLock @ 0x140324190 (MiEndingOffsetWithLock.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiEndingOffset(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeTestAlertThread @ 0x1403646F0
+ * Callers:
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KiContinueEx @ 0x140364520 (KiContinueEx.c)
+ *     NtTestAlert @ 0x1407ED030 (NtTestAlert.c)
+ *     DbgkpSendErrorMessage @ 0x14093730C (DbgkpSendErrorMessage.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int8 __fastcall KeTestAlertThread(char a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

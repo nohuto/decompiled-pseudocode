@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_0204d79c2644d1b9cd88bde7d32e7162_::operator() @ 0x1C01C8BF8
+ * Callers:
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS@@@Z @ 0x1C01C9370 (-IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall lambda_0204d79c2644d1b9cd88bde7d32e7162_::operator()(
         __int64 a1,
         _DWORD *a2,

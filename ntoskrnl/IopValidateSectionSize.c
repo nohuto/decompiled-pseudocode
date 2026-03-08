@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopValidateSectionSize @ 0x140551A64
+ * Callers:
+ *     IopAddCodeRegion @ 0x14054F968 (IopAddCodeRegion.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IopValidateSectionSize(unsigned int a1, unsigned int *a2)
 {
   unsigned int v3; // r9d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateWakeOnInputDeviceTypesFromRegistry@CInputGlobals@@QEAAXXZ @ 0x1C009D2B0
+ * Callers:
+ *     ??0CInputGlobals@@AEAA@XZ @ 0x1C0097BCC (--0CInputGlobals@@AEAA@XZ.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C009D4F4 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall CInputGlobals::UpdateWakeOnInputDeviceTypesFromRegistry(CInputGlobals *this)
 {
   char *v2; // rdi

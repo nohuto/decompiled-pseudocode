@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_b0731eee47451a3420dccf0c0cbbf152_::_lambda_invoker_cdecl_ @ 0x1C00F5AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _lambda_b0731eee47451a3420dccf0c0cbbf152_::operator() @ 0x1C003BAE0 (_lambda_b0731eee47451a3420dccf0c0cbbf152_--operator().c)
+ */
+
 void __fastcall lambda_b0731eee47451a3420dccf0c0cbbf152_::_lambda_invoker_cdecl_(
         __int64 a1,
         __int64 a2,

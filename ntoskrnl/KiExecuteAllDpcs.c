@@ -1,3 +1,48 @@
+/*
+ * XREFs of KiExecuteAllDpcs @ 0x140252F60
+ * Callers:
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiExecuteDpc @ 0x140396B20 (KiExecuteDpc.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x140250570 (EtwGetKernelTraceTimestampSilo.c)
+ *     KiEnterLongDpcProcessing @ 0x140254490 (KiEnterLongDpcProcessing.c)
+ *     KiRemoveCurrentlyEnumeratedThreadFromReadyQueue @ 0x140256490 (KiRemoveCurrentlyEnumeratedThreadFromReadyQueue.c)
+ *     KiScheduleThreadToRescheduleContext @ 0x140258C90 (KiScheduleThreadToRescheduleContext.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiReadyQueueEnumeratorStartNormalQueuesPhase @ 0x140260ED0 (KiReadyQueueEnumeratorStartNormalQueuesPhase.c)
+ *     KiStartReadyQueueEnumeratorForRescheduleContext @ 0x140261010 (KiStartReadyQueueEnumeratorForRescheduleContext.c)
+ *     KiCommitRescheduleContextEntry @ 0x140261A70 (KiCommitRescheduleContextEntry.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x1402ADFD8 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x1402AE004 (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiAddThreadToScbQueue @ 0x1402AE688 (KiAddThreadToScbQueue.c)
+ *     KiIsPrcbThread @ 0x1402AEFCC (KiIsPrcbThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiCanLocalReadyThreadBeScheduledToRescheduleContext @ 0x1402C3E38 (KiCanLocalReadyThreadBeScheduledToRescheduleContext.c)
+ *     KiDoesThreadDominateRescheduleContextEntry @ 0x1402C3F04 (KiDoesThreadDominateRescheduleContextEntry.c)
+ *     KiCheckThreadAffinity @ 0x1402DD370 (KiCheckThreadAffinity.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1402E1338 (KiUpdateVPBackingThreadPriority.c)
+ *     KiInsertNewDpcRuntime @ 0x1402EE160 (KiInsertNewDpcRuntime.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextList @ 0x1402EE9E4 (KiAdvanceReadyQueueEnumeratorToNextList.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextScb @ 0x1402EEAE4 (KiAdvanceReadyQueueEnumeratorToNextScb.c)
+ *     KiCompleteRescheduleContext @ 0x140302484 (KiCompleteRescheduleContext.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1403428F0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KiInsertDeferredReadyList @ 0x140343778 (KiInsertDeferredReadyList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ *     EtwTraceLongDpcDetectionEvent @ 0x1405FAAEC (EtwTraceLongDpcDetectionEvent.c)
+ */
+
 char __fastcall KiExecuteAllDpcs(__int64 a1, unsigned __int64 a2, _DWORD *a3, unsigned int a4)
 {
   unsigned int v4; // r13d

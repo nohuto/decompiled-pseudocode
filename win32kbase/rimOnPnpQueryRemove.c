@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimOnPnpQueryRemove @ 0x1C01C854C
+ * Callers:
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ * Callees:
+ *     RIMCloseDev @ 0x1C00308E4 (RIMCloseDev.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqd @ 0x1C0089624 (WPP_RECORDER_AND_TRACE_SF_qqd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimOnPnpQueryRemove(char a1, __int64 a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpIndicateChildStatus @ 0x1C005D370
+ * Callers:
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ * Callees:
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A240 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     DpiFdoInitializeConnectionChangePackage @ 0x1C005EA28 (DpiFdoInitializeConnectionChangePackage.c)
+ *     DpiFdoQueueConnectionChangePackage @ 0x1C005EB78 (DpiFdoQueueConnectionChangePackage.c)
+ */
+
 __int64 __fastcall DpIndicateChildStatus(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // ebx

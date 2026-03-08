@@ -1,3 +1,12 @@
+/*
+ * XREFs of ComputeByteOffset @ 0x1C0253DA4
+ * Callers:
+ *     CheckBMPNeedFixup @ 0x1C014B848 (CheckBMPNeedFixup.c)
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ComputeByteOffset(unsigned int a1, int a2, _BYTE *a3)
 {
   char v3; // al

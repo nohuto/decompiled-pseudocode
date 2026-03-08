@@ -1,3 +1,29 @@
+/*
+ * XREFs of UsbhFdoSetD0Warm @ 0x1C003C220
+ * Callers:
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C0021D3C (UsbhSendSynchronousUsbIoctlRequest.c)
+ *     UsbhFlushPortChange @ 0x1C002B22C (UsbhFlushPortChange.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhSyncBusResume @ 0x1C00318F8 (UsbhSyncBusResume.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhWaitForPortResume @ 0x1C003A71C (UsbhWaitForPortResume.c)
+ *     UsbhResumeHardReset @ 0x1C003D6C8 (UsbhResumeHardReset.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhFdoSetD0Warm(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   int v4; // esi

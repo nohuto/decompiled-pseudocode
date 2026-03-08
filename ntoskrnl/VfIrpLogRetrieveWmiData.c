@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfIrpLogRetrieveWmiData @ 0x140AD9B50
+ * Callers:
+ *     ViDdiDispatchWmiQueryAllData @ 0x140AC0C04 (ViDdiDispatchWmiQueryAllData.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VfIrpLogRetrieveWmiData(unsigned int a1, __int64 a2, int *a3, _DWORD *a4, _DWORD *a5, ULONG *a6)
 {
   __int64 v6; // rbx

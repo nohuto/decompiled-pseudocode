@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiSchedulerDeepSleep @ 0x1C00011C0
+ * Callers:
+ *     CiSchedulerThreadFunction @ 0x1C0002E60 (CiSchedulerThreadFunction.c)
+ * Callees:
+ *     CiSchedulerProcessDeadlines @ 0x1C0001250 (CiSchedulerProcessDeadlines.c)
+ *     CiLogSchedulerSleep @ 0x1C0003F8C (CiLogSchedulerSleep.c)
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ */
+
 __int64 __fastcall CiSchedulerDeepSleep(__int32 *a1)
 {
   __int32 v2; // eax

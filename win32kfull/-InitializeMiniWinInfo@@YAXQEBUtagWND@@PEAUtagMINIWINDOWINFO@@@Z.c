@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?InitializeMiniWinInfo@@YAXQEBUtagWND@@PEAUtagMINIWINDOWINFO@@@Z @ 0x1C0043D6C
+ * Callers:
+ *     UserGetMiniWinInfo @ 0x1C0016C94 (UserGetMiniWinInfo.c)
+ *     CreateSprite @ 0x1C002891C (CreateSprite.c)
+ *     HintSpriteShape @ 0x1C002C1B0 (HintSpriteShape.c)
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall InitializeMiniWinInfo(const struct tagWND *const a1, struct tagMINIWINDOWINFO *a2)
 {
   char *v2; // rdi

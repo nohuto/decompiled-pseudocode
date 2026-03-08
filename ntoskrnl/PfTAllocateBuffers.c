@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfTAllocateBuffers @ 0x140844D98
+ * Callers:
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfTLbInitialize @ 0x1407E5A08 (PfTLbInitialize.c)
+ *     PfTGetFreeBuffer @ 0x1407E68E0 (PfTGetFreeBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PfTAllocateBuffers(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // esi

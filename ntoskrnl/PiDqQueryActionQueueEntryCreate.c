@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDqQueryActionQueueEntryCreate @ 0x140747078
+ * Callers:
+ *     PiDqQueryApplyObjectEvent @ 0x1406896F4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x1406CBF24 (PiDqQueryEnumObject.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140746D28 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDqQueryActionQueueEntryCreate(int a1, __int64 a2, volatile signed __int32 *a3, __int64 a4)
 {
   unsigned int v7; // ebx

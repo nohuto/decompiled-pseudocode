@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpCreateUserProcess @ 0x140B6653C
+ * Callers:
+ *     RtlCreateUserProcessEx @ 0x140B664C0 (RtlCreateUserProcessEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwCreateUserProcess @ 0x140413CF0 (ZwCreateUserProcess.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlpCreateUserProcess(unsigned __int16 *a1, __int64 a2, char a3, __int64 a4, __int64 a5, _DWORD *a6)
 {
   unsigned int v9; // ecx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiChargePartitionResidentAvailable @ 0x140348ED0
+ * Callers:
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MiProbeLockFrame @ 0x140268ED0 (MiProbeLockFrame.c)
+ *     MiLockPageTablePage @ 0x14026A4D0 (MiLockPageTablePage.c)
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiCheckProtoPtePageState @ 0x140283EB0 (MiCheckProtoPtePageState.c)
+ *     MiChargeForLockedPage @ 0x140287410 (MiChargeForLockedPage.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiChargePartitionResidentAvailable(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   signed __int64 v5; // r11

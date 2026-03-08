@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimIssueReads @ 0x1C0039C14
+ * Callers:
+ *     RIMReadInput @ 0x1C0039160 (RIMReadInput.c)
+ * Callees:
+ *     rimStartDeviceReadIfAllowed @ 0x1C0009E48 (rimStartDeviceReadIfAllowed.c)
+ *     DeviceTypeToRimInputType @ 0x1C0039CC0 (DeviceTypeToRimInputType.c)
+ *     RimInputTypeToDeviceType @ 0x1C0039D00 (RimInputTypeToDeviceType.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ */
+
 __int64 __fastcall rimIssueReads(__int64 a1)
 {
   int v1; // ebx

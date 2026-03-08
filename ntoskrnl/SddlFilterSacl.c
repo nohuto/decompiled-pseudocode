@@ -1,3 +1,11 @@
+/*
+ * XREFs of SddlFilterSacl @ 0x140750938
+ * Callers:
+ *     LocalConvertSDToStringSD_Rev1 @ 0x14074F708 (LocalConvertSDToStringSD_Rev1.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SddlFilterSacl(__int64 *a1, __int64 a2, unsigned int *a3, unsigned int a4)
 {
   __int64 result; // rax

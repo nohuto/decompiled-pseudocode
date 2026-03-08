@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserWaitMessage @ 0x1C00D78A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ClientWaitMessageExMPH @ 0x1C0006E60 (ClientWaitMessageExMPH.c)
+ *     xxxSleepThread2 @ 0x1C006D200 (xxxSleepThread2.c)
+ */
+
 __int64 NtUserWaitMessage()
 {
   int v0; // eax

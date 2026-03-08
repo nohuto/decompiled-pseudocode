@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwWaitHighEventPair @ 0x140415F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwWaitHighEventPair(__int64 a1, __int64 a2)
 {
   _disable();

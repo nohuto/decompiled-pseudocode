@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmMediaBufferingWorker @ 0x1403A6F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmPdcNotifyMediaBufferingUpdate @ 0x1408A1166 (PpmPdcNotifyMediaBufferingUpdate.c)
+ */
+
 __int64 PpmMediaBufferingWorker()
 {
   bool v0; // si

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpFindMatchingName @ 0x140848B18
+ * Callers:
+ *     SdbFindFirstStringIndexedTag @ 0x14079F36C (SdbFindFirstStringIndexedTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x140848AD4 (SdbFindNextStringIndexedTag.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbpGetNextIndexedRecord @ 0x140848BC4 (SdbpGetNextIndexedRecord.c)
+ */
+
 __int64 __fastcall SdbpFindMatchingName(__int64 a1, unsigned int a2, const wchar_t **a3)
 {
   unsigned int NextIndexedRecord; // ebx

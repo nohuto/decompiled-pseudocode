@@ -1,3 +1,16 @@
+/*
+ * XREFs of MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14020B028
+ * Callers:
+ *     MiRelocateImageAgain @ 0x1406A160C (MiRelocateImageAgain.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ *     MiCaptureSecureImageBaseAddress @ 0x140A45314 (MiCaptureSecureImageBaseAddress.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MI_LOCK_RELOCATIONS_EXCLUSIVE(__int64 a1, __int64 a2)
 {
   volatile signed __int32 *v2; // rdi

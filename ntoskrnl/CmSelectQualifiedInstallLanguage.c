@@ -1,3 +1,27 @@
+/*
+ * XREFs of CmSelectQualifiedInstallLanguage @ 0x140B333A8
+ * Callers:
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ * Callees:
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     DownLevelLanguageNameToLangID @ 0x14036F74C (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyCompressedName @ 0x1407A47DC (CmpCopyCompressedName.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     CmpFindSubKeyByNumber @ 0x1407AD320 (CmpFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpWalkPath @ 0x1407FE938 (CmpWalkPath.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ */
+
 __int64 __fastcall CmSelectQualifiedInstallLanguage(__int64 a1, unsigned int a2, _DWORD *a3, int a4)
 {
   char v7; // r13

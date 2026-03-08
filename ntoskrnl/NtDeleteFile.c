@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtDeleteFile @ 0x140871940
+ * Callers:
+ *     DifNtDeleteFileWrapper @ 0x1405E5B90 (DifNtDeleteFileWrapper.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     IopCleanupExtraCreateParameters @ 0x14076D500 (IopCleanupExtraCreateParameters.c)
+ */
+
 __int64 __fastcall NtDeleteFile(__int64 a1)
 {
   char PreviousMode; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmInternalPlatformIdleVeto @ 0x140583474
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmInternalPlatformIdleVeto(unsigned int a1, char a2)
 {
   unsigned int v2; // r9d

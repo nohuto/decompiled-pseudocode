@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C003C318
+ * Callers:
+ *     SetGestureConfigSettings @ 0x1C00CB3F8 (SetGestureConfigSettings.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C00CB9E8 (_ChangeWindowMessageFilterEx.c)
+ *     _RegisterShellHookWindow @ 0x1C00ED7F4 (_RegisterShellHookWindow.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ */
+
 __int64 __fastcall VWPLAddBase(struct tagVWPL **a1, __int64 a2, struct tagWND *a3, unsigned int a4)
 {
   __int64 v4; // rbx

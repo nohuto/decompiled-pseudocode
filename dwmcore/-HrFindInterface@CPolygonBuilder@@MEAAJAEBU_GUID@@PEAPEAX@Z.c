@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CPolygonBuilder@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801B0360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPolygonBuilder::HrFindInterface(CPolygonBuilder *this, const struct _GUID *a2, void **a3)
 {
   __int64 v3; // rax

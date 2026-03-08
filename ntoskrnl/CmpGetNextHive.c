@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpGetNextHive @ 0x1406BE36C
+ * Callers:
+ *     CmpDoFlushAll @ 0x140243DB8 (CmpDoFlushAll.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmpBlockHiveWrites @ 0x140A10B04 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A10CD4 (CmpUnblockHiveWrites.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ *     CmpReferenceHive @ 0x1407AB230 (CmpReferenceHive.c)
+ */
+
 __int64 *__fastcall CmpGetNextHive(volatile signed __int32 *P)
 {
   __int64 *v2; // rdi

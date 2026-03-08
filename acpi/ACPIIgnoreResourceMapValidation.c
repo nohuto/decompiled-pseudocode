@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIgnoreResourceMapValidation @ 0x1C003AF14
+ * Callers:
+ *     ACPIRangeValidatePciResources @ 0x1C003B3A4 (ACPIRangeValidatePciResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ */
+
 char __fastcall ACPIIgnoreResourceMapValidation(struct _IO_RESOURCE_DESCRIPTOR *a1)
 {
   char v1; // bl

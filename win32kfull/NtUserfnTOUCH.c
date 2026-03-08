@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserfnTOUCH @ 0x1C01E4230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ForwardTouchMessage @ 0x1C01B139C (ForwardTouchMessage.c)
+ */
+
 __int64 __fastcall NtUserfnTOUCH(struct tagWND *a1, int a2, __int64 a3, volatile void *a4, __int64 a5, unsigned int a6)
 {
   __int64 v6; // rbx

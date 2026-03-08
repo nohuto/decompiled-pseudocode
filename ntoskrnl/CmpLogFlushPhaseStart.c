@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpLogFlushPhaseStart @ 0x1406BE958
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CmpLogFlushPhaseStart(__int64 a1, char a2)
 {
   NTSTATUS result; // eax

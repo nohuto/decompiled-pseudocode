@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViThunkHookExportAddress @ 0x140AD8C48
+ * Callers:
+ *     VfThunkHookExportAddress @ 0x140AD852C (VfThunkHookExportAddress.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlFreeAnsiString @ 0x1407EA820 (RtlFreeAnsiString.c)
+ */
+
 __int64 __fastcall ViThunkHookExportAddress(unsigned __int8 **a1, const UNICODE_STRING *a2, unsigned __int8 **a3)
 {
   char *Buffer; // r9

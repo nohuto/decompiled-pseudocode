@@ -1,3 +1,29 @@
+/*
+ * XREFs of KiUpdateThreadPriority @ 0x1403437B0
+ * Callers:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1402E1338 (KiUpdateVPBackingThreadPriority.c)
+ *     KiApplyForegroundBoostThread @ 0x1402E3178 (KiApplyForegroundBoostThread.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KiComputeEffectivePriority @ 0x140342350 (KiComputeEffectivePriority.c)
+ *     KiSetPriorityBoost @ 0x1403512FC (KiSetPriorityBoost.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x14040B280 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057B6AC (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x14057C38C (KiUnparkCurrentProcessor.c)
+ *     KiCompleteKernelInit @ 0x140A89D30 (KiCompleteKernelInit.c)
+ * Callees:
+ *     KiIsThreadRankNonZero @ 0x140228010 (KiIsThreadRankNonZero.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14035845C (KiAbQueueAutoBoostDpc.c)
+ *     KiSetSchedulerAssistPriority @ 0x14040A730 (KiSetSchedulerAssistPriority.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x14045A058 (KiSetThreadQosLevelUnsafe.c)
+ */
+
 __int64 __fastcall KiUpdateThreadPriority(__int64 a1, __int64 a2, __int64 a3, char a4, char a5)
 {
   struct _KPRCB *CurrentPrcb; // rcx

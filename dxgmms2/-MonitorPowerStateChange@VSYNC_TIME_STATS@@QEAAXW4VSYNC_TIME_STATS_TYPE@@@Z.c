@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MonitorPowerStateChange@VSYNC_TIME_STATS@@QEAAXW4VSYNC_TIME_STATS_TYPE@@@Z @ 0x1C003D5DC
+ * Callers:
+ *     VidSchSetMonitorPowerState @ 0x1C000FA60 (VidSchSetMonitorPowerState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VSYNC_TIME_STATS::MonitorPowerStateChange(__int64 a1, int a2)
 {
   __int64 v2; // r8

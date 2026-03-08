@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindLongestRunClearCapped @ 0x1405A5C20
+ * Callers:
+ *     MiFindPageFileWriteCluster @ 0x1406374E0 (MiFindPageFileWriteCluster.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindLongestRunClearCapped(unsigned int *a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v6; // ecx

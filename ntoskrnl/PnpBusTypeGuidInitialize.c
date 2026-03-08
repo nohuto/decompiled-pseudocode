@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpBusTypeGuidInitialize @ 0x140B5B2B8
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PnpBusTypeGuidInitialize()
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AnimateSingle@?$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x18023CD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??A?$span@M$0?0@gsl@@QEBAAEAM_K@Z @ 0x18023CD1C (--A-$span@M$0-0@gsl@@QEBAAEAM_K@Z.c)
+ *     ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x18023D4E4 (-GetValueAt@-$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV-$span@M$0-0@gsl@@AEAV34@@Z.c)
+ */
+
 __int64 __fastcall Particles::LinearKeyframeAnimation<float>::AnimateSingle(
         __int64 a1,
         gsl::details *a2,

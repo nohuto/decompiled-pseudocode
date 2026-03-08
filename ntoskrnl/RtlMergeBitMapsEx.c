@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlMergeBitMapsEx @ 0x14039F630
+ * Callers:
+ *     MiMergePageNodes @ 0x14065893C (MiMergePageNodes.c)
+ *     MiSelectRelocationStartHint @ 0x1406A1BE8 (MiSelectRelocationStartHint.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlMergeBitMapsEx(unsigned __int64 *a1, __int64 *a2)
 {
   unsigned __int64 v2; // r9

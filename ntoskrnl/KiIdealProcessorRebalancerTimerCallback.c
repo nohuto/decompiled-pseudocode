@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIdealProcessorRebalancerTimerCallback @ 0x1402EC270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void KiIdealProcessorRebalancerTimerCallback()
 {
   char v0; // bl

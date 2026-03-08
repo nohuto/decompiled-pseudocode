@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopCompareActions @ 0x14098672C
+ * Callers:
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopCompareActions(int a1, int a2)
 {
   if ( a1 == 7 )

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NormalizeFrames@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEAAXXZ @ 0x18023D9D4
+ * Callers:
+ *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x180240B14 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>::NormalizeFrames(
         __int64 a1)
 {

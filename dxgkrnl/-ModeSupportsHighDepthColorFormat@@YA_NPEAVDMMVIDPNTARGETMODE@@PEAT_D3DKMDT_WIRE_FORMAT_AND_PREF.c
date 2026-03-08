@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ModeSupportsHighDepthColorFormat@@YA_NPEAVDMMVIDPNTARGETMODE@@PEAT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@@Z @ 0x1C03B94F8
+ * Callers:
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C016D868 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ModeSupportsHighDepthColorFormat(
         struct DMMVIDPNTARGETMODE *a1,
         union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE *a2)

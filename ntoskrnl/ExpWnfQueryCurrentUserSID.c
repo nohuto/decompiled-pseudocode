@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpWnfQueryCurrentUserSID @ 0x140718888
+ * Callers:
+ *     ExpWnfGetCurrentScopeInstance @ 0x14071B8A0 (ExpWnfGetCurrentScopeInstance.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ */
+
 __int64 __fastcall ExpWnfQueryCurrentUserSID(__int64 a1, __int64 a2, void *a3, ULONG *a4, _DWORD *a5)
 {
   int v5; // ebx

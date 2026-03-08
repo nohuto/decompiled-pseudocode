@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvokeCompanionCallback@FxPnpDevicePrepareHardware@@MEAAJPEAVFxCompanionTarget@@@Z @ 0x1C0081FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ *     ?NotifyPrePrepareHardware@FxCompanionTarget@@QEAAJPEAUWDFCMRESLIST__@@0@Z @ 0x1C002E034 (-NotifyPrePrepareHardware@FxCompanionTarget@@QEAAJPEAUWDFCMRESLIST__@@0@Z.c)
+ */
+
 __int64 __fastcall FxPnpDevicePrepareHardware::InvokeCompanionCallback(
         FxPnpDevicePrepareHardware *this,
         FxCompanionTarget *CompanionTarget)

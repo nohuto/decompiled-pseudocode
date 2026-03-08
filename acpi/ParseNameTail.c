@@ -1,3 +1,15 @@
+/*
+ * XREFs of ParseNameTail @ 0x1C005BA08
+ * Callers:
+ *     ParseName @ 0x1C005B860 (ParseName.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     RtlStringCchCopyA @ 0x1C000B07C (RtlStringCchCopyA.c)
+ *     RtlStringCchCopyNA @ 0x1C002BADC (RtlStringCchCopyNA.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall ParseNameTail(__int64 a1, const char **a2, _BYTE *a3)
 {
   unsigned int v3; // ebx

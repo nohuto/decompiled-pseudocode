@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapGetErrorThresholdInformation @ 0x14060EB3C
+ * Callers:
+ *     WheapApplyThresholdChecks @ 0x14060E808 (WheapApplyThresholdChecks.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WheapGetErrorThresholdInformation(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   int v3; // r10d

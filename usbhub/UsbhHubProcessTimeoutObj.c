@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhHubProcessTimeoutObj @ 0x1C0033D48
+ * Callers:
+ *     UsbhHubRunPortChangeQueue @ 0x1C0013CC0 (UsbhHubRunPortChangeQueue.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0017430 (UsbhHubDispatchPortEvent.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhHubProcessTimeoutObj(ULONG_PTR a1, __int64 a2, __int64 a3, unsigned __int16 *a4)
 {
   KSPIN_LOCK *v8; // rax

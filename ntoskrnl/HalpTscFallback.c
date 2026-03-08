@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTscFallback @ 0x140508250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlSetSystemGlobalData @ 0x1402EF650 (RtlSetSystemGlobalData.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FC150 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerSelectFallbackPerformanceCounter @ 0x140507300 (HalpTimerSelectFallbackPerformanceCounter.c)
+ */
+
 __int64 __fastcall HalpTscFallback(ULONG_PTR Argument)
 {
   int v2; // edi

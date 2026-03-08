@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateHTSI @ 0x1C025409C
+ * Callers:
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ * Callees:
+ *     ValidateRGBBitFields @ 0x1C02543A4 (ValidateRGBBitFields.c)
+ */
+
 __int64 __fastcall ValidateHTSI(__int64 a1, int a2)
 {
   int v3; // edx

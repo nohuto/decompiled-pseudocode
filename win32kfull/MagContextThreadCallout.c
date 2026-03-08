@@ -1,3 +1,17 @@
+/*
+ * XREFs of MagContextThreadCallout @ 0x1C01A4070
+ * Callers:
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     MagContextDestroy @ 0x1C00F61E0 (MagContextDestroy.c)
+ *     MagControl @ 0x1C01A42B4 (MagControl.c)
+ * Callees:
+ *     MagpFindThreadContext @ 0x1C0141978 (MagpFindThreadContext.c)
+ *     ChangeComposableCursor @ 0x1C01AA1C4 (ChangeComposableCursor.c)
+ *     DwmAsyncMagnDestroy @ 0x1C026F38C (DwmAsyncMagnDestroy.c)
+ *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C026F43C (DwmAsyncMagnSetDesktopColorTransform.c)
+ *     DwmAsyncMagnSetDesktopTransform @ 0x1C026F6A8 (DwmAsyncMagnSetDesktopTransform.c)
+ */
+
 void __fastcall MagContextThreadCallout(_QWORD *a1, __int64 a2, _QWORD *a3, int a4)
 {
   _QWORD *ThreadContext; // rdi

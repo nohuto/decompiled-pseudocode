@@ -1,3 +1,20 @@
+/*
+ * XREFs of HvStoreModifiedData @ 0x14072D6A8
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     RtlMergeBitMaps @ 0x1402D7420 (RtlMergeBitMaps.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpTruncateBins @ 0x14072DABC (HvpTruncateBins.c)
+ *     HvpGenerateLogEntry @ 0x14072DD08 (HvpGenerateLogEntry.c)
+ *     HvResetDirtyData @ 0x14072E110 (HvResetDirtyData.c)
+ *     HvpFindNextDirtyBlock @ 0x1407A4B70 (HvpFindNextDirtyBlock.c)
+ *     HvpCountSetRangesInVector @ 0x1407EA7B4 (HvpCountSetRangesInVector.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HvStoreModifiedData(ULONG_PTR BugCheckParameter2, char a2, char a3)
 {
   bool v3; // zf

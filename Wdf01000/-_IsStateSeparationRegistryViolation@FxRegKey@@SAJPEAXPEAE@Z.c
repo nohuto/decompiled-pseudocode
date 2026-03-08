@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_IsStateSeparationRegistryViolation@FxRegKey@@SAJPEAXPEAE@Z @ 0x1C004E3E4
+ * Callers:
+ *     ?_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C004E4D4 (-_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall FxRegKey::_IsStateSeparationRegistryViolation(void *Key, bool *IsViolation)
 {
   NTSTATUS result; // eax

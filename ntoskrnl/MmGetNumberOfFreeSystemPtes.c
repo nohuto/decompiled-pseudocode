@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmGetNumberOfFreeSystemPtes @ 0x140299A38
+ * Callers:
+ *     MiIssueNoPtesBugcheck @ 0x14062CC28 (MiIssueNoPtesBugcheck.c)
+ *     ExpQuerySystemPerformanceInformation @ 0x14071F960 (ExpQuerySystemPerformanceInformation.c)
+ * Callees:
+ *     MiGetNumberOfCachedPtes @ 0x14029A1BC (MiGetNumberOfCachedPtes.c)
+ */
+
 __int64 MmGetNumberOfFreeSystemPtes()
 {
   __int64 v0; // rbx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopPropogateCoolingChange @ 0x140584860
+ * Callers:
+ *     PoSetThermalActiveCooling @ 0x14097FC40 (PoSetThermalActiveCooling.c)
+ *     PoSetThermalPassiveCooling @ 0x14097FCF0 (PoSetThermalPassiveCooling.c)
+ *     PopCoolingExtensionPnpNotification @ 0x14097FDF0 (PopCoolingExtensionPnpNotification.c)
+ *     PopDeactiveThermalRequest @ 0x14097FEC8 (PopDeactiveThermalRequest.c)
+ *     PopDisableCoolingExtension @ 0x1409800A8 (PopDisableCoolingExtension.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopDiagTraceCoolingExtensionActiveUpdate @ 0x14098A200 (PopDiagTraceCoolingExtensionActiveUpdate.c)
+ *     PopDiagTraceCoolingExtensionPassiveUpdate @ 0x14098A2C4 (PopDiagTraceCoolingExtensionPassiveUpdate.c)
+ */
+
 unsigned int __fastcall PopPropogateCoolingChange(__int64 a1)
 {
   char v2; // si

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalAllocateCommonBufferWithBoundsDmarThin @ 0x1405110A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpAllocateCommonBufferDmarThin @ 0x1405116E8 (HalpAllocateCommonBufferDmarThin.c)
+ */
+
 __int64 __fastcall HalAllocateCommonBufferWithBoundsDmarThin(
         __int64 a1,
         __int64 a2,

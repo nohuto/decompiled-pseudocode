@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpGetVolumeClusterSize @ 0x14072EFBC
+ * Callers:
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IoGetAttachedDeviceReference @ 0x140337BB0 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryVolumeInformationFile @ 0x140412C30 (ZwQueryVolumeInformationFile.c)
+ *     CmpCreateEvent @ 0x1406BC374 (CmpCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall CmpGetVolumeClusterSize(HANDLE FileHandle, int *a2)
 {
   struct _OBJECT_TYPE *v4; // r8

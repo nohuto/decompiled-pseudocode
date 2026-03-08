@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpFindSecondaryIcEntry @ 0x140379320
+ * Callers:
+ *     HalpDisableSecondaryInterrupt @ 0x140517908 (HalpDisableSecondaryInterrupt.c)
+ *     HalpHandleMaskUnmaskSecondaryInterrupt @ 0x140517A94 (HalpHandleMaskUnmaskSecondaryInterrupt.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x140517DEC (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpQueryPrimaryInterruptInformation @ 0x14080BECC (HalpQueryPrimaryInterruptInformation.c)
+ *     HalpEnableSecondaryInterrupt @ 0x14085E574 (HalpEnableSecondaryInterrupt.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpFindSecondaryIcEntry(unsigned int a1)
 {
   unsigned __int8 v2; // al

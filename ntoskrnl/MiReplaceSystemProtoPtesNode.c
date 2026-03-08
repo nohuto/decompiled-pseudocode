@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReplaceSystemProtoPtesNode @ 0x140667768
+ * Callers:
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiObtainProtoBaseFromNode @ 0x140368C0C (MiObtainProtoBaseFromNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiReplaceSystemProtoPtesNode(unsigned __int64 *a1, unsigned __int64 a2)
 {
   unsigned __int64 v4; // rbp

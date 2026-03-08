@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpViewMapMigrateCOWData @ 0x1408807B4
+ * Callers:
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1407326F8 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpAllExceptionsFatalFilter @ 0x140A1A5EC (HvpAllExceptionsFatalFilter.c)
+ */
+
 __int64 __fastcall HvpViewMapMigrateCOWData(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rdi

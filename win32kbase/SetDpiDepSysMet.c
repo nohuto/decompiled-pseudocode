@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetDpiDepSysMet @ 0x1C0015FD0
+ * Callers:
+ *     InitLoadResources @ 0x1C0015CF0 (InitLoadResources.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall SetDpiDepSysMet(int a1, int a2)
 {
   __int64 v2; // rbx

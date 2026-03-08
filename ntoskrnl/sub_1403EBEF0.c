@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_1403EBEF0 @ 0x1403EBEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmSetPageProtection @ 0x1403BCCE0 (MmSetPageProtection.c)
+ */
+
 char __fastcall sub_1403EBEF0(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r9

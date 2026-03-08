@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceDwmManipulationFrameStart @ 0x1C0162090
+ * Callers:
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01F3D8C (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ * Callees:
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00EE444 (McTemplateK0dq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EtwTraceDwmManipulationFrameStart(__int64 a1, int a2, __int64 a3)
 {
   NTSTATUS result; // eax

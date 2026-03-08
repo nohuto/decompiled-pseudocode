@@ -1,3 +1,11 @@
+/*
+ * XREFs of ClearKeyboardToggleStates @ 0x1C00B9B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ClearKeyboardToggleStates(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

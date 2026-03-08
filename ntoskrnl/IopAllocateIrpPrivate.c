@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopAllocateIrpPrivate @ 0x1403122C0
+ * Callers:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     IopAllocateIrpWithExtension @ 0x1402B18A4 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ *     IovAllocateIrp @ 0x140ABDCE0 (IovAllocateIrp.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopInitActivityIdIrp @ 0x140553324 (IopInitActivityIdIrp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PSLIST_ENTRY __fastcall IopAllocateIrpPrivate(__int64 a1, char a2, char a3)
 {
   char v3; // r13

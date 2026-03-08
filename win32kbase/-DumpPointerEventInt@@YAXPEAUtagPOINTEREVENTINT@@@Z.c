@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DumpPointerEventInt@@YAXPEAUtagPOINTEREVENTINT@@@Z @ 0x1C01CC2F0
+ * Callers:
+ *     ?DbgDumpNode@@YAXKPEAUtagRIMPOINTERINFONODE@@@Z @ 0x1C00F0204 (-DbgDumpNode@@YAXKPEAUtagRIMPOINTERINFONODE@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ */
+
 void __fastcall DumpPointerEventInt(struct tagPOINTEREVENTINT *a1)
 {
   bool v2; // dl

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Allocate@?$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00299D0
+ * Callers:
+ *     ??0RGNMEMOBJ@@QEAA@XZ @ 0x1C0053130 (--0RGNMEMOBJ@@QEAA@XZ.c)
+ * Callees:
+ *     ?Allocate@?$CSectionBitmapAllocator@$0IAAA@$0IA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C0002018 (-Allocate@-$CSectionBitmapAllocator@$0IAAA@$0IA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ *     ?Create@?$CSectionEntry@$0IAAA@$0IA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C0029CB8 (-Create@-$CSectionEntry@$0IAAA@$0IA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C009FFD0 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 PVOID __fastcall NSInstrumentation::CTypeIsolation<32768,128>::Allocate(__int64 a1)
 {
   __int64 v3; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmHeteroComputeMultiClassUnparkCount @ 0x140594A00
+ * Callers:
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140594418 (PpmCheckComputeMultiClassHeteroResponse.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x140594838 (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmHeteroComputeUnparkCount @ 0x140594CD0 (PpmHeteroComputeUnparkCount.c)
+ *     PpmEventTraceMultiClassHeteroResponse @ 0x140599710 (PpmEventTraceMultiClassHeteroResponse.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x140599908 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ */
+
 __int64 __fastcall PpmHeteroComputeMultiClassUnparkCount(
         __int64 a1,
         __int64 a2,

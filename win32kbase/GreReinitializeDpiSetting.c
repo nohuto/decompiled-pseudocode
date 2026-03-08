@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreReinitializeDpiSetting @ 0x1C0195250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreReinitializeDpiSetting(__int64 a1)
 {
   __int64 result; // rax

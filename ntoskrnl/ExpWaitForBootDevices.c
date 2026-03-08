@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpWaitForBootDevices @ 0x140607340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeFreezeExecution @ 0x14036ADA0 (KeFreezeExecution.c)
+ *     KeThawExecution @ 0x14036B200 (KeThawExecution.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall __noreturn ExpWaitForBootDevices(PVOID StartContext)
 {
   int v1; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetUserModeViewAtOffset@CBatchSharedMemoryPool@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C009BFF0
+ * Callers:
+ *     ?RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C009BAA0 (-RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z.c)
+ *     ?GetChannelRDPHeaders@CApplicationChannel@DirectComposition@@QEAAJPEAPEAUUCE_RDP_HEADER@@0@Z @ 0x1C009BF8C (-GetChannelRDPHeaders@CApplicationChannel@DirectComposition@@QEAAJPEAPEAUUCE_RDP_HEADER@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CBatchSharedMemoryPool::GetUserModeViewAtOffset(
         DirectComposition::CBatchSharedMemoryPool *this,
         __int64 a2,

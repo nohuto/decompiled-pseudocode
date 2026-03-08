@@ -1,3 +1,30 @@
+/*
+ * XREFs of IopCreateFile @ 0x1407CE5A0
+ * Callers:
+ *     IoCreateFileEx @ 0x14070DA20 (IoCreateFileEx.c)
+ *     IoCreateFile @ 0x140781BC0 (IoCreateFile.c)
+ *     NtCreateFile @ 0x1407CE510 (NtCreateFile.c)
+ *     NtOpenFile @ 0x1407E1EC0 (NtOpenFile.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     Feature_Servicing_CopyEABufferHandling__private_IsEnabledDeviceUsage @ 0x14040A170 (Feature_Servicing_CopyEABufferHandling__private_IsEnabledDeviceUsage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     IoCheckEaBufferValidity @ 0x140780800 (IoCheckEaBufferValidity.c)
+ *     IopCloseFile @ 0x1407BACE0 (IopCloseFile.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopCreateFile(
         HANDLE *a1,
         unsigned int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyAllTrackedWorkloads@DXGDEVICE@@QEAAXXZ @ 0x1C017BF2C
+ * Callers:
+ *     ?DxgkDestroyDeviceImpl@@YAJPEBU_D3DKMT_DESTROYDEVICE@@E@Z @ 0x1C017B2AC (-DxgkDestroyDeviceImpl@@YAJPEBU_D3DKMT_DESTROYDEVICE@@E@Z.c)
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C01B3FD8 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GDXGTRACKEDWORKLOAD@@QEAAPEAXI@Z @ 0x1C0058EAC (--_GDXGTRACKEDWORKLOAD@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall DXGDEVICE::DestroyAllTrackedWorkloads(DXGDEVICE *this)
 {
   DXGTRACKEDWORKLOAD **v2; // rbx

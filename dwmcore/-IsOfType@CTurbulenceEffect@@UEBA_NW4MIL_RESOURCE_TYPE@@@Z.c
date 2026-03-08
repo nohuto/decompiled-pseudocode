@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CTurbulenceEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180251BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18012A3D0 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ */
+
 char __fastcall CTurbulenceEffect::IsOfType(__int64 a1, int a2)
 {
   char v2; // al

@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlFindExportedRoutineByName @ 0x1407EBE40
+ * Callers:
+ *     HalpMcResolveMicrocodeOperation @ 0x1405197AC (HalpMcResolveMicrocodeOperation.c)
+ *     PrExtControlOperations @ 0x140613148 (PrExtControlOperations.c)
+ *     MiCompactServiceTable @ 0x14076F608 (MiCompactServiceTable.c)
+ *     MmGetSystemRoutineAddress @ 0x1407EA850 (MmGetSystemRoutineAddress.c)
+ *     KsepResolveShimHooks @ 0x14080018C (KsepResolveShimHooks.c)
+ *     MiCallDllInitialize @ 0x14081BC4C (MiCallDllInitialize.c)
+ *     MiCallDllUnload @ 0x140861060 (MiCallDllUnload.c)
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     PspInitializeSystemDlls @ 0x140B649D4 (PspInitializeSystemDlls.c)
+ * Callees:
+ *     MmDecodeExportSection @ 0x14035D424 (MmDecodeExportSection.c)
+ *     MmEncodeExportSection @ 0x14035D5C0 (MmEncodeExportSection.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 unsigned __int64 __fastcall RtlFindExportedRoutineByName(__int64 a1, char *a2)
 {
   char *v2; // r15

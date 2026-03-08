@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIInternalSetProximityDomain @ 0x1C00883E8
+ * Callers:
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0086660 (ACPIFilterIrpQueryResourceRequirements.c)
+ * Callees:
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 NTSTATUS __fastcall ACPIInternalSetProximityDomain(__int64 a1)
 {
   NTSTATUS result; // eax

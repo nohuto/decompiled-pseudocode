@@ -1,3 +1,11 @@
+/*
+ * XREFs of PoGetRequester @ 0x1402BDACC
+ * Callers:
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 LONG_PTR __fastcall PoGetRequester(char a1, void *a2, __int64 a3)
 {
   LONG_PTR result; // rax

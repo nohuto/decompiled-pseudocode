@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfClearResponsivenessHints @ 0x14038E2A4
+ * Callers:
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PpmPerfClearResponsivenessHints()
 {
   __int64 i; // rdx

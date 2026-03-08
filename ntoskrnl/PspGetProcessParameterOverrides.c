@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspGetProcessParameterOverrides @ 0x14070C3B0
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall PspGetProcessParameterOverrides(__int64 a1, __int64 a2)
 {
   _DWORD *result; // rax

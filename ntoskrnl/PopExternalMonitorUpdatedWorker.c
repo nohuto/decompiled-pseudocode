@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopExternalMonitorUpdatedWorker @ 0x14079C0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopOkayToQueueNextWorkItem @ 0x140302D08 (PopOkayToQueueNextWorkItem.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopEvaluateInputSuppressionAction @ 0x1409912C4 (PopEvaluateInputSuppressionAction.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopExternalMonitorUpdatedWorker(int a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C03016EC
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C03017E0 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CreateTlgAggregateSession @ 0x1C030188C (CreateTlgAggregateSession.c)
+ *     DestroyAggregateSession @ 0x1C0301A30 (DestroyAggregateSession.c)
+ */
+
 __int64 __fastcall TlgRegisterAggregateProviderEx(_QWORD *CallbackContext)
 {
   _QWORD *v1; // rdi

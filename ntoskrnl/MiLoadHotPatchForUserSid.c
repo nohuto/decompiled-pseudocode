@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiLoadHotPatchForUserSid @ 0x140A35638
+ * Callers:
+ *     NtManageHotPatch @ 0x140784740 (NtManageHotPatch.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlHashBytes2 @ 0x140411A14 (RtlHashBytes2.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     MiAllocateHotPatchRecord @ 0x140A31AD8 (MiAllocateHotPatchRecord.c)
+ *     MiCompareUserSidHotPatchNodes @ 0x140A33974 (MiCompareUserSidHotPatchNodes.c)
+ *     MiHotPatchAllProcesses @ 0x140A34748 (MiHotPatchAllProcesses.c)
+ *     MiInsertHotPatchRecord @ 0x140A34E80 (MiInsertHotPatchRecord.c)
+ *     MiOpenHotPatchFile @ 0x140A376D4 (MiOpenHotPatchFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiLoadHotPatchForUserSid(const void **a1, void *a2, int *a3)
 {
   int v6; // ebx

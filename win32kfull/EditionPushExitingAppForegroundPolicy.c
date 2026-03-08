@@ -1,3 +1,16 @@
+/*
+ * XREFs of EditionPushExitingAppForegroundPolicy @ 0x1C003F010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _anonymous_namespace_::AppStarting_Clear @ 0x1C003CBD0 (_anonymous_namespace_--AppStarting_Clear.c)
+ *     _anonymous_namespace_::CheckAllowForeground @ 0x1C003D0C4 (_anonymous_namespace_--CheckAllowForeground.c)
+ *     _anonymous_namespace_::RecordParentPidLegacyPolicy @ 0x1C003F13C (_anonymous_namespace_--RecordParentPidLegacyPolicy.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage @ 0x1C012E440 (Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall EditionPushExitingAppForegroundPolicy(__int64 a1)
 {
   HANDLE ProcessId; // rbp

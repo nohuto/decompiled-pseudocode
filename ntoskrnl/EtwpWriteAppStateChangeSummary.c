@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpWriteAppStateChangeSummary @ 0x1406BF9CC
+ * Callers:
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ * Callees:
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall EtwpWriteAppStateChangeSummary(
         __int64 a1,
         char *a2,

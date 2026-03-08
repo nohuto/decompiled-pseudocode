@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Acquire@DXGADAPTERSTOPRESETLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0041EDC
+ * Callers:
+ *     DxgkStartPnPStop @ 0x1C02BE5C0 (DxgkStartPnPStop.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGADAPTERSTOPRESETLOCKEXCLUSIVE::Acquire(DXGADAPTERSTOPRESETLOCKEXCLUSIVE *this)
 {
   __int64 v2; // rbx

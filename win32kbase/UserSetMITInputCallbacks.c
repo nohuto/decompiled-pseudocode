@@ -1,3 +1,14 @@
+/*
+ * XREFs of UserSetMITInputCallbacks @ 0x1C00BFFC0
+ * Callers:
+ *     NtMITSetInputCallbacks @ 0x1C00BFD60 (NtMITSetInputCallbacks.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ @ 0x1C009AC60 (-DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ.c)
+ *     ?CreateCoreMsgPort@InputExtensibilityCallout@@AEAAJXZ @ 0x1C00C010C (-CreateCoreMsgPort@InputExtensibilityCallout@@AEAAJXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UserSetMITInputCallbacks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   PDEVICE_OBJECT v5; // rcx

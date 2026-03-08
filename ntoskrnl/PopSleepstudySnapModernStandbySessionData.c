@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSleepstudySnapModernStandbySessionData @ 0x140990418
+ * Callers:
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopCalculateIdleInformation @ 0x1403C2C3C (PopCalculateIdleInformation.c)
+ */
+
 void PopSleepstudySnapModernStandbySessionData()
 {
   __int64 v0; // rbx

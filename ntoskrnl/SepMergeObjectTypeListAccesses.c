@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepMergeObjectTypeListAccesses @ 0x1405B5A5C
+ * Callers:
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepMergeObjectTypeListAccesses(__int64 a1, __int64 a2, unsigned int a3)
 {
   _DWORD *v3; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vPatCpyRow8_8x8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E8D5C
+ * Callers:
+ *     ?vBrushPath8_8x8EnumRow@@YAXJPEAU_ROW@@KPEAX@Z @ 0x1C02F87A0 (-vBrushPath8_8x8EnumRow@@YAXJPEAU_ROW@@KPEAX@Z.c)
+ * Callees:
+ *     vFetchAndCopy @ 0x1C00180E8 (vFetchAndCopy.c)
+ */
+
 void __fastcall vPatCpyRow8_8x8(struct _PATBLTFRAME *a1, int a2, int a3)
 {
   int *v3; // r8

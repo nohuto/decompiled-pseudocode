@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhResetPortTimerDpc @ 0x1C00394C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhReferenceListRemove @ 0x1C00018CC (UsbhReferenceListRemove.c)
+ *     UsbhReferenceListAdd @ 0x1C0002650 (UsbhReferenceListAdd.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C00031B0 (Usbh_UsbdReadFrameCounter.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_QueueChangeObject @ 0x1C003484C (UsbhPCE_QueueChangeObject.c)
+ */
+
 void __fastcall UsbhResetPortTimerDpc(
         struct _KDPC *Dpc,
         unsigned __int16 *DeferredContext,

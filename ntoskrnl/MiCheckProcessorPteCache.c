@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCheckProcessorPteCache @ 0x140327B90
+ * Callers:
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ * Callees:
+ *     MiEmptyPteBins @ 0x140299F00 (MiEmptyPteBins.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCheckProcessorPteCache(unsigned __int64 a1)
 {
   unsigned __int8 CurrentIrql; // r12

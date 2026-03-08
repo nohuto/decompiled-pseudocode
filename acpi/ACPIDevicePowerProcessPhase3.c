@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase3 @ 0x1C001FEA4
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompletePhase3Off @ 0x1C001C6C0 (ACPIDeviceCompletePhase3Off.c)
+ *     ACPIIsPowerNodeMissingDependencies @ 0x1C0022140 (ACPIIsPowerNodeMissingDependencies.c)
+ *     WPP_RECORDER_SF_qsL @ 0x1C0022EB8 (WPP_RECORDER_SF_qsL.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ */
+
 __int64 ACPIDevicePowerProcessPhase3()
 {
   int v0; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceSurpriseRemoval @ 0x1C0079620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMUX_QueueSurpriseRemovalToAllPSMs @ 0x1C0010C6C (HUBMUX_QueueSurpriseRemovalToAllPSMs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBFDO_EvtDeviceSurpriseRemoval(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Reset@MousePerfSummary@@AEAAXXZ @ 0x1C0234E14
+ * Callers:
+ *     ?SendMousePerfSummaryTelemetry@MousePerfSummary@@AEAAXXZ @ 0x1C00F530E (-SendMousePerfSummaryTelemetry@MousePerfSummary@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MousePerfSummary::Reset(MousePerfSummary *this)
 {
   *(_QWORD *)this = 0LL;

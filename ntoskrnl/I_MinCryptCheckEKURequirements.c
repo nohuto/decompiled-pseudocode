@@ -1,3 +1,14 @@
+/*
+ * XREFs of I_MinCryptCheckEKURequirements @ 0x140A6DC80
+ * Callers:
+ *     I_MinCryptFindIssuerCertificateByName @ 0x140A6C8E0 (I_MinCryptFindIssuerCertificateByName.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     MinAsn1StringToOid @ 0x140A6EE24 (MinAsn1StringToOid.c)
+ */
+
 char __fastcall I_MinCryptCheckEKURequirements(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // eax

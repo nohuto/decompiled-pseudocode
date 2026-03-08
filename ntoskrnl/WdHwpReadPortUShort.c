@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdHwpReadPortUShort @ 0x14036DC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdHwpReadPortUShort(unsigned __int16 a1)
 {
   __int64 result; // rax

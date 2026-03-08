@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z @ 0x1C039524C
+ * Callers:
+ *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C020E618 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?ParseIntArray@@YAJPEBGPEAII1@Z @ 0x1C0395448 (-ParseIntArray@@YAJPEBGPEAII1@Z.c)
+ */
+
 __int64 __fastcall ParseAndCompareIntArrays(
         const unsigned __int16 *a1,
         char *a2,

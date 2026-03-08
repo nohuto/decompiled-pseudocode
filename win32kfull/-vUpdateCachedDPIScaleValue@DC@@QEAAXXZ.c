@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C014CFF2
+ * Callers:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C000FF70 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     GreHintDCWnd @ 0x1C0097030 (GreHintDCWnd.c)
+ *     GreSelectRedirectionBitmap @ 0x1C0097150 (GreSelectRedirectionBitmap.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C014CFA4 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C00E90D4 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ */
+
 void __fastcall DC::vUpdateCachedDPIScaleValue(DC *this)
 {
   int v1; // ebx

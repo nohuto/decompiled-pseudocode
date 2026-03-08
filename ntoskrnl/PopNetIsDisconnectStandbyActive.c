@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopNetIsDisconnectStandbyActive @ 0x140879C70
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopS0LowPowerIdleInfo @ 0x140981530 (PopS0LowPowerIdleInfo.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140B72350 (PopPdcCsCheckSystemVolumeDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PopNetIsDisconnectStandbyActive(_DWORD *a1)
 {
   if ( a1 )

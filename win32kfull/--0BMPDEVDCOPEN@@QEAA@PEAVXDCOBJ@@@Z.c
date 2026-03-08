@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0BMPDEVDCOPEN@@QEAA@PEAVXDCOBJ@@@Z @ 0x1C02A3914
+ * Callers:
+ *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C02778A8 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
+ * Callees:
+ *     ?bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C02A56DC (-bBmpUndoMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ */
+
 BMPDEVDCOPEN *__fastcall BMPDEVDCOPEN::BMPDEVDCOPEN(BMPDEVDCOPEN *this, struct XDCOBJ *a2)
 {
   __int64 v4; // rax

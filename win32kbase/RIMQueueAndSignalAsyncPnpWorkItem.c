@@ -1,3 +1,27 @@
+/*
+ * XREFs of RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0
+ * Callers:
+ *     RIMQueueDeviceClassNotifyAsyncWorkItem @ 0x1C0036884 (RIMQueueDeviceClassNotifyAsyncWorkItem.c)
+ *     rimQueueRimDevChangeAsyncWorkItem @ 0x1C00895B0 (rimQueueRimDevChangeAsyncWorkItem.c)
+ *     rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem @ 0x1C01BC4DC (rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem.c)
+ *     rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem @ 0x1C01C8B04 (rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem.c)
+ *     rimQueueUpdateInputGlolbalsAsyncWorkItem @ 0x1C01CF14C (rimQueueUpdateInputGlolbalsAsyncWorkItem.c)
+ *     RIMQueueDeviceNotifyAsyncWorkItem @ 0x1C01D01A4 (RIMQueueDeviceNotifyAsyncWorkItem.c)
+ *     RIMVirtQueueDeviceClassNotifyAsyncWorkItem @ 0x1C01D0EAC (RIMVirtQueueDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMVirtQueueRimDevChangeAsyncWorkItem @ 0x1C01D1044 (RIMVirtQueueRimDevChangeAsyncWorkItem.c)
+ *     RIMVirtQueueRootPnpEndSyncAsyncWorkItem @ 0x1C01D11C4 (RIMVirtQueueRootPnpEndSyncAsyncWorkItem.c)
+ *     rimQueueApiSetHidRawInputAsyncWorkItem @ 0x1C01DA354 (rimQueueApiSetHidRawInputAsyncWorkItem.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RIMFreeAsyncPnpWorkItem @ 0x1C003A278 (RIMFreeAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01A1388 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     ?WorkItemTypeToString@InputTraceLogging@@CAPEBDW4tagASYNCPNP_TYPE@@@Z @ 0x1C01A144C (-WorkItemTypeToString@InputTraceLogging@@CAPEBDW4tagASYNCPNP_TYPE@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20 (WPP_RECORDER_AND_TRACE_SF_qqqDSd.c)
+ */
+
 void __fastcall RIMQueueAndSignalAsyncPnpWorkItem(__int64 a1, __int64 a2)
 {
   int v4; // r8d

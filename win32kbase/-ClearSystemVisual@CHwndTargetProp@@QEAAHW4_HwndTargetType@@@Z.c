@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ClearSystemVisual@CHwndTargetProp@@QEAAHW4_HwndTargetType@@@Z @ 0x1C00BEF50
+ * Callers:
+ *     ?Delete@CHwndTargetProp@@UEAAXXZ @ 0x1C00BEF00 (-Delete@CHwndTargetProp@@UEAAXXZ.c)
+ * Callees:
+ *     ApiSetEditionNotifyDwmForSystemVisualDestruction @ 0x1C00BEFC0 (ApiSetEditionNotifyDwmForSystemVisualDestruction.c)
+ */
+
 __int64 __fastcall CHwndTargetProp::ClearSystemVisual(__int64 a1, unsigned int a2)
 {
   unsigned int v4; // ebx

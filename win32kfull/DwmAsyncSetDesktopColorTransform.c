@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncSetDesktopColorTransform @ 0x1C02703E0
+ * Callers:
+ *     NtUserSetDesktopColorTransform @ 0x1C01DC6C0 (NtUserSetDesktopColorTransform.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncSetDesktopColorTransform(PVOID Object, __int64 a2, __int128 *a3)
 {
   unsigned int v6; // ebx

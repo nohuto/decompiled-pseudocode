@@ -1,3 +1,22 @@
+/*
+ * XREFs of DpiFdoHandleRemoveDevice @ 0x1C0396F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiCheckSpbResourceLeakage @ 0x1C0065810 (DpiCheckSpbResourceLeakage.c)
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ *     DpiFdoRemoveChildDescriptors @ 0x1C039868C (DpiFdoRemoveChildDescriptors.c)
+ *     DpiFdoResetFdo @ 0x1C0398754 (DpiFdoResetFdo.c)
+ *     DpiAcpiUnregisterAcpiCallbacks @ 0x1C03A2624 (DpiAcpiUnregisterAcpiCallbacks.c)
+ *     DpiLdaUnLinkDeviceFromChain @ 0x1C03A4380 (DpiLdaUnLinkDeviceFromChain.c)
+ *     DpiDxgkDdiRemoveDevice @ 0x1C03A48CC (DpiDxgkDdiRemoveDevice.c)
+ *     DpiPdoDestroyPendingPdoObjects @ 0x1C03A4D90 (DpiPdoDestroyPendingPdoObjects.c)
+ *     ?SysMmDestroyAdapter@@YAXPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D1DB8 (-SysMmDestroyAdapter@@YAXPEAUSYSMM_ADAPTER@@@Z.c)
+ */
+
 __int64 __fastcall DpiFdoHandleRemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   char *DeviceExtension; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLargeAllocationDestroy @ 0x1405B4EA0
+ * Callers:
+ *     RtlpHpHeapDestroy @ 0x1405B4210 (RtlpHpHeapDestroy.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     RtlpHpMetadataFree @ 0x1402B6D30 (RtlpHpMetadataFree.c)
+ */
+
 __int64 __fastcall RtlpHpLargeAllocationDestroy(__int64 a1, __int128 *a2)
 {
   unsigned __int64 v4; // r8

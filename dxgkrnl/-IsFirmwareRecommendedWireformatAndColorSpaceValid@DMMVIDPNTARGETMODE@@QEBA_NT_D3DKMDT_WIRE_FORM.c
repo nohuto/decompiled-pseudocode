@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsFirmwareRecommendedWireformatAndColorSpaceValid@DMMVIDPNTARGETMODE@@QEBA_NT_D3DKMDT_WIRE_FORMAT_AND_PREFERENCE@@W4_D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE@@@Z @ 0x1C0068C5C
+ * Callers:
+ *     ?DmmInitializeAdapter@@YAJQEAX@Z @ 0x1C02026C4 (-DmmInitializeAdapter@@YAJQEAX@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ */
+
 bool __fastcall DMMVIDPNTARGETMODE::IsFirmwareRecommendedWireformatAndColorSpaceValid(
         DMMVIDPNTARGETMODE *this,
         union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE a2,

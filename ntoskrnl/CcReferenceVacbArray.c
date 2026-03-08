@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcReferenceVacbArray @ 0x140335D48
+ * Callers:
+ *     CcGetVacbFromFreeList @ 0x140335C94 (CcGetVacbFromFreeList.c)
+ *     CcGetRandomVacbArrayWithReference @ 0x140535BC4 (CcGetRandomVacbArrayWithReference.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 _DWORD *__fastcall CcReferenceVacbArray(unsigned int a1)
 {
   _DWORD *v1; // r8

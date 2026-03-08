@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiClearAweLargePageMetadata @ 0x14064703C
+ * Callers:
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiReadyLargeAwePageForFree @ 0x1406496AC (MiReadyLargeAwePageForFree.c)
+ * Callees:
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ */
+
 unsigned __int64 __fastcall MiClearAweLargePageMetadata(__int64 a1)
 {
   char v2; // dl

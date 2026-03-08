@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciGetHpetInterruptSourceAmd @ 0x140B8F9FC
+ * Callers:
+ *     HalpPciGetHpetInterruptSource @ 0x140B8F930 (HalpPciGetHpetInterruptSource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPciGetHpetInterruptSourceAmd(__int64 a1, char a2, __int64 a3)
 {
   unsigned __int64 v3; // r9

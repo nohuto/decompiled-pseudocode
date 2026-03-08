@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CRegionGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0254640 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CRegionGeometryMarshaler::SetRemarshalingFlags(
         DirectComposition::CRegionGeometryMarshaler *this)
 {

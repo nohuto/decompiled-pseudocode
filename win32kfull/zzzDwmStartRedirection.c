@@ -1,3 +1,23 @@
+/*
+ * XREFs of zzzDwmStartRedirection @ 0x1C007CEC8
+ * Callers:
+ *     NtUserDwmKernelStartup @ 0x1C00795C0 (NtUserDwmKernelStartup.c)
+ * Callees:
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ *     DwmAsyncDesktopFree @ 0x1C007CB6C (DwmAsyncDesktopFree.c)
+ *     zzzDecomposeDesktop @ 0x1C007CC0C (zzzDecomposeDesktop.c)
+ *     DwmAsyncDesktopCreate @ 0x1C007D0B8 (DwmAsyncDesktopCreate.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ *     DwmNotifyChildrenAddRemove @ 0x1C007E250 (DwmNotifyChildrenAddRemove.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C007F1FC (zzzEnableDwmPointerSupport.c)
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ *     GreDwmStartup @ 0x1C00C2644 (GreDwmStartup.c)
+ *     GreDwmShutdown @ 0x1C00C3164 (GreDwmShutdown.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ */
+
 __int64 zzzDwmStartRedirection()
 {
   __int64 ProcessWindowStation; // rdi

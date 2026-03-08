@@ -1,3 +1,12 @@
+/*
+ * XREFs of Normalization__CanCombineWithStartBase @ 0x1409BD708
+ * Callers:
+ *     Normalization__IsNormalized @ 0x1409BDB3C (Normalization__IsNormalized.c)
+ * Callees:
+ *     Normalization__CanCombinableCharactersCombine @ 0x1409BD590 (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__GetFirstDecomposedCharPlane0 @ 0x1409BD81C (Normalization__GetFirstDecomposedCharPlane0.c)
+ */
+
 __int64 __fastcall Normalization__CanCombineWithStartBase(__int64 a1, int *a2, unsigned int a3, int a4)
 {
   int FirstDecomposedCharPlane0; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopQueryInformation @ 0x140757E40
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     FsRtlGetSupportedFeatures @ 0x1402CBB70 (FsRtlGetSupportedFeatures.c)
+ *     MmIsDriverVerifying @ 0x140303C10 (MmIsDriverVerifying.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     FsRtlQueryOpen @ 0x140758084 (FsRtlQueryOpen.c)
+ *     VfFastIoCheckState @ 0x140AC8204 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140AC82DC (VfFastIoSnapState.c)
+ */
+
 __int64 __fastcall IopQueryInformation(__int64 a1, struct _DEVICE_OBJECT *a2, __int64 a3, __int64 a4, _BYTE *a5)
 {
   void *v8; // r14

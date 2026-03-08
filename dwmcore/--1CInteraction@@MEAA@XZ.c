@@ -1,3 +1,19 @@
+/*
+ * XREFs of ??1CInteraction@@MEAA@XZ @ 0x1800E4A54
+ * Callers:
+ *     ??_GCInteraction@@MEAAPEAXI@Z @ 0x1800E4A10 (--_GCInteraction@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z @ 0x1800E5448 (--$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z.c)
+ *     ?IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ @ 0x1800E5488 (-IsDefaultInteractionStateLocked@CInteraction@@AEAA_NXZ.c)
+ *     ??1CInteractionProcessor@@QEAA@XZ @ 0x1800E54AC (--1CInteractionProcessor@@QEAA@XZ.c)
+ *     ??$ReleaseInterface@V?$CWeakReference@VCVisual@@@@@@YAXAEAPEAV?$CWeakReference@VCVisual@@@@@Z @ 0x1800E7EB8 (--$ReleaseInterface@V-$CWeakReference@VCVisual@@@@@@YAXAEAPEAV-$CWeakReference@VCVisual@@@@@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0ppq_EventWriteTransfer @ 0x18019F440 (McTemplateU0ppq_EventWriteTransfer.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgs @ 0x180279264 (MicrosoftTelemetryAssertTriggeredNoArgs.c)
+ */
+
 void __fastcall CInteraction::~CInteraction(CInteraction *this)
 {
   _DWORD *v2; // rdi

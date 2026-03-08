@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpReadLogEntryHeader @ 0x1407F9BC8
+ * Callers:
+ *     HvpIncrementalLogFileEnumeratorAdvance @ 0x1407F9A98 (HvpIncrementalLogFileEnumeratorAdvance.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvpReadLogEntryHeader(
         unsigned int a1,
         __int64 (__fastcall *a2)(__int64, _QWORD, __int64, _OWORD **),

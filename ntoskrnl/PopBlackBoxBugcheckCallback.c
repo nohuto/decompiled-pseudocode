@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopBlackBoxBugcheckCallback @ 0x140597160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PopBlackBoxBugcheckCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

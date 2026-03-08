@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NeedsSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEBA_NXZ @ 0x1C0250694
+ * Callers:
+ *     ?EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02503C8 (-EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CGenericInkMarshaler::NeedsSegmentUpdate(
         DirectComposition::CGenericInkMarshaler *this)
 {

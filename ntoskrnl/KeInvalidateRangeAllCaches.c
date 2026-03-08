@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeInvalidateRangeAllCaches @ 0x1404580A0
+ * Callers:
+ *     KiFlushRangeAllCaches @ 0x14056FBF0 (KiFlushRangeAllCaches.c)
+ *     MiPersistMdl @ 0x14063C214 (MiPersistMdl.c)
+ *     MiPersistPage @ 0x14063C604 (MiPersistPage.c)
+ *     MiTransferFileExtent @ 0x14063D474 (MiTransferFileExtent.c)
+ * Callees:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KeInvalidateRangeAllCachesNoIpi @ 0x1402149F0 (KeInvalidateRangeAllCachesNoIpi.c)
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall KeInvalidateRangeAllCaches(PVOID BaseAddress, ULONG Length)
 {
   unsigned __int8 CurrentIrql; // bl

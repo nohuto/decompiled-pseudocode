@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCsqInitialize @ 0x1402FA010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoCsqInitialize(
         PIO_CSQ Csq,
         PIO_CSQ_INSERT_IRP CsqInsertIrp,

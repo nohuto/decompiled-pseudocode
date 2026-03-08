@@ -1,3 +1,28 @@
+/*
+ * XREFs of NtEnumerateBootEntries @ 0x14083E4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpIsDevicePathForRemovableMedia @ 0x140395FC0 (ExpIsDevicePathForRemovableMedia.c)
+ *     strcmp @ 0x1403D5570 (strcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExpTranslateBootEntryNameToId @ 0x14083EA68 (ExpTranslateBootEntryNameToId.c)
+ *     ExpSafeWcslen @ 0x14083EB44 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x14083EE50 (ExpVerifyFilePath.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083F460 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1409FB97C (ExpVerifyWindowsOsOptions.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtEnumerateBootEntries(unsigned __int64 Address, _DWORD *a2)
 {
   _DWORD *v2; // r12

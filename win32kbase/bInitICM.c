@@ -1,3 +1,18 @@
+/*
+ * XREFs of bInitICM @ 0x1C031D1E8
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C0016D9C (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C001D100 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     HmgMarkUndeletable @ 0x1C003EA00 (HmgMarkUndeletable.c)
+ *     GreGetStockObject @ 0x1C0041A00 (GreGetStockObject.c)
+ *     HmgShareLockEx @ 0x1C0048840 (HmgShareLockEx.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall bInitICM(__int64 a1)
 {
   unsigned int v1; // edi

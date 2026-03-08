@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmUnmapLockedRestartPages @ 0x140A287B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiUnmapMdlCommon @ 0x14061BD98 (MiUnmapMdlCommon.c)
+ *     MiReleaseDriverPtes @ 0x1407F74BC (MiReleaseDriverPtes.c)
+ */
+
 void __fastcall MmUnmapLockedRestartPages(__int64 a1)
 {
   ULONG_PTR v2; // rdi

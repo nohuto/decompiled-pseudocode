@@ -1,3 +1,14 @@
+/*
+ * XREFs of safe_cast_fnid_to_PSWITCHWND @ 0x1C01BC2F8
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01CA108 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     xxxNextWindow @ 0x1C01CB604 (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01CBDC8 (xxxOldNextWindow.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall safe_cast_fnid_to_PSWITCHWND(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddMdlToPartitionTree @ 0x140656460
+ * Callers:
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     MiAddRangeToPartitionTree @ 0x14065654C (MiAddRangeToPartitionTree.c)
+ *     MiClearRangeInPartitionTree @ 0x140656C50 (MiClearRangeInPartitionTree.c)
+ */
+
 __int64 __fastcall MiAddMdlToPartitionTree(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v3; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiIsFlipQueueBusy @ 0x1C0008100
+ * Callers:
+ *     VidSchiWaitForSchedulerEvents @ 0x1C00A5590 (VidSchiWaitForSchedulerEvents.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiIsFlipQueueBusy(__int64 a1)
 {
   unsigned __int8 v2; // di

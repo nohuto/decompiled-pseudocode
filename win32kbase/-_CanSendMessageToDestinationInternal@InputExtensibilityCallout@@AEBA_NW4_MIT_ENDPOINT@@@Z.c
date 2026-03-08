@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_CanSendMessageToDestinationInternal@InputExtensibilityCallout@@AEBA_NW4_MIT_ENDPOINT@@@Z @ 0x1C0081340
+ * Callers:
+ *     ?Broadcast@InputConfig@@SAXXZ @ 0x1C0016034 (-Broadcast@InputConfig@@SAXXZ.c)
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C0081280 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ * Callees:
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     isRootPartition @ 0x1C007B02C (isRootPartition.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 bool __fastcall InputExtensibilityCallout::_CanSendMessageToDestinationInternal(
         __int64 a1,
         int a2,

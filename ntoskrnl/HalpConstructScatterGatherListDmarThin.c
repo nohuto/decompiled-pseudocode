@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpConstructScatterGatherListDmarThin @ 0x140511AA4
+ * Callers:
+ *     HalpDmaReturnEmergencyLogicalAddressResources @ 0x1404FE8AC (HalpDmaReturnEmergencyLogicalAddressResources.c)
+ *     HalpBuildScatterGatherListDmarThin @ 0x140511900 (HalpBuildScatterGatherListDmarThin.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140511AA4 (HalpConstructScatterGatherListDmarThin.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaUseEmergencyLogicalAddressResources @ 0x1404FEAEC (HalpDmaUseEmergencyLogicalAddressResources.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140511AA4 (HalpConstructScatterGatherListDmarThin.c)
+ *     HalpPutScatterGatherListDmarThin @ 0x140511D50 (HalpPutScatterGatherListDmarThin.c)
+ */
+
 __int64 __fastcall HalpConstructScatterGatherListDmarThin(__int64 a1)
 {
   __int64 v1; // r11

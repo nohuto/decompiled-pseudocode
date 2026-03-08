@@ -1,3 +1,12 @@
+/*
+ * XREFs of WbReEncryptWarbirdEncryptionSegment @ 0x140753868
+ * Callers:
+ *     WbReEncryptEncryptionSegment @ 0x1407552F8 (WbReEncryptEncryptionSegment.c)
+ * Callees:
+ *     sub_140753A9C @ 0x140753A9C (sub_140753A9C.c)
+ *     sub_140A4B34C @ 0x140A4B34C (sub_140A4B34C.c)
+ */
+
 __int64 __fastcall WbReEncryptWarbirdEncryptionSegment(__int64 a1)
 {
   __int64 v1; // rax

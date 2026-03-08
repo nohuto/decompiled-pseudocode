@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpSavePersistedLoggersWorker @ 0x1409EB214
+ * Callers:
+ *     EtwpSavePersistedLoggers @ 0x1409EB1E4 (EtwpSavePersistedLoggers.c)
+ * Callees:
+ *     EtwpSavePersistedLogger @ 0x1409EAC60 (EtwpSavePersistedLogger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 EtwpSavePersistedLoggersWorker()
 {
   __int64 Pool2; // rax

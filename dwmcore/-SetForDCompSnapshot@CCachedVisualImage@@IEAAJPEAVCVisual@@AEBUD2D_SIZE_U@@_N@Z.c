@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetForDCompSnapshot@CCachedVisualImage@@IEAAJPEAVCVisual@@AEBUD2D_SIZE_U@@_N@Z @ 0x180214524
+ * Callers:
+ *     ?CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z @ 0x180253ADC (-CreateCVI@CSnapshot@@AEAAJPEAVCVisual@@@Z.c)
+ * Callees:
+ *     ?ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ @ 0x1800A8D04 (-ChoosePixelFormat@CCachedVisualImage@@IEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z @ 0x180214728 (-SetRootVisual@CCachedVisualImage@@IEAAJPEAVCVisual@@@Z.c)
+ */
+
 __int64 __fastcall CCachedVisualImage::SetForDCompSnapshot(
         CCachedVisualImage *this,
         struct CVisual *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchiCleanupDeferredWaiterContext @ 0x1C0012910
+ * Callers:
+ *     VidSchFlushContext @ 0x1C00AB850 (VidSchFlushContext.c)
+ * Callees:
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0006790 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0013514 (VidSchiUnwaitWaitQueuePacket.c)
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003C938 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ */
+
 void __fastcall VidSchiCleanupDeferredWaiterContext(__int64 a1)
 {
   _QWORD **v1; // rdi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmKmStoreHelperWorker @ 0x140356AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x1405C931C (SmKmStoreHelperCommandCleanup.c)
+ *     SmKmStoreHelperCommandProcess @ 0x1405C93E8 (SmKmStoreHelperCommandProcess.c)
+ */
+
 LONG __fastcall SmKmStoreHelperWorker(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

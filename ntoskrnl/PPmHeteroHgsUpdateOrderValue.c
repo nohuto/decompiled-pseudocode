@@ -1,3 +1,14 @@
+/*
+ * XREFs of PPmHeteroHgsUpdateOrderValue @ 0x14059C04C
+ * Callers:
+ *     PpmHeteroUpdateHgsConfiguration @ 0x14038F314 (PpmHeteroUpdateHgsConfiguration.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ */
+
 char __fastcall PPmHeteroHgsUpdateOrderValue(__int64 a1, __int64 a2, unsigned int a3, char a4)
 {
   __int64 v4; // rsi

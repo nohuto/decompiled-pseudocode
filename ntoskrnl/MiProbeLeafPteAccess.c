@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiProbeLeafPteAccess @ 0x140269620
+ * Callers:
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MiProbeLeafFrame @ 0x1403CFA14 (MiProbeLeafFrame.c)
+ * Callees:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiIsDriverPage @ 0x1402D38C0 (MiIsDriverPage.c)
+ *     MiOkToSetPteDirtyForNotValidFault @ 0x1402D7118 (MiOkToSetPteDirtyForNotValidFault.c)
+ *     MiLockProbePacketWorkingSet @ 0x1402E0344 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1402E038C (MiUnlockProbePacketWorkingSet.c)
+ *     MiProcessCommitIntact @ 0x1402FDBAC (MiProcessCommitIntact.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ *     MiCanPageMove @ 0x1403B7F24 (MiCanPageMove.c)
+ *     MiSplitReducedCommitClonePage @ 0x14061A624 (MiSplitReducedCommitClonePage.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140664840 (MiCopyOnWriteCheckConditions.c)
+ *     MiSplitDriverPage @ 0x140A289BC (MiSplitDriverPage.c)
+ */
+
 __int64 __fastcall MiProbeLeafPteAccess(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rbx

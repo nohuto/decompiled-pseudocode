@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1EXLATEOBJ@@QEAA@XZ @ 0x1C0267A60
+ * Callers:
+ *     NtGdiAlphaBlend @ 0x1C0083DC0 (NtGdiAlphaBlend.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C012448C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z @ 0x1C01299C8 (-vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z.c)
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ * Callees:
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C007F50C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall EXLATEOBJ::~EXLATEOBJ(Gre::Base **this)
 {
   EXLATEOBJ::vAltUnlock(this);

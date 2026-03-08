@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo8BPP_B332 @ 0x1C025B8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OutputAATo8BPP_B332(
         __int64 a1,
         __int64 a2,

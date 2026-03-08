@@ -1,3 +1,24 @@
+/*
+ * XREFs of SmcStoreResize @ 0x1409D8984
+ * Callers:
+ *     SmcProcessResizeRequest @ 0x1409D53B4 (SmcProcessResizeRequest.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     SmStoreResize @ 0x1409D4F20 (SmStoreResize.c)
+ *     SmcCacheReference @ 0x1409D8000 (SmcCacheReference.c)
+ *     SmcStoreEntryFind @ 0x1409D8838 (SmcStoreEntryFind.c)
+ *     SmcStorePlacementGet @ 0x1409D8878 (SmcStorePlacementGet.c)
+ */
+
 __int64 __fastcall SmcStoreResize(__int64 a1, _DWORD *a2)
 {
   struct _PRIVILEGE_SET *NonPaged; // rsi

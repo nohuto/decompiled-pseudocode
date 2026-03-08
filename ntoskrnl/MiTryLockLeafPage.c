@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiTryLockLeafPage @ 0x1402A29B8
+ * Callers:
+ *     MiCombineWithStandbyExisting @ 0x14029F020 (MiCombineWithStandbyExisting.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x1402A2850 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiDeleteClusterSection @ 0x14034B3A4 (MiDeleteClusterSection.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ *     MiMakeTransitionHeatBatch @ 0x140651CD4 (MiMakeTransitionHeatBatch.c)
+ * Callees:
+ *     MiInvalidPteConforms @ 0x140287530 (MiInvalidPteConforms.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x14065E278 (MiLockSpecialPurposeMemoryCachedPage.c)
+ */
+
 __int64 __fastcall MiTryLockLeafPage(__int64 *a1, char a2, __int64 *a3)
 {
   char v4; // r9

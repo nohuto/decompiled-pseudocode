@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C01166A8
+ * Callers:
+ *     PrepareHDCBITSBitmap @ 0x1C00162BC (PrepareHDCBITSBitmap.c)
+ *     CreateBitmapStrip @ 0x1C010E370 (CreateBitmapStrip.c)
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     BitBltSysBmp @ 0x1C00D04B0 (BitBltSysBmp.c)
+ *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C00D0688 (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ */
+
 __int64 __fastcall CreateDPIBitmapStrip(unsigned int a1)
 {
   __int64 *v1; // rbx

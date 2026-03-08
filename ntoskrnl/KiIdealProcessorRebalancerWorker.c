@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiIdealProcessorRebalancerWorker @ 0x1402EA780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUpdateProcessConcurrencyCounts @ 0x14022BAA0 (KiUpdateProcessConcurrencyCounts.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KiIdealProcessorRebalancerWorker()
 {
   KIRQL v0; // al

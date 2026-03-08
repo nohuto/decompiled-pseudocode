@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpCheckLowMemoryPostSleep @ 0x140A93B8C
+ * Callers:
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     HalpMapPhysicalMemory64 @ 0x140409B90 (HalpMapPhysicalMemory64.c)
+ *     HalpSimpleCheck @ 0x140A94110 (HalpSimpleCheck.c)
+ */
+
 _UNKNOWN **__fastcall HalpCheckLowMemoryPostSleep(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 {
   _UNKNOWN **result; // rax

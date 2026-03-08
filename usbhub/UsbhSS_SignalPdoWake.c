@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhSS_SignalPdoWake @ 0x1C001A04C
+ * Callers:
+ *     UsbhPortResumeComplete @ 0x1C001B070 (UsbhPortResumeComplete.c)
+ *     UsbhPortResumeFailed @ 0x1C004D940 (UsbhPortResumeFailed.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhQueueWorkItemWithRetry @ 0x1C000B390 (UsbhQueueWorkItemWithRetry.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ */
+
 __int64 __fastcall UsbhSS_SignalPdoWake(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rbx

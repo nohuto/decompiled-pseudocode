@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C00EB8DC
+ * Callers:
+ *     ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C00EB814 (-TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z.c)
+ *     NtUserUpdateWindowTrackingInfo @ 0x1C01E0CB0 (NtUserUpdateWindowTrackingInfo.c)
+ * Callees:
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ */
+
 int __fastcall ShellWindowManagement::TransformWindowTrackInfo(__int64 a1, INT *a2, INT *a3, int a4)
 {
   __int64 v4; // rbx

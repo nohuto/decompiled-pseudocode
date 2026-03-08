@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreGetCannonicalName @ 0x1C029D92C
+ * Callers:
+ *     ?vCheckMMInstance@@YAXPEAGPEAUtagDESIGNVECTOR@@@Z @ 0x1C003589C (-vCheckMMInstance@@YAXPEAGPEAUtagDESIGNVECTOR@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int16 __fastcall GreGetCannonicalName(__int16 *Src, char *a2, unsigned int *a3, _DWORD *a4)
 {
   __int16 v4; // ax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreCommand_FreeResources @ 0x1C0052ACC
+ * Callers:
+ *     XilCommand_FreeResources @ 0x1C00316D4 (XilCommand_FreeResources.c)
+ * Callees:
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ */
+
 void __fastcall XilCoreCommand_FreeResources(__int64 a1)
 {
   __int64 v2; // rdi

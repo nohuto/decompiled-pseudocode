@@ -1,3 +1,20 @@
+/*
+ * XREFs of ApiSetEditionSetAccessibilityTimer @ 0x1C0242AAC
+ * Callers:
+ *     ?AccessTimeOutReset@@YAXXZ @ 0x1C00177E0 (-AccessTimeOutReset@@YAXXZ.c)
+ *     ?AccessTimeOut@@YAXXZ @ 0x1C00F1F80 (-AccessTimeOut@@YAXXZ.c)
+ *     ?FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E3F00 (-FKActivationTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?FilterKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4050 (-FilterKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?ToggleKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E46D0 (-ToggleKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E49D0 (-xxxFKAcceptanceDelayTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E4A90 (-xxxFKRepeatRateTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxMKMouseMove@@YAHG@Z @ 0x1C01E4C10 (-xxxMKMouseMove@@YAHG@Z.c)
+ *     ?xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E5120 (-xxxMKMoveAccelCursorTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionSetAccessibilityTimer(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v5; // rbp

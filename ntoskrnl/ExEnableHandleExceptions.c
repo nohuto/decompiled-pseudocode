@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExEnableHandleExceptions @ 0x14078D244
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspApplyMitigationOptions @ 0x14070A66C (PspApplyMitigationOptions.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 bool __fastcall ExEnableHandleExceptions(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // r14

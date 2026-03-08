@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C022AB60
+ * Callers:
+ *     ?CreateAndSendSuperWetInkPayloadForCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXIM@Z @ 0x1C0245E40 (-CreateAndSendSuperWetInkPayloadForCommand@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXIM@Z.c)
+ *     ?Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0246650 (-Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     ??1DeviceObjectPointer@Io@@QEAA@XZ @ 0x1C022A7B0 (--1DeviceObjectPointer@Io@@QEAA@XZ.c)
+ *     ?GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z @ 0x1C022A858 (-GetByObjectName@DeviceObjectPointer@Io@@SAJPEBU_UNICODE_STRING@@KKPEAV12@@Z.c)
+ *     SendSynchronousIoControl @ 0x1C022AC70 (SendSynchronousIoControl.c)
+ */
+
 __int64 __fastcall Rim::RimBackedDeviceBase::SendSynchronousIoControl(
         Rim::RimBackedDeviceBase *this,
         ULONG a2,

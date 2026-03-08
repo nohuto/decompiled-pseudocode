@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMFixUpCompleteFrame @ 0x1C01CD8B0
+ * Callers:
+ *     RIMFixUpCompleteFrames @ 0x1C01CDB54 (RIMFixUpCompleteFrames.c)
+ *     rimFindOtherQueuedFrames @ 0x1C01D25F8 (rimFindOtherQueuedFrames.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     traceFrame @ 0x1C01CCAA4 (traceFrame.c)
+ */
+
 _UNKNOWN **__fastcall RIMFixUpCompleteFrame(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, int a5)
 {
   int v5; // ebp

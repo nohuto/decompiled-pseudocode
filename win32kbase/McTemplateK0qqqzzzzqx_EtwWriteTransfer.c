@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqqzzzzqx_EtwWriteTransfer @ 0x1C016709C
+ * Callers:
+ *     EtwTraceInputProcessDelay @ 0x1C0033C70 (EtwTraceInputProcessDelay.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqqzzzzqx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

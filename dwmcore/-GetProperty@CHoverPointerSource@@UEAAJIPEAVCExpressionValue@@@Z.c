@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@CHoverPointerSource@@UEAAJIPEAVCExpressionValue@@@Z @ 0x18001FF60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHoverPointerSource::GetProperty(CHoverPointerSource *this, int a2, struct CExpressionValue *a3)
 {
   __int64 result; // rax

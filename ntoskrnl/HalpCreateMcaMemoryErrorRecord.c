@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpCreateMcaMemoryErrorRecord @ 0x140500898
+ * Callers:
+ *     HalpCreateMachineCheckErrorRecord @ 0x140500730 (HalpCreateMachineCheckErrorRecord.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x1404FFE04 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ *     HalpAddMcaToMemoryErrorSection @ 0x1404FFE7C (HalpAddMcaToMemoryErrorSection.c)
+ *     HalpAddMcaToProcessorGenericSection @ 0x1404FFF0C (HalpAddMcaToProcessorGenericSection.c)
+ *     WheaInitializeRecordHeader @ 0x140610140 (WheaInitializeRecordHeader.c)
+ */
+
 __int64 __fastcall HalpCreateMcaMemoryErrorRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v8; // edi

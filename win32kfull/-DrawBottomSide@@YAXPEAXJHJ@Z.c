@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrawBottomSide@@YAXPEAXJHJ@Z @ 0x1C0223810
+ * Callers:
+ *     ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C0223998 (-DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrawBottomSide(char *a1, int a2, int a3, int a4)
 {
   int v6; // edx

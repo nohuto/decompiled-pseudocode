@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CAtlasEntry@@QEAA@XZ @ 0x1800B7A04
+ * Callers:
+ *     ?GenerateWhitePixel@CAtlasTexture@@AEAAXXZ @ 0x180024284 (-GenerateWhitePixel@CAtlasTexture@@AEAAXXZ.c)
+ *     ??1CAtlasBitmapResource@@MEAA@XZ @ 0x1800B608C (--1CAtlasBitmapResource@@MEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CAtlasEntry::~CAtlasEntry(CAtlasEntry *this)
 {
   __int64 v1; // rdx

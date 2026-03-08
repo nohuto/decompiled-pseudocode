@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ApplyAdaptiveSessionState@@YAXPEAU_PO_ADAPTIVE_SESSION_STATE@@@Z @ 0x1C0016B70
+ * Callers:
+ *     PowerConnectionEvent @ 0x1C0016838 (PowerConnectionEvent.c)
+ *     ?UpdateAdaptiveSessionState@@YAXXZ @ 0x1C00169A0 (-UpdateAdaptiveSessionState@@YAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall ApplyAdaptiveSessionState(struct _PO_ADAPTIVE_SESSION_STATE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

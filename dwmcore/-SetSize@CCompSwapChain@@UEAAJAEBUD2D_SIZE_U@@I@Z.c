@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetSize@CCompSwapChain@@UEAAJAEBUD2D_SIZE_U@@I@Z @ 0x18029B920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Trim@CD3DDevice@@QEAAXXZ @ 0x1800D106C (-Trim@CD3DDevice@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Initialize@CCompSwapChain@@IEAAJXZ @ 0x18029AFF0 (-Initialize@CCompSwapChain@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CCompSwapChain::SetSize(CCompSwapChain *this, const struct D2D_SIZE_U *a2, int a3)
 {
   unsigned int v6; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionUpdateAsyncKeyStateThreads @ 0x1C00CCCA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionUpdateAsyncKeyStateThreads(__int64 a1, unsigned __int8 a2)
 {
   _QWORD *v3; // rcx

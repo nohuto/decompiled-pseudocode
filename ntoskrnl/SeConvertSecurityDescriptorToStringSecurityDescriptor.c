@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1402C0D20
+ * Callers:
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14066DCEC (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AstLogDeviceSDDLUpdated @ 0x14074EF88 (AstLogDeviceSDDLUpdated.c)
+ *     CmpLogHiveFileInaccessible @ 0x14078B330 (CmpLogHiveFileInaccessible.c)
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A58320 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ * Callees:
+ *     LocalConvertSDToStringSD_Rev1 @ 0x14074F708 (LocalConvertSDToStringSD_Rev1.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ */
+
 __int64 __fastcall SeConvertSecurityDescriptorToStringSecurityDescriptor(
         __int64 a1,
         __int64 a2,

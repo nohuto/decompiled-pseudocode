@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwFreeUserPhysicalPages @ 0x140414190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwFreeUserPhysicalPages(__int64 a1, __int64 a2)
 {
   _disable();

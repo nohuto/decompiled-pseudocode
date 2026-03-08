@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C000A484
+ * Callers:
+ *     GreGetDxSharedSurface @ 0x1C000A248 (GreGetDxSharedSurface.c)
+ *     GreGetHwndUpdateIds @ 0x1C026A324 (GreGetHwndUpdateIds.c)
+ * Callees:
+ *     GreDwmUseDeviceBitmapsForMultiAdapter @ 0x1C000A4DC (GreDwmUseDeviceBitmapsForMultiAdapter.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ */
+
 __int64 __fastcall SFMLOGICALSURFACE::uiDxPresentFlags(SFMLOGICALSURFACE *this)
 {
   int v2; // ebx

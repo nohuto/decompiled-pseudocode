@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdHwDestroyHardwareRegister @ 0x140527F04
+ * Callers:
+ *     HalpWdatProcessWdrtInternalData @ 0x14051CD14 (HalpWdatProcessWdrtInternalData.c)
+ *     WdInstrDestroyInstruction @ 0x14052802C (WdInstrDestroyInstruction.c)
+ * Callees:
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ */
+
 __int64 __fastcall WdHwDestroyHardwareRegister(__int64 a1)
 {
   __int64 result; // rax

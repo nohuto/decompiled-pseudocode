@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlLargeIntegerToChar @ 0x14071C7C0
+ * Callers:
+ *     RtlInt64ToUnicodeString @ 0x14071C710 (RtlInt64ToUnicodeString.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlLargeIntegerToChar(unsigned __int64 *a1, unsigned __int64 a2, int a3, char *a4)
 {
   int v6; // r9d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkMiracastGetNextChunkInfo @ 0x1C0061380
+ * Callers:
+ *     DxgkNetDispGetNextChunkInfo @ 0x1C02CE630 (DxgkNetDispGetNextChunkInfo.c)
+ * Callees:
+ *     ?ProcessMiracastAPIChunk@@YAJPEAU_MIRACAST_DEVICE_CONTEXT@@PEAU_FDO_CONTEXT@@PEAKPEAUD3DKMT_MIRACAST_CHUNK_DATA@@2@Z @ 0x1C005F0CC (-ProcessMiracastAPIChunk@@YAJPEAU_MIRACAST_DEVICE_CONTEXT@@PEAU_FDO_CONTEXT@@PEAKPEAUD3DKMT_MIRA.c)
+ *     DpiMiracastGetDeviceContextFromLuid @ 0x1C005F39C (DpiMiracastGetDeviceContextFromLuid.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ */
+
 __int64 __fastcall DxgkMiracastGetNextChunkInfo(
         __int64 *a1,
         unsigned int a2,

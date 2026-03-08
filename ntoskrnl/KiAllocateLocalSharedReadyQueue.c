@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAllocateLocalSharedReadyQueue @ 0x1403721F0
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 __int64 __fastcall KiAllocateLocalSharedReadyQueue(__int64 a1)
 {
   __int64 v1; // rax

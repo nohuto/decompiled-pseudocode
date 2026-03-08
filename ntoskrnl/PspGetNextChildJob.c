@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspGetNextChildJob @ 0x1406FB938
+ * Callers:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ */
+
 _QWORD *__fastcall PspGetNextChildJob(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // r12

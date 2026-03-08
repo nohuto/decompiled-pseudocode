@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcWaitForCurrentLazyWriterActivityOnPartition @ 0x1403CE98C
+ * Callers:
+ *     CcWaitForCurrentLazyWriterActivityHelper @ 0x1403CE960 (CcWaitForCurrentLazyWriterActivityHelper.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ * Callees:
+ *     CcWaitForCurrentLazyWriterActivityOnNode @ 0x1403CEA10 (CcWaitForCurrentLazyWriterActivityOnNode.c)
+ */
+
 __int64 __fastcall CcWaitForCurrentLazyWriterActivityOnPartition(__int64 a1, __int64 a2)
 {
   int v2; // ebx

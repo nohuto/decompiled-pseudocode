@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceAutoBoostClearFloor @ 0x14045EA22
+ * Callers:
+ *     KiAbThreadRemoveBoostsSlow @ 0x1402D99E0 (KiAbThreadRemoveBoostsSlow.c)
+ * Callees:
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReporting @ 0x14040C7F0 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReporting.c)
+ */
+
 void __fastcall EtwTraceAutoBoostClearFloor(__int64 a1, __int64 a2, int a3)
 {
   int IsEnabledNoReporting; // eax

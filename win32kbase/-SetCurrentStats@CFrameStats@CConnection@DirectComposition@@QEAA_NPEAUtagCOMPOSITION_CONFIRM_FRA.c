@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetCurrentStats@CFrameStats@CConnection@DirectComposition@@QEAA_NPEAUtagCOMPOSITION_CONFIRM_FRAME_INFO@@@Z @ 0x1C0090470
+ * Callers:
+ *     NtDCompositionConfirmFrame @ 0x1C008F990 (NtDCompositionConfirmFrame.c)
+ * Callees:
+ *     ?DiscardFrame@CConnection@DirectComposition@@AEAAJ_K@Z @ 0x1C0090630 (-DiscardFrame@CConnection@DirectComposition@@AEAAJ_K@Z.c)
+ *     ?RetireFrame@CConnection@DirectComposition@@AEAAJ_KAEBUtagCOMPOSITION_STATS@@@Z @ 0x1C00906D0 (-RetireFrame@CConnection@DirectComposition@@AEAAJ_KAEBUtagCOMPOSITION_STATS@@@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 bool __fastcall DirectComposition::CConnection::CFrameStats::SetCurrentStats(
         DirectComposition::CConnection::CFrameStats *this,
         struct tagCOMPOSITION_CONFIRM_FRAME_INFO *a2)

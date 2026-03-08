@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C004CBC4
+ * Callers:
+ *     ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C0026E98 (-FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z.c)
+ *     ?IsCompanionRequiredForDevice@FxCompanionLibrary@@QEAAEPEAVFxDevice@@PEAPEBG@Z @ 0x1C002CE74 (-IsCompanionRequiredForDevice@FxCompanionLibrary@@QEAAEPEAVFxDevice@@PEAPEBG@Z.c)
+ *     FxVerifierReadObjectDebugInfo @ 0x1C0044CF0 (FxVerifierReadObjectDebugInfo.c)
+ *     ?QueryValue@FxRegKey@@QEAAJPEBU_UNICODE_STRING@@KPEAXPEAK2@Z @ 0x1C004A114 (-QueryValue@FxRegKey@@QEAAJPEBU_UNICODE_STRING@@KPEAXPEAK2@Z.c)
+ *     imp_WdfRegistryQueryValue @ 0x1C004BD60 (imp_WdfRegistryQueryValue.c)
+ *     ?PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z @ 0x1C006B714 (-PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 __int64 __fastcall FxRegKey::_QueryValue(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         void *Key,

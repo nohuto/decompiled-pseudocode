@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtSetThreadExecutionState @ 0x14073A9D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopGetLegacyPowerRequestFlags @ 0x1402B8BEC (PopGetLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402B8C40 (PopApplyLegacyPowerRequestFlags.c)
+ *     SessionIsInteractive @ 0x1402B92A4 (SessionIsInteractive.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     PopSystemRequiredSet @ 0x1403AF6CC (PopSystemRequiredSet.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1406FF3F8 (PoEnergyContextUpdateComponentPower.c)
+ *     PopNotifyConsoleUserPresent @ 0x14073A3BC (PopNotifyConsoleUserPresent.c)
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ *     PopDiagTraceSetThreadExecutionState @ 0x1408611C4 (PopDiagTraceSetThreadExecutionState.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall NtSetThreadExecutionState(int a1, __int64 a2)
 {
   _DWORD *v2; // r12

@@ -1,3 +1,17 @@
+/*
+ * XREFs of DriverEntry @ 0x1C010D1E8
+ * Callers:
+ *     GsDriverEntry @ 0x1C010D010 (GsDriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C0085008 (wil_UninitializeFeatureStaging.c)
+ *     VidSchiInitGlobals @ 0x1C00B4B00 (VidSchiInitGlobals.c)
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BDE54 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ *     ?DxgMmsInitDebug@@YAXXZ @ 0x1C00BE748 (-DxgMmsInitDebug@@YAXXZ.c)
+ *     ?DeInitGlobals@VIDMM_GLOBAL@@SAXXZ @ 0x1C00E12CC (-DeInitGlobals@VIDMM_GLOBAL@@SAXXZ.c)
+ *     wil_InitializeFeatureStaging @ 0x1C010D078 (wil_InitializeFeatureStaging.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   int v2; // eax

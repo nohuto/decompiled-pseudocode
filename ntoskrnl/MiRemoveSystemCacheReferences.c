@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiRemoveSystemCacheReferences @ 0x14062CB5C
+ * Callers:
+ *     MmMapViewInSystemCache @ 0x140334FD0 (MmMapViewInSystemCache.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiRemoveViewsFromSection @ 0x140334A28 (MiRemoveViewsFromSection.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiRemoveSystemCacheReferences(__int64 *BugCheckParameter2, unsigned __int64 a2)
 {
   __int64 v2; // rbp

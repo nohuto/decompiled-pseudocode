@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmTestAndLockProcessors @ 0x140235EAC
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmIdleWaitForDependentTransitions @ 0x140235F24 (PpmIdleWaitForDependentTransitions.c)
+ *     PpmTestAndLockProcessor @ 0x140583A5C (PpmTestAndLockProcessor.c)
+ */
+
 __int64 __fastcall PpmTestAndLockProcessors(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // edi

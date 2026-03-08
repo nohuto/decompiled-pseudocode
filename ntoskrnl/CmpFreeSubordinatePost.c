@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpFreeSubordinatePost @ 0x1406B4E5C
+ * Callers:
+ *     CmpPostNotify @ 0x1406B3790 (CmpPostNotify.c)
+ *     CmpPostApc @ 0x140785260 (CmpPostApc.c)
+ *     CmNotifyRunDown @ 0x1407D9F54 (CmNotifyRunDown.c)
+ *     CmpPostApcRunDown @ 0x140A0CAC0 (CmpPostApcRunDown.c)
+ * Callees:
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ */
+
 _QWORD *__fastcall CmpFreeSubordinatePost(__int64 a1)
 {
   _QWORD **v1; // rcx

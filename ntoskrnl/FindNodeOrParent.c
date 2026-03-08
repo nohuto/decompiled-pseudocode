@@ -1,3 +1,13 @@
+/*
+ * XREFs of FindNodeOrParent @ 0x1402C2D80
+ * Callers:
+ *     RtlDeleteElementGenericTable @ 0x1402C28B0 (RtlDeleteElementGenericTable.c)
+ *     RtlInsertElementGenericTable @ 0x1402C29E0 (RtlInsertElementGenericTable.c)
+ *     RtlLookupElementGenericTableFull @ 0x1405AC0D0 (RtlLookupElementGenericTableFull.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall FindNodeOrParent(__int64 *a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rbx

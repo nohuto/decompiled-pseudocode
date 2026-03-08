@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepLoadNgenLocations @ 0x140852AC0
+ * Callers:
+ *     SepSetSystemPaths @ 0x1408529D0 (SepSetSystemPaths.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepLoadNgenLocations(__int64 a1)
 {
   unsigned int v1; // r13d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CRemoteRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180109B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801003B0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CRemoteRenderTarget::HrFindInterface(CRemoteRenderTarget *this, const struct _GUID *a2, void **a3)
 {
   unsigned int v4; // ecx

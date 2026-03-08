@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiResetDeviceAlreadyProcessed @ 0x1C0023E24
+ * Callers:
+ *     AcpiDeviceResetCompleteResetWorker @ 0x1C0023530 (AcpiDeviceResetCompleteResetWorker.c)
+ *     AcpiDeviceResetInvokeReset @ 0x1C0023ABC (AcpiDeviceResetInvokeReset.c)
+ *     AcpiPlatformLevelDeviceReset @ 0x1C0023D14 (AcpiPlatformLevelDeviceReset.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AcpiResetDeviceAlreadyProcessed(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

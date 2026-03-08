@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HasLetterboxingMargins@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAUMilRectF@@@Z @ 0x1800E1CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?GetSwapChain@CBitmapRenderStrategy@@SAJPEBVCSurfaceBrush@@PEAPEAVISwapChainRealization@@@Z @ 0x1800771D4 (-GetSwapChain@CBitmapRenderStrategy@@SAJPEBVCSurfaceBrush@@PEAPEAVISwapChainRealization@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CBitmapRenderStrategy::HasLetterboxingMargins(
         CBitmapRenderStrategy *this,
         const struct CSurfaceBrush *a2,

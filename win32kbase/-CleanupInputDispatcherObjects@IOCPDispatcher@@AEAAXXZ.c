@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupInputDispatcherObjects@IOCPDispatcher@@AEAAXXZ @ 0x1C00940AC
+ * Callers:
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0093DD0 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
+ * Callees:
+ *     ?Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ @ 0x1C00940FC (-Cleanup@SensorIOCPWCP@IOCPDispatcher@@QEAAXXZ.c)
+ */
+
 void __fastcall IOCPDispatcher::CleanupInputDispatcherObjects(IOCPDispatcher *this)
 {
   IOCPDispatcher::SensorIOCPWCP *v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiStartContextRunningTimeAtISR @ 0x1C0016D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0piixqq_EtwWriteTransfer @ 0x1C0037E04 (McTemplateK0piixqq_EtwWriteTransfer.c)
+ */
+
 char __fastcall VidSchiStartContextRunningTimeAtISR(LARGE_INTEGER *a1, DWORD LowPart)
 {
   LARGE_INTEGER v2; // rdi

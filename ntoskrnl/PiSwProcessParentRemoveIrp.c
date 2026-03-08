@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiSwProcessParentRemoveIrp @ 0x140867324
+ * Callers:
+ *     IopRemoveDevice @ 0x140866E38 (IopRemoveDevice.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     McTemplateK0zzzzdd_EtwWriteTransfer @ 0x140561ED0 (McTemplateK0zzzzdd_EtwWriteTransfer.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x14086740C (PiSwFindSwDevice.c)
+ *     PiSwDestroyDeviceObject @ 0x14096423C (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ */
+
 void __fastcall PiSwProcessParentRemoveIrp(__int64 a1)
 {
   char *v1; // rbp

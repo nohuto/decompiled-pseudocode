@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViPoolDelayFreeTrimThreadRoutine @ 0x140AD7230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall __noreturn ViPoolDelayFreeTrimThreadRoutine(union _SLIST_HEADER *StartContext)
 {
   PSLIST_ENTRY v2; // rax

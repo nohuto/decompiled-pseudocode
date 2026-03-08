@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiGetSectionStrongImageReference @ 0x140A40B24
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiValidateInPage @ 0x140287570 (MiValidateInPage.c)
+ *     MiValidateImagePfn @ 0x14069EF78 (MiValidateImagePfn.c)
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiPromoteControlAreaToStrongCode @ 0x140A385E8 (MiPromoteControlAreaToStrongCode.c)
+ *     MmGetSectionStrongImageReference @ 0x140A40B7C (MmGetSectionStrongImageReference.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiGetSectionStrongImageReference(__int64 a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vNextEvent@LINER@@QEAAXXZ @ 0x1C02F4870
+ * Callers:
+ *     ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F4D64 (-vNextStyleEvent@STYLER@@QEAAXXZ.c)
+ * Callees:
+ *     ?vNextPoint@LINER@@AEAAXXZ @ 0x1C02F49C0 (-vNextPoint@LINER@@AEAAXXZ.c)
+ */
+
 void __fastcall LINER::vNextEvent(LINER *this)
 {
   __int64 v2; // rcx

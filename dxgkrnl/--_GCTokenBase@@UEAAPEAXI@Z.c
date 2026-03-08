@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GCTokenBase@@UEAAPEAXI@Z @ 0x1C00773F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CTokenBase *__fastcall CTokenBase::`scalar deleting destructor'(CTokenBase *this, char a2)
 {
   bool v2; // zf

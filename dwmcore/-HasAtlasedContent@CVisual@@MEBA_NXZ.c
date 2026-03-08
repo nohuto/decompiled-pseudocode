@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasAtlasedContent@CVisual@@MEBA_NXZ @ 0x1800D4BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CVisual::HasAtlasedContent(CVisual *this)
 {
   __int64 v1; // rcx

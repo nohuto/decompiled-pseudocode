@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpExtBuildResourceIdString @ 0x140374218
+ * Callers:
+ *     HalpInterruptBuildKnownResourceIdString @ 0x140373E60 (HalpInterruptBuildKnownResourceIdString.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403741C4 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpExtGetRegisteredResourceIdString @ 0x14050B59C (HalpExtGetRegisteredResourceIdString.c)
+ *     HalpRegisterDmaController @ 0x1405150F4 (HalpRegisterDmaController.c)
+ *     ExtEnvRegisterIommu @ 0x140B3CFD4 (ExtEnvRegisterIommu.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ */
+
 __int64 __fastcall HalpExtBuildResourceIdString(
         int a1,
         int a2,

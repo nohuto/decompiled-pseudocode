@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyOnChanged@CParticleEmitterVisual@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1802428F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??R?$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z @ 0x1801BF65C (--R-$default_delete@VCSpawner@EmitterShapes@@@std@@QEBAXPEAVCSpawner@EmitterShapes@@@Z.c)
+ *     ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x180240978 (-AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CParticleEmitterVisual::NotifyOnChanged(__int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // edi

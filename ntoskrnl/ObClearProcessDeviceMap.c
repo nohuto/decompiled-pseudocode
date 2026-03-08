@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObClearProcessDeviceMap @ 0x140704918
+ * Callers:
+ *     PspProcessDelete @ 0x140704DD0 (PspProcessDelete.c)
+ *     PspAssignPrimaryToken @ 0x14083F864 (PspAssignPrimaryToken.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObDereferenceDeviceMap @ 0x14071E5A4 (ObDereferenceDeviceMap.c)
+ */
+
 void __fastcall ObClearProcessDeviceMap(__int64 a1)
 {
   __int64 ProcessServerSilo; // rax

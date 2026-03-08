@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxConsiderPreferredDpiChange@@YAXPEAUtagWND@@@Z @ 0x1C0222570
+ * Callers:
+ *     xxxNotifyMonitorChanged @ 0x1C0099554 (xxxNotifyMonitorChanged.c)
+ *     xxxInheritWindowMonitor @ 0x1C00ADDA0 (xxxInheritWindowMonitor.c)
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ */
+
 void __fastcall xxxConsiderPreferredDpiChange(struct tagWND *a1)
 {
   __int64 v2; // r8

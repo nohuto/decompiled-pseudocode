@@ -1,3 +1,26 @@
+/*
+ * XREFs of AlpcpDispatchReplyToWaitingThread @ 0x1407C9EE0
+ * Callers:
+ *     AlpcpDispatchMessage @ 0x1407141B8 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406A07CC (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1407CC88C (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     AlpcpLogSendMessage @ 0x1409774AC (AlpcpLogSendMessage.c)
+ *     AlpcpLogWaitForReply @ 0x140977684 (AlpcpLogWaitForReply.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ */
+
 __int64 __fastcall AlpcpDispatchReplyToWaitingThread(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOutOfBounds@CInteractionTracker@@QEAA_NW4ScrollAxis@@@Z @ 0x18022FB48
+ * Callers:
+ *     ?IsOutOfBounds@CInteractionTracker@@QEAA_NXZ @ 0x18022FBA8 (-IsOutOfBounds@CInteractionTracker@@QEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CInteractionTracker::IsOutOfBounds(float *a1, int a2)
 {
   char result; // al

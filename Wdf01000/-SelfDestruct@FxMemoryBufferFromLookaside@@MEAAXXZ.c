@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SelfDestruct@FxMemoryBufferFromLookaside@@MEAAXXZ @ 0x1C000E590
+ * Callers:
+ *     ?SelfDestruct@FxMemoryBufferFromPoolLookaside@@MEAAXXZ @ 0x1C000E600 (-SelfDestruct@FxMemoryBufferFromPoolLookaside@@MEAAXXZ.c)
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxMemoryBufferFromLookaside::SelfDestruct(
         FxMemoryBufferFromLookaside *this,
         unsigned int a2,

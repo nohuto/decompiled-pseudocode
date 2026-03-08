@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptControllerInUse @ 0x14051829C
+ * Callers:
+ *     HalpInterruptReinitialize @ 0x140A923CC (HalpInterruptReinitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpInterruptControllerInUse(__int64 a1)
 {
   __int64 *v1; // r8

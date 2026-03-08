@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInitializePoolCommitPacket @ 0x140330760
+ * Callers:
+ *     MmAllocatePoolMemory @ 0x140330628 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x14063F4FC (MmAllocateSecurePoolMemory.c)
+ * Callees:
+ *     MiReturnPoolCharges @ 0x1402D89F8 (MiReturnPoolCharges.c)
+ *     MiGetLargePageChain @ 0x1402E98A8 (MiGetLargePageChain.c)
+ *     MiObtainPoolCharges @ 0x1402EDAA0 (MiObtainPoolCharges.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiGetPoolPages @ 0x14036413C (MiGetPoolPages.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiInitializePoolCommitPacket(
         __int64 *a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180098224
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x18020D3F0 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
+ *     ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x180240978 (-AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ.c)
+ *     ??0CScrollKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z @ 0x18026B934 (--0CScrollKeyframeAnimation@@QEAA@PEAVCComposition@@PEAVCInteractionTracker@@@Z.c)
+ * Callees:
+ *     ??0CBaseExpression@@QEAA@PEAVCComposition@@@Z @ 0x180099FD0 (--0CBaseExpression@@QEAA@PEAVCComposition@@@Z.c)
+ */
+
 CKeyframeAnimation *__fastcall CKeyframeAnimation::CKeyframeAnimation(
         CKeyframeAnimation *this,
         struct CComposition *a2)

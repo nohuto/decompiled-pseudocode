@@ -1,3 +1,14 @@
+/*
+ * XREFs of XilDeviceSlot_FreeSecureResources @ 0x1C00380A4
+ * Callers:
+ *     XilDeviceSlot_ReleaseHardware @ 0x1C00384F4 (XilDeviceSlot_ReleaseHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 char __fastcall XilDeviceSlot_FreeSecureResources(__int64 *a1)
 {
   __int64 v1; // rdi

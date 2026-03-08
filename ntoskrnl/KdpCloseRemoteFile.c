@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdpCloseRemoteFile @ 0x140AB0A58
+ * Callers:
+ *     KdPullRemoteFileEx @ 0x140AADD80 (KdPullRemoteFileEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ */
+
 __int64 __fastcall KdpCloseRemoteFile(int a1)
 {
   __int64 v1; // rbx

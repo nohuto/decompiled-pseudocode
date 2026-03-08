@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CDDisplayRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0266940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CDDisplayRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CDDisplayRenderTargetMarshaler *this)
 {

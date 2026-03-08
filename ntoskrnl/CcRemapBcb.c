@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcRemapBcb @ 0x1402C97F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 PVOID __stdcall CcRemapBcb(PVOID Bcb)
 {
   unsigned __int64 v1; // rcx

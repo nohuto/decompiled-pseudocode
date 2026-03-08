@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlLookupElementGenericTableAvl @ 0x140245A20
+ * Callers:
+ *     PiDmLookupObject @ 0x140680C78 (PiDmLookupObject.c)
+ *     PiSwFindBusRelations @ 0x140688540 (PiSwFindBusRelations.c)
+ *     PiDqQueryIsObjectInResultSet @ 0x140688D38 (PiDqQueryIsObjectInResultSet.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406CC6A0 (PiPnpRtlObjectEventWorker.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PopPowerRequestTableLookupEntry @ 0x14073B640 (PopPowerRequestTableLookupEntry.c)
+ *     PopPowerRequestStatsCreate @ 0x14073C194 (PopPowerRequestStatsCreate.c)
+ *     PiUpdateDriverDBCache @ 0x14079D924 (PiUpdateDriverDBCache.c)
+ *     PiLookupInDDBCache @ 0x14079DD70 (PiLookupInDDBCache.c)
+ *     PiDcHandleDeviceEvent @ 0x1407F8294 (PiDcHandleDeviceEvent.c)
+ *     PiSwFindSwDevice @ 0x14086740C (PiSwFindSwDevice.c)
+ *     IopCleanupFileObjectIosbRange @ 0x140941770 (IopCleanupFileObjectIosbRange.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x14099C874 (PopDirectedDripsUmMarkTestDevices.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PVOID __stdcall RtlLookupElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
   void *v2; // rsi

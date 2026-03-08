@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtEnableOneCoreTransformMode @ 0x1C0169910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtEnableOneCoreTransformMode(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

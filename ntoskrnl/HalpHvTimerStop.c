@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHvTimerStop @ 0x1403CFBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpHvTimerStop(__int64 a1)
 {
   __int64 v1; // rax

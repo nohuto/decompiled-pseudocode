@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceGetAsyncKeyState @ 0x1C007FFE4
+ * Callers:
+ *     NtUserGetAsyncKeyState @ 0x1C007FBB0 (NtUserGetAsyncKeyState.c)
+ * Callees:
+ *     ?OnKeyStateRequested@CAsyncKeyEventMonitor@@QEAAXK@Z @ 0x1C0080074 (-OnKeyStateRequested@CAsyncKeyEventMonitor@@QEAAXK@Z.c)
+ *     EtwInitializeAsyncKeyMonitor @ 0x1C00D2968 (EtwInitializeAsyncKeyMonitor.c)
+ */
+
 void __fastcall EtwTraceGetAsyncKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdx

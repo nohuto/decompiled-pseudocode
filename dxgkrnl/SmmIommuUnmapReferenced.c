@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmIommuUnmapReferenced @ 0x1C006E5C4
+ * Callers:
+ *     ?SmmUnmapMdlFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z @ 0x1C006ECC4 (-SmmUnmapMdlFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z.c)
+ * Callees:
+ *     SmmIoMmuUnmapStagingMdl @ 0x1C006E17C (SmmIoMmuUnmapStagingMdl.c)
+ */
+
 __int64 __fastcall SmmIommuUnmapReferenced(__int64 a1, __int64 a2)
 {
   _QWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF

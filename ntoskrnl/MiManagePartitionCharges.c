@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiManagePartitionCharges @ 0x14065882C
+ * Callers:
+ *     MmManagePartitionCharges @ 0x140A42714 (MmManagePartitionCharges.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiManagePartitionCharges(__int64 a1, char a2, unsigned int a3, __int64 a4)
 {
   volatile LONG *v4; // rbp

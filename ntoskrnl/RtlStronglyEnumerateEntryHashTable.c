@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStronglyEnumerateEntryHashTable @ 0x1403C67E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall RtlStronglyEnumerateEntryHashTable(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

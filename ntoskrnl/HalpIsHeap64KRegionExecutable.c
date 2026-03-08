@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIsHeap64KRegionExecutable @ 0x1405035F0
+ * Callers:
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpIsHeap64KRegionExecutable(__int64 a1)
 {
   unsigned __int64 v1; // rcx

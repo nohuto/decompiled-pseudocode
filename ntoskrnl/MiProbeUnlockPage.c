@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiProbeUnlockPage @ 0x14027C720
+ * Callers:
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiUnlockPhysicalPageByVa @ 0x14061A990 (MiUnlockPhysicalPageByVa.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiDereferenceControlAreaProbe @ 0x140214FAC (MiDereferenceControlAreaProbe.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     ExReleaseRundownProtectionCacheAware @ 0x1402C79D0 (ExReleaseRundownProtectionCacheAware.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUnlockPageTableCharges @ 0x140345720 (MiUnlockPageTableCharges.c)
+ *     MiFinishLargePageFree @ 0x1403506BC (MiFinishLargePageFree.c)
+ *     MiGetBaseResidentPage @ 0x140350A30 (MiGetBaseResidentPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiSyncCommitSignals @ 0x1403929E0 (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiBadRefCount @ 0x14064B094 (MiBadRefCount.c)
+ *     MiRestockOverCommit @ 0x140654060 (MiRestockOverCommit.c)
+ */
+
 void __fastcall MiProbeUnlockPage(__int64 a1, __int16 a2, __int64 *a3, int *a4)
 {
   unsigned __int64 CachedCommit; // r8

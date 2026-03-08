@@ -1,3 +1,19 @@
+/*
+ * XREFs of KseUnregisterShim @ 0x1409740B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepIsShimRegistered @ 0x140801090 (KsepIsShimRegistered.c)
+ */
+
 __int64 __fastcall KseUnregisterShim(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

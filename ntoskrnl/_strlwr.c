@@ -1,3 +1,11 @@
+/*
+ * XREFs of _strlwr @ 0x1403D3BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__cdecl strlwr(char *String)
 {
   char v1; // dl

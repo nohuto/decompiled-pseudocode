@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeGetCompletionQueueForAssignment @ 0x1C000EF80
+ * Callers:
+ *     IoSqToIoCqMapping @ 0x1C000B78C (IoSqToIoCqMapping.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall NVMeGetCompletionQueueForAssignment(
         __int64 a1,
         unsigned int *a2,

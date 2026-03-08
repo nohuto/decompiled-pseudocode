@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIPepGetNextPlatformNotification @ 0x1C008A8F0
+ * Callers:
+ *     ACPIPepWorker @ 0x1C008B020 (ACPIPepWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ACPIPepGetNextPlatformNotification(__int64 a1, _DWORD *a2, char *a3)
 {
   int *v3; // rax

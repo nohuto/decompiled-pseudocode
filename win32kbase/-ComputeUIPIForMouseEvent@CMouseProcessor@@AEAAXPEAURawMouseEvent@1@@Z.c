@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ComputeUIPIForMouseEvent@CMouseProcessor@@AEAAXPEAURawMouseEvent@1@@Z @ 0x1C007CB8C
+ * Callers:
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C007AB10 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ * Callees:
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ */
+
 void __fastcall CMouseProcessor::ComputeUIPIForMouseEvent(
         CMouseProcessor *this,
         struct CMouseProcessor::RawMouseEvent *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@K$07$0DAGBGJFG@@@QEAAPEAKI@Z @ 0x1C00190F4
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 __int64 __fastcall NonPagedPoolZeroedArray<unsigned long,8,811690326>::AllocateElements(__int64 *a1, unsigned int a2)
 {
   __int64 result; // rax

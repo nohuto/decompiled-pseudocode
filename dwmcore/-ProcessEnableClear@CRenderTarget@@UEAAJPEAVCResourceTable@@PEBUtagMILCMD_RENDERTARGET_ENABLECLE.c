@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessEnableClear@CRenderTarget@@UEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERTARGET_ENABLECLEAR@@@Z @ 0x1801C2A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CRenderTarget::ProcessEnableClear(
         CRenderTarget *this,
         struct CResourceTable *a2,

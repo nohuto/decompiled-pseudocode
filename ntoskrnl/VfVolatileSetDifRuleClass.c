@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfVolatileSetDifRuleClass @ 0x140ADABEC
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     VfUtilSetRuleClass @ 0x1405CBF3C (VfUtilSetRuleClass.c)
+ *     CarCleanup @ 0x1405D1318 (CarCleanup.c)
+ *     CarInit @ 0x1405D18E4 (CarInit.c)
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ *     DifSetPluginRunningWithoutReboot @ 0x1405D2FE0 (DifSetPluginRunningWithoutReboot.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfClearDifWithoutReboot @ 0x140ABFBAC (VfClearDifWithoutReboot.c)
+ *     VfInitDifWithoutReboot @ 0x140ABFC04 (VfInitDifWithoutReboot.c)
+ */
+
 __int64 __fastcall VfVolatileSetDifRuleClass(void *Src, size_t Size)
 {
   size_t v2; // rsi

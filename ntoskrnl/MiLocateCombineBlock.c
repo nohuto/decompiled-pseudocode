@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiLocateCombineBlock @ 0x140229F50
+ * Callers:
+ *     MiCreateCombineAnchor @ 0x14034A2A4 (MiCreateCombineAnchor.c)
+ *     MiProcessCrcList @ 0x1406A8670 (MiProcessCrcList.c)
+ * Callees:
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpTryAcquireSpinLockShared @ 0x140321970 (ExpTryAcquireSpinLockShared.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 _QWORD *__fastcall MiLocateCombineBlock(__int64 a1, unsigned __int64 a2, unsigned int a3, int a4, _QWORD *a5)
 {
   _QWORD *v8; // rsi

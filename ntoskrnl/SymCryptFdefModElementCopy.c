@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModElementCopy @ 0x1403FE608
+ * Callers:
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall SymCryptFdefModElementCopy(__int64 a1, const void *a2, void *a3)
 {
   void *result; // rax

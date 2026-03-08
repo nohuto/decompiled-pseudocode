@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpTransReferenceTransaction @ 0x1406B5C38
+ * Callers:
+ *     CmpTransSearchAddTrans @ 0x1406B570C (CmpTransSearchAddTrans.c)
+ *     CmpTransSearchAddLightWeightTrans @ 0x1406B5B04 (CmpTransSearchAddLightWeightTrans.c)
+ *     CmpTransInitializeTransaction @ 0x1407353BC (CmpTransInitializeTransaction.c)
+ *     CmpCreateKeyBody @ 0x1407BA4F0 (CmpCreateKeyBody.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     TmIsTransactionActive @ 0x1403D29F0 (TmIsTransactionActive.c)
+ */
+
 __int64 __fastcall CmpTransReferenceTransaction(__int64 a1)
 {
   struct _KTRANSACTION *v1; // rbx

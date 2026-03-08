@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIIoctlEvalPostProcessingV2 @ 0x1C000449A
+ * Callers:
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F468 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethodCompletion @ 0x1C002F6B0 (ACPIIoctlAsyncEvalControlMethodCompletion.c)
+ * Callees:
+ *     ACPIIoctlCalculateOutputBufferSizeV2 @ 0x1C0003FB0 (ACPIIoctlCalculateOutputBufferSizeV2.c)
+ *     ACPIIoctlCalculateOutputBufferV2 @ 0x1C00040B2 (ACPIIoctlCalculateOutputBufferV2.c)
+ */
+
 __int64 __fastcall ACPIIoctlEvalPostProcessingV2(_QWORD *a1, __int64 a2, char a3)
 {
   unsigned __int64 v3; // r14

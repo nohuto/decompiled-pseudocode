@@ -1,3 +1,18 @@
+/*
+ * XREFs of WbReEncryptEncryptionSegment @ 0x1407552F8
+ * Callers:
+ *     WbDispatchOperation @ 0x1406AECD0 (WbDispatchOperation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     WbReEncryptWarbirdEncryptionSegment @ 0x140753868 (WbReEncryptWarbirdEncryptionSegment.c)
+ *     WbGetInitializedEncryptionSegment @ 0x140755694 (WbGetInitializedEncryptionSegment.c)
+ *     sub_140755994 @ 0x140755994 (sub_140755994.c)
+ */
+
 __int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3)
 {
   int InitializedEncryptionSegment; // edi

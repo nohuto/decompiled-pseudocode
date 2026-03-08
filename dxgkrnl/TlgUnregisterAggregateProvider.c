@@ -1,3 +1,13 @@
+/*
+ * XREFs of TlgUnregisterAggregateProvider @ 0x1C03D3898
+ * Callers:
+ *     ?DxgkCleanupTelemetry@@YAXXZ @ 0x1C004E140 (-DxgkCleanupTelemetry@@YAXXZ.c)
+ * Callees:
+ *     LookUpTableFlushComplete @ 0x1C0219FA0 (LookUpTableFlushComplete.c)
+ *     CancelTimerCallbacksAndDeleteTimer @ 0x1C03D35C4 (CancelTimerCallbacksAndDeleteTimer.c)
+ *     DestroyAggregateSession @ 0x1C03D3654 (DestroyAggregateSession.c)
+ */
+
 void __fastcall TlgUnregisterAggregateProvider(__int64 a1)
 {
   _QWORD *v2; // rsi

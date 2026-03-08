@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Dispose@FxRequestBase@@MEAAEXZ @ 0x1C0009060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?CallCleanupCallbacks@FxObject@@AEAAXXZ @ 0x1C0046154 (-CallCleanupCallbacks@FxObject@@AEAAXXZ.c)
+ *     ?Vf_VerifyDispose@FxRequestBase@@IEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BAC18 (-Vf_VerifyDispose@FxRequestBase@@IEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 unsigned __int8 __fastcall FxRequestBase::Dispose(FxRequestBase *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdx

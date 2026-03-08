@@ -1,3 +1,11 @@
+/*
+ * XREFs of MxBootDescriptorDepleted @ 0x140B386BC
+ * Callers:
+ *     MxGetNextPage @ 0x140B383A4 (MxGetNextPage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MxBootDescriptorDepleted(__int64 a1)
 {
   __int64 v1; // rdx

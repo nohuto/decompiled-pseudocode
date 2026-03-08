@@ -1,3 +1,36 @@
+/*
+ * XREFs of KeGenericCallDpcEx @ 0x1403C07D0
+ * Callers:
+ *     MiFreeUnusedSlabPages @ 0x140360D18 (MiFreeUnusedSlabPages.c)
+ *     MiStartDpcGang @ 0x140386B74 (MiStartDpcGang.c)
+ *     MiSwapStackPage @ 0x14039604C (MiSwapStackPage.c)
+ *     MiZeroPageCalibrate @ 0x1403A50D0 (MiZeroPageCalibrate.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403A9C3C (MiInitializeWorkingSetManagerParameters.c)
+ *     MiFreeUnusedPfnPages @ 0x1403AD0D0 (MiFreeUnusedPfnPages.c)
+ *     KeSetSystemTime @ 0x1403B0A8C (KeSetSystemTime.c)
+ *     KeAbCrossThreadDelete @ 0x1405770F0 (KeAbCrossThreadDelete.c)
+ *     ExpTrackTableInsertLimit @ 0x1406067BC (ExpTrackTableInsertLimit.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiJumpStack @ 0x14062AB50 (MiJumpStack.c)
+ *     MiDemoteSlabEntries @ 0x1406541E4 (MiDemoteSlabEntries.c)
+ *     ExGetPoolTagInfo @ 0x14083163C (ExGetPoolTagInfo.c)
+ *     KeConfigureHeteroProcessors @ 0x14096F978 (KeConfigureHeteroProcessors.c)
+ *     MmSetPermanentCacheAttribute @ 0x140A2DAD0 (MmSetPermanentCacheAttribute.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140A44BE4 (MiSpecialPurposeMemoryRemoved.c)
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A44D34 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ *     ExpAeThresholdInitialization @ 0x140B5E160 (ExpAeThresholdInitialization.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiInitiateGenericCallDpc @ 0x1402DC9E4 (KiInitiateGenericCallDpc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeGenericCallDpcEx(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

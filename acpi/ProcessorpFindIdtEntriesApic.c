@@ -1,3 +1,20 @@
+/*
+ * XREFs of ProcessorpFindIdtEntriesApic @ 0x1C009B5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IntPartFree @ 0x1C005ECF0 (IntPartFree.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     ProcessorpFindAffinitizedIdtEntries @ 0x1C009B1A8 (ProcessorpFindAffinitizedIdtEntries.c)
+ *     ProcessorpGetSecondaryInterruptAffinity @ 0x1C009B990 (ProcessorpGetSecondaryInterruptAffinity.c)
+ *     ProcessorpSelectProcessorSetFromClusters @ 0x1C009C230 (ProcessorpSelectProcessorSetFromClusters.c)
+ *     ProcessorpValidateTargetSet @ 0x1C009C3D4 (ProcessorpValidateTargetSet.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C009F45C (IcIsInterruptTypeSecondary.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C009F8A4 (IrqPolicyGetDevicePolicy.c)
+ *     IrqPolicyQuerySteeringEnabledForInterrupt @ 0x1C009FE48 (IrqPolicyQuerySteeringEnabledForInterrupt.c)
+ *     ProcessorpSelectProcessorSetFromPartitions @ 0x1C00A02C0 (ProcessorpSelectProcessorSetFromPartitions.c)
+ */
+
 NTSTATUS __fastcall ProcessorpFindIdtEntriesApic(
         PDEVICE_OBJECT Pdo,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeSystemImageCallback @ 0x140998320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopIdleWakeSystemImageCallback(__int64 a1, unsigned __int64 *a2)
 {
   _DWORD *v2; // r12

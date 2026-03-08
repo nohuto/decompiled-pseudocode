@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspInitializeSystemDlls @ 0x140B649D4
+ * Callers:
+ *     PspInitPhase2 @ 0x140B64880 (PspInitPhase2.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PsQuerySystemDllInfo @ 0x14076D124 (PsQuerySystemDllInfo.c)
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ *     PspWow64GetSharedInformation @ 0x14084AC08 (PspWow64GetSharedInformation.c)
+ */
+
 _QWORD *PspInitializeSystemDlls()
 {
   int v0; // ebx

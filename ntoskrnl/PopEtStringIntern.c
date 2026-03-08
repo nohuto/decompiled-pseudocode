@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEtStringIntern @ 0x1407941D4
+ * Callers:
+ *     PopEtEnergyContextSetState @ 0x140700F30 (PopEtEnergyContextSetState.c)
+ * Callees:
+ *     RtlInternTableIntern @ 0x1407015D8 (RtlInternTableIntern.c)
+ */
+
 __int64 __fastcall PopEtStringIntern(__int64 a1, __int64 a2, __int64 *a3)
 {
   unsigned int v3; // ebx

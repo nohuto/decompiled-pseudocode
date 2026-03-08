@@ -1,3 +1,17 @@
+/*
+ * XREFs of sub_14075424C @ 0x14075424C
+ * Callers:
+ *     WbInitializeEncryptionSegment @ 0x140752A00 (WbInitializeEncryptionSegment.c)
+ *     sub_1407538E4 @ 0x1407538E4 (sub_1407538E4.c)
+ *     sub_140753A9C @ 0x140753A9C (sub_140753A9C.c)
+ *     sub_140753BB4 @ 0x140753BB4 (sub_140753BB4.c)
+ *     sub_140A4B164 @ 0x140A4B164 (sub_140A4B164.c)
+ *     sub_140A4B34C @ 0x140A4B34C (sub_140A4B34C.c)
+ * Callees:
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall sub_14075424C(PVOID BaseAddress, unsigned int a2, int a3)
 {
   __int64 v3; // rsi

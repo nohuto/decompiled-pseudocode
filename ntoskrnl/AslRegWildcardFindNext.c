@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslRegWildcardFindNext @ 0x140A53734
+ * Callers:
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A4DAFC (SdbpCheckMatchingWildcardRegistryEntry.c)
+ *     AslRegWildcardFindFirst @ 0x140A53674 (AslRegWildcardFindFirst.c)
+ * Callees:
+ *     AslpProcessMatchRegNode @ 0x140A53E9C (AslpProcessMatchRegNode.c)
+ */
+
 __int64 __fastcall AslRegWildcardFindNext(_QWORD *a1, _QWORD *a2)
 {
   _QWORD *v2; // rbx

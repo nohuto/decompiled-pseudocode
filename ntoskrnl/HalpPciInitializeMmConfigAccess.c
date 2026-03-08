@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciInitializeMmConfigAccess @ 0x140B66E3C
+ * Callers:
+ *     HalpPciInitSystem @ 0x140A8E250 (HalpPciInitSystem.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ */
+
 __int64 __fastcall HalpPciInitializeMmConfigAccess(__int64 a1)
 {
   __int64 Table; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDmListUpdateAggregationCountWorker @ 0x140869528
+ * Callers:
+ *     PiDmListAddObjectWorker @ 0x1406CD594 (PiDmListAddObjectWorker.c)
+ *     PiDmListRemoveObjectWorker @ 0x140958008 (PiDmListRemoveObjectWorker.c)
+ * Callees:
+ *     PiDmGetCacheKeys @ 0x1406D071C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D0770 (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataDecode @ 0x1406D0930 (PiDmCacheDataDecode.c)
+ */
+
 void __fastcall PiDmListUpdateAggregationCountWorker(__int64 a1, __int64 a2, int a3)
 {
   char *v3; // rbx

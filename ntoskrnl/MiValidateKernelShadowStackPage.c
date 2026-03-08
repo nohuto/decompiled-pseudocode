@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiValidateKernelShadowStackPage @ 0x140642B48
+ * Callers:
+ *     MiDeleteKernelShadowStack @ 0x140641FD4 (MiDeleteKernelShadowStack.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140642840 (MiKernelShadowStackIdealForCaching.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x140642A9C (MiUpdateKernelShadowStackOwnerData.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiValidateKernelShadowStackPage(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   __int64 result; // rax

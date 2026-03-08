@@ -1,3 +1,14 @@
+/*
+ * XREFs of LZNT1DecompressChunk @ 0x1404217D0
+ * Callers:
+ *     LZNT1DecompressChunkWorkItem @ 0x140298C90 (LZNT1DecompressChunkWorkItem.c)
+ *     LZNT1DecompressChunkNewThread @ 0x1402EDF30 (LZNT1DecompressChunkNewThread.c)
+ *     RtlDecompressFragmentLZNT1 @ 0x14077E7B0 (RtlDecompressFragmentLZNT1.c)
+ *     RtlDecompressBufferLZNT1 @ 0x14077EA00 (RtlDecompressBufferLZNT1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LZNT1DecompressChunk(_BYTE *a1, _BYTE *a2, _BYTE *a3, __int64 a4, _DWORD *a5)
 {
   _BYTE *v5; // rdi

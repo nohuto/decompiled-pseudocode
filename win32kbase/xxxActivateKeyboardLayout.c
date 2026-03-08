@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxActivateKeyboardLayout @ 0x1C0082330
+ * Callers:
+ *     NtUserActivateKeyboardLayout @ 0x1C00823E0 (NtUserActivateKeyboardLayout.c)
+ * Callees:
+ *     ThreadUnlock1 @ 0x1C003B460 (ThreadUnlock1.c)
+ *     HKLtoPKL @ 0x1C0081F10 (HKLtoPKL.c)
+ *     xxxInternalActivateKeyboardLayout @ 0x1C0082990 (xxxInternalActivateKeyboardLayout.c)
+ *     ?ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z @ 0x1C0213FA8 (-ReorderKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@PEAUtagKL@@@Z.c)
+ */
+
 struct tagKL *__fastcall xxxActivateKeyboardLayout(
         struct tagWINDOWSTATION *a1,
         __int64 a2,

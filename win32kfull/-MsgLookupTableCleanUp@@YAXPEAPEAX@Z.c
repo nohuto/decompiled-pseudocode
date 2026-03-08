@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MsgLookupTableCleanUp@@YAXPEAPEAX@Z @ 0x1C00D6F0C
+ * Callers:
+ *     FreeProcessMessageFilter @ 0x1C00D6EE0 (FreeProcessMessageFilter.c)
+ *     FreeWindowMessageFilter @ 0x1C012EDC4 (FreeWindowMessageFilter.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MsgLookupTableCleanUp(void **a1)
 {
   void **v2; // rdi

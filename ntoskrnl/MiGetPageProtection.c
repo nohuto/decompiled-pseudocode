@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiGetPageProtection @ 0x14031C310
+ * Callers:
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ * Callees:
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x1402A2850 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402B0EB0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MiGetImageProtoProtection @ 0x1402EA8EC (MiGetImageProtoProtection.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiCaptureProtectionFromLockedProto @ 0x140464560 (MiCaptureProtectionFromLockedProto.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiGetProtectionFromPte @ 0x140646910 (MiGetProtectionFromPte.c)
+ *     MiGetValidAwePartitionId @ 0x140648440 (MiGetValidAwePartitionId.c)
+ *     MiGetValidAweProtection @ 0x1406484D8 (MiGetValidAweProtection.c)
+ */
+
 __int64 __fastcall MiGetPageProtection(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, __int64 **a3, _DWORD *a4, _WORD *a5)
 {
   _WORD *v5; // rbp

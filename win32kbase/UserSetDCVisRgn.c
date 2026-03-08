@@ -1,3 +1,18 @@
+/*
+ * XREFs of UserSetDCVisRgn @ 0x1C0044E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsGetStyleWindowSupported @ 0x1C003CFD4 (IsGetStyleWindowSupported.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     CreateEmptyRgnPublic @ 0x1C0041F30 (CreateEmptyRgnPublic.c)
+ *     GreSetRectRgn @ 0x1C0041FD0 (GreSetRectRgn.c)
+ *     GreOffsetRgn @ 0x1C0042C20 (GreOffsetRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0048B20 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall UserSetDCVisRgn(struct tagDCE *a1)
 {
   _DWORD *v2; // rbx

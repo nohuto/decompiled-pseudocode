@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeQueryCpuPartitionAffinity @ 0x1403A8718
+ * Callers:
+ *     KeQuerySystemCpuPartitionAffinity @ 0x1403A86F0 (KeQuerySystemCpuPartitionAffinity.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405725AC (KeAssignCpuPartitionsToProcess.c)
+ *     NtQueryInformationCpuPartition @ 0x1409AD630 (NtQueryInformationCpuPartition.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiComputeGroupMask @ 0x1402967CC (KiComputeGroupMask.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryCpuPartitionAffinity(__int64 a1, void *a2, unsigned __int16 a3, unsigned __int16 *a4)
 {
   __int64 v4; // r15

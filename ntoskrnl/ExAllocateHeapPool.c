@@ -1,3 +1,39 @@
+/*
+ * XREFs of ExAllocateHeapPool @ 0x1403101C0
+ * Callers:
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ * Callees:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x14024A490 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     RtlpHpLargeAlloc @ 0x1402B6D70 (RtlpHpLargeAlloc.c)
+ *     ExpAddTagForBigPages @ 0x1402C7A20 (ExpAddTagForBigPages.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     ExpPlFindLimitEntry @ 0x1402F00EC (ExpPlFindLimitEntry.c)
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403B53DC (ExpPoolTrackerChargeEntry.c)
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     InterlockedPushListSList @ 0x140420510 (InterlockedPushListSList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExCheckSingleFilter @ 0x140462BFE (ExCheckSingleFilter.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpHpExtrasAppend @ 0x1405B4050 (RtlpHpExtrasAppend.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060C980 (ExAllocateHeapSpecialPool.c)
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ */
+
 __int64 __fastcall ExAllocateHeapPool(unsigned int PoolType, unsigned __int64 a2, int a3, unsigned int a4, __int16 a5)
 {
   struct _SLIST_ENTRY *v5; // r11

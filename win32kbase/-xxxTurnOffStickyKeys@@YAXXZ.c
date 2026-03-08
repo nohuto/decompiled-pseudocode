@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01E6170
+ * Callers:
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C0017E70 (xxxUpdatePerUserAccessPackSettings.c)
+ *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B7A0 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01E48F0 (-xxxAccessTimeOutTimer@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E5C10 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ * Callees:
+ *     ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01E62D0 (-xxxUpdateModifierState@@YAXHH@Z.c)
+ *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0241574 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
+ */
+
 void xxxTurnOffStickyKeys(void)
 {
   unsigned int v0; // edx

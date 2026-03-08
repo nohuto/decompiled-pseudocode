@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiForceTdr @ 0x1C00473F4
+ * Callers:
+ *     VidSchEscape @ 0x1C003F6B0 (VidSchEscape.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchDdiNotifyDpcWorker @ 0x1C003A0D4 (VidSchDdiNotifyDpcWorker.c)
+ */
+
 void __fastcall VidSchiForceTdr(__int64 a1)
 {
   __int64 v2; // rax

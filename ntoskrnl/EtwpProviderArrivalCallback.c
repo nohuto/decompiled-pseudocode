@@ -1,3 +1,24 @@
+/*
+ * XREFs of EtwpProviderArrivalCallback @ 0x140775208
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpAddRegEntryToGroup @ 0x140693640 (EtwpAddRegEntryToGroup.c)
+ *     EtwpTrackProviderRegistration @ 0x1406952D0 (EtwpTrackProviderRegistration.c)
+ *     EtwpTrackProviderBinary @ 0x140857400 (EtwpTrackProviderBinary.c)
+ *     EtwpTrackGuidEntryRegistrations @ 0x1409F2804 (EtwpTrackGuidEntryRegistrations.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x140775328 (EtwpLocateDbgIdForRegEntry.c)
+ *     EtwpTrackDebugIdForSession @ 0x1407756FC (EtwpTrackDebugIdForSession.c)
+ *     RtlPcToFilePath @ 0x1408A16F0 (RtlPcToFilePath.c)
+ *     EtwpTrackBinaryForSession @ 0x1408A68C0 (EtwpTrackBinaryForSession.c)
+ *     MmGetFileNameForAddress @ 0x1408A737E (MmGetFileNameForAddress.c)
+ *     EtwpEventWriteDebugLookupFailed @ 0x1409E0650 (EtwpEventWriteDebugLookupFailed.c)
+ *     EtwpSendDbgId @ 0x1409E9094 (EtwpSendDbgId.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpProviderArrivalCallback(__int64 a1, char a2, __int64 a3)
 {
   PVOID v4; // rcx

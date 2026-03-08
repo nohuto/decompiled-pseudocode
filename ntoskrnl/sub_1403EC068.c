@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_1403EC068 @ 0x1403EC068
+ * Callers:
+ *     sub_1403EC0EC @ 0x1403EC0EC (sub_1403EC0EC.c)
+ *     sub_140B15070 @ 0x140B15070 (sub_140B15070.c)
+ *     sub_140B16300 @ 0x140B16300 (sub_140B16300.c)
+ * Callees:
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 unsigned __int8 __fastcall sub_1403EC068(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v5; // rsi

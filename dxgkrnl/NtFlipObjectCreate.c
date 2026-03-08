@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtFlipObjectCreate @ 0x1C00801E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C0014210 (-Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJP.c)
+ */
+
 __int64 __fastcall NtFlipObjectCreate(__int64 a1, HANDLE *a2)
 {
   __int64 v4; // rcx

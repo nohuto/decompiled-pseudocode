@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CLinearTransferEffect@@IEAA@PEAVCComposition@@@Z @ 0x1802370AC
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x1801BD7E4 (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CLinearTransferEffect *__fastcall CLinearTransferEffect::CLinearTransferEffect(
         CLinearTransferEffect *this,
         struct CComposition *a2)

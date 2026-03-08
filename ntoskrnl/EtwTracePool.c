@@ -1,3 +1,26 @@
+/*
+ * XREFs of EtwTracePool @ 0x1405FAD80
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     ExpResizeBigPageTable @ 0x1403B453C (ExpResizeBigPageTable.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403B4DF4 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403B51DC (ExInsertPoolTag.c)
+ *     ExRemovePoolTag @ 0x1403BD8EC (ExRemovePoolTag.c)
+ *     ExPoolCleanupExpansionTable @ 0x140604EC8 (ExPoolCleanupExpansionTable.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ *     ExAllocateHeapSpecialPool @ 0x14060C980 (ExAllocateHeapSpecialPool.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060CCF8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ExInitializePoolTracker @ 0x140B63C80 (ExInitializePoolTracker.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x140462BFE (ExCheckSingleFilter.c)
+ *     MmIsNonPagedPoolNx @ 0x14063F740 (MmIsNonPagedPoolNx.c)
+ */
+
 void __fastcall EtwTracePool(unsigned __int16 a1, __int16 a2, int a3, __int64 a4, unsigned __int64 a5)
 {
   int v5; // ebx

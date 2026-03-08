@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtQueryLicenseValue @ 0x14075C9B0
+ * Callers:
+ *     ExpGetNtProductTypeFromLicenseValue @ 0x14084AD48 (ExpGetNtProductTypeFromLicenseValue.c)
+ *     MiMemoryLicense @ 0x140B5FAA0 (MiMemoryLicense.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ntoskrnl_27 @ 0x14075CC80 (ntoskrnl_27.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQueryLicenseValue(unsigned __int64 a1, _DWORD *a2, volatile void *a3, unsigned int a4, _DWORD *a5)
 {
   SIZE_T v5; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxMKToggleMouseKeys@@YAHG@Z @ 0x1C01E5AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TurnOffMouseKeys@@YAXXZ @ 0x1C01E48A0 (-TurnOffMouseKeys@@YAXXZ.c)
+ *     ?xxxMKButtonSetState@@YAHG@Z @ 0x1C01E4B80 (-xxxMKButtonSetState@@YAHG@Z.c)
+ *     ApiSetEditionPostAccessibilitySettingChangedEvent @ 0x1C0241574 (ApiSetEditionPostAccessibilitySettingChangedEvent.c)
+ *     ApiSetEditionPostRitSound @ 0x1C0241DC8 (ApiSetEditionPostRitSound.c)
+ */
+
 _BOOL8 __fastcall xxxMKToggleMouseKeys(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   BOOL v4; // esi

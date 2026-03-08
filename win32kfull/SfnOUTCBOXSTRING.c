@@ -1,3 +1,12 @@
+/*
+ * XREFs of SfnOUTCBOXSTRING @ 0x1C014A8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ClientGetListboxString @ 0x1C020833C (ClientGetListboxString.c)
+ */
+
 __int64 __fastcall SfnOUTCBOXSTRING(
         __int64 *a1,
         unsigned int a2,

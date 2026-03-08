@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessAdd@FxRelatedDeviceList@@MEAAJPEAUFxTransactionedEntry@@@Z @ 0x1C0089900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z @ 0x1C004F900 (-GetNextEntryLocked@FxTransactionedList@@IEAAPEAUFxTransactionedEntry@@PEAU2@@Z.c)
+ */
+
 __int64 __fastcall FxRelatedDeviceList::ProcessAdd(FxRelatedDeviceList *this, FxTransactionedEntry *NewEntry)
 {
   FxRelatedDeviceList *v2; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FindObjSymbol @ 0x1C004E110
+ * Callers:
+ *     DebugExpr @ 0x1C004D830 (DebugExpr.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FindObjSymbol(unsigned __int64 a1, _QWORD *a2, _DWORD *a3)
 {
   char v4; // bl

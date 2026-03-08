@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Create@CPointerHashTable@NSInstrumentation@@SAPEAV12@_N@Z @ 0x1C00E74C4
+ * Callers:
+ *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00E7460 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ * Callees:
+ *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C0092984 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 struct NSInstrumentation::CPointerHashTable *__fastcall NSInstrumentation::CPointerHashTable::Create()
 {
   __int64 Pool2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of _NtPlugPlayGetDeviceStatus @ 0x1406C8898
+ * Callers:
+ *     _CmGetDeviceStatus @ 0x1406C8624 (_CmGetDeviceStatus.c)
+ *     _CmIsDevicePresent @ 0x1406C8810 (_CmIsDevicePresent.c)
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetNtPlugPlayRoutine @ 0x1406C891C (_PnpCtxGetNtPlugPlayRoutine.c)
+ */
+
 __int64 __fastcall NtPlugPlayGetDeviceStatus(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlFillNonVolatileMemory @ 0x1405AD3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlFillMemoryNonTemporal @ 0x140420FC0 (RtlFillMemoryNonTemporal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlFlushNonVolatileMemory @ 0x1405A57F0 (RtlFlushNonVolatileMemory.c)
+ */
+
 __int64 __fastcall RtlFillNonVolatileMemory(char a1, __m128i *a2, size_t a3, unsigned __int8 a4, __int16 a5)
 {
   unsigned int v5; // ebx

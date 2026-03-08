@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpIsSdbCapabilityPresent @ 0x140A4E8A0
+ * Callers:
+ *     SdbpMatchList @ 0x1407A2310 (SdbpMatchList.c)
+ *     SdbpCheckSdbCapability @ 0x140A4DDE0 (SdbpCheckSdbCapability.c)
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__fastcall SdbpIsSdbCapabilityPresent(_DWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 i; // r9

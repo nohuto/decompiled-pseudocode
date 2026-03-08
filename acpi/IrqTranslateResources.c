@@ -1,3 +1,16 @@
+/*
+ * XREFs of IrqTranslateResources @ 0x1C009A520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IrqLibAcquireArbiterLock @ 0x1C005CC88 (IrqLibAcquireArbiterLock.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C005CD28 (IrqLibReleaseArbiterLock.c)
+ *     WPP_RECORDER_SF_dDDq @ 0x1C005DED8 (WPP_RECORDER_SF_dDDq.c)
+ *     IrqTranslatepQueryDeviceIrql @ 0x1C009A6BC (IrqTranslatepQueryDeviceIrql.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ */
+
 __int64 __fastcall IrqTranslateResources(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, __int64 a6, _OWORD *a7)
 {
   _OWORD *v7; // rbx

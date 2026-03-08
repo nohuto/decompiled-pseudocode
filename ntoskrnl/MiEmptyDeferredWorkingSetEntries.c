@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20
+ * Callers:
+ *     MiMakeSystemCacheRangeValid @ 0x140221870 (MiMakeSystemCacheRangeValid.c)
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ *     MiCompletePrivateZeroFault @ 0x14026C360 (MiCompletePrivateZeroFault.c)
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     MiCompleteRestrictedImageFault @ 0x14028D690 (MiCompleteRestrictedImageFault.c)
+ *     MiQueueCoreWorkingSetEntries @ 0x14028D9D0 (MiQueueCoreWorkingSetEntries.c)
+ *     MiUnlockFaultPageTable @ 0x140343598 (MiUnlockFaultPageTable.c)
+ * Callees:
+ *     MiAddWorkingSetEntries @ 0x14026D700 (MiAddWorkingSetEntries.c)
+ */
+
 __int64 __fastcall MiEmptyDeferredWorkingSetEntries(__int64 a1)
 {
   __int64 v2; // r10

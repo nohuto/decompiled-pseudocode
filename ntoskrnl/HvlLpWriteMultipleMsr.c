@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlLpWriteMultipleMsr @ 0x140542640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlLpWriteMultipleMsr(ULONG a1, unsigned int a2, ULONG *a3, PHYSICAL_ADDRESS *a4)
 {
   __int64 v6; // rsi

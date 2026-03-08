@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentState@CScalarForce@@UEBA?BUIntegrationState@@XZ @ 0x180272720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CScalarForce::GetCurrentState(__int64 a1, __int64 a2)
 {
   int v2; // xmm0_4

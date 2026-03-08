@@ -1,3 +1,19 @@
+/*
+ * XREFs of BgpClearScreen @ 0x14066F510
+ * Callers:
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140670864 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x140AE90B8 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwDisplayFade @ 0x140AE99E8 (AnFwDisplayFade.c)
+ *     BgpConsoleClearScreenEx @ 0x140AEE428 (BgpConsoleClearScreenEx.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140AEF1E0 (AnFwpBackgroundUpdateTimer.c)
+ * Callees:
+ *     BgpGxDrawRectangle @ 0x1403817FC (BgpGxDrawRectangle.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     BgpGxInitializeRectangle @ 0x140383D4C (BgpGxInitializeRectangle.c)
+ *     BgpGxFillRectangle @ 0x1403842E4 (BgpGxFillRectangle.c)
+ */
+
 __int64 __fastcall BgpClearScreen(unsigned int a1)
 {
   __int64 result; // rax

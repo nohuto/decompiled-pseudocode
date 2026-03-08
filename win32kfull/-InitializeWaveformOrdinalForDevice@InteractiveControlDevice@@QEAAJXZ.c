@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeWaveformOrdinalForDevice@InteractiveControlDevice@@QEAAJXZ @ 0x1C0248850
+ * Callers:
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0248474 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     ?GetSupportedWaveforms@InteractiveControlDevice@@QEAAPEAU_WAVEFORM_INFO@@XZ @ 0x1C0248458 (-GetSupportedWaveforms@InteractiveControlDevice@@QEAAPEAU_WAVEFORM_INFO@@XZ.c)
+ */
+
 __int64 __fastcall InteractiveControlDevice::InitializeWaveformOrdinalForDevice(InteractiveControlDevice *this)
 {
   unsigned int v1; // edx

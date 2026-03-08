@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGuardIsValidWow64StackPointer @ 0x1408813A0
+ * Callers:
+ *     KeVerifyContextRecord @ 0x1403653D4 (KeVerifyContextRecord.c)
+ *     PspWow64SetContextThread @ 0x14077C1CC (PspWow64SetContextThread.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall RtlGuardIsValidWow64StackPointer(unsigned int a1, void *Teb)
 {
   _DWORD *v2; // r9

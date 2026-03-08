@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiMcheckAbort @ 0x140427E80
+ * Callers:
+ *     KiMcheckAbortShadow @ 0x140AF39C0 (KiMcheckAbortShadow.c)
+ * Callees:
+ *     KeWakeProcessor @ 0x1402DA170 (KeWakeProcessor.c)
+ *     KiMcheckFastForward @ 0x1402EDB10 (KiMcheckFastForward.c)
+ *     KiCheckForSListAddress @ 0x1403510B0 (KiCheckForSListAddress.c)
+ *     KiRestoreDebugRegisterState @ 0x1404164D0 (KiRestoreDebugRegisterState.c)
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiSetSpecCtrlNmi @ 0x14041B940 (KiSetSpecCtrlNmi.c)
+ *     KxMcheckAbort @ 0x1404284C0 (KxMcheckAbort.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ *     KiCopyCounters @ 0x140571D30 (KiCopyCounters.c)
+ */
+
 void __fastcall KiMcheckAbort(
         __int64 a1,
         __int64 _RDX,

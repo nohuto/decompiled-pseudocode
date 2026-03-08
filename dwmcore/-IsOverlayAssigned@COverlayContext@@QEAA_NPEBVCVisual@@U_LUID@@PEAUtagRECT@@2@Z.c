@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOverlayAssigned@COverlayContext@@QEAA_NPEBVCVisual@@U_LUID@@PEAUtagRECT@@2@Z @ 0x18012BA6A
+ * Callers:
+ *     ?DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z @ 0x1800D87F0 (-DrawAsOverlay@CDrawingContext@@QEAA_NPEAVIBitmapResource@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall COverlayContext::IsOverlayAssigned(
         COverlayContext *this,
         const struct CVisual *a2,

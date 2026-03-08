@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReuseRealization@CDxHandleBitmapRealization@@UEAA_NAEAUCSM_REALIZATION_INFO@@@Z @ 0x1802ADB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CDxHandleBitmapRealization::ReuseRealization(
         CDxHandleBitmapRealization *this,
         struct CSM_REALIZATION_INFO *a2)

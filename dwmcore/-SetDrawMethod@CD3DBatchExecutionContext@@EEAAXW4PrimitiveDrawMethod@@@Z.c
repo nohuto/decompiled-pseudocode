@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetDrawMethod@CD3DBatchExecutionContext@@EEAAXW4PrimitiveDrawMethod@@@Z @ 0x1800DAB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z @ 0x1800DABCC (-Flush@CD3DBatchExecutionContext@@QEAAXW4FlushReason@@@Z.c)
+ */
+
 __int64 __fastcall CD3DBatchExecutionContext::SetDrawMethod(__int64 a1, char a2)
 {
   __int64 v4; // rdx

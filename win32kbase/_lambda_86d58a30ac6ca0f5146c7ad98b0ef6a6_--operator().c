@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator() @ 0x1C0156CEC
+ * Callers:
+ *     ?xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z @ 0x1C0156F40 (-xxxDispBrokerChangeDisplaySettings@@YAJPEBU_UNICODE_STRING@@PEAU_devicemodeW@@I_N@Z.c)
+ * Callees:
+ *     ?RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0156E48 (-RtlStringCchCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z.c)
+ */
+
 __int64 __fastcall lambda_86d58a30ac6ca0f5146c7ad98b0ef6a6_::operator()(__int64 a1, __int64 a2)
 {
   unsigned __int16 *v2; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimIsPointerDevicePrimaryContactDown @ 0x1C01D8B68
+ * Callers:
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01D5A04 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rimIsPointerDevicePrimaryContactDown(__int64 a1)
 {
   __int64 v1; // r8

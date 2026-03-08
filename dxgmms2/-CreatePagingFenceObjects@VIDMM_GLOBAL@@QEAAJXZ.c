@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreatePagingFenceObjects@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C2140
+ * Callers:
+ *     ?VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C1F94 (-VidMmInitializePagingProcess@VIDMM_GLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchCreateSyncObject @ 0x1C00AA640 (VidSchCreateSyncObject.c)
+ *     ?DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E1A38 (-DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::CreatePagingFenceObjects(VIDMM_GLOBAL *this)
 {
   __int64 v1; // rdi

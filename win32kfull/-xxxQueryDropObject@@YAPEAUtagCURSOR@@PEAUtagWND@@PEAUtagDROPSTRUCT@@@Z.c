@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02323EC
+ * Callers:
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02323EC (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ *     xxxDragObject @ 0x1C023257C (xxxDragObject.c)
+ * Callees:
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ?PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C00DEEB0 (-PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z.c)
+ *     _ScreenToClient @ 0x1C00E8E64 (_ScreenToClient.c)
+ *     _ChildWindowFromPointEx @ 0x1C01489CA (_ChildWindowFromPointEx.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02323EC (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ *     _ClientToScreen @ 0x1C024E7D0 (_ClientToScreen.c)
+ */
+
 struct tagCURSOR *__fastcall xxxQueryDropObject(struct tagWND *a1, struct tagDROPSTRUCT *a2)
 {
   __int64 v2; // r8

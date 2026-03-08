@@ -1,3 +1,15 @@
+/*
+ * XREFs of RawQueryVolumeInformation @ 0x1406F362C
+ * Callers:
+ *     RawDispatch @ 0x1406F2E80 (RawDispatch.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     RawQueryFsVolumeInfo @ 0x1406F3758 (RawQueryFsVolumeInfo.c)
+ *     FsRtlGetSectorSizeInformation @ 0x14086B030 (FsRtlGetSectorSizeInformation.c)
+ *     RawQueryFsDeviceInfo @ 0x1409B5424 (RawQueryFsDeviceInfo.c)
+ *     RawQueryFsSizeInfo @ 0x1409B54A8 (RawQueryFsSizeInfo.c)
+ */
+
 __int64 __fastcall RawQueryVolumeInformation(__int64 a1, IRP *a2, __int64 a3)
 {
   unsigned int v3; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VslGetSecurePciDeviceBootConfiguration @ 0x140548F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     RtlCmEncodeMemIoResource @ 0x140370750 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 int __fastcall VslGetSecurePciDeviceBootConfiguration(
         int a1,
         char a2,

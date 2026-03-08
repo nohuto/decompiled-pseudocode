@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpInitializeFreezeThaw @ 0x1408134C4
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *CmpInitializeFreezeThaw()
 {
   __int64 *result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiCreateBootSlabEntries @ 0x140B3B858
+ * Callers:
+ *     MiCreateSlabAllocationsFromLoaderBlock @ 0x140B3A034 (MiCreateSlabAllocationsFromLoaderBlock.c)
+ *     MiCreateKernelHalSlabRange @ 0x140B3B690 (MiCreateKernelHalSlabRange.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiInsertSlabEntry @ 0x140349C90 (MiInsertSlabEntry.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiCreateBootSlabEntries(__int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   int v4; // ebx

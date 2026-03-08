@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhPdoPnp_QueryId @ 0x1C00558C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhPdoPnp_EnablePdo @ 0x1C00551AC (UsbhPdoPnp_EnablePdo.c)
+ *     UsbhAcquirePdoUxdLock @ 0x1C0059828 (UsbhAcquirePdoUxdLock.c)
+ *     UsbhReleasePdoUxdLock @ 0x1C005ACB8 (UsbhReleasePdoUxdLock.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_QueryId(__int64 a1, IRP *a2)
 {
   __int64 v3; // rbp

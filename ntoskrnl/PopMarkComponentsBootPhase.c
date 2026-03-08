@@ -1,3 +1,26 @@
+/*
+ * XREFs of PopMarkComponentsBootPhase @ 0x140AA049C
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     MmIsAddressValid @ 0x1403A9A20 (MmIsAddressValid.c)
+ *     FirstEntrySList @ 0x140420450 (FirstEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlMarkHiberPhase @ 0x140544504 (HvlMarkHiberPhase.c)
+ *     KeMarkDynamicTracingHiberPhase @ 0x14057C6AC (KeMarkDynamicTracingHiberPhase.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     RtlMarkHiberPhase @ 0x1405B232C (RtlMarkHiberPhase.c)
+ *     VfIsVerifierExtensionEnabled @ 0x1405CBE04 (VfIsVerifierExtensionEnabled.c)
+ *     DifMarkHiberPhase @ 0x1405D2A64 (DifMarkHiberPhase.c)
+ *     BgkResumePrepare @ 0x140A969F4 (BgkResumePrepare.c)
+ *     KdMarkHiberPhase @ 0x140A9B928 (KdMarkHiberPhase.c)
+ *     KeMarkHiberPhase @ 0x140A9B9B8 (KeMarkHiberPhase.c)
+ *     PopMarkHiberPhase @ 0x140AA0728 (PopMarkHiberPhase.c)
+ *     MiConvertHiberPhasePages @ 0x140AA8EFC (MiConvertHiberPhasePages.c)
+ *     MmMarkHiberPhase @ 0x140AA9B70 (MmMarkHiberPhase.c)
+ */
+
 void __fastcall PopMarkComponentsBootPhase(char *Address)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlSetSystemSleepProperty @ 0x140543A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlSetSystemSleepProperty(ULONG a1, char a2, char a3)
 {
   PHYSICAL_ADDRESS *v6; // rax

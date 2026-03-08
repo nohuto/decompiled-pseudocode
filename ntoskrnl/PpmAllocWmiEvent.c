@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmAllocWmiEvent @ 0x14059686C
+ * Callers:
+ *     PpmFireWmiEvent @ 0x140596908 (PpmFireWmiEvent.c)
+ *     PpmWmiFireIdleAccountingEvent @ 0x140596990 (PpmWmiFireIdleAccountingEvent.c)
+ * Callees:
+ *     IoWMIDeviceObjectToProviderId @ 0x1403BC5D0 (IoWMIDeviceObjectToProviderId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PpmAllocWmiEvent(PDEVICE_OBJECT DeviceObject, __int128 *a2, int a3)
 {
   int v3; // esi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpGetDriveGeometry @ 0x1409F9C60
+ * Callers:
+ *     ExpTranslateEfiPath @ 0x14083EF60 (ExpTranslateEfiPath.c)
+ *     ExpCreateOutputEFI @ 0x1409F91B8 (ExpCreateOutputEFI.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpGetDriveGeometry(unsigned int a1, _DWORD *a2)
 {
   wchar_t *Pool2; // rax

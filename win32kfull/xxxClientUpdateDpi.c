@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxClientUpdateDpi @ 0x1C02162EC
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxClientUpdateDpi(int a1)
 {
   int v1; // ebx

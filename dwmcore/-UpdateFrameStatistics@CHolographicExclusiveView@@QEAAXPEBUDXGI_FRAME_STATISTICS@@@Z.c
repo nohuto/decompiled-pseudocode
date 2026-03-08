@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateFrameStatistics@CHolographicExclusiveView@@QEAAXPEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1802A5730
+ * Callers:
+ *     ?PostPresent@CHolographicClient@@UEAAJXZ @ 0x1802A9A00 (-PostPresent@CHolographicClient@@UEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CHolographicExclusiveView::UpdateFrameStatistics(
         CHolographicExclusiveView *this,
         const struct DXGI_FRAME_STATISTICS *a2)

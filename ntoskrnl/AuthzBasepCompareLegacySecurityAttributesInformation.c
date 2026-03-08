@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140776804
+ * Callers:
+ *     NtCompareTokens @ 0x140776460 (NtCompareTokens.c)
+ * Callees:
+ *     AuthzBasepFindSecurityAttribute @ 0x1402478D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepIsCompareRelevantAttribute @ 0x1407768CC (AuthzBasepIsCompareRelevantAttribute.c)
+ *     AuthzBasepCompareSecurityAttribute @ 0x140776900 (AuthzBasepCompareSecurityAttribute.c)
+ */
+
 bool __fastcall AuthzBasepCompareLegacySecurityAttributesInformation(int *a1, __int64 a2)
 {
   int v2; // ebp

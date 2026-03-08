@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtUserWin32kSysCallFilterStub @ 0x1C017A690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ??$GenerateNonTerminatingUserModeWerReport@$02@@YAXKPEAXAEAY02_K@Z @ 0x1C0168A38 (--$GenerateNonTerminatingUserModeWerReport@$02@@YAXKPEAXAEAY02_K@Z.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U3@U?$_tlgWrapperByVal@$03@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@4AEBU?$_tlgWrapperByVal@$03@@2@Z @ 0x1C0168AE0 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapSz@D@@U-$_tlgWrapSz@G@@U3@U-$_tlgWrapperByVal@$03@@.c)
+ *     ?GetProcessAppContainerSid@@YAPEAGXZ @ 0x1C0168D48 (-GetProcessAppContainerSid@@YAPEAGXZ.c)
+ *     ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C0168E78 (-GetProcessCommandLine@@YAPEAGXZ.c)
+ *     ?_ShouldCaptureWerReport@@YAHK@Z @ 0x1C0169494 (-_ShouldCaptureWerReport@@YAHK@Z.c)
+ *     EtwSyscallFilterMessage @ 0x1C01983C0 (EtwSyscallFilterMessage.c)
+ */
+
 void __fastcall NtUserWin32kSysCallFilterStub(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // r14d

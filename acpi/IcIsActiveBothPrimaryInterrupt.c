@@ -1,3 +1,11 @@
+/*
+ * XREFs of IcIsActiveBothPrimaryInterrupt @ 0x1C009F3F0
+ * Callers:
+ *     IcCheckIrqConflict @ 0x1C009ECDC (IcCheckIrqConflict.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IcIsActiveBothPrimaryInterrupt(__int64 a1, unsigned int a2)
 {
   int v2; // eax

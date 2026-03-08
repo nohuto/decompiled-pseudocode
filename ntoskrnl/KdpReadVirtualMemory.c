@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpReadVirtualMemory @ 0x140AADB68
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ */
+
 __int64 __fastcall KdpReadVirtualMemory(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // r10

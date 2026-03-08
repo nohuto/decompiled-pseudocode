@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRegisterLPK @ 0x1C00DC440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserRegisterLPK(int a1)
 {
   __int64 v2; // rcx

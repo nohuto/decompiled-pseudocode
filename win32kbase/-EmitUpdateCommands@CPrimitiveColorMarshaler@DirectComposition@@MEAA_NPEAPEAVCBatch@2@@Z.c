@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CPrimitiveColorMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0262070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 bool __fastcall DirectComposition::CPrimitiveColorMarshaler::EmitUpdateCommands(
         DirectComposition::CPrimitiveColorMarshaler *this,
         struct DirectComposition::CBatch ***a2)

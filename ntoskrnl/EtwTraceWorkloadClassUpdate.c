@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceWorkloadClassUpdate @ 0x1405FB364
+ * Callers:
+ *     KeTraceHgsPlusRundown @ 0x140574738 (KeTraceHgsPlusRundown.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140576260 (KiUpdateThreadHgsFeedback.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceWorkloadClassUpdate(__int64 a1, char a2, __int16 a3)
 {
   int v3; // [rsp+30h] [rbp-28h] BYREF

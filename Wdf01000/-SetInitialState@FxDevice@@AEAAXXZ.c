@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetInitialState@FxDevice@@AEAAXXZ @ 0x1C003EA2C
+ * Callers:
+ *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C003D444 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 void __fastcall FxDevice::SetInitialState(FxDevice *this)
 {
   this->m_CurrentPnpState = WdfDevStatePnpObjectCreated;

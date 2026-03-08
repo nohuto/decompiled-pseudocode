@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiMergeCopyExtents @ 0x14063BFCC
+ * Callers:
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFormCopyExtents @ 0x14063B1D8 (MiFormCopyExtents.c)
+ *     MiInsertExtentList @ 0x14063BAC8 (MiInsertExtentList.c)
+ *     MiLockFileExtentsExclusive @ 0x140A31480 (MiLockFileExtentsExclusive.c)
+ *     MiUnlockFileExtentsExclusive @ 0x140A314E4 (MiUnlockFileExtentsExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiMergeCopyExtents(_QWORD *a1, __int64 a2, __int64 a3, unsigned int **a4)
 {
   unsigned int **v5; // r15

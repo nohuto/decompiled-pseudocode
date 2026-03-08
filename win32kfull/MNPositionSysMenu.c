@@ -1,3 +1,17 @@
+/*
+ * XREFs of MNPositionSysMenu @ 0x1C0202174
+ * Callers:
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ *     xxxSetSystemMenu @ 0x1C0234C74 (xxxSetSystemMenu.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ *     xxxMNKeyFilter @ 0x1C0241E88 (xxxMNKeyFilter.c)
+ * Callees:
+ *     GetWindowBordersForDpi @ 0x1C0021944 (GetWindowBordersForDpi.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ */
+
 __int64 __fastcall MNPositionSysMenu(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

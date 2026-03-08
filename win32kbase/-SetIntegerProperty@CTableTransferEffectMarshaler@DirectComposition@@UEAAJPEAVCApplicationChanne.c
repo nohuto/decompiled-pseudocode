@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024F700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024D500 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ */
+
 __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::SetIntegerProperty(
         DirectComposition::CTableTransferEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

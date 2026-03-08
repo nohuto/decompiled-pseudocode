@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopFilterCapabilities @ 0x140760774
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x14059BCE8 (PopIdleArmAoAcDozeS4Timer.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopVerifyPowerActionPolicy @ 0x14082A608 (PopVerifyPowerActionPolicy.c)
+ *     PopUpdateSystemIdleContext @ 0x14082A808 (PopUpdateSystemIdleContext.c)
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140880280 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x140994BF8 (PoTtmInitiatePowerStateTransition.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopCheckDisabledState @ 0x1407608E8 (PopCheckDisabledState.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14076091C (PopRemoveReasonRecordByReasonCode.c)
+ *     IoGetLegacyVetoList @ 0x1407609A0 (IoGetLegacyVetoList.c)
+ *     PopLogDisabledSleepReason @ 0x140760A60 (PopLogDisabledSleepReason.c)
+ *     PopLogSleepDisabled @ 0x14087118C (PopLogSleepDisabled.c)
+ *     EmClientQueryRuleState @ 0x140A85190 (EmClientQueryRuleState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFilterCapabilities(__int128 *a1, __int64 a2)
 {
   __int128 v2; // xmm0

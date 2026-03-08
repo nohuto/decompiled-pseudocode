@@ -1,3 +1,13 @@
+/*
+ * XREFs of MulDivFD6Pairs @ 0x1C0255BE8
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ *     ComputeBGRMappingTable @ 0x1C0256580 (ComputeBGRMappingTable.c)
+ *     ComputeColorSpaceXForm @ 0x1C0257078 (ComputeColorSpaceXForm.c)
+ * Callees:
+ *     U64DivU32RoundUp @ 0x1C0255DA0 (U64DivU32RoundUp.c)
+ */
+
 __int64 __fastcall MulDivFD6Pairs(int *a1)
 {
   int v1; // r15d

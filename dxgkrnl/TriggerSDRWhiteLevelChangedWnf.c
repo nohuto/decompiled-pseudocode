@@ -1,3 +1,12 @@
+/*
+ * XREFs of TriggerSDRWhiteLevelChangedWnf @ 0x1C02F86C0
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ *     MonitorSetSDRWhiteLevelOverride @ 0x1C03C0994 (MonitorSetSDRWhiteLevelOverride.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall TriggerSDRWhiteLevelChangedWnf(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int updated; // eax

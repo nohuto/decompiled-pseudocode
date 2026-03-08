@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlHalVpStartEnabled @ 0x140542280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool HvlHalVpStartEnabled()
 {
   char v0; // cl

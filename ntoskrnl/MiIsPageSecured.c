@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIsPageSecured @ 0x1402A27F0
+ * Callers:
+ *     MiCopySinglePage @ 0x1402A2358 (MiCopySinglePage.c)
+ *     MmTryIdentifyPage @ 0x140624300 (MmTryIdentifyPage.c)
+ *     MiAddNonSecuredPagesToDump @ 0x14062CF18 (MiAddNonSecuredPagesToDump.c)
+ *     MiFilterCrashDumpPte @ 0x14062D5F0 (MiFilterCrashDumpPte.c)
+ * Callees:
+ *     MiIsFreeSlabPage @ 0x140654AC8 (MiIsFreeSlabPage.c)
+ */
+
 __int64 __fastcall MiIsPageSecured(__int64 a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of HvAnalyzeLogFiles @ 0x1407F9528
+ * Callers:
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ *     HvRecoverFlushProtocolStateFromFiles @ 0x140A1A9B4 (HvRecoverFlushProtocolStateFromFiles.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpCompareLogSequenceNumbers @ 0x1407F985C (HvpCompareLogSequenceNumbers.c)
+ *     HvpDetermineIncrementalLogFileMaximums @ 0x1407F9890 (HvpDetermineIncrementalLogFileMaximums.c)
+ *     HvpDetermineResultingLoggingState @ 0x1407F9E70 (HvpDetermineResultingLoggingState.c)
+ *     HvpDetermineLogFileApplicationOrder @ 0x1407F9F14 (HvpDetermineLogFileApplicationOrder.c)
+ *     HvpIsReadErrorTransient @ 0x140A27790 (HvpIsReadErrorTransient.c)
+ *     HvpLogInvalidLogHeader @ 0x140A2788C (HvpLogInvalidLogHeader.c)
+ *     HvpLogUnreadableLog @ 0x140A27A24 (HvpLogUnreadableLog.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvAnalyzeLogFiles(
         _QWORD *a1,
         int a2,

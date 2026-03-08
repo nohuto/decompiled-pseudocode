@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmCrAuthDecrypt @ 0x1405CB78C
+ * Callers:
+ *     ?StDmSinglePageCopy@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATION@1@PEAU_STDM_READ_CONTEXT@1@@Z @ 0x14045D346 (-StDmSinglePageCopy@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAXPEAD2PEAU_ST_PAGE_LOCATIO.c)
+ * Callees:
+ *     BCryptDecrypt @ 0x1405B51EC (BCryptDecrypt.c)
+ */
+
 NTSTATUS __fastcall SmCrAuthDecrypt(__int64 a1, UCHAR *a2, UCHAR *a3, ULONG a4, __int64 a5, ULONG a6, __int64 a7)
 {
   UCHAR *v8; // [rsp+20h] [rbp-38h]

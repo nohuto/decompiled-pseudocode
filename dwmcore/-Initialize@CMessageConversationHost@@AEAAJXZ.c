@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CMessageConversationHost@@AEAAJXZ @ 0x1800FC370
+ * Callers:
+ *     ?Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FC2A4 (-Create@CMessageConversationHost@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z @ 0x1800FC710 (-InitializeServer@CMessageConversationHost@@AEAAJPEAI@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMessageConversationHost::Initialize(CMessageConversationHost *this)
 {
   int v2; // eax

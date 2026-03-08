@@ -1,3 +1,21 @@
+/*
+ * XREFs of CimfsInitialize @ 0x140B55208
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PnpBootDeviceWait @ 0x14038932C (PnpBootDeviceWait.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlStringFromGUID @ 0x140733E70 (RtlStringFromGUID.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     IoCreateSymbolicLink @ 0x14086DC10 (IoCreateSymbolicLink.c)
+ *     CimfsGetDiskParameters @ 0x140B97ED0 (CimfsGetDiskParameters.c)
+ */
+
 __int64 __fastcall CimfsInitialize(__int64 a1)
 {
   int DiskParameters; // ebx

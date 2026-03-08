@@ -1,3 +1,23 @@
+/*
+ * XREFs of RootHub_UcxEvtInterruptTransfer @ 0x1C0016C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     Controller_UpdateIdleTimeoutOnRootHubPDOD0Entry @ 0x1C0013ADC (Controller_UpdateIdleTimeoutOnRootHubPDOD0Entry.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     RootHub_HideInvalidDebugPortStatusAndChange @ 0x1C0018258 (RootHub_HideInvalidDebugPortStatusAndChange.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Controller_SetControllerGone @ 0x1C00347AC (Controller_SetControllerGone.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     Register_ReadSecureMmio @ 0x1C003EE08 (Register_ReadSecureMmio.c)
+ */
+
 __int64 __fastcall RootHub_UcxEvtInterruptTransfer(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

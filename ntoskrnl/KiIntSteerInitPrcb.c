@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIntSteerInitPrcb @ 0x14037DC1C
+ * Callers:
+ *     KiInitPrcb @ 0x140A88DD8 (KiInitPrcb.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiIntSteerInitPrcb(__int64 a1)
 {
   unsigned __int64 v1; // rax

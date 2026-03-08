@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpAllocatePoolWithQuotaTag @ 0x140AAB128
+ * Callers:
+ *     ExAllocatePoolWithQuotaTag @ 0x1402950E0 (ExAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExpStampPoolWithQuotaProcess @ 0x140295114 (ExpStampPoolWithQuotaProcess.c)
+ *     PsChargeProcessPoolQuota @ 0x1402951F0 (PsChargeProcessPoolQuota.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExGetHeapFromVA @ 0x140313BF0 (ExGetHeapFromVA.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14046327A (ExpHpIsSpecialPoolHeap.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall ExpAllocatePoolWithQuotaTag(POOL_TYPE a1, ULONG_PTR a2, __int64 a3, int a4)
 {
   POOL_TYPE v4; // edi

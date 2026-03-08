@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopScreenOn @ 0x140995280
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PopBlockSessionSwitch @ 0x140994CF0 (PopBlockSessionSwitch.c)
+ *     PopControlMonitor @ 0x140994D70 (PopControlMonitor.c)
+ */
+
 __int64 PopScreenOn()
 {
   unsigned int v1; // [rsp+30h] [rbp+8h] BYREF

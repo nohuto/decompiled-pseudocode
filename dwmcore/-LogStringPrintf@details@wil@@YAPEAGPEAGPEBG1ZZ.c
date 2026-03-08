@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LogStringPrintf@details@wil@@YAPEAGPEAGPEBG1ZZ @ 0x18019584C
+ * Callers:
+ *     ?GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z @ 0x180195260 (-GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z.c)
+ * Callees:
+ *     ?StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z @ 0x180197060 (-StringCchVPrintfW@@YAJPEAG_KPEBGPEAD@Z.c)
+ */
+
 unsigned __int16 *wil::details::LogStringPrintf(
         wil::details *this,
         char *a2,

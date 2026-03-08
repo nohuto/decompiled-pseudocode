@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z @ 0x1C02D590C
+ * Callers:
+ *     NtGdiExtFloodFill @ 0x1C02D6200 (NtGdiExtFloodFill.c)
+ * Callees:
+ *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02D55E8 (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
+ *     ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02D6194 (-vMergeSpans@@YAXPEAU_SPAN@@0000@Z.c)
+ */
+
 __int64 __fastcall RGNMEMOBJ::bMergeScanline(RGNMEMOBJ *this, struct STACKOBJ *a2)
 {
   __int64 v2; // rsi

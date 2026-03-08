@@ -1,3 +1,28 @@
+/*
+ * XREFs of PowerOnMonitor @ 0x1C015BD90
+ * Callers:
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00B3E28 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C00B4A78 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ * Callees:
+ *     PowerUnDimMonitor @ 0x1C0086A40 (PowerUnDimMonitor.c)
+ *     ?UserSessionSwitchBlock_Start@@YAJXZ @ 0x1C00B809C (-UserSessionSwitchBlock_Start@@YAJXZ.c)
+ *     ?UserSessionSwitchBlock_End@@YAXXZ @ 0x1C00B817C (-UserSessionSwitchBlock_End@@YAXXZ.c)
+ *     DrvDxgkLogCodePointPacket @ 0x1C00CA680 (DrvDxgkLogCodePointPacket.c)
+ *     ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C00D229C (-ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ *     DrvChangeD3RequestsState @ 0x1C00D2364 (DrvChangeD3RequestsState.c)
+ *     ?DisarmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C00D2C40 (-DisarmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ *     EtwTracePowerOnMonitorEnd @ 0x1C00D382C (EtwTracePowerOnMonitorEnd.c)
+ *     EtwTracPowerOnMonitoreBegin @ 0x1C00D384C (EtwTracPowerOnMonitoreBegin.c)
+ *     DrvSetMonitorPowerState @ 0x1C00D41A0 (DrvSetMonitorPowerState.c)
+ *     SetPointer @ 0x1C00D47A8 (SetPointer.c)
+ *     DCompositionForceRender @ 0x1C00D6720 (DCompositionForceRender.c)
+ *     IsSetPointerSupported @ 0x1C00D89D0 (IsSetPointerSupported.c)
+ *     ?PowerOnMonitor@Power@InputTraceLogging@@SAXW4POWER_MONITOR_REQUEST_REASON@@W4_POWERON_LOC@@@Z @ 0x1C00DD4F4 (-PowerOnMonitor@Power@InputTraceLogging@@SAXW4POWER_MONITOR_REQUEST_REASON@@W4_POWERON_LOC@@@Z.c)
+ *     Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage @ 0x1C00DD67C (Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C015A9DC (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
+ */
+
 char __fastcall PowerOnMonitor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

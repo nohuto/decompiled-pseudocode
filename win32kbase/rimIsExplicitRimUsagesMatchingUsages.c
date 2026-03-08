@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimIsExplicitRimUsagesMatchingUsages @ 0x1C00350D4
+ * Callers:
+ *     rimFindReferencedRimObj @ 0x1C0004BC0 (rimFindReferencedRimObj.c)
+ *     rimCheckForExplicitRimConflictInProcess @ 0x1C0034FF8 (rimCheckForExplicitRimConflictInProcess.c)
+ *     RIMCreateHidDesc @ 0x1C0035100 (RIMCreateHidDesc.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01C16CC (RIMIDECreateHIDDesc.c)
+ *     RIMIDEIsCompatibleDevice @ 0x1C01C4D48 (RIMIDEIsCompatibleDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rimIsExplicitRimUsagesMatchingUsages(__int64 a1, __int16 a2, __int16 a3)
 {
   unsigned int v3; // r10d

@@ -1,3 +1,17 @@
+/*
+ * XREFs of BgkpLockBgfxCodeSection @ 0x140AEBB60
+ * Callers:
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403A7F10 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkResumePrepare @ 0x140A969F4 (BgkResumePrepare.c)
+ *     BgkInitialize @ 0x140B99F84 (BgkInitialize.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmLockPagableDataSection @ 0x1407EBF70 (MmLockPagableDataSection.c)
+ */
+
 char BgkpLockBgfxCodeSection()
 {
   struct _KTHREAD *CurrentThread; // rax

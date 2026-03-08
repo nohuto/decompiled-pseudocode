@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReferenceExistingCloneProto @ 0x140662DCC
+ * Callers:
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiReferenceCloneProto @ 0x14034A39C (MiReferenceCloneProto.c)
+ */
+
 __int64 __fastcall MiReferenceExistingCloneProto(
         __int64 a1,
         unsigned __int64 a2,

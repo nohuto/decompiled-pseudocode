@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x1800F91F4
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x1800F9228 (-SetTopLevelWindow@CVisual@@QEAAX_K@Z.c)
+ */
+
 __int64 __fastcall CVisual::ProcessTopLevelNode(
         CVisual *this,
         struct CResourceTable *a2,

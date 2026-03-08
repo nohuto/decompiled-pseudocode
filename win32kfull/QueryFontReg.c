@@ -1,3 +1,12 @@
+/*
+ * XREFs of QueryFontReg @ 0x1C00B9620
+ * Callers:
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ * Callees:
+ *     ?GetGreRegKey@@YAJPEAPEAXKPEBG@Z @ 0x1C00B96F0 (-GetGreRegKey@@YAJPEAPEAXKPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 _BOOL8 __fastcall QueryFontReg(PCWSTR SourceString, _QWORD *a2, _DWORD *a3)
 {
   NTSTATUS GreRegKey; // ebx

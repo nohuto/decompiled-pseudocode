@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlCancellableWaitForMultipleObjects @ 0x1407D7750
+ * Callers:
+ *     FsRtlSetKernelEaFile @ 0x140786AA0 (FsRtlSetKernelEaFile.c)
+ *     FsRtlQueryKernelEaFile @ 0x1407D8DE0 (FsRtlQueryKernelEaFile.c)
+ *     FsRtlCancellableWaitForSingleObject @ 0x1407D9430 (FsRtlCancellableWaitForSingleObject.c)
+ *     FsRtlKernelFsControlFile @ 0x1407DB1B0 (FsRtlKernelFsControlFile.c)
+ *     FsRtlQueryInformationFile @ 0x14093BDB0 (FsRtlQueryInformationFile.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KeQueryTimeIncrement @ 0x140351FF0 (KeQueryTimeIncrement.c)
+ */
+
 NTSTATUS __stdcall FsRtlCancellableWaitForMultipleObjects(
         ULONG Count,
         PVOID ObjectArray[],

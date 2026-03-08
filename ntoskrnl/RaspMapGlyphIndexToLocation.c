@@ -1,3 +1,13 @@
+/*
+ * XREFs of RaspMapGlyphIndexToLocation @ 0x1403832FC
+ * Callers:
+ *     RaspGetUnscaledGlyphData @ 0x140382708 (RaspGetUnscaledGlyphData.c)
+ *     RaspGetCompositeGlyphList @ 0x140670ECC (RaspGetCompositeGlyphList.c)
+ * Callees:
+ *     FioFwReadUshortAtOffset @ 0x140383398 (FioFwReadUshortAtOffset.c)
+ *     FioFwReadUlongAtOffset @ 0x1403843C4 (FioFwReadUlongAtOffset.c)
+ */
+
 __int64 __fastcall RaspMapGlyphIndexToLocation(__int64 a1, int a2, int *a3)
 {
   __int16 v5; // ax

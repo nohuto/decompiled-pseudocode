@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiDxgkDdiQueryConnectionChange @ 0x1C001C480
+ * Callers:
+ *     DxgkQueryConnectionChanges @ 0x1C001BFA0 (DxgkQueryConnectionChanges.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiFdoHandleQueryConnectionChange @ 0x1C005E920 (DpiFdoHandleQueryConnectionChange.c)
+ *     McTemplateK0pxqqqqq_EtwWriteTransfer @ 0x1C0065D6C (McTemplateK0pxqqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiQueryConnectionChange(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   int v7; // eax

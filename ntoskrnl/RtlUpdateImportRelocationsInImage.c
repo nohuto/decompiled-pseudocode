@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlUpdateImportRelocationsInImage @ 0x140370FC4
+ * Callers:
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B3A7E0 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyImportOptimizationToBootDrivers @ 0x140B3A948 (MiApplyImportOptimizationToBootDrivers.c)
+ * Callees:
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402098E0 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpConstructImportRelocationFixup @ 0x140209B30 (RtlpConstructImportRelocationFixup.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x1402E1A7C (RtlCaptureRetpolineImportRvas.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x140371248 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x140371360 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlUpdateImportRelocationsInImage(
         unsigned __int64 a1,
         __int64 a2,

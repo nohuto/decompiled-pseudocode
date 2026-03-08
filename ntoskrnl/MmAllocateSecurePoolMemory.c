@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmAllocateSecurePoolMemory @ 0x14063F4FC
+ * Callers:
+ *     PspIumAllocateSecurePool @ 0x1405A3804 (PspIumAllocateSecurePool.c)
+ * Callees:
+ *     MiReservePoolMemory @ 0x1402EE008 (MiReservePoolMemory.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiCommitPoolMemory @ 0x14032FC90 (MiCommitPoolMemory.c)
+ *     MiInitializePoolCommitPacket @ 0x140330760 (MiInitializePoolCommitPacket.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiIsSystemVaAllocated @ 0x140634AE4 (MiIsSystemVaAllocated.c)
+ *     MmFreeSecurePoolMemory @ 0x14063F668 (MmFreeSecurePoolMemory.c)
+ */
+
 __int64 __fastcall MmAllocateSecurePoolMemory(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

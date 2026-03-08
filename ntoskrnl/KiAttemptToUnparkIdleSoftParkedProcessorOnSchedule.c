@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057B6AC
+ * Callers:
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140459316 (KiHeteroChooseTargetProcessor.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiUpdateThreadPriority @ 0x1403437B0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057B53C (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x14057C470 (KiIsIsolationUnitIdleByHandle.c)
+ */
+
 char __fastcall KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule(__int64 a1, __int64 a2, int a3, __int64 *a4)
 {
   struct _KPRCB *CurrentPrcb; // rbp

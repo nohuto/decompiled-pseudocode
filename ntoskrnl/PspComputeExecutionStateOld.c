@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspComputeExecutionStateOld @ 0x14067CD7C
+ * Callers:
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AB6DC (PsSwapProcessWorkingSet.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspComputeExecutionStateOld(__int64 a1)
 {
   unsigned int v1; // edx

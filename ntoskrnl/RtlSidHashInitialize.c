@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlSidHashInitialize @ 0x140310020
+ * Callers:
+ *     SepTokenFromAccessInformation @ 0x1402065D0 (SepTokenFromAccessInformation.c)
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepCopyTokenAccessInformation @ 0x14077104C (SepCopyTokenAccessInformation.c)
+ *     SepCreateClaimAttributes @ 0x140780934 (SepCreateClaimAttributes.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     SepDuplicateClaimAttributes @ 0x1409CE654 (SepDuplicateClaimAttributes.c)
+ *     CmpBuildAdminInformation @ 0x140A15CBC (CmpBuildAdminInformation.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlSidHashInitialize(__int64 *a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v6; // rax

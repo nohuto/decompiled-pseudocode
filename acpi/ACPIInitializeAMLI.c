@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIInitializeAMLI @ 0x1C00A92D4
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPIInitGlobalHeapSize @ 0x1C00878B8 (ACPIInitGlobalHeapSize.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ *     OSInitializeCallbacks @ 0x1C00A8160 (OSInitializeCallbacks.c)
+ *     OSReadAcpiConfigurationData @ 0x1C00AA2F4 (OSReadAcpiConfigurationData.c)
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ */
+
 __int64 ACPIInitializeAMLI()
 {
   int v0; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDirectedDripsQueryEmPS4DisableSetting @ 0x140856500
+ * Callers:
+ *     PopDirectedDripsQueryPs4Support @ 0x140856490 (PopDirectedDripsQueryPs4Support.c)
+ * Callees:
+ *     EmClientQueryRuleState @ 0x140A85190 (EmClientQueryRuleState.c)
+ */
+
 __int64 __fastcall PopDirectedDripsQueryEmPS4DisableSetting(char *a1)
 {
   char v2; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspInitializeJobStructures @ 0x140B6FB58
+ * Callers:
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     ExCreateHandleTable @ 0x140706274 (ExCreateHandleTable.c)
+ */
+
 char PspInitializeJobStructures()
 {
   __int64 HandleTable; // rax

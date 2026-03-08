@@ -1,3 +1,13 @@
+/*
+ * XREFs of ArbTestAllocation @ 0x1C00A2BE0
+ * Callers:
+ *     IrqArbTestAllocation @ 0x1C009D900 (IrqArbTestAllocation.c)
+ * Callees:
+ *     RtlFreeRangeList_0 @ 0x1C0001A1F (RtlFreeRangeList_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ArbpBuildAllocationStack @ 0x1C00A2D80 (ArbpBuildAllocationStack.c)
+ */
+
 __int64 __fastcall ArbTestAllocation(__int64 a1, __int64 ***a2)
 {
   __int64 **v2; // r8

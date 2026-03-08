@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemSqmIncrementDword @ 0x1409DBBFC
+ * Callers:
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x14078C108 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140833CFC (WdipSemWriteEvent.c)
+ */
+
 NTSTATUS __fastcall WdipSemSqmIncrementDword(__int64 a1, int a2)
 {
   int v3; // [rsp+30h] [rbp-9h] BYREF

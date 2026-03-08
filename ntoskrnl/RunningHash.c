@@ -1,3 +1,12 @@
+/*
+ * XREFs of RunningHash @ 0x14035F340
+ * Callers:
+ *     ComputeEventEntryHash @ 0x14035F2AC (ComputeEventEntryHash.c)
+ *     ComputeFlushPeriod @ 0x14080F88C (ComputeFlushPeriod.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RunningHash(unsigned int *a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ArbAddMmConfigRangeAsBootReserved @ 0x14081EF14
+ * Callers:
+ *     IopMemInitialize @ 0x14081F124 (IopMemInitialize.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ArbpGetRegistryValue @ 0x14081EC78 (ArbpGetRegistryValue.c)
+ *     RtlAddRange @ 0x14081F540 (RtlAddRange.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall ArbAddMmConfigRangeAsBootReserved(__int64 a1, int a2)
 {
   unsigned int *v2; // rsi

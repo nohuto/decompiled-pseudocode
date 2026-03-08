@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RecordLeavingIdleFState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0054968
+ * Callers:
+ *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x1C00125F4 (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
+ *     ?CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z @ 0x1C003E7BC (-CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z.c)
+ * Callees:
+ *     ?RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z @ 0x1C0054B78 (-RequestPState@DXGPOWERSTATISTICSTRANSITIONENGINE@@AEAAXI@Z.c)
+ */
+
 void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordLeavingIdleFState(KSPIN_LOCK *this)
 {
   int v2; // eax

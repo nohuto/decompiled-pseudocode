@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreCreatePalette @ 0x1C0199580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1PALMEMOBJ@@QEAA@XZ @ 0x1C0042910 (--1PALMEMOBJ@@QEAA@XZ.c)
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C0050600 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
+ */
+
 __int64 __fastcall GreCreatePalette(__int64 a1)
 {
   __int64 v1; // rbx

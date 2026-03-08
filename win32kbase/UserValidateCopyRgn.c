@@ -1,3 +1,14 @@
+/*
+ * XREFs of UserValidateCopyRgn @ 0x1C00A9370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0050B70 (GreCreateRectRgnIndirect.c)
+ *     HmgLockIgnoreOwner @ 0x1C00A93E0 (HmgLockIgnoreOwner.c)
+ */
+
 struct HOBJ__ *__fastcall UserValidateCopyRgn(HRGN a1, __int64 a2)
 {
   struct HOBJ__ *RectRgnIndirect; // rbx

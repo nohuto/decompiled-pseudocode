@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmDaaOp @ 0x140531180
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmDaaOp(__int64 a1)
 {
   unsigned __int8 v1; // dl

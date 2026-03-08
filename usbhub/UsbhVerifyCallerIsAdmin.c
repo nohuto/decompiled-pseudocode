@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhVerifyCallerIsAdmin @ 0x1C0041610
+ * Callers:
+ *     UsbhIoctlCyclePort @ 0x1C003E3F8 (UsbhIoctlCyclePort.c)
+ *     UsbhIoctlResetStuckHub @ 0x1C0040D6C (UsbhIoctlResetStuckHub.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN UsbhVerifyCallerIsAdmin()
 {
   void *PrimaryToken; // rcx

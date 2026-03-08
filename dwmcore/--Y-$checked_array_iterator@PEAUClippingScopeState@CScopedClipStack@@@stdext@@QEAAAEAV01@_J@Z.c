@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??Y?$checked_array_iterator@PEAUClippingScopeState@CScopedClipStack@@@stdext@@QEAAAEAV01@_J@Z @ 0x1800E2220
+ * Callers:
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067850 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall stdext::checked_array_iterator<CScopedClipStack::ClippingScopeState *>::operator+=(
         _QWORD *a1,
         __int64 a2)

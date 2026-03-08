@@ -1,3 +1,26 @@
+/*
+ * XREFs of FsRtlPrivateFastUnlockAll @ 0x1402C16B4
+ * Callers:
+ *     FsRtlFastUnlockAll @ 0x1402C1690 (FsRtlFastUnlockAll.c)
+ *     FsRtlFastUnlockAllByKey @ 0x14053AFC0 (FsRtlFastUnlockAllByKey.c)
+ *     FsRtlProcessFileLock @ 0x14053B5C0 (FsRtlProcessFileLock.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x1402C19B4 (FsRtlPrivateCheckWaitingLocks.c)
+ *     RtlDelete @ 0x1402C2940 (RtlDelete.c)
+ *     FsRtlPrivateResetLowestLockOffset @ 0x1402C2FA0 (FsRtlPrivateResetLowestLockOffset.c)
+ *     FsRtlSplitLocks @ 0x1402C31DC (FsRtlSplitLocks.c)
+ *     IoGetRequestorProcess @ 0x1402C80C0 (IoGetRequestorProcess.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     FsRtlCompleteLockIrpReal @ 0x140456B80 (FsRtlCompleteLockIrpReal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall FsRtlPrivateFastUnlockAll(
         __int64 a1,
         _RTL_SPLAY_LINKS *a2,

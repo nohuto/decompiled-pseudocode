@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiWakeOnlyParticipatingProcessorsFromAssignedNode @ 0x14038A28C
+ * Callers:
+ *     MiZeroPageCalibrateDpc @ 0x140389C70 (MiZeroPageCalibrateDpc.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ */
+
 PSLIST_ENTRY __fastcall MiWakeOnlyParticipatingProcessorsFromAssignedNode(__int64 *a1, int a2)
 {
   PSLIST_ENTRY result; // rax

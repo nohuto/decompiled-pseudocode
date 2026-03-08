@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Serialize@CIVPnPCreateSerializer@@AEAAJAEAU_IV_HIDP_CAPS@@AEBU_HIDP_CAPS@@_N@Z @ 0x1C02335C0
+ * Callers:
+ *     ?Serialize@CIVPnPCreateSerializer@@QEAAJAEAU_IV_HID_DEVICE_INFO@@AEBUtagHID_DEVICE_INFO@@_N@Z @ 0x1C0233F84 (-Serialize@CIVPnPCreateSerializer@@QEAAJAEAU_IV_HID_DEVICE_INFO@@AEBUtagHID_DEVICE_INFO@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CIVPnPCreateSerializer::Serialize(
         CIVPnPCreateSerializer *this,
         struct _IV_HIDP_CAPS *a2,

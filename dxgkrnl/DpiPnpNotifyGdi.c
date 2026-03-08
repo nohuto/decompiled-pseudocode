@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiPnpNotifyGdi @ 0x1C0209894
+ * Callers:
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0209A10 (DpiFdoStartAdapterThreadImpl.c)
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ */
+
 __int64 __fastcall DpiPnpNotifyGdi(__int64 a1, unsigned __int8 a2, __int64 a3, __int64 a4, char a5, __int64 a6)
 {
   __int64 v9; // rax

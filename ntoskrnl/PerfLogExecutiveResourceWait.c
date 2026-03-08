@@ -1,3 +1,18 @@
+/*
+ * XREFs of PerfLogExecutiveResourceWait @ 0x1405FE790
+ * Callers:
+ *     ExpAcquireSharedStarveExclusive @ 0x1402213C0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpAcquireResourceExclusiveLite @ 0x14025B1B0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpAcquireResourceSharedLite @ 0x14025DED0 (ExpAcquireResourceSharedLite.c)
+ *     ExpWaitForResource @ 0x140342994 (ExpWaitForResource.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C3440 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpWaitForFastResource2 @ 0x140411334 (ExpWaitForFastResource2.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x1405FE198 (EtwpGetTrackingLockSlotForThread.c)
+ */
+
 void __fastcall PerfLogExecutiveResourceWait(int a1, __int64 a2, unsigned int a3)
 {
   struct _KPRCB *CurrentPrcb; // rdi

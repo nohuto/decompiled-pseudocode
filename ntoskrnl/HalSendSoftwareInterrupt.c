@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalSendSoftwareInterrupt @ 0x140230250
+ * Callers:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiSendSoftwareInterrupt @ 0x1402B7A00 (KiSendSoftwareInterrupt.c)
+ * Callees:
+ *     HalpInterruptSendIpi @ 0x140230870 (HalpInterruptSendIpi.c)
+ */
+
 __int64 __fastcall HalSendSoftwareInterrupt(int a1, char a2)
 {
   bool v2; // zf

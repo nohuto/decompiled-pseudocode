@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpWnfDestroyPermanentDataStore @ 0x140A048DC
+ * Callers:
+ *     ExpWnfFreeScopeInstance @ 0x14079450C (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfGetPermanentDataStore @ 0x140794E80 (ExpWnfGetPermanentDataStore.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpWnfDestroyPermanentDataStore(_QWORD *P)
 {
   __int64 v2; // rax

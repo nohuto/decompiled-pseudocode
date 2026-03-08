@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopCancelApcRequired @ 0x1402E4CF0
+ * Callers:
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1407700F8 (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x140941564 (IopCancelSynchronousIrpsForThread.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopCancelApcRequired(__int64 a1, __int64 a2, __int64 a3)
 {
   volatile signed __int64 *v3; // r14

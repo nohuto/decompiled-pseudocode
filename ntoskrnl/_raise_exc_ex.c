@@ -1,3 +1,14 @@
+/*
+ * XREFs of _raise_exc_ex @ 0x1403D8440
+ * Callers:
+ *     _raise_exc @ 0x1403D8410 (_raise_exc.c)
+ *     _raise_excf @ 0x1403D86D4 (_raise_excf.c)
+ * Callees:
+ *     RaiseException @ 0x1403D8350 (RaiseException.c)
+ *     _clrfp @ 0x1403D8708 (_clrfp.c)
+ *     _statfp @ 0x1403D87D8 (_statfp.c)
+ */
+
 __int64 __fastcall raise_exc_ex(
         unsigned int *a1,
         unsigned __int64 *a2,

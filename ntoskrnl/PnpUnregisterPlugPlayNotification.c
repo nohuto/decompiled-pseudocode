@@ -1,3 +1,20 @@
+/*
+ * XREFs of PnpUnregisterPlugPlayNotification @ 0x14028F5FC
+ * Callers:
+ *     IoUnregisterPlugPlayNotification @ 0x1406F4390 (IoUnregisterPlugPlayNotification.c)
+ *     IoUnregisterPlugPlayNotificationEx @ 0x1406F43C0 (IoUnregisterPlugPlayNotificationEx.c)
+ *     PopCleanCoolingExtension @ 0x14097FD9C (PopCleanCoolingExtension.c)
+ *     PopPolicyDeviceTargetChange @ 0x1409919D0 (PopPolicyDeviceTargetChange.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PnpDereferenceNotify @ 0x1406F59C0 (PnpDereferenceNotify.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpUnregisterPlugPlayNotification(PVOID P, char a2)
 {
   struct _FAST_MUTEX *v2; // rbx

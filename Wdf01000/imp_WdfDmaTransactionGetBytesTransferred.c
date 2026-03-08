@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDmaTransactionGetBytesTransferred @ 0x1C000C000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 unsigned __int64 __fastcall imp_WdfDmaTransactionGetBytesTransferred(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMATRANSACTION__ *DmaTransaction)

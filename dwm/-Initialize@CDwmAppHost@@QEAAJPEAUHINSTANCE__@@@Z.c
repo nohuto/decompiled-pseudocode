@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4
+ * Callers:
+ *     wWinMain @ 0x140003430 (wWinMain.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeWindow@CDwmAppHost@@AEAAJXZ @ 0x140003E08 (-InitializeWindow@CDwmAppHost@@AEAAJXZ.c)
+ *     ?ReportEventW@CDwmAppHost@@AEAAXGKPEBG0@Z @ 0x140003FF8 (-ReportEventW@CDwmAppHost@@AEAAXGKPEBG0@Z.c)
+ *     ?RefreshPreferencesAndPolicies@CSettingsManager@@QEAAXXZ @ 0x140004228 (-RefreshPreferencesAndPolicies@CSettingsManager@@QEAAXXZ.c)
+ *     IsRegisterHotKeyPresent @ 0x140006508 (IsRegisterHotKeyPresent.c)
+ *     IsDWMGhostHandleGhostMsgPresent @ 0x1400067D0 (IsDWMGhostHandleGhostMsgPresent.c)
+ *     ??$MakeAndInitialize@VHotKeyCallback@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVHotKeyCallback@@@Z @ 0x14000A694 (--$MakeAndInitialize@VHotKeyCallback@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVHotKeyCallback@@@Z.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIHotKeyClientOwner@Text@Internal@UI@Windows@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x14000AE00 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIHot_ea_14000AE00.c)
+ *     ?ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z @ 0x14000AF0C (-ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z.c)
+ */
+
 __int64 __fastcall CDwmAppHost::Initialize(CDwmAppHost *this, HINSTANCE a2)
 {
   CDwmAppHost *v2; // rcx

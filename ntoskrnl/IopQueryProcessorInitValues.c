@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopQueryProcessorInitValues @ 0x14085FEC4
+ * Callers:
+ *     IoInitializeProcessor @ 0x14080D46C (IoInitializeProcessor.c)
+ *     IoEnableIrpCredits @ 0x14094102C (IoEnableIrpCredits.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     MmIsThisAnNtAsSystem @ 0x1402B23D0 (MmIsThisAnNtAsSystem.c)
+ */
+
 __int64 __fastcall IopQueryProcessorInitValues(__int64 a1)
 {
   BOOLEAN IsThisAnNtAsSystem; // al

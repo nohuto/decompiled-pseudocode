@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAdaptiveGetSystemInitiatedRebootTargetState @ 0x1409988C4
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ *     PopPowerAggregatorGetCurrentTargetState @ 0x1409908D8 (PopPowerAggregatorGetCurrentTargetState.c)
+ */
+
 unsigned __int64 __fastcall PopAdaptiveGetSystemInitiatedRebootTargetState(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

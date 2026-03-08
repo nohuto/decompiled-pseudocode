@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GuestPaused@HOSTVMMONITORMAPPING@@QEAAXXZ @ 0x1C005729C
+ * Callers:
+ *     ?VmBusChannelSuspend@DXG_HOST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z @ 0x1C03751E0 (-VmBusChannelSuspend@DXG_HOST_GLOBAL_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HOSTVMMONITORMAPPING::GuestPaused(KSPIN_LOCK *this)
 {
   char *v1; // rbx

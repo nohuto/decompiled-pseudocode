@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsRegistryKeyLocked @ 0x140839204
+ * Callers:
+ *     NtLockProductActivationKeys @ 0x140838E20 (NtLockProductActivationKeys.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall IsRegistryKeyLocked(void *a1, _BYTE *a2)
 {
   NTSTATUS v3; // ebx

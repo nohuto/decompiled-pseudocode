@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhGetAcpiPortAttributes @ 0x1C002B2AC
+ * Callers:
+ *     UsbhGetExtendedHubInformation @ 0x1C002BEBC (UsbhGetExtendedHubInformation.c)
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhNumberOfPorts @ 0x1C0029904 (UsbhNumberOfPorts.c)
+ *     UsbhAcpiEnumChildren @ 0x1C0029940 (UsbhAcpiEnumChildren.c)
+ *     UsbhAcpiEvalAcpiMethodEx @ 0x1C0029AD0 (UsbhAcpiEvalAcpiMethodEx.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C002E6BC (WPP_RECORDER_SF_dD.c)
+ */
+
 __int64 __fastcall UsbhGetAcpiPortAttributes(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

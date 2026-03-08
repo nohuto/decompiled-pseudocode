@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializePfnListHead @ 0x140300ED8
+ * Callers:
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializePfnListHead(__int64 a1, int a2)
 {
   __int64 result; // rax

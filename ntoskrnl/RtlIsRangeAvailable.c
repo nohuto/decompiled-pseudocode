@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlIsRangeAvailable @ 0x140823250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetFirstRange @ 0x140823310 (RtlGetFirstRange.c)
+ *     RtlpIsRangeAvailable @ 0x1408235A0 (RtlpIsRangeAvailable.c)
+ */
+
 __int64 __fastcall RtlIsRangeAvailable(__int64 a1, int a2, int a3, char a4, char a5, __int64 a6, __int64 a7, _BYTE *a8)
 {
   __int64 result; // rax

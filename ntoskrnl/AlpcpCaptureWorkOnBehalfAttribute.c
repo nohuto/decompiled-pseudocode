@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcpCaptureWorkOnBehalfAttribute @ 0x1407C9E00
+ * Callers:
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ * Callees:
+ *     PoEnergyEstimationEnabled @ 0x1402384C0 (PoEnergyEstimationEnabled.c)
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1402E03D0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     PsGetWorkOnBehalfThread @ 0x14033E134 (PsGetWorkOnBehalfThread.c)
+ */
+
 __int64 __fastcall AlpcpCaptureWorkOnBehalfAttribute(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

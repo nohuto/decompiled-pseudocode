@@ -1,3 +1,23 @@
+/*
+ * XREFs of HalInitializeBios @ 0x14039A4D0
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     x86BiosInitializeBiosEx @ 0x14039A7B4 (x86BiosInitializeBiosEx.c)
+ *     x86BiosTranslateAddress @ 0x1403B9030 (x86BiosTranslateAddress.c)
+ *     _strupr @ 0x1403D2DE0 (_strupr.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall HalInitializeBios(int a1, _QWORD *a2)
 {
   char *v3; // rcx

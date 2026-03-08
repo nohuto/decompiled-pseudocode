@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmpDirtyStoreCreate @ 0x1407DD540
+ * Callers:
+ *     SmpKeyedStoreCreate @ 0x1407DD424 (SmpKeyedStoreCreate.c)
+ *     SmpSystemStoreCreate @ 0x140858420 (SmpSystemStoreCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmProcessCreateRequest @ 0x1407DD648 (SmProcessCreateRequest.c)
+ */
+
 __int64 __fastcall SmpDirtyStoreCreate(__int64 a1, unsigned int a2, int a3, _DWORD *a4)
 {
   __int64 v4; // rbp

@@ -1,3 +1,19 @@
+/*
+ * XREFs of DbgkpRemoveErrorPort @ 0x140937000
+ * Callers:
+ *     DbgkFlushErrorPort @ 0x1407E7AEC (DbgkFlushErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x14093730C (DbgkpSendErrorMessage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     DbgkpDereferenceErrorPort @ 0x140539768 (DbgkpDereferenceErrorPort.c)
+ */
+
 char __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __int32 *a3)
 {
   _UNKNOWN **v3; // rax

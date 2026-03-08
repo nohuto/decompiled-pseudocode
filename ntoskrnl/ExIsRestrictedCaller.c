@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExIsRestrictedCaller @ 0x14078A078
+ * Callers:
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     PspQueryWorkingSetWatch @ 0x1409AC5BC (PspQueryWorkingSetWatch.c)
+ *     ExProcessCounterSetCallback @ 0x1409F2FF0 (ExProcessCounterSetCallback.c)
+ *     ExpProfileCreate @ 0x140A01038 (ExpProfileCreate.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall ExIsRestrictedCaller(char a1)
 {
   unsigned int v1; // edi

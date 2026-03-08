@@ -1,3 +1,19 @@
+/*
+ * XREFs of MinCryptVerifySignedHash2 @ 0x140A6C6A0
+ * Callers:
+ *     MinCryptVerifySignedHash @ 0x140A6C678 (MinCryptVerifySignedHash.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ?MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z @ 0x140674D7C (-MinCryptCopyAsn1IntToFixedBuffer@@YAJPEBEKPEAEK@Z.c)
+ *     MinAsn1ParseECCSignature @ 0x140675194 (MinAsn1ParseECCSignature.c)
+ *     MinCryptDecodeSignatureAlgorithmIdentifier @ 0x140A6C590 (MinCryptDecodeSignatureAlgorithmIdentifier.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x140A6D938 (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x140A6D980 (MinAsn1ParseRSAPublicKey.c)
+ *     HashpVerifyEcdsaSignature @ 0x140A74544 (HashpVerifyEcdsaSignature.c)
+ *     HashpVerifyPkcs1Signature @ 0x140A7467C (HashpVerifyPkcs1Signature.c)
+ */
+
 __int64 __fastcall MinCryptVerifySignedHash2(int a1, int a2, int a3, unsigned int *a4, __int64 a5, __int64 a6)
 {
   char v10; // bl

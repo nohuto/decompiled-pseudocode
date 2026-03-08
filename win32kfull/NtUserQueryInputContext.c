@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserQueryInputContext @ 0x1C00E21C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ */
+
 HANDLE __fastcall NtUserQueryInputContext(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // edi

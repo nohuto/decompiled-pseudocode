@@ -1,3 +1,33 @@
+/*
+ * XREFs of PsImpersonateClient @ 0x1406DA310
+ * Callers:
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ *     CmpCmdHiveOpen @ 0x1406C0FC8 (CmpCmdHiveOpen.c)
+ *     AlpcpImpersonateMessage @ 0x1406D4C70 (AlpcpImpersonateMessage.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     NtImpersonateAnonymousToken @ 0x1407390D0 (NtImpersonateAnonymousToken.c)
+ *     EtwpDelayCreate @ 0x1407725F4 (EtwpDelayCreate.c)
+ *     SeImpersonateClientEx @ 0x140773900 (SeImpersonateClientEx.c)
+ *     PsAssignImpersonationToken @ 0x14087A440 (PsAssignImpersonationToken.c)
+ *     PsRevertThreadToSelf @ 0x1409AECE0 (PsRevertThreadToSelf.c)
+ *     PsRevertToSelf @ 0x1409AED10 (PsRevertToSelf.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     SeSetTokenTrustLink @ 0x1402E99E8 (SeSetTokenTrustLink.c)
+ *     SeQueryTokenTrustSid @ 0x1402F6738 (SeQueryTokenTrustSid.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     SeCopyClientToken @ 0x1406D1D40 (SeCopyClientToken.c)
+ *     PspWriteTebImpersonationInfo @ 0x1406DA6D0 (PspWriteTebImpersonationInfo.c)
+ *     SeTokenCanImpersonate @ 0x1406DA880 (SeTokenCanImpersonate.c)
+ */
+
 NTSTATUS __stdcall PsImpersonateClient(
         PETHREAD Thread,
         PACCESS_TOKEN Token,

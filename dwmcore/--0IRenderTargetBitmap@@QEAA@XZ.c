@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0IRenderTargetBitmap@@QEAA@XZ @ 0x18003C470
+ * Callers:
+ *     ??0CRenderTargetBitmap@@IEAA@_N@Z @ 0x18003C200 (--0CRenderTargetBitmap@@IEAA@_N@Z.c)
+ *     ??0CStereoRenderTargetBitmap@@IEAA@PEAVIRenderTargetBitmap@@@Z @ 0x1802B2244 (--0CStereoRenderTargetBitmap@@IEAA@PEAVIRenderTargetBitmap@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 IRenderTargetBitmap *__fastcall IRenderTargetBitmap::IRenderTargetBitmap(IRenderTargetBitmap *this)
 {
   *(_QWORD *)this = &IRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};

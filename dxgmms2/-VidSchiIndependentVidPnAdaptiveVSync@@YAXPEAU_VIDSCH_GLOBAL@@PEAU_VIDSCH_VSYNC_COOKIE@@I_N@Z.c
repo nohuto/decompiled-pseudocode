@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiIndependentVidPnAdaptiveVSync@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_VSYNC_COOKIE@@I_N@Z @ 0x1C0035D44
+ * Callers:
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0009880 (VidSchiProcessDpcVSyncCookie.c)
+ * Callees:
+ *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C000EA94 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
+ */
+
 void __fastcall VidSchiIndependentVidPnAdaptiveVSync(
         struct _VIDSCH_GLOBAL *a1,
         struct _VIDSCH_VSYNC_COOKIE *a2,

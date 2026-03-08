@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHTX_IncrementAndCheckIfOverCurrentCountExceededMax @ 0x1C0007180
+ * Callers:
+ *     HUBPSM30_CheckingIfPersistentOvercurrent @ 0x1C0011BC0 (HUBPSM30_CheckingIfPersistentOvercurrent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHTX_IncrementAndCheckIfOverCurrentCountExceededMax(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfVerifierDbgBreakPoint @ 0x1C0034830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_sl @ 0x1C0034674 (WPP_IFR_SF_sl.c)
+ */
+
 void __fastcall imp_WdfVerifierDbgBreakPoint(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         __int64 a2,

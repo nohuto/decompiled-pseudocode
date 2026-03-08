@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRecomputeWalkHierarchy @ 0x140224510
+ * Callers:
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiRecomputeWalkHierarchy(_DWORD *a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 result; // rax

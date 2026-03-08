@@ -1,3 +1,12 @@
+/*
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C00EFFE8
+ * Callers:
+ *     UninitializeWin32kFullTelemetryAsserts @ 0x1C00EFFD0 (UninitializeWin32kFullTelemetryAsserts.c)
+ * Callees:
+ *     TakeTelemetryAssertsLock @ 0x1C00F0238 (TakeTelemetryAssertsLock.c)
+ *     UninitializeTelemetryAssertsLocks @ 0x1C00F0274 (UninitializeTelemetryAssertsLocks.c)
+ */
+
 NTSTATUS UninitializeTelemetryAssertsKM()
 {
   NTSTATUS result; // eax

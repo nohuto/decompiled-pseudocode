@@ -1,3 +1,14 @@
+/*
+ * XREFs of SiValidateSystemPartition @ 0x1402E231C
+ * Callers:
+ *     SiGetBootDeviceName @ 0x14076E464 (SiGetBootDeviceName.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SiGetDiskPartitionInformation @ 0x14076EAA0 (SiGetDiskPartitionInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140A5CA28 (SiIssueSynchronousIoctl.c)
+ */
+
 __int64 __fastcall SiValidateSystemPartition(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v7; // rdx

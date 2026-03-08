@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C010F4A0
+ * Callers:
+ *     QueryRegistryFontSubstituteListRoutine @ 0x1C03B8180 (QueryRegistryFontSubstituteListRoutine.c)
+ * Callees:
+ *     PREALLOCMEM2 @ 0x1C00F02EC (PREALLOCMEM2.c)
+ */
+
 __int64 __fastcall AllocAndCopyRegistryEntries<_FONTSUB,1651729991>(
         unsigned int *a1,
         void **a2,

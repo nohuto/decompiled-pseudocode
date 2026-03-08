@@ -1,3 +1,16 @@
+/*
+ * XREFs of VmpInvalidateSlatBatched @ 0x1405F73F8
+ * Callers:
+ *     VmpRemoveMemoryRange @ 0x1405F88E4 (VmpRemoveMemoryRange.c)
+ *     VmpUnpinMemoryRange @ 0x1405F9144 (VmpUnpinMemoryRange.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpInvalidateOutstandingFaults @ 0x1405F7288 (VmpInvalidateOutstandingFaults.c)
+ *     VmpProcessInvalidateSlat @ 0x1405F8654 (VmpProcessInvalidateSlat.c)
+ */
+
 __int64 __fastcall VmpInvalidateSlatBatched(
         PEX_SPIN_LOCK SpinLock,
         __int64 a2,

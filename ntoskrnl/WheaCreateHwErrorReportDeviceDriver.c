@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaCreateHwErrorReportDeviceDriver @ 0x14060EE60
+ * Callers:
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14060F150 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14060F270 (WheaReportHwErrorDeviceDriverEx.c)
+ * Callees:
+ *     WheapInitErrorReportDeviceDriver @ 0x14060F578 (WheapInitErrorReportDeviceDriver.c)
+ */
+
 __int64 __fastcall WheaCreateHwErrorReportDeviceDriver(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopFxComponentRelationsCleanup @ 0x140587474
+ * Callers:
+ *     PopFxUnregisterDevice @ 0x140982DC4 (PopFxUnregisterDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxNextParentRelationSafe @ 0x1402E4C58 (PopFxNextParentRelationSafe.c)
+ *     PopFxIdleComponent @ 0x140306A50 (PopFxIdleComponent.c)
+ *     PopFxNextComponentChildRelationSafe @ 0x140308264 (PopFxNextComponentChildRelationSafe.c)
+ *     KxTryToAcquireSpinLock @ 0x14036B144 (KxTryToAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxComponentRelationsCleanup(__int64 a1)
 {
   volatile signed __int64 *v1; // r14

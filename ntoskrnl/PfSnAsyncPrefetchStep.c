@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnAsyncPrefetchStep @ 0x1407E1620
+ * Callers:
+ *     PfSnAsyncPrefetchWorker @ 0x1407E3C20 (PfSnAsyncPrefetchWorker.c)
+ * Callees:
+ *     PfSnPrefetchMetadata @ 0x14071E150 (PfSnPrefetchMetadata.c)
+ *     PfSnPrefetchSections @ 0x1407E16A0 (PfSnPrefetchSections.c)
+ */
+
 __int64 __fastcall PfSnAsyncPrefetchStep(__int64 a1, __int64 *a2, __int64 a3)
 {
   int v3; // esi

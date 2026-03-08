@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiIsStoreProcess @ 0x140229574
+ * Callers:
+ *     MiAgeWorkingSet @ 0x1402248A0 (MiAgeWorkingSet.c)
+ *     MiProcessSuitableForCombining @ 0x140229534 (MiProcessSuitableForCombining.c)
+ *     MiCheckFatalAccessViolation @ 0x1402FCEDC (MiCheckFatalAccessViolation.c)
+ *     MiOrderTrimList @ 0x14046378E (MiOrderTrimList.c)
+ *     MiStoreCheckCandidatePage @ 0x1404650E0 (MiStoreCheckCandidatePage.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIsStoreProcess(__int64 a1)
 {
   __int64 v1; // r8

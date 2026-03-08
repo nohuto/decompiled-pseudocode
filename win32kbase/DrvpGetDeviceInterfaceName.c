@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvpGetDeviceInterfaceName @ 0x1C00CD648
+ * Callers:
+ *     DrvEnumDisplayDevices @ 0x1C0071810 (DrvEnumDisplayDevices.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvpGetDeviceInterfaceName(PDEVICE_OBJECT PhysicalDeviceObject, __int64 a2, __int64 a3, wchar_t *a4)
 {
   NTSTATUS DeviceInterfaces; // ebx

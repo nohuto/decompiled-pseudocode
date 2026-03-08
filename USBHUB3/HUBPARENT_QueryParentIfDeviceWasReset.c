@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPARENT_QueryParentIfDeviceWasReset @ 0x1C0007808
+ * Callers:
+ *     HUBHSM_CheckingIfResetByParent @ 0x1C0008600 (HUBHSM_CheckingIfResetByParent.c)
+ * Callees:
+ *     HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C00114C0 (HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs.c)
+ *     FWUPDATE_ReenumerateFirmwareUpdateDevice @ 0x1C00407BC (FWUPDATE_ReenumerateFirmwareUpdateDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPARENT_QueryParentIfDeviceWasReset(__int64 a1)
 {
   unsigned int v2; // edi

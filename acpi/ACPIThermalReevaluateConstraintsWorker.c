@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIThermalReevaluateConstraintsWorker @ 0x1C0041AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     AcpiDiagTraceDeviceActiveCooling @ 0x1C0007D80 (AcpiDiagTraceDeviceActiveCooling.c)
+ *     AcpiDiagTraceDevicePassiveCooling @ 0x1C0008024 (AcpiDiagTraceDevicePassiveCooling.c)
+ */
+
 void __fastcall ACPIThermalReevaluateConstraintsWorker(ULONG_PTR IoObject, _BYTE *Context, PIO_WORKITEM IoWorkItem)
 {
   __int64 DeviceExtension; // r15

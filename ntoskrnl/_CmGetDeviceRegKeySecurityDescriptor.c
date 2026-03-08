@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmGetDeviceRegKeySecurityDescriptor @ 0x14086D18C
+ * Callers:
+ *     _CmOpenDeviceRegKeyWorker @ 0x1406D53EC (_CmOpenDeviceRegKeyWorker.c)
+ * Callees:
+ *     _CmGetRegKeySecurityDescriptor @ 0x14086D238 (_CmGetRegKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetDeviceRegKeySecurityDescriptor(__int64 a1, int a2, _QWORD *a3)
 {
   void *v5; // rcx

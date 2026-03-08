@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeGetRichDeviceDescription @ 0x1C001651C
+ * Callers:
+ *     NVMeHwUnitControl @ 0x1C0008600 (NVMeHwUnitControl.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memcmp @ 0x1C0004070 (memcmp.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     NVMeCopyFirmwareRevision @ 0x1C0014F40 (NVMeCopyFirmwareRevision.c)
+ *     NVMeGetNamespaceMetadata @ 0x1C001EAFC (NVMeGetNamespaceMetadata.c)
+ */
+
 __int64 __fastcall NVMeGetRichDeviceDescription(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlGetFirstRange @ 0x140823310
+ * Callers:
+ *     RtlIsRangeAvailable @ 0x140823250 (RtlIsRangeAvailable.c)
+ *     ArbOverrideConflict @ 0x1409332E0 (ArbOverrideConflict.c)
+ *     ArbShareDriverExclusive @ 0x14093394C (ArbShareDriverExclusive.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlGetFirstRange(__int64 *a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // r9

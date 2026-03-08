@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopEfiStatusToNTSTATUS @ 0x14094D674
+ * Callers:
+ *     IopEnumerateEnvironmentVariablesTrEE @ 0x14094D8E0 (IopEnumerateEnvironmentVariablesTrEE.c)
+ *     IopGetEnvironmentVariableTrEE @ 0x14094DED0 (IopGetEnvironmentVariableTrEE.c)
+ *     IopQueryEnvironmentVariableInfoTrEE @ 0x14094E2E0 (IopQueryEnvironmentVariableInfoTrEE.c)
+ *     IopSetEnvironmentVariableTrEE @ 0x14094E500 (IopSetEnvironmentVariableTrEE.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopEfiStatusToNTSTATUS(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rdx

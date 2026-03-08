@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CCompositionPointLightMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C026A080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CCompositionPointLightMarshaler::SetFloatProperty(
         DirectComposition::CCompositionPointLightMarshaler *this,
         unsigned int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommuFlushDomain @ 0x140523990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommuFlushDomain(__int64 a1)
 {
   char v2; // dl

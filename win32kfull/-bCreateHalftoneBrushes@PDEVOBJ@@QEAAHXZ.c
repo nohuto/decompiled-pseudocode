@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C028E978
+ * Callers:
+ *     PDEVOBJ_bCreateHalftoneBrushesWrap @ 0x1C028EBF0 (PDEVOBJ_bCreateHalftoneBrushesWrap.c)
+ * Callees:
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0019BA8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A4A0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     ?SETFLAG@@YAXHAECKK@Z @ 0x1C00ED8B8 (-SETFLAG@@YAXHAECKK@Z.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C0252C14 (HT_CreateStandardMonoPattern.c)
+ */
+
 __int64 __fastcall PDEVOBJ::bCreateHalftoneBrushes(PDEVOBJ *this)
 {
   __int64 v2; // rbx

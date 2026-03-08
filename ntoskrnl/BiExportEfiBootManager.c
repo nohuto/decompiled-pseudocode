@@ -1,3 +1,26 @@
+/*
+ * XREFs of BiExportEfiBootManager @ 0x140A5B928
+ * Callers:
+ *     BiExportStoreAlterationsToEfi @ 0x140A5BC98 (BiExportStoreAlterationsToEfi.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     BiQueryBootEntryOrder @ 0x14082BC18 (BiQueryBootEntryOrder.c)
+ *     BiQueryBootOptions @ 0x14082BCCC (BiQueryBootOptions.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiGetElement @ 0x140A59CEC (BiGetElement.c)
+ *     BiDeleteEfiVariable @ 0x140A5B6EC (BiDeleteEfiVariable.c)
+ *     BiHandleFirmwareDefaultEntry @ 0x140A5BD48 (BiHandleFirmwareDefaultEntry.c)
+ *     BiSetBootEntryOrder @ 0x140A5C048 (BiSetBootEntryOrder.c)
+ *     BiSetBootOptions @ 0x140A5C0C0 (BiSetBootOptions.c)
+ *     BiTranslateDisplayOrder @ 0x140A5C138 (BiTranslateDisplayOrder.c)
+ *     BiTranslateObjectIdentifier @ 0x140A5C1C0 (BiTranslateObjectIdentifier.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiExportEfiBootManager(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

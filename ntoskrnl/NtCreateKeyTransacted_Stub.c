@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateKeyTransacted_Stub @ 0x140A680DC
+ * Callers:
+ *     _RegRtlCreateKeyTransacted @ 0x14068804C (_RegRtlCreateKeyTransacted.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall NtCreateKeyTransacted_Stub(
         __int64 a1,
         __int64 a2,

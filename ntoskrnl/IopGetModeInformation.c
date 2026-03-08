@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopGetModeInformation @ 0x1406EB9CC
+ * Callers:
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall IopGetModeInformation(__int64 a1)
 {
   unsigned int v1; // r8d

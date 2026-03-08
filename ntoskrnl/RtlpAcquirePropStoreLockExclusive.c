@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpAcquirePropStoreLockExclusive @ 0x1405A8890
+ * Callers:
+ *     RtlCompareExchangePointerMapping @ 0x1405A7ED0 (RtlCompareExchangePointerMapping.c)
+ *     RtlCompareExchangePropertyStore @ 0x1405A8090 (RtlCompareExchangePropertyStore.c)
+ *     RtlRemovePointerMapping @ 0x1405A8600 (RtlRemovePointerMapping.c)
+ *     RtlRemovePropertyStore @ 0x1405A8760 (RtlRemovePropertyStore.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 unsigned __int8 __fastcall RtlpAcquirePropStoreLockExclusive(PEX_SPIN_LOCK SpinLock)
 {
   unsigned __int8 CurrentIrql; // bl

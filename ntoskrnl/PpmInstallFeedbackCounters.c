@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmInstallFeedbackCounters @ 0x14038F058
+ * Callers:
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmPerfFeedbackCounterRead @ 0x1402301C0 (PpmPerfFeedbackCounterRead.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x140236CD0 (PpmContinueActiveTimeAccumulation.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PpmInstallFeedbackCounters(__int64 a1, __int64 *a2, char a3)
 {
   __int64 v5; // rcx

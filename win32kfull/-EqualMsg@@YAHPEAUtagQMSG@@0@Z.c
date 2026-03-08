@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EqualMsg@@YAHPEAUtagQMSG@@0@Z @ 0x1C00379AC
+ * Callers:
+ *     ?xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z @ 0x1C003768C (-xxxSkipSysMsgEx@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@PEAU1@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall EqualMsg(struct tagQMSG *a1, struct tagQMSG *a2)
 {
   int v2; // eax

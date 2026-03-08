@@ -1,3 +1,31 @@
+/*
+ * XREFs of KiParkCurrentProcessor @ 0x14057BAA4
+ * Callers:
+ *     KiReparkIdlingProcessorIfNecessary @ 0x1402C7970 (KiReparkIdlingProcessorIfNecessary.c)
+ *     KeTransitionProcessorParkState @ 0x14057B3EC (KeTransitionProcessorParkState.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     MmGetMinWsPagePriority @ 0x140242D60 (MmGetMinWsPagePriority.c)
+ *     KiStartRescheduleContext @ 0x140258AD0 (KiStartRescheduleContext.c)
+ *     KiTransitionSchedulingGroupGeneration @ 0x1402AB0D4 (KiTransitionSchedulingGroupGeneration.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCommitRescheduleContext @ 0x1402AE04C (KiCommitRescheduleContext.c)
+ *     KiIsPrcbThread @ 0x1402AEFCC (KiIsPrcbThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiCompleteRescheduleContext @ 0x140302484 (KiCompleteRescheduleContext.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiUpdateThreadPriority @ 0x1403437B0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledWithReporting @ 0x14040AF98 (Feature_Servicing_SoftParkFixes__private_IsEnabledWithReporting.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057B53C (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ *     KiFlushReadyLists @ 0x14057B934 (KiFlushReadyLists.c)
+ *     KiFlushSharedReadyQueueReadyLists @ 0x14057BA1C (KiFlushSharedReadyQueueReadyLists.c)
+ *     KiAdjustRescheduleContextForParking @ 0x14057DB98 (KiAdjustRescheduleContextForParking.c)
+ */
+
 __int64 __fastcall KiParkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3, char a4)
 {
   unsigned __int64 v8; // rsi

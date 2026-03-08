@@ -1,3 +1,27 @@
+/*
+ * XREFs of DestroyCacheDC @ 0x1C003DA20
+ * Callers:
+ *     DelayedDestroyCacheDC @ 0x1C003D924 (DelayedDestroyCacheDC.c)
+ *     ReleaseCacheDC @ 0x1C003F210 (ReleaseCacheDC.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     xxxUserProcessCallout @ 0x1C0074450 (xxxUserProcessCallout.c)
+ *     DestroyCacheDCEntries @ 0x1C007944C (DestroyCacheDCEntries.c)
+ *     DestroyMonitorDCs @ 0x1C00D0790 (DestroyMonitorDCs.c)
+ * Callees:
+ *     IsGreSelectRedirectionBitmapSupported @ 0x1C003CECC (IsGreSelectRedirectionBitmapSupported.c)
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00467B8 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     HmgShareLockEx @ 0x1C0048840 (HmgShareLockEx.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     HmgMarkDeletable @ 0x1C00AD0E0 (HmgMarkDeletable.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DestroyCacheDC(char *a1, __int64 a2)
 {
   char *v3; // rdi

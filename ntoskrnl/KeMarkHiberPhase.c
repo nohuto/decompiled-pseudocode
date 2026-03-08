@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeMarkHiberPhase @ 0x140A9B9B8
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void __fastcall KeMarkHiberPhase(_QWORD *Address)
 {
   __int64 v1; // rdi

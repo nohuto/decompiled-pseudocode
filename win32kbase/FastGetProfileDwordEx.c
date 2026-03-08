@@ -1,3 +1,13 @@
+/*
+ * XREFs of FastGetProfileDwordEx @ 0x1C002E9B0
+ * Callers:
+ *     _lambda_39f407e4fe10312c322b3b59a6fe001c_::operator() @ 0x1C002E91C (_lambda_39f407e4fe10312c322b3b59a6fe001c_--operator().c)
+ *     FastGetProfileDword @ 0x1C002E980 (FastGetProfileDword.c)
+ * Callees:
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 int __fastcall FastGetProfileDwordEx(
         PCUNICODE_STRING Source,
         __int64 a2,

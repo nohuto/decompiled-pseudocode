@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteStopScreenUpdates @ 0x1C01DADF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRemoteStopScreenUpdates @ 0x1C00F6E08 (xxxRemoteStopScreenUpdates.c)
+ */
+
 __int64 NtUserRemoteStopScreenUpdates()
 {
   __int64 v0; // rdx

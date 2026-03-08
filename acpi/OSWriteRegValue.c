@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSWriteRegValue @ 0x1C008EC30
+ * Callers:
+ *     ACPIRootPowerCallBack @ 0x1C003D600 (ACPIRootPowerCallBack.c)
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FC4 (PnpiUpdateForceActiveBothInterrupts.c)
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ *     ACPIRootWorker @ 0x1C0094950 (ACPIRootWorker.c)
+ *     ACPIWriteOscSupportToRegistry @ 0x1C0094AA0 (ACPIWriteOscSupportToRegistry.c)
+ *     ACPIRegDumpAcpiTable @ 0x1C00A9FEC (ACPIRegDumpAcpiTable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall OSWriteRegValue(PCSZ SourceString, HANDLE KeyHandle, PVOID Data, ULONG DataSize)
 {
   NTSTATUS v7; // eax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PsBootPhaseComplete @ 0x140812760
+ * Callers:
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ * Callees:
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140812A34 (RtlQueryImageFileExecutionOptions.c)
+ *     PspQueryForwardersEnabled @ 0x140812AAC (PspQueryForwardersEnabled.c)
+ *     PspIsDfssEnabled @ 0x140812B34 (PspIsDfssEnabled.c)
+ */
+
 __int64 __fastcall PsBootPhaseComplete(__int64 a1, __int64 a2, __int64 a3)
 {
   _BOOL8 v3; // rcx

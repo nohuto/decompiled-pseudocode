@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbpUpdatePriority @ 0x140834A58
+ * Callers:
+ *     ArbGetNextAllocationRange @ 0x1408348F0 (ArbGetNextAllocationRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ArbpUpdatePriority(__int64 a1, __int64 *a2)
 {
   int v3; // edx

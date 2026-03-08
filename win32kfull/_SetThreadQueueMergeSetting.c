@@ -1,3 +1,13 @@
+/*
+ * XREFs of _SetThreadQueueMergeSetting @ 0x1C01E4940
+ * Callers:
+ *     NtUserSetThreadQueueMergeSetting @ 0x1C01DE000 (NtUserSetThreadQueueMergeSetting.c)
+ * Callees:
+ *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00390F4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     FindShellFrameThreadFromAssociation @ 0x1C01B43A4 (FindShellFrameThreadFromAssociation.c)
+ */
+
 __int64 __fastcall SetThreadQueueMergeSetting(__int64 a1, int a2)
 {
   char v2; // di

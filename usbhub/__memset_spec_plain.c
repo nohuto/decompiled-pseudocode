@@ -1,3 +1,11 @@
+/*
+ * XREFs of __memset_spec_plain @ 0x1C0023C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _OWORD *__fastcall _memset_spec_plain(_OWORD *a1, unsigned __int8 a2, unsigned __int64 a3)
 {
   _OWORD *result; // rax

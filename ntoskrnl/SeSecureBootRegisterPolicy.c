@@ -1,3 +1,17 @@
+/*
+ * XREFs of SeSecureBootRegisterPolicy @ 0x140B42958
+ * Callers:
+ *     SeCodeIntegrityInitializePolicy @ 0x140B43EA0 (SeCodeIntegrityInitializePolicy.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     SepSecureBootSetRegistryKey @ 0x140B41FF4 (SepSecureBootSetRegistryKey.c)
+ *     SepSecureBootCheckForUpdates @ 0x140B42170 (SepSecureBootCheckForUpdates.c)
+ *     SepSecureBootBuildRules @ 0x140B93A1C (SepSecureBootBuildRules.c)
+ */
+
 __int64 __fastcall SeSecureBootRegisterPolicy(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   ULONG_PTR v2; // rsi

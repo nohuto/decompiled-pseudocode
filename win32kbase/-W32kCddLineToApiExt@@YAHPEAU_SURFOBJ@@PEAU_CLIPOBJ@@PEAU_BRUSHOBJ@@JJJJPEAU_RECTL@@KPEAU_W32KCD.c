@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?W32kCddLineToApiExt@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@KPEAU_W32KCDD_ENG_CALLBACKS@@@Z @ 0x1C0195F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     W32kCddLineTo @ 0x1C02716AC (W32kCddLineTo.c)
+ */
+
 __int64 __fastcall W32kCddLineToApiExt(
         struct _SURFOBJ *a1,
         struct _CLIPOBJ *a2,

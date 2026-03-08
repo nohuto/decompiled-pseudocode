@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxRemoteConsoleShadowStop @ 0x1C0206924
+ * Callers:
+ *     NtUserRemoteConsoleShadowStop @ 0x1C01DAAF0 (NtUserRemoteConsoleShadowStop.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DrvReleaseHDEV @ 0x1C026EBD8 (DrvReleaseHDEV.c)
+ *     GreConsoleShadowStop @ 0x1C02DEBE4 (GreConsoleShadowStop.c)
+ *     bDrvDisconnect @ 0x1C02DF008 (bDrvDisconnect.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 xxxRemoteConsoleShadowStop()
 {

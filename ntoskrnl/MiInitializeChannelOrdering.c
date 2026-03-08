@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeChannelOrdering @ 0x140838724
+ * Callers:
+ *     MiInitializeNuma @ 0x140394008 (MiInitializeNuma.c)
+ * Callees:
+ *     MiInitializeSystemChannelOrdering @ 0x140B96904 (MiInitializeSystemChannelOrdering.c)
+ */
+
 __int64 __fastcall MiInitializeChannelOrdering(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiDiagTraceThermalZoneRundown @ 0x1C0008DBC
+ * Callers:
+ *     AcpiDiagTraceControlCallback @ 0x1C0007C80 (AcpiDiagTraceControlCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AcpiDiagEnumCoolingDevices @ 0x1C0007254 (AcpiDiagEnumCoolingDevices.c)
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceThermalZoneRundown(__int64 a1)
 {
   __int64 v1; // rsi

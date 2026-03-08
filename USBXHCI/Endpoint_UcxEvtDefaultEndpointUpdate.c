@@ -1,3 +1,20 @@
+/*
+ * XREFs of Endpoint_UcxEvtDefaultEndpointUpdate @ 0x1C001B610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C0013AB4 (Endpoint_InitializeTransferRing.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     XilEndpoint_AcquireBuffer @ 0x1C001B9F0 (XilEndpoint_AcquireBuffer.c)
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall Endpoint_UcxEvtDefaultEndpointUpdate(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

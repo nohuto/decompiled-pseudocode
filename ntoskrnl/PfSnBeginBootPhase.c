@@ -1,3 +1,18 @@
+/*
+ * XREFs of PfSnBeginBootPhase @ 0x140A859AC
+ * Callers:
+ *     PfSnSetPrefetcherInformation @ 0x1407E2E70 (PfSnSetPrefetcherInformation.c)
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     PfSnUpdatePrefetcherFlags @ 0x140300F30 (PfSnUpdatePrefetcherFlags.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     PfSnQueueEnablePrefetcherTimer @ 0x14085F238 (PfSnQueueEnablePrefetcherTimer.c)
+ *     PfSnDetermineEnablePrefetcher @ 0x140861BA4 (PfSnDetermineEnablePrefetcher.c)
+ *     PfSnAllocateEnablePrefetcherTimer @ 0x140A8EC40 (PfSnAllocateEnablePrefetcherTimer.c)
+ */
+
 __int64 __fastcall PfSnBeginBootPhase(unsigned int a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiKsrNotifyInitialize @ 0x140B92170
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ */
+
 __int64 PiKsrNotifyInitialize()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF

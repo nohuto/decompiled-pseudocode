@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkAllocateShadowCodePages @ 0x140B8EBC4
+ * Callers:
+ *     HalpBlkAllocateShadowCode @ 0x140B8EB3C (HalpBlkAllocateShadowCode.c)
+ * Callees:
+ *     HalpBlkAllocateAndShadowMemory @ 0x140B8E9BC (HalpBlkAllocateAndShadowMemory.c)
+ */
+
 __int64 __fastcall HalpBlkAllocateShadowCodePages(__int64 a1, __int64 a2, __int64 *a3)
 {
   unsigned int v3; // ebx

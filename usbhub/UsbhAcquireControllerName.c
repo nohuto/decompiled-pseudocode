@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhAcquireControllerName @ 0x1C0048AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetControllerName @ 0x1C002B838 (UsbhGetControllerName.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ */
+
 __int64 __fastcall UsbhAcquireControllerName(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4, __int64 a5)
 {
   __int64 v6; // rsi

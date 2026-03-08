@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vFree@FHOBJ@@QEAAXXZ @ 0x1C00B6FC0
+ * Callers:
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00B6F7C (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C01172D8 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FHOBJ::vFree(FHOBJ *this)
 {
   _DWORD *v2; // rcx

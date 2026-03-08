@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMmZeroPageWithTemporaryMapping @ 0x14037B138
+ * Callers:
+ *     HalpMmAllocateAndInsertPageTablePage @ 0x14037A3F0 (HalpMmAllocateAndInsertPageTablePage.c)
+ * Callees:
+ *     HalpFlushTLB @ 0x14037B0FC (HalpFlushTLB.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpMmZeroPageWithTemporaryMapping(__int64 a1)
 {
   signed __int32 v2[10]; // [rsp+0h] [rbp-28h] BYREF

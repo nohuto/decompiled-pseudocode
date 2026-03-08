@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetProcessImageFileName @ 0x1C0017DA0
+ * Callers:
+ *     GetProcessImageFilename @ 0x1C0017CF0 (GetProcessImageFilename.c)
+ *     ?LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z @ 0x1C026D3F8 (-LogFontLoadAttempt@@YAXPEAXW4_W32KFontSourceType@@PEBGH@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void *__fastcall GetProcessImageFileName(HANDLE ProcessHandle)
 {
   void *v1; // rbx

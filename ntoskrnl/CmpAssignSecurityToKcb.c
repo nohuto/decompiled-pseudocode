@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpAssignSecurityToKcb @ 0x1407A560C
+ * Callers:
+ *     CmpSetSecurityDescriptorInfo @ 0x1406B845C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1407A5468 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmpAssignKeySecurity @ 0x140854E7C (CmpAssignKeySecurity.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmpDoBuildVirtualStack @ 0x140A1641C (CmpDoBuildVirtualStack.c)
+ *     CmpLightWeightCommitAddKeyUoW @ 0x140A25314 (CmpLightWeightCommitAddKeyUoW.c)
+ *     CmpLightWeightCommitSetSecDescUoW @ 0x140A25A40 (CmpLightWeightCommitSetSecDescUoW.c)
+ * Callees:
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmLockHiveSecurityShared @ 0x140AF2590 (CmLockHiveSecurityShared.c)
+ *     CmUnlockHiveSecurity @ 0x140AF25F0 (CmUnlockHiveSecurity.c)
+ */
+
 char __fastcall CmpAssignSecurityToKcb(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

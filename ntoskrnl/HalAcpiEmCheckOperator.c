@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalAcpiEmCheckOperator @ 0x1404FEBE8
+ * Callers:
+ *     HalMatchAcpiCreatorRevision @ 0x1404FEDF0 (HalMatchAcpiCreatorRevision.c)
+ *     HalMatchAcpiOemRevision @ 0x1404FEE70 (HalMatchAcpiOemRevision.c)
+ *     HalMatchAcpiRevision @ 0x1404FEEF0 (HalMatchAcpiRevision.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalAcpiEmCheckOperator(unsigned __int8 *a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

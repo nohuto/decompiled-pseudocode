@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiComputeCommitChargeForZeroPteRange @ 0x140615C08
+ * Callers:
+ *     MiCheckCommitReleaseFromVad @ 0x1406157F0 (MiCheckCommitReleaseFromVad.c)
+ * Callees:
+ *     MiComputeImageVadCommitCharge @ 0x140615CBC (MiComputeImageVadCommitCharge.c)
+ */
+
 __int64 __fastcall MiComputeCommitChargeForZeroPteRange(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

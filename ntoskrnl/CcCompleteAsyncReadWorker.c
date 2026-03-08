@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcCompleteAsyncReadWorker @ 0x14020A670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcFindNextWorkQueueEntry @ 0x14021746C (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcCompleteAsyncReadWorker(__int64 a1)
 {
   char v1; // r12

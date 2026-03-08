@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetScsiReservationType @ 0x1C0012B3C
+ * Callers:
+ *     NVMeReservationReportStatusCompletion @ 0x1C00176E0 (NVMeReservationReportStatusCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall GetScsiReservationType(int a1)
 {
   char v1; // dl

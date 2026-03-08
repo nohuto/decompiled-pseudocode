@@ -1,3 +1,16 @@
+/*
+ * XREFs of GetOperatorIndexByName @ 0x1409D0DC8
+ * Callers:
+ *     GetConditionToken @ 0x1409D05B8 (GetConditionToken.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     wcstok_s @ 0x1403DA4B4 (wcstok_s.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall GetOperatorIndexByName(wchar_t *Src)
 {
   wchar_t *v1; // rdi

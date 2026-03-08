@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxRemoteStopScreenUpdates @ 0x1C00F6E08
+ * Callers:
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ *     NtUserRemoteStopScreenUpdates @ 0x1C01DADF0 (NtUserRemoteStopScreenUpdates.c)
+ *     xxxRemotePassthruEnable @ 0x1C0206C6C (xxxRemotePassthruEnable.c)
+ *     xxxRemoteShadowSetup @ 0x1C0206E64 (xxxRemoteShadowSetup.c)
+ *     xxxRemoteShadowStop @ 0x1C0206F28 (xxxRemoteShadowStop.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RemoteDisableScreen @ 0x1C00F7460 (RemoteDisableScreen.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxRemoteStopScreenUpdates(__int64 a1, __int64 a2, __int64 a3)
 {

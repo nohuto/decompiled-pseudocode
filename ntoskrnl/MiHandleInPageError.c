@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiHandleInPageError @ 0x14036A984
+ * Callers:
+ *     MiHardFaultPageRelease @ 0x140287C78 (MiHardFaultPageRelease.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ * Callees:
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ */
+
 __int64 __fastcall MiHandleInPageError(ULONG_PTR a1)
 {
   __int64 result; // rax

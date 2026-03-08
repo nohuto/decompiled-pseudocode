@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeInitializeEnclave @ 0x1409716C0
+ * Callers:
+ *     MiInitializeEnclave @ 0x140A3B220 (MiInitializeEnclave.c)
+ * Callees:
+ *     KiEncls @ 0x140417230 (KiEncls.c)
+ */
+
 __int64 __fastcall KeInitializeEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, _DWORD *a6)
 {
   bool v6; // zf

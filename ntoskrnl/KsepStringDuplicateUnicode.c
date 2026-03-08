@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepStringDuplicateUnicode @ 0x14079EC94
+ * Callers:
+ *     KseShimDriverIoCallbacks @ 0x14079D690 (KseShimDriverIoCallbacks.c)
+ *     KseDriverLoadImage @ 0x14079EAC4 (KseDriverLoadImage.c)
+ * Callees:
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ */
+
 __int64 __fastcall KsepStringDuplicateUnicode(__int64 a1, const void **a2)
 {
   __int64 v4; // r14

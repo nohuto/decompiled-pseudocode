@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiLogHotPatchOperation @ 0x140A35E3C
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ * Callees:
+ *     MiFillLogProcessInfo @ 0x140224D68 (MiFillLogProcessInfo.c)
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiLogHotPatchOperation(
         __int64 a1,
         int a2,

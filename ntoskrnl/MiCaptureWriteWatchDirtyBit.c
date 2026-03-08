@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiCaptureWriteWatchDirtyBit @ 0x140228730
+ * Callers:
+ *     MiMakeCombineCandidateClean @ 0x140210FE0 (MiMakeCombineCandidateClean.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402EF244 (MiMakeVaRangeNoAccess.c)
+ *     MiRevertValidPte @ 0x140322DC0 (MiRevertValidPte.c)
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ *     MiProtectAweRegion @ 0x140648DF8 (MiProtectAweRegion.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     MiLocateLockedVadEvent @ 0x14020DC68 (MiLocateLockedVadEvent.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUnlockVadCore @ 0x1402CA9D4 (MiUnlockVadCore.c)
+ *     MiGetVadMandatoryPageSize @ 0x1402CAA10 (MiGetVadMandatoryPageSize.c)
+ *     MiLockVadCore @ 0x140330E20 (MiLockVadCore.c)
+ */
+
 void __fastcall MiCaptureWriteWatchDirtyBit(__int64 a1, unsigned __int64 a2, __int64 **a3)
 {
   __int64 **Address; // rsi

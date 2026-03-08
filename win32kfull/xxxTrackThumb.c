@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxTrackThumb @ 0x1C022E280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022BEFC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ *     ?xxxMoveThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C022C460 (-xxxMoveThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
+ *     xxxEndScroll @ 0x1C022CE90 (xxxEndScroll.c)
+ */
+
 __int64 __fastcall xxxTrackThumb(struct tagWND *a1, unsigned int a2, __int64 a3, int a4, struct tagSBCALC *a5)
 {
   _DWORD *v8; // rbx

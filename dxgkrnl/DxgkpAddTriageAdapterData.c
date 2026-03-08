@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkpAddTriageAdapterData @ 0x1C0059878
+ * Callers:
+ *     DxgDbgTriageDumpCallback @ 0x1C0059820 (DxgDbgTriageDumpCallback.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiAddTriageAdapterData @ 0x1C00653B8 (DpiAddTriageAdapterData.c)
+ */
+
 char __fastcall DxgkpAddTriageAdapterData(__int64 a1, __int64 a2, __int64 a3, SIZE_T a4)
 {
   struct _KTRIAGE_DUMP_DATA_ARRAY *v4; // rsi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpCallDriverEntry @ 0x14072A87C
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnpWatchdogEtwWrite @ 0x14055E670 (PnpWatchdogEtwWrite.c)
+ *     PnpEnableWatchdog @ 0x14068A5EC (PnpEnableWatchdog.c)
+ *     PnpRecordBlackbox @ 0x14068A980 (PnpRecordBlackbox.c)
+ *     PnpWatchdogTimerPause @ 0x14068A9F4 (PnpWatchdogTimerPause.c)
+ *     WdtpCancelTimer @ 0x14068AA80 (WdtpCancelTimer.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCallDriverEntry(__int64 a1, __int64 a2)
 {
   __int64 v4; // r8

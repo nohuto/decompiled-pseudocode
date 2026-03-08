@@ -1,3 +1,11 @@
+/*
+ * XREFs of SiGetEfiBootEntryById @ 0x140A5CD90
+ * Callers:
+ *     SiGetEspFromFirmware @ 0x140A5D1A4 (SiGetEspFromFirmware.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall SiGetEfiBootEntryById(unsigned int *a1, int a2)
 {
   __int64 v2; // rax

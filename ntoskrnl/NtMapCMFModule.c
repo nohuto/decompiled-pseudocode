@@ -1,3 +1,31 @@
+/*
+ * XREFs of NtMapCMFModule @ 0x140A005D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1402DCE90 (ExConvertExclusiveToSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmMapViewOfSection @ 0x14069EC70 (MmMapViewOfSection.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x14085B81C (MUIInitializeResourceLock.c)
+ *     CMFCheckAccess @ 0x1409FECA4 (CMFCheckAccess.c)
+ *     CMFFlushHitsFile @ 0x1409FF53C (CMFFlushHitsFile.c)
+ *     CMFRegisterEventTime @ 0x1409FFC40 (CMFRegisterEventTime.c)
+ *     CMFUnmapModules @ 0x140A004F0 (CMFUnmapModules.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtMapCMFModule(int a1, unsigned int a2, int *a3, unsigned int *a4, _DWORD *a5, PVOID *a6)
 {
   unsigned int *v6; // r15

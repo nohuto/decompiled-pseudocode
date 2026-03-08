@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HKFindChildHotkeyForQueue@@YA_NPEAUtagQ@@PEBUtagHOTKEY@@PEAPEAUtagCHILDHOTKEY@@@Z @ 0x1C01C1254
+ * Callers:
+ *     ?xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C000E95C (-xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HKFindChildHotkeyForQueue(struct tagQ *a1, const struct tagHOTKEY *a2, struct tagCHILDHOTKEY **a3)
 {
   char *v3; // r9

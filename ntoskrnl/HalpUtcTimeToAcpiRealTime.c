@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpUtcTimeToAcpiRealTime @ 0x140930198
+ * Callers:
+ *     HalSetRealTimeClock @ 0x1404FCC40 (HalSetRealTimeClock.c)
+ * Callees:
+ *     ExRealTimeIsUniversal @ 0x1402D1080 (ExRealTimeIsUniversal.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D10F0 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     HalpQueryAcpiRealTimeClock @ 0x14092FF88 (HalpQueryAcpiRealTimeClock.c)
+ */
+
 __int64 __fastcall HalpUtcTimeToAcpiRealTime(PLARGE_INTEGER SystemTime, PLARGE_INTEGER Timeout)
 {
   __int64 LowPart_high; // rcx

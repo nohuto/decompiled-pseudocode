@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhQueryParentHubConfig @ 0x1C005A8D8
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhPropagateUxdState @ 0x1C005A7DC (UsbhPropagateUxdState.c)
+ */
+
 __int64 __fastcall UsbhQueryParentHubConfig(__int64 a1)
 {
   PDEVICE_OBJECT *v2; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMApplyTransforms @ 0x1C01BD0C8
+ * Callers:
+ *     rimTransformGeometry @ 0x1C00F1872 (rimTransformGeometry.c)
+ * Callees:
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C00EFE38 (RIMTransformPointerDevicePointToPhysical.c)
+ *     RIMApplyDisplayOrientationToPointerProps @ 0x1C01BCF7C (RIMApplyDisplayOrientationToPointerProps.c)
+ *     RIMSetContactBoundary @ 0x1C01BDA20 (RIMSetContactBoundary.c)
+ *     RIMTransformCoordinates @ 0x1C01BDE94 (RIMTransformCoordinates.c)
+ *     RIMTransformPhysicalPointToScreen @ 0x1C01BE428 (RIMTransformPhysicalPointToScreen.c)
+ *     ApiSetTransformForInputMagnification @ 0x1C0246BF8 (ApiSetTransformForInputMagnification.c)
+ */
+
 __int64 __fastcall RIMApplyTransforms(__int64 a1, int a2, __int64 a3, int a4, _DWORD *a5)
 {
   int v5; // eax

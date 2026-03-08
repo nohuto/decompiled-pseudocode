@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDcHandleDeviceEvent @ 0x1407F8294
+ * Callers:
+ *     PiDcHandleObjectEvent @ 0x1407F8244 (PiDcHandleObjectEvent.c)
+ * Callees:
+ *     RtlLookupElementGenericTableAvl @ 0x140245A20 (RtlLookupElementGenericTableAvl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PiDcContainerRequiresConfiguration @ 0x1408793AC (PiDcContainerRequiresConfiguration.c)
+ */
+
 __int64 __fastcall PiDcHandleDeviceEvent(__int64 a1)
 {
   int ObjectProperty; // ebx

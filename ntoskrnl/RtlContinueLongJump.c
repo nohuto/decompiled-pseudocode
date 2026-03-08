@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlContinueLongJump @ 0x1405AFBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     NtContinueEx @ 0x140416740 (NtContinueEx.c)
+ */
+
 __int64 __fastcall RtlContinueLongJump(__int64 a1)
 {
   __int128 v2; // [rsp+20h] [rbp-28h] BYREF

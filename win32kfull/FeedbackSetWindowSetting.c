@@ -1,3 +1,12 @@
+/*
+ * XREFs of FeedbackSetWindowSetting @ 0x1C0100DCC
+ * Callers:
+ *     NtUserSetWindowFeedbackSetting @ 0x1C0100C70 (NtUserSetWindowFeedbackSetting.c)
+ * Callees:
+ *     ?GetStore@Feedback@@YA?AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z @ 0x1C0100E50 (-GetStore@Feedback@@YA-AUtagSTORE@1@PEAUtagWND@@W4tagFEEDBACK_TYPE@@@Z.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall FeedbackSetWindowSetting(__int64 a1, char a2, int a3)
 {
   __m128i v5; // xmm1

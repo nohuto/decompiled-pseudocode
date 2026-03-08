@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?Deinitialize@InteractiveControlDevice@@QEAAXXZ @ 0x1C0247EA8
+ * Callers:
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0243C58 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z @ 0x1C0244064 (-RemoveDevice@InteractiveControlManager@@AEAAJPEAVInteractiveControlDevice@@@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0248474 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     ??_GInteractiveControlInput@@QEAAPEAXI@Z @ 0x1C0247B20 (--_GInteractiveControlInput@@QEAAPEAXI@Z.c)
+ *     ??_GSimpleHapticsController@@QEAAPEAXI@Z @ 0x1C0247B60 (--_GSimpleHapticsController@@QEAAPEAXI@Z.c)
+ *     ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0247FEC (-DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z @ 0x1C0248DD8 (-SetBackgroundAccessor@InteractiveControlDevice@@QEAAXPEAUtagWND@@I@Z.c)
+ *     ?SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z @ 0x1C02492DC (-SetFocus@InteractiveControlDevice@@QEAAXPEAUtagWND@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@H@Z.c)
+ *     ?SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z @ 0x1C02495A0 (-SetTargetWindow@InteractiveControlDevice@@IEAAXPEAUtagWND@@@Z.c)
+ *     ?DeInitialize@SimpleHapticsController@@QEAAJXZ @ 0x1C024B080 (-DeInitialize@SimpleHapticsController@@QEAAJXZ.c)
+ *     ?FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z @ 0x1C024D8C8 (-FreeDeviceCapabilities@InteractiveControlParser@@SAXPEAU_INTERACTIVECTRL_CAPABILITIES@@@Z.c)
+ */
+
 void __fastcall InteractiveControlDevice::Deinitialize(InteractiveControlDevice *this)
 {
   void *v1; // rdx

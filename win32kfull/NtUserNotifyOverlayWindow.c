@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserNotifyOverlayWindow @ 0x1C01D8EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _NotifyOverlayWindow @ 0x1C01C9960 (_NotifyOverlayWindow.c)
+ */
+
 __int64 __fastcall NtUserNotifyOverlayWindow(__int64 a1, int a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of BuildBltAAInfo @ 0x1C025C640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ALIGN_MEM @ 0x1C014B81A (_ALIGN_MEM.c)
+ */
+
 _DWORD *BuildBltAAInfo(__int64 a1, __int64 a2, int *a3, int *a4, int a5, int a6, int a7, int *a8, int *a9, ...)
 {
   int v9; // r13d

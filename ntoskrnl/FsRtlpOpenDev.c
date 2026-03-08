@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlpOpenDev @ 0x14084EFE0
+ * Callers:
+ *     FsRtlpRegisterUncProvider @ 0x14084EEE8 (FsRtlpRegisterUncProvider.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 NTSTATUS __fastcall FsRtlpOpenDev(PHANDLE FileHandle)
 {
   NTSTATUS result; // eax

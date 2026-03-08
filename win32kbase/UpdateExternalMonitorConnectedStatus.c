@@ -1,3 +1,13 @@
+/*
+ * XREFs of UpdateExternalMonitorConnectedStatus @ 0x1C000F1C0
+ * Callers:
+ *     InitVideo @ 0x1C0010AAC (InitVideo.c)
+ *     VideoPortCalloutThread @ 0x1C00D93A8 (VideoPortCalloutThread.c)
+ * Callees:
+ *     DrvIsExternalMonitorActive @ 0x1C000F280 (DrvIsExternalMonitorActive.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 int __fastcall UpdateExternalMonitorConnectedStatus(char a1)
 {
   __int64 v2; // rax

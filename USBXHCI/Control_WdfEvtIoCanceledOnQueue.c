@@ -1,3 +1,14 @@
+/*
+ * XREFs of Control_WdfEvtIoCanceledOnQueue @ 0x1C0042F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Control_TransferData_Initialize @ 0x1C00070AC (Control_TransferData_Initialize.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDi @ 0x1C004207C (WPP_RECORDER_SF_DDi.c)
+ */
+
 __int64 __fastcall Control_WdfEvtIoCanceledOnQueue(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

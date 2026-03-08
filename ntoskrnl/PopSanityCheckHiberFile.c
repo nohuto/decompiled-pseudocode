@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopSanityCheckHiberFile @ 0x1407FC518
+ * Callers:
+ *     PopCreateHiberFile @ 0x1407FBF00 (PopCreateHiberFile.c)
+ *     PopResizeHiberFile @ 0x140985EE0 (PopResizeHiberFile.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwFsControlFile @ 0x140412A30 (ZwFsControlFile.c)
+ */
+
 __int64 __fastcall PopSanityCheckHiberFile(void *a1, __int64 a2, _QWORD *a3, __int64 **a4, _DWORD *a5)
 {
   NTSTATUS Status; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspValidateJobAssignmentProcessLimits @ 0x1406FFF28
+ * Callers:
+ *     PspValidateJobChainLimits @ 0x1406FFEBC (PspValidateJobChainLimits.c)
+ * Callees:
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     PspCheckJobAccessState @ 0x1409AF0FC (PspCheckJobAccessState.c)
+ */
+
 __int64 __fastcall PspValidateJobAssignmentProcessLimits(__int64 a1, __int64 a2, int a3)
 {
   int v6; // edx

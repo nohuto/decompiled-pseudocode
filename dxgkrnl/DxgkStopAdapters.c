@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkStopAdapters @ 0x1C0311630
+ * Callers:
+ *     DpiKsrCallback @ 0x1C03A1650 (DpiKsrCallback.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DpiKsrSetBootGraphicsInformation @ 0x1C03A1D20 (DpiKsrSetBootGraphicsInformation.c)
+ *     DpiKsrStopAdapter @ 0x1C03A1DF4 (DpiKsrStopAdapter.c)
+ */
+
 __int64 DxgkStopAdapters()
 {
   __int64 result; // rax

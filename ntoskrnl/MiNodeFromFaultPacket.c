@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiNodeFromFaultPacket @ 0x14028B000
+ * Callers:
+ *     MiMigratePfn @ 0x140272370 (MiMigratePfn.c)
+ *     MiComputeFaultNode @ 0x14028AE90 (MiComputeFaultNode.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNodeFromFaultPacket(__int64 a1)
 {
   unsigned __int64 v1; // rax

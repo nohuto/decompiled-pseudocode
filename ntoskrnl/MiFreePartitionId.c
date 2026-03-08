@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFreePartitionId @ 0x140A2CD28
+ * Callers:
+ *     MiDeletePartition @ 0x140626F80 (MiDeletePartition.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall MiFreePartitionId(unsigned __int16 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

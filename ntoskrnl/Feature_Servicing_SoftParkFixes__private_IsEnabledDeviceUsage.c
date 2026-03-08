@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_Servicing_SoftParkFixes__private_IsEnabledDeviceUsage @ 0x14040AEB0
+ * Callers:
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledWithReporting @ 0x14040AF98 (Feature_Servicing_SoftParkFixes__private_IsEnabledWithReporting.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14057BEC0 (KiSoftParkElectionDpcRoutine.c)
+ * Callees:
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledFallback @ 0x14040AEE8 (Feature_Servicing_SoftParkFixes__private_IsEnabledFallback.c)
+ */
+
 __int64 Feature_Servicing_SoftParkFixes__private_IsEnabledDeviceUsage()
 {
   if ( (Feature_Servicing_SoftParkFixes__private_featureState & 0x10) != 0 )

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwDirtyRectUpdate @ 0x1C00BADC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00EE7C4 (McTemplateK0pqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwDirtyRectUpdate(int a1, char a2, int a3, char a4, char a5)
 {
   __int64 result; // rax

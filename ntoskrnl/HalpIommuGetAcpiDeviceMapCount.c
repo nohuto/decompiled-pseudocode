@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuGetAcpiDeviceMapCount @ 0x140515D7C
+ * Callers:
+ *     HalpIommuDmaRemappingCapable @ 0x1403AF2A0 (HalpIommuDmaRemappingCapable.c)
+ *     HalpIommuUnblockDevice @ 0x140516330 (HalpIommuUnblockDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuGetAcpiDeviceMapCount(__int64 a1)
 {
   ULONG_PTR v1; // rbx

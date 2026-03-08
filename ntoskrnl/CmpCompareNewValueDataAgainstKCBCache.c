@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCompareNewValueDataAgainstKCBCache @ 0x1407A8E68
+ * Callers:
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindNameInListWithStatus @ 0x1407A8DA0 (CmpFindNameInListWithStatus.c)
+ *     CmpGetValueData @ 0x1407AAC20 (CmpGetValueData.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpCompareNewValueDataAgainstKCBCache(
         __int64 a1,
         __int64 a2,

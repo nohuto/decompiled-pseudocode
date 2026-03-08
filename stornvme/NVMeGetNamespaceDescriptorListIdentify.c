@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeGetNamespaceDescriptorListIdentify @ 0x1C001E7AC
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeReenumerateNameSpaceRescan @ 0x1C002237C (NVMeReenumerateNameSpaceRescan.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 void __fastcall NVMeGetNamespaceDescriptorListIdentify(__int64 a1)
 {
   unsigned __int8 *v1; // r14

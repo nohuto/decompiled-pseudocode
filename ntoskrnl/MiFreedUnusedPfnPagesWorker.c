@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreedUnusedPfnPagesWorker @ 0x14038ACDC
+ * Callers:
+ *     MiFreeUnusedPfnPagesDpc @ 0x14038AB90 (MiFreeUnusedPfnPagesDpc.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     MiGetNextNonGapPfnPage @ 0x14038AF50 (MiGetNextNonGapPfnPage.c)
+ *     MiPfnRangeIsZero @ 0x14038B144 (MiPfnRangeIsZero.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ */
+
 __int64 __fastcall MiFreedUnusedPfnPagesWorker(_QWORD *a1)
 {
   unsigned __int64 v1; // rdi

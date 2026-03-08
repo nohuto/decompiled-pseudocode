@@ -1,3 +1,13 @@
+/*
+ * XREFs of IntelPptFilter_FilterCommandCompletion @ 0x1C007C230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     IntelPptFilter_DecreaseEndpointCount @ 0x1C007C090 (IntelPptFilter_DecreaseEndpointCount.c)
+ *     IntelPptFilter_FilterEndpointConfigureCommand @ 0x1C007C2F8 (IntelPptFilter_FilterEndpointConfigureCommand.c)
+ */
+
 void __fastcall IntelPptFilter_FilterCommandCompletion(__int64 a1, __int64 a2)
 {
   int v4; // edx

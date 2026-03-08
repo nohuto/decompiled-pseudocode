@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiWriteStandbyLookasideEntry @ 0x1402C71E0
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReplaceStandbyLookaside @ 0x1402C6D1C (MiReplaceStandbyLookaside.c)
+ *     MiClearEntireStandbyLookasideList @ 0x1402C6E08 (MiClearEntireStandbyLookasideList.c)
+ *     MiRebuildStandbyLookasideList @ 0x1402C6EB0 (MiRebuildStandbyLookasideList.c)
+ * Callees:
+ *     MiPurgingPageFromLookaside @ 0x1402C75C0 (MiPurgingPageFromLookaside.c)
+ *     MiSetStandbyLookasideState @ 0x1402C7730 (MiSetStandbyLookasideState.c)
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ */
+
 void __fastcall MiWriteStandbyLookasideEntry(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r9

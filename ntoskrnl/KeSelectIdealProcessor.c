@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeSelectIdealProcessor @ 0x140359930
+ * Callers:
+ *     KiReselectIdealProcessorAfterAffinityChange @ 0x14035977C (KiReselectIdealProcessorAfterAffinityChange.c)
+ *     KeSelectInitialIdealProcessorForThread @ 0x1403598E0 (KeSelectInitialIdealProcessorForThread.c)
+ *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140574290 (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
+ *     ExpNodeCreateSystemThread @ 0x1407DE204 (ExpNodeCreateSystemThread.c)
+ *     ExpWorkQueueManagerInitialize @ 0x140848580 (ExpWorkQueueManagerInitialize.c)
+ * Callees:
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KiSelectIdealProcessor @ 0x1403599D8 (KiSelectIdealProcessor.c)
+ */
+
 ULONG __fastcall KeSelectIdealProcessor(__int64 a1, _WORD *a2, _QWORD *a3, unsigned int a4)
 {
   __int64 v4; // r10

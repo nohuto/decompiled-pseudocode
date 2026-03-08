@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopDeviceInterfaceFilterCallback @ 0x14077F0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406CDBDC (PiPnpRtlApplyMandatoryFilters.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 char __fastcall IopDeviceInterfaceFilterCallback(__int64 a1, const WCHAR *a2, int a3, __int64 a4)
 {
   char v4; // bl

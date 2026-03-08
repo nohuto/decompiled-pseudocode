@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCompositionEnvironmentLight@@QEAA@PEAVCComposition@@@Z @ 0x18026AAE8
+ * Callers:
+ *     ??0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z @ 0x18026000C (--0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z.c)
+ * Callees:
+ *     ??0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z @ 0x180023E14 (--0CCompositionLight@@QEAA@PEAVCComposition@@_N@Z.c)
+ */
+
 CCompositionEnvironmentLight *__fastcall CCompositionEnvironmentLight::CCompositionEnvironmentLight(
         CCompositionEnvironmentLight *this,
         struct CComposition *a2)

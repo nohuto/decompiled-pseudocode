@@ -1,3 +1,14 @@
+/*
+ * XREFs of XilCoreCommonBuffer_FreeUnusedResources @ 0x1C0052D68
+ * Callers:
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x1C0004FE0 (Controller_WdfEvtWatchdogTimerFunc.c)
+ *     CommonBuffer_RebalanceResourcesWorkItem @ 0x1C0032320 (CommonBuffer_RebalanceResourcesWorkItem.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C0051FD8 (SecureDmaEnabler_FreeCommonBufferPage.c)
+ */
+
 __int64 **__fastcall XilCoreCommonBuffer_FreeUnusedResources(__int64 a1)
 {
   KIRQL v2; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpCheckPossibleBootStartDriver @ 0x14084A740
+ * Callers:
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ * Callees:
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall PnpCheckPossibleBootStartDriver(void *a1)
 {
   bool v1; // bl

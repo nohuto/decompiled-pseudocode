@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFileMapInitializeByNtPath @ 0x140303FE4
+ * Callers:
+ *     AslFileMappingCreate @ 0x1407A2D8C (AslFileMappingCreate.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 __int64 __fastcall RtlFileMapInitializeByNtPath(__int64 a1, UNICODE_STRING *a2)
 {
   NTSTATUS v3; // ebx

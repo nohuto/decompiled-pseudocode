@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadOnlyMode@CSettingsManager@@UEAA_NW4DwmSettingType@@@Z @ 0x14000AD80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CSettingsManager::ReadOnlyMode(__int64 a1, int a2)
 {
   bool v4; // zf

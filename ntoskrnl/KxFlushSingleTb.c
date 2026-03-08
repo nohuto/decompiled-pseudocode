@@ -1,3 +1,15 @@
+/*
+ * XREFs of KxFlushSingleTb @ 0x1402120DC
+ * Callers:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ * Callees:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KxFlushSingleTb(__int64 a1, int a2, int a3)
 {
   __int64 v3; // r15

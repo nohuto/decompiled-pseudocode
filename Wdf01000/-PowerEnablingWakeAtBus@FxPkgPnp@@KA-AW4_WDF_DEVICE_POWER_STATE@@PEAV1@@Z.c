@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PowerEnablingWakeAtBus@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C006E790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?PowerCompletePendedWakeIrp@FxPkgPnp@@IEAAXXZ @ 0x1C006DF68 (-PowerCompletePendedWakeIrp@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerMakeWakeRequestNonCancelable@FxPkgPnp@@IEAAEJ@Z @ 0x1C006F364 (-PowerMakeWakeRequestNonCancelable@FxPkgPnp@@IEAAEJ@Z.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerEnablingWakeAtBus(FxPkgPnp *This)
 {
   int v2; // eax

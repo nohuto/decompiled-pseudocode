@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCreateLocalMemHandle @ 0x1C01CF0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtUserCreateLocalMemHandle(__int64 a1, volatile void *a2, unsigned int a3, _DWORD *a4)
 {
   SIZE_T v5; // r15

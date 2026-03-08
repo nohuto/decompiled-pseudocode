@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Flatten@?$CBezierFlattener@MVCMilPoint2F@@@@QEAA_NPEAVCMilPoint2F@@0PEAMIPEAI_N@Z @ 0x18001655C
+ * Callers:
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x180016234 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802AC128 (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ * Callees:
+ *     ?Step@?$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ @ 0x18001662C (-Step@-$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ.c)
+ *     ?TryDoubleTheStep@?$CBezierFlattener@MVCMilPoint2F@@@@IEAA_NXZ @ 0x180083330 (-TryDoubleTheStep@-$CBezierFlattener@MVCMilPoint2F@@@@IEAA_NXZ.c)
+ *     ?HalveTheStep@?$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ @ 0x1800838F4 (-HalveTheStep@-$CBezierFlattener@MVCMilPoint2F@@@@IEAAXXZ.c)
+ */
+
 char __fastcall CBezierFlattener<float,CMilPoint2F>::Flatten(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AppendRetrievingBatches@CConnection@DirectComposition@@QEAAXPEAVCBatch@2@@Z @ 0x1C0248E58
+ * Callers:
+ *     ?GetBatches@CConnection@DirectComposition@@QEAAJPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C02497EC (-GetBatches@CConnection@DirectComposition@@QEAAJPEAPEBUUCE_RDP_HEADER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CConnection::AppendRetrievingBatches(
         DirectComposition::CConnection *this,
         struct DirectComposition::CBatch *a2)

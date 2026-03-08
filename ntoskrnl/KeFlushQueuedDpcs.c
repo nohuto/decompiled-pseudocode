@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeFlushQueuedDpcs @ 0x1402AF200
+ * Callers:
+ *     KeCleanupThreadState @ 0x1402D35E4 (KeCleanupThreadState.c)
+ *     MmPageEntireDriver @ 0x140729DE0 (MmPageEntireDriver.c)
+ *     IopDeleteDriver @ 0x14085AE30 (IopDeleteDriver.c)
+ *     ExpTimeZoneCleanupSiloState @ 0x1409F5234 (ExpTimeZoneCleanupSiloState.c)
+ *     ExpPartitionDestroy @ 0x1409FDA98 (ExpPartitionDestroy.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGenericProcessorCallback @ 0x1402A9E48 (KeGenericProcessorCallback.c)
+ *     KiGetDeepIdleProcessors @ 0x1402AF0A0 (KiGetDeepIdleProcessors.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void KeFlushQueuedDpcs(void)
 {
   __int64 v0; // [rsp+28h] [rbp-E0h] BYREF

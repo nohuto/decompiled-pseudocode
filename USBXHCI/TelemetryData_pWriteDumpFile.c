@@ -1,3 +1,11 @@
+/*
+ * XREFs of TelemetryData_pWriteDumpFile @ 0x1C007B660
+ * Callers:
+ *     TelemetryData_SubmitReport @ 0x1C007AF58 (TelemetryData_SubmitReport.c)
+ * Callees:
+ *     TelemetryData_pCreateDumpFile @ 0x1C007AFE4 (TelemetryData_pCreateDumpFile.c)
+ */
+
 __int64 __fastcall TelemetryData_pWriteDumpFile(__int64 a1)
 {
   int v2; // edi

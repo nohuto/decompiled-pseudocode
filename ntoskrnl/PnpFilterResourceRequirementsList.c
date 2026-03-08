@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpFilterResourceRequirementsList @ 0x140803FE4
+ * Callers:
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopQueryDeviceResources @ 0x1406F6440 (IopQueryDeviceResources.c)
+ * Callees:
+ *     RtlCmDecodeMemIoResource @ 0x1403706C0 (RtlCmDecodeMemIoResource.c)
+ *     RtlIoDecodeMemIoResource @ 0x1403706F0 (RtlIoDecodeMemIoResource.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpCmResourcesToIoResources @ 0x140804A84 (PnpCmResourcesToIoResources.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpFilterResourceRequirementsList(_DWORD *Src, unsigned int *a2, unsigned int **a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckLowestAddress@VIDMM_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEA_NPEAX@Z @ 0x1C00FCB10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VIDMM_SEGMENT::CheckLowestAddress(
         VIDMM_SEGMENT *this,
         struct _VIDMM_GLOBAL_ALLOC *a2,

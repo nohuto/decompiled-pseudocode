@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiSimpleAgePte @ 0x140632C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiAgePteWorker @ 0x140326530 (MiAgePteWorker.c)
+ *     MiWalkVaCheckCommon @ 0x140349290 (MiWalkVaCheckCommon.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ *     MiInsertVmAccessedEntry @ 0x140463768 (MiInsertVmAccessedEntry.c)
+ *     MiSimpleAgeWorkingSetTail @ 0x140463CB0 (MiSimpleAgeWorkingSetTail.c)
+ */
+
 __int64 __fastcall MiSimpleAgePte(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // r12

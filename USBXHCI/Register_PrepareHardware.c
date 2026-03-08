@@ -1,3 +1,22 @@
+/*
+ * XREFs of Register_PrepareHardware @ 0x1C0073388
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ *     Register_BiosHandoff @ 0x1C00186F0 (Register_BiosHandoff.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Register_MapSecureMmio @ 0x1C003ED24 (Register_MapSecureMmio.c)
+ *     Register_ParseCapabilityRegister @ 0x1C0071B88 (Register_ParseCapabilityRegister.c)
+ */
+
 __int64 __fastcall Register_PrepareHardware(__int64 a1, __int64 a2)
 {
   unsigned int v4; // esi

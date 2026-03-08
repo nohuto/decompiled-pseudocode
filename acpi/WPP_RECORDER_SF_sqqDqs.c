@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sqqDqs @ 0x1C0015A0C
+ * Callers:
+ *     ACPIBuildDiscoverPowerNodeCompletion @ 0x1C000CE10 (ACPIBuildDiscoverPowerNodeCompletion.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_sqqDqs(
         __int64 a1,
         __int64 a2,

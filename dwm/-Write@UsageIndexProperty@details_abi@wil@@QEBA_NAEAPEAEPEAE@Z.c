@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x140002018
+ * Callers:
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x140001A64 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ * Callees:
+ *     memcpy_s @ 0x140002A9C (memcpy_s.c)
+ */
+
 bool __fastcall wil::details_abi::UsageIndexProperty::Write(
         wil::details_abi::UsageIndexProperty *this,
         char **a2,

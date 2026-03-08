@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FreeAllReservedRequests@FxIoQueue@@AEAAXE@Z @ 0x1C0067528
+ * Callers:
+ *     ?Dispose@FxIoQueue@@UEAAEXZ @ 0x1C0063C50 (-Dispose@FxIoQueue@@UEAAEXZ.c)
+ *     ?AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z @ 0x1C0067300 (-AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z.c)
+ * Callees:
+ *     ?FreeRequest@FxRequest@@QEAAXXZ @ 0x1C003A900 (-FreeRequest@FxRequest@@QEAAXXZ.c)
+ */
+
 void __fastcall FxIoQueue::FreeAllReservedRequests(FxIoQueue *this, unsigned __int8 Verify)
 {
   KIRQL v3; // di

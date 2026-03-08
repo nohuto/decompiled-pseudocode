@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgkpLkmdFireCallbacks @ 0x140937DC4
+ * Callers:
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ * Callees:
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall DbgkpLkmdFireCallbacks(__int64 a1, int a2, __int64 a3)
 {
   char v3; // si

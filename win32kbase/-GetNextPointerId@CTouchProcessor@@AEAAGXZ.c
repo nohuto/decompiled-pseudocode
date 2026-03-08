@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNextPointerId@CTouchProcessor@@AEAAGXZ @ 0x1C01F6134
+ * Callers:
+ *     ?CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z @ 0x1C01EEF38 (-CreateNode@CTouchProcessor@@AEAAPEAUCInputPointerNode@@GKIG@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall CTouchProcessor::GetNextPointerId(struct _KTHREAD **this)
 {
   unsigned __int16 v2; // di

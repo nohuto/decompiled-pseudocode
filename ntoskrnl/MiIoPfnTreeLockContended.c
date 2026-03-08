@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIoPfnTreeLockContended @ 0x1403BFB90
+ * Callers:
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x14062C34C (MiMarkHugeRangeIoPfnDeleted.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIoPfnTreeLockContended(char a1)
 {
   int v1; // eax

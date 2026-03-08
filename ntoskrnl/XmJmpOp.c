@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmJmpOp @ 0x1403BD570
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmJmpOp(__int64 a1)
 {
   bool v1; // zf

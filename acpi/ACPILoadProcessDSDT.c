@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPILoadProcessDSDT @ 0x1C00A9700
+ * Callers:
+ *     ACPILoadProcessFADT @ 0x1C00A999C (ACPILoadProcessFADT.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPILoadAddDynamicDataBlockTable @ 0x1C00A95C0 (ACPILoadAddDynamicDataBlockTable.c)
+ */
+
 __int64 ACPILoadProcessDSDT()
 {
   int v0; // edx

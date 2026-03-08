@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimExtractDigitizerPageButtonUsages @ 0x1C01D6EB4
+ * Callers:
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ * Callees:
+ *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0034DB0 (-DbgPrintWarning@@YAXPEADZZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_GetUsages @ 0x1C00EFB14 (rimHidP_GetUsages.c)
+ */
+
 __int64 __fastcall rimExtractDigitizerPageButtonUsages(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   void *v5; // r15

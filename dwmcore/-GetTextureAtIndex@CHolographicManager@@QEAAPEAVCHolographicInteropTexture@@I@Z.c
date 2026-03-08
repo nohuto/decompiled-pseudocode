@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTextureAtIndex@CHolographicManager@@QEAAPEAVCHolographicInteropTexture@@I@Z @ 0x1802A2158
+ * Callers:
+ *     ?Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1802A6068 (-Render@CHolographicInteropTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CHolographicInteropTexture *__fastcall CHolographicManager::GetTextureAtIndex(
         RTL_SRWLOCK *this,
         unsigned int a2)

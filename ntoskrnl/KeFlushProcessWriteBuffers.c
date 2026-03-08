@@ -1,3 +1,31 @@
+/*
+ * XREFs of KeFlushProcessWriteBuffers @ 0x1402373CC
+ * Callers:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1402288B0 (KeQueryTotalCycleTimeThread.c)
+ *     NtFlushProcessWriteBuffers @ 0x1402373B0 (NtFlushProcessWriteBuffers.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1402E2E30 (KeSetPriorityAndQuantumProcess.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     KeFlushMultipleRangeTb @ 0x14038C374 (KeFlushMultipleRangeTb.c)
+ *     PpmClearExitLatencySamplingPercentage @ 0x140581B64 (PpmClearExitLatencySamplingPercentage.c)
+ *     PpmSetExitLatencySamplingPercentage @ 0x1405836EC (PpmSetExitLatencySamplingPercentage.c)
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     PsQueryTotalCycleTimeProcess @ 0x140789FC0 (PsQueryTotalCycleTimeProcess.c)
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AB970 (PspEnableProcessOptionalXStateFeatures.c)
+ *     ExProcessCounterSetCallback @ 0x1409F2FF0 (ExProcessCounterSetCallback.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x140237680 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402376C0 (KiIpiSendPacket.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeFlushProcessWriteBuffers(char a1)
 {
   unsigned __int8 CurrentIrql; // di

@@ -1,3 +1,33 @@
+/*
+ * XREFs of KeStartThread @ 0x1402385C4
+ * Callers:
+ *     KiStartPrcbThread @ 0x14037F580 (KiStartPrcbThread.c)
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x140237154 (KiUpdateNodeAffinitizedFlag.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x140238A10 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x140238A7C (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiInitializeForegroundBoostThread @ 0x140238B34 (KiInitializeForegroundBoostThread.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiComputeGroupMask @ 0x1402967CC (KiComputeGroupMask.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KiFreezeSingleThread @ 0x140355BB4 (KiFreezeSingleThread.c)
+ *     KeSelectInitialIdealProcessorForThread @ 0x1403598E0 (KeSelectInitialIdealProcessorForThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiFindBiasedSetMember @ 0x14045780C (KiFindBiasedSetMember.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiExtendProcessAffinity @ 0x14057C4E4 (KiExtendProcessAffinity.c)
+ *     EtwTraceIdealProcessor @ 0x1405FA980 (EtwTraceIdealProcessor.c)
+ */
+
 __int64 __fastcall KeStartThread(__int64 a1, unsigned __int16 *a2, unsigned int *a3)
 {
   unsigned __int64 CurrentThread; // rsi

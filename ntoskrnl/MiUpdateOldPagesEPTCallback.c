@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdateOldPagesEPTCallback @ 0x1406331A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUpdateOldPteWorker @ 0x140463E86 (MiUpdateOldPteWorker.c)
+ */
+
 __int64 __fastcall MiUpdateOldPagesEPTCallback(__int64 a1, __int64 *a2, unsigned __int64 a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PfSnSetPrefetcherInformation @ 0x1407E2E70
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfpProcessScenarioPhase @ 0x14073A2C8 (PfpProcessScenarioPhase.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PfSnPrefetchCacheEntryUpdate @ 0x1407E307C (PfSnPrefetchCacheEntryUpdate.c)
+ *     PfSnAppLaunchScenarioControl @ 0x14097C6E0 (PfSnAppLaunchScenarioControl.c)
+ *     PfSnOperationProcess @ 0x14097C840 (PfSnOperationProcess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     PfSnBeginBootPhase @ 0x140A859AC (PfSnBeginBootPhase.c)
+ */
+
 __int64 __fastcall PfSnSetPrefetcherInformation(__int64 a1, __m256i *a2, int a3, KPROCESSOR_MODE a4)
 {
   int v5; // eax

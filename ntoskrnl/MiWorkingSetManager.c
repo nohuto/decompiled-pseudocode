@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiWorkingSetManager @ 0x1403616C0
+ * Callers:
+ *     KeBalanceSetManager @ 0x140390D00 (KeBalanceSetManager.c)
+ *     MiPartitionWorkingSetManager @ 0x140627130 (MiPartitionWorkingSetManager.c)
+ * Callees:
+ *     MiEmptyDecayClusterTimers @ 0x140224EE0 (MiEmptyDecayClusterTimers.c)
+ *     MiAdjustCachedStacks @ 0x1402364D4 (MiAdjustCachedStacks.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     KeQueryUnbiasedInterruptTime @ 0x140296260 (KeQueryUnbiasedInterruptTime.c)
+ *     MiAdjustPteBins @ 0x140299A90 (MiAdjustPteBins.c)
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ *     MiLogPeriodicTelemetry @ 0x140360374 (MiLogPeriodicTelemetry.c)
+ *     MiScheduleZeroPageThreads @ 0x14036072C (MiScheduleZeroPageThreads.c)
+ *     MiSignalLargePageRebuild @ 0x1403609B4 (MiSignalLargePageRebuild.c)
+ *     MiAdjustModifiedPageLoad @ 0x140360B80 (MiAdjustModifiedPageLoad.c)
+ *     MiFreeUnusedSlabPages @ 0x140360D18 (MiFreeUnusedSlabPages.c)
+ *     MiCheckLogPinDriverAddresses @ 0x140361244 (MiCheckLogPinDriverAddresses.c)
+ *     MiWakePageZeroing @ 0x140361388 (MiWakePageZeroing.c)
+ *     MiPruneProcessLargePageCaches @ 0x1403614A0 (MiPruneProcessLargePageCaches.c)
+ *     MiReclaimUnusedUltraMdlMaps @ 0x1403615B4 (MiReclaimUnusedUltraMdlMaps.c)
+ *     MiWakeBadPageSignalThread @ 0x14036165C (MiWakeBadPageSignalThread.c)
+ *     MiNumberWsSwapPagefiles @ 0x140361990 (MiNumberWsSwapPagefiles.c)
+ *     MiScanPagefiles @ 0x140361A24 (MiScanPagefiles.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiHandleForceTrimWorkingSets @ 0x1406326A0 (MiHandleForceTrimWorkingSets.c)
+ *     MiQueueExtentPfnDeletion @ 0x14063CCC0 (MiQueueExtentPfnDeletion.c)
+ */
+
 LARGE_INTEGER __fastcall MiWorkingSetManager(__int64 a1, int a2)
 {
   __int64 v4; // rdi

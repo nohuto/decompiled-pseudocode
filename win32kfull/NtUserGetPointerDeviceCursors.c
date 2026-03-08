@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetPointerDeviceCursors @ 0x1C01D3F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _GetPointerDeviceCursors @ 0x1C01C49DC (_GetPointerDeviceCursors.c)
+ */
+
 __int64 __fastcall NtUserGetPointerDeviceCursors(__int64 a1, unsigned int *a2, volatile void *a3)
 {
   unsigned int *v4; // rdi

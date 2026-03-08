@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpRemoveSecurityCellList @ 0x1402F6F3C
+ * Callers:
+ *     CmpDereferenceSecurityNode @ 0x140243994 (CmpDereferenceSecurityNode.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406B845C (CmpSetSecurityDescriptorInfo.c)
+ * Callees:
+ *     CmpRemoveFromSecurityCache @ 0x140788F0C (CmpRemoveFromSecurityCache.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpRemoveSecurityCellList(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
 {
   __int64 v3; // r14

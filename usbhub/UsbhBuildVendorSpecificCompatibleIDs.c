@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhBuildVendorSpecificCompatibleIDs @ 0x1C0022B08
+ * Callers:
+ *     UsbhBuildClassCompatibleID @ 0x1C004EE18 (UsbhBuildClassCompatibleID.c)
+ *     UsbhBuildDeviceCompatibleID @ 0x1C004F8A8 (UsbhBuildDeviceCompatibleID.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 void *__fastcall UsbhBuildVendorSpecificCompatibleIDs(__int64 a1, __int64 a2, void *a3, unsigned int *a4)
 {
   _DWORD *v8; // rax

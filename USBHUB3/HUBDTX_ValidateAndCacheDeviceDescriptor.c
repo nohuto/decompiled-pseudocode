@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheDeviceDescriptor @ 0x1C002BF44
+ * Callers:
+ *     HUBDSM_ValidatingAlternateDeviceDescriptor @ 0x1C00214C0 (HUBDSM_ValidatingAlternateDeviceDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C0029788 (WPP_RECORDER_SF_DDDD.c)
+ *     HUBDESC_ValidateDeviceDescriptor @ 0x1C003C5E8 (HUBDESC_ValidateDeviceDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheDeviceDescriptor(__int64 a1)
 {
   unsigned __int16 *v1; // rsi

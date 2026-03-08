@@ -1,3 +1,13 @@
+/*
+ * XREFs of DmrCheckPathMatch @ 0x14037C1AC
+ * Callers:
+ *     DmrFindDrhdForDeviceScope @ 0x14037BC80 (DmrFindDrhdForDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ *     DmrValidateDeviceScope @ 0x14037BE8C (DmrValidateDeviceScope.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DmrCheckPathMatch(char *a1, char *a2)
 {
   char v2; // bl

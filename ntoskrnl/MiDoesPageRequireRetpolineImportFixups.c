@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDoesPageRequireRetpolineImportFixups @ 0x140209788
+ * Callers:
+ *     MiUpdateImagePfnImportRelocations @ 0x140209498 (MiUpdateImagePfnImportRelocations.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x140653AF8 (MiWalkEntireImagePageNeedsProcessing.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall MiDoesPageRequireRetpolineImportFixups(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r8

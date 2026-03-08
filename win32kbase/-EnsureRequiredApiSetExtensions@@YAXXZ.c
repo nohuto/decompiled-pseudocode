@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureRequiredApiSetExtensions@@YAXXZ @ 0x1C00CDB34
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     IsCleanupW32ThreadLocksSupported @ 0x1C0079420 (IsCleanupW32ThreadLocksSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void EnsureRequiredApiSetExtensions(void)
 {
   if ( !qword_1C02D65C0 || (int)qword_1C02D65C0() < 0 )

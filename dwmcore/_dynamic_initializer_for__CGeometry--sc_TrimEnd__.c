@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CGeometry::sc_TrimEnd__ @ 0x1800014D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CGeometry::sc_TrimEnd__()
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryIntervalProfile @ 0x140A01910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryIntervalProfile @ 0x140972060 (KeQueryIntervalProfile.c)
+ */
+
 __int64 __fastcall NtQueryIntervalProfile(int a1, _DWORD *a2)
 {
   __int64 v2; // r8

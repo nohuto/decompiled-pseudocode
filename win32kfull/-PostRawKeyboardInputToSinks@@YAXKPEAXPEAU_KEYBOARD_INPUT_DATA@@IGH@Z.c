@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PostRawKeyboardInputToSinks@@YAXKPEAXPEAU_KEYBOARD_INPUT_DATA@@IGH@Z @ 0x1C0148BAC
+ * Callers:
+ *     ?HandleRawInput@@YA?AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_SUPPLEMENTAL_INFO@@@Z @ 0x1C009EED4 (-HandleRawInput@@YA-AW4RAW_INPUT_PROCESSING_RESULT@@PEAXPEAU_KEYBOARD_INPUT_DATA@@PEBURAW_INPUT_.c)
+ * Callees:
+ *     AllocateHidData @ 0x1C0009078 (AllocateHidData.c)
+ *     FreeHidData @ 0x1C000DC20 (FreeHidData.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     PtiKbdFromQ @ 0x1C009FA48 (PtiKbdFromQ.c)
+ */
+
 void __fastcall PostRawKeyboardInputToSinks(
         unsigned int a1,
         void *a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReleaseWriteInProgressCharges @ 0x140212C98
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiFreeModWriterEntry @ 0x140212C5C (MiFreeModWriterEntry.c)
+ *     MiBuildMappedCluster @ 0x140213100 (MiBuildMappedCluster.c)
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ */
+
 unsigned __int64 __fastcall MiReleaseWriteInProgressCharges(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v3; // rbx

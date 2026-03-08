@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMSetPointerDeviceInputSpace @ 0x1C01BDD0C
+ * Callers:
+ *     NtSetPointerDeviceInputSpace @ 0x1C016CDB0 (NtSetPointerDeviceInputSpace.c)
+ * Callees:
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C00157DC (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     RIMSetDeviceOutputConfig @ 0x1C01BDB78 (RIMSetDeviceOutputConfig.c)
+ *     ?GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z @ 0x1C0213630 (-GetInputSpace@InputConfig@@SA_NU_LUID@@PEAVCLockedInputSpace@@@Z.c)
+ */
+
 __int64 __fastcall RIMSetPointerDeviceInputSpace(__int64 a1, struct _LUID *a2, __int128 *a3)
 {
   __int64 v3; // rbp

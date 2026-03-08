@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkFindExportAddress @ 0x140B4F0CC
+ * Callers:
+ *     ViThunkFindAllExportAddresses @ 0x140B4F010 (ViThunkFindAllExportAddresses.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 __int64 __fastcall ViThunkFindExportAddress(__int64 a1, unsigned __int64 a2, int *a3)
 {
   _QWORD *v3; // r14

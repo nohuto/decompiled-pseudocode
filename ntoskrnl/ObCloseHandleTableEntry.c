@@ -1,3 +1,25 @@
+/*
+ * XREFs of ObCloseHandleTableEntry @ 0x1407D8274
+ * Callers:
+ *     ExSweepHandleTable @ 0x1407D8110 (ExSweepHandleTable.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExSweepSingleHandle @ 0x14035218C (ExSweepSingleHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeRaiseUserException @ 0x14056E8C0 (KeRaiseUserException.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ObpDecrementHandleCount @ 0x1407D8404 (ObpDecrementHandleCount.c)
+ *     SeCloseObjectAuditAlarm @ 0x1409CB1E0 (SeCloseObjectAuditAlarm.c)
+ *     EtwpTraceHandle @ 0x1409E3D9C (EtwpTraceHandle.c)
+ */
+
 __int64 __fastcall ObCloseHandleTableEntry(
         __int64 a1,
         __int64 *a2,

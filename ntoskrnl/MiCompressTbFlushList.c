@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCompressTbFlushList @ 0x1402D6680
+ * Callers:
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MiCompressTbFlushList(__int64 a1)
 {
   int v1; // r11d

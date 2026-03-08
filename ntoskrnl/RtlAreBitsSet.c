@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlAreBitsSet @ 0x14036C840
+ * Callers:
+ *     MiReleaseDriverPtes @ 0x1407F74BC (MiReleaseDriverPtes.c)
+ *     MiCheckUnsupportedSections @ 0x140A338C0 (MiCheckUnsupportedSections.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall RtlAreBitsSet(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
   unsigned int *Buffer; // rcx

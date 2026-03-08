@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepDeReferenceSharedSidEntries @ 0x1409CE4F0
+ * Callers:
+ *     SepFreeTokenCapabilities @ 0x1402F35E0 (SepFreeTokenCapabilities.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlRemoveEntryHashTable @ 0x1402B8170 (RtlRemoveEntryHashTable.c)
+ *     SepFindSharedSidEntry @ 0x1409CE95C (SepFindSharedSidEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepDeReferenceSharedSidEntries(PSID *a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

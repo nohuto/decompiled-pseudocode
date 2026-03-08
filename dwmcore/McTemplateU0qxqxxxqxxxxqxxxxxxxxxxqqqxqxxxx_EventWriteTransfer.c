@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qxqxxxqxxxxqxxxxxxxxxxqqqxqxxxx_EventWriteTransfer @ 0x18012CE88
+ * Callers:
+ *     ?Trace@CFrameInfo@@QEAAXK_K0@Z @ 0x18004E320 (-Trace@CFrameInfo@@QEAAXK_K0@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0qxqxxxqxxxxqxxxxxxxxxxqqqxqxxxx_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

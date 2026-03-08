@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetDebugTargetInfo@CConditionalExpression@@AEAAXUDebugTargetInfo@1@@Z @ 0x180231474
+ * Callers:
+ *     ?SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@@_KPEAPEAUIScalarForce@@@Z @ 0x180230C64 (-SelectInertiaModifierForAxis@CInteractionTracker@@QEAAJW4ScrollAxis@@PEAVCExpressionValueStack@.c)
+ * Callees:
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800389DC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ *     _Init_thread_footer @ 0x18010EE80 (_Init_thread_footer.c)
+ *     _Init_thread_header @ 0x18010EEE8 (_Init_thread_header.c)
+ */
+
 void __fastcall CConditionalExpression::SetDebugTargetInfo(__int64 a1, unsigned int *a2)
 {
   __int64 v4; // rcx

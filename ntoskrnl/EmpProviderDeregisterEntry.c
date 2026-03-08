@@ -1,3 +1,13 @@
+/*
+ * XREFs of EmpProviderDeregisterEntry @ 0x14053A3B0
+ * Callers:
+ *     EmProviderDeregister @ 0x140939740 (EmProviderDeregister.c)
+ *     EmProviderDeregisterEntry @ 0x1409398F0 (EmProviderDeregisterEntry.c)
+ * Callees:
+ *     EmpQueueRuleUpdateState @ 0x1403861E4 (EmpQueueRuleUpdateState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EmpProviderDeregisterEntry(char *P)
 {
   char *v1; // rax

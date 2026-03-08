@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpQueryNameString @ 0x140733F8C
+ * Callers:
+ *     CmpTraceHiveMountBaseFileMounted @ 0x1407311D4 (CmpTraceHiveMountBaseFileMounted.c)
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ *     CmKtmNotification @ 0x140734290 (CmKtmNotification.c)
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ *     CmpTraceHiveRestoreStart @ 0x140A0FFC0 (CmpTraceHiveRestoreStart.c)
+ *     CmpAddRemoveRMLogContainer @ 0x140A1BBAC (CmpAddRemoveRMLogContainer.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall CmpQueryNameString(void *a1, UNICODE_STRING *a2)
 {
   NTSTATUS result; // eax

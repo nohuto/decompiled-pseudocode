@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiSwInterfaceFree @ 0x140964570
+ * Callers:
+ *     PiSwFreeInterfaceList @ 0x140807ACC (PiSwFreeInterfaceList.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408086D4 (PiSwIrpInterfaceRegister.c)
+ *     PiSwInterfaceCreate @ 0x140808CA8 (PiSwInterfaceCreate.c)
+ * Callees:
+ *     PnpFreeDevPropertyArray @ 0x1406CC480 (PnpFreeDevPropertyArray.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiSwInterfaceFree(PVOID P)
 {
   void *v2; // rcx

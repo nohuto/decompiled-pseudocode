@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSyscallProviderServiceDispatch @ 0x140420350
+ * Callers:
+ *     PsSyscallProviderDispatch @ 0x1409B1700 (PsSyscallProviderDispatch.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PspCaptureSystemServiceInMemoryArgs @ 0x1409B19D0 (PspCaptureSystemServiceInMemoryArgs.c)
+ */
+
 __int64 __fastcall PspSyscallProviderServiceDispatch(
         _QWORD *a1,
         __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD, _QWORD),

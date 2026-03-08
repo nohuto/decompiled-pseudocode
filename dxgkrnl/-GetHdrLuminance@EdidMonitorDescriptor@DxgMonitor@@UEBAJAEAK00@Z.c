@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetHdrLuminance@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAK00@Z @ 0x1C01FC6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     ?EDID_V1_GetHDRCaps@@YAJKPEBEPEAUDISPLAY_HDR_CAPS@@@Z @ 0x1C001DAA4 (-EDID_V1_GetHDRCaps@@YAJKPEBEPEAUDISPLAY_HDR_CAPS@@@Z.c)
+ *     ?GetRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C01CFB00 (-GetRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA-AV-$unique_ptr@$$BY0A@EU-$default_delet.c)
+ *     ?_GetFinalMaxLuminanceValueFromRaw@EdidMonitorDescriptor@DxgMonitor@@CAKK@Z @ 0x1C03CB818 (-_GetFinalMaxLuminanceValueFromRaw@EdidMonitorDescriptor@DxgMonitor@@CAKK@Z.c)
+ *     ?_GetFinalMinLuminanceValueFromRaw@EdidMonitorDescriptor@DxgMonitor@@CAKKK@Z @ 0x1C03CB868 (-_GetFinalMinLuminanceValueFromRaw@EdidMonitorDescriptor@DxgMonitor@@CAKKK@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetHdrLuminance(
         DxgMonitor::EdidMonitorDescriptor *this,
         unsigned int *a2,

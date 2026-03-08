@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerClockStop @ 0x1402E0FD0
+ * Callers:
+ *     HalpTimerClockPowerChange @ 0x140506414 (HalpTimerClockPowerChange.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpTimerClockStop()
 {
   struct _KPRCB *CurrentPrcb; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiProcessPatchImageCfg @ 0x140A383A8
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiPopulateCfgBitMap @ 0x14075C600 (MiPopulateCfgBitMap.c)
+ *     MiSelectCfgBitMap @ 0x1407D2C08 (MiSelectCfgBitMap.c)
+ *     RtlEnumerateHotPatchPatches @ 0x140A73774 (RtlEnumerateHotPatchPatches.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiProcessPatchImageCfg(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

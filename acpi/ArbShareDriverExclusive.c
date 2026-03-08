@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbShareDriverExclusive @ 0x1C00A293C
+ * Callers:
+ *     ArbFindSuitableRange @ 0x1C00A18C0 (ArbFindSuitableRange.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 char __fastcall ArbShareDriverExclusive(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

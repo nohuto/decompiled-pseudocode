@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViFaultsGetBaseImageName @ 0x140AD3750
+ * Callers:
+ *     ViCreateProcessCallbackInternal @ 0x140AD3224 (ViCreateProcessCallbackInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ViFaultsGetBaseImageName(unsigned __int16 *a1, __int64 a2)
 {
   unsigned __int64 v2; // r8

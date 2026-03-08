@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlIpv6AddressToStringW @ 0x14039F060
+ * Callers:
+ *     RtlIpv6AddressToStringExW @ 0x14039EF80 (RtlIpv6AddressToStringExW.c)
+ *     AdtpBuildIPv6Strings @ 0x140A57B80 (AdtpBuildIPv6Strings.c)
+ * Callees:
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ */
+
 PWSTR __stdcall RtlIpv6AddressToStringW(const struct in6_addr *Addr, PWSTR S)
 {
   unsigned int v2; // ebp

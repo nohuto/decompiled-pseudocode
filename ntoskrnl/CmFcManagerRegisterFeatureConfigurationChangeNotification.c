@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140818CE8
+ * Callers:
+ *     CmFcRegisterFeatureConfigurationChangeNotification @ 0x140818CC4 (CmFcRegisterFeatureConfigurationChangeNotification.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiGetPfnLink @ 0x1402FCBFC (MiGetPfnLink.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmpWorkItemQueueWork @ 0x14038897C (CmpWorkItemQueueWork.c)
+ *     CmFcpInitializeChangeSubscription @ 0x140818A88 (CmFcpInitializeChangeSubscription.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CmFcManagerRegisterFeatureConfigurationChangeNotification(
         __int64 a1,
         __int64 a2,

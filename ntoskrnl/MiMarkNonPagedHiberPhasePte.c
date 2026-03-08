@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMarkNonPagedHiberPhasePte @ 0x140AA93D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     MiIsPfnTradable @ 0x14064B348 (MiIsPfnTradable.c)
+ */
+
 __int64 __fastcall MiMarkNonPagedHiberPhasePte(__int64 a1, unsigned __int64 a2, int a3)
 {
   char v4; // bl

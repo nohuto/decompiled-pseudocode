@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtMakePermanentObject @ 0x140977C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 NTSTATUS __fastcall NtMakePermanentObject(HANDLE Handle)
 {
   KPROCESSOR_MODE PreviousMode; // bl

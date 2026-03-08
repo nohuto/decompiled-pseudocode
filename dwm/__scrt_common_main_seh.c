@@ -1,3 +1,31 @@
+/*
+ * XREFs of __scrt_common_main_seh @ 0x140005350
+ * Callers:
+ *     wWinMainCRTStartup @ 0x1400054E0 (wWinMainCRTStartup.c)
+ * Callees:
+ *     wWinMain @ 0x140003430 (wWinMain.c)
+ *     __scrt_acquire_startup_lock @ 0x1400056C0 (__scrt_acquire_startup_lock.c)
+ *     __scrt_initialize_crt @ 0x140005700 (__scrt_initialize_crt.c)
+ *     __scrt_is_nonwritable_in_current_image @ 0x1400057E4 (__scrt_is_nonwritable_in_current_image.c)
+ *     __scrt_release_startup_lock @ 0x140005884 (__scrt_release_startup_lock.c)
+ *     __scrt_uninitialize_crt @ 0x1400058B0 (__scrt_uninitialize_crt.c)
+ *     __scrt_get_dyn_tls_init_callback @ 0x140005A98 (__scrt_get_dyn_tls_init_callback.c)
+ *     __scrt_get_dyn_tls_dtor_callback @ 0x140005AA8 (__scrt_get_dyn_tls_dtor_callback.c)
+ *     __scrt_fastfail @ 0x140005AC8 (__scrt_fastfail.c)
+ *     __scrt_get_show_window_mode @ 0x140005C1C (__scrt_get_show_window_mode.c)
+ *     __scrt_is_managed_app @ 0x140005C68 (__scrt_is_managed_app.c)
+ *     _initterm_0 @ 0x14000621C (_initterm_0.c)
+ *     _initterm_e_0 @ 0x140006228 (_initterm_e_0.c)
+ *     _c_exit_0 @ 0x140006234 (_c_exit_0.c)
+ *     _register_thread_local_exe_atexit_callback_0 @ 0x140006240 (_register_thread_local_exe_atexit_callback_0.c)
+ *     _o__cexit_0 @ 0x140006288 (_o__cexit_0.c)
+ *     _o__exit_0 @ 0x1400062B8 (_o__exit_0.c)
+ *     _o__get_wide_winmain_command_line_0 @ 0x1400062C4 (_o__get_wide_winmain_command_line_0.c)
+ *     _seh_filter_exe @ 0x140006318 (_seh_filter_exe.c)
+ *     _o_exit_0 @ 0x140006348 (_o_exit_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall _scrt_common_main_seh()
 {
   unsigned int v0; // ebx

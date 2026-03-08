@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBUCX_CreateEndpointsInUCX @ 0x1C0027584
+ * Callers:
+ *     HUBDSM_CreatingNewEndpoints @ 0x1C0023C40 (HUBDSM_CreatingNewEndpoints.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBUCX_GetEndpointPriority @ 0x1C0027414 (HUBUCX_GetEndpointPriority.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_CreateEndpointsInUCX(__int64 a1)
 {
   int v1; // edi

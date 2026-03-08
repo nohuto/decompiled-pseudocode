@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwCreateTimerWrapper @ 0x1405ECBE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwCreateTimer @ 0x140413C30 (ZwCreateTimer.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwCreateTimerWrapper(
         PHANDLE TimerHandle,
         ACCESS_MASK DesiredAccess,

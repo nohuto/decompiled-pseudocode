@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoIsCompatibleWithHighResolutionBoot @ 0x1C021A664
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ */
+
 char __fastcall DpiFdoIsCompatibleWithHighResolutionBoot(__int64 a1)
 {
   __int64 v1; // rax

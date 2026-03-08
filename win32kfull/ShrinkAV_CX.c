@@ -1,3 +1,11 @@
+/*
+ * XREFs of ShrinkAV_CX @ 0x1C0260410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ShrinkAV_CX(__int64 a1)
 {
   __int64 result; // rax

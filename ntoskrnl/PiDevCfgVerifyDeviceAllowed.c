@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDevCfgVerifyDeviceAllowed @ 0x14087FC64
+ * Callers:
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ * Callees:
+ *     PnpValidateRegistryDword @ 0x1403C0C9C (PnpValidateRegistryDword.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     PiDevCfgQueryResolveValue @ 0x14055FEC8 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgInitResolveContext @ 0x140876E48 (PiDevCfgInitResolveContext.c)
+ *     PiDevCfgFreeResolveContext @ 0x1408771F0 (PiDevCfgFreeResolveContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgVerifyDeviceAllowed(__int64 a1, void *a2)
 {
   int inited; // ebx

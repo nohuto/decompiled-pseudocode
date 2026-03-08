@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuIvtDiscover @ 0x140B3D380
+ * Callers:
+ *     HalpIommuInitDiscard @ 0x140B6C3EC (HalpIommuInitDiscard.c)
+ * Callees:
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     HalpIvtProcessDmarTable @ 0x14037BB68 (HalpIvtProcessDmarTable.c)
+ */
+
 __int64 __fastcall HalpIommuIvtDiscover(_QWORD *a1)
 {
   int v2; // edi

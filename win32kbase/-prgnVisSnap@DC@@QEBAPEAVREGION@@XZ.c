@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?prgnVisSnap@DC@@QEBAPEAVREGION@@XZ @ 0x1C001AD78
+ * Callers:
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     EngUpdateDeviceSurface @ 0x1C018BD80 (EngUpdateDeviceSurface.c)
+ * Callees:
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C001A8E0 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ */
+
 struct REGION *__fastcall DC::prgnVisSnap(DC *this)
 {
   struct REGION *result; // rax

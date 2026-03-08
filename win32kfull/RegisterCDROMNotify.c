@@ -1,3 +1,12 @@
+/*
+ * XREFs of RegisterCDROMNotify @ 0x1C0077C84
+ * Callers:
+ *     xxxRegisterForDeviceClassNotifications @ 0x1C00787C0 (xxxRegisterForDeviceClassNotifications.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS RegisterCDROMNotify()
 {
   NTSTATUS result; // eax

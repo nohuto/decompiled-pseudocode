@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlAreBitsClear @ 0x14036C910
+ * Callers:
+ *     HvGetHiveLogFileStatus @ 0x1407F7674 (HvGetHiveLogFileStatus.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     HvIsRangeDirty @ 0x140A22C54 (HvIsRangeDirty.c)
+ *     MiCheckPatchPagesCallback @ 0x140A33660 (MiCheckPatchPagesCallback.c)
+ *     HalpMmAllocCtxMarkHiberPhase @ 0x140A9269C (HalpMmAllocCtxMarkHiberPhase.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall RtlAreBitsClear(PRTL_BITMAP BitMapHeader, ULONG StartingIndex, ULONG Length)
 {
   BOOLEAN result; // al

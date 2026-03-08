@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x18026C640
+ * Callers:
+ *     ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18026C400 (-AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ.c)
+ *     ?CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ @ 0x18026C440 (-CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ.c)
+ * Callees:
+ *     logf_0 @ 0x180117764 (logf_0.c)
+ *     powf_0 @ 0x18011777C (powf_0.c)
+ */
+
 float __fastcall CScaleMotion::UnboundedValueAtTime(CScaleMotion *this, float a2)
 {
   float v4; // xmm6_4

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopGetDozeTimerSource @ 0x1403A5B00
+ * Callers:
+ *     PopWnfAudioCallback @ 0x140852480 (PopWnfAudioCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 PopGetDozeTimerSource()
 {
   unsigned int v0; // edi

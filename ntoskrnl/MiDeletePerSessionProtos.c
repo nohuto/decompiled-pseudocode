@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiDeletePerSessionProtos @ 0x1402CF6DC
+ * Callers:
+ *     MiDeleteSessionDriverProtos @ 0x14067F83C (MiDeleteSessionDriverProtos.c)
+ *     MiFreeSubsectionProtos @ 0x14075C87C (MiFreeSubsectionProtos.c)
+ * Callees:
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiDeleteTransitionPte @ 0x1402833F0 (MiDeleteTransitionPte.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     MiReleasePageFileSpace @ 0x14034BE0C (MiReleasePageFileSpace.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiDeletePerSessionProtos(char *P)
 {
   __int64 v1; // r9

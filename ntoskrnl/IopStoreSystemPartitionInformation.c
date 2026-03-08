@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopStoreSystemPartitionInformation @ 0x140B56F38
+ * Callers:
+ *     IopMarkBootPartition @ 0x140B54EB0 (IopMarkBootPartition.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ *     NtQuerySymbolicLinkObject @ 0x140755C30 (NtQuerySymbolicLinkObject.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     IopOpenRegistryKeyEx @ 0x14081BCC0 (IopOpenRegistryKeyEx.c)
+ */
+
 int __fastcall IopStoreSystemPartitionInformation(__int64 a1, unsigned __int16 *a2)
 {
   int result; // eax

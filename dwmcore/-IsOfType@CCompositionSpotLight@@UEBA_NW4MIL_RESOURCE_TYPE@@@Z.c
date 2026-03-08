@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CCompositionSpotLight@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800FF020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0280 (-IsOfType@CPropertyChangeResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ */
+
 char __fastcall CCompositionSpotLight::IsOfType(__int64 a1, int a2)
 {
   char v2; // cl

@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpSaveKeyByFileCopy @ 0x140A0A220
+ * Callers:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ * Callees:
+ *     CmpFileWrite @ 0x1406BC460 (CmpFileWrite.c)
+ *     CmpFileFlush @ 0x140731EC0 (CmpFileFlush.c)
+ *     CmpFileRead @ 0x140787ED0 (CmpFileRead.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140820C84 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140820D0C (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpSaveKeyByFileCopy(__int64 a1, __int64 a2)
 {
   _DWORD *Pool2; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnblockDeferredInput@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01B7188
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UnblockDeferredInput(struct tagTHREADINFO *a1)
 {
   int v2; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViDeadlockAllocate @ 0x140AD56E4
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockInitializeResource @ 0x140AD4738 (VfDeadlockInitializeResource.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ */
+
 PVOID __fastcall ViDeadlockAllocate(int a1)
 {
   int v1; // ecx

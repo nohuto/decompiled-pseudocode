@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmResetPerfEngineForProcessor @ 0x14058B178
+ * Callers:
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PpmResetPerfTimes @ 0x1403A1BA0 (PpmResetPerfTimes.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PpmHeteroHgsProcessorThreadFeedbackInit @ 0x14059C38C (PpmHeteroHgsProcessorThreadFeedbackInit.c)
+ */
+
 __int64 __fastcall PpmResetPerfEngineForProcessor(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bp

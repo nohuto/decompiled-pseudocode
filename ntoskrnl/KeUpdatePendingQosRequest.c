@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeUpdatePendingQosRequest @ 0x140458E7C
+ * Callers:
+ *     PoIdle @ 0x14022D240 (PoIdle.c)
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeCheckAndApplyBamQos @ 0x140458D70 (KeCheckAndApplyBamQos.c)
+ * Callees:
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiCancelClockTimer @ 0x1402D94E4 (KiCancelClockTimer.c)
+ *     KiSetVirtualHeteroClockIntervalRequest @ 0x14045A080 (KiSetVirtualHeteroClockIntervalRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeUpdatePendingQosRequest(__int64 a1)
 {
   char v1; // bl

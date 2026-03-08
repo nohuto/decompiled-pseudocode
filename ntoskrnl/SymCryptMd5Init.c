@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptMd5Init @ 0x1403F7F60
+ * Callers:
+ *     HashpInitHash @ 0x140A749CC (HashpInitHash.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptMd5Init(__int64 a1)
 {
   __int64 result; // rax

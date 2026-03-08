@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlNumberOfSetBitsInRangeEx @ 0x1405A6B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlNumberOfSetBitsInRangeEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v4; // r10

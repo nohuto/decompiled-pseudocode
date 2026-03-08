@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C01C166C
+ * Callers:
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C18D4 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ApplyTimerDelay(struct tagTIMER *a1)
 {
   int v1; // r8d

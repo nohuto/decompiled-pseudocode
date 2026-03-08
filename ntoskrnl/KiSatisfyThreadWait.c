@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiSatisfyThreadWait @ 0x140577E2C
+ * Callers:
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ * Callees:
+ *     KiExitThreadWait @ 0x140239380 (KiExitThreadWait.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ */
+
 __int64 __fastcall KiSatisfyThreadWait(__int64 a1, __int64 a2, char a3, __int64 *a4, int a5)
 {
   __int64 v7; // r12

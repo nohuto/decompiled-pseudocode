@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bInside@RGNOBJ@@QEAAHPEAU_RECTL@@@Z @ 0x1C00A6620
+ * Callers:
+ *     GreRectInRegion @ 0x1C00A65A0 (GreRectInRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RGNOBJ::bInside(RGNOBJ *this, struct _RECTL *a2)
 {
   __int64 v2; // rax

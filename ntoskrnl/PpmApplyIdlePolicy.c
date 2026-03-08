@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmApplyIdlePolicy @ 0x14039B004
+ * Callers:
+ *     PpmResetIdlePolicy @ 0x14039AFC8 (PpmResetIdlePolicy.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ */
+
 unsigned __int64 __fastcall PpmApplyIdlePolicy(_BYTE *a1)
 {
   __int64 *v1; // r9

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpPartitionInitialize @ 0x1408481F8
+ * Callers:
+ *     PspAllocatePartition @ 0x140855B00 (PspAllocatePartition.c)
+ *     ExpWorkerInitialization @ 0x140B6383C (ExpWorkerInitialization.c)
+ * Callees:
+ *     ExpPartitionCreatePoolInternal @ 0x1408483B0 (ExpPartitionCreatePoolInternal.c)
+ *     ExpWorkQueueManagerInitialize @ 0x140848580 (ExpWorkQueueManagerInitialize.c)
+ *     ExpPartitionDestroy @ 0x1409FDA98 (ExpPartitionDestroy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ExpPartitionInitialize(__int64 a1)
 {
   _QWORD *Pool2; // rax

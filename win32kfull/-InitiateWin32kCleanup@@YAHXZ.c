@@ -1,3 +1,27 @@
+/*
+ * XREFs of ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     FreeAllSpbs @ 0x1C0020240 (FreeAllSpbs.c)
+ *     FreeTimer @ 0x1C003A800 (FreeTimer.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?SetWaitForWinstaRundown@@YAXXZ @ 0x1C00779BC (-SetWaitForWinstaRundown@@YAXXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qD @ 0x1C0077B08 (WPP_RECORDER_AND_TRACE_SF_qD.c)
+ *     ?EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z @ 0x1C0077D38 (-EmptyMousePromotionQueue@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@@Z.c)
+ *     InitializePointerDevicesPresenceState @ 0x1C0077D60 (InitializePointerDevicesPresenceState.c)
+ *     ?TerminateDesktopThreads@@YAXXZ @ 0x1C0077D9C (-TerminateDesktopThreads@@YAXXZ.c)
+ *     ?NumHandles@@YAKPEAX@Z @ 0x1C007873C (-NumHandles@@YAKPEAX@Z.c)
+ *     CleanupIAMAccess @ 0x1C0092F00 (CleanupIAMAccess.c)
+ *     ?CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z @ 0x1C00BD4DC (-CreateShutdownEvent@@YAJPEBGKPEAPEAX@Z.c)
+ *     ??1InteractiveControlManager@@AEAA@XZ @ 0x1C00F39E0 (--1InteractiveControlManager@@AEAA@XZ.c)
+ *     UnregisterDeviceClassNotifications @ 0x1C00F68FC (UnregisterDeviceClassNotifications.c)
+ *     ??1InkProcessor@@AEAA@XZ @ 0x1C00F6A98 (--1InkProcessor@@AEAA@XZ.c)
+ *     GreDrvDisconnect @ 0x1C0128FB4 (GreDrvDisconnect.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     bDrvDisconnect @ 0x1C02DF008 (bDrvDisconnect.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 InitiateWin32kCleanup(void)
 {

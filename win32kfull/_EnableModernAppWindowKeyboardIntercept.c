@@ -1,3 +1,13 @@
+/*
+ * XREFs of _EnableModernAppWindowKeyboardIntercept @ 0x1C01E4748
+ * Callers:
+ *     NtUserEnableModernAppWindowKeyboardIntercept @ 0x1C01D0470 (NtUserEnableModernAppWindowKeyboardIntercept.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RegisterModernAppThreadForRawKeyboard @ 0x1C01AB1FC (RegisterModernAppThreadForRawKeyboard.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01AB2A8 (UnregisterModernAppThreadForRawKeyboard.c)
+ */
+
 __int64 __fastcall EnableModernAppWindowKeyboardIntercept(__int64 a1, int a2)
 {
   int v2; // ebx

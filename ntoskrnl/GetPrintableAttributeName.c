@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetPrintableAttributeName @ 0x1409D0F74
+ * Callers:
+ *     LocalpGetStringForCondition @ 0x1409D3684 (LocalpGetStringForCondition.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     EncodeAttributeName @ 0x1409D019C (EncodeAttributeName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall GetPrintableAttributeName(__int64 a1, int a2, char a3, _QWORD *a4, _DWORD *a5)
 {
   unsigned int v6; // ebx

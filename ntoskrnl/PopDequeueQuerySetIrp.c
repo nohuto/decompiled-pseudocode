@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopDequeueQuerySetIrp @ 0x1402BB70C
+ * Callers:
+ *     PopHandleDevicePowerIrpCompletion @ 0x1402BB4F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140AA4450 (PopSystemIrpCompletion.c)
+ * Callees:
+ *     PopDiagTraceIrpStart @ 0x1402BB178 (PopDiagTraceIrpStart.c)
+ *     PopEnableIrpWatchdog @ 0x1402BB290 (PopEnableIrpWatchdog.c)
+ *     PopDiagTraceIrpFinish @ 0x1402BB864 (PopDiagTraceIrpFinish.c)
+ *     PopCompleteIrpWatchdog @ 0x1402BB9F4 (PopCompleteIrpWatchdog.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDisableIrpWatchdog @ 0x140580BBC (PopDisableIrpWatchdog.c)
+ */
+
 __int64 __fastcall PopDequeueQuerySetIrp(__int64 a1)
 {
   __int64 v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkExtractBundleObject @ 0x1C03232C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DxgkExtractBundleObjectInternal @ 0x1C0323344 (DxgkExtractBundleObjectInternal.c)
+ */
+
 __int64 __fastcall DxgkExtractBundleObject(__int64 a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfPrefetchRequestPrepareForVerify @ 0x1407660C4
+ * Callers:
+ *     PfPrefetchRequestVerify @ 0x140765CC0 (PfPrefetchRequestVerify.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfPrefetchRequestPrepareForVerify(unsigned int *a1, unsigned int a2, __int64 a3)
 {
   unsigned __int64 v3; // r10

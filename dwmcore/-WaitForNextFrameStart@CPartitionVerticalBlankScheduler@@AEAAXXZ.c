@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?WaitForNextFrameStart@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004DCA8
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800525D0 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801292C6 (McTemplateU0qq_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     McTemplateU0qn_EventWriteTransfer @ 0x1801CEB94 (McTemplateU0qn_EventWriteTransfer.c)
+ *     McTemplateU0ttqtq_EventWriteTransfer @ 0x1801CECCC (McTemplateU0ttqtq_EventWriteTransfer.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::WaitForNextFrameStart(CPartitionVerticalBlankScheduler *this)
 {
   unsigned int v1; // esi

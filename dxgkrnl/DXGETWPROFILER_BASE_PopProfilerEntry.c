@@ -1,3 +1,11 @@
+/*
+ * XREFs of DXGETWPROFILER_BASE_PopProfilerEntry @ 0x1C0010590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DXGETWPROFILER_BASE_PopProfilerEntry(__int64 a1)
 {
   __int64 v1; // rbx

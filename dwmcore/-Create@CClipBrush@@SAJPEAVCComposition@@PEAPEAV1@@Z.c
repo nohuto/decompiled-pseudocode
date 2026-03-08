@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18021DA8C
+ * Callers:
+ *     ?Initialize@CCompositionTextLine@@MEAAJXZ @ 0x180223BF0 (-Initialize@CCompositionTextLine@@MEAAJXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CClipBrush@@IEAA@PEAVCComposition@@@Z @ 0x18021D8F0 (--0CClipBrush@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 __int64 __fastcall CClipBrush::Create(struct CComposition *a1, struct CClipBrush **a2)
 {
   CClipBrush *v4; // rax

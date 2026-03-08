@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerCalculateMaximumAllowableDrift @ 0x1403A087C
+ * Callers:
+ *     HalpInitializeTimers @ 0x1403A06E0 (HalpInitializeTimers.c)
+ *     HalpTimerSelectFallbackPerformanceCounter @ 0x140507300 (HalpTimerSelectFallbackPerformanceCounter.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 HalpTimerCalculateMaximumAllowableDrift()
 {
   unsigned __int64 v0; // rcx

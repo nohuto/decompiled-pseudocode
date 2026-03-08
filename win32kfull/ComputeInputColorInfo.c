@@ -1,3 +1,12 @@
+/*
+ * XREFs of ComputeInputColorInfo @ 0x1C025E1C4
+ * Callers:
+ *     GetDstBFInfo @ 0x1C0253EF0 (GetDstBFInfo.c)
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ComputeInputColorInfo(__int64 a1, unsigned int a2, unsigned int a3, _BYTE *a4, __int64 a5)
 {
   __int64 v6; // rax

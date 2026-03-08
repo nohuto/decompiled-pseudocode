@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheaGetCurrentProcessName @ 0x14060F890
+ * Callers:
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ *     WheaTerminateProcess @ 0x140A053E0 (WheaTerminateProcess.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall WheaGetCurrentProcessName(void **a1, unsigned int *a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPepTryPowerDownComponent @ 0x140304D78
+ * Callers:
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1402F2810 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentActiveActivity @ 0x140304CC0 (PopPepCompleteComponentActiveActivity.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPepTryPowerDownComponent(__int64 a1, _DWORD *a2)
 {
   unsigned int v2; // r9d

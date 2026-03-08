@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmiTerminalsRundown @ 0x1409A8684
+ * Callers:
+ *     TtmiSessionsRundown @ 0x1409A1AFC (TtmiSessionsRundown.c)
+ * Callees:
+ *     TtmiLogTerminalRundown @ 0x1409A78EC (TtmiLogTerminalRundown.c)
+ */
+
 void __fastcall TtmiTerminalsRundown(__int64 a1)
 {
   _QWORD *v1; // rdi

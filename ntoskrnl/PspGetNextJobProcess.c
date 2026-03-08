@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspGetNextJobProcess @ 0x1406F90E0
+ * Callers:
+ *     PspExecuteJobFreezeThawCallback @ 0x1402FF830 (PspExecuteJobFreezeThawCallback.c)
+ *     PspTerminateProcessesJobCallback @ 0x1406F8A00 (PspTerminateProcessesJobCallback.c)
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspSetCpuRateControlJobPostCallback @ 0x1407DCFE0 (PspSetCpuRateControlJobPostCallback.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x1409AAAF0 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspWaitOnAllProcessesJobCallback @ 0x1409B04F0 (PspWaitOnAllProcessesJobCallback.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ */
+
 _QWORD *__fastcall PspGetNextJobProcess(__int64 a1, __int64 a2, _QWORD *a3, void *a4)
 {
   _QWORD *v8; // rax

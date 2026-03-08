@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiSystemVaToDynamicBitmap @ 0x14021055C
+ * Callers:
+ *     MiMakeSystemRangeAvailable @ 0x14020F62C (MiMakeSystemRangeAvailable.c)
+ *     MiObtainSystemVa @ 0x140210534 (MiObtainSystemVa.c)
+ *     MiIsSystemVaAllocated @ 0x140634AE4 (MiIsSystemVaAllocated.c)
+ *     MiMarkSystemVaAllocated @ 0x140634E98 (MiMarkSystemVaAllocated.c)
+ *     MiBuildPagedPool @ 0x140B38784 (MiBuildPagedPool.c)
+ *     MiInitializeSystemPtes @ 0x140B391FC (MiInitializeSystemPtes.c)
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ *     MiInitializeKernelStacks @ 0x140B3B3A4 (MiInitializeKernelStacks.c)
+ *     MiInitializeNonPagedPool @ 0x140B5EDA4 (MiInitializeNonPagedPool.c)
+ *     MiInitializeDynamicRegion @ 0x140B6B4DC (MiInitializeDynamicRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall MiSystemVaToDynamicBitmap(int a1)
 {
   int v1; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@PEAU_POINTFIX@@_K@Z @ 0x1C017FE30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     bCvtPts @ 0x1C0274DEC (bCvtPts.c)
+ */
+
 __int64 __fastcall EXFORMOBJ::bXform(EXFORMOBJ *this, struct _POINTL *a2, struct _POINTFIX *a3, __int64 a4)
 {
   __int64 v4; // rcx

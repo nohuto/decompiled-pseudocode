@@ -1,3 +1,40 @@
+/*
+ * XREFs of PiDevCfgCopyDeviceKey @ 0x140877A34
+ * Callers:
+ *     PiDevCfgConfigureDeviceKeyCallback @ 0x1408778D0 (PiDevCfgConfigureDeviceKeyCallback.c)
+ *     PiDevCfgCopyDeviceKeys @ 0x140877924 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14095A480 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResetDeviceKeyCallback @ 0x14095CFB0 (PiDevCfgResetDeviceKeyCallback.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PnpValidateStringData @ 0x1403C1C24 (PnpValidateStringData.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x1403C2184 (PiDevCfgPushCopyKeyEntry.c)
+ *     PiDevCfgParseVariableName @ 0x1403C2244 (PiDevCfgParseVariableName.c)
+ *     PnpRegistryValueExists @ 0x1403D0AF8 (PnpRegistryValueExists.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     ZwSetSecurityObject @ 0x1404159D0 (ZwSetSecurityObject.c)
+ *     PiDevCfgParsePropertyKeyName @ 0x14055FD1C (PiDevCfgParsePropertyKeyName.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     IopGetRegistryKeyInformation @ 0x140780288 (IopGetRegistryKeyInformation.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgSetObjectProperty @ 0x140874858 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140878110 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     PiDevCfgResolveVariable @ 0x140878210 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgResolveMultiSzValue @ 0x1408784A4 (PiDevCfgResolveMultiSzValue.c)
+ *     PiDevCfgConvertPropertyFromValue @ 0x14095A774 (PiDevCfgConvertPropertyFromValue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgCopyDeviceKey(
         HANDLE KeyHandle,
         void *a2,

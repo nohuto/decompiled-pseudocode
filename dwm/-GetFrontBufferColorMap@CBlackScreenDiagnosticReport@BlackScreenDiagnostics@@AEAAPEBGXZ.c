@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFrontBufferColorMap@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAPEBGXZ @ 0x14000CD6C
+ * Callers:
+ *     ?Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D134 (-Run@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXW4CallingSource@2@W4DiagnosticFla.c)
+ * Callees:
+ *     BlackScreenDiagnostics::GetDwmFrontBufferBitsColor @ 0x14000CB84 (BlackScreenDiagnostics--GetDwmFrontBufferBitsColor.c)
+ */
+
 const unsigned __int16 *__fastcall BlackScreenDiagnostics::CBlackScreenDiagnosticReport::GetFrontBufferColorMap(
         BlackScreenDiagnostics::CBlackScreenDiagnosticReport *this,
         __int64 a2,

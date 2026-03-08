@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkWdInitialize @ 0x140B8FBF8
+ * Callers:
+ *     HalpBlkInitSystem @ 0x140B3DFE0 (HalpBlkInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x140203D9C (KiInitializeTimer2.c)
+ */
+
 ULONG_PTR (*HalpBlkWdInitialize())()
 {
   ULONG_PTR (*result)(); // rax

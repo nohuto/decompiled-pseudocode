@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfProcessCreateNotification @ 0x1407E6CA0
+ * Callers:
+ *     PspNotifyThreadCreation @ 0x1407ED550 (PspNotifyThreadCreation.c)
+ * Callees:
+ *     PfSnBeginAppLaunch @ 0x1407E6D34 (PfSnBeginAppLaunch.c)
+ *     PfCheckDeprioritizeImage @ 0x1407E72DC (PfCheckDeprioritizeImage.c)
+ *     PfCalculateProcessHash @ 0x1407E7450 (PfCalculateProcessHash.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfProcessCreateNotification(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapTranslateAddressInPlugin @ 0x140A05B24
+ * Callers:
+ *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A04FEC (WheaAddrTranslateAndAddToDefectListInPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall WheapTranslateAddressInPlugin(__int64 *a1, __int64 a2)
 {
   __int64 result; // rax

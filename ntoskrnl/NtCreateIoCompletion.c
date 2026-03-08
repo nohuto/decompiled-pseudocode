@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateIoCompletion @ 0x140729910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeQueue @ 0x1402A8580 (KeInitializeQueue.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateIoCompletion(__int64 a1, __int64 a2, int a3, ULONG a4)
 {
   ULONG v4; // ebx

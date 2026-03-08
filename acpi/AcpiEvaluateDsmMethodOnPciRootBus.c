@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C0089CBC
+ * Callers:
+ *     PciGetRootBusCapability @ 0x1C008A1F0 (PciGetRootBusCapability.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ */
+
 __int64 __fastcall AcpiEvaluateDsmMethodOnPciRootBus(__int64 a1, _BYTE *a2)
 {
   _QWORD *v5; // rcx

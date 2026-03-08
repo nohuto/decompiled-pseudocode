@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnRectanglesChanged@CRegionGeometry@@QEAAXXZ @ 0x1800A6F84
+ * Callers:
+ *     ?SetOrAppendRectangles@?$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@AEAAJAEBV?$span@$$CBUtagRECT@@$0?0@gsl@@_N@Z @ 0x1800A6F34 (-SetOrAppendRectangles@-$CRegionGeometryGeneratedT@VCRegionGeometry@@VCGeometry@@@@AEAAJAEBV-$sp.c)
+ * Callees:
+ *     ?IsEmpty@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NXZ @ 0x1800A71F4 (-IsEmpty@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NXZ.c)
+ */
+
 void __fastcall CRegionGeometry::OnRectanglesChanged(CRegionGeometry *this)
 {
   CRegionGeometry *v1; // r9

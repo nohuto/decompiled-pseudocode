@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapWmiRegisterInfo @ 0x1403AA2EC
+ * Callers:
+ *     WheaWmiDispatch @ 0x1403AA290 (WheaWmiDispatch.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall WheapWmiRegisterInfo(__int64 a1, unsigned int a2, _DWORD *a3, int *a4)
 {
   int v4; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiGetSavedBootEntry @ 0x14082F250
+ * Callers:
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ * Callees:
+ *     BiGetRegistryValue @ 0x14082EB20 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetSavedBootEntry(__int64 a1, PVOID *a2)
 {
   int RegistryValue; // ebx

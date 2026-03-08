@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPowerWatchdogTimeoutMsec@@YAKW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C0159D18
+ * Callers:
+ *     ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C00D229C (-ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetPowerWatchdogTimeoutMsec(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

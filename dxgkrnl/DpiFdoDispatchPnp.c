@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiFdoDispatchPnp @ 0x1C021AD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiFdoOpenDeviceFileObjectIfNeeded @ 0x1C01F3348 (DpiFdoOpenDeviceFileObjectIfNeeded.c)
+ *     DpiFdoCloseDeviceFileObject @ 0x1C03967C8 (DpiFdoCloseDeviceFileObject.c)
+ */
+
 __int64 __fastcall DpiFdoDispatchPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   __int64 DeviceExtension; // [rsp+30h] [rbp-68h]

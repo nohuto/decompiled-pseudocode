@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CFlipExBuffer@@MEAA@XZ @ 0x1C000BAE4
+ * Callers:
+ *     ??_GCFlipExBuffer@@MEAAPEAXI@Z @ 0x1C000BA50 (--_GCFlipExBuffer@@MEAAPEAXI@Z.c)
+ *     ??_GCCompositionSwapchainBuffer@@UEAAPEAXI@Z @ 0x1C00893B0 (--_GCCompositionSwapchainBuffer@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ @ 0x1C000D9C0 (-DisableCascadedSignaling@CFlipExBuffer@@QEAAXXZ.c)
+ *     ??1CCompositionBuffer@@UEAA@XZ @ 0x1C000DA04 (--1CCompositionBuffer@@UEAA@XZ.c)
+ *     ?DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z @ 0x1C007D24C (-DisableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJPEAH@Z.c)
+ *     ?SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z @ 0x1C007E560 (-SignalPresentLimitSemaphore@@YAJPEAU_KSEMAPHORE@@J@Z.c)
+ *     DxgkImmediateSignalSynchronizationObjectByReference @ 0x1C034E2AC (DxgkImmediateSignalSynchronizationObjectByReference.c)
+ */
+
 void __fastcall CFlipExBuffer::~CFlipExBuffer(CFlipExBuffer *this)
 {
   bool v1; // zf

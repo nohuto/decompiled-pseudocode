@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSetLinkedUFIs@XDCOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@I@Z @ 0x1C02C30D0
+ * Callers:
+ *     NtGdiSetLinkedUFIs @ 0x1C027B200 (NtGdiSetLinkedUFIs.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall XDCOBJ::bSetLinkedUFIs(XDCOBJ *this, struct _UNIVERSAL_FONT_ID *a2, unsigned int a3)
 {
   __int64 v3; // rdi

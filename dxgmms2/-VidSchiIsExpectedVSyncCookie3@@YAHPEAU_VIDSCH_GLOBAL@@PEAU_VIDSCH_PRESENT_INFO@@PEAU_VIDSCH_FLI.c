@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiIsExpectedVSyncCookie3@@YAHPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@QEAK@Z @ 0x1C00495BC
+ * Callers:
+ *     ?VidSchiCompleteFlipsFromLatestPresentId@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IIPEA_KPEAIPEA_NQEAKPEAPEAU_VIDSCH_DEVICE@@@Z @ 0x1C004900C (-VidSchiCompleteFlipsFromLatestPresentId@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IIPEA_K.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiIsExpectedVSyncCookie3(
         struct _VIDSCH_GLOBAL *a1,
         struct _VIDSCH_PRESENT_INFO *a2,

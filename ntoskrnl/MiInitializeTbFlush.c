@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiInitializeTbFlush @ 0x140B5CD2C
+ * Callers:
+ *     MiInitializeTbFlushing @ 0x140B5CBA8 (MiInitializeTbFlushing.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 *__fastcall MiInitializeTbFlush(unsigned __int64 a1)
 {
   unsigned __int64 v1; // r12

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DefSetText @ 0x1C00A7330
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     NtUserDefSetText @ 0x1C01CF460 (NtUserDefSetText.c)
+ * Callees:
+ *     DwmAsyncTextChange @ 0x1C00A5394 (DwmAsyncTextChange.c)
+ *     ?getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@Z @ 0x1C00D1660 (-getStrName@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEBAPEAU_LARGE_UNICODE_STRING@@AEAU3@@.c)
+ *     DesktopVerifyHeapLargeUnicodeString @ 0x1C00D16C4 (DesktopVerifyHeapLargeUnicodeString.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall DefSetText(unsigned __int64 a1, unsigned int *a2)
 {
   __int64 *v3; // rdi

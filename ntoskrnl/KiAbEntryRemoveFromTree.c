@@ -1,3 +1,24 @@
+/*
+ * XREFs of KiAbEntryRemoveFromTree @ 0x14024BC30
+ * Callers:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KiAbEntryFreeAndEnableInterrupts @ 0x140248730 (KiAbEntryFreeAndEnableInterrupts.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiAbCrossThreadRelease @ 0x1403C582C (KiAbCrossThreadRelease.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiAbTryDecrementIoWaiterCounts @ 0x1402D7D78 (KiAbTryDecrementIoWaiterCounts.c)
+ *     RtlRbReplaceNode @ 0x1402DE230 (RtlRbReplaceNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiAbEntryRemoveFromTree(__int64 a1)
 {
   __int64 v2; // rax

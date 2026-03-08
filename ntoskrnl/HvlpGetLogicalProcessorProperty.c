@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpGetLogicalProcessorProperty @ 0x14053EAB4
+ * Callers:
+ *     HvlLpGetMachineCheckContext @ 0x140542380 (HvlLpGetMachineCheckContext.c)
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14093E204 (HvlpLogMicrocodeUpdateStatus.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlpGetLogicalProcessorProperty(ULONG a1, LONG a2, _OWORD *a3)
 {
   unsigned int v6; // r14d

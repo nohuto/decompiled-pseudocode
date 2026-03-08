@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpCmciLoadThresholdConfiguration @ 0x1403ABBE0
+ * Callers:
+ *     HalpCmciInit @ 0x140A8795C (HalpCmciInit.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmGetSystemRoutineAddress @ 0x1407EA850 (MmGetSystemRoutineAddress.c)
+ */
+
 __int64 HalpCmciLoadThresholdConfiguration()
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoSetDeviceInterfaceStateWrapper @ 0x1405DEE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     IoSetDeviceInterfaceState @ 0x1406832E0 (IoSetDeviceInterfaceState.c)
+ */
+
 NTSTATUS __fastcall DifIoSetDeviceInterfaceStateWrapper(PUNICODE_STRING SymbolicLinkName, BOOLEAN a2)
 {
   __int64 *APIThunkContextById; // rax

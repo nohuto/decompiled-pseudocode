@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpLockIXLockIntent @ 0x1406B7020
+ * Callers:
+ *     CmpUndoDeleteKeyForTransEx @ 0x14067D5F4 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmSetKeyFlags @ 0x140A12D14 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A13248 (CmSetLastWriteTimeKey.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall CmpLockIXLockIntent(unsigned int *a1, __int64 a2)
 {
   int v2; // eax

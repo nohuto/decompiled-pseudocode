@@ -1,3 +1,14 @@
+/*
+ * XREFs of IvtFlushDomainTb @ 0x140456980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     IvtFlushTbInternal @ 0x1403ABA60 (IvtFlushTbInternal.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtFlushDomainTb(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   unsigned __int64 v8; // rbx

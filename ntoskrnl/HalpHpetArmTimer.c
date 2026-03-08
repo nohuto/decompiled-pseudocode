@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHpetArmTimer @ 0x14051D840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalSetTimerProblem @ 0x14051D440 (HalSetTimerProblem.c)
+ *     HalpHpetSetMatchValue @ 0x14051D88C (HalpHpetSetMatchValue.c)
+ */
+
 __int64 __fastcall HalpHpetArmTimer(__int64 a1, int a2, unsigned __int64 a3)
 {
   __int64 v4; // rax

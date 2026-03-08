@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReportState@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02BCBFC
+ * Callers:
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B4808 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?ClearStateReportingFlags@DXGDEVICE@@QEAAXXZ @ 0x1C02218B6 (-ClearStateReportingFlags@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGDEVICE@@QEAAXXZ @ 0x1C02E82CC (-ReportState@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGVIRTUALGPUMANAGER@@QEAAXXZ @ 0x1C0364924 (-ReportState@DXGVIRTUALGPUMANAGER@@QEAAXXZ.c)
+ */
+
 void __fastcall ADAPTER_RENDER::ReportState(ADAPTER_RENDER *this)
 {
   DXGVIRTUALGPUMANAGER *v2; // rcx

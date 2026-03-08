@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::ConvertVectorArrayToMatrix @ 0x1801AAF54
+ * Callers:
+ *     ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x1801AA8CC (-ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA-AUD2DMatrix@@PEAV-$DynArray@UAxisWi.c)
+ *     _anonymous_namespace_::ReverseAndLeftShift @ 0x1801ACE10 (_anonymous_namespace_--ReverseAndLeftShift.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall anonymous_namespace_::ConvertVectorArrayToMatrix(__int64 a1, int *a2)
 {
   int v2; // eax

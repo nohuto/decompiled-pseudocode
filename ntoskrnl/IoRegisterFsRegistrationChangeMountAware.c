@@ -1,3 +1,23 @@
+/*
+ * XREFs of IoRegisterFsRegistrationChangeMountAware @ 0x1408535C0
+ * Callers:
+ *     IoRegisterFsRegistrationChange @ 0x140944490 (IoRegisterFsRegistrationChange.c)
+ * Callees:
+ *     IoGetActivityIdThread @ 0x140203AD0 (IoGetActivityIdThread.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopGetFsRegistrationInProgress @ 0x1405552A8 (IopGetFsRegistrationInProgress.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x1405555D4 (IopIsKnownGoodLegacyFsFilter.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x1405558A4 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     IopNotifyAlreadyRegisteredFileSystems @ 0x14085375C (IopNotifyAlreadyRegisteredFileSystems.c)
+ *     FsRtlSetDriverBacking @ 0x14086FA20 (FsRtlSetDriverBacking.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoRegisterFsRegistrationChangeMountAware(
         PDRIVER_OBJECT DriverObject,
         PDRIVER_FS_NOTIFICATION DriverNotificationRoutine,

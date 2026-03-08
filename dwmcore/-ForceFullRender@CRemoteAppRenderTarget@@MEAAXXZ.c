@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ForceFullRender@CRemoteAppRenderTarget@@MEAAXXZ @ 0x1801E7930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetWindowBounds@CRemoteAppRenderTarget@@IEAAJAEBUtagRECT@@@Z @ 0x1801E8BFC (-SetWindowBounds@CRemoteAppRenderTarget@@IEAAJAEBUtagRECT@@@Z.c)
+ */
+
 void __fastcall CRemoteAppRenderTarget::ForceFullRender(CRemoteAppRenderTarget *this)
 {
   __int64 v2; // rax

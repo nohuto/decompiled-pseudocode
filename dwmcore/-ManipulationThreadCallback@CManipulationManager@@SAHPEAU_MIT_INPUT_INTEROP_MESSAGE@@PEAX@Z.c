@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ManipulationThreadCallback@CManipulationManager@@SAHPEAU_MIT_INPUT_INTEROP_MESSAGE@@PEAX@Z @ 0x1801291A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1PerfRegion@InputTraceLogging@@QEAA@XZ @ 0x180032888 (--1PerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ??0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x1800328B8 (--0PerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@@PEAX@Z @ 0x18019C918 (-ProcessManipulationThreadCallbackInput@CManipulationManager@@KAHPEAUtagMANIPULATION_INPUT_INFO@.c)
+ *     ?s_HoverHittestRequest@CInputManager@@SAHPEBU_HOVER_INPUT_INFO@@@Z @ 0x18019F884 (-s_HoverHittestRequest@CInputManager@@SAHPEBU_HOVER_INPUT_INFO@@@Z.c)
+ */
+
 __int64 __fastcall CManipulationManager::ManipulationThreadCallback(
         struct _MIT_INPUT_INTEROP_MESSAGE *a1,
         CManipulationManager *a2)

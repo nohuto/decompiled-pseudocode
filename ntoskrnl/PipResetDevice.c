@@ -1,3 +1,19 @@
+/*
+ * XREFs of PipResetDevice @ 0x140B91440
+ * Callers:
+ *     PipResetDevices @ 0x140B5B0A4 (PipResetDevices.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406CD550 (_CmIsRootEnumeratedDevice.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     _CmDeleteDevice @ 0x140A5E810 (_CmDeleteDevice.c)
+ *     _CmDeleteDeviceRegKey @ 0x140A5F12C (_CmDeleteDeviceRegKey.c)
+ */
+
 __int64 __fastcall PipResetDevice(__int64 a1, const WCHAR *a2)
 {
   __int64 v4; // rax

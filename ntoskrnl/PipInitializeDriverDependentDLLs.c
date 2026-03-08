@@ -1,3 +1,15 @@
+/*
+ * XREFs of PipInitializeDriverDependentDLLs @ 0x140B579BC
+ * Callers:
+ *     PipInitializeCoreDriversAndElam @ 0x140B57734 (PipInitializeCoreDriversAndElam.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmCallDllInitialize @ 0x14081BAB0 (MmCallDllInitialize.c)
+ *     PnpDoPolicyCheck @ 0x140B5910C (PnpDoPolicyCheck.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140B5916C (PnpNotifyEarlyLaunchImageLoad.c)
+ */
+
 __int64 __fastcall PipInitializeDriverDependentDLLs(int a1, __int64 a2)
 {
   __int64 result; // rax

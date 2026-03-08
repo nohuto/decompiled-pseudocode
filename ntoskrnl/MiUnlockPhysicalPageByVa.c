@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUnlockPhysicalPageByVa @ 0x14061A990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiProbeUnlockPage @ 0x14027C720 (MiProbeUnlockPage.c)
+ *     MiReleaseWalkLocks @ 0x1402D45CC (MiReleaseWalkLocks.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableCharges @ 0x140345720 (MiUnlockPageTableCharges.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiUnlockPhysicalPageByVa(_QWORD *a1, unsigned __int64 a2, int a3)
 {
   __int64 v6; // r14

@@ -1,3 +1,26 @@
+/*
+ * XREFs of UsbhReferenceListRemove @ 0x1C00018CC
+ * Callers:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     UsbhOutOfBandwidthTimerDpc @ 0x1C002D5F0 (UsbhOutOfBandwidthTimerDpc.c)
+ *     UsbhSetTimer @ 0x1C002DD38 (UsbhSetTimer.c)
+ *     UsbhSyncSendDeviceIoctl @ 0x1C002DDE4 (UsbhSyncSendDeviceIoctl.c)
+ *     UsbhUninitialize @ 0x1C002E0C0 (UsbhUninitialize.c)
+ *     UsbhAutoOvercurrentResetWorker @ 0x1C002FB00 (UsbhAutoOvercurrentResetWorker.c)
+ *     UsbhDriverOvercurrentResetWorker @ 0x1C002FC70 (UsbhDriverOvercurrentResetWorker.c)
+ *     UsbhResetPortTimerDpc @ 0x1C00394C0 (UsbhResetPortTimerDpc.c)
+ *     UsbhDmDisableTimer @ 0x1C003BA7C (UsbhDmDisableTimer.c)
+ *     UsbhTimerPnpStop @ 0x1C003BE60 (UsbhTimerPnpStop.c)
+ *     UsbhReferenceListClose @ 0x1C00417E0 (UsbhReferenceListClose.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhExceptionWorker @ 0x1C004B000 (UsbhExceptionWorker.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 void __fastcall UsbhReferenceListRemove(__int64 a1, __int64 a2)
 {
   KIRQL v4; // r14

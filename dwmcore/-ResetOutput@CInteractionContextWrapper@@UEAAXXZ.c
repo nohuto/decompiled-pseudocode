@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ResetOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180281C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x180039CE0 (-ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z.c)
+ *     _tlgKeywordOn @ 0x1800BAD18 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BADC0 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 void __fastcall CInteractionContextWrapper::ResetOutput(CInteractionContextWrapper *this)
 {
   __int64 v1; // rcx

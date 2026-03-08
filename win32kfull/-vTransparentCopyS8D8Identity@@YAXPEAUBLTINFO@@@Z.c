@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vTransparentCopyS8D8Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C0299FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vTransparentCopyS8D8Identity(struct BLTINFO *a1)
 {
   unsigned __int8 *v1; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VerifyPFF@PUBLIC_PFTOBJ@@QEAAHPEAVPFF@@@Z @ 0x1C026D69C
+ * Callers:
+ *     NtGdiAddEmbFontToDC @ 0x1C027A7E0 (NtGdiAddEmbFontToDC.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?bIsPrivatePFT@PFTOBJ@@QEBAHXZ @ 0x1C026D7EC (-bIsPrivatePFT@PFTOBJ@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall PUBLIC_PFTOBJ::VerifyPFF(PUBLIC_PFTOBJ *this, struct PFF *a2)
 {
   __int64 result; // rax

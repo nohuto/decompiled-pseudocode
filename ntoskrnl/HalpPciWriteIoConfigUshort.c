@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciWriteIoConfigUshort @ 0x140513300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPciWriteIoConfigUshort(unsigned int *a1, unsigned __int16 *a2, int a3)
 {
   unsigned int v3; // eax

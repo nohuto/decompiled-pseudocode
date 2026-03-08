@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIThermalEvent @ 0x1C0040A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ *     WPP_RECORDER_SF_Dqssdddd @ 0x1C004292C (WPP_RECORDER_SF_Dqssdddd.c)
+ */
+
 __int64 __fastcall ACPIThermalEvent(ULONG_PTR a1, int a2)
 {
   unsigned int v3; // esi

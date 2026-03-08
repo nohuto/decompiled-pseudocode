@@ -1,3 +1,17 @@
+/*
+ * XREFs of Bulk_Transfer_CompleteCancelable @ 0x1C0012F30
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_RetrieveNextStage @ 0x1C0011FDC (Bulk_RetrieveNextStage.c)
+ *     Bulk_MapStage @ 0x1C00122C0 (Bulk_MapStage.c)
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ * Callees:
+ *     Bulk_Transfer_PrepareForCompletion @ 0x1C0011B14 (Bulk_Transfer_PrepareForCompletion.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_DDDqd @ 0x1C0047C80 (WPP_RECORDER_SF_DDDqd.c)
+ */
+
 void __fastcall Bulk_Transfer_CompleteCancelable(__int64 a1, __int64 a2, unsigned int a3, char a4)
 {
   unsigned int v5; // ebx

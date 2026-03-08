@@ -1,3 +1,16 @@
+/*
+ * XREFs of Endpoint_Disable_Internal @ 0x1C000B8A4
+ * Callers:
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     Endpoint_Enable @ 0x1C000BDC0 (Endpoint_Enable.c)
+ * Callees:
+ *     TR_Disable_Internal @ 0x1C0008044 (TR_Disable_Internal.c)
+ *     WPP_RECORDER_SF_ddql @ 0x1C000BB30 (WPP_RECORDER_SF_ddql.c)
+ *     Controller_ClearHSIIWorkaround @ 0x1C001E9C0 (Controller_ClearHSIIWorkaround.c)
+ *     Endpoint_IsCandidateForSplitTransactionHSIIWorkaround @ 0x1C001EDF8 (Endpoint_IsCandidateForSplitTransactionHSIIWorkaround.c)
+ *     XilEndpoint_FreeStreamContextArray @ 0x1C003915C (XilEndpoint_FreeStreamContextArray.c)
+ */
+
 void __fastcall Endpoint_Disable_Internal(__int64 *a1, char a2, int a3)
 {
   char v3; // si

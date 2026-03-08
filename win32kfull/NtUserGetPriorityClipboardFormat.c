@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetPriorityClipboardFormat @ 0x1C01D4400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetPriorityClipboardFormat @ 0x1C02006A8 (_GetPriorityClipboardFormat.c)
+ */
+
 __int64 __fastcall NtUserGetPriorityClipboardFormat(volatile void *Address, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBDSM_UnregsiteringWithHsmOnDetach @ 0x1C0020670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBMUX_UnregisterWithHSM @ 0x1C0011748 (HUBMUX_UnregisterWithHSM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDSM_UnregsiteringWithHsmOnDetach(__int64 a1)
 {
   __int64 v1; // rbx

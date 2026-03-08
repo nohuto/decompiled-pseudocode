@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBSM_EvtSmWorkItem @ 0x1C000B780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000AF68 (HUBSM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     HUBSM_RunStateMachine @ 0x1C000BDDC (HUBSM_RunStateMachine.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBSM_EvtSmWorkItem(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

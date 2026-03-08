@@ -1,3 +1,23 @@
+/*
+ * XREFs of IopDeleteFileObjectExtension @ 0x140298CFC
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopDeleteFile @ 0x1407BAF80 (IopDeleteFile.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsReleaseSiloHardReference @ 0x140294300 (PsReleaseSiloHardReference.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopCleanupNotifications @ 0x1403A62E8 (IopCleanupNotifications.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     PspAdjustKeepAliveCountProcess @ 0x1409AB928 (PspAdjustKeepAliveCountProcess.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopDeleteFileObjectExtension(__int64 a1)
 {
   _DWORD *v1; // rsi

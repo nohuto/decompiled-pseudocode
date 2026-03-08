@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtSetTimerResolution @ 0x1407DFD50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExpUpdateTimerResolution @ 0x14035AA94 (ExpUpdateTimerResolution.c)
+ *     ExpInsertTimerResolutionEntry @ 0x1403AFE14 (ExpInsertTimerResolutionEntry.c)
+ *     PoTraceSystemTimerResolution @ 0x1407DFCB0 (PoTraceSystemTimerResolution.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407E2A54 (ExAcquireTimeRefreshLock.c)
+ *     PoDiagCaptureUsermodeStack @ 0x140860F38 (PoDiagCaptureUsermodeStack.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtSetTimerResolution(__int64 a1, char a2, int *a3)
 {
   unsigned int v5; // esi

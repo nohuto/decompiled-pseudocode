@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExInterlockedAddUlong @ 0x1403C9600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpAcquireSpinLockDisabled @ 0x1402E50A8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG __stdcall ExInterlockedAddUlong(PULONG Addend, ULONG Increment, PKSPIN_LOCK Lock)
 {
   bool v6; // al

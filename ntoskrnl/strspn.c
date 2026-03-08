@@ -1,3 +1,12 @@
+/*
+ * XREFs of strspn @ 0x1403D5AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 size_t __cdecl strspn(const char *Str, const char *Control)
 {
   int v2; // r9d

@@ -1,3 +1,19 @@
+/*
+ * XREFs of _CmUpdateDevicePanelInterface @ 0x140881498
+ * Callers:
+ *     PiPnpRtlSetObjectProperty @ 0x140686898 (PiPnpRtlSetObjectProperty.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _CmQueryDevicePanelPldProperty @ 0x14068492C (_CmQueryDevicePanelPldProperty.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _CmGetParentDeviceContainerId @ 0x14085CA14 (_CmGetParentDeviceContainerId.c)
+ *     _CmBuildDevicePanelId @ 0x14085EF88 (_CmBuildDevicePanelId.c)
+ *     _CmGetDevicePanelGroup @ 0x140860330 (_CmGetDevicePanelGroup.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmUpdateDevicePanelInterface(__int64 a1, __int64 a2, __int64 a3)
 {
   wchar_t *v6; // rdi

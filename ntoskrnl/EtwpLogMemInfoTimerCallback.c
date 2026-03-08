@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpLogMemInfoTimerCallback @ 0x14045F4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmQuerySystemMemoryInformation @ 0x1402FCE88 (MmQuerySystemMemoryInformation.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpLogMemNodeInfo @ 0x14045F526 (EtwpLogMemNodeInfo.c)
+ *     EtwpQueuePerfMemInfoWorkItem @ 0x14045F908 (EtwpQueuePerfMemInfoWorkItem.c)
+ *     EtwpLogMemInfo @ 0x1405FBA14 (EtwpLogMemInfo.c)
+ */
+
 __int64 EtwpLogMemInfoTimerCallback()
 {
   __int64 result; // rax

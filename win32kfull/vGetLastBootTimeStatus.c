@@ -1,3 +1,11 @@
+/*
+ * XREFs of vGetLastBootTimeStatus @ 0x1C00B91AC
+ * Callers:
+ *     InitFNTCache @ 0x1C00B9300 (InitFNTCache.c)
+ * Callees:
+ *     bQueryFntCacheReg @ 0x1C00BAC20 (bQueryFntCacheReg.c)
+ */
+
 __int64 __fastcall vGetLastBootTimeStatus(__int64 a1)
 {
   __int64 v1; // rbx

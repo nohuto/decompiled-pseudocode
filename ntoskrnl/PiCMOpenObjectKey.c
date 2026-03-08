@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiCMOpenObjectKey @ 0x14086B97C
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406C4454 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReleaseObjectInputData @ 0x1406C7AC0 (PiCMReleaseObjectInputData.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CECB8 (_PnpOpenObjectRegKey.c)
+ *     PiCMReturnHandleResultData @ 0x14076C9D4 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x14076CA6C (PiCMCaptureRegistryInputData.c)
+ *     PiCMDuplicateRegistryHandle @ 0x14076CC0C (PiCMDuplicateRegistryHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     _PnpCreateObject @ 0x140A61DB4 (_PnpCreateObject.c)
+ */
+
 __int64 __fastcall PiCMOpenObjectKey(_DWORD *a1, unsigned int a2, _DWORD *a3, unsigned int a4, int a5, _DWORD *a6)
 {
   KPROCESSOR_MODE PreviousMode; // r12

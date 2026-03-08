@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIRootPowerCallBack @ 0x1C003D600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSCreateHandle @ 0x1C008DB54 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C008EC30 (OSWriteRegValue.c)
+ */
+
 void __fastcall ACPIRootPowerCallBack(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
   int v4; // ebx

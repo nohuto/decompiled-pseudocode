@@ -1,3 +1,20 @@
+/*
+ * XREFs of CiSchedulerWait @ 0x1C0001680
+ * Callers:
+ *     CiSchedulerThreadFunction @ 0x1C0002E60 (CiSchedulerThreadFunction.c)
+ * Callees:
+ *     CiSchedulerSleep @ 0x1C00014A0 (CiSchedulerSleep.c)
+ *     CiSchedulerUpdateTimer @ 0x1C0002050 (CiSchedulerUpdateTimer.c)
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0003420 (_guard_dispatch_icall_nop.c)
+ *     CiLogSchedulerEvent @ 0x1C0003EA0 (CiLogSchedulerEvent.c)
+ *     CiLogSchedulerSleep @ 0x1C0003F8C (CiLogSchedulerSleep.c)
+ *     CiLogSchedulerWakeup @ 0x1C0004010 (CiLogSchedulerWakeup.c)
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ */
+
 char __fastcall CiSchedulerWait(__int64 a1, unsigned __int32 *a2)
 {
   unsigned __int32 *v2; // rbx

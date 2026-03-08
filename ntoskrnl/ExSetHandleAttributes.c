@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExSetHandleAttributes @ 0x140352D5C
+ * Callers:
+ *     ObSetHandleAttributes @ 0x1407D8910 (ObSetHandleAttributes.c)
+ *     ExCreateHandleEx @ 0x1407D8ABC (ExCreateHandleEx.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ExSetHandleAttributes(__int64 a1, unsigned int a2, char a3)
 {
   int v3; // eax

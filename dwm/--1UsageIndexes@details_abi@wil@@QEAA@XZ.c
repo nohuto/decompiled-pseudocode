@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1UsageIndexes@details_abi@wil@@QEAA@XZ @ 0x140001F30
+ * Callers:
+ *     ?RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x140001738 (-RecordUsage@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ *     ??1FeatureStateData@details_abi@wil@@QEAA@XZ @ 0x14000B2D0 (--1FeatureStateData@details_abi@wil@@QEAA@XZ.c)
+ *     ?ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ @ 0x14000B744 (-ProcessShutdown@FeatureStateData@details_abi@wil@@QEAAXXZ.c)
+ * Callees:
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x140002398 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ */
+
 void __fastcall wil::details_abi::UsageIndexes::~UsageIndexes(wil::details_abi::UsageIndexes *this, void *a2)
 {
   wil::details *v3; // rcx

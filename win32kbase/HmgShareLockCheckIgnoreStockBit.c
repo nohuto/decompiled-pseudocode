@@ -1,3 +1,17 @@
+/*
+ * XREFs of HmgShareLockCheckIgnoreStockBit @ 0x1C009B410
+ * Callers:
+ *     bDeleteSurface @ 0x1C0029640 (bDeleteSurface.c)
+ *     EngLockSurface @ 0x1C0044C20 (EngLockSurface.c)
+ *     EngAssociateSurface @ 0x1C00A3DA0 (EngAssociateSurface.c)
+ * Callees:
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0047CDC (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAUSCircularBuffer@123@_N@Z @ 0x1C019BB44 (-ReferenceDereferenceCommon@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAAXPEAU.c)
+ */
+
 __int64 __fastcall HmgShareLockCheckIgnoreStockBit(unsigned int a1, char a2)
 {
   __int64 v4; // rbx

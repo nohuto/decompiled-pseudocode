@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViMiscValidateKeWaitUsage @ 0x140ADE5E0
+ * Callers:
+ *     VfMiscKeWaitForMultipleObjects_Entry @ 0x140ADD140 (VfMiscKeWaitForMultipleObjects_Entry.c)
+ *     VfMiscKeWaitForSingleObject_Entry @ 0x140ADD170 (VfMiscKeWaitForSingleObject_Entry.c)
+ * Callees:
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     ViMiscValidateSynchronizationObject @ 0x140ADE700 (ViMiscValidateSynchronizationObject.c)
+ */
+
 char __fastcall ViMiscValidateKeWaitUsage(unsigned int a1, ULONG_PTR *a2, char a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rdi

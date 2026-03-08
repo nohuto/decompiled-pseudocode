@@ -1,3 +1,29 @@
+/*
+ * XREFs of LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600
+ * Callers:
+ *     MmOutSwapWorkingSet @ 0x1402DAFF8 (MmOutSwapWorkingSet.c)
+ *     MiObtainReferencedSecureVad @ 0x14034C5AC (MiObtainReferencedSecureVad.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140619C68 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MmOutSwapVirtualAddresses @ 0x14065065C (MmOutSwapVirtualAddresses.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140727330 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407285AC (MiCommitInitialVadMetadataBits.c)
+ *     MmGetImageInformation @ 0x14077582C (MmGetImageInformation.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ *     MmCheckForSafeExecution @ 0x140A3989C (MmCheckForSafeExecution.c)
+ *     MmIsFileMapped @ 0x140A39978 (MmIsFileMapped.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ *     MiCreateLargePageVad @ 0x140A46988 (MiCreateLargePageVad.c)
+ *     MiFreeLargePageView @ 0x140A46E40 (MiFreeLargePageView.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int64 __fastcall LOCK_ADDRESS_SPACE_SHARED(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiTrimSection @ 0x1402A0034
+ * Callers:
+ *     MmTrimSection @ 0x14029FF98 (MmTrimSection.c)
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x1406340C0 (MiLocateSharedPageViews.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MiUnlockControlAreaFileObjectShared @ 0x1402A0CE4 (MiUnlockControlAreaFileObjectShared.c)
+ *     MiLockControlAreaFileObjectShared @ 0x1402A0D4C (MiLockControlAreaFileObjectShared.c)
+ *     MiViewMayContainPage @ 0x1402A12A0 (MiViewMayContainPage.c)
+ *     MiAnyProtosAreMapped @ 0x1402A35A0 (MiAnyProtosAreMapped.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MiReferenceSubsection @ 0x1403327C0 (MiReferenceSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsection @ 0x1403A118C (MiDecrementSubsection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiTrimSection(_QWORD *a1, __int64 a2, int a3, int a4)
 {
   int MayContainPage; // ebp

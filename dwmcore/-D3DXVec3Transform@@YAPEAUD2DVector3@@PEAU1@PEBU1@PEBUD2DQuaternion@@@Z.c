@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D3DXVec3Transform@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DQuaternion@@@Z @ 0x18027B530
+ * Callers:
+ *     ?Vector3Transform@CExpressionValueStack@@QEAAJXZ @ 0x18025F344 (-Vector3Transform@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DVector3 *__fastcall D3DXVec3Transform(
         struct D2DVector3 *a1,
         const struct D2DVector3 *a2,

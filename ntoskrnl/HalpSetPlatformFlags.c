@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpSetPlatformFlags @ 0x140B631DC
+ * Callers:
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ * Callees:
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 void __fastcall HalpSetPlatformFlags(__int64 a1, __int64 a2)
 {
   const char *v3; // rcx

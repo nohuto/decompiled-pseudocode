@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlAddAce @ 0x1406DB760
+ * Callers:
+ *     SepSetProcessTrustLabelAceForToken @ 0x140247DF0 (SepSetProcessTrustLabelAceForToken.c)
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402BE754 (SepAppendAceToTokenDefaultDacl.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14066DCEC (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D22B0 (SepAppendAceToTokenObjectAcl.c)
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140878110 (PiDevCfgGetKeySecurityDescriptor.c)
+ * Callees:
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ */
+
 NTSTATUS __stdcall RtlAddAce(PACL Acl, ULONG AceRevision, ULONG StartingAceIndex, PVOID AceList, ULONG AceListLength)
 {
   ULONG AceCount; // r15d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAdtDetermineInsertQueue @ 0x1403A7B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     SepAdtGenerateDiscardAudit @ 0x1409C8CB0 (SepAdtGenerateDiscardAudit.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall SepAdtDetermineInsertQueue(__int64 a1)
 {
   char v1; // bl

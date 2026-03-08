@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreDwmShutdown @ 0x1C00C3164
+ * Callers:
+ *     xxxDwmStopRedirection @ 0x1C007B850 (xxxDwmStopRedirection.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ * Callees:
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C001EE54 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C001EFA4 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C00271A0 (-vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z.c)
+ *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C00C28A4 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
+ */
+
 __int64 __fastcall GreDwmShutdown(Gre::Base *a1)
 {
   Gre::Base *v2; // rcx

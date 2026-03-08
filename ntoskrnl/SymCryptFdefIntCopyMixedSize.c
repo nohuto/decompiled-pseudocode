@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefIntCopyMixedSize @ 0x1403FFC50
+ * Callers:
+ *     SymCryptIntCopyMixedSize @ 0x1403F37B0 (SymCryptIntCopyMixedSize.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SymCryptFdefIntCopyMixedSize(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

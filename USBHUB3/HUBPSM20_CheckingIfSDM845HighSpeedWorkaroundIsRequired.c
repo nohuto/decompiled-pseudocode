@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM20_CheckingIfSDM845HighSpeedWorkaroundIsRequired @ 0x1C0011BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM20_CheckingIfSDM845HighSpeedWorkaroundIsRequired(__int64 a1)
 {
   _DWORD *v1; // rdx

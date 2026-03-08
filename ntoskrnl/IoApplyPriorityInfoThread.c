@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoApplyPriorityInfoThread @ 0x1403575F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     KeAbProcessBaseIoPriorityChange @ 0x140357A24 (KeAbProcessBaseIoPriorityChange.c)
+ *     EtwTracePriority @ 0x14045EE2A (EtwTracePriority.c)
+ */
+
 NTSTATUS __stdcall IoApplyPriorityInfoThread(
         PIO_PRIORITY_INFO InputPriorityInfo,
         PIO_PRIORITY_INFO OutputPriorityInfo,

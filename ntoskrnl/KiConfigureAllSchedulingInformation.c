@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiConfigureAllSchedulingInformation @ 0x140B41844
+ * Callers:
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiConfigureNodeSchedulingInformation @ 0x1403AC474 (KiConfigureNodeSchedulingInformation.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8B1B4 (KiConfigureSchedulingInformation.c)
+ */
+
 __int64 KiConfigureAllSchedulingInformation()
 {
   unsigned int v0; // ebx

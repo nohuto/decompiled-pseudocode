@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMmInitSystem @ 0x140A8D600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpMmReservePageTablePages @ 0x14037B1CC (HalpMmReservePageTablePages.c)
+ *     HalpMmAllocCtxInit @ 0x14039F22C (HalpMmAllocCtxInit.c)
+ *     HalpInitMemoryCachingRequirementsTable @ 0x140A8D6E8 (HalpInitMemoryCachingRequirementsTable.c)
+ *     HalpConsumeLowMemory @ 0x140B62A4C (HalpConsumeLowMemory.c)
+ */
+
 __int64 __fastcall HalpMmInitSystem(int a1, __int64 a2, __int64 a3)
 {
   int inited; // ebx

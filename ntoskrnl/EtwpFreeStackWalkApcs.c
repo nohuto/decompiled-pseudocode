@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpFreeStackWalkApcs @ 0x14028DCA0
+ * Callers:
+ *     EtwpFreeLoggerContext @ 0x1406F29FC (EtwpFreeLoggerContext.c)
+ * Callees:
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreeStackWalkApcs(__int64 a1)
 {
   PSLIST_ENTRY v2; // rbx

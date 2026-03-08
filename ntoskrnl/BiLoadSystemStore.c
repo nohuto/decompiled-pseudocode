@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiLoadSystemStore @ 0x14082B7EC
+ * Callers:
+ *     BiOpenSystemStore @ 0x14082CC40 (BiOpenSystemStore.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BiLogFileOwnerProcess @ 0x14066EEB0 (BiLogFileOwnerProcess.c)
+ *     BiMarkTreatAsSystemStore @ 0x14082B918 (BiMarkTreatAsSystemStore.c)
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BiIsSystemStore @ 0x14082C6CC (BiIsSystemStore.c)
+ *     BcdGetSystemStorePath @ 0x14082C8E8 (BcdGetSystemStorePath.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiLoadSystemStore(_QWORD *a1)
 {
   void *v2; // rdi

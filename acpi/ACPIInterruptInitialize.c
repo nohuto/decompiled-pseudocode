@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInterruptInitialize @ 0x1C0087E68
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     OSInterruptVector @ 0x1C00A8314 (OSInterruptVector.c)
+ */
+
 __int64 __fastcall ACPIInterruptInitialize(ULONG_PTR a1)
 {
   int v1; // edx

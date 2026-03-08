@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetVidPnSourceId@CIFlipPresentHistoryTokenRedirectedFlip@@UEAAXI@Z @ 0x1C0019D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CIFlipPresentHistoryTokenRedirectedFlip::SetVidPnSourceId(
         CIFlipPresentHistoryTokenRedirectedFlip *this,
         int a2)

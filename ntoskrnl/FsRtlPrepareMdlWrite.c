@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlPrepareMdlWrite @ 0x14079A990
+ * Callers:
+ *     FsRtlPrepareMdlWriteEx @ 0x14079A910 (FsRtlPrepareMdlWriteEx.c)
+ * Callees:
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall FsRtlPrepareMdlWrite(
         struct _FILE_OBJECT *a1,
         __int64 a2,

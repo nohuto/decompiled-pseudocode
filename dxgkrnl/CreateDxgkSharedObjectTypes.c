@@ -1,3 +1,12 @@
+/*
+ * XREFs of CreateDxgkSharedObjectTypes @ 0x1C0212E8C
+ * Callers:
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     ?GenericMapping@DxgkCompositionObject@@SA?AU_GENERIC_MAPPING@@XZ @ 0x1C0016F0C (-GenericMapping@DxgkCompositionObject@@SA-AU_GENERIC_MAPPING@@XZ.c)
+ *     ?CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAKK@ZP6AX45_K8@ZP6AX5@ZP6AE455D@ZPEAPEAU_OBJECT_TYPE@@KW4_POOL_TYPE@@@Z @ 0x1C021319C (-CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAK.c)
+ */
+
 __int64 CreateDxgkSharedObjectTypes()
 {
   __int64 result; // rax

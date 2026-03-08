@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConstructVmSharedMemorySectionHostPath @ 0x1C02753C4
+ * Callers:
+ *     OpenVmSharedMemorySection @ 0x1C02755DC (OpenVmSharedMemorySection.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall ConstructVmSharedMemorySectionHostPath(
         PUNICODE_STRING Destination,
         unsigned int *a2,

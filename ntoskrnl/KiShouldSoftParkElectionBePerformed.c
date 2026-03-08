@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiShouldSoftParkElectionBePerformed @ 0x140258430
+ * Callers:
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140258400 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KiSoftParkElectionDpcRoutine @ 0x14057BEC0 (KiSoftParkElectionDpcRoutine.c)
+ * Callees:
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting @ 0x14040AF08 (Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting.c)
+ *     KiAreSoftUnparkingElectionsEnabled @ 0x14057B67C (KiAreSoftUnparkingElectionsEnabled.c)
+ */
+
 bool __fastcall KiShouldSoftParkElectionBePerformed(__int64 a1)
 {
   unsigned __int64 v1; // rdi

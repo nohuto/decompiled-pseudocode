@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vBoundBox@@YAXPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C018AC8C
+ * Callers:
+ *     ?bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C0189EA0 (-bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A3B0 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vBoundBox(struct _POINTFIX *a1, struct _RECTFX *a2)
 {
   FIX x; // ecx

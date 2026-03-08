@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmWmiIdleAccountingProcedure @ 0x140596A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void PpmWmiIdleAccountingProcedure()
 {
   struct _WORK_QUEUE_ITEM *Pool2; // rax

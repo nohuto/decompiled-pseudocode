@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlHeapZero @ 0x1403D2D10
+ * Callers:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpLargeAlloc @ 0x1402B6D70 (RtlpHpLargeAlloc.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlHeapZero(_OWORD *a1, unsigned __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InvokeCxCleanupCallback@FxPowerDeviceArmWakeFromSx@@MEAAXPEAVFxCxPnpPowerCallbackContext@@@Z @ 0x1C006D9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxPowerDeviceArmWakeFromSx::InvokeCxCleanupCallback(
         FxPowerDeviceArmWakeFromSx *this,
         FxCxPnpPowerCallbackContext *Context,

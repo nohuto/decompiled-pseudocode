@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::RecordParentPidLegacyPolicy @ 0x1C003F13C
+ * Callers:
+ *     ?PushForegroundPolicy@ForegroundLaunch@@YAXPEAXUtagProcessLaunchPolicy@@@Z @ 0x1C0011C58 (-PushForegroundPolicy@ForegroundLaunch@@YAXPEAXUtagProcessLaunchPolicy@@@Z.c)
+ *     EditionPushExitingAppForegroundPolicy @ 0x1C003F010 (EditionPushExitingAppForegroundPolicy.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::RecordParentPidLegacyPolicy(__int64 a1)
 {
   bool v2; // dl

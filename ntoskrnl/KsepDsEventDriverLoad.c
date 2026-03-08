@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventDriverLoad @ 0x14057F4DC
+ * Callers:
+ *     KseDsHookDriverTargeted @ 0x14057EDF0 (KseDsHookDriverTargeted.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventDriverLoad(unsigned __int16 *a1, __int64 a2, int a3, int a4, char a5)
 {
   _UNKNOWN **v5; // rax

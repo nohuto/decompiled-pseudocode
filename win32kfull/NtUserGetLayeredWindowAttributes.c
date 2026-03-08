@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetLayeredWindowAttributes @ 0x1C000F840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetLayeredWindowAttributes @ 0x1C000F978 (_GetLayeredWindowAttributes.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall NtUserGetLayeredWindowAttributes(__int64 a1, _DWORD *a2, _BYTE *a3, _DWORD *a4)
 {
   __int64 v8; // rax

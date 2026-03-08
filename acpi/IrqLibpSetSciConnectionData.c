@@ -1,3 +1,12 @@
+/*
+ * XREFs of IrqLibpSetSciConnectionData @ 0x1C00ABE14
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 NTSTATUS __fastcall IrqLibpSetSciConnectionData(__int64 a1, struct _DEVICE_OBJECT *a2)
 {
   __int128 v4; // xmm1

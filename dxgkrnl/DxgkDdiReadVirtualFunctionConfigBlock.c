@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkDdiReadVirtualFunctionConfigBlock @ 0x1C0366230
+ * Callers:
+ *     ?DpiDdiReadVirtualFunctionConfigBlock@@YAJPEAXGK0K@Z @ 0x1C0064DF0 (-DpiDdiReadVirtualFunctionConfigBlock@@YAJPEAXGK0K@Z.c)
+ * Callees:
+ *     ?ReadVirtualFunctionConfigBlock@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_READVIRTUALFUNCTIONCONFIGBLOCK@@@Z @ 0x1C0364700 (-ReadVirtualFunctionConfigBlock@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_READVI.c)
+ *     ?VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ @ 0x1C0364F38 (-VgpuTraceFrequentRead@@YAXEJPEAXPEBG1ZZ.c)
+ */
+
 __int64 __fastcall DxgkDdiReadVirtualFunctionConfigBlock(
         _QWORD *a1,
         int a2,

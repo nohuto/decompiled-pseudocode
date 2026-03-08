@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TSFRangeFromEvent@@YAKKW4TSFLocality@@@Z @ 0x1C01C0E28
+ * Callers:
+ *     xxxProcessTSFEvent @ 0x1C01C1198 (xxxProcessTSFEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TSFRangeFromEvent(int a1, int a2)
 {
   int v3; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IncrementRequestVSyncCount@@YAXPEAKPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C00147E4
+ * Callers:
+ *     VidSchControlVSyncDevice @ 0x1C00AD1E0 (VidSchControlVSyncDevice.c)
+ *     VidSchControlVSyncAdapter @ 0x1C00AD380 (VidSchControlVSyncAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IncrementRequestVSyncCount(unsigned int *a1, struct _VIDSCH_GLOBAL *a2, int a3)
 {
   __int64 v3; // r9

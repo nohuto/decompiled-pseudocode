@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtSuspendProcess @ 0x1409B3060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsSuspendProcess @ 0x1409B3100 (PsSuspendProcess.c)
+ */
+
 __int64 __fastcall NtSuspendProcess(ULONG_PTR a1)
 {
   char PreviousMode; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetConstantBufferSize@CCustomKernelEffect@@UEBAII@Z @ 0x1800D21D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCustomKernelEffect::GetConstantBufferSize(CCustomKernelEffect *this)
 {
   unsigned __int64 v1; // rax

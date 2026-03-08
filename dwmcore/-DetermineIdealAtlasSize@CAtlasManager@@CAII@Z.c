@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DetermineIdealAtlasSize@CAtlasManager@@CAII@Z @ 0x1800FA984
+ * Callers:
+ *     ?AllocateGradientStrip@CAtlasManager@@QEAAJPEAVCAtlasEntry@@@Z @ 0x1800B7594 (-AllocateGradientStrip@CAtlasManager@@QEAAJPEAVCAtlasEntry@@@Z.c)
+ *     ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x1800FA91C (-CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CAtlasManager::DetermineIdealAtlasSize(int a1)
 {
   __int64 result; // rax

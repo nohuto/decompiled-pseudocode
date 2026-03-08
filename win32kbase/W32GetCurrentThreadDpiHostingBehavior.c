@@ -1,3 +1,11 @@
+/*
+ * XREFs of W32GetCurrentThreadDpiHostingBehavior @ 0x1C00AAD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 W32GetCurrentThreadDpiHostingBehavior()
 {
   unsigned int v0; // ebx

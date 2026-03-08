@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhSshPropagateResume @ 0x1C0021BE4
+ * Callers:
+ *     UsbhBusIf_ResumeChildHub @ 0x1C0004460 (UsbhBusIf_ResumeChildHub.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0009CFC (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C0021D3C (UsbhSendSynchronousUsbIoctlRequest.c)
+ */
+
 __int64 __fastcall UsbhSshPropagateResume(__int64 a1, __int64 a2, struct _DEVICE_OBJECT *a3)
 {
   unsigned int v6; // esi

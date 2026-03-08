@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmIdleCompleteExitLatencyTrace @ 0x1405828E8
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PpmCancelExitLatencyTrace @ 0x1403A7EC8 (PpmCancelExitLatencyTrace.c)
+ *     PpmTraceExitLatency @ 0x140583BB0 (PpmTraceExitLatency.c)
+ */
+
 __int64 PpmIdleCompleteExitLatencyTrace(__int64 a1, int a2, char a3, ...)
 {
   __int64 v3; // rbx

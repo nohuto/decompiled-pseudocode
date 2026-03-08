@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObRevokeHandles @ 0x14067FB30
+ * Callers:
+ *     SepDeleteLogonSessionTrack @ 0x1407DAE44 (SepDeleteLogonSessionTrack.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObpHandleRevocationBlockRemoveInsertedObject @ 0x14097838C (ObpHandleRevocationBlockRemoveInsertedObject.c)
+ */
+
 char __fastcall ObRevokeHandles(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

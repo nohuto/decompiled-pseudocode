@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmIsDeviceInContainer @ 0x1406C3C74
+ * Callers:
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406C3AD8 (_CmGetDeviceContainerIdFromBase.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ */
+
 __int64 __fastcall CmIsDeviceInContainer(__int64 a1, int a2, int a3, int a4, __int64 a5, _BYTE *a6, _BYTE *a7)
 {
   _BYTE *v7; // r15

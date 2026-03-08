@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AppendFrames@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x18023D200
+ * Callers:
+ *     ?OnBindingsChanged@CParticleVector3Behavior@@MEAAXXZ @ 0x18023E1E0 (-OnBindingsChanged@CParticleVector3Behavior@@MEAAXXZ.c)
+ * Callees:
+ *     ??$_Emplace_reallocate@U?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@@?$vector@U?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@V?$allocator@U?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@@std@@@std@@QEAAPEAU?$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEAU23@$$QEAU23@@Z @ 0x18023C9B4 (--$_Emplace_reallocate@U-$ParticleKeyframe@Ufloat3@Numerics@Foundation@Windows@@@Particles@@@-$v.c)
+ */
+
 __int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float3>::AppendFrames(
         __int64 *a1,
         _QWORD *a2)

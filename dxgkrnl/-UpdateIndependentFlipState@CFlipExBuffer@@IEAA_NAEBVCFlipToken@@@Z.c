@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateIndependentFlipState@CFlipExBuffer@@IEAA_NAEBVCFlipToken@@@Z @ 0x1C007E3B8
+ * Callers:
+ *     ?NotifyTokenInFrame@CFlipExBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C007D970 (-NotifyTokenInFrame@CFlipExBuffer@@UEAAJAEBVCToken@@PEA_N@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall CFlipExBuffer::UpdateIndependentFlipState(CFlipExBuffer *this, const struct CFlipToken *a2)
 {
   int v2; // eax

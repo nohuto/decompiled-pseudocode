@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpInitializeKeyNameString @ 0x140A1F2A4
+ * Callers:
+ *     CmpCopySyncTree2 @ 0x140A1E7F8 (CmpCopySyncTree2.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140A203EC (CmpSyncSubKeysAfterDelete.c)
+ * Callees:
+ *     CmSiBugCheck @ 0x140615314 (CmSiBugCheck.c)
+ *     CmpCopyCompressedName @ 0x1407A47DC (CmpCopyCompressedName.c)
+ */
+
 __int64 __fastcall CmpInitializeKeyNameString(ULONG_PTR BugCheckParameter3, __int64 a2, _WORD *a3)
 {
   __int16 v4; // dx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionIsGetAsyncKeyStateBlocked @ 0x1C00DA2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall EditionIsGetAsyncKeyStateBlocked(__int64 a1)
 {
   struct tagTHREADINFO *v1; // rdi

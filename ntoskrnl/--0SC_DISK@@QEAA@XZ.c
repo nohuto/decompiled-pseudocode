@@ -1,3 +1,19 @@
+/*
+ * XREFs of ??0SC_DISK@@QEAA@XZ @ 0x140672D88
+ * Callers:
+ *     IoCreateDisk @ 0x14093D650 (IoCreateDisk.c)
+ *     IoReadDiskSignature @ 0x14093D700 (IoReadDiskSignature.c)
+ *     IoReadPartitionTable @ 0x14093D800 (IoReadPartitionTable.c)
+ *     IoReadPartitionTableEx @ 0x14093D9D0 (IoReadPartitionTableEx.c)
+ *     IoSetPartitionInformation @ 0x14093DA80 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x14093DB60 (IoSetPartitionInformationEx.c)
+ *     IoVerifyPartitionTable @ 0x14093DC20 (IoVerifyPartitionTable.c)
+ *     IoWritePartitionTable @ 0x14093DCD0 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x14093DE40 (IoWritePartitionTableEx.c)
+ * Callees:
+ *     <none>
+ */
+
 SC_DISK *__fastcall SC_DISK::SC_DISK(SC_DISK *this)
 {
   SC_DISK *result; // rax

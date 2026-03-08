@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFxAcpiRegisterDevice @ 0x14059EA34
+ * Callers:
+ *     PopFxAcpiDispatchNotification @ 0x14059E614 (PopFxAcpiDispatchNotification.c)
+ * Callees:
+ *     PopFxCreateDeviceCommon @ 0x1403934D4 (PopFxCreateDeviceCommon.c)
+ *     PopFxDestroyDeviceCommon @ 0x140587740 (PopFxDestroyDeviceCommon.c)
+ *     PopFxInsertAcpiDevice @ 0x140588280 (PopFxInsertAcpiDevice.c)
+ *     PopPluginAcpiNotificationStrict @ 0x1405A07CC (PopPluginAcpiNotificationStrict.c)
+ */
+
 __int64 __fastcall PopFxAcpiRegisterDevice(__int64 a1, ULONG_PTR a2, __int64 a3, PVOID **a4, _QWORD *a5)
 {
   int DeviceCommon; // eax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBREG_OpenPortSubkey @ 0x1C00892DC
+ * Callers:
+ *     HUBREG_SetPortPLDRCapabilityValue @ 0x1C00894E4 (HUBREG_SetPortPLDRCapabilityValue.c)
+ *     HUBREG_IsPortPLDRCapable @ 0x1C00895D4 (HUBREG_IsPortPLDRCapable.c)
+ *     HUBREG_SetVidPidRevForPort @ 0x1C008972C (HUBREG_SetVidPidRevForPort.c)
+ *     HUBREG_GetVidPidRevForPort @ 0x1C0089858 (HUBREG_GetVidPidRevForPort.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     WPP_RECORDER_SF_Zd @ 0x1C0034780 (WPP_RECORDER_SF_Zd.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_OpenPortSubkey(__int64 a1, unsigned __int16 a2, unsigned int a3, _QWORD *a4)
 {
   unsigned int v4; // r15d

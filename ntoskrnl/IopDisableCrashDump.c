@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopDisableCrashDump @ 0x14055013C
+ * Callers:
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopDumpTraceCrashDumpDisabled @ 0x14055046C (IopDumpTraceCrashDumpDisabled.c)
+ *     IopDumpTraceDisableCrashDumpFailure @ 0x140550658 (IopDumpTraceDisableCrashDumpFailure.c)
+ */
+
 __int64 IopDisableCrashDump()
 {
   unsigned int v0; // ebx

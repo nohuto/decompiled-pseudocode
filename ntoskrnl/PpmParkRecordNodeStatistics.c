@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmParkRecordNodeStatistics @ 0x1402D3A10
+ * Callers:
+ *     PpmCheckRecordAllUtility @ 0x1402340F0 (PpmCheckRecordAllUtility.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpmPerfRecordMostActiveWorkloadClass @ 0x1402D3B88 (PpmPerfRecordMostActiveWorkloadClass.c)
+ *     PpmParkComputeSnapStatistics @ 0x1402D3C1C (PpmParkComputeSnapStatistics.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmEventParkNodeClassRecordedStats @ 0x140598728 (PpmEventParkNodeClassRecordedStats.c)
+ */
+
 __int64 PpmParkRecordNodeStatistics()
 {
   int v0; // edx

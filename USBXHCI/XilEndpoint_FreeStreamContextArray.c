@@ -1,3 +1,17 @@
+/*
+ * XREFs of XilEndpoint_FreeStreamContextArray @ 0x1C003915C
+ * Callers:
+ *     Endpoint_Disable_Internal @ 0x1C000B8A4 (Endpoint_Disable_Internal.c)
+ *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0039EC0 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
+ *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C003A180 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
+ *     Endpoint_EvtStaticStreamsCleanupCallback @ 0x1C003A6C0 (Endpoint_EvtStaticStreamsCleanupCallback.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsDisable @ 0x1C003CE40 (Endpoint_UcxEvtEndpointStaticStreamsDisable.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D100 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ * Callees:
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ *     XilEndpoint_SendRequestToFreeSecureStreamContextArray @ 0x1C00393A4 (XilEndpoint_SendRequestToFreeSecureStreamContextArray.c)
+ */
+
 void __fastcall XilEndpoint_FreeStreamContextArray(_QWORD *a1)
 {
   __int64 v2; // rdi

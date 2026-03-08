@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiBuildImageControlArea @ 0x1407F3030
+ * Callers:
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeDemandZeroPte @ 0x14032E7D8 (MiMakeDemandZeroPte.c)
+ *     MiMakeSubsectionPte @ 0x140368AAC (MiMakeSubsectionPte.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiParseImageSectionHeaders @ 0x1407F3AF0 (MiParseImageSectionHeaders.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiBuildImageControlArea(
         int a1,
         int a2,

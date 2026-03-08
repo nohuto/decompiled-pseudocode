@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFxAcpiValidateParameters @ 0x14059EBFC
+ * Callers:
+ *     PopFxAcpiDispatchNotification @ 0x14059E614 (PopFxAcpiDispatchNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PopFxAcpiValidateParameters(__int64 a1)
 {
   char v1; // r8

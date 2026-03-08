@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetDeviceObjectPointer @ 0x1C01AAFD4
+ * Callers:
+ *     GetPointerDeviceKey @ 0x1C01AB10C (GetPointerDeviceKey.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetDeviceObjectPointer(
         struct _UNICODE_STRING *a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$SharedPointerFieldlpszAnsiClassName@D@tagCLS@@QEAAPEADPEAD@Z @ 0x1C010966C
+ * Callers:
+ *     ReferenceClass @ 0x1C0109410 (ReferenceClass.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tagCLS::SharedPointerFieldlpszAnsiClassName<char>::operator=(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // r8

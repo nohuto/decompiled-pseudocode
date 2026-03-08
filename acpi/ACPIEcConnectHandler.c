@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcConnectHandler @ 0x1C0083850
+ * Callers:
+ *     ACPIEcInternalControl @ 0x1C0083234 (ACPIEcInternalControl.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall ACPIEcConnectHandler(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryVirtualMemory @ 0x1407C6350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ */
+
 NTSTATUS __stdcall NtQueryVirtualMemory(
         HANDLE ProcessHandle,
         PVOID BaseAddress,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HMCleanupGrantedHandle @ 0x1C0153858
+ * Callers:
+ *     ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00779D0 (-HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ *     HMFreeObject @ 0x1C0077F50 (HMFreeObject.c)
+ *     HMRemoveHandleForObject @ 0x1C00896E0 (HMRemoveHandleForObject.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 void *__fastcall HMCleanupGrantedHandle(__int64 a1)
 {
   _DWORD *i; // rbx

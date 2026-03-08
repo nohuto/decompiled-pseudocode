@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001D2C8
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePsc @ 0x1C0010470 (ACPIBuildProcessDevicePhasePsc.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceInternalDelayedDeviceRequest(_QWORD *a1, __int64 a2)
 {
   char v3; // r10

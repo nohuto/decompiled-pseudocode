@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetAccelerationCurves@CDeviceAcceleration@@QEAAXXZ @ 0x1C0014408
+ * Callers:
+ *     ResetAccelerationCurves @ 0x1C00143D0 (ResetAccelerationCurves.c)
+ * Callees:
+ *     ?ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ @ 0x1C001459C (-ModifiableRegion@Iter@CInputSpace@@QEAAPEAUCInputSpaceRegion@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDeviceAcceleration::ResetAccelerationCurves(CDeviceAcceleration *this)
 {
   CInputConfig *v2; // r14

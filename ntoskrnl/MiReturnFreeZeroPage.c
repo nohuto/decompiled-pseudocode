@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiReturnFreeZeroPage @ 0x14034E5C4
+ * Callers:
+ *     MiGetPerfectColorHeadPage @ 0x140270750 (MiGetPerfectColorHeadPage.c)
+ *     MiMigratePfn @ 0x140272370 (MiMigratePfn.c)
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiFreeLargeInitializationCodePages @ 0x140391BEC (MiFreeLargeInitializationCodePages.c)
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiDemoteSlabEntry @ 0x1403C826C (MiDemoteSlabEntry.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065B0E0 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x14065DE28 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x14065E278 (MiLockSpecialPurposeMemoryCachedPage.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ */
+
 __int64 __fastcall MiReturnFreeZeroPage(__int64 a1)
 {
   char v1; // al

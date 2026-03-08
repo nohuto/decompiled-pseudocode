@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeMdlSinglePage @ 0x14046350C
+ * Callers:
+ *     MiAllocateKernelStackPages @ 0x14031D830 (MiAllocateKernelStackPages.c)
+ * Callees:
+ *     MiInitializeMdlPfn @ 0x1403870D0 (MiInitializeMdlPfn.c)
+ *     MiConvertLargePfnToSmall @ 0x14038BB4C (MiConvertLargePfnToSmall.c)
+ */
+
 char __fastcall MiInitializeMdlSinglePage(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5)
 {
   __int64 v8; // rax

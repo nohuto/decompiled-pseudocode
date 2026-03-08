@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeModifySystemAllowedCpuSets @ 0x140399138
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ *     KiInitializeReservedCpuSets @ 0x140B70380 (KiInitializeReservedCpuSets.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiModifySystemAllowedCpuSetsWithLock @ 0x1403991C4 (KiModifySystemAllowedCpuSetsWithLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeModifySystemAllowedCpuSets(int a1, int a2, __int64 a3, int a4)
 {
   unsigned __int64 v7; // rbp

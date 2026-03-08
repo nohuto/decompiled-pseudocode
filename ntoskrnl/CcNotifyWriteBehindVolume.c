@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcNotifyWriteBehindVolume @ 0x1403BBE2C
+ * Callers:
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ *     CcScheduleLazyWriteScanVolume @ 0x140242B4C (CcScheduleLazyWriteScanVolume.c)
+ *     CcReapPrivateVolumeCachemap @ 0x1403BBD24 (CcReapPrivateVolumeCachemap.c)
+ *     CcNotifyWriteBehindAllVolumesHelper @ 0x1405345E0 (CcNotifyWriteBehindAllVolumesHelper.c)
+ *     CcNotifyWriteBehindHelper @ 0x140534650 (CcNotifyWriteBehindHelper.c)
+ *     CcAsyncLazywriteWorkerThread @ 0x1405378E0 (CcAsyncLazywriteWorkerThread.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 LONG __fastcall CcNotifyWriteBehindVolume(__int64 a1, char a2)
 {
   LONG result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeTouchPadSysParams @ 0x1C00EBDA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InitializeTouchPadSysParams(__int64 a1)
 {
   __int64 v1; // rax

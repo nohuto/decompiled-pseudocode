@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetSurfacePlaneResource@CLegacySwapChain@@UEBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x180131530
+ * Callers:
+ *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18011B7B0 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
+ *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18011C830 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
+ *     ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x18011CEF0 (-GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@DFI@EBAJPEAVCCompositionSurfaceInfo@@PEAPE.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::GetSurfacePlaneResource(
         CLegacySwapChain *this,
         struct CCompositionSurfaceInfo *a2,

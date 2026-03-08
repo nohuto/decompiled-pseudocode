@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringVPrintfWorkerW @ 0x1C00179A8
+ * Callers:
+ *     RtlStringCchPrintfW @ 0x1C0017868 (RtlStringCchPrintfW.c)
+ * Callees:
+ *     _vsnwprintf @ 0x1C0009B74 (_vsnwprintf.c)
+ */
+
 __int64 __fastcall RtlStringVPrintfWorkerW(
         wchar_t *pszDest,
         unsigned __int64 cchDest,

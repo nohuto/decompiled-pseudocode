@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpTransSearchAddTransFromRm @ 0x140735958
+ * Callers:
+ *     CmpTransSearchAddTransFromHive @ 0x1406B5A10 (CmpTransSearchAddTransFromHive.c)
+ *     CmpTransInitializeTransaction @ 0x1407353BC (CmpTransInitializeTransaction.c)
+ *     CmpRecoverEnlistment @ 0x1407FCAF8 (CmpRecoverEnlistment.c)
+ *     CmpRmAnalysisPhase @ 0x140A1BFB0 (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x140A1C1E0 (CmpRmReDoPhase.c)
+ * Callees:
+ *     CmpTransSearchAddTrans @ 0x1406B570C (CmpTransSearchAddTrans.c)
+ */
+
 __int64 __fastcall CmpTransSearchAddTransFromRm(_QWORD *a1, __int64 a2, __int64 a3, int a4, _QWORD *a5)
 {
   struct _EX_RUNDOWN_REF *v6; // r9

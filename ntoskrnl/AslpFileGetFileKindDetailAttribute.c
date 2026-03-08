@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslpFileGetFileKindDetailAttribute @ 0x140A559AC
+ * Callers:
+ *     AslFileAllocAndGetAttributes @ 0x1407A11E8 (AslFileAllocAndGetAttributes.c)
+ *     AslpFileGetClrVersionAttribute @ 0x140A55514 (AslpFileGetClrVersionAttribute.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140A51B1C (AslFileMappingGetFileKindDetail.c)
+ */
+
 __int64 __fastcall AslpFileGetFileKindDetailAttribute(__int64 a1, __int64 a2)
 {
   int FileKindDetail; // edi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopOpenLinkOrRenameTarget @ 0x140783F08
+ * Callers:
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IoSetInformation @ 0x14087E920 (IoSetInformation.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoCreateFileEx @ 0x14070DA20 (IoCreateFileEx.c)
+ *     IopGetBasicInformationFile @ 0x140784190 (IopGetBasicInformationFile.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140944030 (IoConvertFileHandleToKernelHandle.c)
+ */
+
 __int64 __fastcall IopOpenLinkOrRenameTarget(HANDLE *a1, __int64 a2, __int64 a3, struct _FILE_OBJECT *a4)
 {
   bool v4; // zf

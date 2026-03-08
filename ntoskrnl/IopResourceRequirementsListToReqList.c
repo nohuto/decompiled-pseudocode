@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopResourceRequirementsListToReqList @ 0x140805448
+ * Callers:
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x14055F1D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     IopAllocateBootResourcesInternal @ 0x1408046F8 (IopAllocateBootResourcesInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408059BC (IopSetupArbiterAndTranslators.c)
+ *     IopFreeReqList @ 0x140806108 (IopFreeReqList.c)
+ *     IopFreeReqAlternative @ 0x140806160 (IopFreeReqAlternative.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopResourceRequirementsListToReqList(__int64 a1, int **a2)
 {
   unsigned int *v2; // r13

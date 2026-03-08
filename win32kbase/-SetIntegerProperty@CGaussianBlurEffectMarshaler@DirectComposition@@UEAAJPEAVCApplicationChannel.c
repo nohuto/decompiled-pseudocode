@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CGaussianBlurEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024D300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024D500 (-SetIntegerProperty@CFilterEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ */
+
 __int64 __fastcall DirectComposition::CGaussianBlurEffectMarshaler::SetIntegerProperty(
         DirectComposition::CGaussianBlurEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

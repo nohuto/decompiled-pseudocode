@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIommuDomainGetLogicalAddressRange @ 0x140456126
+ * Callers:
+ *     IommuMapIdentityRangeEx @ 0x140523AE0 (IommuMapIdentityRangeEx.c)
+ *     IommuMapLogicalRangeEx @ 0x140523D00 (IommuMapLogicalRangeEx.c)
+ *     IommuReserveLogicalAddressRange @ 0x140524080 (IommuReserveLogicalAddressRange.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuDomainGetLogicalAddressRange(
         __int64 a1,
         _QWORD *a2,

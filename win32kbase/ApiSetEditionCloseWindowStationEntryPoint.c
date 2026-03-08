@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionCloseWindowStationEntryPoint @ 0x1C00C69E0
+ * Callers:
+ *     NtUserCloseWindowStation @ 0x1C00C68F0 (NtUserCloseWindowStation.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionCloseWindowStationEntryPoint(__int64 a1, __int64 a2, __int64 a3)
 {
   PDEVICE_OBJECT v4; // rcx

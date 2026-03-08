@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspInitializeCpuPartitionsPhase1 @ 0x140B42590
+ * Callers:
+ *     PspInitPhase1 @ 0x140B422C8 (PspInitPhase1.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x140413850 (ZwCreateDirectoryObject.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ */
+
 NTSTATUS PspInitializeCpuPartitionsPhase1()
 {
   NTSTATUS v0; // ebx

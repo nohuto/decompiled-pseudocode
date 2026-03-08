@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkMceInitialize @ 0x140B134F0
+ * Callers:
+ *     HalpBlkProcessorStartup @ 0x140B11010 (HalpBlkProcessorStartup.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 HalpBlkMceInitialize()
 {
   unsigned __int64 v0; // rax

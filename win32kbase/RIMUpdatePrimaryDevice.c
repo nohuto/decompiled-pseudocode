@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMUpdatePrimaryDevice @ 0x1C01BA144
+ * Callers:
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01A98C0 (rimAbSuppressLowerRankActivityInFrame.c)
+ *     RIMRemoveFromActiveDevices @ 0x1C01B9190 (RIMRemoveFromActiveDevices.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01D5678 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01D5A04 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ * Callees:
+ *     RIMGetPointerInputType @ 0x1C00EFC04 (RIMGetPointerInputType.c)
+ *     RIMApiSetIsPointerInputTypeRedirected @ 0x1C01D1624 (RIMApiSetIsPointerInputTypeRedirected.c)
+ */
+
 __int64 __fastcall RIMUpdatePrimaryDevice(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetBitmapBits @ 0x1C02C4AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?init_probe@?$umptr_w@E@@SA?AV1@PEAE_K1@Z @ 0x1C008C0F0 (-init_probe@-$umptr_w@E@@SA-AV1@PEAE_K1@Z.c)
+ *     ?GreGetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV?$umptr_w@E@@PEAJ@Z @ 0x1C02B04AC (-GreGetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV-$umptr_w@E@@PEAJ@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetBitmapBits(__int64 a1, unsigned int a2, volatile void *a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VrpDecrementSiloCount @ 0x140A6F2D4
+ * Callers:
+ *     VrpJobContextDelete @ 0x140A6F390 (VrpJobContextDelete.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmUnRegisterCallback @ 0x140A0C560 (CmUnRegisterCallback.c)
+ */
+
 char VrpDecrementSiloCount()
 {
   struct _KTHREAD *CurrentThread; // rax

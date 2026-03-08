@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeSecurityDescriptor@RegistrarClient@CoreMessagingK@@CAJPEAU_SECURITY_DESCRIPTOR@@@Z @ 0x1C00C0C04
+ * Callers:
+ *     ?Connect@RegistrarClient@CoreMessagingK@@CAJXZ @ 0x1C00C09E4 (-Connect@RegistrarClient@CoreMessagingK@@CAJXZ.c)
+ * Callees:
+ *     ?Alloc@Runtime@CoreMessagingK@@CAJ_KW4PoolTag@2@PEAPEAX@Z @ 0x1C00C0E44 (-Alloc@Runtime@CoreMessagingK@@CAJ_KW4PoolTag@2@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CoreMessagingK::RegistrarClient::InitializeSecurityDescriptor(
         PSECURITY_DESCRIPTOR SecurityDescriptor)
 {

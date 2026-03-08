@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmRecordLock@@YAXPEAU_VIDMM_GLOBAL_STATISTICS@@KKH@Z @ 0x1C00EEE00
+ * Callers:
+ *     ?BeginCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKIPEAU_VIDMM_REGION@@PEAPEAX@Z @ 0x1C00B188C (-BeginCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKIPEAU_VIDMM_REGION@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidMmRecordLock(struct _VIDMM_GLOBAL_STATISTICS *a1, char a2, char a3, int a4)
 {
   ++*((_DWORD *)a1 + 108);

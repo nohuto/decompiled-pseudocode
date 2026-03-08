@@ -1,3 +1,23 @@
+/*
+ * XREFs of ACPIAmliEvaluateDsm @ 0x1C007C65C
+ * Callers:
+ *     ACPIEvaluateDsmEmcaMethodOnRootBus @ 0x1C003CA48 (ACPIEvaluateDsmEmcaMethodOnRootBus.c)
+ *     ACPIThermalGetSensorDevice @ 0x1C0040BB0 (ACPIThermalGetSensorDevice.c)
+ *     ACPIFanPrepareImpactZoneSupport @ 0x1C0084960 (ACPIFanPrepareImpactZoneSupport.c)
+ *     ACPIFanSetTripPoints @ 0x1C0085078 (ACPIFanSetTripPoints.c)
+ *     AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C0089CBC (AcpiEvaluateDsmMethodOnPciRootBus.c)
+ *     AcpiQueryPciDeviceChassisLabel @ 0x1C0089EB4 (AcpiQueryPciDeviceChassisLabel.c)
+ *     ACPIPepInitializePlatformNotificationSupport @ 0x1C008A9B0 (ACPIPepInitializePlatformNotificationSupport.c)
+ *     ACPIPepPlatformEntryExitNotify @ 0x1C008ACCC (ACPIPepPlatformEntryExitNotify.c)
+ *     PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FC4 (PnpiUpdateForceActiveBothInterrupts.c)
+ *     ACPIThermalStartDevice @ 0x1C0095DD0 (ACPIThermalStartDevice.c)
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIAmliEvaluateDsm(
         _QWORD *a1,
         __int64 a2,

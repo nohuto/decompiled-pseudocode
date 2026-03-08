@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspRequestDeferredJobNotification @ 0x140200BEC
+ * Callers:
+ *     PspJobCycleTimeNotificationDpcRoutine @ 0x1405A1FD0 (PspJobCycleTimeNotificationDpcRoutine.c)
+ *     PspSendWakeNotification @ 0x140751A40 (PspSendWakeNotification.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 char __fastcall PspRequestDeferredJobNotification(signed __int64 a1, unsigned int a2)
 {
   signed __int64 v2; // rax

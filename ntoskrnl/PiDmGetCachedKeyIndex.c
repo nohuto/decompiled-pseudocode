@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDmGetCachedKeyIndex @ 0x1406D0770
+ * Callers:
+ *     PiDmObjectProcessPropertyChange @ 0x1406CC044 (PiDmObjectProcessPropertyChange.c)
+ *     PiDmObjectGetCachedObjectPropertyData @ 0x1406D060C (PiDmObjectGetCachedObjectPropertyData.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406D0A64 (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmObjectGetCachedObjectReference @ 0x14077D554 (PiDmObjectGetCachedObjectReference.c)
+ *     PiDmObjectCreate @ 0x140868FFC (PiDmObjectCreate.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140869528 (PiDmListUpdateAggregationCountWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiDmGetCachedKeyIndex(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 result; // rax

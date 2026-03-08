@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpWriteSpbResource @ 0x1C03A3440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiValidateSpbResource @ 0x1C03A3748 (DpiValidateSpbResource.c)
+ */
+
 __int64 __fastcall DpWriteSpbResource(
         int a1,
         int a2,

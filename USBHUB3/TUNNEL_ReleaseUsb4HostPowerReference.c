@@ -1,3 +1,13 @@
+/*
+ * XREFs of TUNNEL_ReleaseUsb4HostPowerReference @ 0x1C008F058
+ * Callers:
+ *     TUNNEL_ReleaseUsb4HostPowerReferenceForPort @ 0x1C008F2DC (TUNNEL_ReleaseUsb4HostPowerReferenceForPort.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C0040D80 (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TUNNEL_ReleaseUsb4HostPowerReference(_QWORD *a1, __int64 a2)
 {
   bool v4; // zf

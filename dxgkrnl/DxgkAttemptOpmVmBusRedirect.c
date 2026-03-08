@@ -1,3 +1,16 @@
+/*
+ * XREFs of DxgkAttemptOpmVmBusRedirect @ 0x1C02BD7E4
+ * Callers:
+ *     DpiPdoHandleOpmIoctls @ 0x1C039DD08 (DpiPdoHandleOpmIoctls.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9___ @ 0x1C0007824 (DXGKCALLONEXIT__lambda_897d21a97c0cf1b919de605caa0104f9___.c)
+ *     ?IsVmConnectedToHost@DXGGLOBAL@@QEBAEXZ @ 0x1C01C7198 (-IsVmConnectedToHost@DXGGLOBAL@@QEBAEXZ.c)
+ *     _lambda_0e6dcefab9b27dbf753c4a8a5b0f464a_::operator() @ 0x1C02BD568 (_lambda_0e6dcefab9b27dbf753c4a8a5b0f464a_--operator().c)
+ *     ?FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER_GUEST@1@PEAUPATH_IDENTIFIER_HOST@1@@Z @ 0x1C0347D0C (-FindMappingFromGuestId@REMOTEMONITORMAPPING@@QEAAJPEAUPATH_IDENTIFIER_GUEST@1@PEAUPATH_IDENTIFI.c)
+ *     ?VmBusSendOpmRequest@DXG_GUEST_GLOBAL_VMBUS@@QEAAJU_LUID@@IIPEAXK1PEAK@Z @ 0x1C0387AD4 (-VmBusSendOpmRequest@DXG_GUEST_GLOBAL_VMBUS@@QEAAJU_LUID@@IIPEAXK1PEAK@Z.c)
+ */
+
 __int64 __fastcall DxgkAttemptOpmVmBusRedirect(
         __int64 a1,
         unsigned int a2,

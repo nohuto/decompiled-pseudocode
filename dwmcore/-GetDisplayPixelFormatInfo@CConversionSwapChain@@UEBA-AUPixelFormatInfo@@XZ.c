@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDisplayPixelFormatInfo@CConversionSwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x180107C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CConversionSwapChain::GetDisplayPixelFormatInfo(__int64 a1, __int64 a2)
 {
   int v2; // eax

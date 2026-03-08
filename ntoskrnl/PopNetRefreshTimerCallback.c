@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopNetRefreshTimerCallback @ 0x140596AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ */
+
 char PopNetRefreshTimerCallback()
 {
   signed __int32 v0; // eax

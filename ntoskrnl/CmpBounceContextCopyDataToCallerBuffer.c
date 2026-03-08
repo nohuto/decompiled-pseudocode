@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpBounceContextCopyDataToCallerBuffer @ 0x1407AA678
+ * Callers:
+ *     NtQueryMultipleValueKey @ 0x1406B8CB0 (NtQueryMultipleValueKey.c)
+ *     NtEnumerateValueKey @ 0x1407AB260 (NtEnumerateValueKey.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall CmpBounceContextCopyDataToCallerBuffer(__int64 a1, size_t a2)
 {
   void *result; // rax

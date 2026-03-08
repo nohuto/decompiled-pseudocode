@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10SortHuffmanSymbols @ 0x1409C55EC
+ * Callers:
+ *     Xp10ReadAndDecodeHuffmanTables @ 0x1409C4774 (Xp10ReadAndDecodeHuffmanTables.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10SortHuffmanSymbols(__int64 a1, __int64 a2, __int16 a3, unsigned int a4, unsigned int a5)
 {
   unsigned int v5; // r10d

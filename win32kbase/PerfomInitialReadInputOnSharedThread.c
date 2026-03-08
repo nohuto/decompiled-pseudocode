@@ -1,3 +1,11 @@
+/*
+ * XREFs of PerfomInitialReadInputOnSharedThread @ 0x1C0094784
+ * Callers:
+ *     UserActivateMITInputProcessing @ 0x1C00942B4 (UserActivateMITInputProcessing.c)
+ * Callees:
+ *     ?Read@CBaseInput@@QEAAJXZ @ 0x1C0039080 (-Read@CBaseInput@@QEAAJXZ.c)
+ */
+
 CBaseInput **__fastcall PerfomInitialReadInputOnSharedThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

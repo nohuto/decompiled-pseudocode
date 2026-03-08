@@ -1,3 +1,12 @@
+/*
+ * XREFs of Interrupter_WdfEvtCleanupCallback @ 0x1C003E260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Interrupter_WdfEvtCleanupCallback(__int64 a1)
 {
   int v2; // edx

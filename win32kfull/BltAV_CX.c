@@ -1,3 +1,11 @@
+/*
+ * XREFs of BltAV_CX @ 0x1C025F420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall BltAV_CX(__int64 a1)
 {
   _BYTE *v1; // r8

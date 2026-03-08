@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C0076CB0
+ * Callers:
+ *     ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C007639C (-AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z.c)
+ *     ?EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z @ 0x1C0076D60 (-EnsureTokenQueueForPresent@CTokenManager@@UEAAJPEAVCompositionSurfaceObject@@@Z.c)
+ * Callees:
+ *     ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C0077758 (-Create@CTokenQueue@@SAJPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall CTokenManager::EnsureTokenQueue(
         CTokenManager *this,
         struct CompositionSurfaceObject *a2,

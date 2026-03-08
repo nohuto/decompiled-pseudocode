@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreSetPaletteOwner @ 0x1C0199D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ */
+
 __int64 __fastcall GreSetPaletteOwner(__int64 a1, int a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SpiMax311GetByte @ 0x14067AC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SpiSend16 @ 0x14067AFCC (SpiSend16.c)
+ */
+
 __int64 __fastcall SpiMax311GetByte(_QWORD *a1, _BYTE *a2)
 {
   __int16 v3; // cx

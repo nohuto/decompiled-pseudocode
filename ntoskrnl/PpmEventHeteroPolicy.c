@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventHeteroPolicy @ 0x140826ED0
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventHeteroPolicy(char a1)
 {
   const EVENT_DESCRIPTOR *v1; // rax

@@ -1,3 +1,25 @@
+/*
+ * XREFs of StartFirstUserProcess @ 0x140B662B4
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     InbvIsBootDriverInstalled @ 0x1403A4C40 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationProcess @ 0x140412690 (ZwSetInformationProcess.c)
+ *     ZwResumeThread @ 0x140412D50 (ZwResumeThread.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     FinalizeBootLogo @ 0x14054C3BC (FinalizeBootLogo.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     RtlCreateUserProcessEx @ 0x140B664C0 (RtlCreateUserProcessEx.c)
+ *     QueryRegistryHideMachine @ 0x140B66760 (QueryRegistryHideMachine.c)
+ *     RegistryOverwriteCentralProcessor @ 0x140B8DAC4 (RegistryOverwriteCentralProcessor.c)
+ */
+
 void StartFirstUserProcess()
 {
   UNICODE_STRING *p_UnicodeString; // rsi

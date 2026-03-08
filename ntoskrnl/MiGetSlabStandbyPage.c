@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiGetSlabStandbyPage @ 0x14065488C
+ * Callers:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiReInitializeFreeSlabPfn @ 0x1402CE68C (MiReInitializeFreeSlabPfn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ *     MiLockPageListAndFirstPage @ 0x14064E5E4 (MiLockPageListAndFirstPage.c)
+ */
+
 __int64 __fastcall MiGetSlabStandbyPage(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // si

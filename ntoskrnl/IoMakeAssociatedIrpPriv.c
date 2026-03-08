@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoMakeAssociatedIrpPriv @ 0x1402B19E8
+ * Callers:
+ *     IoMakeAssociatedIrpEx @ 0x1402B19D0 (IoMakeAssociatedIrpEx.c)
+ *     IoMakeAssociatedIrp @ 0x1403A72B0 (IoMakeAssociatedIrp.c)
+ * Callees:
+ *     IopIrpHasExtensionType @ 0x1402B1D58 (IopIrpHasExtensionType.c)
+ *     IopIsActivityTracingEnabled @ 0x1402B1D90 (IopIsActivityTracingEnabled.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402B1E30 (IopSetDiskIoAttributionExtension.c)
+ *     IoSetActivityIdIrp @ 0x1402B2080 (IoSetActivityIdIrp.c)
+ *     IopSetDriverFlagsExtension @ 0x1402B22A0 (IopSetDriverFlagsExtension.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoMakeAssociatedIrpPriv(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PowerUp@FxDmaEnabler@@QEAAJXZ @ 0x1C001BAA8
+ * Callers:
+ *     ?PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ @ 0x1C006E4DC (-PowerDmaEnableAndScan@FxPkgPnp@@IEAAEXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     WPP_IFR_SF_qld @ 0x1C001C218 (WPP_IFR_SF_qld.c)
+ */
+
 __int64 __fastcall FxDmaEnabler::PowerUp(FxDmaEnabler *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rsi

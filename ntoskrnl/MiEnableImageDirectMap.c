@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiEnableImageDirectMap @ 0x14063A850
+ * Callers:
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAllocateEntireImageFileExtents @ 0x140A30264 (MiAllocateEntireImageFileExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A31150 (MiDeleteFileExtentList.c)
+ *     MiInitializeImageExtents @ 0x140A311CC (MiInitializeImageExtents.c)
+ */
+
 __int64 __fastcall MiEnableImageDirectMap(
         __int64 a1,
         __int64 *a2,

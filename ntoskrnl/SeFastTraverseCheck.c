@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeFastTraverseCheck @ 0x1405B54D4
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     ObpCheckTraverseAccess @ 0x140978718 (ObpCheckTraverseAccess.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ */
+
 char __fastcall SeFastTraverseCheck(__int64 a1, __int64 a2, int a3)
 {
   __int16 v4; // ax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CarEtwWriteBugCheckEvent @ 0x1405D078C
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CarIncrementEtwEventCount @ 0x1405D0D5C (CarIncrementEtwEventCount.c)
+ *     McTemplateK0dszu_EtwWriteTransfer @ 0x1405D121C (McTemplateK0dszu_EtwWriteTransfer.c)
+ *     DifiDbgPrint @ 0x1405D3224 (DifiDbgPrint.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CarEtwWriteBugCheckEvent(__int64 a1, int a2, const CHAR *a3, char a4)
 {
   unsigned int v4; // ebx

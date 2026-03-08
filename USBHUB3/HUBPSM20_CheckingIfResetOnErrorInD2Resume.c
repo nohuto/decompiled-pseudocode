@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM20_CheckingIfResetOnErrorInD2Resume @ 0x1C0012CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM20_CheckingIfResetOnErrorInD2Resume(__int64 a1)
 {
   __int64 v1; // rdx

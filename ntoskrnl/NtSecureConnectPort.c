@@ -1,3 +1,29 @@
+/*
+ * XREFs of NtSecureConnectPort @ 0x140774850
+ * Callers:
+ *     NtConnectPort @ 0x140774800 (NtConnectPort.c)
+ *     IopConnectLinkTrackingPort @ 0x140941890 (IopConnectLinkTrackingPort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140710A34 (SeReleaseSid.c)
+ *     AlpcpFormatConnectionRequest @ 0x140712838 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpDispatchConnectionRequest @ 0x140717CC0 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x140774E0C (AlpcpReceiveLegacyConnectionReply.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     AlpcpLogConnectFail @ 0x1409772EC (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x140977360 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1409773D0 (AlpcpLogConnectSuccess.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtSecureConnectPort(
         HANDLE *a1,
         unsigned __int64 a2,

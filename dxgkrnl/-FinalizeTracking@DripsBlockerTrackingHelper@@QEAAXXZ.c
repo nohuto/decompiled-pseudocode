@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FinalizeTracking@DripsBlockerTrackingHelper@@QEAAXXZ @ 0x1C030246C
+ * Callers:
+ *     ?FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ @ 0x1C02E15D0 (-FinalizeCSAccountingAndSendETW@DXGGLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     ?EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z @ 0x1C02FF9E8 (-EnableEntryAccounting@DripsBlockerTrackingHelper@@IEAAXII_N@Z.c)
+ */
+
 void __fastcall DripsBlockerTrackingHelper::FinalizeTracking(DripsBlockerTrackingHelper *this)
 {
   unsigned int v2; // esi

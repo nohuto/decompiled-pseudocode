@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetPersistedKeyPath @ 0x1C005C6E4
+ * Callers:
+ *     ReadTestOverrideValue @ 0x1C005C974 (ReadTestOverrideValue.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005CC80 (UpdateUcmIsPresentBit.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Ld @ 0x1C005D000 (WPP_RECORDER_SF_Ld.c)
+ */
+
 __int64 __fastcall GetPersistedKeyPath(_QWORD *a1)
 {
   int PersistedStateLocation; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsSameGeometry@CRectangleGeometry@@UEBA_NPEBVCGeometry@@@Z @ 0x1800F78A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??8CRoundedRectangleGeometryData@@QEBA_NAEBU0@@Z @ 0x18007F4E8 (--8CRoundedRectangleGeometryData@@QEBA_NAEBU0@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CRectangleGeometry::IsSameGeometry(CRectangleGeometry *this, const struct CGeometry *a2)
 {
   char v2; // bl

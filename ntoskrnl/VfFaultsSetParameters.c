@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfFaultsSetParameters @ 0x140AD3148
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408194B0 (PsSetCreateProcessNotifyRoutine.c)
+ *     ViFaultsAddAllApps @ 0x140AD3354 (ViFaultsAddAllApps.c)
+ *     ViFaultsAddAllTags @ 0x140AD3400 (ViFaultsAddAllTags.c)
+ *     ViFaultsRemoveAllApps @ 0x140AD3C08 (ViFaultsRemoveAllApps.c)
+ *     ViFaultsRemoveAllTags @ 0x140AD3CD8 (ViFaultsRemoveAllTags.c)
+ *     VfSetVerifierInformation @ 0x140ADA7E8 (VfSetVerifierInformation.c)
+ */
+
 __int64 __fastcall VfFaultsSetParameters(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edi

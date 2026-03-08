@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMePerfStateTransition @ 0x1C000314C
+ * Callers:
+ *     NVMePowerActive @ 0x1C00030C0 (NVMePowerActive.c)
+ *     NVMeMaxOperationalPower @ 0x1C000FB54 (NVMeMaxOperationalPower.c)
+ *     NVMePowerSetPerfState @ 0x1C00103B0 (NVMePowerSetPerfState.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall NVMePerfStateTransition(__int64 a1)
 {
   return (*(_DWORD *)(a1 + 1880) & 2) != 0

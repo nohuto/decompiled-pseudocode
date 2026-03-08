@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaFlConfigureLeafPhysicalPfn @ 0x14052F3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaFlConfigureLeafPhysicalPfn(unsigned __int64 *a1, __int64 a2, char a3, unsigned int a4)
 {
   int v4; // r8d

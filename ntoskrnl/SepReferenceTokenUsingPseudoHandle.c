@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepReferenceTokenUsingPseudoHandle @ 0x140247AA0
+ * Callers:
+ *     SepReferenceTokenByHandle @ 0x140247A20 (SepReferenceTokenByHandle.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ * Callees:
+ *     SepSidFromProcessProtection @ 0x140247C8C (SepSidFromProcessProtection.c)
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406D6630 (PsReferenceImpersonationTokenEx.c)
+ */
+
 __int64 __fastcall SepReferenceTokenUsingPseudoHandle(__int64 a1, int a2, __int64 *a3, _BYTE *a4, __int64 *a5)
 {
   __int64 *v5; // rsi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGdiGetFontResourceInfoInternalW @ 0x1C02C56E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bCheckAndCapThePath@@YAHPEAGPEBGKK@Z @ 0x1C00D0A54 (-bCheckAndCapThePath@@YAHPEAGPEBGKK@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GetFontResourceInfoInternalW @ 0x1C0305498 (GetFontResourceInfoInternalW.c)
+ */
+
 __int64 __fastcall NtGdiGetFontResourceInfoInternalW(
         unsigned __int16 *a1,
         unsigned int a2,

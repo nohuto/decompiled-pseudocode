@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlIsApiSetImplemented @ 0x1407848B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     ApiSetQuerySchemaInfo @ 0x1402F3630 (ApiSetQuerySchemaInfo.c)
+ *     PsQueryCurrentApiSetSchema @ 0x14078495C (PsQueryCurrentApiSetSchema.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall RtlIsApiSetImplemented(PCSZ SourceString)
 {
   char v1; // si

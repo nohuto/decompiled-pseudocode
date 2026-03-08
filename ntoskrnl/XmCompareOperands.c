@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmCompareOperands @ 0x140531ACC
+ * Callers:
+ *     XmCmpsOp @ 0x140531A20 (XmCmpsOp.c)
+ *     XmScasOp @ 0x140531D50 (XmScasOp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmCompareOperands(__int64 a1)
 {
   int v1; // eax

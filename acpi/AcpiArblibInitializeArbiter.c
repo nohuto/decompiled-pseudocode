@@ -1,3 +1,16 @@
+/*
+ * XREFs of AcpiArblibInitializeArbiter @ 0x1C000B688
+ * Callers:
+ *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
+ *     ACPIDispatchIrpDepPdoQueryID @ 0x1C0017830 (ACPIDispatchIrpDepPdoQueryID.c)
+ * Callees:
+ *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C007CB64 (AcpiArblibAllocateArbiterInstance.c)
+ *     AcpiInitializeBusNumberArbiter @ 0x1C008204C (AcpiInitializeBusNumberArbiter.c)
+ *     AcpiInitializeMemoryArbiter @ 0x1C0088F2C (AcpiInitializeMemoryArbiter.c)
+ *     AcpiInitializePortArbiter @ 0x1C008C02C (AcpiInitializePortArbiter.c)
+ */
+
 __int64 __fastcall AcpiArblibInitializeArbiter(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   int v6; // eax

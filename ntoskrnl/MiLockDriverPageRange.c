@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiLockDriverPageRange @ 0x1406179F0
+ * Callers:
+ *     MiLockPatchIatForDV @ 0x14063E0B0 (MiLockPatchIatForDV.c)
+ *     MmWriteSystemImageTracepoint @ 0x140640F7C (MmWriteSystemImageTracepoint.c)
+ *     MiCompleteSecureDriverLoad @ 0x140880F78 (MiCompleteSecureDriverLoad.c)
+ *     MiLockAndMapEntireDriver @ 0x140A31608 (MiLockAndMapEntireDriver.c)
+ *     MiLockHotPatchPages @ 0x140A358D8 (MiLockHotPatchPages.c)
+ *     MiLockHotPatchUndoPages @ 0x140A35978 (MiLockHotPatchUndoPages.c)
+ *     MmReapplyBootPatchImports @ 0x140B70FB0 (MmReapplyBootPatchImports.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiReferenceDriverPage @ 0x1402E1DD4 (MiReferenceDriverPage.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140664840 (MiCopyOnWriteCheckConditions.c)
+ */
+
 __int64 __fastcall MiLockDriverPageRange(__int64 *a1, unsigned int a2, unsigned int a3, char a4, __int64 a5)
 {
   __int64 *v6; // r15

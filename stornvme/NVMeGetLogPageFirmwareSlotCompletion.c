@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeGetLogPageFirmwareSlotCompletion @ 0x1C0015A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     GetFirmwareGranularity @ 0x1C0012A5C (GetFirmwareGranularity.c)
+ */
+
 __int64 __fastcall NVMeGetLogPageFirmwareSlotCompletion(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmDetermineAdlType @ 0x1C006F690
+ * Callers:
+ *     ?SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z @ 0x1C006F9F0 (-SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SmmDetermineAdlType(__int64 a1, __int64 a2, char a3)
 {
   int v3; // r8d

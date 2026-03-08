@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiRelockProtoPoolPage @ 0x1402A2F78
+ * Callers:
+ *     MiWaitForCollidedFaultComplete @ 0x1402A2D3C (MiWaitForCollidedFaultComplete.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ * Callees:
+ *     MiLockOwnedProtoPage @ 0x1402871A0 (MiLockOwnedProtoPage.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiRelockProtoPoolPage(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 v4; // si

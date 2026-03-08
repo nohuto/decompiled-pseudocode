@@ -1,3 +1,29 @@
+/*
+ * XREFs of EtwTraceSiloKernelEvent @ 0x14035EC20
+ * Callers:
+ *     EtwpTraceImageUnload @ 0x14035E3D0 (EtwpTraceImageUnload.c)
+ *     EtwpTraceFileName @ 0x14035E5C0 (EtwpTraceFileName.c)
+ *     EtwpTraceIo @ 0x14035E9C0 (EtwpTraceIo.c)
+ *     EtwTraceAutoBoostClearFloor @ 0x14045EA22 (EtwTraceAutoBoostClearFloor.c)
+ *     EtwTraceAutoBoostEntryExhaustion @ 0x14045EAC6 (EtwTraceAutoBoostEntryExhaustion.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x14045EB78 (EtwTraceAutoBoostSetFloor.c)
+ *     EtwTracePageFault @ 0x14045EC72 (EtwTracePageFault.c)
+ *     EtwTraceReadyThread @ 0x14045EEF6 (EtwTraceReadyThread.c)
+ *     EtwpTraceIoInit @ 0x14045FC10 (EtwpTraceIoInit.c)
+ *     EtwpProfileInterrupt @ 0x1405FBC20 (EtwpProfileInterrupt.c)
+ *     EtwpTraceRedirectedIo @ 0x1405FC520 (EtwpTraceRedirectedIo.c)
+ *     PerfInfoLogSysCallEntry @ 0x1405FC7B0 (PerfInfoLogSysCallEntry.c)
+ *     PerfInfoLogSysCallExit @ 0x1405FC840 (PerfInfoLogSysCallExit.c)
+ *     EtwpWriteProcessEvent @ 0x1407E9594 (EtwpWriteProcessEvent.c)
+ *     EtwTraceThread @ 0x1407EBAB0 (EtwTraceThread.c)
+ *     PerfLogImageLoad @ 0x1407EC064 (PerfLogImageLoad.c)
+ *     EtwpLogProcessPerfCtrs @ 0x1409E3360 (EtwpLogProcessPerfCtrs.c)
+ *     PerfInfoLogVirtualAlloc @ 0x1409E41C8 (PerfInfoLogVirtualAlloc.c)
+ *     PerfInfoLogVirtualFree @ 0x1409E42D4 (PerfInfoLogVirtualFree.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ */
+
 void __fastcall EtwTraceSiloKernelEvent(
         __int64 a1,
         __int64 a2,

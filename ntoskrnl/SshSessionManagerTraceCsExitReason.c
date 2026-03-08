@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshSessionManagerTraceCsExitReason @ 0x14099E7FC
+ * Callers:
+ *     PopSleepstudyCaptureSessionStatistics @ 0x140879704 (PopSleepstudyCaptureSessionStatistics.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 signed __int32 __fastcall SshSessionManagerTraceCsExitReason(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v4; // eax

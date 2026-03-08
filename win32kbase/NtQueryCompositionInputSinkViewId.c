@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryCompositionInputSinkViewId @ 0x1C000AE70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00A7D70 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtQueryCompositionInputSinkViewId(void *a1, _DWORD *a2)
 {
   int v3; // ebx

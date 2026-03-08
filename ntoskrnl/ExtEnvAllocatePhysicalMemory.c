@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExtEnvAllocatePhysicalMemory @ 0x14051CE10
+ * Callers:
+ *     IvtAllocateContextTable @ 0x140528DA0 (IvtAllocateContextTable.c)
+ *     IvtAllocateScalableModePasidTables @ 0x140529000 (IvtAllocateScalableModePasidTables.c)
+ *     IvtExtendScalableModePasidTables @ 0x14052A0B4 (IvtExtendScalableModePasidTables.c)
+ *     HsaAllocateRemappingTableEntry @ 0x14052C890 (HsaAllocateRemappingTableEntry.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061BD50 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     HalpAllocPhysicalMemory @ 0x140B3D9F4 (HalpAllocPhysicalMemory.c)
+ */
+
 __int64 __fastcall ExtEnvAllocatePhysicalMemory(
         __int64 a1,
         unsigned int a2,

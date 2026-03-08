@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GotoParent@?$CGraphWalker@VCBspNode@@@@QEAAXPEAPEAVCBspNode@@@Z @ 0x1801F3280
+ * Callers:
+ *     ??$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonListBuilder@@W4WalkDirection@@@Z @ 0x1801F309C (--$WalkSubtree@VCBspPolygonListBuilder@@@CBspTreeIterator@@AEAAJPEAVCBspNode@@0PEAVCBspPolygonLi.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CGraphWalker<CBspNode>::GotoParent(__int64 a1, _QWORD *a2)
 {
   int v2; // r10d

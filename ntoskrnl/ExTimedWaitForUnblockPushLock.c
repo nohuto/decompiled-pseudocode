@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExTimedWaitForUnblockPushLock @ 0x1402BF9A0
+ * Callers:
+ *     ExBlockOnAddressPushLock @ 0x1402BF8C0 (ExBlockOnAddressPushLock.c)
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     ExWaitForUnblockPushLock @ 0x140607730 (ExWaitForUnblockPushLock.c)
+ * Callees:
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall ExTimedWaitForUnblockPushLock(__int64 a1, char *a2, LARGE_INTEGER *a3)
 {
   volatile signed __int32 *v3; // r9

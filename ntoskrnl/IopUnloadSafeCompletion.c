@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopUnloadSafeCompletion @ 0x1402F4BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopUnloadSafeCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

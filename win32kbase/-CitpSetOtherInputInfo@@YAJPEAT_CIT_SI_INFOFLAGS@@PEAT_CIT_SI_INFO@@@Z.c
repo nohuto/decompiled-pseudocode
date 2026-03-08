@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CitpSetOtherInputInfo@@YAJPEAT_CIT_SI_INFOFLAGS@@PEAT_CIT_SI_INFO@@@Z @ 0x1C02735B8
+ * Callers:
+ *     CitSetInfo @ 0x1C006BA00 (CitSetInfo.c)
+ * Callees:
+ *     ?CitpLastInputUpdate@@YAXGI@Z @ 0x1C00B8348 (-CitpLastInputUpdate@@YAXGI@Z.c)
+ */
+
 __int64 __fastcall CitpSetOtherInputInfo(union _CIT_SI_INFOFLAGS *a1, union _CIT_SI_INFO *a2)
 {
   struct _CIT_IMPACT_CONTEXT *v3; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CHolographicExclusiveViewMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02655A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CHolographicExclusiveViewMarshaler::SetRemarshalingFlags(
         DirectComposition::CHolographicExclusiveViewMarshaler *this)
 {

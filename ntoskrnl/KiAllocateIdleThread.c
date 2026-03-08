@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAllocateIdleThread @ 0x140A86300
+ * Callers:
+ *     KiAllocateProcessorStateInitializationParameters @ 0x140371E4C (KiAllocateProcessorStateInitializationParameters.c)
+ * Callees:
+ *     KiAllocatePrcbThread @ 0x140371F98 (KiAllocatePrcbThread.c)
+ */
+
 __int64 __fastcall KiAllocateIdleThread(_QWORD *a1, int a2, __int64 a3, __int64 a4)
 {
   int v4; // eax

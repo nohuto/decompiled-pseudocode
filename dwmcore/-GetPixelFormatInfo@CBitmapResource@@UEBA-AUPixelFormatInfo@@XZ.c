@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CBitmapResource@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E2B8C
+ * Callers:
+ *     ?GetPixelFormatInfo@CBitmapResource@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x1801183D0 (-GetPixelFormatInfo@CBitmapResource@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBitmapResource::GetPixelFormatInfo(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

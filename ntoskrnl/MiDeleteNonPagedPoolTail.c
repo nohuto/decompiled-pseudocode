@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDeleteNonPagedPoolTail @ 0x1402EAD40
+ * Callers:
+ *     MiClearNonPagedPtes @ 0x14020DF88 (MiClearNonPagedPtes.c)
+ * Callees:
+ *     MiReduceShareCount @ 0x1402EADCC (MiReduceShareCount.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiDeleteNonPagedPoolTail(__int64 a1)
 {
   __int64 v1; // rdi

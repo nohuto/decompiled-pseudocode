@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsDiagTraceDfxPowerStateFailure @ 0x14059E2FC
+ * Callers:
+ *     PopFxEnforceDirectedPowerTransition @ 0x140587E70 (PopFxEnforceDirectedPowerTransition.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDirectedDripsDiagTraceDfxPowerStateFailure(__int64 a1)
 {
   _UNKNOWN **v1; // rax

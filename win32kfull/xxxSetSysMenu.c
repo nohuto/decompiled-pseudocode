@@ -1,3 +1,24 @@
+/*
+ * XREFs of xxxSetSysMenu @ 0x1C0224F64
+ * Callers:
+ *     xxxTranslateAccelerator @ 0x1C000BC34 (xxxTranslateAccelerator.c)
+ *     NtUserSetSysMenu @ 0x1C01DDA20 (NtUserSetSysMenu.c)
+ *     xxxHandleNCMouseGuys @ 0x1C02035C0 (xxxHandleNCMouseGuys.c)
+ *     xxxGetSysMenu @ 0x1C0224EB0 (xxxGetSysMenu.c)
+ * Callees:
+ *     _GetSubMenu @ 0x1C002165C (_GetSubMenu.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     xxxGetSysMenuPtr @ 0x1C00A4DFC (xxxGetSysMenuPtr.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     _SetMenuDefaultItem @ 0x1C00DF9EC (_SetMenuDefaultItem.c)
+ *     ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0224B4C (-_SetCloseDefault@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     IsSmallerThanScreen @ 0x1C0224BC0 (IsSmallerThanScreen.c)
+ *     xxxEnableMenuItem @ 0x1C0224CA0 (xxxEnableMenuItem.c)
+ */
+
 __int64 __fastcall xxxSetSysMenu(struct tagWND *a1)
 {
   int v2; // r12d

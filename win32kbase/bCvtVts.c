@@ -1,3 +1,13 @@
+/*
+ * XREFs of bCvtVts @ 0x1C0274FAC
+ * Callers:
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z @ 0x1C00056E0 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@PEAU_VECTORFX@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z @ 0x1C017FEA0 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORFX@@PEAU_VECTORL@@_K@Z.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@0_K@Z @ 0x1C017FF10 (-bXform@EXFORMOBJ@@QEAAHPEAU_VECTORL@@0_K@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ */
+
 __int64 __fastcall bCvtVts(__int64 a1, int *a2, int *a3, __int64 a4)
 {
   __int64 v4; // rdi

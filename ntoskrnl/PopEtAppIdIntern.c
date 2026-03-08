@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopEtAppIdIntern @ 0x14070146C
+ * Callers:
+ *     PopEtGetProcessAppId @ 0x14070116C (PopEtGetProcessAppId.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlInternTableIntern @ 0x1407015D8 (RtlInternTableIntern.c)
+ */
+
 __int64 __fastcall PopEtAppIdIntern(__int64 a1, __int64 *a2)
 {
   unsigned int v4; // edi

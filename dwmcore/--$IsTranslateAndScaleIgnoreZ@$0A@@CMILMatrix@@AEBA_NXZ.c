@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$IsTranslateAndScaleIgnoreZ@$0A@@CMILMatrix@@AEBA_NXZ @ 0x18026C784
+ * Callers:
+ *     ?CanUseWarpExtension@CPrimitiveGroupDrawListGenerator@@QEBA_NXZ @ 0x1802B5E18 (-CanUseWarpExtension@CPrimitiveGroupDrawListGenerator@@QEBA_NXZ.c)
+ * Callees:
+ *     ??$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z @ 0x180062070 (--$IsAffine@$0A@@CMILMatrix@@AEBA_N_N@Z.c)
+ */
+
 char __fastcall CMILMatrix::IsTranslateAndScaleIgnoreZ<0>(__int64 a1)
 {
   __int64 v1; // r10

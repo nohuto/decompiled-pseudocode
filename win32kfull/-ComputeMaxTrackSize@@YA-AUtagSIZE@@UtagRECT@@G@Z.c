@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ComputeMaxTrackSize@@YA?AUtagSIZE@@UtagRECT@@G@Z @ 0x1C0045D3C
+ * Callers:
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C004524C (xxxInitSendValidateMinMaxInfoEx.c)
+ * Callees:
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ *     _EnsureDpiDepSysMetCacheForPlateau @ 0x1C01C074C (_EnsureDpiDepSysMetCacheForPlateau.c)
+ */
+
 struct tagSIZE __fastcall ComputeMaxTrackSize(struct tagRECT *a1, unsigned __int16 a2)
 {
   unsigned int v2; // ebx

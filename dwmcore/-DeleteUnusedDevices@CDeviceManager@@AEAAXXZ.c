@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DeleteUnusedDevices@CDeviceManager@@AEAAXXZ @ 0x1800D9870
+ * Callers:
+ *     ?AdvanceFrame@CDeviceManager@@IEAAXXZ @ 0x1800762D4 (-AdvanceFrame@CDeviceManager@@IEAAXXZ.c)
+ * Callees:
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180089410 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ??$ReleaseInterface@VCD3DDevice@@@@YAXAEAPEAVCD3DDevice@@@Z @ 0x180103EFC (--$ReleaseInterface@VCD3DDevice@@@@YAXAEAPEAVCD3DDevice@@@Z.c)
+ */
+
 void __fastcall CDeviceManager::DeleteUnusedDevices(CDeviceManager *this)
 {
   __int64 v1; // rbx

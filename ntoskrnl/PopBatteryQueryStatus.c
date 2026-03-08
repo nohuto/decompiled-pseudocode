@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopBatteryQueryStatus @ 0x140992530
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ */
+
 NTSTATUS __fastcall PopBatteryQueryStatus(__int64 a1, char a2)
 {
   struct _IRP *v2; // rdi

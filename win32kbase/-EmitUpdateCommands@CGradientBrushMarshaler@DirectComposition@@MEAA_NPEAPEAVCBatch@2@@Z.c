@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AA64C
+ * Callers:
+ *     ?EmitUpdateCommands@CLinearGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00AA5C0 (-EmitUpdateCommands@CLinearGradientBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CRadialGradientBrushMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02539F0 (-EmitUpdateCommands@CRadialGradientBrushMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_102dfb2d34a03fd5ee7126208604c48c___lambda_0bc58e56ac4a9aab059b2d62d77c79a6___ @ 0x1C00AA720 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_102dfb2d34a03fd5ee7126208604c48.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6f12aa49554ca87a6ca48499eb9edd40___ @ 0x1C00AA8C4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6f12aa49554ca87a6ca48499eb9edd4.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3bfb22c0df26ef85e3a40cf3a8fe7b67___ @ 0x1C00AA9AC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_3bfb22c0df26ef85e3a40cf3a8fe7b6.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_69376022da3f369b4dbaa0651d8b984f___ @ 0x1C0253760 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_69376022da3f369b4dbaa0651d8b984.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_c0e43ab59b3e766de02193d11da2a3d6___ @ 0x1C02537D4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_c0e43ab59b3e766de02193d11da2a3d.c)
+ */
+
 char __fastcall DirectComposition::CGradientBrushMarshaler::EmitUpdateCommands(
         DirectComposition::CGradientBrushMarshaler *this,
         struct DirectComposition::CBatch **a2)

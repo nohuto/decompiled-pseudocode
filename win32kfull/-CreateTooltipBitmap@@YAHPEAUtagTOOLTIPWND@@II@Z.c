@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateTooltipBitmap@@YAHPEAUtagTOOLTIPWND@@II@Z @ 0x1C0228074
+ * Callers:
+ *     xxxTooltipWndProc @ 0x1C00FA000 (xxxTooltipWndProc.c)
+ * Callees:
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     ?DestroyTooltipBitmap@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C00F9314 (-DestroyTooltipBitmap@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     ?GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z @ 0x1C00F9B80 (-GetTooltipDC@@YAPEAUHDC__@@PEAUtagTOOLTIPWND@@PEAUtagMONITOR@@@Z.c)
+ */
+
 __int64 __fastcall CreateTooltipBitmap(struct tagTOOLTIPWND *a1, int a2, unsigned int a3)
 {
   HDC TooltipDC; // rbx

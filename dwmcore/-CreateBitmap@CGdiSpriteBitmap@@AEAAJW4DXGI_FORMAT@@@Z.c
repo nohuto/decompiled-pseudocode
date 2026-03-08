@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800A87C4
+ * Callers:
+ *     ?EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ @ 0x1800A8784 (-EnsureBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ.c)
+ *     ?SetPixelFormat@?$CGdiSpriteBitmapGeneratedT@VCGdiSpriteBitmap@@VCResource@@@@QEAAJW4DXGI_FORMAT@@@Z @ 0x1800A8E0C (-SetPixelFormat@-$CGdiSpriteBitmapGeneratedT@VCGdiSpriteBitmap@@VCResource@@@@QEAAJW4DXGI_FORMAT.c)
+ *     ?GetCurrentRenderingRealization@CGdiSpriteBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x1800D9630 (-GetCurrentRenderingRealization@CGdiSpriteBitmap@@UEAAJPEAPEAVIBitmapRealization@@@Z.c)
+ * Callees:
+ *     ?GetSurfaceData@CRedirectedGDISurface@@QEAAJPEAW4_RedirectGDISurfaceRedirStyle@@PEAI11PEAPEAXPEAU_LUID@@2PEAW4DXGI_FORMAT@@@Z @ 0x1800A88EC (-GetSurfaceData@CRedirectedGDISurface@@QEAAJPEAW4_RedirectGDISurfaceRedirStyle@@PEAI11PEAPEAXPEA.c)
+ *     ?RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800A89E0 (-RegisterForSignaling@CGdiSpriteBitmap@@AEAAJXZ.c)
+ *     ?UpdatePixelFormat@CGdiSpriteBitmap@@AEAAXW4DXGI_FORMAT@@@Z @ 0x1800A8AD8 (-UpdatePixelFormat@CGdiSpriteBitmap@@AEAAXW4DXGI_FORMAT@@@Z.c)
+ *     ?ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800A8E8C (-ReleaseBitmapResources@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?OnMarginsChanged@CGdiSpriteBitmap@@QEAAXXZ @ 0x1800A9030 (-OnMarginsChanged@CGdiSpriteBitmap@@QEAAXXZ.c)
+ *     ?RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ @ 0x1800A90C8 (-RegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAJXZ.c)
+ *     ?CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z @ 0x1800A911C (-CreateDeviceBitmap@CGdiSpriteBitmap@@AEAAJPEAXU_LUID@@II@Z.c)
+ *     ?UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ @ 0x1800AB9F0 (-UnRegisterWithSurfaceManager@CGdiSpriteBitmap@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z @ 0x1800F4C2C (-CreateSectionBitmap@CGdiSpriteBitmap@@AEAAJPEAXII@Z.c)
+ */
+
 __int64 __fastcall CGdiSpriteBitmap::CreateBitmap(CRedirectedGDISurface **this, enum DXGI_FORMAT a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFindNextForwardRunSet @ 0x1402DC12C
+ * Callers:
+ *     HvpResetPageProtection @ 0x140765A30 (HvpResetPageProtection.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x140818490 (CmFcpManagerDrainUsageNotifications.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindNextForwardRunSet(__int64 a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r11d

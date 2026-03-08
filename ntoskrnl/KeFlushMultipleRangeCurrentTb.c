@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeFlushMultipleRangeCurrentTb @ 0x140387610
+ * Callers:
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ * Callees:
+ *     KiIsSecureProcessFlush @ 0x140211FFC (KiIsSecureProcessFlush.c)
+ *     KiFlushRangeTb @ 0x140387C18 (KiFlushRangeTb.c)
+ *     HvlFlushRangeListTb @ 0x1403C689C (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x1403C8E3C (KiPrepareFlushParameters.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VmFlushTb @ 0x14045DE9C (VmFlushTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x14056FB44 (KiPrepareFlushCurrentAffinity.c)
+ *     ExFlushTb @ 0x14060AC48 (ExFlushTb.c)
+ */
+
 char __fastcall KeFlushMultipleRangeCurrentTb(unsigned int a1, unsigned __int64 *a2, unsigned int a3)
 {
   __int64 v5; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateHidProcessRequest@@YAPEAUtagPROCESS_HID_REQUEST@@GG@Z @ 0x1C00D5FC8
+ * Callers:
+ *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C00D5E84 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagPROCESS_HID_REQUEST *__fastcall AllocateHidProcessRequest(__int16 a1, __int16 a2)
 {
   struct tagPROCESS_HID_REQUEST *result; // rax

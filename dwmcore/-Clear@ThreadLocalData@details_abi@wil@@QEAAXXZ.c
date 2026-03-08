@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Clear@ThreadLocalData@details_abi@wil@@QEAAXXZ @ 0x180194C34
+ * Callers:
+ *     ??1?$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x18019474C (--1-$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil::details_abi::ThreadLocalData::Clear(wil::details_abi::ThreadLocalData *this)
 {
   __int64 v1; // rdi

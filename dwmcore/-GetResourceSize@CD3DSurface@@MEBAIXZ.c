@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetResourceSize@CD3DSurface@@MEBAIXZ @ 0x180298D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E6F0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ */
+
 __int64 __fastcall CD3DSurface::GetResourceSize(CD3DSurface *this)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetObjectsFlag @ 0x1C004FE60
+ * Callers:
+ *     AMLIFinalizeObject @ 0x1C0048034 (AMLIFinalizeObject.c)
+ *     SetObjectsFlag @ 0x1C004FE60 (SetObjectsFlag.c)
+ * Callees:
+ *     SetObjectsFlag @ 0x1C004FE60 (SetObjectsFlag.c)
+ */
+
 __int64 __fastcall SetObjectsFlag(__int64 a1)
 {
   _QWORD *v1; // rdi

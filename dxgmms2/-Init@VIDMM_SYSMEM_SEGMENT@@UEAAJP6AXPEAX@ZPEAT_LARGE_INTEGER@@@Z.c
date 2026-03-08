@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Init@VIDMM_SYSMEM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C00BA5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z @ 0x1C00BA7D0 (-Init@VIDMM_SEGMENT@@UEAAJP6AXPEAX@ZPEAT_LARGE_INTEGER@@@Z.c)
+ */
+
 __int64 __fastcall VIDMM_SYSMEM_SEGMENT::Init(VIDMM_SYSMEM_SEGMENT *this, void (*a2)(void *), union _LARGE_INTEGER *a3)
 {
   __int64 result; // rax

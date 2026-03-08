@@ -1,3 +1,11 @@
+/*
+ * XREFs of RootHub_ReleaseHardware @ 0x1C007A350
+ * Callers:
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0079480 (Controller_WdfEvtDeviceReleaseHardware.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall RootHub_ReleaseHardware(__int64 a1, __int64 a2, __int64 a3)
 {
   char *v4; // rcx

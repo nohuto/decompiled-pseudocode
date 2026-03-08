@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAddMcaToProcessorGenericSection @ 0x1404FFF0C
+ * Callers:
+ *     HalpCreateMcaMemoryErrorRecord @ 0x140500898 (HalpCreateMcaMemoryErrorRecord.c)
+ *     HalpCreateMcaProcessorErrorRecord @ 0x140500B80 (HalpCreateMcaProcessorErrorRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAddMcaToProcessorGenericSection(__int64 a1, __int64 *a2)
 {
   __int16 v2; // r8

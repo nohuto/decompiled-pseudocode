@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicX2WriteCommand @ 0x1402CFB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpApicX2WriteCommand(unsigned int a1, unsigned int a2)
 {
   unsigned __int64 result; // rax

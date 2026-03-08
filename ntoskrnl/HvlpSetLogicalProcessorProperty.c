@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpSetLogicalProcessorProperty @ 0x14053FBE4
+ * Callers:
+ *     HvlStartBootLogicalProcessors @ 0x1403714E0 (HvlStartBootLogicalProcessors.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 __fastcall HvlpSetLogicalProcessorProperty(ULONG a1, __int64 a2, __int128 *a3)
 {
   PHYSICAL_ADDRESS *v5; // rax

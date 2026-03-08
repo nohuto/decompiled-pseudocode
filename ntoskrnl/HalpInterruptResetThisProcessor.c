@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpInterruptResetThisProcessor @ 0x140502E70
+ * Callers:
+ *     HalpInterruptRebootService @ 0x140519E00 (HalpInterruptRebootService.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     HalpInterruptInitializeLocalUnit @ 0x1403786F0 (HalpInterruptInitializeLocalUnit.c)
+ *     HalpInterruptInitializeController @ 0x14037B24C (HalpInterruptInitializeController.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpPowerWriteResetCommand @ 0x140504AEC (HalpPowerWriteResetCommand.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 void __noreturn HalpInterruptResetThisProcessor()
 {
   unsigned int Number; // esi

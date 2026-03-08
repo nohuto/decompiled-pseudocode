@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmParkReportSoftParkChange @ 0x14059AD7C
+ * Callers:
+ *     PpmPerfAction @ 0x140236430 (PpmPerfAction.c)
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1402DA1D0 (KeInterlockedClearProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1402DE1C0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KeTransitionProcessorParkState @ 0x14057B3EC (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingSoftParkedStateChange @ 0x14059789C (PpmEventCoreParkingSoftParkedStateChange.c)
+ */
+
 char __fastcall PpmParkReportSoftParkChange(__int64 a1)
 {
   int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwGetCurrentProcessorNumberEx @ 0x140414270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwGetCurrentProcessorNumberEx(__int64 a1, __int64 a2)
 {
   _disable();

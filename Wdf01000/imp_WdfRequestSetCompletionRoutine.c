@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfRequestSetCompletionRoutine @ 0x1C00070E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 void __fastcall imp_WdfRequestSetCompletionRoutine(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFREQUEST__ *Request,

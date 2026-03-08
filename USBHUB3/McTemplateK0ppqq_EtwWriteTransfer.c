@@ -1,3 +1,19 @@
+/*
+ * XREFs of McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014388
+ * Callers:
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C0034010 (HUBMISC_LogDescriptorValidationWarningForDevice.c)
+ *     HUBMISC_LogDescriptorValidationErrorForHub @ 0x1C00340B0 (HUBMISC_LogDescriptorValidationErrorForHub.c)
+ *     HUBMISC_LogDescriptorValidationWarningForHub @ 0x1C0034100 (HUBMISC_LogDescriptorValidationWarningForHub.c)
+ *     FWUPDATE_EvtDeviceD0Entry @ 0x1C003FC60 (FWUPDATE_EvtDeviceD0Entry.c)
+ *     FWUPDATE_EvtDeviceD0Exit @ 0x1C003FD10 (FWUPDATE_EvtDeviceD0Exit.c)
+ *     FWUPDATE_EvtIoInternalDeviceControl @ 0x1C003FFE0 (FWUPDATE_EvtIoInternalDeviceControl.c)
+ *     HUBPDO_CreatePdoInternal @ 0x1C007EDF4 (HUBPDO_CreatePdoInternal.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0ppqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-21h] BYREF

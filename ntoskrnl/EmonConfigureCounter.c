@@ -1,3 +1,13 @@
+/*
+ * XREFs of EmonConfigureCounter @ 0x14051AAF8
+ * Callers:
+ *     EmonDisableMonitoring @ 0x14051AD10 (EmonDisableMonitoring.c)
+ *     EmonEnableMonitoring @ 0x14051ADD0 (EmonEnableMonitoring.c)
+ *     EmonRestartProfiling @ 0x140A94170 (EmonRestartProfiling.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall EmonConfigureCounter(unsigned int a1, char a2, __int64 a3, unsigned int a4, char a5)
 {
   __int64 v6; // rdi

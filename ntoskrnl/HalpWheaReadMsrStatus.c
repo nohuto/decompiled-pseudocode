@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpWheaReadMsrStatus @ 0x14037D160
+ * Callers:
+ *     HalpMcaReadErrorPresence @ 0x14037D0E4 (HalpMcaReadErrorPresence.c)
+ *     HalpMcaReadError @ 0x1405014E0 (HalpMcaReadError.c)
+ *     HalpMcaProcessorBankClear @ 0x140503EFC (HalpMcaProcessorBankClear.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpWheaReadMsrStatus(__int64 a1, int a2, __int64 a3)
 {
   __int64 v6; // rdx

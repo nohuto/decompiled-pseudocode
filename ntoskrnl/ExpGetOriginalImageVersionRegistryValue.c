@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpGetOriginalImageVersionRegistryValue @ 0x14084AC20
+ * Callers:
+ *     ExInitSystemPhase2 @ 0x140B64A84 (ExInitSystemPhase2.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 __int64 __fastcall ExpGetOriginalImageVersionRegistryValue(_DWORD *a1)
 {
   int v2; // edi

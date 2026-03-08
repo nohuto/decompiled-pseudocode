@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmIdleRollbackCoordinatedSelection @ 0x140582F8C
+ * Callers:
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405821CC (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140582574 (PpmIdleCheckCoordinatedStateEligibility.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmIdleRollbackCoordinatedSelection(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r11

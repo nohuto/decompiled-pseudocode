@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiSetThreadSchedulingGroup @ 0x1403557B8
+ * Callers:
+ *     KeSetProcessSchedulingGroup @ 0x1403556A4 (KeSetProcessSchedulingGroup.c)
+ * Callees:
+ *     KiDeferredReadyThread @ 0x140226178 (KiDeferredReadyThread.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiRemoveThreadFromSharedReadyQueue @ 0x1402AE13C (KiRemoveThreadFromSharedReadyQueue.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402AF3E4 (KiRemoveThreadFromSchedulingGroup.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x1402AF670 (KiUpdateThreadSchedulingProperties.c)
+ *     KiEnterDeferredReadyState @ 0x140341110 (KiEnterDeferredReadyState.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall KiSetThreadSchedulingGroup(__int64 a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // r12

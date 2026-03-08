@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiYieldPageTableWalk @ 0x1402D4558
+ * Callers:
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ * Callees:
+ *     MiReleaseWalkLocks @ 0x1402D45CC (MiReleaseWalkLocks.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiYieldPageTableWalk(__int64 a1, int a2)
 {
   __int64 (__fastcall *v2)(__int64); // rax

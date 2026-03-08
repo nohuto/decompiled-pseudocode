@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HideVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x1801ECF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HideVisuals@CVisualGroup@@QEAAXXZ @ 0x18012DF18 (-HideVisuals@CVisualGroup@@QEAAXXZ.c)
+ */
+
 void __fastcall CMagnifierRenderTarget::HideVisuals(CMagnifierRenderTarget *this)
 {
   CVisualGroup *v2; // rcx

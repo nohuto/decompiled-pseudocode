@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExInterlockedPushEntryList @ 0x14060A750
+ * Callers:
+ *     WheapPushPendingOfflineWrapper @ 0x140A06F98 (WheapPushPendingOfflineWrapper.c)
+ *     WheapTrackPendingPage @ 0x140A06FC8 (WheapTrackPendingPage.c)
+ * Callees:
+ *     ExpAcquireSpinLockDisabled @ 0x1402E50A8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PSINGLE_LIST_ENTRY __stdcall ExInterlockedPushEntryList(
         PSINGLE_LIST_ENTRY ListHead,
         PSINGLE_LIST_ENTRY ListEntry,

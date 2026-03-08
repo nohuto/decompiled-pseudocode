@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhEtwRundown @ 0x1C005BED0
+ * Callers:
+ *     UsbhEtwEnableCallback @ 0x1C005B510 (UsbhEtwEnableCallback.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0031BEC (UsbhAcquireFdoPnpLock.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C0031CB0 (UsbhAcquirePdoStateLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhEtwLogDeviceDescription @ 0x1C005B5DC (UsbhEtwLogDeviceDescription.c)
+ *     UsbhEtwLogDeviceInformation @ 0x1C005B6F8 (UsbhEtwLogDeviceInformation.c)
+ *     UsbhEtwLogHubInformation @ 0x1C005BA60 (UsbhEtwLogHubInformation.c)
+ *     UsbhEtwLogHubPastExceptions @ 0x1C005BB74 (UsbhEtwLogHubPastExceptions.c)
+ *     UsbhEtwLogPortInformation @ 0x1C005BD4C (UsbhEtwLogPortInformation.c)
+ */
+
 LONG UsbhEtwRundown()
 {
   struct _DEVICE_OBJECT *i; // rdi

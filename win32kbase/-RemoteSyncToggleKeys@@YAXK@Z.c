@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoteSyncToggleKeys@@YAXK@Z @ 0x1C021A3F8
+ * Callers:
+ *     ProcessKeyboardInputWorker @ 0x1C021A7E0 (ProcessKeyboardInputWorker.c)
+ * Callees:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall RemoteSyncToggleKeys(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

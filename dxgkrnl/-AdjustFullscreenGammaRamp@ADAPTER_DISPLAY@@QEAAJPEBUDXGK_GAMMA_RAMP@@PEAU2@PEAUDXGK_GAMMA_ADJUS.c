@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AdjustFullscreenGammaRamp@ADAPTER_DISPLAY@@QEAAJPEBUDXGK_GAMMA_RAMP@@PEAU2@PEAUDXGK_GAMMA_ADJUSTMENT@@@Z @ 0x1C02B6370
+ * Callers:
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1C0179B90 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ *     ?GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C01D491C (-GetDxgiGammaRamp@ADAPTER_DISPLAY@@QEAAJIPEAPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ * Callees:
+ *     ?ScaleAndOffset@@YAGGMM@Z @ 0x1C02BABB8 (-ScaleAndOffset@@YAGGMM@Z.c)
+ */
+
 __int64 __fastcall ADAPTER_DISPLAY::AdjustFullscreenGammaRamp(
         ADAPTER_DISPLAY *this,
         const struct DXGK_GAMMA_RAMP *a2,

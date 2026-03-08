@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwDeleteObjectAuditAlarm @ 0x140413E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwDeleteObjectAuditAlarm(__int64 a1, __int64 a2)
 {
   _disable();

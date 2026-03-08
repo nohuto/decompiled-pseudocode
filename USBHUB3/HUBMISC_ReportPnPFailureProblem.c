@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBMISC_ReportPnPFailureProblem @ 0x1C00835A0
+ * Callers:
+ *     HUBHSM_ReportingErrorToPnp @ 0x1C0008E40 (HUBHSM_ReportingErrorToPnp.c)
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C0017920 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlStringCbPrintfW @ 0x1C0013FD0 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBMISC_ReportPnPFailureProblem(__int64 a1, ULONG a2)
 {
   wchar_t *Data; // rbp

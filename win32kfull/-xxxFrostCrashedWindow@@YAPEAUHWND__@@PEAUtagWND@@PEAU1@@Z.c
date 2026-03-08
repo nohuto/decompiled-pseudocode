@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxFrostCrashedWindow@@YAPEAUHWND__@@PEAUtagWND@@PEAU1@@Z @ 0x1C01F5880
+ * Callers:
+ *     NtUserFrostCrashedWindow @ 0x1C01D0B20 (NtUserFrostCrashedWindow.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?_ShouldFrostCrashedWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F53A4 (-_ShouldFrostCrashedWindow@@YAHPEAUtagWND@@@Z.c)
+ *     ?xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z @ 0x1C01F681C (-xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z.c)
+ */
+
 __int64 __fastcall xxxFrostCrashedWindow(struct tagWND *a1, HWND a2)
 {
   __int64 v4; // rsi

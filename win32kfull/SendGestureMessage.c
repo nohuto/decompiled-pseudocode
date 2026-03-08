@@ -1,3 +1,15 @@
+/*
+ * XREFs of SendGestureMessage @ 0x1C020742C
+ * Callers:
+ *     NtUserfnGESTURE @ 0x1C01E1740 (NtUserfnGESTURE.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     AllocGestureInfo @ 0x1C0207064 (AllocGestureInfo.c)
+ *     ValidateGestureInfo @ 0x1C0207728 (ValidateGestureInfo.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ */
+
 __int64 __fastcall SendGestureMessage(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmFcpInitializeChangeSubscription @ 0x140818A88
+ * Callers:
+ *     CmFcManagerRegisterFeatureConfigurationChangeNotification @ 0x140818CE8 (CmFcManagerRegisterFeatureConfigurationChangeNotification.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall CmFcpInitializeChangeSubscription(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

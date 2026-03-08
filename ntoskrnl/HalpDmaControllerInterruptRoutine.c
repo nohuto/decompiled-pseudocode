@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaControllerInterruptRoutine @ 0x1405252A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall HalpDmaControllerInterruptRoutine(__int64 a1, __int64 a2)
 {
   char v3; // bl

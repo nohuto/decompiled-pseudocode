@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopInitVideoWnfState @ 0x140B71A1C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ */
+
 __int64 PopInitVideoWnfState()
 {
   int v1; // [rsp+50h] [rbp+8h] BYREF

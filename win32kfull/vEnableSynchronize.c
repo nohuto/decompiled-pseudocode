@@ -1,3 +1,11 @@
+/*
+ * XREFs of vEnableSynchronize @ 0x1C00F3620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetTimer @ 0x1C022FBB8 (UserSetTimer.c)
+ */
+
 void __fastcall vEnableSynchronize(__int64 a1)
 {
   int v1; // esi

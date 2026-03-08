@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlRestoreContext @ 0x140420880
+ * Callers:
+ *     RtlGuardRestoreContext @ 0x1402D851C (RtlGuardRestoreContext.c)
+ * Callees:
+ *     KeCheckStackAndTargetAddress @ 0x1402DC470 (KeCheckStackAndTargetAddress.c)
+ *     KasanWrapperRtlRestoreContext @ 0x1402EA9A0 (KasanWrapperRtlRestoreContext.c)
+ *     ZwContinue @ 0x140412B70 (ZwContinue.c)
+ *     KeKernelShadowStackRestoreContext @ 0x1405795E0 (KeKernelShadowStackRestoreContext.c)
+ */
+
 __int64 __fastcall RtlRestoreContext(
         __int64 a1,
         __int64 a2,

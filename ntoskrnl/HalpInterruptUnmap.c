@@ -1,3 +1,23 @@
+/*
+ * XREFs of HalpInterruptUnmap @ 0x140930578
+ * Callers:
+ *     HalpTimerUnmapInterrupt @ 0x1405074D0 (HalpTimerUnmapInterrupt.c)
+ *     HaliRemoveInterruptRemapping @ 0x140930550 (HaliRemoveInterruptRemapping.c)
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpInterruptIsRemappingRequired @ 0x14028EDCC (HalpInterruptIsRemappingRequired.c)
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     xHalUnmaskInterrupt @ 0x14036D7F0 (xHalUnmaskInterrupt.c)
+ *     HalpInterruptIsHvMsiRemappingSupported @ 0x140409B7C (HalpInterruptIsHvMsiRemappingSupported.c)
+ *     HalpSetIrtEntry @ 0x140518128 (HalpSetIrtEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     HalpIrtFreeIndex @ 0x1409319B4 (HalpIrtFreeIndex.c)
+ *     HalpHvUnmapIoApicDeviceInterrupt @ 0x140A843E8 (HalpHvUnmapIoApicDeviceInterrupt.c)
+ *     HalpHvUnmapDeviceMsiRange @ 0x140A929EC (HalpHvUnmapDeviceMsiRange.c)
+ */
+
 __int64 __fastcall HalpInterruptUnmap(
         __int64 a1,
         __int64 a2,

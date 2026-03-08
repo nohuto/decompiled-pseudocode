@@ -1,3 +1,14 @@
+/*
+ * XREFs of DwmDestroyDeviceSpecificResources @ 0x1C007B790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0028198 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C002D7C8 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     GreDwmHasSoftwareCursor @ 0x1C007F36C (GreDwmHasSoftwareCursor.c)
+ *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C0128F08 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
+ */
+
 void __fastcall DwmDestroyDeviceSpecificResources(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rbx

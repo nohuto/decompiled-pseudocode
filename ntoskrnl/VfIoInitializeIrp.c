@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfIoInitializeIrp @ 0x140ACA99C
+ * Callers:
+ *     IoReuseIrp @ 0x1402B1EB0 (IoReuseIrp.c)
+ *     IovInitializeIrp @ 0x140ABE758 (IovInitializeIrp.c)
+ * Callees:
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 __int64 __fastcall VfIoInitializeIrp(__int64 a1, const void *a2, char a3)
 {
   __int64 result; // rax

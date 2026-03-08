@@ -1,3 +1,18 @@
+/*
+ * XREFs of Controller_PopulateDeviceFlagsFromKse @ 0x1C001AB68
+ * Callers:
+ *     Controller_PopulateDeviceFlags @ 0x1C00738B4 (Controller_PopulateDeviceFlags.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     RtlStringCchPrintfW @ 0x1C000CF50 (RtlStringCchPrintfW.c)
+ *     WPP_RECORDER_SF_S @ 0x1C001A234 (WPP_RECORDER_SF_S.c)
+ *     WPP_RECORDER_SF_diS @ 0x1C001B1C8 (WPP_RECORDER_SF_diS.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ */
+
 __int64 __fastcall Controller_PopulateDeviceFlagsFromKse(__int64 a1, __int64 a2, int a3)
 {
   __int64 result; // rax

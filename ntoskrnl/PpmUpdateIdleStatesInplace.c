@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmUpdateIdleStatesInplace @ 0x140583EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmUpdateIdleStatesInplace(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

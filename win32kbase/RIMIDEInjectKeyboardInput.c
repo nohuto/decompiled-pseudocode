@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDEInjectKeyboardInput @ 0x1C0003934
+ * Callers:
+ *     RIMIDEInjectKeyboardFromKeybdInputStruct @ 0x1C0003708 (RIMIDEInjectKeyboardFromKeybdInputStruct.c)
+ * Callees:
+ *     RIMQueueKeyboardInput @ 0x1C0003A10 (RIMQueueKeyboardInput.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMIDEInjectKeyboardInput(__int64 a1)
 {
   __int64 v1; // rbp

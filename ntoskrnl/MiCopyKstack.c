@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCopyKstack @ 0x14062A6D0
+ * Callers:
+ *     MiSwapStackPage @ 0x14039604C (MiSwapStackPage.c)
+ *     MiStackTheftIsr @ 0x14062B050 (MiStackTheftIsr.c)
+ * Callees:
+ *     MiWriteValidPteNewPage @ 0x140211DE8 (MiWriteValidPteNewPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeCopyPage @ 0x14041BC90 (KeCopyPage.c)
+ */
+
 __int64 __fastcall MiCopyKstack(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rdi

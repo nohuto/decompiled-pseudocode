@@ -1,3 +1,14 @@
+/*
+ * XREFs of SshpSetBlockerActive @ 0x1402F11C8
+ * Callers:
+ *     SleepstudyHelper_ComponentInactive @ 0x1402F0EC0 (SleepstudyHelper_ComponentInactive.c)
+ *     SleepstudyHelper_ComponentActiveLocked @ 0x1402F0FC0 (SleepstudyHelper_ComponentActiveLocked.c)
+ *     SshpBlockerActiveDereference @ 0x1402F102C (SshpBlockerActiveDereference.c)
+ *     SleepstudyHelperBlockerActiveReference @ 0x1402F1100 (SleepstudyHelperBlockerActiveReference.c)
+ * Callees:
+ *     SshpStopBlockerAccounting @ 0x1402F1228 (SshpStopBlockerAccounting.c)
+ */
+
 __int64 __fastcall SshpSetBlockerActive(__int64 a1, char a2)
 {
   int v3; // ecx

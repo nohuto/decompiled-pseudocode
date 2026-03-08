@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleUpdateSynchronizationState @ 0x140583360
+ * Callers:
+ *     PoInitiateProcessorWake @ 0x140581880 (PoInitiateProcessorWake.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmIdleUpdateSynchronizationState(unsigned __int32 *a1, unsigned __int8 a2, unsigned __int8 a3)
 {
   unsigned __int32 v3; // eax

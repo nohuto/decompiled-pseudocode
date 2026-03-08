@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkHotPatchesForHiberPhase @ 0x140640440
+ * Callers:
+ *     MmMarkImageForHiberPhase @ 0x140AA9DFC (MmMarkImageForHiberPhase.c)
+ * Callees:
+ *     MiEnumerateBasePatches @ 0x1407F7420 (MiEnumerateBasePatches.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140AA9324 (MiMarkNonPagedHiberPhasePages.c)
+ */
+
 __int64 __fastcall MiMarkHotPatchesForHiberPhase(__int64 a1)
 {
   __int64 v1; // rdi

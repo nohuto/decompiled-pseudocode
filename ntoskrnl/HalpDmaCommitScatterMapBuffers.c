@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpDmaCommitScatterMapBuffers @ 0x14050E5D4
+ * Callers:
+ *     HalpDmaAllocateLocalScatterPool @ 0x1409312D8 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x1409316C4 (HalpDmaGrowScatterMapBuffers.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaGetTranslationEntries @ 0x14039860C (HalpDmaGetTranslationEntries.c)
+ *     HalpDmaPrependTranslations @ 0x1404541B6 (HalpDmaPrependTranslations.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaCommitScatterMapBuffers(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
 {
   __int64 *v8; // r14

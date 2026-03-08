@@ -1,3 +1,22 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C0013F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0013DC4 (WPP_RECORDER_SF_qLL.c)
+ *     Etw_ControllerRundown @ 0x1C0013EAC (Etw_ControllerRundown.c)
+ *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014130 (Command_D0EntryPostInterruptsEnabled.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     Controller_Start @ 0x1C0014F3C (Controller_Start.c)
+ *     Wmi_CreateControllerCapabilities @ 0x1C00151B4 (Wmi_CreateControllerCapabilities.c)
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x1C0015630 (RootHub_DetectAndAcknowledgePortResume.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C0036EF4 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0036F88 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HT_CreateHalftoneBrush @ 0x1C0252A88
+ * Callers:
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C012448C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     HT_CreateStandardMonoPattern @ 0x1C0252C14 (HT_CreateStandardMonoPattern.c)
+ * Callees:
+ *     ComputeBytesPerScanLine @ 0x1C0253E3C (ComputeBytesPerScanLine.c)
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ *     CreateHalftoneBrushPat @ 0x1C02591B0 (CreateHalftoneBrushPat.c)
+ */
+
 __int64 __fastcall HT_CreateHalftoneBrush(int a1, int a2, __int64 a3, int a4, __int64 a5)
 {
   char v5; // bl

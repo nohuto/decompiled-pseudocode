@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitSetStartPointCommand@CLinearGradientLegacyMilBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0258CEC
+ * Callers:
+ *     ?EmitUpdateCommands@CLinearGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C025A280 (-EmitUpdateCommands@CLinearGradientLegacyMilBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatc.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CLinearGradientLegacyMilBrushMarshaler::EmitSetStartPointCommand(
         DirectComposition::CLinearGradientLegacyMilBrushMarshaler *this,
         struct DirectComposition::CBatch ***a2)

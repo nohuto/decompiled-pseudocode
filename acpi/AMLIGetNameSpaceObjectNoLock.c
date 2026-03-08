@@ -1,3 +1,14 @@
+/*
+ * XREFs of AMLIGetNameSpaceObjectNoLock @ 0x1C00484D0
+ * Callers:
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ * Callees:
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObjectNoLock @ 0x1C004F840 (GetNameSpaceObjectNoLock.c)
+ */
+
 __int64 __fastcall AMLIGetNameSpaceObjectNoLock(_BYTE *a1, __int64 *a2, _QWORD *a3, unsigned int a4)
 {
   __int64 v8; // rdx

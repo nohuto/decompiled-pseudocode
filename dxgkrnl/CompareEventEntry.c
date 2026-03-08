@@ -1,3 +1,11 @@
+/*
+ * XREFs of CompareEventEntry @ 0x1C0074C98
+ * Callers:
+ *     InsertEventEntryInLookUpTable @ 0x1C007522C (InsertEventEntryInLookUpTable.c)
+ * Callees:
+ *     memcmp @ 0x1C00270F0 (memcmp.c)
+ */
+
 int __fastcall CompareEventEntry(unsigned __int8 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbp

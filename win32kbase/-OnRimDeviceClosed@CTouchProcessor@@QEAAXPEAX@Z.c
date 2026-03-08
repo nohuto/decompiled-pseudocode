@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?OnRimDeviceClosed@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01FC724
+ * Callers:
+ *     ?OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C0211DD0 (-OnRIMDeviceClosed@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0096A80 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     IsTouchpadDevice @ 0x1C00F422E (IsTouchpadDevice.c)
+ *     ?IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z @ 0x1C01FC028 (-IsTouchDevice@CTouchProcessor@@IEBAHPEAX@Z.c)
+ *     ?OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z @ 0x1C0215D38 (-OnDeviceRemoval@DelayZonePalmRejection@@QEAAXPEAX@Z.c)
+ *     ApiSetEditionDestroyEdgePalmRejectionZones @ 0x1C023D290 (ApiSetEditionDestroyEdgePalmRejectionZones.c)
+ */
+
 void __fastcall CTouchProcessor::OnRimDeviceClosed(CTouchProcessor *this, void *a2)
 {
   void *v2; // rdi

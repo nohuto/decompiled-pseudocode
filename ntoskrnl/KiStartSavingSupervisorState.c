@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiStartSavingSupervisorState @ 0x140A9C620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KiUpdateSavedSupervisorState @ 0x140A9C6A0 (KiUpdateSavedSupervisorState.c)
+ */
+
 __int64 KiStartSavingSupervisorState()
 {
   struct _KTHREAD *CurrentThread; // rax

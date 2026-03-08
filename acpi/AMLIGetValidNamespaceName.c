@@ -1,3 +1,13 @@
+/*
+ * XREFs of AMLIGetValidNamespaceName @ 0x1C004ABA8
+ * Callers:
+ *     AMLICreateNativeNamespaceObject @ 0x1C00499F8 (AMLICreateNativeNamespaceObject.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AMLIGetValidNamespaceName(__int64 a1, int *a2)
 {
   int *v2; // r10

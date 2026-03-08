@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CLineGeometryMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02547F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C005E420 (-EmitUpdateCommands@CGeometryMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_12bdc2525042d1beee710f192f1f0697___ @ 0x1C0254704 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_12bdc2525042d1beee710f192f1f069.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_8e1029071930d5873310be8659e04745___ @ 0x1C0254778 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_8e1029071930d5873310be8659e0474.c)
+ */
+
 char __fastcall DirectComposition::CLineGeometryMarshaler::EmitUpdateCommands(
         DirectComposition::CLineGeometryMarshaler *this,
         struct DirectComposition::CBatch ***a2)

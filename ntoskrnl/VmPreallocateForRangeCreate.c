@@ -1,3 +1,12 @@
+/*
+ * XREFs of VmPreallocateForRangeCreate @ 0x1409D9C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VmpAllocateMemoryRanges @ 0x1409DA1C4 (VmpAllocateMemoryRanges.c)
+ *     VmpProcessContextSetup @ 0x1409DA930 (VmpProcessContextSetup.c)
+ */
+
 __int64 __fastcall VmPreallocateForRangeCreate(__int64 *a1, __int64 a2)
 {
   _KPROCESS *Process; // rdi

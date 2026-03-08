@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSha384Result @ 0x1403F49DC
+ * Callers:
+ *     HashpHashMemory @ 0x140A7438C (HashpHashMemory.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptSha384Init @ 0x1403F4990 (SymCryptSha384Init.c)
+ *     SymCryptSha512Result @ 0x1403F61C8 (SymCryptSha512Result.c)
+ */
+
 __int64 __fastcall SymCryptSha384Result(__int64 a1, _OWORD *a2)
 {
   __int128 v4; // xmm1

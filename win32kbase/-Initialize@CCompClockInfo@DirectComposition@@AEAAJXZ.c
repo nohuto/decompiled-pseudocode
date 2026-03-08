@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCompClockInfo@DirectComposition@@AEAAJXZ @ 0x1C0008398
+ * Callers:
+ *     ?Create@CCompClockInfo@DirectComposition@@SAJAEBUtagCOMPOSITION_TARGET_ID@@PEAPEAV12@@Z @ 0x1C000831C (-Create@CCompClockInfo@DirectComposition@@SAJAEBUtagCOMPOSITION_TARGET_ID@@PEAPEAV12@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DirectComposition::CCompClockInfo::Initialize(DirectComposition::CCompClockInfo *this)
 {
   __int64 result; // rax

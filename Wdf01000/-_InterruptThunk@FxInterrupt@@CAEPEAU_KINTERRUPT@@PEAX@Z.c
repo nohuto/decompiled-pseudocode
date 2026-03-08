@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_InterruptThunk@FxInterrupt@@CAEPEAU_KINTERRUPT@@PEAX@Z @ 0x1C0009100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireLock@FxInterrupt@@QEAAXXZ @ 0x1C00058A4 (-AcquireLock@FxInterrupt@@QEAAXXZ.c)
+ *     ?ReleaseLock@FxInterrupt@@QEAAXXZ @ 0x1C0005984 (-ReleaseLock@FxInterrupt@@QEAAXXZ.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?WakeInterruptIsr@FxInterrupt@@QEAAEXZ @ 0x1C007F8B8 (-WakeInterruptIsr@FxInterrupt@@QEAAEXZ.c)
+ */
+
 unsigned __int8 __fastcall FxInterrupt::_InterruptThunk(struct _KINTERRUPT *Interrupt, FxInterrupt *ServiceContext)
 {
   __int64 (__fastcall **p_m_EvtInterruptIsr)(unsigned __int64); // rdi

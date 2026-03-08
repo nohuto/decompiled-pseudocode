@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$emplace_back@VCDepthSortingLayer@@@?$vector@VCDepthSortingLayer@@V?$allocator@VCDepthSortingLayer@@@std@@@std@@QEAA?A_T$$QEAVCDepthSortingLayer@@@Z @ 0x1802568F8
+ * Callers:
+ *     ?AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z @ 0x180256960 (-AddVisual@CDepthSortedVisualCollection@@QEAAXPEAVCVisual@@AEAVCMILMatrix@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall std::vector<CDepthSortingLayer>::emplace_back<CDepthSortingLayer>(__int64 *a1, __int64 a2)
 {
   __int64 v4; // rdx

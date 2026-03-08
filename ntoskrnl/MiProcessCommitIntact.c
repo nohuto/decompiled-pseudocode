@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiProcessCommitIntact @ 0x1402FDBAC
+ * Callers:
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiSplitReducedCommitClonePage @ 0x14061A624 (MiSplitReducedCommitClonePage.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x140615D8C (MiIsVadEligibleForCommitRelease.c)
+ */
+
 __int64 __fastcall MiProcessCommitIntact(unsigned __int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlNotifyCompleteIrpList @ 0x1407041D4
+ * Callers:
+ *     FsRtlNotifyFilterReportChangeLiteEx @ 0x140703B40 (FsRtlNotifyFilterReportChangeLiteEx.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x140775FD8 (FsRtlNotifyCleanupOneEntry.c)
+ *     FsRtlNotifyFilterReportChange @ 0x140848F70 (FsRtlNotifyFilterReportChange.c)
+ *     FsRtlCheckNotifyForDelete @ 0x14093CF20 (FsRtlCheckNotifyForDelete.c)
+ *     FsRtlCheckNotifyForDeleteLite @ 0x14093CF84 (FsRtlCheckNotifyForDeleteLite.c)
+ * Callees:
+ *     FsRtlNotifyCompleteIrp @ 0x140704270 (FsRtlNotifyCompleteIrp.c)
+ */
+
 __int64 __fastcall FsRtlNotifyCompleteIrpList(__int64 a1, int a2)
 {
   __int64 **v2; // rbx

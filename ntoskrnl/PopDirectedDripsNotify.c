@@ -1,3 +1,27 @@
+/*
+ * XREFs of PopDirectedDripsNotify @ 0x140872AF4
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopAcquireTransitionLock @ 0x14082AD04 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14082AD60 (PopReleaseTransitionLock.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorEngageModernStandby @ 0x140990734 (PopPowerAggregatorEngageModernStandby.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x14099C874 (PopDirectedDripsUmMarkTestDevices.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopDirectedDripsSetDisengageReason @ 0x1402F2F84 (PopDirectedDripsSetDisengageReason.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x1402F2FE8 (PopDirectedDripsClearDisengageReason.c)
+ *     PopQueueDirectedDripsWork @ 0x1402F3054 (PopQueueDirectedDripsWork.c)
+ *     PopDirectedDripsEngage @ 0x140584A94 (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x140880DE0 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PopDirectedDripsDiagNotifySessionStart @ 0x140880E7C (PopDirectedDripsDiagNotifySessionStart.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1409809F4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     PopDirectedDripsSendSessionData @ 0x140980CA8 (PopDirectedDripsSendSessionData.c)
+ */
+
 ULONG __fastcall PopDirectedDripsNotify(int a1, char *a2)
 {
   ULONG result; // eax

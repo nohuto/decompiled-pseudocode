@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGetD3Policy @ 0x1C0044C98
+ * Callers:
+ *     UsbhReadPdoRegistryKeys @ 0x1C0046364 (UsbhReadPdoRegistryKeys.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 int __fastcall UsbhGetD3Policy(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // rax

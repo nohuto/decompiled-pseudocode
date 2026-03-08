@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmProcessCreateNotification @ 0x140709D7C
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmpKeyedStoreCreate @ 0x1407DD424 (SmpKeyedStoreCreate.c)
+ */
+
 __int64 __fastcall SmProcessCreateNotification(__int64 a1)
 {
   __int64 ProcessPartition; // rdx

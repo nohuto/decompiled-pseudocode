@@ -1,3 +1,24 @@
+/*
+ * XREFs of UsbhIoctlGetNodeConnectionAttributes @ 0x1C003F72C
+ * Callers:
+ *     UsbhFdoDeviceControl @ 0x1C002A630 (UsbhFdoDeviceControl.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireApiLock @ 0x1C003DE98 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlTraceOutput @ 0x1C0040FD4 (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041218 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C00415A8 (UsbhReleaseApiLock.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhIoctlGetNodeConnectionAttributes(__int64 a1, PIRP Irp, __int64 a3)
 {
   _IRP *MasterIrp; // r14

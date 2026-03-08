@@ -1,3 +1,28 @@
+/*
+ * XREFs of DifRegisterPlugin @ 0x1405D2C50
+ * Callers:
+ *     VfSecurityEntry @ 0x1405CDC54 (VfSecurityEntry.c)
+ *     VfIovPluginEntry @ 0x1405CF810 (VfIovPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x1405CFB70 (VfDmaPluginEntry.c)
+ *     VfPoolTrackingEntry @ 0x1405CFD08 (VfPoolTrackingEntry.c)
+ *     VfLwSPEntry @ 0x1405F6278 (VfLwSPEntry.c)
+ *     VfIrqlPluginEntry @ 0x140679A04 (VfIrqlPluginEntry.c)
+ *     VfSpecialPoolEntry @ 0x140679C24 (VfSpecialPoolEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140AD48C8 (VfDeadlockPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140ADD684 (VfMiscPluginEntry.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifCreateAPIThunkContext @ 0x1405D277C (DifCreateAPIThunkContext.c)
+ *     DifDeregisterPlugin @ 0x1405D2840 (DifDeregisterPlugin.c)
+ *     DifiDbgPrint @ 0x1405D3224 (DifiDbgPrint.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfBindDifCallbackWrappers @ 0x140AC71E0 (VfBindDifCallbackWrappers.c)
+ *     VfBindDifDDIWrappers @ 0x140AC7220 (VfBindDifDDIWrappers.c)
+ *     VfCheckDifDdiExist @ 0x140AC7280 (VfCheckDifDdiExist.c)
+ */
+
 __int64 __fastcall DifRegisterPlugin(__int64 a1, unsigned int a2, unsigned int a3, _OWORD *a4)
 {
   unsigned int v4; // ebx

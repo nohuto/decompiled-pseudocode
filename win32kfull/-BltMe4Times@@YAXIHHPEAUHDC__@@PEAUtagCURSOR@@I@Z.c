@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C022E530
+ * Callers:
+ *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C022E6C4 (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
+ * Callees:
+ *     PrepareHDCBITSBitmap @ 0x1C00162BC (PrepareHDCBITSBitmap.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ *     BltIcon @ 0x1C011375C (BltIcon.c)
+ */
+
 void __fastcall BltMe4Times(unsigned int a1, __int64 a2, int a3, XLATEOBJ *a4, struct tagCURSOR *a5, char a6)
 {
   unsigned int v6; // r15d

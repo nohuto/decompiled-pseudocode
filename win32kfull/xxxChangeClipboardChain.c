@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxChangeClipboardChain @ 0x1C0200878
+ * Callers:
+ *     NtUserChangeClipboardChain @ 0x1C01CE360 (NtUserChangeClipboardChain.c)
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 __fastcall xxxChangeClipboardChain(unsigned __int64 *a1, __int64 a2)
 {
   struct tagWINDOWSTATION *v4; // rax

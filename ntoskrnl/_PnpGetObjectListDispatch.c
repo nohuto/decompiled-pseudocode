@@ -1,3 +1,12 @@
+/*
+ * XREFs of _PnpGetObjectListDispatch @ 0x14086A180
+ * Callers:
+ *     _PnpGetObjectList @ 0x14086A038 (_PnpGetObjectList.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1406D13A4 (_PnpCtxGetObjectDispatchCallback.c)
+ */
+
 __int64 __fastcall PnpGetObjectListDispatch(
         __int64 a1,
         int a2,

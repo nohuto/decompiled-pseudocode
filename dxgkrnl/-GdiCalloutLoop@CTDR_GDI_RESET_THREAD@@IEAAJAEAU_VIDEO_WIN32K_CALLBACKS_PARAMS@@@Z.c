@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z @ 0x1C0308DE0
+ * Callers:
+ *     ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C030AC50 (-Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ */
+
 __int64 __fastcall CTDR_GDI_RESET_THREAD::GdiCalloutLoop(
         CTDR_GDI_RESET_THREAD *this,
         struct _VIDEO_WIN32K_CALLBACKS_PARAMS *a2,

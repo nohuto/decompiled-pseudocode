@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSetStandbyLookasideState @ 0x1402C7730
+ * Callers:
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiWriteStandbyLookasideEntry @ 0x1402C71E0 (MiWriteStandbyLookasideEntry.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1402C7240 (MiFindSuitableLookasideReplacement.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiSetStandbyLookasideState(__int64 a1, char a2)
 {
   __int64 v2; // r8

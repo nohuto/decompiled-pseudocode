@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiUnlockHugePfn @ 0x140620864
+ * Callers:
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUnlockHugePfn(__int64 a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rbx

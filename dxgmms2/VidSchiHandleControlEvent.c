@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchiHandleControlEvent @ 0x1C01063DC
+ * Callers:
+ *     VidSchiWaitForSchedulerEvents @ 0x1C00A5590 (VidSchiWaitForSchedulerEvents.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     VidSchiSetSchedulerStatus @ 0x1C00BA074 (VidSchiSetSchedulerStatus.c)
+ *     VidSchiResume @ 0x1C01068FC (VidSchiResume.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ */
+
 LONG __fastcall VidSchiHandleControlEvent(struct _VIDSCH_GLOBAL *a1)
 {
   int v1; // edx

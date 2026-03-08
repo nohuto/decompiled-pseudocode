@@ -1,3 +1,12 @@
+/*
+ * XREFs of OSReadNextRegValue @ 0x1C008E47C
+ * Callers:
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall OSReadNextRegValue(HANDLE KeyHandle, ULONG Index, void *a3, _DWORD *a4)
 {
   NTSTATUS v8; // ebx

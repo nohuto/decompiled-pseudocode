@@ -1,3 +1,11 @@
+/*
+ * XREFs of WakeMIT @ 0x1C00B9500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall WakeMIT(unsigned int a1)
 {
   char v1; // bl

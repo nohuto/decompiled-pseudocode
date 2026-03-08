@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiTpEmulateGroup11Instruction @ 0x140AF0694
+ * Callers:
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ * Callees:
+ *     KiTpAccessMemory @ 0x140AF0008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140AF01F4 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140AF02E0 (KiTpDecodeModRmOperand.c)
+ *     KiTpFetchImmediateOperand @ 0x140AF1338 (KiTpFetchImmediateOperand.c)
+ */
+
 __int64 __fastcall KiTpEmulateGroup11Instruction(__int64 a1, __int64 a2, int *a3)
 {
   __int64 result; // rax

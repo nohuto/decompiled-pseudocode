@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeAssignWorldSecurityDescriptor @ 0x14080CA28
+ * Callers:
+ *     IopGetSetSecurityObject @ 0x14074EA70 (IopGetSetSecurityObject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SeAssignWorldSecurityDescriptor(__int64 a1, unsigned int *a2, _DWORD *a3)
 {
   PSID v5; // rbp

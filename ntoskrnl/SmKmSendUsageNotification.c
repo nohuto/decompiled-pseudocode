@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmKmSendUsageNotification @ 0x1409D6804
+ * Callers:
+ *     SmKmFileInfoCleanup @ 0x1409D5B90 (SmKmFileInfoCleanup.c)
+ *     SmKmIsVolumeIoPossible @ 0x1409D5F0C (SmKmIsVolumeIoPossible.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 NTSTATUS __fastcall SmKmSendUsageNotification(PIRP Irp, PFILE_OBJECT FileObject, int a3)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbx

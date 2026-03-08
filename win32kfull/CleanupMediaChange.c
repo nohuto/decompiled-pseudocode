@@ -1,3 +1,11 @@
+/*
+ * XREFs of CleanupMediaChange @ 0x1C00F5900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void CleanupMediaChange()
 {
   struct _LIST_ENTRY *Flink; // rcx

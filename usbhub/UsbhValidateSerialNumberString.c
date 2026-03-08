@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhValidateSerialNumberString @ 0x1C0052FB8
+ * Callers:
+ *     UsbhGetSerialNumber @ 0x1C00509A4 (UsbhGetSerialNumber.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 char __fastcall UsbhValidateSerialNumberString(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _BYTE *a5)
 {
   _DWORD *v9; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeGetTrustLabelAce @ 0x14033DCA0
+ * Callers:
+ *     SepTrustLevelCheck @ 0x14033DC28 (SepTrustLevelCheck.c)
+ *     SepVerifyDesktopAppxImage @ 0x1405B5B50 (SepVerifyDesktopAppxImage.c)
+ *     SepAdjustAccessStateForConstraints @ 0x1407582D0 (SepAdjustAccessStateForConstraints.c)
+ *     SeShouldCheckForAccessRightsFromParent @ 0x1407C9300 (SeShouldCheckForAccessRightsFromParent.c)
+ *     MiAllowImageMap @ 0x1407D35A0 (MiAllowImageMap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SeGetTrustLabelAce(__int64 a1)
 {
   __int16 v1; // r8

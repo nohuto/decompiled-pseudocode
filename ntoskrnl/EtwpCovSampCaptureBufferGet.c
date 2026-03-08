@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureBufferGet @ 0x14046197C
+ * Callers:
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A3D6C (EtwpCovSampCaptureUserAddresses.c)
+ * Callees:
+ *     EtwpCovSampLookasidePop @ 0x140461CA8 (EtwpCovSampLookasidePop.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureBufferGet(__int64 a1)
 {
   unsigned __int64 v2; // rbx

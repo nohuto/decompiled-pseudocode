@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFlushQueuedDpcsWorker @ 0x1402F8100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiFlushQueuedDpcsWorker(__int64 a1)
 {
   unsigned int v1; // edx

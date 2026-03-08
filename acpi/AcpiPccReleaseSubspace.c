@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPccReleaseSubspace @ 0x1C0034260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiPccReleaseSubspace(__int64 a1)
 {
   KSPIN_LOCK *v1; // rbp

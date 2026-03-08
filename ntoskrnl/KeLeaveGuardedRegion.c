@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeLeaveGuardedRegion @ 0x1402B7810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 void KeLeaveGuardedRegion(void)
 {
   struct _KTHREAD *CurrentThread; // rax

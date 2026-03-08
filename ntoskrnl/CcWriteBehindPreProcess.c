@@ -1,3 +1,23 @@
+/*
+ * XREFs of CcWriteBehindPreProcess @ 0x140219A70
+ * Callers:
+ *     CcWriteBehindInternal @ 0x140219990 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x140539404 (CcWriteBehindAsyncPreProcess.c)
+ * Callees:
+ *     CcApplyLowIoPriorityToThread @ 0x140219DB8 (CcApplyLowIoPriorityToThread.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140219E24 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CcCancelMmWaitForUninitializeCacheMap @ 0x140532CE0 (CcCancelMmWaitForUninitializeCacheMap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcWriteBehindPreProcess(__int64 a1)
 {
   __int64 v1; // rsi

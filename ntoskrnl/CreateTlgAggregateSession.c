@@ -1,3 +1,15 @@
+/*
+ * XREFs of CreateTlgAggregateSession @ 0x14080F758
+ * Callers:
+ *     TlgRegisterAggregateProviderEx @ 0x14080F588 (TlgRegisterAggregateProviderEx.c)
+ * Callees:
+ *     ExAllocateTimer @ 0x140203BE0 (ExAllocateTimer.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DestroyAggregateSession @ 0x140A6C488 (DestroyAggregateSession.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 __int64 *__fastcall CreateTlgAggregateSession(char a1, char a2)
 {
   __int64 *PoolWithTag; // rax

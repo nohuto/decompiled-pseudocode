@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiEnableKvaShadowing @ 0x140A864CC
+ * Callers:
+ *     KiInitializeProcessorState @ 0x14080AC80 (KiInitializeProcessorState.c)
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     HvlRescindEnlightenments @ 0x1403030E0 (HvlRescindEnlightenments.c)
+ *     KiSetAddressPolicy @ 0x14030E890 (KiSetAddressPolicy.c)
+ *     KiIsKvaLeakSimulated @ 0x1403726B8 (KiIsKvaLeakSimulated.c)
+ *     KiIsKvaShadowDisabled @ 0x1403726CC (KiIsKvaShadowDisabled.c)
+ *     KiInitializeDescriptorIst @ 0x1403726E0 (KiInitializeDescriptorIst.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiShadowProcessorAllocation @ 0x140A8666C (KiShadowProcessorAllocation.c)
+ *     KiInitializeIdt @ 0x140A8C270 (KiInitializeIdt.c)
+ */
+
 __int64 __fastcall KiEnableKvaShadowing(__int64 a1)
 {
   __int64 v2; // rdx

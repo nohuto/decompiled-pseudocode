@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViIsActiveChannelWcb @ 0x1405CC650
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140AC1DE0 (VfAllocateAdapterChannelEx.c)
+ *     ViAdapterCallback @ 0x140AC4860 (ViAdapterCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall ViIsActiveChannelWcb(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rbp

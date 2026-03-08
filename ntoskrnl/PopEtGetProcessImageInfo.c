@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEtGetProcessImageInfo @ 0x140701304
+ * Callers:
+ *     PopEtGetProcessAppId @ 0x14070116C (PopEtGetProcessAppId.c)
+ * Callees:
+ *     PsGetProcessSectionBaseAddress @ 0x140299400 (PsGetProcessSectionBaseAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall PopEtGetProcessImageInfo(__int64 a1, __int64 a2)
 {
   __int64 ProcessSectionBaseAddress; // rax

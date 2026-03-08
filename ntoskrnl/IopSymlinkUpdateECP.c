@@ -1,3 +1,23 @@
+/*
+ * XREFs of IopSymlinkUpdateECP @ 0x14087BDFC
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopSymlinkRememberJunction @ 0x14087A7D0 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x14087A8D0 (IopGraftName.c)
+ *     IopSymlinkApplyToOpenedName @ 0x140945D10 (IopSymlinkApplyToOpenedName.c)
+ * Callees:
+ *     IopSymlinkGetECP @ 0x14023ADA0 (IopSymlinkGetECP.c)
+ *     IopSymlinkRemoveECP @ 0x14023ADC4 (IopSymlinkRemoveECP.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     IoGetIrpExtraCreateParameter @ 0x1406B1D50 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14077E41C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x14077E4E8 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x14078B018 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopSymlinkUpdateECP(
         PIRP Irp,
         PVOID EcpContext,

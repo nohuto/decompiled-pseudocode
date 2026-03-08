@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopHiberInitializeResources @ 0x140985824
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     RtlGetCompressionWorkSpaceSize @ 0x14035AEA0 (RtlGetCompressionWorkSpaceSize.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoGetDumpStackTransferSizes @ 0x14054E2C0 (IoGetDumpStackTransferSizes.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     PopCalculateHiberFileSize @ 0x1407FC9FC (PopCalculateHiberFileSize.c)
+ *     MmAllocateDumpHibernateResources @ 0x1407FCCCC (MmAllocateDumpHibernateResources.c)
+ *     MmMarkHiberRange @ 0x140A2DDB0 (MmMarkHiberRange.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall PopHiberInitializeResources(_QWORD *MemoryMap)
 {
   unsigned int v1; // r14d

@@ -1,3 +1,20 @@
+/*
+ * XREFs of WmipDeregisterRegEntry @ 0x1403CEEF0
+ * Callers:
+ *     WmipRegisterDevice @ 0x140869828 (WmipRegisterDevice.c)
+ *     WmipDeregisterDevice @ 0x14087DDC8 (WmipDeregisterDevice.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     WmipUnreferenceRegEntry @ 0x140208DE4 (WmipUnreferenceRegEntry.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     WmipRemoveDS @ 0x14087DE68 (WmipRemoveDS.c)
+ */
+
 void __fastcall WmipDeregisterRegEntry(char *Entry)
 {
   unsigned __int64 v2; // rsi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopAddBugcheckTriageDeviceNode @ 0x140559AE0
+ * Callers:
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14054F674 (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x1405596C0 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckTriageCompletionQueue @ 0x14055991C (IopAddBugcheckTriageCompletionQueue.c)
+ *     IopAddBugcheckTriageIrp @ 0x140559BD0 (IopAddBugcheckTriageIrp.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageDevice @ 0x1405599D8 (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageIrp @ 0x140559BD0 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriageUnicodeString @ 0x140559E4C (IopAddBugcheckTriageUnicodeString.c)
+ */
+
 __int64 __fastcall IopAddBugcheckTriageDeviceNode(__int64 MaxDataSize)
 {
   unsigned int v1; // ebx

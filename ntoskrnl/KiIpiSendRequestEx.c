@@ -1,3 +1,21 @@
+/*
+ * XREFs of KiIpiSendRequestEx @ 0x14021238C
+ * Callers:
+ *     KxFlushSingleTb @ 0x1402120DC (KxFlushSingleTb.c)
+ *     KxFlushNonGlobalTb @ 0x140212260 (KxFlushNonGlobalTb.c)
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     KxFlushMultipleTb @ 0x14038C454 (KxFlushMultipleTb.c)
+ *     KxFlushEntireTb @ 0x1403AD5FC (KxFlushEntireTb.c)
+ *     KeInvalidateRangeAllCaches @ 0x1404580A0 (KeInvalidateRangeAllCaches.c)
+ * Callees:
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ *     KiAffinityContainsProcessorsOtherThanSelf @ 0x1402E2150 (KiAffinityContainsProcessorsOtherThanSelf.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KiIpiSendRequestEx(
         __int64 a1,
         int a2,

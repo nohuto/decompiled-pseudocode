@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptParallelSha256AppendBlocks_xmm @ 0x1403EF588
+ * Callers:
+ *     SymCryptParallelSha256Append @ 0x1403EF490 (SymCryptParallelSha256Append.c)
+ * Callees:
+ *     <none>
+ */
+
 __m128i *__fastcall SymCryptParallelSha256AppendBlocks_xmm(__m128i **a1, __int64 a2, unsigned __int64 a3, __m128i *a4)
 {
   __m128i v4; // xmm8

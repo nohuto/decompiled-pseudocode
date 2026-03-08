@@ -1,3 +1,13 @@
+/*
+ * XREFs of CleanupWindowRedirection @ 0x1C00340EC
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 __int64 __fastcall CleanupWindowRedirection(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?JobCalloutAddProcess@@YAHPEAUtagW32JOB@@PEAUtagPROCESSINFO@@@Z @ 0x1C00D935C
+ * Callers:
+ *     UserJobCallout @ 0x1C003C000 (UserJobCallout.c)
+ *     ?UpdateJob@@YAXPEAUtagW32JOB@@@Z @ 0x1C00D4F70 (-UpdateJob@@YAXPEAUtagW32JOB@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     ?JobCalloutAddProcessWorker@@YAHPEAUtagW32JOB@@PEAUtagPROCESSINFO@@@Z @ 0x1C00D938C (-JobCalloutAddProcessWorker@@YAHPEAUtagW32JOB@@PEAUtagPROCESSINFO@@@Z.c)
+ */
+
 __int64 __fastcall JobCalloutAddProcess(struct tagW32JOB *a1, struct tagPROCESSINFO *a2)
 {
   char v3; // al

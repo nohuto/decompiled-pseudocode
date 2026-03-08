@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiFdoThermalActiveCooling @ 0x1C039E8A0
+ * Callers:
+ *     DxgkHandleThermalCoolingDrtEscape @ 0x1C039F078 (DxgkHandleThermalCoolingDrtEscape.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003FF7C (McTemplateK0pt_EtwWriteTransfer.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ */
+
 void __fastcall DpiFdoThermalActiveCooling(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // rbx

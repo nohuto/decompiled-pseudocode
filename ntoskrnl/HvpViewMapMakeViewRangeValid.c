@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvpViewMapMakeViewRangeValid @ 0x140730EE4
+ * Callers:
+ *     HvpViewMapCreateViewsForRegion @ 0x140730B54 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapExtendStorage @ 0x140732D5C (HvpViewMapExtendStorage.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ * Callees:
+ *     CmSiPrefetchVirtualMemoryRange @ 0x1402B2C90 (CmSiPrefetchVirtualMemoryRange.c)
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ *     HvpViewMapAcquireChargesAndLockViewPages @ 0x1407310B8 (HvpViewMapAcquireChargesAndLockViewPages.c)
+ *     HvpViewMapTouchPages @ 0x140732810 (HvpViewMapTouchPages.c)
+ */
+
 __int64 __fastcall HvpViewMapMakeViewRangeValid(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 v5; // r14

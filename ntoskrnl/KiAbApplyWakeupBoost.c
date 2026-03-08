@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiAbApplyWakeupBoost @ 0x140239F90
+ * Callers:
+ *     KeAbPreWakeupHandle @ 0x1402390DC (KeAbPreWakeupHandle.c)
+ *     KeAbPreWakeupThread @ 0x1402398AC (KeAbPreWakeupThread.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     EtwTraceAutoBoostSetFloor @ 0x14045EB78 (EtwTraceAutoBoostSetFloor.c)
+ */
+
 void __fastcall KiAbApplyWakeupBoost(char a1, __int64 a2, int a3)
 {
   int v5; // r8d

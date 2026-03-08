@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopChangeInterfaceType @ 0x1409540F0
+ * Callers:
+ *     IoReportResourceUsageInternal @ 0x140953FC8 (IoReportResourceUsageInternal.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall IopChangeInterfaceType(__int64 a1, unsigned int **a2)
 {
   char v2; // bl

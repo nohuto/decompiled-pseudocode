@@ -1,3 +1,30 @@
+/*
+ * XREFs of ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC
+ * Callers:
+ *     xxxDesktopWndProc @ 0x1C00FA150 (xxxDesktopWndProc.c)
+ * Callees:
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     SetRITTimer @ 0x1C00793E0 (SetRITTimer.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     xxxDWP_UpdateUIState @ 0x1C00A2360 (xxxDWP_UpdateUIState.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     xxxSetWindowLong @ 0x1C00C9054 (xxxSetWindowLong.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     xxxInternalPaintDesktop @ 0x1C00F9338 (xxxInternalPaintDesktop.c)
+ *     xxxValidateClassAndSize @ 0x1C00FA3E4 (xxxValidateClassAndSize.c)
+ *     GreGetSystemPaletteUse @ 0x1C00FA6A8 (GreGetSystemPaletteUse.c)
+ *     GreRealizeDefaultPalette @ 0x1C00FA71C (GreRealizeDefaultPalette.c)
+ *     xxxBeginPaint @ 0x1C00FD4C0 (xxxBeginPaint.c)
+ *     xxxEndPaint @ 0x1C00FE504 (xxxEndPaint.c)
+ *     SetDesktopPattern @ 0x1C010AAFC (SetDesktopPattern.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     xxxRealizeDesktop @ 0x1C01BFDAC (xxxRealizeDesktop.c)
+ */
+
 __int64 __fastcall xxxDesktopWndProcWorker(struct tagWND *a1, unsigned int a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v8; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAdtOpenObjectForDeleteAuditAlarm @ 0x1409C9C0C
+ * Callers:
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB370 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ * Callees:
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall SepAdtOpenObjectForDeleteAuditAlarm(
         __int16 a1,
         __int64 a2,

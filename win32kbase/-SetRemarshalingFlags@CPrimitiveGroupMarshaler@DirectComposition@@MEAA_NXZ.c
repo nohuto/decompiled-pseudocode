@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CPrimitiveGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C02622C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CPrimitiveGroupMarshaler::SetRemarshalingFlags(
         DirectComposition::CPrimitiveGroupMarshaler *this)
 {

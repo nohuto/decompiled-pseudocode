@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetSavedSupervisorState @ 0x1405704D0
+ * Callers:
+ *     KiGetSavedIptState @ 0x140570400 (KiGetSavedIptState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetSavedSupervisorState(unsigned int a1, _QWORD *a2)
 {
   unsigned __int8 CurrentIrql; // al

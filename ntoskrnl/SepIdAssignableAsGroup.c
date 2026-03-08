@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepIdAssignableAsGroup @ 0x1409CAEA4
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 BOOLEAN __fastcall SepIdAssignableAsGroup(__int64 a1, void *a2)
 {
   BOOLEAN v2; // si

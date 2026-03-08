@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EB20
+ * Callers:
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     ?CalculatePresentAndGlitchDeadlines@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004ED40 (-CalculatePresentAndGlitchDeadlines@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180129DEE (McTemplateU0x_EventWriteTransfer.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::ComputeFrameTime(CPartitionVerticalBlankScheduler *this)
 {
   _QWORD *v1; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResetVirtualFunction@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z @ 0x1C036CF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008E74 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?ResetVirtualGpu@DXGVIRTUALMACHINE@@QEAAEXZ @ 0x1C005AADC (-ResetVirtualGpu@DXGVIRTUALMACHINE@@QEAAEXZ.c)
+ *     ?DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z @ 0x1C0368C18 (-DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z.c)
+ */
+
 __int64 __fastcall DXGK_VIRTUAL_GPU_GPUP::ResetVirtualFunction(
         DXGK_VIRTUAL_GPU_GPUP *this,
         struct DXGPROCESSVMWP **a2,

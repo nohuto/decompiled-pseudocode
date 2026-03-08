@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlpCancelReadOnlyOplockIrp @ 0x14053BDB0
+ * Callers:
+ *     FsRtlpRequestShareableOplock @ 0x14023EEF0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14053BB78 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpReadOnlyOplockIrpCancelRoutine @ 0x14053C850 (FsRtlpReadOnlyOplockIrpCancelRoutine.c)
+ * Callees:
+ *     FsRtlpComputeShareableOplockState @ 0x14023F940 (FsRtlpComputeShareableOplockState.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14053C86C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ */
+
 void __fastcall FsRtlpCancelReadOnlyOplockIrp(__int64 a1, char a2)
 {
   __int64 v3; // rdi

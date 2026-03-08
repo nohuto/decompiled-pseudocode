@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcAsyncReadWorkerThread @ 0x1405386F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     CcAsyncReadWorker @ 0x1403B8B70 (CcAsyncReadWorker.c)
+ */
+
 void __fastcall CcAsyncReadWorkerThread(__int64 a1)
 {
   __int64 v1; // rbp

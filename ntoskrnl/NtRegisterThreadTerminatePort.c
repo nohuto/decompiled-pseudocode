@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtRegisterThreadTerminatePort @ 0x140795600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1402950E0 (ExAllocatePoolWithQuotaTag.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall NtRegisterThreadTerminatePort(void *a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

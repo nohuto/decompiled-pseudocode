@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExIsFastResourceHeld @ 0x1403C4F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpFindFastOwnerEntryForThread @ 0x1403C53E4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExIsFastResourceHeld2 @ 0x14040E5CC (ExIsFastResourceHeld2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall ExIsFastResourceHeld(ULONG_PTR BugCheckParameter2)
 {
   char v1; // r10

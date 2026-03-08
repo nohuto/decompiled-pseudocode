@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00888D0
+ * Callers:
+ *     FxRegisterBugCheckCallback @ 0x1C0088D28 (FxRegisterBugCheckCallback.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WdmlibProcgrpInitialize @ 0x1C00B24D4 (WdmlibProcgrpInitialize.c)
+ */
+
 __int64 __fastcall _FX_DRIVER_TRACKER_CACHE_AWARE::Register(
         _FX_DRIVER_TRACKER_CACHE_AWARE *this,
         _FX_DRIVER_GLOBALS *__formal)

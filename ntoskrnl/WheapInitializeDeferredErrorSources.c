@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapInitializeDeferredErrorSources @ 0x14060DF90
+ * Callers:
+ *     WheaConfigureErrorSource @ 0x140A8D100 (WheaConfigureErrorSource.c)
+ * Callees:
+ *     WheapCallErrorSourceInitialize @ 0x14037D864 (WheapCallErrorSourceInitialize.c)
+ *     WheapInitializeErrorSource @ 0x14080C6B4 (WheapInitializeErrorSource.c)
+ */
+
 __int64 __fastcall WheapInitializeDeferredErrorSources(int a1)
 {
   int v1; // edi

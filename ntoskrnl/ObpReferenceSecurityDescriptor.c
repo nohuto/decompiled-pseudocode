@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpReferenceSecurityDescriptor @ 0x140698F3C
+ * Callers:
+ *     ObQuerySecurityDescriptorInfo @ 0x140696AE0 (ObQuerySecurityDescriptorInfo.c)
+ *     ObpAdjustCreatorAccessState @ 0x140698E40 (ObpAdjustCreatorAccessState.c)
+ * Callees:
+ *     ObpReferenceSecurityDescriptorSlow @ 0x140880604 (ObpReferenceSecurityDescriptorSlow.c)
+ */
+
 unsigned __int64 __fastcall ObpReferenceSecurityDescriptor(__int64 a1)
 {
   signed __int64 v1; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@BamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801F4B70
+ * Callers:
+ *     ?QueryInterface@BamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180119770 (-QueryInterface@BamoList_uint_Proxy@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@W7EAAJAEBU_GUID@@.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Microsoft::Bamo::Lib::dataprovider_AutoBamos::BamoList_uint_Proxy::QueryInterface(
         Microsoft::Bamo::Lib::dataprovider_AutoBamos::BamoList_uint_Proxy *this,
         const struct _GUID *a2,

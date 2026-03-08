@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiSetBitmapBits @ 0x1C0150110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV?$umptr_r@E@@PEAJ@Z @ 0x1C002941C (-GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV-$umptr_r@E@@PEAJ@Z.c)
+ *     ?init_probe@?$umptr_r@E@@SA?AV1@PEAE_K1@Z @ 0x1C008D8A4 (-init_probe@-$umptr_r@E@@SA-AV1@PEAE_K1@Z.c)
+ */
+
 __int64 __fastcall NtGdiSetBitmapBits(__int64 a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned int v3; // ebx

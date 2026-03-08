@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_LogUnhandledEvent @ 0x1C0051208
+ * Callers:
+ *     ESM_FindAndSetTargetState @ 0x1C000C7CC (ESM_FindAndSetTargetState.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLL @ 0x1C0013DC4 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C001BD94 (WPP_RECORDER_SF_qDD.c)
+ */
+
 char __fastcall ESM_LogUnhandledEvent(__int64 a1, int a2)
 {
   int v2; // ebx

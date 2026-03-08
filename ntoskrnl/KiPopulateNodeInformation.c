@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiPopulateNodeInformation @ 0x140B66BA0
+ * Callers:
+ *     KiPerformGroupConfiguration @ 0x140B66804 (KiPerformGroupConfiguration.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MmGetChannelInformation @ 0x14084FA60 (MmGetChannelInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _DWORD *__fastcall KiPopulateNodeInformation(_DWORD *a1, int *a2)
 {
   unsigned __int16 v2; // ax

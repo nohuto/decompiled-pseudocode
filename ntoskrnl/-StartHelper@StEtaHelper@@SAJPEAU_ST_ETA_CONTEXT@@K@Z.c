@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14035A46C
+ * Callers:
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x14035A528 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     SmcCacheStart @ 0x1409D812C (SmcCacheStart.c)
+ * Callees:
+ *     StEtaStart @ 0x14035A354 (StEtaStart.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall StEtaHelper::StartHelper(struct _ST_ETA_CONTEXT *a1, unsigned int a2)
 {
   int *v2; // rax

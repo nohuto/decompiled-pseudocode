@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CSceneSurfaceMaterialInputMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026EC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_051c710266044387c222c6fc3629749a___ @ 0x1C026EA88 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_051c710266044387c222c6fc3629749.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_3317ac129dbc5a941e863092f5dff627___ @ 0x1C026EAFC (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_3317ac129dbc5a941e863092f5dff62.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6bff7d52a0b4b3cfb6712747bfac2c76___ @ 0x1C026EB94 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6bff7d52a0b4b3cfb6712747bfac2c7.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a279e4ede8d97bea8e92bf1575da65ef___ @ 0x1C026EC08 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a279e4ede8d97bea8e92bf1575da65e.c)
+ */
+
 char __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::EmitUpdateCommands(
         DirectComposition::CSceneSurfaceMaterialInputMarshaler *this,
         struct DirectComposition::CBatch ***a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCaptureControllerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C026D980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CCaptureControllerMarshaler::SetRemarshalingFlags(
         DirectComposition::CCaptureControllerMarshaler *this)
 {

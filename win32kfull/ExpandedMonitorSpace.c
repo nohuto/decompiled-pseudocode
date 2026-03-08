@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpandedMonitorSpace @ 0x1C01BA230
+ * Callers:
+ *     VirtualizeMultiMonDigitizerSize @ 0x1C0145242 (VirtualizeMultiMonDigitizerSize.c)
+ *     GetHimetricScaleForMonitor @ 0x1C01BAE08 (GetHimetricScaleForMonitor.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C00A3584 (ExpandMonitorSpaceVertex.c)
+ */
+
 __int64 __fastcall ExpandedMonitorSpace(__int64 *a1)
 {
   unsigned __int16 v2; // di

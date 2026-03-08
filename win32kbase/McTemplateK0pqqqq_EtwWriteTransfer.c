@@ -1,3 +1,17 @@
+/*
+ * XREFs of McTemplateK0pqqqq_EtwWriteTransfer @ 0x1C00EE7C4
+ * Callers:
+ *     EtwTraceInternalSetTimer @ 0x1C00ACB50 (EtwTraceInternalSetTimer.c)
+ *     EtwTraceTimerProc @ 0x1C00B0060 (EtwTraceTimerProc.c)
+ *     EtwDirtyRectUpdate @ 0x1C00BADC0 (EtwDirtyRectUpdate.c)
+ *     EtwLogicalSurfRemovedTranslationFromDirtyEvent @ 0x1C0198340 (EtwLogicalSurfRemovedTranslationFromDirtyEvent.c)
+ *     EtwLogicalSurfRemovedTranslationFromMoveEvent @ 0x1C0198380 (EtwLogicalSurfRemovedTranslationFromMoveEvent.c)
+ *     EtwTranslationUpdate @ 0x1C0198720 (EtwTranslationUpdate.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-39h] BYREF

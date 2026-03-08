@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkSetPresenterViewMode @ 0x1C01E5660
+ * Callers:
+ *     ?DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@@Z @ 0x1C02F50BC (-DxgkHandleMonitorEvent@@YAJU_LUID@@IW4MONITOR_EVENT@@_KPEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     McTemplateK0tt_EtwWriteTransfer @ 0x1C004686C (McTemplateK0tt_EtwWriteTransfer.c)
+ */
+
 bool __fastcall DxgkSetPresenterViewMode(unsigned __int8 a1, unsigned __int8 a2)
 {
   int v2; // edi

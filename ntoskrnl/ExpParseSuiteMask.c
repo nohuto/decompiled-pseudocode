@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpParseSuiteMask @ 0x140810B5C
+ * Callers:
+ *     ExGetSuiteMask @ 0x140810AB8 (ExGetSuiteMask.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall ExpParseSuiteMask(char *a1)
 {
   char *v1; // r10

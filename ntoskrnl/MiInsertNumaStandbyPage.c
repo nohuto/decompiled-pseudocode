@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInsertNumaStandbyPage @ 0x14064E1CC
+ * Callers:
+ *     MiReplaceNumaStandbyPage @ 0x1403BE8B8 (MiReplaceNumaStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x14064F7E0 (MiSwapNumaStandbyPage.c)
+ * Callees:
+ *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x140287AE0 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
+ *     MiPfnToStandbyLookaside @ 0x140288780 (MiPfnToStandbyLookaside.c)
+ *     MiSetPfnNodeBlinkLow @ 0x1402DF430 (MiSetPfnNodeBlinkLow.c)
+ */
+
 signed __int64 __fastcall MiInsertNumaStandbyPage(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v4; // rdi

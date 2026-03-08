@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiLockHugePfnInternal @ 0x14061F020
+ * Callers:
+ *     MiGetUltraHugeAlreadyActive @ 0x1403BA8F4 (MiGetUltraHugeAlreadyActive.c)
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403BFBC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiDereferenceIoHugeRange @ 0x14061D540 (MiDereferenceIoHugeRange.c)
+ *     MiGetHugeBadRangeFromNode @ 0x14061D7F8 (MiGetHugeBadRangeFromNode.c)
+ *     MiHotRemoveHugeRange @ 0x14061DC8C (MiHotRemoveHugeRange.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiSetHugeRangePartitionId @ 0x1406203CC (MiSetHugeRangePartitionId.c)
+ *     MiDeleteVadAwePtes @ 0x1406473BC (MiDeleteVadAwePtes.c)
+ *     MiValidateAndLockAweMapCountPage @ 0x140649BE0 (MiValidateAndLockAweMapCountPage.c)
+ *     MiWriteAwePtes @ 0x14064A010 (MiWriteAwePtes.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiLockHugePfnInternal(__int64 a1, char a2)
 {
   __int64 v3; // r14

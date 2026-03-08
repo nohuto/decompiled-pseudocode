@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDmaGuardQueueFlush @ 0x14096EFB8
+ * Callers:
+ *     PipDmgFlushQueueAndRestartDevices @ 0x1409683EC (PipDmgFlushQueueAndRestartDevices.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 void __fastcall PiDmaGuardQueueFlush(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

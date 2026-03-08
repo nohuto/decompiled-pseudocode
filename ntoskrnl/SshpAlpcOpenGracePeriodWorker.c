@@ -1,3 +1,13 @@
+/*
+ * XREFs of SshpAlpcOpenGracePeriodWorker @ 0x140849DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     SshpAlpcSendMessage @ 0x14084A2B0 (SshpAlpcSendMessage.c)
+ */
+
 signed __int32 __fastcall SshpAlpcOpenGracePeriodWorker(int a1)
 {
   __int64 v2; // rcx

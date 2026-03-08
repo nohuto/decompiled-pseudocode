@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhExecuteWmiMethod @ 0x1C0048F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall UsbhExecuteWmiMethod(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

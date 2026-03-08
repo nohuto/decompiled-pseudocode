@@ -1,3 +1,16 @@
+/*
+ * XREFs of MUIInitializeResourceLock @ 0x14085B81C
+ * Callers:
+ *     NtGetMUIRegistryInfo @ 0x140779C90 (NtGetMUIRegistryInfo.c)
+ *     NtFlushInstallUILanguage @ 0x14085B740 (NtFlushInstallUILanguage.c)
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MUIInitializeResourceLock(volatile signed __int64 *a1)
 {
   struct _ERESOURCE *Pool2; // rax

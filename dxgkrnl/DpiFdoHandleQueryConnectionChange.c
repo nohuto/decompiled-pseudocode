@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoHandleQueryConnectionChange @ 0x1C005E920
+ * Callers:
+ *     DpiDxgkDdiQueryConnectionChange @ 0x1C001C480 (DpiDxgkDdiQueryConnectionChange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoHandleQueryConnectionChange(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rdi

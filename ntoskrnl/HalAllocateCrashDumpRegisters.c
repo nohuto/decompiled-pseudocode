@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalAllocateCrashDumpRegisters @ 0x1404FF170
+ * Callers:
+ *     DifHalAllocateCrashDumpRegistersWrapper @ 0x1405D8440 (DifHalAllocateCrashDumpRegistersWrapper.c)
+ * Callees:
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403A9C20 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     HalpDmaAllocateMapRegistersAtHighLevel @ 0x14050E094 (HalpDmaAllocateMapRegistersAtHighLevel.c)
+ */
+
 PVOID __stdcall HalAllocateCrashDumpRegisters(PADAPTER_OBJECT AdapterObject, PULONG NumberOfMapRegisters)
 {
   __int64 v3; // rax

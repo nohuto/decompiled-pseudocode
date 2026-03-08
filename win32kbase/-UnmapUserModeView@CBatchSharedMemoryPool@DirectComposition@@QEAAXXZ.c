@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnmapUserModeView@CBatchSharedMemoryPool@DirectComposition@@QEAAXXZ @ 0x1C00997D0
+ * Callers:
+ *     ?CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z @ 0x1C0098930 (-CompleteDisconnection@CApplicationChannel@DirectComposition@@MEAAX_N@Z.c)
+ *     ?FreeAllPools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXXZ @ 0x1C0099780 (-FreeAllPools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CBatchSharedMemoryPool::UnmapUserModeView(
         DirectComposition::CBatchSharedMemoryPool *this)
 {

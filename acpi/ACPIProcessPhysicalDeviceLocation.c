@@ -1,3 +1,22 @@
+/*
+ * XREFs of ACPIProcessPhysicalDeviceLocation @ 0x1C0098134
+ * Callers:
+ *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C0016120 (ACPIBusAndFilterIrpQueryContainerId.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7A0 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ *     ACPIQueryPhysicalDeviceLocation @ 0x1C0081D08 (ACPIQueryPhysicalDeviceLocation.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIEvalPkgDataElement @ 0x1C0047F38 (AMLIEvalPkgDataElement.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ *     ACPICreatePhysicalDeviceLocationDescriptor @ 0x1C0097CD8 (ACPICreatePhysicalDeviceLocationDescriptor.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptor @ 0x1C0097DB0 (ACPIFreePhysicalDeviceLocationDescriptor.c)
+ *     ACPIGetPhysicalDeviceLocationBuffer @ 0x1C0097E38 (ACPIGetPhysicalDeviceLocationBuffer.c)
+ *     ACPIInsertPhysicalDeviceLocationDescriptor @ 0x1C0097FB8 (ACPIInsertPhysicalDeviceLocationDescriptor.c)
+ *     ACPIProcessPhysicalDeviceLocationPackage @ 0x1C00984B0 (ACPIProcessPhysicalDeviceLocationPackage.c)
+ */
+
 __int64 __fastcall ACPIProcessPhysicalDeviceLocation(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   _QWORD *v3; // rbx

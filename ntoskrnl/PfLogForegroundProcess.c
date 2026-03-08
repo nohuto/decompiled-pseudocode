@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfLogForegroundProcess @ 0x1402F5C50
+ * Callers:
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ */
+
 __int64 __fastcall PfLogForegroundProcess(__int64 a1)
 {
   __int64 v1; // rax

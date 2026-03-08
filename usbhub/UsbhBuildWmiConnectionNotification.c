@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhBuildWmiConnectionNotification @ 0x1C0048DC4
+ * Callers:
+ *     UsbhDeviceOvercurrentPopup @ 0x1C002FBA4 (UsbhDeviceOvercurrentPopup.c)
+ *     UsbhEnumFailurePopup @ 0x1C004A790 (UsbhEnumFailurePopup.c)
+ *     UsbhLegacyDevicePopup @ 0x1C004B170 (UsbhLegacyDevicePopup.c)
+ *     UsbhNestedHubsPopup @ 0x1C004B2F0 (UsbhNestedHubsPopup.c)
+ *     UsbhNotEnoughBandwidth_Popup @ 0x1C004B390 (UsbhNotEnoughBandwidth_Popup.c)
+ *     UsbhNotEnoughPowerPopup @ 0x1C004B420 (UsbhNotEnoughPowerPopup.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhSyncSendDeviceIoctl @ 0x1C002DDE4 (UsbhSyncSendDeviceIoctl.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ */
+
 __int64 __fastcall UsbhBuildWmiConnectionNotification(__int64 a1, unsigned __int16 a2)
 {
   int v2; // esi

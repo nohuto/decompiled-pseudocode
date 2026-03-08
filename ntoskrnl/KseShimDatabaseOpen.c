@@ -1,3 +1,20 @@
+/*
+ * XREFs of KseShimDatabaseOpen @ 0x14079EFB4
+ * Callers:
+ *     KsepDbGetDriverShims @ 0x14079EDE8 (KsepDbGetDriverShims.c)
+ *     KsepDbGetShimInfo @ 0x140800448 (KsepDbGetShimInfo.c)
+ *     KsepDbCacheReadDevice @ 0x1408013F0 (KsepDbCacheReadDevice.c)
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KsepSdbUnmapFromMemory @ 0x14079D1D4 (KsepSdbUnmapFromMemory.c)
+ *     KsepSdbMapToMemory @ 0x14079D24C (KsepSdbMapToMemory.c)
+ *     KsepDeletePatchSdb @ 0x140974504 (KsepDeletePatchSdb.c)
+ */
+
 __int64 __fastcall KseShimDatabaseOpen(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

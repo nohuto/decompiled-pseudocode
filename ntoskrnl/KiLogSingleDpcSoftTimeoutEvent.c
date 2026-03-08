@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiLogSingleDpcSoftTimeoutEvent @ 0x140568EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlPcToFileName @ 0x1403A4E70 (RtlPcToFileName.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwTraceSingleDpcSoftTimeout @ 0x1405FB148 (EtwTraceSingleDpcSoftTimeout.c)
+ */
+
 __int64 __fastcall KiLogSingleDpcSoftTimeoutEvent(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rax

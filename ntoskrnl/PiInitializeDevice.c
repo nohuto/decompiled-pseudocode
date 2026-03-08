@@ -1,3 +1,43 @@
+/*
+ * XREFs of PiInitializeDevice @ 0x14096AB74
+ * Callers:
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ * Callees:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PpDevNodeInsertIntoTree @ 0x1402FB13C (PpDevNodeInsertIntoTree.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x1406824BC (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140683298 (PnpConcatenateUnicodeStrings.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PnpSetPlugPlayEvent @ 0x140688820 (PnpSetPlugPlayEvent.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     PipAllocateDeviceNode @ 0x14078BC8C (PipAllocateDeviceNode.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x140792BF0 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     PiDevCfgGetFailedInstallProblemStatus @ 0x1407FCC30 (PiDevCfgGetFailedInstallProblemStatus.c)
+ *     PnpAllocateDeviceInstancePath @ 0x14081D188 (PnpAllocateDeviceInstancePath.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x14081D1C8 (IopCreateRootEnumeratedDeviceObject.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiInitializeDevice(PCUNICODE_STRING SourceString)
 {
   WCHAR *Pool2; // r15

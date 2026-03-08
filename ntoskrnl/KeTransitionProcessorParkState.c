@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeTransitionProcessorParkState @ 0x14057B3EC
+ * Callers:
+ *     PpmParkReportUnparkedCore @ 0x14045B1CC (PpmParkReportUnparkedCore.c)
+ *     KiForceIdleParkUnparkProcessor @ 0x14057A918 (KiForceIdleParkUnparkProcessor.c)
+ *     PpmParkReportParkedCore @ 0x14059AC6C (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14059AD7C (PpmParkReportSoftParkChange.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x14057C38C (KiUnparkCurrentProcessor.c)
+ */
+
 void __fastcall KeTransitionProcessorParkState(__int64 a1, int a2)
 {
   __int64 v2; // rdi

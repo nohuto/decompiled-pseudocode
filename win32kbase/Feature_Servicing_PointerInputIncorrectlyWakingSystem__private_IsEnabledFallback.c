@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledFallback @ 0x1C00DF314
+ * Callers:
+ *     Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage @ 0x1C00DF2DC (Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x1C00DC9A0 (wil_details_IsEnabledFallback.c)
+ */
+
 __int64 __fastcall Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledFallback(
         __int64 a1,
         unsigned int a2)

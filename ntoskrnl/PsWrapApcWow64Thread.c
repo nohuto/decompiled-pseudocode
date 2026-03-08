@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsWrapApcWow64Thread @ 0x1405A2760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall PsWrapApcWow64Thread(PVOID *ApcContext, PVOID *ApcRoutine)
 {
   _KPROCESS *Process; // rcx

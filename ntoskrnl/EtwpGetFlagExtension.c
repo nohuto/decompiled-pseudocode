@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpGetFlagExtension @ 0x14074856C
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpCheckForStackTracingExtension @ 0x140748504 (EtwpCheckForStackTracingExtension.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14080D834 (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x140858980 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpUpdatePerProcessTracing @ 0x1409E4B6C (EtwpUpdatePerProcessTracing.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int16 *__fastcall EtwpGetFlagExtension(__int64 a1, __int16 a2)
 {
   int v2; // eax

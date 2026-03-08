@@ -1,3 +1,14 @@
+/*
+ * XREFs of SymCryptFdef369MontgomeryReduceAsm @ 0x1404098A0
+ * Callers:
+ *     SymCryptFdef369ModInvMontgomery @ 0x140403B80 (SymCryptFdef369ModInvMontgomery.c)
+ *     SymCryptFdef369ModMulMontgomery @ 0x140403C40 (SymCryptFdef369ModMulMontgomery.c)
+ *     SymCryptFdef369ModPreGetMontgomery @ 0x140403CA0 (SymCryptFdef369ModPreGetMontgomery.c)
+ *     SymCryptFdef369ModSetPostMontgomery @ 0x140403D40 (SymCryptFdef369ModSetPostMontgomery.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdef369MontgomeryReduceAsm(__int64 a1, unsigned __int64 *a2, _QWORD *a3)
 {
   int v4; // r9d

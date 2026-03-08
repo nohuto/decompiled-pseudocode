@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreCreateBitmap @ 0x1C005A690
+ * Callers:
+ *     ?GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ @ 0x1C00DE830 (-GrepCreateDefaultBitmap@@YAPEAUHBITMAP__@@XZ.c)
+ *     bInitBRUSHOBJ @ 0x1C031D4F4 (bInitBRUSHOBJ.c)
+ *     bInitBMOBJ @ 0x1C031FEE0 (bInitBMOBJ.c)
+ * Callees:
+ *     ?GreCreateBitmapInternal@@YAPEAUHBITMAP__@@HHIIAEAV?$umptr_r@E@@@Z @ 0x1C00577F0 (-GreCreateBitmapInternal@@YAPEAUHBITMAP__@@HHIIAEAV-$umptr_r@E@@@Z.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ */
+
 __int64 __fastcall GreCreateBitmap(__int64 a1, int a2, unsigned int a3, unsigned int a4, __int64 a5)
 {
   _QWORD v6[3]; // [rsp+30h] [rbp-28h] BYREF

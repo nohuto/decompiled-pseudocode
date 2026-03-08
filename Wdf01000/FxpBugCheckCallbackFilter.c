@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxpBugCheckCallbackFilter @ 0x1C0088F20
+ * Callers:
+ *     FxpBugCheckCallback @ 0x1C0088E70 (FxpBugCheckCallback.c)
+ * Callees:
+ *     FxpIsAddressKnownToWdf @ 0x1C00890E4 (FxpIsAddressKnownToWdf.c)
+ */
+
 unsigned __int8 __fastcall FxpBugCheckCallbackFilter(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   unsigned __int8 IsAddressKnownToWdf; // dl

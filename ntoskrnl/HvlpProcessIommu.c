@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpProcessIommu @ 0x1402FEE8C
+ * Callers:
+ *     HvlQueryVsmProtectionInfo @ 0x1407976C4 (HvlQueryVsmProtectionInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     KiGetCpuVendor @ 0x140A85800 (KiGetCpuVendor.c)
+ */
+
 bool HvlpProcessIommu()
 {
   char v0; // bl

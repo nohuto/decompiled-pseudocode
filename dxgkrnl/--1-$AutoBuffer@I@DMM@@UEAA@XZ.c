@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1?$AutoBuffer@I@DMM@@UEAA@XZ @ 0x1C001F9F4
+ * Callers:
+ *     ??_E?$AutoBuffer@I@DMM@@UEAAPEAXI@Z @ 0x1C0067A40 (--_E-$AutoBuffer@I@DMM@@UEAAPEAXI@Z.c)
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C02067E8 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void **__fastcall DMM::AutoBuffer<unsigned int>::~AutoBuffer<unsigned int>(_QWORD *a1)
 {
   void *v2; // rcx

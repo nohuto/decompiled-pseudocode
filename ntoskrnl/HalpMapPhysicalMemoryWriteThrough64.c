@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMapPhysicalMemoryWriteThrough64 @ 0x14037C490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ */
+
 unsigned __int64 __fastcall HalpMapPhysicalMemoryWriteThrough64(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
   LOBYTE(a4) = a3;

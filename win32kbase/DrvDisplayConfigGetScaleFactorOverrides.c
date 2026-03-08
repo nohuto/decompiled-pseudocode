@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvDisplayConfigGetScaleFactorOverrides @ 0x1C0193370
+ * Callers:
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C002834C (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreShared @ 0x1C0047AF0 (EtwTraceGreLockAcquireSemaphoreShared.c)
+ *     ??1DRIVERMANAGEMENTSHARELOCK@@QEAA@XZ @ 0x1C018C7B0 (--1DRIVERMANAGEMENTSHARELOCK@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DrvDisplayConfigGetScaleFactorOverrides(__int64 a1, int a2)
 {
   __int64 v4; // rdi

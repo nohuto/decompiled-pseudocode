@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmGetFileNameForAddress @ 0x1408A737E
+ * Callers:
+ *     DbgkPostModuleMessage @ 0x1405395FC (DbgkPostModuleMessage.c)
+ *     EtwpProviderArrivalCallback @ 0x140775208 (EtwpProviderArrivalCallback.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmGetFileNameForAddress(unsigned __int64 a1, __int64 a2)
 {
   __int64 v3; // rax

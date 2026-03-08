@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiValidateSpbResource @ 0x1C03A3748
+ * Callers:
+ *     DpCloseSpbResource @ 0x1C03A2DB0 (DpCloseSpbResource.c)
+ *     DpReadSpbResource @ 0x1C03A3130 (DpReadSpbResource.c)
+ *     DpSpbResourceIoControl @ 0x1C03A32A0 (DpSpbResourceIoControl.c)
+ *     DpWriteSpbResource @ 0x1C03A3440 (DpWriteSpbResource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiValidateSpbResource(__int64 a1, __int64 a2, __int64 a3, char a4, __int64 *a5)
 {
   __int64 v10; // rcx

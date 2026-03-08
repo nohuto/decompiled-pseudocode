@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarCreateRuleClassConfigurationEntry @ 0x1405D14E4
+ * Callers:
+ *     CarRegisterRuleClassConfiguration @ 0x1405D1C80 (CarRegisterRuleClassConfiguration.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CarCreateRuleClassConfigurationEntry(_QWORD *a1)
 {
   unsigned int v1; // ebx

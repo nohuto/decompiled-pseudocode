@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpDereferenceCurrentDeviceMap @ 0x140720E28
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObQueryDeviceMapInformation @ 0x140720E70 (ObQueryDeviceMapInformation.c)
+ * Callees:
+ *     ObDereferenceDeviceMap @ 0x14071E5A4 (ObDereferenceDeviceMap.c)
+ */
+
 char __fastcall ObpDereferenceCurrentDeviceMap(volatile signed __int64 *a1, volatile signed __int64 *a2)
 {
   signed __int64 v2; // rax

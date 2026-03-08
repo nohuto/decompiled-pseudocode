@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxMNRecomputeBarIfNeeded @ 0x1C023BD88
+ * Callers:
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C02284EC (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     xxxHiliteMenuItem @ 0x1C0233248 (xxxHiliteMenuItem.c)
+ *     xxxGetMenuItemRect @ 0x1C023B35C (xxxGetMenuItemRect.c)
+ *     xxxMenuItemFromPoint @ 0x1C023C080 (xxxMenuItemFromPoint.c)
+ * Callees:
+ *     GetWindowBordersForDpi @ 0x1C0021944 (GetWindowBordersForDpi.c)
+ *     GetCaptionHeight @ 0x1C0044AA4 (GetCaptionHeight.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     xxxMenuBarCompute @ 0x1C023BEA8 (xxxMenuBarCompute.c)
+ */
+
 __int64 __fastcall xxxMNRecomputeBarIfNeeded(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

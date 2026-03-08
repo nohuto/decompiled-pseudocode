@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CopyTransientProperties@OverlayPlaneInfo@COverlayContext@@QEAAXAEBV12@@Z @ 0x1801D9C1C
+ * Callers:
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x180087264 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall COverlayContext::OverlayPlaneInfo::CopyTransientProperties(
         COverlayContext::OverlayPlaneInfo *this,
         const struct COverlayContext::OverlayPlaneInfo *a2)

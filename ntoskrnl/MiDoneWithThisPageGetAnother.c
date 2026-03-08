@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiDoneWithThisPageGetAnother @ 0x1406619A4
+ * Callers:
+ *     MiUpdateForkMaps @ 0x140662E50 (MiUpdateForkMaps.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ *     MiFinishLastForkPageTable @ 0x140661F1C (MiFinishLastForkPageTable.c)
+ */
+
 _QWORD *__fastcall MiDoneWithThisPageGetAnother(__int64 *a1, __int64 a2, __int64 a3, unsigned __int8 a4)
 {
   __int64 v4; // rsi

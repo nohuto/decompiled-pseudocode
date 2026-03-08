@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C003E8DC
+ * Callers:
+ *     DxgkCompletePStateTransitionCB @ 0x1C00481D0 (DxgkCompletePStateTransitionCB.c)
+ * Callees:
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004006C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C00549F0 (-RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z.c)
+ */
+
 void __fastcall DXGADAPTER::CompletePStateTransitionCB(DXGADAPTER *this, unsigned int a2, unsigned int a3)
 {
   int v4; // r8d

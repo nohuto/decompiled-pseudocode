@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NtUserfnHkINLPMSLLHOOKSTRUCT@@YA_JK_KPEAUtagMSLLHOOKSTRUCT@@@Z @ 0x1C01470B0
+ * Callers:
+ *     NtUserCallNextHookEx @ 0x1C0147340 (NtUserCallNextHookEx.c)
+ * Callees:
+ *     xxxCallNextHookEx @ 0x1C0009C64 (xxxCallNextHookEx.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserfnHkINLPMSLLHOOKSTRUCT(int a1, unsigned __int64 a2, struct tagMSLLHOOKSTRUCT *a3)
 {
   __int128 v4; // [rsp+28h] [rbp-30h] BYREF

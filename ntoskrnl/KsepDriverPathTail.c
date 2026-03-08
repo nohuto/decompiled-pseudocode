@@ -1,3 +1,11 @@
+/*
+ * XREFs of KsepDriverPathTail @ 0x14079D8C0
+ * Callers:
+ *     KseShimDriverIoCallbacks @ 0x14079D690 (KseShimDriverIoCallbacks.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 __int64 __fastcall KsepDriverPathTail(unsigned __int16 *a1, UNICODE_STRING *a2)
 {
   unsigned int v3; // r8d

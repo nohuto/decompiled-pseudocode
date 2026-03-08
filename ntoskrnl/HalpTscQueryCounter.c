@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTscQueryCounter @ 0x14051DA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 HalpTscQueryCounter()
 {
   if ( HalpTscFenceRequired == 1 )

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetImeOwnerWindow @ 0x1C0026AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ImeCheckTopmost@@YAXPEAUtagWND@@@Z @ 0x1C0026C08 (-ImeCheckTopmost@@YAXPEAUtagWND@@@Z.c)
+ *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0026E94 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C009EC08 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserSetImeOwnerWindow(__int64 a1, __int64 a2)
 {

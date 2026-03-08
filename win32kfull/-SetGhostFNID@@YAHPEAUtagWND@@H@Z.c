@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C01F4F78
+ * Callers:
+ *     ?xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F62F4 (-xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z.c)
+ *     ?xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F65C4 (-xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetGhostFNID(struct tagWND *a1, int a2)
 {
   __int64 v2; // r9

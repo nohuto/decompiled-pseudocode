@@ -1,3 +1,17 @@
+/*
+ * XREFs of sub_14075435C @ 0x14075435C
+ * Callers:
+ *     sub_1407538E4 @ 0x1407538E4 (sub_1407538E4.c)
+ *     sub_140753A9C @ 0x140753A9C (sub_140753A9C.c)
+ *     sub_140753BB4 @ 0x140753BB4 (sub_140753BB4.c)
+ *     sub_140A4B164 @ 0x140A4B164 (sub_140A4B164.c)
+ *     sub_140A4B34C @ 0x140A4B34C (sub_140A4B34C.c)
+ * Callees:
+ *     sub_1402C4640 @ 0x1402C4640 (sub_1402C4640.c)
+ *     sub_1402C49C0 @ 0x1402C49C0 (sub_1402C49C0.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall sub_14075435C(
         int a1,
         char *a2,

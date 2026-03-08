@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z @ 0x1C00D07C4
+ * Callers:
+ *     ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C00D0688 (-EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ArrangeFrameControls(int a1, int a2, struct OEMBITMAPSET *a3)
 {
   int v4; // r10d

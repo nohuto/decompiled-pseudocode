@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionSendIMENotification @ 0x1C01E9D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ */
+
 __int64 __fastcall EditionSendIMENotification(
         __int64 a1,
         struct tagWND *a2,

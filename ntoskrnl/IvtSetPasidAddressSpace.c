@@ -1,3 +1,17 @@
+/*
+ * XREFs of IvtSetPasidAddressSpace @ 0x14052B2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IvtBuildScalableModePasidTableS1Entry @ 0x14052991C (IvtBuildScalableModePasidTableS1Entry.c)
+ *     IvtEnsureNoPendingFaults @ 0x140529FF4 (IvtEnsureNoPendingFaults.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14052AFF4 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtSetScalableModePasidTableEntry @ 0x14052B4B0 (IvtSetScalableModePasidTableEntry.c)
+ */
+
 __int64 __fastcall IvtSetPasidAddressSpace(_QWORD *a1, __int64 a2, unsigned int a3, unsigned __int64 a4, _BYTE *a5)
 {
   __int64 v5; // r13

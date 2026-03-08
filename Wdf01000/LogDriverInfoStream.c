@@ -1,3 +1,17 @@
+/*
+ * XREFs of LogDriverInfoStream @ 0x1C004D7C4
+ * Callers:
+ *     ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006B450 (-PnpEventStarted@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C002CB60 (_tlgKeywordOn.c)
+ *     ??1FxAutoString@@QEAA@XZ @ 0x1C0031480 (--1FxAutoString@@QEAA@XZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$00@@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U4@U?$_tlgWrapSz@G@@U5@U5@U5@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$00@@66666666666666666666666AEBU?$_tlgWrapSz@G@@777@Z @ 0x1C004CD0C (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByRef@$0BA@@@U-$_tlgWrapSz@D@@U-$_t_ea_1C004CD0C.c)
+ *     FxGetDevicePropertyString @ 0x1C004D10C (FxGetDevicePropertyString.c)
+ *     GetDriverInfo @ 0x1C004D2D8 (GetDriverInfo.c)
+ *     GetFirstHardwareId @ 0x1C004D510 (GetFirstHardwareId.c)
+ *     RegistryWriteCurrentTime @ 0x1C004DD78 (RegistryWriteCurrentTime.c)
+ */
+
 void __fastcall LogDriverInfoStream(_FX_DRIVER_GLOBALS *DriverGlobals, FxDevice *Fdo)
 {
   const _GUID *v4; // r8

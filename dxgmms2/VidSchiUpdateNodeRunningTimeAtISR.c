@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiUpdateNodeRunningTimeAtISR @ 0x1C000B890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiUpdateContextRunningTimeAtISR @ 0x1C000B910 (VidSchiUpdateContextRunningTimeAtISR.c)
+ */
+
 __int64 __fastcall VidSchiUpdateNodeRunningTimeAtISR(__int64 *a1, __int64 a2)
 {
   __int64 v3; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteConnectState @ 0x1C00DBB90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 NtUserRemoteConnectState()
 {
   __int64 v0; // rcx

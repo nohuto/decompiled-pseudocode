@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtSetDefaultLocale @ 0x1407497C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     OpenGlobalizationUserSettingsKey @ 0x1402BEDA8 (OpenGlobalizationUserSettingsKey.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     RtlIsMultiSessionSku @ 0x1407447E0 (RtlIsMultiSessionSku.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140791A18 (ExCheckFullProcessInformationAccess.c)
+ */
+
 __int64 __fastcall NtSetDefaultLocale(__int64 a1, __int64 a2)
 {
   int v2; // edi

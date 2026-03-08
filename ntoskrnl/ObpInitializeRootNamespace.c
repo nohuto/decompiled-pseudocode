@@ -1,3 +1,22 @@
+/*
+ * XREFs of ObpInitializeRootNamespace @ 0x1408093C4
+ * Callers:
+ *     ObCreateSiloRootDirectory @ 0x140A70E70 (ObCreateSiloRootDirectory.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObject @ 0x140413850 (ZwCreateDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x140413870 (ZwCreateDirectoryObjectEx.c)
+ *     ZwCreateSymbolicLinkObject @ 0x140413BD0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwSetInformationSymbolicLink @ 0x140415830 (ZwSetInformationSymbolicLink.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCreateKernelObjectsSD @ 0x140809588 (ObCreateKernelObjectsSD.c)
+ *     ObpCreateDosDevicesDirectory @ 0x140855150 (ObpCreateDosDevicesDirectory.c)
+ *     ObCleanupSecurityDescriptor @ 0x14085FE80 (ObCleanupSecurityDescriptor.c)
+ */
+
 __int64 __fastcall ObpInitializeRootNamespace(__int64 a1, void *a2, __int64 a3, __int64 a4)
 {
   bool IsHostSilo; // di

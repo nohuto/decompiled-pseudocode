@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtAlpcCreateResourceReserve @ 0x140781290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpCreateReserve @ 0x140781384 (AlpcpCreateReserve.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtAlpcCreateResourceReserve(HANDLE Handle, int a2, __int64 a3, _DWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax

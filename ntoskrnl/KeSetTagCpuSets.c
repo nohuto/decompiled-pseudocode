@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeSetTagCpuSets @ 0x140573EE8
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiValidateCpuSetMasks @ 0x140399340 (KiValidateCpuSetMasks.c)
+ *     RtlWriteAcquireTickLock @ 0x1403BB750 (RtlWriteAcquireTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSetTagCpuSets(unsigned int a1, char *a2, __int64 a3)
 {
   unsigned __int64 *v3; // rdi

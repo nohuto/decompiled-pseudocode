@@ -1,3 +1,20 @@
+/*
+ * XREFs of VidSchiCompleteAllPendingCommand @ 0x1C0046F70
+ * Callers:
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C00067E0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiCompletePendingFlip @ 0x1C001833C (VidSchiCompletePendingFlip.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0042F38 (-VidSchiRundownHardwareScheduledContexts@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0047148 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C01072AC (VidSchiWaitForCompletePreemption.c)
+ */
+
 __int64 __fastcall VidSchiCompleteAllPendingCommand(__int64 a1)
 {
   unsigned int v1; // edi

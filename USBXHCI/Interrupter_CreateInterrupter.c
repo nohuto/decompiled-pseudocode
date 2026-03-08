@@ -1,3 +1,18 @@
+/*
+ * XREFs of Interrupter_CreateInterrupter @ 0x1C0070198
+ * Callers:
+ *     Interrupter_Create @ 0x1C006FDC8 (Interrupter_Create.c)
+ *     Interrupter_PrepareHardware @ 0x1C0072C28 (Interrupter_PrepareHardware.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     DynamicLock_Create @ 0x1C001AA74 (DynamicLock_Create.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Counter_CreateInterrupterInstance @ 0x1C006E9EC (Counter_CreateInterrupterInstance.c)
+ */
+
 __int64 __fastcall Interrupter_CreateInterrupter(
         unsigned __int64 a1,
         __int64 a2,

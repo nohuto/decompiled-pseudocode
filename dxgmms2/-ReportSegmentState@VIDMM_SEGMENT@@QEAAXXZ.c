@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FF1BC
+ * Callers:
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E7460 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C002F1D8 (McTemplateK0pqx_EtwWriteTransfer.c)
+ *     McTemplateK0pppttxqx_EtwWriteTransfer @ 0x1C0032BA8 (McTemplateK0pppttxqx_EtwWriteTransfer.c)
+ *     ?LogLockAllocationBackingStoreToEtw@VIDMM_SEGMENT@@SAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00FDCA8 (-LogLockAllocationBackingStoreToEtw@VIDMM_SEGMENT@@SAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ */
+
 void __fastcall VIDMM_SEGMENT::ReportSegmentState(VIDMM_SEGMENT *this, __int64 a2, __int64 a3)
 {
   char *v3; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCbVPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGPEAD@Z @ 0x1C006570C
+ * Callers:
+ *     RESOURCE_HUB_STRING_PRINTF @ 0x1C0065860 (RESOURCE_HUB_STRING_PRINTF.c)
+ *     RESOURCE_HUB_UNICODE_STRING_PRINTF @ 0x1C0065890 (RESOURCE_HUB_UNICODE_STRING_PRINTF.c)
+ * Callees:
+ *     RtlStringVPrintfWorkerW_0 @ 0x1C0065784 (RtlStringVPrintfWorkerW_0.c)
+ */
+
 NTSTATUS __fastcall RtlStringCbVPrintfExW(
         unsigned __int16 *a1,
         unsigned __int64 a2,

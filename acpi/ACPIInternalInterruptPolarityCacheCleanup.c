@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalInterruptPolarityCacheCleanup @ 0x1C002E874
+ * Callers:
+ *     ACPIInitDeleteDeviceExtension @ 0x1C002CD08 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002D7B0 (ACPIInitResetDeviceExtension.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIInternalInterruptPolarityCacheCleanup(__int64 a1)
 {
   _QWORD *v1; // rdi

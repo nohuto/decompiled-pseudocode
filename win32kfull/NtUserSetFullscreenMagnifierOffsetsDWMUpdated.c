@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetFullscreenMagnifierOffsetsDWMUpdated @ 0x1C01DCD30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated @ 0x1C026F77C (DwmAsyncMagnSetFullscreenMagnifierOffsetsDWMUpdated.c)
+ */
+
 _BOOL8 __fastcall NtUserSetFullscreenMagnifierOffsetsDWMUpdated(__int64 a1, __int64 a2, float a3)
 {
   __int64 ThreadWin32Thread; // rax

@@ -1,3 +1,36 @@
+/*
+ * XREFs of CmpTransMgrFreeVolatileData @ 0x1406B617C
+ * Callers:
+ *     CmRmFinalizeRecovery @ 0x140733440 (CmRmFinalizeRecovery.c)
+ *     CmpCleanupTransactionState @ 0x14073526C (CmpCleanupTransactionState.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140782064 (CmpCleanupLightWeightTransaction.c)
+ *     CmpRmUnDoPhase @ 0x140A1C3B4 (CmpRmUnDoPhase.c)
+ * Callees:
+ *     CmpDereferenceSecurityNode @ 0x140243994 (CmpDereferenceSecurityNode.c)
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpRundownUnitOfWork @ 0x1406B6040 (CmpRundownUnitOfWork.c)
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x1406B6498 (CmpRebuildKcbCache.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x1406BAA4C (CmpFreeValue.c)
+ *     CmpMarkKeyUnbacked @ 0x14074AD64 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDiscardKcb @ 0x14074B098 (CmpDiscardKcb.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x14074C0F0 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpInvalidateSubtree @ 0x14074C208 (CmpInvalidateSubtree.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1407B05D8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     CmpInvalidateAllHigherLayerKcbs @ 0x140A1D088 (CmpInvalidateAllHigherLayerKcbs.c)
+ *     CmpPrepareToInvalidateAllHigherLayerKcbs @ 0x140A1D3D0 (CmpPrepareToInvalidateAllHigherLayerKcbs.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 void __fastcall CmpTransMgrFreeVolatileData(ULONG_PTR BugCheckParameter2, int a2)
 {
   __int64 v4; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmGetNodeFastLargePageCounts @ 0x1406154C4
+ * Callers:
+ *     VmpAccessFaultBatchResolve @ 0x1409D9F48 (VmpAccessFaultBatchResolve.c)
+ * Callees:
+ *     MiPartitionObjectToPartition @ 0x140236884 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ */
+
 unsigned __int64 __fastcall MmGetNodeFastLargePageCounts(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rdi

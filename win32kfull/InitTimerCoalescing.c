@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitTimerCoalescing @ 0x1C00F3720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetTimerCoalescingTolerance @ 0x1C0079290 (SetTimerCoalescingTolerance.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 int InitTimerCoalescing()
 {
   int v0; // ebx

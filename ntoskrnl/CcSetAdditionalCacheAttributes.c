@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcSetAdditionalCacheAttributes @ 0x1402E1770
+ * Callers:
+ *     CcSetAdditionalCacheAttributesEx @ 0x1402E1660 (CcSetAdditionalCacheAttributesEx.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall CcSetAdditionalCacheAttributes(
         PFILE_OBJECT FileObject,
         BOOLEAN DisableReadAhead,

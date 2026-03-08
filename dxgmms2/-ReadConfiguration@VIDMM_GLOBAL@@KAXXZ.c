@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968
+ * Callers:
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BDE54 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?ReadPagingConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BE7EC (-ReadPagingConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadPowerConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BED94 (-ReadPowerConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BEE90 (-ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadTestAndStagingConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BF13C (-ReadTestAndStagingConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadVPRConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BF4BC (-ReadVPRConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadBudgetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BF670 (-ReadBudgetConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadCommitLimitInformation@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BFE58 (-ReadCommitLimitInformation@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadWorkingSetConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0088 (-ReadWorkingSetConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadUnusedAllocationConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0174 (-ReadUnusedAllocationConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadPreparationPeriodConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0748 (-ReadPreparationPeriodConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadHeapConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C18DC (-ReadHeapConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ *     ?ReadGpuVaPagingHistoryConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C1DD0 (-ReadGpuVaPagingHistoryConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ */
+
 void VIDMM_GLOBAL::ReadConfiguration(void)
 {
   int v0; // ebx

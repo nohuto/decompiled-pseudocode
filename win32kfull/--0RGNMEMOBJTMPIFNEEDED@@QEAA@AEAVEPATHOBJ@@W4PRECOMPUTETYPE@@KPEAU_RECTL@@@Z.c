@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0RGNMEMOBJTMPIFNEEDED@@QEAA@AEAVEPATHOBJ@@W4PRECOMPUTETYPE@@KPEAU_RECTL@@@Z @ 0x1C02874D4
+ * Callers:
+ *     EngFillPath @ 0x1C028BC20 (EngFillPath.c)
+ *     EngStrokeAndFillPath @ 0x1C028BFF0 (EngStrokeAndFillPath.c)
+ * Callees:
+ *     <none>
+ */
+
 RGNMEMOBJ *__fastcall RGNMEMOBJTMPIFNEEDED::RGNMEMOBJTMPIFNEEDED(
         RGNMEMOBJ *a1,
         struct EPATHOBJ *a2,

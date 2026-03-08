@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiObtainPoolCharges @ 0x1402EDAA0
+ * Callers:
+ *     MiInitializePoolCommitPacket @ 0x140330760 (MiInitializePoolCommitPacket.c)
+ *     MiGetPoolPages @ 0x14036413C (MiGetPoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ * Callees:
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ */
+
 __int64 __fastcall MiObtainPoolCharges(unsigned __int64 a1, int a2)
 {
   volatile signed __int64 *v4; // rax

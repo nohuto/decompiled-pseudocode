@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIommuTraceFault @ 0x1405161EC
+ * Callers:
+ *     HalpIommuReportIommuFault @ 0x1405161A0 (HalpIommuReportIommuFault.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char HalpIommuTraceFault(__int64 a1, void *a2, int a3, ...)
 {
   _UNKNOWN **v3; // rax

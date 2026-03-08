@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapInitializeEventing @ 0x140B63B48
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ */
+
 PSLIST_ENTRY WheapInitializeEventing()
 {
   struct _SLIST_ENTRY *v0; // rbx

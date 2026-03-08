@@ -1,3 +1,12 @@
+/*
+ * XREFs of Etw_EndpointListRundown @ 0x1C0010060
+ * Callers:
+ *     Etw_DeviceRundown @ 0x1C000FFA0 (Etw_DeviceRundown.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C004B00C (McTemplateK0pppnnn_EtwWriteTransfer.c)
+ */
+
 void __fastcall Etw_EndpointListRundown(int a1, __int64 a2)
 {
   KSPIN_LOCK *v2; // rsi

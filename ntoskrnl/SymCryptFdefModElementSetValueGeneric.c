@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefModElementSetValueGeneric @ 0x1403FE7A4
+ * Callers:
+ *     SymCryptModElementSetValue @ 0x1403F3B80 (SymCryptModElementSetValue.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawDivMod @ 0x1403FDD28 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefRawSetValue @ 0x1403FFF38 (SymCryptFdefRawSetValue.c)
+ */
+
 __int64 __fastcall SymCryptFdefModElementSetValueGeneric(int a1, int a2, int a3, __int64 a4, void *Src, _DWORD *a6)
 {
   int v6; // r14d

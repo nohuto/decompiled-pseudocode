@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreeUnmappedPageTables @ 0x1402D8BE0
+ * Callers:
+ *     MiDeleteSystemPageTableTail @ 0x1402D8B30 (MiDeleteSystemPageTableTail.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFreeUnmappedPageTables(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

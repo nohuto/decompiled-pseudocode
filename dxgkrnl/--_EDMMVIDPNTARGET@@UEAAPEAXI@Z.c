@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??_EDMMVIDPNTARGET@@UEAAPEAXI@Z @ 0x1C0007D70
+ * Callers:
+ *     ??_EDMMVIDPNTARGET@@WCA@EAAPEAXI@Z @ 0x1C0027E10 (--_EDMMVIDPNTARGET@@WCA@EAAPEAXI@Z.c)
+ *     ??_EDMMVIDPNTARGET@@WDA@EAAPEAXI@Z @ 0x1C0027E20 (--_EDMMVIDPNTARGET@@WDA@EAAPEAXI@Z.c)
+ *     ??_EDMMVIDPNTARGET@@WFA@EAAPEAXI@Z @ 0x1C0027E30 (--_EDMMVIDPNTARGET@@WFA@EAAPEAXI@Z.c)
+ * Callees:
+ *     ?reset@?$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z @ 0x1C00061EC (-reset@-$auto_rc@VDMMVIDPNTARGETMODESET@@@@QEAAXPEAVDMMVIDPNTARGETMODESET@@@Z.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0007E94 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall DMMVIDPNTARGET::`vector deleting destructor'(_QWORD *P, char a2)
 {
   __int64 *v3; // rdi

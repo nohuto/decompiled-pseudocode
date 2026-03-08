@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopGetLegacyVetoListDrivers @ 0x140698764
+ * Callers:
+ *     IoGetLegacyVetoList @ 0x1407609A0 (IoGetLegacyVetoList.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     ObReferenceObjectByName @ 0x140698F90 (ObReferenceObjectByName.c)
+ *     IopAppendLegacyVeto @ 0x1409696E4 (IopAppendLegacyVeto.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopGetLegacyVetoListDrivers(__int64 a1)
 {
   _QWORD *Pool2; // rsi

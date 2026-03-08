@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlFormatCurrentUserKeyPath @ 0x140747770
+ * Callers:
+ *     RtlpGetRegistryHandle @ 0x14069BBB0 (RtlpGetRegistryHandle.c)
+ *     RtlOpenCurrentUser @ 0x140749100 (RtlOpenCurrentUser.c)
+ *     AslRegistryBuildUserPath @ 0x14084C16C (AslRegistryBuildUserPath.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140858A9C (_RegRtlOpenPredefinedKey.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x140412730 (ZwQueryInformationToken.c)
+ *     RtlLengthSidAsUnicodeString @ 0x140747878 (RtlLengthSidAsUnicodeString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407479E0 (RtlConvertSidToUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 NTSTATUS __fastcall RtlFormatCurrentUserKeyPath(PUNICODE_STRING UnicodeString)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DwmAsyncMagnSetDesktopTransform @ 0x1C026F6A8
+ * Callers:
+ *     MagpDecomposeDesktop @ 0x1C007F098 (MagpDecomposeDesktop.c)
+ *     MagContextThreadCallout @ 0x1C01A4070 (MagContextThreadCallout.c)
+ *     MagSetLensContextInformation @ 0x1C01A4A80 (MagSetLensContextInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncMagnSetDesktopTransform(PVOID Object, __int64 a2, __int64 *a3, int a4, int a5)
 {
   unsigned int v9; // ebx

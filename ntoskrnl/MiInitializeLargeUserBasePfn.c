@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeLargeUserBasePfn @ 0x140666480
+ * Callers:
+ *     MiInsertLargeUserMapping @ 0x140666510 (MiInsertLargeUserMapping.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiInitializeLargeUserBasePfn(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   char v6; // al

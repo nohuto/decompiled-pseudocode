@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsDiagTraceBroadcastFailureDevice @ 0x14099C0DC
+ * Callers:
+ *     PopDirectedDripsNotifyTransitionFailed @ 0x140980AFC (PopDirectedDripsNotifyTransitionFailed.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopDirectedDripsDiagInsertErrorRecord @ 0x14099B210 (PopDirectedDripsDiagInsertErrorRecord.c)
+ */
+
 signed __int32 __fastcall PopDirectedDripsDiagTraceBroadcastFailureDevice(__int64 a1)
 {
   __int64 v2; // rdi

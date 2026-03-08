@@ -1,3 +1,13 @@
+/*
+ * XREFs of SecureDmaEnabler_Unmap @ 0x1C0052270
+ * Callers:
+ *     SecureDmaEnabler_WdfEvtCommonBufferPageCleanupCallback @ 0x1C007AD90 (SecureDmaEnabler_WdfEvtCommonBufferPageCleanupCallback.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall SecureDmaEnabler_Unmap(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax

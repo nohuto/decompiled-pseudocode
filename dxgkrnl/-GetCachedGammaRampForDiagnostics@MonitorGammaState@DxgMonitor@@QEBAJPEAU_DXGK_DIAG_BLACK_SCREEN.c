@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCachedGammaRampForDiagnostics@MonitorGammaState@DxgMonitor@@QEBAJPEAU_DXGK_DIAG_BLACK_SCREEN_DXGKRNL_SAMPLED_GAMMA@@@Z @ 0x1C03C7994
+ * Callers:
+ *     MonitorGetCachedApiGammaRampForDiagnostics @ 0x1C03BF97C (MonitorGetCachedApiGammaRampForDiagnostics.c)
+ * Callees:
+ *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0004750 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C00048E4 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorGammaState::GetCachedGammaRampForDiagnostics(
         DxgMonitor::MonitorGammaState *this,
         struct _DXGK_DIAG_BLACK_SCREEN_DXGKRNL_SAMPLED_GAMMA *a2)

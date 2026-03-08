@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?Disconnect@FxInterrupt@@QEAAJK@Z @ 0x1C007ED80
+ * Callers:
+ *     ?NotifyResourceObjectsDx@FxPkgPnp@@AEAAJK@Z @ 0x1C0073524 (-NotifyResourceObjectsDx@FxPkgPnp@@AEAAJK@Z.c)
+ *     ?ForceDisconnect@FxInterrupt@@QEAAJXZ @ 0x1C007F058 (-ForceDisconnect@FxInterrupt@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C00183B0 (WPP_IFR_SF_qqqd.c)
+ *     ?InterruptDisable@FxInterrupt@@AEAAJXZ @ 0x1C007F58C (-InterruptDisable@FxInterrupt@@AEAAJXZ.c)
+ *     ?IsActiveForWake@FxInterrupt@@QEAAEXZ @ 0x1C007F77C (-IsActiveForWake@FxInterrupt@@QEAAEXZ.c)
+ *     ?IsSoftDisconnectCapable@FxInterrupt@@QEAAEXZ @ 0x1C007F79C (-IsSoftDisconnectCapable@FxInterrupt@@QEAAEXZ.c)
+ *     ?DisconnectInternal@FxInterrupt@@QEAAXXZ @ 0x1C0080038 (-DisconnectInternal@FxInterrupt@@QEAAXXZ.c)
+ *     ?ReportInactive@FxInterrupt@@QEAAXE@Z @ 0x1C00801CC (-ReportInactive@FxInterrupt@@QEAAXE@Z.c)
+ */
+
 __int64 __fastcall FxInterrupt::Disconnect(FxInterrupt *this, char NotifyFlags)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // r14

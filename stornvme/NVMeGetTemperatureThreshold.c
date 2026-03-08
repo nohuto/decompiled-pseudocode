@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeGetTemperatureThreshold @ 0x1C001EE74
+ * Callers:
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     BuildGetFeaturesTemperatureThresholdCommand @ 0x1C0010DDC (BuildGetFeaturesTemperatureThresholdCommand.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeGetTemperatureThreshold(__int64 a1)
 {
   __int64 result; // rax

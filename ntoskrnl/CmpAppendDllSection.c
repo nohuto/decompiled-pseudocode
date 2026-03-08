@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpAppendDllSection @ 0x140B31860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpAppendDllSection(_QWORD *a1, __int64 a2)
 {
   _QWORD *v2; // rcx

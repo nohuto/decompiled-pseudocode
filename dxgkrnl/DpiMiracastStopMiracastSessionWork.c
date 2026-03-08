@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiMiracastStopMiracastSessionWork @ 0x1C039B710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ */
+
 void __fastcall DpiMiracastStopMiracastSessionWork(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   DpiMiracastStopMiracastSessionSync(

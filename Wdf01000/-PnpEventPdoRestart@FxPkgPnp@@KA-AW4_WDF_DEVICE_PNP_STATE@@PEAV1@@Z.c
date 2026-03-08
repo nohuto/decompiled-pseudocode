@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PnpEventPdoRestart@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006AB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?ResetStateForRestart@FxPkgIo@@QEAAXXZ @ 0x1C00629F8 (-ResetStateForRestart@FxPkgIo@@QEAAXXZ.c)
+ *     ?Reset@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0077520 (-Reset@FxPowerIdleMachine@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PnpEventPdoRestart(FxPkgPnp *This, __int64 a2, unsigned __int8 a3)
 {
   FxDeviceBase *m_DeviceBase; // rax

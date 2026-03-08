@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPointerDeviceConfig@InputConfig@@SA_NPEBURIMDEV@@PEBUtagHID_POINTER_DEVICE_INFO@@PEAVCLockedInputSpace@@PEAVCLockedInputSpaceRegion@@@Z @ 0x1C02136F4
+ * Callers:
+ *     RIMSetDeviceOutputConfig @ 0x1C01BDB78 (RIMSetDeviceOutputConfig.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InputConfig::GetPointerDeviceConfig(
         const struct RIMDEV *a1,
         const struct tagHID_POINTER_DEVICE_INFO *a2,

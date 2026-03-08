@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoDispatchInternalIoctl @ 0x1C0212B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiSharedPowerRegister @ 0x1C03997D0 (DpiSharedPowerRegister.c)
+ */
+
 __int64 __fastcall DpiFdoDispatchInternalIoctl(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

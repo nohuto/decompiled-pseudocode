@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UpdateAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAJKPEBGK0@Z @ 0x1C00F8730
+ * Callers:
+ *     ?AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00F8310 (-AutoRotationUpdateRegistry@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00F8370 (-CacheRotationInfo@CLegacyRotationMgr@@UEAAXXZ.c)
+ *     ?xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01A8BE4 (-xxxSetAutoRotationStateInternal@CLegacyRotationMgr@@AEAAJH@Z.c)
+ *     ?xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z @ 0x1C01A8CA0 (-xxxSetSensorPresence@CLegacyRotationMgr@@UEAAXH@Z.c)
+ *     ?xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z @ 0x1C01A8CF4 (-xxxSetSlateAutoRotationState@CLegacyRotationMgr@@AEAAJH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyRotationMgr::UpdateAutoRotationRegistrySetting(
         CLegacyRotationMgr *this,
         int a2,

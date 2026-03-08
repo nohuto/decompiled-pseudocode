@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcpiValidatePepDeviceControlResources @ 0x1C008B804
+ * Callers:
+ *     AcpiTranslatePepDeviceControlResourcesInternal @ 0x1C008B620 (AcpiTranslatePepDeviceControlResourcesInternal.c)
+ * Callees:
+ *     WPP_RECORDER_SF_Dd @ 0x1C0038360 (WPP_RECORDER_SF_Dd.c)
+ *     WPP_RECORDER_SF_iiid @ 0x1C0038510 (WPP_RECORDER_SF_iiid.c)
+ *     AMLICheckIfIoRangeValid @ 0x1C0047AE8 (AMLICheckIfIoRangeValid.c)
+ *     AMLIValidateFirmwareMemoryAddress @ 0x1C0048EAC (AMLIValidateFirmwareMemoryAddress.c)
+ */
+
 __int64 __fastcall AcpiValidatePepDeviceControlResources(_DWORD *a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   int v5; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of AddHmodDependency @ 0x1C009D860
+ * Callers:
+ *     _SetWinEventHook @ 0x1C003952C (_SetWinEventHook.c)
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ *     _RegisterUserApiHook @ 0x1C00DD234 (_RegisterUserApiHook.c)
+ *     _RegisterDManipHook @ 0x1C00DD6D0 (_RegisterDManipHook.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall AddHmodDependency(__int64 a1)
 {
   __int64 v1; // rsi

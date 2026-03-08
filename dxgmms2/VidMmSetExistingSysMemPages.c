@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmSetExistingSysMemPages @ 0x1C002D480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmSetExistingSysMemPages@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@IIIPEA_K@Z @ 0x1C00EA860 (-VidMmSetExistingSysMemPages@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@IIIPEA_K@Z.c)
+ */
+
 __int64 __fastcall VidMmSetExistingSysMemPages(
         VIDMM_GLOBAL *a1,
         struct _VIDMM_MULTI_ALLOC *a2,

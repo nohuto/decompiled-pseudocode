@@ -1,3 +1,33 @@
+/*
+ * XREFs of UsbhDispatch_BusEvent @ 0x1C001CF30
+ * Callers:
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ *     UsbhSyncBusDisconnect @ 0x1C00317FC (UsbhSyncBusDisconnect.c)
+ *     UsbhSyncBusPause @ 0x1C0031870 (UsbhSyncBusPause.c)
+ *     UsbhSyncBusResume @ 0x1C00318F8 (UsbhSyncBusResume.c)
+ *     UsbhBusAdd @ 0x1C00367F0 (UsbhBusAdd.c)
+ *     UsbhBusPnpStart @ 0x1C00369F0 (UsbhBusPnpStart.c)
+ *     UsbhBusPnpStop @ 0x1C0036F60 (UsbhBusPnpStop.c)
+ *     UsbhBusRemove @ 0x1C0036FA0 (UsbhBusRemove.c)
+ *     UsbhAsyncStartComplete @ 0x1C0042408 (UsbhAsyncStartComplete.c)
+ *     UsbhHubStart @ 0x1C0043560 (UsbhHubStart.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ * Callees:
+ *     Usbh_BS_BusRun @ 0x1C001D160 (Usbh_BS_BusRun.c)
+ *     Usbh_BS_BusPause @ 0x1C001D2E0 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusSuspend @ 0x1C001D470 (Usbh_BS_BusSuspend.c)
+ *     UsbhReleaseBusStateLock @ 0x1C001D7C0 (UsbhReleaseBusStateLock.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhSshBusBusy @ 0x1C003170C (UsbhSshBusBusy.c)
+ *     Usbh_BS_BusInit @ 0x1C003196C (Usbh_BS_BusInit.c)
+ *     Usbh_BS_BusRemove @ 0x1C0031A28 (Usbh_BS_BusRemove.c)
+ *     Usbh_BS_BusStop @ 0x1C0031AE0 (Usbh_BS_BusStop.c)
+ */
+
 __int64 __fastcall UsbhDispatch_BusEvent(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r14

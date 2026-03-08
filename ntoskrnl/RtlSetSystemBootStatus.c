@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlSetSystemBootStatus @ 0x14073AEB0
+ * Callers:
+ *     PopWriteBsdPoInfo @ 0x1402B9F3C (PopWriteBsdPoInfo.c)
+ *     PopRecordLongPowerButtonPressDetected @ 0x14085A9C0 (PopRecordLongPowerButtonPressDetected.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     RtlpSystemBootStatusRequest @ 0x14073AEEC (RtlpSystemBootStatusRequest.c)
+ */
+
 __int64 __fastcall RtlSetSystemBootStatus(int a1, __int64 a2, int a3)
 {
   _DWORD v4[2]; // [rsp+20h] [rbp-28h] BYREF

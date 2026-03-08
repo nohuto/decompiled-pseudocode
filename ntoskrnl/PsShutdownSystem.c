@@ -1,3 +1,28 @@
+/*
+ * XREFs of PsShutdownSystem @ 0x1409B05A4
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     ExfAcquireReleasePushLockExclusive @ 0x140201D54 (ExfAcquireReleasePushLockExclusive.c)
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     PspGetNextSilo @ 0x1406FB574 (PspGetNextSilo.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     PsTerminateServerSilo @ 0x1409A98D0 (PsTerminateServerSilo.c)
+ *     PspWaitForUsermodeExit @ 0x1409B0E8C (PspWaitForUsermodeExit.c)
+ */
+
 __int64 PsShutdownSystem()
 {
   unsigned int v0; // r12d

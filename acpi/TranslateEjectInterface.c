@@ -1,3 +1,14 @@
+/*
+ * XREFs of TranslateEjectInterface @ 0x1C0097A38
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ *     BuildTranslatorRanges @ 0x1C00974E0 (BuildTranslatorRanges.c)
+ */
+
 __int64 __fastcall TranslateEjectInterface(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // r14

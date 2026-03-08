@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmDisableModifiedWriteOfSection @ 0x1402EE070
+ * Callers:
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MmDisableModifiedWriteOfSection(__int64 a1)
 {
   bool v1; // di

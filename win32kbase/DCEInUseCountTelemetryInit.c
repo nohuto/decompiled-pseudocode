@@ -1,3 +1,11 @@
+/*
+ * XREFs of DCEInUseCountTelemetryInit @ 0x1C008AAE8
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 int DCEInUseCountTelemetryInit()
 {
   int result; // eax

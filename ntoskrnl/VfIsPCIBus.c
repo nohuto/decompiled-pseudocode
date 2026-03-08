@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfIsPCIBus @ 0x140AC3E74
+ * Callers:
+ *     VfGetDmaAdapter @ 0x140AC3560 (VfGetDmaAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ */
+
 __int64 __fastcall VfIsPCIBus(struct _DEVICE_OBJECT *a1)
 {
   unsigned int v1; // ebx

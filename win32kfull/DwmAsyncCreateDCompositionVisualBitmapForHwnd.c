@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncCreateDCompositionVisualBitmapForHwnd @ 0x1C0014820
+ * Callers:
+ *     ?Initialize@CHwndBitmapProp@@QEAAJXZ @ 0x1C001477C (-Initialize@CHwndBitmapProp@@QEAAJXZ.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncCreateDCompositionVisualBitmapForHwnd(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

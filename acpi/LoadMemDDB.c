@@ -1,3 +1,15 @@
+/*
+ * XREFs of LoadMemDDB @ 0x1C004FD4C
+ * Callers:
+ *     Load @ 0x1C00556C0 (Load.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     LoadDDB @ 0x1C004FA40 (LoadDDB.c)
+ */
+
 __int64 __fastcall LoadMemDDB(_QWORD *a1, const char *a2, __int64 a3)
 {
   int v6; // eax

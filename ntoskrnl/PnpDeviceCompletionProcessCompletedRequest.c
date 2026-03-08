@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnpDeviceCompletionProcessCompletedRequest @ 0x140685424
+ * Callers:
+ *     PipEnumerateDevice @ 0x140688710 (PipEnumerateDevice.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406CD318 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ * Callees:
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     PnpDeviceCompletionRequestDestroy @ 0x140202754 (PnpDeviceCompletionRequestDestroy.c)
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     PipUpdatePostStartCharacteristics @ 0x1402FC360 (PipUpdatePostStartCharacteristics.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     PiSwProcessParentStartIrp @ 0x140791F24 (PiSwProcessParentStartIrp.c)
+ */
+
 __int64 __fastcall PnpDeviceCompletionProcessCompletedRequest(__int64 a1)
 {
   ULONG_PTR v2; // rbx

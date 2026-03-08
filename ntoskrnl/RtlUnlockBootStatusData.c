@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlUnlockBootStatusData @ 0x14073D1B0
+ * Callers:
+ *     PopBootStatGet @ 0x14073D308 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x14073D9E0 (PopBootStatSet.c)
+ *     PopBootStatCheckIntegrity @ 0x14084B00C (PopBootStatCheckIntegrity.c)
+ *     PoClearTransitionMarker @ 0x14085A768 (PoClearTransitionMarker.c)
+ *     PopBootStatRestoreDefaults @ 0x1409940B0 (PopBootStatRestoreDefaults.c)
+ *     PopBootStatUnlock @ 0x140994190 (PopBootStatUnlock.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwFsControlFile @ 0x140412A30 (ZwFsControlFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall RtlUnlockBootStatusData(HANDLE Handle)
 {
   struct _KTHREAD *CurrentThread; // rax

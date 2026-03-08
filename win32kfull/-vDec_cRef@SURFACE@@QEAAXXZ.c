@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C027A190
+ * Callers:
+ *     GreDrawStream @ 0x1C0082A90 (GreDrawStream.c)
+ *     ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C0279074 (-bEndDocInternal@@YAHPEAUHDC__@@KG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SURFACE::vDec_cRef(SURFACE *this)
 {
   __int64 v3; // rcx

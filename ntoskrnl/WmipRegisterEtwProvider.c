@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipRegisterEtwProvider @ 0x14085074C
+ * Callers:
+ *     WmipLinkDataSourceToList @ 0x1408681AC (WmipLinkDataSourceToList.c)
+ * Callees:
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipQueueLegacyEtwWork @ 0x1408507E0 (WmipQueueLegacyEtwWork.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall WmipRegisterEtwProvider(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

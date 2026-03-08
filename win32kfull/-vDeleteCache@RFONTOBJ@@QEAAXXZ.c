@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDeleteCache@RFONTOBJ@@QEAAXXZ @ 0x1C0123D3C
+ * Callers:
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C0123828 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RFONTOBJ::vDeleteCache(RFONTOBJ *this)
 {
   __int64 v1; // rsi

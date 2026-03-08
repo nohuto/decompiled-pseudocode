@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessPTPMouseInput@CHidInput@@QEAAXPEAXPEAU_MOUSE_INPUT_DATA@@_K2K@Z @ 0x1C0212AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SensorDoWorkAndWait@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z @ 0x1C009B248 (-SensorDoWorkAndWait@CRIMBase@@IEAAXW4DispatcherHandleName@1@@Z.c)
+ */
+
 void __fastcall CHidInput::ProcessPTPMouseInput(
         CHidInput *this,
         void *a2,

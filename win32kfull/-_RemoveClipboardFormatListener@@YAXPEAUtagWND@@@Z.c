@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_RemoveClipboardFormatListener@@YAXPEAUtagWND@@@Z @ 0x1C00BDC8C
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     NtUserRemoveClipboardFormatListener @ 0x1C00BD5E0 (NtUserRemoveClipboardFormatListener.c)
+ * Callees:
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ */
+
 void __fastcall _RemoveClipboardFormatListener(struct tagWND *a1)
 {
   struct tagWND **v1; // rcx

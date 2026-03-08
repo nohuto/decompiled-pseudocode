@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspNotifyThreadCreation @ 0x1407ED550
+ * Callers:
+ *     PspUserThreadStartup @ 0x1407ED430 (PspUserThreadStartup.c)
+ *     PspSecureThreadStartup @ 0x1409AE950 (PspSecureThreadStartup.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeQuerySystemTimePrecise @ 0x1402384E0 (KeQuerySystemTimePrecise.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     PfProcessCreateNotification @ 0x1407E6CA0 (PfProcessCreateNotification.c)
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ */
+
 __int64 __fastcall PspNotifyThreadCreation(__int64 a1)
 {
   __int64 v1; // rbx

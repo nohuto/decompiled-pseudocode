@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpiUpdateForceActiveBothInterrupts @ 0x1C0091FC4
+ * Callers:
+ *     PnpiBiosExtendedIrqToIoDescriptor @ 0x1C00917BC (PnpiBiosExtendedIrqToIoDescriptor.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     PnpiCleanupForceActiveBothInterrupts @ 0x1C003C580 (PnpiCleanupForceActiveBothInterrupts.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNSObjectNameSegment @ 0x1C0048384 (AMLIGetNSObjectNameSegment.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ *     ACPIRegLocalCopyString @ 0x1C008D388 (ACPIRegLocalCopyString.c)
+ *     OSCreateHandle @ 0x1C008DB54 (OSCreateHandle.c)
+ *     OSWriteRegValue @ 0x1C008EC30 (OSWriteRegValue.c)
+ */
+
 __int64 __fastcall PnpiUpdateForceActiveBothInterrupts(__int64 a1)
 {
   __int64 result; // rax

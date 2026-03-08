@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CGradientBrush@@MEAA@XZ @ 0x1800B6154
+ * Callers:
+ *     ??_ECLinearGradientBrush@@UEAAPEAXI@Z @ 0x1800B6110 (--_ECLinearGradientBrush@@UEAAPEAXI@Z.c)
+ *     ??_GCRadialGradientBrush@@UEAAPEAXI@Z @ 0x1801C0670 (--_GCRadialGradientBrush@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??1CGradientSource@@MEAA@XZ @ 0x1800B623C (--1CGradientSource@@MEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CGradientBrush::~CGradientBrush(struct CResource **this)
 {
   struct CResource **v2; // rsi

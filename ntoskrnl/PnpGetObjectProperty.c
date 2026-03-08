@@ -1,3 +1,23 @@
+/*
+ * XREFs of PnpGetObjectProperty @ 0x1406CEE90
+ * Callers:
+ *     PiUEventCacheObjectProperties @ 0x14068C634 (PiUEventCacheObjectProperties.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     PiPnpRtlApplyMandatoryDeviceInterfaceFilters @ 0x1406CBE3C (PiPnpRtlApplyMandatoryDeviceInterfaceFilters.c)
+ *     PiDmObjectProcessPropertyChange @ 0x1406CC044 (PiDmObjectProcessPropertyChange.c)
+ *     PiPnpRtlIsDeviceEnumerableForUser @ 0x1406CDDF4 (PiPnpRtlIsDeviceEnumerableForUser.c)
+ *     PiDmObjectUpdateCachedObjectProperty @ 0x1406D0A64 (PiDmObjectUpdateCachedObjectProperty.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x14077D414 (PiDmGetReferencedObjectFromProperty.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x14078E748 (PnpInitializeInheritedRestrictedSd.c)
+ *     PiDevCfgResolveVariableDeviceProperty @ 0x1408776A0 (PiDevCfgResolveVariableDeviceProperty.c)
+ *     IoGetDeviceDirectory @ 0x1409520A0 (IoGetDeviceDirectory.c)
+ *     PiPnpRtlGatherInterfaceDeleteInfo @ 0x14095763C (PiPnpRtlGatherInterfaceDeleteInfo.c)
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpGetObjectProperty(
         ULONG Tag,
         unsigned int a2,

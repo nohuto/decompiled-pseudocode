@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcRepinBcb @ 0x1403A3B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall CcRepinBcb(PVOID Bcb)
 {
   __int64 v2; // rcx

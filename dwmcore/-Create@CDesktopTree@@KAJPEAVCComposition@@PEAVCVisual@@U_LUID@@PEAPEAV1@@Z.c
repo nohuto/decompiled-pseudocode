@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x18020C988
+ * Callers:
+ *     ?SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z @ 0x1802A8128 (-SetRootVisual@CHolographicInteropTexture@@AEAAJPEAVCVisual@@@Z.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800C6D90 (-Initialize@CDesktopTree@@MEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??0CDesktopTree@@IEAA@PEAVCComposition@@@Z @ 0x180102908 (--0CDesktopTree@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z @ 0x180103434 (-SetRootVisual@CDesktopTree@@AEAAJPEAVCVisual@@@Z.c)
+ *     ?SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z @ 0x1801036E8 (-SetLuid@CDesktopTree@@AEAAJU_LUID@@@Z.c)
+ *     ??2CDesktopTree@@KAPEAX_K@Z @ 0x1801040E8 (--2CDesktopTree@@KAPEAX_K@Z.c)
+ *     ??1?$com_ptr_t@VCDebugVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18019A418 (--1-$com_ptr_t@VCDebugVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CDesktopTree::Create(
         struct CComposition *a1,
         struct CVisual *a2,

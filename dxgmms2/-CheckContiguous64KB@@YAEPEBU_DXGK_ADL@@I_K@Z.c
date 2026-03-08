@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckContiguous64KB@@YAEPEBU_DXGK_ADL@@I_K@Z @ 0x1C00F1FF8
+ * Callers:
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1C0090840 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall CheckContiguous64KB(const struct _DXGK_ADL *a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r9

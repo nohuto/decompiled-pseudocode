@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_UnconfiguredSuspending @ 0x1C0020610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_UnconfiguredSuspending(__int64 a1)
 {
   __int64 v1; // rdx

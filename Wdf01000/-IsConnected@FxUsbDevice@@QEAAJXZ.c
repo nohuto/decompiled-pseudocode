@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsConnected@FxUsbDevice@@QEAAJXZ @ 0x1C005D770
+ * Callers:
+ *     imp_WdfUsbTargetDeviceIsConnectedSynchronous @ 0x1C0057780 (imp_WdfUsbTargetDeviceIsConnectedSynchronous.c)
+ *     ?FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C005A2D8 (-FxUsbPipeRequestWorkItemHandler@FxUsbPipeContinuousReader@@IEAAXPEAUFxUsbPipeRepeatReader@@@Z.c)
+ * Callees:
+ *     ?GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z @ 0x1C005D5FC (-GetPortStatus@FxUsbDevice@@IEAAJPEAK@Z.c)
+ */
+
 __int64 __fastcall FxUsbDevice::IsConnected(FxUsbDevice *this)
 {
   __int64 result; // rax

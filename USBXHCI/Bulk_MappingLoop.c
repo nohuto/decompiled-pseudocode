@@ -1,3 +1,16 @@
+/*
+ * XREFs of Bulk_MappingLoop @ 0x1C0011F10
+ * Callers:
+ *     Bulk_MapTransfers @ 0x1C0011EA8 (Bulk_MapTransfers.c)
+ * Callees:
+ *     TR_AttemptStateChange @ 0x1C0008120 (TR_AttemptStateChange.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Bulk_RetrieveNextStage @ 0x1C0011FDC (Bulk_RetrieveNextStage.c)
+ *     Bulk_MapStage @ 0x1C00122C0 (Bulk_MapStage.c)
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ */
+
 void __fastcall Bulk_MappingLoop(__int64 a1)
 {
   char i; // di

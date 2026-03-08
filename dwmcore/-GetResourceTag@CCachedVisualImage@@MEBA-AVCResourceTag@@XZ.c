@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetResourceTag@CCachedVisualImage@@MEBA?AVCResourceTag@@XZ @ 0x1800FBB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _OWORD *__fastcall CCachedVisualImage::GetResourceTag(__int64 a1, _OWORD *a2)
 {
   char v2; // r8

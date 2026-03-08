@@ -1,3 +1,26 @@
+/*
+ * XREFs of UserSetLastStatus @ 0x1C0012568
+ * Callers:
+ *     NtUserSetLayeredWindowAttributes @ 0x1C002A290 (NtUserSetLayeredWindowAttributes.c)
+ *     NtUserConsoleControl @ 0x1C003C4D0 (NtUserConsoleControl.c)
+ *     NtUserDwmKernelStartup @ 0x1C00795C0 (NtUserDwmKernelStartup.c)
+ *     NtUserDestroyDCompositionHwndTarget @ 0x1C007D170 (NtUserDestroyDCompositionHwndTarget.c)
+ *     NtUserCreateDCompositionHwndTarget @ 0x1C007D760 (NtUserCreateDCompositionHwndTarget.c)
+ *     NtUserOpenWindowStation @ 0x1C00C2180 (NtUserOpenWindowStation.c)
+ *     NtUserFindExistingCursorIcon @ 0x1C00C5470 (NtUserFindExistingCursorIcon.c)
+ *     NtUserRegisterWindowMessage @ 0x1C00C59E0 (NtUserRegisterWindowMessage.c)
+ *     NtUserGetResizeDCompositionSynchronizationObject @ 0x1C00DFD20 (NtUserGetResizeDCompositionSynchronizationObject.c)
+ *     NtUserSetWindowCompositionTransition @ 0x1C00EC250 (NtUserSetWindowCompositionTransition.c)
+ *     NtUserDwmGetRemoteSessionOcclusionEvent @ 0x1C01298E0 (NtUserDwmGetRemoteSessionOcclusionEvent.c)
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C0147D40 (NtUserHwndQueryRedirectionInfo.c)
+ *     NtUserDwmKernelShutdown @ 0x1C01D0260 (NtUserDwmKernelShutdown.c)
+ *     NtUserSetAutoRotation @ 0x1C01DB550 (NtUserSetAutoRotation.c)
+ *     NtUserUpdateDefaultDesktopThumbnail @ 0x1C01E0500 (NtUserUpdateDefaultDesktopThumbnail.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C01E0780 (NtUserUpdateLayeredWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 struct _NT_TIB *__fastcall UserSetLastStatus(NTSTATUS Status, int a2)
 {
   NTSTATUS v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiTpWriteUmMemory @ 0x14057CC10
+ * Callers:
+ *     KiTpWriteMemory @ 0x14057CAEC (KiTpWriteMemory.c)
+ * Callees:
+ *     MmCopyVirtualMemory @ 0x1407C5910 (MmCopyVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ */
+
 __int64 __fastcall KiTpWriteUmMemory(int a1, __int64 a2, int a3, unsigned int a4)
 {
   int v4; // esi

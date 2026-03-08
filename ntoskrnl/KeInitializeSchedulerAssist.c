@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeInitializeSchedulerAssist @ 0x140B72514
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeInitializeSchedulerAssist(__int64 a1)
 {
   int v1; // eax

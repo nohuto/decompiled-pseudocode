@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetCertificateSize@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C01887D8
+ * Callers:
+ *     NtGdiGetCertificateByHandle @ 0x1C0189520 (NtGdiGetCertificateByHandle.c)
+ *     NtGdiGetCertificateSizeByHandle @ 0x1C01896F0 (NtGdiGetCertificateSizeByHandle.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?GetCertificateSize@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z @ 0x1C018886C (-GetCertificateSize@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProtectedOutput@@@Z @ 0x1C0188928 (-GetHandleObject@-$CMonitorHandleTable@VCOPMProtectedOutput@@PEAX@OPM@@QEAAJPEAXPEAPEAVCOPMProte.c)
+ */
+
 __int64 __fastcall COPM::GetCertificateSize(void **this, void *a2, enum _DXGKMDT_CERTIFICATE_TYPE a3, unsigned int *a4)
 {
   PRKMUTEX *v4; // rbx

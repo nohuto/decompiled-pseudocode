@@ -1,3 +1,19 @@
+/*
+ * XREFs of AslRegistryGetKey @ 0x14084BF1C
+ * Callers:
+ *     SdbpGetMergeSdbsDisabled @ 0x14066B714 (SdbpGetMergeSdbsDisabled.c)
+ *     SdbpQueryAppCompatFlagsByExeID @ 0x14084BE9C (SdbpQueryAppCompatFlagsByExeID.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4BEA8 (SdbpGetManifestedMergeStubAlloc.c)
+ *     AslpProcessMatchRegNode @ 0x140A53E9C (AslpProcessMatchRegNode.c)
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslRegistryBuildMachinePath @ 0x14084C000 (AslRegistryBuildMachinePath.c)
+ *     AslRegistryBuildUserPath @ 0x14084C16C (AslRegistryBuildUserPath.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslRegistryGetKey(_QWORD *a1, const WCHAR *a2, ACCESS_MASK a3, int a4)
 {
   int v6; // ebx

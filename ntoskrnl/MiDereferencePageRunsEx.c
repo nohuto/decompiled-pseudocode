@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiDereferencePageRunsEx @ 0x1402EBA28
+ * Callers:
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ *     MiZeroNodePages @ 0x14038FAA0 (MiZeroNodePages.c)
+ *     MiComputeNodeMemory @ 0x1403A6D2C (MiComputeNodeMemory.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiFinishResume @ 0x1406244A0 (MiFinishResume.c)
+ *     MiGetListOfPendingBadPages @ 0x140627BD8 (MiGetListOfPendingBadPages.c)
+ *     MiDeleteZeroThreadContext @ 0x140652704 (MiDeleteZeroThreadContext.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiUpdatePartitionMemory @ 0x1406597F8 (MiUpdatePartitionMemory.c)
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDereferencePageRunsEx(__int64 a1, int a2)
 {
   void *v2; // r12

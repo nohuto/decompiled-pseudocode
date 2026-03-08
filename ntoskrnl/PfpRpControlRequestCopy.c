@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfpRpControlRequestCopy @ 0x1407DF940
+ * Callers:
+ *     PfpRpControlRequest @ 0x1407DFB68 (PfpRpControlRequest.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpRpControlRequestCopy(__m128i *Src, unsigned int a2, __m128i **a3, __m128i *Pool2, char a5)
 {
   char *v7; // rcx

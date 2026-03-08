@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiLogStrongCodeDriverLoadFailure @ 0x140A2D7CC
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiResolveImageImports @ 0x14076F7A4 (MiResolveImageImports.c)
+ *     MiProcessKernelCfgImageLoadConfig @ 0x1407849F8 (MiProcessKernelCfgImageLoadConfig.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall MiLogStrongCodeDriverLoadFailure(const CHAR *Src, __int64 a2)
 {
   __int64 v4; // r10

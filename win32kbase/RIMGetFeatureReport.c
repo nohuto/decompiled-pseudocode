@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMGetFeatureReport @ 0x1C01B6834
+ * Callers:
+ *     RIMGetMaxCountFeatureDetails @ 0x1C01B69A4 (RIMGetMaxCountFeatureDetails.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 NTSTATUS __fastcall RIMGetFeatureReport(
         PLARGE_INTEGER Timeout,
         unsigned __int16 a2,

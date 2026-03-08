@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpStartBootLogger @ 0x140B944B4
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpStartBootLogger(__int64 a1)
 {
   __int64 Pool2; // rax

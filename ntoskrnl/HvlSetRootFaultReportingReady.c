@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlSetRootFaultReportingReady @ 0x140543920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ */
+
 __int64 HvlSetRootFaultReportingReady()
 {
   unsigned __int16 v0; // ax

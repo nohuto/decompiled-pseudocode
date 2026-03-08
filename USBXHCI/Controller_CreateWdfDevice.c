@@ -1,3 +1,18 @@
+/*
+ * XREFs of Controller_CreateWdfDevice @ 0x1C006EFBC
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Device_QueryCapabilities @ 0x1C001A014 (Device_QueryCapabilities.c)
+ *     WPP_RECORDER_SF_S @ 0x1C001A234 (WPP_RECORDER_SF_S.c)
+ *     Device_IsSecureDevice @ 0x1C001A478 (Device_IsSecureDevice.c)
+ *     RtlUnicodeStringPrintf @ 0x1C001A488 (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall Controller_CreateWdfDevice(__int64 a1, __int64 a2, _QWORD *a3, unsigned int *a4)
 {
   unsigned int v7; // r13d

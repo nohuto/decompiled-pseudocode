@@ -1,3 +1,17 @@
+/*
+ * XREFs of VmpLockMemoryForPin @ 0x1409DA418
+ * Callers:
+ *     VmpMergeMemoryRanges @ 0x1405F7BB4 (VmpMergeMemoryRanges.c)
+ *     VmpPinMemoryRange @ 0x1405F7F20 (VmpPinMemoryRange.c)
+ *     VmpSplitMemoryRange @ 0x1405F8CA0 (VmpSplitMemoryRange.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     MmSecureVirtualMemoryEx @ 0x140769030 (MmSecureVirtualMemoryEx.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2AA04 (MmLockPhysicalPagesByVa.c)
+ */
+
 __int64 __fastcall VmpLockMemoryForPin(__int64 a1, __int64 a2, __int64 a3, int a4, _QWORD *a5)
 {
   BOOL v8; // r14d

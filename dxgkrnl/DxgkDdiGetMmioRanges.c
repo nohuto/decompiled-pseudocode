@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkDdiGetMmioRanges @ 0x1C03658A0
+ * Callers:
+ *     DpiIovGetMmioRanges @ 0x1C039EE90 (DpiIovGetMmioRanges.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetMmioRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETMMIORANGES@@@Z @ 0x1C0363AEC (-GetMmioRanges@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETMMIORANGES@@@Z.c)
+ */
+
 __int64 __fastcall DxgkDdiGetMmioRanges(_QWORD *a1, int a2, __int64 a3)
 {
   unsigned __int64 v5; // rbx

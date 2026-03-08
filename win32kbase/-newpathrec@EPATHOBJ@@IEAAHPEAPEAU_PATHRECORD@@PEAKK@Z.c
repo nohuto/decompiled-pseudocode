@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C018A940
+ * Callers:
+ *     ?bClone@EPATHOBJ@@QEAAHAEAV1@@Z @ 0x1C0180D50 (-bClone@EPATHOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C018A9F0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ * Callees:
+ *     newpathalloc @ 0x1C0181B40 (newpathalloc.c)
+ */
+
 __int64 __fastcall EPATHOBJ::newpathrec(__int64 this, struct _PATHRECORD **a2, unsigned int *a3, unsigned int a4)
 {
   __int64 v6; // rdi

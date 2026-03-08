@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxClientShutdown2@@YAJPEAUtagBWL@@I_K@Z @ 0x1C00DB088
+ * Callers:
+ *     xxxClientShutdown @ 0x1C00DAFFC (xxxClientShutdown.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     DestroyWindowsTimers @ 0x1C00DB1CC (DestroyWindowsTimers.c)
+ */
+
 __int64 __fastcall xxxClientShutdown2(struct tagBWL *a1, int a2, __int16 a3)
 {
   _QWORD *v3; // rsi

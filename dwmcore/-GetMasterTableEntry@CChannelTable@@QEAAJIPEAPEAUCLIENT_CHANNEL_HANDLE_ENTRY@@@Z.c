@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetMasterTableEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800CD0D4
+ * Callers:
+ *     ?AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z @ 0x1800CCEF8 (-AssignChannelEntry@CChannelTable@@QEAAJIPEAPEAUCLIENT_CHANNEL_HANDLE_ENTRY@@@Z.c)
+ *     ?WaitForSyncFlush@CInternalMilCmdConnection@@QEAAJI@Z @ 0x1800CD018 (-WaitForSyncFlush@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x1801B2658 (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?DestroyHandle@CChannelTable@@QEAAXI@Z @ 0x1801CB18C (-DestroyHandle@CChannelTable@@QEAAXI@Z.c)
+ * Callees:
+ *     ?ValidEntry@HANDLE_TABLE@@QEBAHI@Z @ 0x180099BBC (-ValidEntry@HANDLE_TABLE@@QEBAHI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CChannelTable::GetMasterTableEntry(
         CChannelTable *this,
         unsigned int a2,

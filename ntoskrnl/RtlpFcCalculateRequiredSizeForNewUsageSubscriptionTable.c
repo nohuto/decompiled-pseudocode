@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable @ 0x1409C0054
+ * Callers:
+ *     RtlpFcUpdateUsageTriggers @ 0x1409C05F0 (RtlpFcUpdateUsageTriggers.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     RtlpFcCompareUsageSubscriptionToUsageSubscription @ 0x1405B2730 (RtlpFcCompareUsageSubscriptionToUsageSubscription.c)
+ */
+
 NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewUsageSubscriptionTable(
         _DWORD *a1,
         int *a2,

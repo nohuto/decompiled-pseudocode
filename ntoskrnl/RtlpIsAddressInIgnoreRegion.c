@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpIsAddressInIgnoreRegion @ 0x14067869C
+ * Callers:
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067804C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpIsAddressInIgnoreRegion(unsigned int a1, __int64 a2, _DWORD *a3, unsigned int a4)
 {
   unsigned int v4; // r10d

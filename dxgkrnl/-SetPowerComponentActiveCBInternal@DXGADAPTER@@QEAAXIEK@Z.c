@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C000E594
+ * Callers:
+ *     ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C0003074 (-SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z.c)
+ *     DxgSetPowerComponentActiveNoWaitCB @ 0x1C00480A0 (DxgSetPowerComponentActiveNoWaitCB.c)
+ *     DxgSetPowerComponentActiveCBInternal @ 0x1C01CBBE0 (DxgSetPowerComponentActiveCBInternal.c)
+ *     ?CsExitInitiatedWnfCallbackInternal@DXGGLOBAL@@QEAAX_K_J@Z @ 0x1C01E43AC (-CsExitInitiatedWnfCallbackInternal@DXGGLOBAL@@QEAAX_K_J@Z.c)
+ *     ?StartRuntimePowerManagement@DXGADAPTER@@QEAAXXZ @ 0x1C020F0E4 (-StartRuntimePowerManagement@DXGADAPTER@@QEAAXXZ.c)
+ *     ?EnableStablePowerState@DXGADAPTER@@QEAAXXZ @ 0x1C02B285C (-EnableStablePowerState@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     ?SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z @ 0x1C000E6B0 (-SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z.c)
+ */
+
 void __fastcall DXGADAPTER::SetPowerComponentActiveCBInternal(
         DXGADAPTER *this,
         unsigned int a2,

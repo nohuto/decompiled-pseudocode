@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindNearbyContact@CPTPEngine@@AEAAPEAUPTPEnginePointerNode@@PEAUPTPInput@@PEAUCContactState@@UtagPOINT@@K@Z @ 0x1C02379DC
+ * Callers:
+ *     ?DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z @ 0x1C0236AD8 (-DoTPMouseProcessing@CPTPEngine@@AEAAXPEAUPTPInput@@KW4tagPTP_PROCESSING_MODE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct PTPEnginePointerNode *__fastcall CPTPEngine::FindNearbyContact(
         CPTPEngine *this,
         struct PTPInput *a2,

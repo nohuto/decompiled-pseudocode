@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgLogEtwEventCb @ 0x1C004D550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     McTemplateK0juhbr2_EtwWriteTransfer @ 0x1C004D804 (McTemplateK0juhbr2_EtwWriteTransfer.c)
+ */
+
 char __fastcall DxgLogEtwEventCb(_QWORD *a1, int a2, unsigned __int16 a3, __int64 a4)
 {
   __int64 DxgAdapter; // rax

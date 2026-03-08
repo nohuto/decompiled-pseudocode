@@ -1,3 +1,43 @@
+/*
+ * XREFs of IopCompleteRequest @ 0x140312C80
+ * Callers:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IoRemoveIoCompletion @ 0x140315A70 (IoRemoveIoCompletion.c)
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     IopAbortRequest @ 0x1409410C0 (IopAbortRequest.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KeInsertQueueEx @ 0x140292940 (KeInsertQueueEx.c)
+ *     IopDequeueIrpFromFileObject @ 0x140293F0C (IopDequeueIrpFromFileObject.c)
+ *     IopFreeIrpExtension @ 0x1402B18FC (IopFreeIrpExtension.c)
+ *     ObpDeferObjectDeletion @ 0x1402ECA68 (ObpDeferObjectDeletion.c)
+ *     IopInterlockedAdd @ 0x1402F3488 (IopInterlockedAdd.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IopDequeueIrpFromThread @ 0x14030F160 (IopDequeueIrpFromThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopProcessBufferedIoCompletion @ 0x140313AA0 (IopProcessBufferedIoCompletion.c)
+ *     ExReturnPoolQuota @ 0x1403144E0 (ExReturnPoolQuota.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     IopFreeReserveIrp @ 0x1405531AC (IopFreeReserveIrp.c)
+ *     IopIoRingCompleteIrp @ 0x1405570DC (IopIoRingCompleteIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IovFreeIrpPrivate @ 0x140ABE6D0 (IovFreeIrpPrivate.c)
+ */
+
 void __fastcall IopCompleteRequest(char **a1, __int64 a2, _QWORD *a3, ULONG_PTR *a4, _QWORD *a5)
 {
   ULONG_PTR v5; // rbx

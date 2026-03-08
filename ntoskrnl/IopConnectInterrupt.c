@@ -1,3 +1,33 @@
+/*
+ * XREFs of IopConnectInterrupt @ 0x1406F43D8
+ * Callers:
+ *     IoConnectInterruptEx @ 0x1406F4AE0 (IoConnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x1408502F8 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x140853C50 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x140857BF0 (IopConnectInterruptFullySpecified.c)
+ * Callees:
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KeFreeInterrupt @ 0x14028E364 (KeFreeInterrupt.c)
+ *     KeAllocateInterrupt @ 0x14028F83C (KeAllocateInterrupt.c)
+ *     KeInitializeInterruptEx @ 0x14028F8EC (KeInitializeInterruptEx.c)
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ *     KeVerifyGroupAffinity @ 0x140290374 (KeVerifyGroupAffinity.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpTraceInterruptConnection @ 0x1406F484C (PnpTraceInterruptConnection.c)
+ *     IopInitializeActiveConnectBlock @ 0x1406F490C (IopInitializeActiveConnectBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x1406F49E0 (IopDestroyActiveConnectBlock.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x140847284 (IopAcquireReleaseConnectLockInternal.c)
+ *     IopAllocatePassiveInterruptBlock @ 0x1408472F4 (IopAllocatePassiveInterruptBlock.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1409552AC (IopDestroyPassiveInterruptBlock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopConnectInterrupt(
         __int64 *a1,
         ULONG_PTR a2,

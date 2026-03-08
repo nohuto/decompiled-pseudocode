@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExpTranslateNtPath @ 0x1409FB67C
+ * Callers:
+ *     NtTranslateFilePath @ 0x14083EB70 (NtTranslateFilePath.c)
+ *     ExpConvertArcName @ 0x1409F8CB8 (ExpConvertArcName.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpTranslateSymbolicLink @ 0x14083F2E8 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputARC @ 0x1409F90C0 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputEFI @ 0x1409F91B8 (ExpCreateOutputEFI.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1409F9388 (ExpCreateOutputSIGNATURE.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall ExpTranslateNtPath(__int64 a1, int a2, char *a3, unsigned int *a4)
 {
   int v5; // r15d

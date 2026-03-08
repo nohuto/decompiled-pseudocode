@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfUpdateHwDebugData @ 0x140235DB0
+ * Callers:
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmPerfUpdateHwDebugData(__int64 a1)
 {
   __int64 result; // rax

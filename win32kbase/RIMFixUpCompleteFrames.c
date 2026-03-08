@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMFixUpCompleteFrames @ 0x1C01CDB54
+ * Callers:
+ *     rimProcessInput @ 0x1C00045B0 (rimProcessInput.c)
+ * Callees:
+ *     RIMFixUpCompleteFrame @ 0x1C01CD8B0 (RIMFixUpCompleteFrame.c)
+ */
+
 _UNKNOWN **__fastcall RIMFixUpCompleteFrames(__int64 a1, __int64 a2, unsigned int *a3, _QWORD *a4, unsigned int a5)
 {
   _UNKNOWN **result; // rax

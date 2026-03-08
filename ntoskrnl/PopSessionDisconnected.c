@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSessionDisconnected @ 0x14067FF58
+ * Callers:
+ *     PopSessionConnectionChange @ 0x14079A150 (PopSessionConnectionChange.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopDiagTraceSessionStates @ 0x14079A284 (PopDiagTraceSessionStates.c)
+ *     PopSetSessionDisplayStatus @ 0x14079A2F0 (PopSetSessionDisplayStatus.c)
+ */
+
 __int64 __fastcall PopSessionDisconnected(unsigned int a1, __int64 a2)
 {
   __int64 result; // rax

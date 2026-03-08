@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CSurfaceManager@@MEAA@XZ @ 0x1801C8070
+ * Callers:
+ *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x1801B3FD8 (--1CGlobalSurfaceManager@@MEAA@XZ.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CE01C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ */
+
 void __fastcall CSurfaceManager::~CSurfaceManager(CSurfaceManager *this)
 {
   HANDLE *v1; // rdi

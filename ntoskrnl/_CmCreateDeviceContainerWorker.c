@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmCreateDeviceContainerWorker @ 0x140682A20
+ * Callers:
+ *     _CmCreateDeviceContainer @ 0x1406828C0 (_CmCreateDeviceContainer.c)
+ * Callees:
+ *     _CmOpenDeviceContainerRegKey @ 0x140682CAC (_CmOpenDeviceContainerRegKey.c)
+ *     _CmRaiseCreateEvent @ 0x14087BC44 (_CmRaiseCreateEvent.c)
+ */
+
 __int64 __fastcall CmCreateDeviceContainerWorker(__int64 a1, __int64 a2, int a3, _QWORD *a4, _BYTE *a5, __int16 a6)
 {
   int v9; // ebx

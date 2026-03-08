@@ -1,3 +1,21 @@
+/*
+ * XREFs of IoDuplicateDependency @ 0x140951200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PiListEntryToDependencyEdge @ 0x140394734 (PiListEntryToDependencyEdge.c)
+ *     PiGetDependentList @ 0x1406819C8 (PiGetDependentList.c)
+ *     PipProcessRebuildPowerRelationsQueue @ 0x1406819F4 (PipProcessRebuildPowerRelationsQueue.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406CB90C (PnpAcquireDependencyRelationsLock.c)
+ *     PipQueryBindingResolution @ 0x14083888C (PipQueryBindingResolution.c)
+ *     PipAddDependentsToRebuildPowerRelationsQueue @ 0x140838960 (PipAddDependentsToRebuildPowerRelationsQueue.c)
+ *     PipCreateDependencyNode @ 0x140838A40 (PipCreateDependencyNode.c)
+ *     PipDeleteDependencyNode @ 0x140951668 (PipDeleteDependencyNode.c)
+ *     PipDependencyCopyEdge @ 0x1409516D0 (PipDependencyCopyEdge.c)
+ */
+
 __int64 __fastcall IoDuplicateDependency(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

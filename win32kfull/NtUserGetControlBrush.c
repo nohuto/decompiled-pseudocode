@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetControlBrush @ 0x1C01D1E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxGetControlBrush @ 0x1C02269BC (xxxGetControlBrush.c)
+ */
+
 __int64 __fastcall NtUserGetControlBrush(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rax

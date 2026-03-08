@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1DXGFIXEDQUEUE@@QEAA@XZ @ 0x1C0058130
+ * Callers:
+ *     ?DestroySwapchainGlobal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C03530A4 (-DestroySwapchainGlobal@DXGSWAPCHAIN@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGFIXEDQUEUE::~DXGFIXEDQUEUE(DXGFIXEDQUEUE *this)
 {
   void *v2; // rcx

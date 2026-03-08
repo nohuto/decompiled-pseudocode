@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C0098528
+ * Callers:
+ *     NtDCompositionCreateChannel @ 0x1C005C970 (NtDCompositionCreateChannel.c)
+ *     NtDCompositionDestroyChannel @ 0x1C0098510 (NtDCompositionDestroyChannel.c)
+ *     NtDCompositionCreateDwmChannel @ 0x1C00C9F90 (NtDCompositionCreateDwmChannel.c)
+ * Callees:
+ *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C005CBD8 (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?RemoveObject@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QEAAPEAVCChannel@2@I@Z @ 0x1C00985C8 (-RemoveObject@-$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@QE.c)
+ *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C0098628 (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CChannel::DestroyHandle(__int64 a1)
 {
   struct DirectComposition::CProcessData *v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAcpiValidateAcpiTable @ 0x14037ABA0
+ * Callers:
+ *     HalpAcpiCopyBiosTable @ 0x14037AA9C (HalpAcpiCopyBiosTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAcpiValidateAcpiTable(__int64 a1)
 {
   unsigned int v1; // r8d

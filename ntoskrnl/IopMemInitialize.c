@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopMemInitialize @ 0x14081F124
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ArbAddInaccessibleAllocationRange @ 0x14081E1A4 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbInitializeArbiterInstance @ 0x14081E398 (ArbInitializeArbiterInstance.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x14081EF14 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     RtlAddRange @ 0x14081F540 (RtlAddRange.c)
+ */
+
 NTSTATUS __fastcall IopMemInitialize(__int64 a1, __int64 a2)
 {
   NTSTATUS result; // eax

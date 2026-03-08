@@ -1,3 +1,18 @@
+/*
+ * XREFs of IoVolumeDeviceToGuidPath @ 0x14072BBD0
+ * Callers:
+ *     IoVolumeDeviceToGuid @ 0x14072BB40 (IoVolumeDeviceToGuid.c)
+ *     CmpVolumeContextStart @ 0x14084C4D0 (CmpVolumeContextStart.c)
+ *     IopValidateJunctionTarget @ 0x140943674 (IopValidateJunctionTarget.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x14072BD40 (IoVolumeDeviceNameToGuidPath.c)
+ */
+
 __int64 __fastcall IoVolumeDeviceToGuidPath(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   unsigned __int64 DeviceType; // rax

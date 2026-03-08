@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpPopulateKeyCachedInformation @ 0x140A27494
+ * Callers:
+ *     CmpQueryKeyDataFromKeyNodeStack @ 0x140614E8C (CmpQueryKeyDataFromKeyNodeStack.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpPopulateKeyCachedInformation(__int64 a1, __int64 a2, unsigned int a3, _DWORD *a4)
 {
   __int64 result; // rax

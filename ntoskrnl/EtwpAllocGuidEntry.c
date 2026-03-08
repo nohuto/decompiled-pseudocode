@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpAllocGuidEntry @ 0x140690BD4
+ * Callers:
+ *     EtwpAddGuidEntry @ 0x140690A30 (EtwpAddGuidEntry.c)
+ * Callees:
+ *     EtwpFreeSecurityDescriptor @ 0x140696014 (EtwpFreeSecurityDescriptor.c)
+ *     ObLogSecurityDescriptor @ 0x1406965B0 (ObLogSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406972D0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpAllocGuidEntry(__int64 a1, __int128 *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCaptureSectionCreateExtendedParameters @ 0x1407D0550
+ * Callers:
+ *     MmCreateSectionEx @ 0x140711E48 (MmCreateSectionEx.c)
+ *     MiCreateSectionCommon @ 0x1407D01E0 (MiCreateSectionCommon.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall MiCaptureSectionCreateExtendedParameters(
         _BYTE *Address,
         ULONGLONG ullMultiplicand,

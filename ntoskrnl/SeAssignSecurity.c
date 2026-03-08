@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeAssignSecurity @ 0x1407A51B0
+ * Callers:
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmFcInitSystem2 @ 0x140B51DC0 (CmFcInitSystem2.c)
+ * Callees:
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ */
+
 NTSTATUS __stdcall SeAssignSecurity(
         PSECURITY_DESCRIPTOR ParentDescriptor,
         PSECURITY_DESCRIPTOR ExplicitDescriptor,

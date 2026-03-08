@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WinlogonHotkeyCallback@@YAX_K_J@Z @ 0x1C01AC770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TraceLoggingWinPHotKeyEvent@@YAXXZ @ 0x1C02053AC (-TraceLoggingWinPHotKeyEvent@@YAXXZ.c)
+ */
+
 void __fastcall WinlogonHotkeyCallback(__int64 a1)
 {
   unsigned int v1; // ebx

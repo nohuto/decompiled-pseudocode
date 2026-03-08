@@ -1,3 +1,11 @@
+/*
+ * XREFs of __asan_store1_noabort @ 0x140564220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall _asan_store1_noabort(ULONG_PTR BugCheckParameter1)
 {
   char result; // al

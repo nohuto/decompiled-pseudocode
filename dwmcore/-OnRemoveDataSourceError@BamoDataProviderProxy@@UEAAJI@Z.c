@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OnRemoveDataSourceError@BamoDataProviderProxy@@UEAAJI@Z @ 0x1801E1A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1InternalLock@BamoImpl@Microsoft@@QEAA@XZ @ 0x1800ACA2C (--1InternalLock@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ??0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z @ 0x1800ACA60 (--0InternalLock@BamoImpl@Microsoft@@QEAA@PEAVConnectionIndirector@12@@Z.c)
+ *     ?OnRemoveDataSourceError@BamoDataProviderProxyImpl@BamoImpl@@QEAAJI@Z @ 0x1801E1A8C (-OnRemoveDataSourceError@BamoDataProviderProxyImpl@BamoImpl@@QEAAJI@Z.c)
+ */
+
 __int64 __fastcall BamoDataProviderProxy::OnRemoveDataSourceError(BamoDataProviderProxy *this, unsigned int a2)
 {
   BamoDataProviderProxy *v3; // rbx

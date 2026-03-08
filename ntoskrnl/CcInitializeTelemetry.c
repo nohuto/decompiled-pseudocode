@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcInitializeTelemetry @ 0x140B31E14
+ * Callers:
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeInitializeTimer @ 0x140237D80 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage @ 0x140409A2C (Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140872D84 (CcSetTelemetryPeriodicTimer.c)
+ *     TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x140930904 (TraceLoggingRegister_EtwRegister_EtwSetInformation.c)
+ */
+
 void __fastcall CcInitializeTelemetry(int a1)
 {
   if ( (unsigned int)Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage() )

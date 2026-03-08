@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmmRemoveBlockFromPool @ 0x1C00705E8
+ * Callers:
+ *     SmmCoalesceBlocks @ 0x1C00700A8 (SmmCoalesceBlocks.c)
+ *     SmmGetAnyFreeBlockFromPool @ 0x1C007034C (SmmGetAnyFreeBlockFromPool.c)
+ *     SmmGetFreeBlockFromPool @ 0x1C00703EC (SmmGetFreeBlockFromPool.c)
+ *     ?SmmDestroyLogicalAllocator@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z @ 0x1C03D2830 (-SmmDestroyLogicalAllocator@@YAXPEAUSYSMM_LOGICAL_ALLOCATOR@@@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 _QWORD *__fastcall SmmRemoveBlockFromPool(__int64 a1, __int64 a2)
 {
   int v4; // edx

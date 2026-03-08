@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CAnimationMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00C1660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ */
+
 void __fastcall DirectComposition::CAnimationMarshaler::ReleaseAllReferences(
         struct DirectComposition::CResourceMarshaler **this,
         struct DirectComposition::CApplicationChannel *a2)

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiFreeQueuePacket @ 0x1C0014154
+ * Callers:
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C00040E0 (VidSchSignalSyncObjectsFromGpu.c)
+ *     VidSchiUnwaitWaitQueuePacket @ 0x1C0013514 (VidSchiUnwaitWaitQueuePacket.c)
+ *     VidSchWaitForSingleSyncObject @ 0x1C0013810 (VidSchWaitForSingleSyncObject.c)
+ *     VidSchiCreateContextInternal @ 0x1C0013B3C (VidSchiCreateContextInternal.c)
+ *     VidSchEnqueueCpuEvent @ 0x1C0085F20 (VidSchEnqueueCpuEvent.c)
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ * Callees:
+ *     VidSchiInterlockedInsertTailList @ 0x1C00035E0 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiInterlockedRemoveEntryList @ 0x1C0014268 (VidSchiInterlockedRemoveEntryList.c)
+ *     VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified @ 0x1C00142EC (VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiFreeQueuePacket(__int64 a1, __int64 a2)
 {

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SyncLoadDDB @ 0x1C00AB82C
+ * Callers:
+ *     AMLILoadDDB @ 0x1C00AB124 (AMLILoadDDB.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ *     FreeContext @ 0x1C0053624 (FreeContext.c)
+ *     GetThreadCurrentContext @ 0x1C00537E0 (GetThreadCurrentContext.c)
+ */
+
 __int64 __fastcall SyncLoadDDB(char *Entry)
 {
   char v2; // si

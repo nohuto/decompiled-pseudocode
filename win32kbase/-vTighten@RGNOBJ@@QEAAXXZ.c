@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vTighten@RGNOBJ@@QEAAXXZ @ 0x1C0019490
+ * Callers:
+ *     GreExtCreateRegion @ 0x1C0019830 (GreExtCreateRegion.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RGNOBJ::vTighten(RGNOBJ *this)
 {
   __int64 v1; // r9

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBID_BuildUxdPnpId @ 0x1C001DC7C
+ * Callers:
+ *     HUBPDO_AssignPDOIds @ 0x1C007EB7C (HUBPDO_AssignPDOIds.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     HUBREG_GetUxdPnpValue @ 0x1C0087514 (HUBREG_GetUxdPnpValue.c)
+ */
+
 void *__fastcall HUBID_BuildUxdPnpId(__int64 a1, const void **a2)
 {
   void *result; // rax

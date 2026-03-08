@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserModifyWindowTouchCapability @ 0x1C0016830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetTouchWindowFlags @ 0x1C00168D0 (_SetTouchWindowFlags.c)
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserModifyWindowTouchCapability(__int64 a1, int a2, int a3)
 {
   __int64 v6; // rax

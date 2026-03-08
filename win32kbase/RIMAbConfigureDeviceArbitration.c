@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMAbConfigureDeviceArbitration @ 0x1C01AA500
+ * Callers:
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01D517C (RIMProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall RIMAbConfigureDeviceArbitration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

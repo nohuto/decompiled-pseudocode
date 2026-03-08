@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIInterruptDispatchEvents @ 0x1C0003AE8
+ * Callers:
+ *     ACPIInterruptServiceRoutineDPC @ 0x1C0003E70 (ACPIInterruptServiceRoutineDPC.c)
+ * Callees:
+ *     AcpiDiagTraceUnexpectedGpe @ 0x1C0002680 (AcpiDiagTraceUnexpectedGpe.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0038A4C (ACPIReadGpeStatusRegister.c)
+ *     ACPIWriteGpeStatusRegister @ 0x1C0038B84 (ACPIWriteGpeStatusRegister.c)
+ */
+
 void ACPIInterruptDispatchEvents()
 {
   unsigned int v0; // r14d

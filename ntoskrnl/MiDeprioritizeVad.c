@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDeprioritizeVad @ 0x1403C0F1C
+ * Callers:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiTryLockVad @ 0x1403C0FF8 (MiTryLockVad.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062B2BC (MiDeprioritizeVirtualAddresses.c)
+ *     PfCheckDeprioritizeFile @ 0x1407E6FF0 (PfCheckDeprioritizeFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeprioritizeVad(unsigned int *P, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase4 @ 0x1C00203FC
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001C95C (ACPIDeviceCompleteRequest.c)
+ */
+
 __int64 ACPIDevicePowerProcessPhase4()
 {
   __int64 *v0; // rdi

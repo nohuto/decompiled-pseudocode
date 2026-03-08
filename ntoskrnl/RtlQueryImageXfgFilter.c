@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlQueryImageXfgFilter @ 0x1405A4CF4
+ * Callers:
+ *     RtlCheckXfgFailureInformation @ 0x1405AF650 (RtlCheckXfgFailureInformation.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     RtlpOpenImageFileOptionsKey @ 0x1409B5E50 (RtlpOpenImageFileOptionsKey.c)
+ *     RtlpOpenSystemSessionKey @ 0x1409B5E68 (RtlpOpenSystemSessionKey.c)
+ */
+
 __int64 __fastcall RtlQueryImageXfgFilter(_WORD *a1, UNICODE_STRING *a2, __int64 a3, __int64 a4, _BYTE *a5)
 {
   int v7; // eax

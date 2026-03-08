@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdmlibProcgrpInitialize @ 0x1C00B24D4
+ * Callers:
+ *     ?Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00888D0 (-Register@_FX_DRIVER_TRACKER_CACHE_AWARE@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void WdmlibProcgrpInitialize(void)
 {
   signed __int32 v0; // eax

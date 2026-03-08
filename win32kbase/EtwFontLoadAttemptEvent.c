@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwFontLoadAttemptEvent @ 0x1C0198310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqzt_EtwWriteTransfer @ 0x1C0198DC4 (McTemplateK0zqzt_EtwWriteTransfer.c)
+ */
+
 char __fastcall EtwFontLoadAttemptEvent(int a1, int a2, __int64 a3, char a4)
 {
   char result; // al

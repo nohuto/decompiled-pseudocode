@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpAcpiGetFacsMapping @ 0x1403705F8
+ * Callers:
+ *     HalAcpiGetFacsMappingDispatch @ 0x1403705E0 (HalAcpiGetFacsMappingDispatch.c)
+ *     HaliInitPowerManagement @ 0x140801CA0 (HaliInitPowerManagement.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     HalpAcpiCheckAndMapTable @ 0x14029AD4C (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HalpAcpiGetFacsMapping(__int64 a1)
 {
   unsigned int *TableWork; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeAuditingHardLinkEventsWithContext @ 0x140872F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ */
+
 BOOLEAN __stdcall SeAuditingHardLinkEventsWithContext(
         BOOLEAN AccessGranted,
         PSECURITY_DESCRIPTOR SecurityDescriptor,

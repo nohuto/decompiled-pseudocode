@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopCapabilityCheck @ 0x140584CB8
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     RtlCapabilityCheck @ 0x140741730 (RtlCapabilityCheck.c)
+ */
+
 char __fastcall PopCapabilityCheck(wchar_t *a1)
 {
   wchar_t *v1; // rax

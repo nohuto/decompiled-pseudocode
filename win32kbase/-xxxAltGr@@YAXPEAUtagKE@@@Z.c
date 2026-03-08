@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxAltGr@@YAXPEAUtagKE@@@Z @ 0x1C021B374
+ * Callers:
+ *     xxxKELocaleProcs @ 0x1C0080414 (xxxKELocaleProcs.c)
+ * Callees:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ */
+
 void __fastcall xxxAltGr(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

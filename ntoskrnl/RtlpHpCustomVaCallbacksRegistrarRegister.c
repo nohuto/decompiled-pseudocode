@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B3B00
+ * Callers:
+ *     RtlpHpRegisterEnvironment @ 0x1403759F0 (RtlpHpRegisterEnvironment.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlpHpMetadataFree @ 0x1402B6D30 (RtlpHpMetadataFree.c)
+ *     RtlpHpMetadataAlloc @ 0x1402B71FC (RtlpHpMetadataAlloc.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpHpCustomVaCallbacksEncodedComparison @ 0x1405B3A80 (RtlpHpCustomVaCallbacksEncodedComparison.c)
+ */
+
 __int64 __fastcall RtlpHpCustomVaCallbacksRegistrarRegister(__int64 a1, char *a2, __int64 *a3, __int128 *a4)
 {
   __int64 v6; // rax

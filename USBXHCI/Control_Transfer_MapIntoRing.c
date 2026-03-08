@@ -1,3 +1,19 @@
+/*
+ * XREFs of Control_Transfer_MapIntoRing @ 0x1C00062A0
+ * Callers:
+ *     Control_Transfer_Map @ 0x1C0007318 (Control_Transfer_Map.c)
+ *     Control_EvtDmaCallback @ 0x1C00425D0 (Control_EvtDmaCallback.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0006DF0 (WPP_RECORDER_SF_DDqq.c)
+ *     TR_AddTRBRangeToSecureTransferRing @ 0x1C0007070 (TR_AddTRBRangeToSecureTransferRing.c)
+ *     TR_InitializeLinkTrb @ 0x1C0007F3C (TR_InitializeLinkTrb.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     McTemplateK0uqq_EtwWriteTransfer @ 0x1C002272E (McTemplateK0uqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DDDqD @ 0x1C0043534 (WPP_RECORDER_SF_DDDqD.c)
+ *     XilUsbDevice_SendRequestToRingDoorbell @ 0x1C0048268 (XilUsbDevice_SendRequestToRingDoorbell.c)
+ */
+
 __int64 __fastcall Control_Transfer_MapIntoRing(__int64 a1)
 {
   __int64 v1; // rsi

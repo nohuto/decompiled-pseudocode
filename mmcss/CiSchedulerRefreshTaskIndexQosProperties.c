@@ -1,3 +1,17 @@
+/*
+ * XREFs of CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0
+ * Callers:
+ *     CiSchedulerProcessDeadlines @ 0x1C0001250 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerWait @ 0x1C0001680 (CiSchedulerWait.c)
+ *     CiSchedulerTaskIndexYield @ 0x1C0002300 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002B60 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002C60 (CiSchedulerCancelTaskIndexYield.c)
+ *     CiSchedulerSetMultimediaMode @ 0x1C0003178 (CiSchedulerSetMultimediaMode.c)
+ * Callees:
+ *     CiSchedulerSetTaskIndexThreadTag @ 0x1C0002920 (CiSchedulerSetTaskIndexThreadTag.c)
+ *     CiSystemUpdateMediaBufferingState @ 0x1C0002E10 (CiSystemUpdateMediaBufferingState.c)
+ */
+
 __int64 __fastcall CiSchedulerRefreshTaskIndexQosProperties(__int64 a1)
 {
   __int64 result; // rax

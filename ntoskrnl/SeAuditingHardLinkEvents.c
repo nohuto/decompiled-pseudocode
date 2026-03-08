@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeAuditingHardLinkEvents @ 0x1409CA810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall SeAuditingHardLinkEvents(BOOLEAN AccessGranted, PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int16 v2; // ax

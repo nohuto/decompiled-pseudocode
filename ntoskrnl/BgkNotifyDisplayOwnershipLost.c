@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgkNotifyDisplayOwnershipLost @ 0x14054CA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403A7F10 (BgkNotifyDisplayOwnershipChange.c)
+ */
+
 __int64 __fastcall BgkNotifyDisplayOwnershipLost(__int64 a1)
 {
   __int64 v1; // rax

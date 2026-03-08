@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateCompositionFrameCollection@CTokenManager@@UEAAJPEAPEAUICompositionFrameCollection@@@Z @ 0x1C0019390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall CTokenManager::CreateCompositionFrameCollection(
         CTokenManager *this,
         struct ICompositionFrameCollection **a2)

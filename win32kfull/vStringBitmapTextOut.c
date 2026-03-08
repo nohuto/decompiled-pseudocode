@@ -1,3 +1,12 @@
+/*
+ * XREFs of vStringBitmapTextOut @ 0x1C02A2F94
+ * Callers:
+ *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@IW4EntryPoint@RFONTOBJ@@@Z @ 0x1C02A153C (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@IW4EntryPoint@RFONTOBJ@@@Z.c)
+ * Callees:
+ *     vDrawGlyph @ 0x1C02A2B58 (vDrawGlyph.c)
+ *     STROBJ_bEnum @ 0x1C02DD9A0 (STROBJ_bEnum.c)
+ */
+
 char __fastcall vStringBitmapTextOut(STROBJ *a1, unsigned int *a2, unsigned int a3)
 {
   LONG left; // ebx

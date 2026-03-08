@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopMapTransfer @ 0x1404FFB20
+ * Callers:
+ *     HalpAllocateAdapterCallbackV2 @ 0x140455060 (HalpAllocateAdapterCallbackV2.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IoMapTransferInternal @ 0x140452EBE (IoMapTransferInternal.c)
+ */
+
 __int64 __fastcall IopMapTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5, char a6)
 {
   bool v7; // zf

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GetBspPolygonList@CVisual@@QEBAPEAV?$DynArray@PEAVCPolygon@@$0A@@@XZ @ 0x18009A22C
+ * Callers:
+ *     ?PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18004B7F0 (-PreSubgraph@CHitTestContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18009A1EC (-ReleaseBspPolygonList@CVisual@@IEAAXXZ.c)
+ *     ?DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z @ 0x1801D05E8 (-DrawBspPolygonList@CDrawingContext@@QEAAJPEAVCVisual@@0@Z.c)
+ *     ?AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z @ 0x18020D2C0 (-AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z.c)
+ *     ?GetBspPolygonListCount@CVisual@@IEBAIXZ @ 0x18020D814 (-GetBspPolygonListCount@CVisual@@IEBAIXZ.c)
+ *     ?HasBspPolygonList@CVisual@@IEBA_NXZ @ 0x18020DD68 (-HasBspPolygonList@CVisual@@IEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CVisual::GetBspPolygonList(__int64 a1)
 {
   _DWORD *v1; // r8

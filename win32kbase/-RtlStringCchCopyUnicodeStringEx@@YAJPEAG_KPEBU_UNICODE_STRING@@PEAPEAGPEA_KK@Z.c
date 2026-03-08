@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCchCopyUnicodeStringEx@@YAJPEAG_KPEBU_UNICODE_STRING@@PEAPEAGPEA_KK@Z @ 0x1C01915E4
+ * Callers:
+ *     LogDiagSDCAccessDenied @ 0x1C01955E4 (LogDiagSDCAccessDenied.c)
+ * Callees:
+ *     RtlStringCopyWideCharArrayWorker @ 0x1C0191660 (RtlStringCopyWideCharArrayWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker_0 @ 0x1C01916D4 (RtlUnicodeStringValidateSrcWorker_0.c)
+ */
+
 int __fastcall RtlStringCchCopyUnicodeStringEx(
         NTSTRSAFE_PWSTR pszDest,
         wchar_t *a2,

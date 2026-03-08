@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?xxxProcessRecalcForThread@DesktopRecalc@@YAXXZ @ 0x1C00FC970
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C00FAA10 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     DesktopWindowFromDesktop @ 0x1C00FAA8C (DesktopWindowFromDesktop.c)
+ *     ?s_xxxProcessTopologyChange@CRecalcProp@@SAXPEAUHWND__@@PEAVCRecalcContext@@@Z @ 0x1C00FCADC (-s_xxxProcessTopologyChange@CRecalcProp@@SAXPEAUHWND__@@PEAVCRecalcContext@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     Feature_AnimateWorkAreaChanges__private_IsEnabledDeviceUsage @ 0x1C012F280 (Feature_AnimateWorkAreaChanges__private_IsEnabledDeviceUsage.c)
+ */
+
 void __fastcall DesktopRecalc::xxxProcessRecalcForThread(DesktopRecalc *this)
 {
   ShellWindowManagement *v1; // r9

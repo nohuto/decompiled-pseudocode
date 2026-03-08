@@ -1,3 +1,19 @@
+/*
+ * XREFs of rimDoRimDevChangeAsyncWorkItem @ 0x1C00BC0DC
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C0087454 (RIMStartDeviceSpecificRead.c)
+ *     rimFreeSpecificDevFinal @ 0x1C00BC028 (rimFreeSpecificDevFinal.c)
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ *     RIMFreeSpecificDevOnCreateFailure @ 0x1C019DEC8 (RIMFreeSpecificDevOnCreateFailure.c)
+ *     rimInUserCritCreatePointerDeviceInfo @ 0x1C01BC3D8 (rimInUserCritCreatePointerDeviceInfo.c)
+ *     rimOnPnpRemoveCompleteInUserCrit @ 0x1C01C89B8 (rimOnPnpRemoveCompleteInUserCrit.c)
+ */
+
 void __fastcall rimDoRimDevChangeAsyncWorkItem(__int64 a1)
 {
   __int64 v1; // rax

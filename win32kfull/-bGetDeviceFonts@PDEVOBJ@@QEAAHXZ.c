@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bGetDeviceFonts@PDEVOBJ@@QEAAHXZ @ 0x1C00F5628
+ * Callers:
+ *     GreEnumFonts @ 0x1C00037BC (GreEnumFonts.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C0057C50 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     GreGetCharSet @ 0x1C0111B08 (GreGetCharSet.c)
+ *     ?GreGetOutlineTextMetricsInternalW@@YAKPEAUHDC__@@KPEAU_OUTLINETEXTMETRICW@@PEAU_TMDIFF@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C0111D54 (-GreGetOutlineTextMetricsInternalW@@YAKPEAUHDC__@@KPEAU_OUTLINETEXTMETRICW@@PEAU_TMDIFF@@W4Entry.c)
+ *     GreGetTextFaceW @ 0x1C011A714 (GreGetTextFaceW.c)
+ *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C0290B74 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
+ * Callees:
+ *     ??0DEVICE_PFTOBJ@@QEAA@XZ @ 0x1C00DF170 (--0DEVICE_PFTOBJ@@QEAA@XZ.c)
+ *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@@Z @ 0x1C026D824 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAVPDEVOBJ@@@Z.c)
+ */
+
 __int64 __fastcall PDEVOBJ::bGetDeviceFonts(PDEVOBJ *this)
 {
   __int64 v1; // r8

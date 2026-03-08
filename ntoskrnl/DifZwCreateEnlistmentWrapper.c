@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifZwCreateEnlistmentWrapper @ 0x1405EBF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwCreateEnlistment @ 0x1404138B0 (ZwCreateEnlistment.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwCreateEnlistmentWrapper(
         PHANDLE EnlistmentHandle,
         ACCESS_MASK DesiredAccess,

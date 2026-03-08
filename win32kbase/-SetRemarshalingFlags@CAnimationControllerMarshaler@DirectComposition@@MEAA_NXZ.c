@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CAnimationControllerMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025DDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D91C (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CAnimationControllerMarshaler::SetRemarshalingFlags(
         DirectComposition::CAnimationControllerMarshaler *this)
 {

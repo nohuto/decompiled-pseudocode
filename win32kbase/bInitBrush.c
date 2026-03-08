@@ -1,3 +1,14 @@
+/*
+ * XREFs of bInitBrush @ 0x1C031D430
+ * Callers:
+ *     bInitBRUSHOBJ @ 0x1C031D4F4 (bInitBRUSHOBJ.c)
+ * Callees:
+ *     ??0BRUSHMEMOBJ@@QEAA@KKHH@Z @ 0x1C001C2B0 (--0BRUSHMEMOBJ@@QEAA@KKHH@Z.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C001CC00 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ?vGlobal@BRUSHMEMOBJ@@QEAAXXZ @ 0x1C001D0B4 (-vGlobal@BRUSHMEMOBJ@@QEAAXXZ.c)
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C001D100 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ */
+
 __int64 __fastcall bInitBrush(int a1, int a2, unsigned int a3, struct HOBJ__ ***a4, int a5)
 {
   __int64 v7; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bMultToWorld@EXFORMOBJ@@QEAAHPEAVMATRIX@@K@Z @ 0x1C02D1834
+ * Callers:
+ *     NtGdiModifyWorldTransform @ 0x1C0002990 (NtGdiModifyWorldTransform.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C02900F0 (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ */
+
 int __fastcall EXFORMOBJ::bMultToWorld(struct MATRIX **this, struct MATRIX *a2, int a3)
 {
   __int128 v3; // xmm0

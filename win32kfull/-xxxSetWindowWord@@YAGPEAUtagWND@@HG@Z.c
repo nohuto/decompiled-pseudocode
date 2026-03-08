@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C022FC24
+ * Callers:
+ *     NtUserSetWindowWord @ 0x1C01DE890 (NtUserSetWindowWord.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     FCallerOk @ 0x1C023014C (FCallerOk.c)
+ */
+
 __int64 __fastcall xxxSetWindowWord(struct tagWND *a1, unsigned int a2, unsigned __int16 a3)
 {
   int v3; // r13d

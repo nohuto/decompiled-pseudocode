@@ -1,3 +1,16 @@
+/*
+ * XREFs of _GetMessagePos @ 0x1C00E6844
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ *     NtUserGetMessagePos @ 0x1C00E6810 (NtUserGetMessagePos.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EFBFC (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ *     ?xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C022BFF0 (-xxxContScroll@@YAXPEAUtagWND@@I_K_J@Z.c)
+ *     xxxEndScroll @ 0x1C022CE90 (xxxEndScroll.c)
+ *     xxxSendHelpMessage @ 0x1C023C5F8 (xxxSendHelpMessage.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall GetMessagePos(__int64 a1)
 {
   struct tagTHREADINFO *v1; // rbx

@@ -1,3 +1,32 @@
+/*
+ * XREFs of UsbhSyncSendCommand @ 0x1C0016EE0
+ * Callers:
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C0018A40 (UsbhSyncPowerOnPorts.c)
+ *     UsbhSuspendPort @ 0x1C0018E8C (UsbhSuspendPort.c)
+ *     UsbhHubAckPortChange @ 0x1C0018F90 (UsbhHubAckPortChange.c)
+ *     UsbhResumePort @ 0x1C001A780 (UsbhResumePort.c)
+ *     UsbhFlushPortChange @ 0x1C002B22C (UsbhFlushPortChange.c)
+ *     UsbhGetDescriptor @ 0x1C002B9AC (UsbhGetDescriptor.c)
+ *     UsbhGetPortStatus @ 0x1C002CB60 (UsbhGetPortStatus.c)
+ *     UsbhGetStatus @ 0x1C002CC48 (UsbhGetStatus.c)
+ *     UsbhIsHighSpeedCapable @ 0x1C002D368 (UsbhIsHighSpeedCapable.c)
+ *     UsbhSetHubRemoteWake @ 0x1C002D964 (UsbhSetHubRemoteWake.c)
+ *     UsbhSetPortPower @ 0x1C002DBD8 (UsbhSetPortPower.c)
+ *     UsbhSetPortIndicator @ 0x1C002F4D8 (UsbhSetPortIndicator.c)
+ *     UsbhClearTt @ 0x1C003708C (UsbhClearTt.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ *     UsbhHubAckHubChange @ 0x1C00389CC (UsbhHubAckHubChange.c)
+ *     UsbhQueryHubState @ 0x1C003912C (UsbhQueryHubState.c)
+ *     UsbhPdoCheckBootDeviceReady @ 0x1C0054940 (UsbhPdoCheckBootDeviceReady.c)
+ * Callees:
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_qDDDDDDDDD @ 0x1C002EB44 (WPP_RECORDER_SF_qDDDDDDDDD.c)
+ */
+
 __int64 __fastcall UsbhSyncSendCommand(__int64 a1, __int64 a2, __int64 a3, _WORD *a4, int a5, _DWORD *a6)
 {
   _WORD *v6; // rdi

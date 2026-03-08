@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopDeleteIoRing @ 0x140946240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopUnlockAndFreeMdl @ 0x1402F9CA8 (IopUnlockAndFreeMdl.c)
+ *     IopIoRingCleanupRegBufferArray @ 0x1409462B4 (IopIoRingCleanupRegBufferArray.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopDeleteIoRing(__int64 a1)
 {
   void *v2; // rcx

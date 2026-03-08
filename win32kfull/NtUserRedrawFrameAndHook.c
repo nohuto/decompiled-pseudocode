@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRedrawFrameAndHook @ 0x1C01D9F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRedrawFrameAndHook @ 0x1C022A73C (xxxRedrawFrameAndHook.c)
+ */
+
 __int64 __fastcall NtUserRedrawFrameAndHook(__int64 a1)
 {
   __int64 v2; // rax

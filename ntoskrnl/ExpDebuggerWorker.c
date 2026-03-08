@@ -1,3 +1,23 @@
+/*
+ * XREFs of ExpDebuggerWorker @ 0x140AAED30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MmGetDefaultPagePriority @ 0x14035B470 (MmGetDefaultPagePriority.c)
+ *     MmDbgMarkPfnModifiedWorker @ 0x1403A4834 (MmDbgMarkPfnModifiedWorker.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DbgBreakPointWithStatus @ 0x1404203E0 (DbgBreakPointWithStatus.c)
+ *     MmPrefetchVirtualMemory @ 0x14067E690 (MmPrefetchVirtualMemory.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     PsQuitNextProcessThread @ 0x140880E60 (PsQuitNextProcessThread.c)
+ *     EtwWmitraceWorker @ 0x1409E8BFC (EtwWmitraceWorker.c)
+ */
+
 void ExpDebuggerWorker()
 {
   _KPROCESS *v0; // r14

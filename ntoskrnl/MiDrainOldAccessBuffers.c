@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDrainOldAccessBuffers @ 0x140330C2C
+ * Callers:
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ * Callees:
+ *     MiEmptyPageAccessLog @ 0x14028C160 (MiEmptyPageAccessLog.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiDrainOldAccessBuffers(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 **v4; // rbx

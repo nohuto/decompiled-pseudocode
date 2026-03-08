@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiMakePartitionActive @ 0x1402A6140
+ * Callers:
+ *     MiEnablePartitionMappedWrites @ 0x1406A6ABC (MiEnablePartitionMappedWrites.c)
+ *     MmCreateProcessAddressSpace @ 0x1407289B8 (MmCreateProcessAddressSpace.c)
+ *     MiInsertPageFileInList @ 0x140835F30 (MiInsertPageFileInList.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSetSlabAllocatorPolicy @ 0x1403B0F08 (MiSetSlabAllocatorPolicy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     SmCreatePartition @ 0x140728884 (SmCreatePartition.c)
+ */
+
 __int64 __fastcall MiMakePartitionActive(__int64 a1)
 {
   __int64 v2; // rcx

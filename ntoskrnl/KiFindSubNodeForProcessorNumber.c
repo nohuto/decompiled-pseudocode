@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFindSubNodeForProcessorNumber @ 0x140371B68
+ * Callers:
+ *     KiAssignProcessorNumberToPrcb @ 0x140371A40 (KiAssignProcessorNumberToPrcb.c)
+ *     KiFreeProcessorNumber @ 0x14056E36C (KiFreeProcessorNumber.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiFindSubNodeForProcessorNumber(__int64 a1, unsigned __int16 *a2, __int64 *a3, _QWORD *a4)
 {
   unsigned __int16 v5; // r10

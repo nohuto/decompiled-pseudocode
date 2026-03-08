@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlEmptyAtomTable @ 0x1409B8EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlpLockAtomTable @ 0x1407DA790 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1407DC628 (RtlpFreeAtom.c)
+ *     RtlpFreeHandleForAtom @ 0x1407DC658 (RtlpFreeHandleForAtom.c)
+ */
+
 __int64 __fastcall RtlEmptyAtomTable(__int64 a1, char a2)
 {
   unsigned int v5; // ebp

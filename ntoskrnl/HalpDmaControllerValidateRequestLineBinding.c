@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaControllerValidateRequestLineBinding @ 0x140514940
+ * Callers:
+ *     HalGetAdapterV3 @ 0x140821010 (HalGetAdapterV3.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpDmaControllerValidateRequestLineBinding(__int64 a1, __int64 a2)
 {
   char v3; // r14

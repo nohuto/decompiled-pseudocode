@@ -1,3 +1,23 @@
+/*
+ * XREFs of McTemplateK0pq_EtwWriteTransfer @ 0x1C00EE6B4
+ * Callers:
+ *     EtwTraceCompositionSurfaceObjectUpdateEvent @ 0x1C000B290 (EtwTraceCompositionSurfaceObjectUpdateEvent.c)
+ *     NtDCompositionBeginFrame @ 0x1C0098F20 (NtDCompositionBeginFrame.c)
+ *     EtwUpdateEvent @ 0x1C00AFEA0 (EtwUpdateEvent.c)
+ *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C00B3D50 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
+ *     EtwTraceCompletePowerRequest @ 0x1C00B561C (EtwTraceCompletePowerRequest.c)
+ *     EtwTraceKillTimer @ 0x1C00BAB40 (EtwTraceKillTimer.c)
+ *     EtwLogicalSurfCreateEvent @ 0x1C00C7BB0 (EtwLogicalSurfCreateEvent.c)
+ *     EtwLogicalSurfDestroyEvent @ 0x1C00C9F70 (EtwLogicalSurfDestroyEvent.c)
+ *     ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C00D229C (-ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ *     ?CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z @ 0x1C0159CA0 (-CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z.c)
+ *     EtwTraceDCompBeginFrameEvent @ 0x1C0161DF0 (EtwTraceDCompBeginFrameEvent.c)
+ *     EtwTraceFlipManagerBindingInfo @ 0x1C01625A0 (EtwTraceFlipManagerBindingInfo.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-48h] BYREF

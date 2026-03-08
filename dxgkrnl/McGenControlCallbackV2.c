@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenControlCallbackV2 @ 0x1C0020E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C0020F18 (-DxgkEtwEnableCallback@@YAXKK_K@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 void __stdcall McGenControlCallbackV2(
         LPCGUID SourceId,
         ULONG ControlCode,

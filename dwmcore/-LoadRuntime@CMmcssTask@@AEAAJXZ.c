@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LoadRuntime@CMmcssTask@@AEAAJXZ @ 0x1800CE410
+ * Callers:
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CD9D0 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UnloadRuntime@CMmcssTask@@AEAAXXZ @ 0x1801B2538 (-UnloadRuntime@CMmcssTask@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CMmcssTask::LoadRuntime(CMmcssTask *this)
 {
   signed int v1; // ebx

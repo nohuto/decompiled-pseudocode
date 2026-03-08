@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyStatusChange@?$AUTO_STATUS_CHANGE_NOTIFY@$03$04@@AEAAXW4D3DKMT_STATE_NOTIFICATION_TYPE@@@Z @ 0x1C00D00BC
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall AUTO_STATUS_CHANGE_NOTIFY<4,5>::NotifyStatusChange(__int64 *a1, __int64 a2)
 {
   __int64 DxgkWin32kInterface; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoForwardIrpSynchronously @ 0x140774470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ */
+
 BOOLEAN __stdcall IoForwardIrpSynchronously(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx

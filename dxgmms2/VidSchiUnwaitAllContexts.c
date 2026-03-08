@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiUnwaitAllContexts @ 0x1C003CBF4
+ * Callers:
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     ?VidSchiUnwaitAllContextsInList@@YAXPEAU_LIST_ENTRY@@@Z @ 0x1C0037948 (-VidSchiUnwaitAllContextsInList@@YAXPEAU_LIST_ENTRY@@@Z.c)
+ */
+
 LONG __fastcall VidSchiUnwaitAllContexts(__int64 a1)
 {
   __int64 i; // rsi

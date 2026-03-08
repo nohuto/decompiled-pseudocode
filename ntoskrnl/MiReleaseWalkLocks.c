@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiReleaseWalkLocks @ 0x1402D45CC
+ * Callers:
+ *     MiGetNextPageTablePte @ 0x140224090 (MiGetNextPageTablePte.c)
+ *     MiDeleteEmptyPageTableTail @ 0x1402D3FC0 (MiDeleteEmptyPageTableTail.c)
+ *     MiYieldPageTableWalk @ 0x1402D4558 (MiYieldPageTableWalk.c)
+ *     MiQueryEPTAccessedState @ 0x140463B2C (MiQueryEPTAccessedState.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ *     MiUnlockPhysicalPageByVa @ 0x14061A990 (MiUnlockPhysicalPageByVa.c)
+ *     MiCombineWorkingSetTail @ 0x140651030 (MiCombineWorkingSetTail.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ */
+
 void __fastcall MiReleaseWalkLocks(__int64 a1)
 {
   unsigned __int64 v1; // rdx

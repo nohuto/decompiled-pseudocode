@@ -1,3 +1,16 @@
+/*
+ * XREFs of ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004353C
+ * Callers:
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00436CC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_SS @ 0x1C0042B30 (WPP_RECORDER_SF_SS.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C0042CD0 (WPP_RECORDER_SF_Sd.c)
+ *     CheckUSBFnConfiguration @ 0x1C004329C (CheckUSBFnConfiguration.c)
+ *     MyRegOpenKeyForRead @ 0x1C0043A3C (MyRegOpenKeyForRead.c)
+ *     MyRegQueryString @ 0x1C0043ABC (MyRegQueryString.c)
+ */
+
 __int64 __fastcall ReadUSBFnFeaturesFromCurrentConfiguration(_DWORD *a1, char a2)
 {
   const wchar_t *v2; // rsi

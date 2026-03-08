@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPICMExperienceButtonHandleEvent @ 0x1C001961C
+ * Callers:
+ *     ACPICMButtonNotify @ 0x1C0018AC8 (ACPICMButtonNotify.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ */
+
 __int64 __fastcall ACPICMExperienceButtonHandleEvent(_QWORD *a1, int a2)
 {
   char v3; // r11

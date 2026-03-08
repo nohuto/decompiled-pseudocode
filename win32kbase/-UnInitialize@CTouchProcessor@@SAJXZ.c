@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UnInitialize@CTouchProcessor@@SAJXZ @ 0x1C0094E4C
+ * Callers:
+ *     UnInitializeInputComponents @ 0x1C0094C50 (UnInitializeInputComponents.c)
+ * Callees:
+ *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C0094B2C (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
+ *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C00954DC (--1CTouchProcessor@@QEAA@XZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ??1VirtualTouchpadProcessor@@AEAA@XZ @ 0x1C0223D34 (--1VirtualTouchpadProcessor@@AEAA@XZ.c)
+ */
+
 __int64 __fastcall CTouchProcessor::UnInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

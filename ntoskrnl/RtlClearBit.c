@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlClearBit @ 0x1402E4CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlClearBit(PRTL_BITMAP BitMapHeader, ULONG BitNumber)
 {
   _BYTE *v2; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtDCompositionSetChildRootVisual @ 0x1C02488B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0091610 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     UserReferenceDwmApiPort @ 0x1C00919E0 (UserReferenceDwmApiPort.c)
+ *     GreLockDwmState @ 0x1C0091A70 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0091AF0 (GreUnlockDwmState.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C00A7DB4 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtDCompositionSetChildRootVisual(__int64 a1, void *a2, __int64 a3)
 {
   CompositionObject *v3; // rbx

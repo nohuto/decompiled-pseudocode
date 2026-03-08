@@ -1,3 +1,23 @@
+/*
+ * XREFs of PfSnPrefetchSections @ 0x1407E16A0
+ * Callers:
+ *     PfSnAsyncPrefetchStep @ 0x1407E1620 (PfSnAsyncPrefetchStep.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x1407E196C (PfSnPrefetchSectionsCleanup.c)
+ *     PfSnLogGetReadListsStop @ 0x1407E1A5C (PfSnLogGetReadListsStop.c)
+ *     PfSnLogGetReadListsStart @ 0x1407E1AD4 (PfSnLogGetReadListsStart.c)
+ */
+
 __int64 __fastcall PfSnPrefetchSections(_QWORD *a1, WORK_QUEUE_TYPE a2, int a3, __int64 a4, __int64 a5)
 {
   __int64 v5; // rsi

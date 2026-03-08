@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicConvertId @ 0x1403AD430
+ * Callers:
+ *     HalpApicConvertToRte @ 0x14039EE14 (HalpApicConvertToRte.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpApicConvertId(__int64 a1, unsigned int *a2, _DWORD *a3, char a4)
 {
   unsigned __int64 v5; // rax

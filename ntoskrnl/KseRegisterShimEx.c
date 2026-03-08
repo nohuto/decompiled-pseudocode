@@ -1,3 +1,22 @@
+/*
+ * XREFs of KseRegisterShimEx @ 0x140800EE0
+ * Callers:
+ *     KseRegisterShim @ 0x140800EC0 (KseRegisterShim.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepIsShimRegistered @ 0x140801090 (KsepIsShimRegistered.c)
+ *     KsepGetLoadedModulesList @ 0x14080110C (KsepGetLoadedModulesList.c)
+ *     KsepValidateShimProviderAndData @ 0x1408011B0 (KsepValidateShimProviderAndData.c)
+ */
+
 __int64 __fastcall KseRegisterShimEx(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   int LoadedModulesList; // ebx

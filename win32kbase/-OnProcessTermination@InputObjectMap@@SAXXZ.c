@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnProcessTermination@InputObjectMap@@SAXXZ @ 0x1C005BA98
+ * Callers:
+ *     DestroyProcessInfo @ 0x1C00D51B0 (DestroyProcessInfo.c)
+ * Callees:
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C005BB7C (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ */
+
 void __fastcall InputObjectMap::OnProcessTermination(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 CurrentProcess; // rbp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_FindAndSetTargetState @ 0x1C000C7CC
+ * Callers:
+ *     ESM_RunStateMachine @ 0x1C000C510 (ESM_RunStateMachine.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLLL @ 0x1C000CAE4 (WPP_RECORDER_SF_qLLL.c)
+ *     ESM_LogUnhandledEvent @ 0x1C0051208 (ESM_LogUnhandledEvent.c)
+ */
+
 char __fastcall ESM_FindAndSetTargetState(__int64 a1, unsigned int a2, _BYTE *a3)
 {
   unsigned int v3; // r13d

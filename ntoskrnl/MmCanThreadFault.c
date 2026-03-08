@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmCanThreadFault @ 0x140205D8C
+ * Callers:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpGetStackCaptureSettings @ 0x1404603A4 (EtwpGetStackCaptureSettings.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x140461D68 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ */
+
 bool MmCanThreadFault()
 {
   struct _KTHREAD *CurrentThread; // r8

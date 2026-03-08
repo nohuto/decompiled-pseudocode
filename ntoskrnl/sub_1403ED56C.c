@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_1403ED56C @ 0x1403ED56C
+ * Callers:
+ *     KiMarkBugCheckRegions @ 0x1403DE604 (KiMarkBugCheckRegions.c)
+ * Callees:
+ *     KeKvaShadowingActive @ 0x1402FE9A0 (KeKvaShadowingActive.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     MmIsAddressValid @ 0x1403A9A20 (MmIsAddressValid.c)
+ *     ExQueryBigPoolTag @ 0x1406054EC (ExQueryBigPoolTag.c)
+ */
+
 void __fastcall sub_1403ED56C(__int64 a1, __int64 a2, int a3, int a4)
 {
   unsigned __int64 v4; // rdi

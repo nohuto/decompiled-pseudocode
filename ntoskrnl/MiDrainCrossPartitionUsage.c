@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiDrainCrossPartitionUsage @ 0x14065745C
+ * Callers:
+ *     MiDeletePartition @ 0x140626F80 (MiDeletePartition.c)
+ * Callees:
+ *     MiDecrementControlAreaCount @ 0x1402150F8 (MiDecrementControlAreaCount.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExWaitForRundownProtectionReleaseCacheAware @ 0x14028E0C0 (ExWaitForRundownProtectionReleaseCacheAware.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140622788 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiDecrementCloneHeaderCount @ 0x14066182C (MiDecrementCloneHeaderCount.c)
+ */
+
 void __fastcall MiDrainCrossPartitionUsage(__int64 a1)
 {
   unsigned __int64 OldIrql; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qqq @ 0x1C0040E00
+ * Callers:
+ *     TUNNEL_EvtWorkitemPnpInterfaceNotification @ 0x1C008D8F0 (TUNNEL_EvtWorkitemPnpInterfaceNotification.c)
+ *     TUNNEL_CloseRemoteTarget @ 0x1C008E5D0 (TUNNEL_CloseRemoteTarget.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qqq(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int a5, ...)
 {
   int v8; // [rsp+20h] [rbp-48h]

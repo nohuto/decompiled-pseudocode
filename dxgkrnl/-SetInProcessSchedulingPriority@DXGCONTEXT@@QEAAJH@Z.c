@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetInProcessSchedulingPriority@DXGCONTEXT@@QEAAJH@Z @ 0x1C017BEDC
+ * Callers:
+ *     DxgkSetContextInProcessSchedulingPriority @ 0x1C017BCE0 (DxgkSetContextInProcessSchedulingPriority.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DXGCONTEXT::SetInProcessSchedulingPriority(DXGCONTEXT *this, __int64 a2)
 {
   __int64 v2; // rax

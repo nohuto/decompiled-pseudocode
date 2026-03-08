@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpSegPageRangeComputeLargePageCost @ 0x14024E860
+ * Callers:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14024E6D0 (RtlpHpSegFreeRangeInsert.c)
+ *     RtlpHpSegSubAllocate @ 0x1402E28AC (RtlpHpSegSubAllocate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpSegPageRangeComputeLargePageCost(_QWORD *a1, __int64 a2, int a3)
 {
   __int64 v3; // rax

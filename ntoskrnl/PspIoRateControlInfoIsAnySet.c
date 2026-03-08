@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspIoRateControlInfoIsAnySet @ 0x1402C42A0
+ * Callers:
+ *     PspSetJobIoRateControl @ 0x140752E58 (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1409AFB14 (PspSetJobIoRateControlForVolume.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PspIoRateControlInfoIsAnySet(_QWORD *a1)
 {
   char result; // al

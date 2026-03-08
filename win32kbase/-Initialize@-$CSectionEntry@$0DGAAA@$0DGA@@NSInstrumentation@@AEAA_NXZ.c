@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@?$CSectionEntry@$0DGAAA@$0DGA@@NSInstrumentation@@AEAA_NXZ @ 0x1C002A6B8
+ * Callers:
+ *     ?Create@?$CSectionEntry@$0DGAAA@$0DGA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C002A658 (-Create@-$CSectionEntry@$0DGAAA@$0DGA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ * Callees:
+ *     ?Create@?$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C002A718 (-Create@-$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@SAPEAV12@QEAE@Z.c)
+ *     ?PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z @ 0x1C002A790 (-PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z.c)
+ *     ?PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z @ 0x1C002A810 (-PlatformMapViewInSessionSpace@NSInstrumentation@@YAJPEAXPEAPEAX_K@Z.c)
+ */
+
 bool __fastcall NSInstrumentation::CSectionEntry<221184,864>::Initialize(_QWORD *a1, unsigned int a2)
 {
   NSInstrumentation *Section; // rax

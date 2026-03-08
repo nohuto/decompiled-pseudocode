@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBDTX_CacheBillboardInfo @ 0x1C002D304
+ * Callers:
+ *     HUBDTX_ValidateAndCacheBOSDescriptor @ 0x1C002AE70 (HUBDTX_ValidateAndCacheBOSDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 void __fastcall HUBDTX_CacheBillboardInfo(__int64 a1, unsigned __int8 *a2)
 {
   __int64 Pool2; // rax

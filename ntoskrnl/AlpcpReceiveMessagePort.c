@@ -1,3 +1,28 @@
+/*
+ * XREFs of AlpcpReceiveMessagePort @ 0x1407CD3A0
+ * Callers:
+ *     AlpcpReceiveLegacyMessage @ 0x1407168B0 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpWaitForSingleObject @ 0x1402E0F40 (AlpcpWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x14076BBC4 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1407926EC (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1407CF440 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x14097743C (AlpcpLogReceiveMessage.c)
+ *     AlpcpLogWaitForNewMessage @ 0x140977588 (AlpcpLogWaitForNewMessage.c)
+ */
+
 __int64 __fastcall AlpcpReceiveMessagePort(_QWORD *a1, KPROCESSOR_MODE a2, LARGE_INTEGER *a3, ULONG_PTR *a4, LONG a5)
 {
   __int64 v5; // rsi

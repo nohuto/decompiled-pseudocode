@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateDeviceFeatures@InkDevice@@AEBAJXZ @ 0x1C024756C
+ * Callers:
+ *     ?Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0246650 (-Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall InkDevice::ValidateDeviceFeatures(InkDevice *this)
 {
   unsigned int v1; // ebx

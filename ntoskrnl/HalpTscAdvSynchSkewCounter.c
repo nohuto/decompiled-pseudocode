@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscAdvSynchSkewCounter @ 0x140507EF0
+ * Callers:
+ *     HalpTscAdvSynchTarget @ 0x140388384 (HalpTscAdvSynchTarget.c)
+ *     HalpTscAdvSynchToTarget @ 0x140507F18 (HalpTscAdvSynchToTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpTscAdvSynchSkewCounter(__int64 a1)
 {
   unsigned __int64 v1; // rax

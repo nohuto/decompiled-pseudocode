@@ -1,3 +1,17 @@
+/*
+ * XREFs of McTemplateK0qxq_EtwWriteTransfer @ 0x1C016554C
+ * Callers:
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C00B4A78 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     EtwTraceStopPowerEventCalloutWorker @ 0x1C00D2654 (EtwTraceStopPowerEventCalloutWorker.c)
+ *     EtwTraceFlipManagerCanceledPresentShown @ 0x1C0162690 (EtwTraceFlipManagerCanceledPresentShown.c)
+ *     EtwTraceFlipManagerPresentIFlipSubmitted @ 0x1C0162E90 (EtwTraceFlipManagerPresentIFlipSubmitted.c)
+ *     EtwTraceFlipManagerPresentSignaled @ 0x1C01633F0 (EtwTraceFlipManagerPresentSignaled.c)
+ *     EtwTraceFlipManagerUpdateExpectedConsumerPresentId @ 0x1C01638B0 (EtwTraceFlipManagerUpdateExpectedConsumerPresentId.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qxq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

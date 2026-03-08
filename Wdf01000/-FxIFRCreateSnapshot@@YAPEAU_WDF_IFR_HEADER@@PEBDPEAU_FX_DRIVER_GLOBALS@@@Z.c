@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0026CBC
+ * Callers:
+ *     ?FxIFRReplay@@YAX_K@Z @ 0x1C0027070 (-FxIFRReplay@@YAX_K@Z.c)
+ * Callees:
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?FxIFRStop@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00228D4 (-FxIFRStop@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxIFRValidateLogHeader@@YAJPEAU_WDF_IFR_HEADER@@@Z @ 0x1C00275CC (-FxIFRValidateLogHeader@@YAJPEAU_WDF_IFR_HEADER@@@Z.c)
+ *     WPP_IFR_SF_ds @ 0x1C0027678 (WPP_IFR_SF_ds.c)
+ *     WPP_IFR_SF_s @ 0x1C00277AC (WPP_IFR_SF_s.c)
+ */
+
 _WDF_IFR_HEADER *__fastcall FxIFRCreateSnapshot(const char *DriverName, _FX_DRIVER_GLOBALS *FxGlobalsForTracing)
 {
   _WDF_IFR_HEADER *v3; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@CActivationObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAUHWND__@@_KPEAPEAV1@@Z @ 0x1C008436C
+ * Callers:
+ *     ?CreateActivationObject@CActivationObjectManager@@QEAAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAUHWND__@@_KPEAU_LUID@@@Z @ 0x1C0084240 (-CreateActivationObject@CActivationObjectManager@@QEAAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAUHWND__@@_K.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 NTSTATUS __fastcall CActivationObject::Create(
         __int64 a1,
         struct _OBJECT_ATTRIBUTES *a2,

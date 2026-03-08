@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViFaultsInjectionNotification @ 0x140AD3958
+ * Callers:
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ */
+
 void __fastcall ViFaultsInjectionNotification(int a1)
 {
   __int64 v2; // rbx

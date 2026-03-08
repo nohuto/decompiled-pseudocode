@@ -1,3 +1,12 @@
+/*
+ * XREFs of toupper @ 0x1C00DAC50
+ * Callers:
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0075884 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ * Callees:
+ *     RtlUpcaseUnicodeToMultiByteN_0 @ 0x1C00DC746 (RtlUpcaseUnicodeToMultiByteN_0.c)
+ *     RtlAnsiCharToUnicodeChar_0 @ 0x1C00DC758 (RtlAnsiCharToUnicodeChar_0.c)
+ */
+
 int __cdecl toupper(int C)
 {
   int result; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z @ 0x1C0078480
+ * Callers:
+ *     ?AllocateCascadedSignalingResources@CAdapter@@UEAAJPEAPEAXPEAI011@Z @ 0x1C00781F0 (-AllocateCascadedSignalingResources@CAdapter@@UEAAJPEAPEAXPEAI011@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkCreateSynchronizationObjectInternal @ 0x1C034E17C (DxgkCreateSynchronizationObjectInternal.c)
+ */
+
 __int64 __fastcall CAdapter::CreateSyncObject(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   int v6; // eax

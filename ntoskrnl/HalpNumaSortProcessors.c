@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpNumaSortProcessors @ 0x140B8E398
+ * Callers:
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpNumaSortProcessors(unsigned int a1, __int64 a2, int *a3)
 {
   unsigned int v3; // r9d

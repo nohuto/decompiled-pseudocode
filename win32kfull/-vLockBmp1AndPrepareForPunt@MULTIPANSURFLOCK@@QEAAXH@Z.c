@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLockBmp1AndPrepareForPunt@MULTIPANSURFLOCK@@QEAAXH@Z @ 0x1C029FE1C
+ * Callers:
+ *     ??0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z @ 0x1C029DA64 (--0MULTIPANSURFLOCK@@QEAA@PEAU_PANDEV@@PEAPEAU_SURFOBJ@@1PEAU_RECTL@@2PEAHPEAU_CLIPOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MULTIPANSURFLOCK::vLockBmp1AndPrepareForPunt(__int64 **this, int a2)
 {
   __int64 *v4; // rcx

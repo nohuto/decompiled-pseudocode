@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiFreeLargeZeroPages @ 0x14020FD6C
+ * Callers:
+ *     MiCleanupPageTablePages @ 0x14020FD04 (MiCleanupPageTablePages.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiPruneProcessLargePageCaches @ 0x1403614A0 (MiPruneProcessLargePageCaches.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiPfnRangeIsZero @ 0x14038B144 (MiPfnRangeIsZero.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140666064 (MiFreeLargeProcessPagesToCache.c)
+ *     MiCreatePagingFileMap @ 0x1407F3500 (MiCreatePagingFileMap.c)
+ *     MiAllocateFastAwePages @ 0x140A3D534 (MiAllocateFastAwePages.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiFreeLargeZeroPages(int a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r14

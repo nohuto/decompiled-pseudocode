@@ -1,3 +1,12 @@
+/*
+ * XREFs of HsaGrowPasidTable @ 0x14052DFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall HsaGrowPasidTable(__int64 a1, __int64 a2, unsigned int a3)
 {
   _QWORD *v6; // rbx

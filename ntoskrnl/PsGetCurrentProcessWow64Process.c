@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsGetCurrentProcessWow64Process @ 0x1402DA820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 PsGetCurrentProcessWow64Process()
 {
   __int64 v0; // rdx

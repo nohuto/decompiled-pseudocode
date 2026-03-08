@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmHpBufferProtectEx @ 0x1405C7E94
+ * Callers:
+ *     SmHpChunkHeapProtect @ 0x1402E7198 (SmHpChunkHeapProtect.c)
+ *     SmHpBufferUpdateFullness @ 0x1405C7FD0 (SmHpBufferUpdateFullness.c)
+ *     SmHpChunkUnprotect @ 0x1405C8234 (SmHpChunkUnprotect.c)
+ *     SmHpUnprotectListNeighbors @ 0x1405C8270 (SmHpUnprotectListNeighbors.c)
+ * Callees:
+ *     ExProtectPoolEx @ 0x14030B674 (ExProtectPoolEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x1405CB2EC (SmPrepareForFatalHeapCorruption.c)
+ *     ?Hash@MetroHash64@@SAXPEBE_KQEAE1@Z @ 0x1406797B0 (-Hash@MetroHash64@@SAXPEBE_KQEAE1@Z.c)
+ */
+
 __int64 __fastcall SmHpBufferProtectEx(__int64 a1, __int64 a2, char a3, unsigned __int64 a4)
 {
   int v5; // r15d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of __memset_spec_ermsb_repmovsb @ 0x1C0045340
+ * Callers:
+ *     __memset_spec_ermsb @ 0x1C0045200 (__memset_spec_ermsb.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _memset_spec_ermsb_repmovsb(_OWORD *a1, __int64 a2, __int64 a3)
 {
   __int128 v3; // xmm0

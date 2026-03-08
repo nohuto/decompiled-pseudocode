@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtProcessReservedDomains @ 0x140A8ECA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtProcessReservedDomains(__int64 a1, unsigned int a2, __int64 *a3)
 {
   __int64 result; // rax

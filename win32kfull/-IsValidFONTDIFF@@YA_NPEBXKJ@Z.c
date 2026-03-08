@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValidFONTDIFF@@YA_NPEBXKJ@Z @ 0x1C02BA14C
+ * Callers:
+ *     ?IsValidFONTSIM@@YA_NPEBXKJ@Z @ 0x1C02BA188 (-IsValidFONTSIM@@YA_NPEBXKJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsValidFONTDIFF(const void *a1, unsigned int a2, int a3)
 {
   return !a3

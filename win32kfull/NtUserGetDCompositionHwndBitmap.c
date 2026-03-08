@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetDCompositionHwndBitmap @ 0x1C0014480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetWindowCompositionVisualBitmap@@YAJPEAUHWND__@@PEAPEAUCompositionObject@@@Z @ 0x1C0014578 (-GetWindowCompositionVisualBitmap@@YAJPEAUHWND__@@PEAPEAUCompositionObject@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetDCompositionHwndBitmap(HWND a1, _QWORD *a2)
 {
   signed int WindowCompositionVisualBitmap; // ebx

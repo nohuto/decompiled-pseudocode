@@ -1,3 +1,26 @@
+/*
+ * XREFs of UsbhSyncSendCommandToDevice @ 0x1C001A250
+ * Callers:
+ *     UsbhDisableDeviceForWake @ 0x1C001AC18 (UsbhDisableDeviceForWake.c)
+ *     UsbhGetMsOs20DescriptorSet @ 0x1C0032F04 (UsbhGetMsOs20DescriptorSet.c)
+ *     UsbhGetMsOsFeatureDescriptor @ 0x1C003360C (UsbhGetMsOsFeatureDescriptor.c)
+ *     UsbhSendMsOs20AltEnumCommand @ 0x1C0033AEC (UsbhSendMsOs20AltEnumCommand.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003E714 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhEnableDeviceForWake @ 0x1C0054480 (UsbhEnableDeviceForWake.c)
+ *     UsbhGetBosDescriptor @ 0x1C005452C (UsbhGetBosDescriptor.c)
+ *     UsbhGetDeviceDescriptor @ 0x1C00546D0 (UsbhGetDeviceDescriptor.c)
+ *     UsbhGetQualifierDescriptorFromDevice @ 0x1C00547AC (UsbhGetQualifierDescriptorFromDevice.c)
+ *     UsbhGetStringFromDevice @ 0x1C0054830 (UsbhGetStringFromDevice.c)
+ * Callees:
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ */
+
 __int64 UsbhSyncSendCommandToDevice(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, _WORD *a5, ...)
 {
   int *v8; // rdi

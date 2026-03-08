@@ -1,3 +1,23 @@
+/*
+ * XREFs of rimApplyPointerDevicePolicies @ 0x1C00F1204
+ * Callers:
+ *     rimProcessPointerDeviceContact @ 0x1C01D9C8C (rimProcessPointerDeviceContact.c)
+ * Callees:
+ *     RIMIsInputSuppressed @ 0x1C0003F78 (RIMIsInputSuppressed.c)
+ *     rimPointerTransitionsPolicyUpdateStateAndApply @ 0x1C00F1738 (rimPointerTransitionsPolicyUpdateStateAndApply.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     rimConfidenceBitPolicyUpdateStateAndApply @ 0x1C01D5E18 (rimConfidenceBitPolicyUpdateStateAndApply.c)
+ *     rimDigitizerActiveBitPolicyUpdateStateAndApply @ 0x1C01D61E0 (rimDigitizerActiveBitPolicyUpdateStateAndApply.c)
+ *     rimDisplayOffPolicyUpdateStateAndApply @ 0x1C01D6304 (rimDisplayOffPolicyUpdateStateAndApply.c)
+ *     rimLidClosedPolicyUpdateStateAndApply @ 0x1C01D8B9C (rimLidClosedPolicyUpdateStateAndApply.c)
+ *     rimNullXYPolicyUpdateStateAndApply @ 0x1C01D8CE0 (rimNullXYPolicyUpdateStateAndApply.c)
+ *     rimOutOfBoundsPolicyUpdateStateAndApply @ 0x1C01D8E70 (rimOutOfBoundsPolicyUpdateStateAndApply.c)
+ *     rimPenButtonsPolicyUpdateState @ 0x1C01D8FB8 (rimPenButtonsPolicyUpdateState.c)
+ *     rimPredictionPolicyUpdateStateAndApply @ 0x1C01D93A8 (rimPredictionPolicyUpdateStateAndApply.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C01DE1B0 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ */
+
 __int64 __fastcall rimApplyPointerDevicePolicies(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspRemoveIoAttribution @ 0x14075339C
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ *     PspSetJobIoAttribution @ 0x1407530A0 (PspSetJobIoAttribution.c)
+ * Callees:
+ *     IoStopDiskIoAttributionForContext @ 0x1402C4224 (IoStopDiskIoAttributionForContext.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ */
+
 __int64 __fastcall PspRemoveIoAttribution(struct _EX_RUNDOWN_REF **Object)
 {
   struct _EX_RUNDOWN_REF **v1; // rdi

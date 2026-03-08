@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopAdaptiveSetSystemInitiatedRebootTargetStateOverride @ 0x140998998
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ */
+
 __int64 __fastcall PopAdaptiveSetSystemInitiatedRebootTargetStateOverride(__int64 a1, __int64 a2)
 {
   unsigned int v2; // eax

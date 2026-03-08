@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopGetDope @ 0x1403BF328
+ * Callers:
+ *     PoRegisterDeviceForIdleDetection @ 0x140368240 (PoRegisterDeviceForIdleDetection.c)
+ *     PopAssociateThermalRequest @ 0x14084BAD0 (PopAssociateThermalRequest.c)
+ *     PoVolumeDevice @ 0x14087017C (PoVolumeDevice.c)
+ *     PopDeactiveThermalRequest @ 0x14097FEC8 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x140980178 (PopOrphanCoolingExtension.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopGetDope(__int64 a1)
 {
   __int64 v1; // rdi

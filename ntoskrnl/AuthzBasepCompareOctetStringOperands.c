@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepCompareOctetStringOperands @ 0x14066D030
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateExpression @ 0x140366314 (AuthzBasepEvaluateExpression.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 __int64 __fastcall AuthzBasepCompareOctetStringOperands(unsigned __int8 a1, __int64 a2)
 {
   int v2; // esi

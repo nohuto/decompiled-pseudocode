@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceJobAssignProcess @ 0x1409E25F8
+ * Callers:
+ *     NtAssignProcessToJobObject @ 0x1406FF8A0 (NtAssignProcessToJobObject.c)
+ *     PspAssignProcessToJobList @ 0x1409ADF10 (PspAssignProcessToJobList.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpCopyJobGuidSafe @ 0x1408A21A4 (EtwpCopyJobGuidSafe.c)
+ */
+
 void __fastcall EtwTraceJobAssignProcess(__int64 a1)
 {
   __int64 v1; // rdx

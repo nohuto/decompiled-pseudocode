@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiVerifyDriverReportedFenceId@@YAHPEAU_VIDSCH_NODE@@KHPEAK@Z @ 0x1C0017C4C
+ * Callers:
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiVerifyDriverReportedFenceId(
         struct _VIDSCH_NODE *a1,

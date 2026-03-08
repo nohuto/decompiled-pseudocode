@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBUCX_GetControllerName @ 0x1C0028D3C
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ *     WMI_AcquireBusInfo @ 0x1C008B890 (WMI_AcquireBusInfo.c)
+ *     WMI_AcquireControllerName @ 0x1C008B98C (WMI_AcquireControllerName.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBUCX_GetControllerName(__int64 a1, _DWORD *a2, unsigned int a3)
 {
   __int64 v4; // rsi

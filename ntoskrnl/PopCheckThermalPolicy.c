@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopCheckThermalPolicy @ 0x140846B78
+ * Callers:
+ *     PopThermalWorker @ 0x140846460 (PopThermalWorker.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopPrintEx @ 0x1402BDCD4 (PopPrintEx.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 char __fastcall PopCheckThermalPolicy(__int64 a1, __int64 a2, char *a3, int *a4)
 {
   void *DeviceAttachmentBaseRefWithTag; // rax

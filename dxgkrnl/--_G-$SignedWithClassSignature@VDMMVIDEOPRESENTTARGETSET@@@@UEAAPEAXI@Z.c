@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_G?$SignedWithClassSignature@VDMMVIDEOPRESENTTARGETSET@@@@UEAAPEAXI@Z @ 0x1C0067E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall SignedWithClassSignature<DMMVIDEOPRESENTTARGETSET>::`scalar deleting destructor'(
         _DWORD *a1,
         char a2)

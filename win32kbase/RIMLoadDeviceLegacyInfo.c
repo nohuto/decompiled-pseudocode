@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMLoadDeviceLegacyInfo @ 0x1C00305E4
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ * Callees:
+ *     RIMApiSetCheckForLegacyTouchPad @ 0x1C003017C (RIMApiSetCheckForLegacyTouchPad.c)
+ *     rimBlockingDeviceIoControlFile @ 0x1C00304DC (rimBlockingDeviceIoControlFile.c)
+ *     RIMGetDeviceObjectPointer @ 0x1C0031148 (RIMGetDeviceObjectPointer.c)
+ *     RIMIsHIDMouse @ 0x1C0031360 (RIMIsHIDMouse.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall RIMLoadDeviceLegacyInfo(struct DEVICEINFO *a1, int a2, int a3)
 {
   int v4; // ebx

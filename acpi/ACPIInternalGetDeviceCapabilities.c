@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIInternalGetDeviceCapabilities @ 0x1C0087F60
+ * Callers:
+ *     ACPIMatchHardwareAddress @ 0x1C0088CE8 (ACPIMatchHardwareAddress.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952EC (ACPISystemPowerQueryDeviceCapabilities.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall ACPIInternalGetDeviceCapabilities(PDEVICE_OBJECT DeviceObject, _DWORD *a2)
 {
   _QWORD v5[9]; // [rsp+20h] [rbp-58h] BYREF

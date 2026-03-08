@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreIsVisRgnLocked @ 0x1C0197350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall GreIsVisRgnLocked(__int64 a1)
 {
   __int64 v1; // rax

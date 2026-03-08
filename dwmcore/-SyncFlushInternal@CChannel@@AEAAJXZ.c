@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SyncFlushInternal@CChannel@@AEAAJXZ @ 0x1800CCFA8
+ * Callers:
+ *     ?SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z @ 0x180018C40 (-SyncDesktopCaptureBits@CChannel@@UEAAJU_LUID@@HHIIW4DXGI_FORMAT@@_KPEAX@Z.c)
+ *     ?SyncFlush@CChannel@@UEAAJXZ @ 0x1800CC960 (-SyncFlush@CChannel@@UEAAJXZ.c)
+ *     ?SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z @ 0x1801CD68C (-SendSyncCommand@CChannel@@AEAAJPEBXIPEAUMIL_MESSAGE@@@Z.c)
+ * Callees:
+ *     ?InternalCommit@CChannel@@AEAAJPEAX@Z @ 0x180044118 (-InternalCommit@CChannel@@AEAAJPEAX@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?WaitForSyncFlush@CInternalMilCmdConnection@@QEAAJI@Z @ 0x1800CD018 (-WaitForSyncFlush@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CChannel::SyncFlushInternal(CChannel *this)
 {
   int v2; // edi

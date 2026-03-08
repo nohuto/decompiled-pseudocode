@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeInsertByKeyDeviceQueueWrapper @ 0x1405E15F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeInsertByKeyDeviceQueue @ 0x140457FE0 (KeInsertByKeyDeviceQueue.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 BOOLEAN __fastcall DifKeInsertByKeyDeviceQueueWrapper(
         PKDEVICE_QUEUE DeviceQueue,
         PKDEVICE_QUEUE_ENTRY DeviceQueueEntry,
