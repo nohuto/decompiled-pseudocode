@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?vFindSegment@XCLIPOBJ@@QBEXPAU_RECTL@@JJ@Z @ 0x9C772
+ * Callers:
+ *     ?vStrWrite01@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x4D98E (-vStrWrite01@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vStrWrite32@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0xC5B30 (-vStrWrite32@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vStrWrite04@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x22A92A (-vStrWrite04@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vStrWrite08@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x22ADDE (-vStrWrite08@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vStrWrite16@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x22B106 (-vStrWrite16@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vStrWrite24@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x22B437 (-vStrWrite24@@YGXPAU_STRRUN@@PAU_XRUNLEN@@PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWrite16@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x245597 (-vPlgWrite16@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWrite1@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x24578D (-vPlgWrite1@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWrite24@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x245ADB (-vPlgWrite24@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWrite32@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x245D07 (-vPlgWrite32@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWrite4@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x245EFB (-vPlgWrite4@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWrite8@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x246293 (-vPlgWrite8@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWriteAND@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x24656C (-vPlgWriteAND@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ *     ?vPlgWriteOR@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z @ 0x2468B7 (-vPlgWriteOR@@YGXPAU_PLGRUN@@0PAVSURFACE@@PAU_CLIPOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __thiscall XCLIPOBJ::vFindSegment(XCLIPOBJ *this, struct _RECTL *a2, int a3, int a4)
+{
+  int v5; // ecx
+  _DWORD *v6; // esi
+  _DWORD *i; // eax
+  LONG v8; // edx
+  LONG v9; // ecx
+
+  v5 = 0;
+  v6 = (_DWORD *)*((_DWORD *)this + 17);
+  if ( *v6 )
+  {
+    for ( i = v6 + 4; a3 < *(i - 1) || a3 >= *i; i += 2 )
+    {
+      v5 += 2;
+      if ( v5 == *v6 )
+        return;
+    }
+    v8 = v6[v5 + 3];
+    if ( v8 <= *((_DWORD *)this + 1) )
+      v8 = *((_DWORD *)this + 1);
+    v9 = v6[v5 + 4];
+    if ( v9 >= *((_DWORD *)this + 3) )
+      v9 = *((_DWORD *)this + 3);
+    if ( v8 < v9 )
+    {
+      a2->left = v8;
+      a2->right = v9;
+    }
+  }
+}

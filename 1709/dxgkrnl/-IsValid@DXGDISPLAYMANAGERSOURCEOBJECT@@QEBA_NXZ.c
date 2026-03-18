@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?IsValid@DXGDISPLAYMANAGERSOURCEOBJECT@@QEBA_NXZ @ 0x1C01D9B18
+ * Callers:
+ *     ?CheckOwnership@DXGDISPLAYMANAGEROBJECT@@SAJU_LUID@@IPEAX@Z @ 0x1C00E89D0 (-CheckOwnership@DXGDISPLAYMANAGEROBJECT@@SAJU_LUID@@IPEAX@Z.c)
+ *     ?CreateSourceObject@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@IPEAU_OBJECT_ATTRIBUTES@@KPEAPEAX@Z @ 0x1C01D964C (-CreateSourceObject@DXGDISPLAYMANAGEROBJECT@@QEAAJU_LUID@@IPEAU_OBJECT_ATTRIBUTES@@KPEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DXGDISPLAYMANAGERSOURCEOBJECT::IsValid(DXGDISPLAYMANAGERSOURCEOBJECT *this)
+{
+  bool result; // al
+
+  result = 0;
+  if ( *((_QWORD *)this + 8) )
+    return *((_BYTE *)this + 56) != 0;
+  return result;
+}

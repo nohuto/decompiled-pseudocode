@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C00347B4
+ * Callers:
+ *     ?HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C0034694 (-HandleThreadDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
+ *     ?HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z @ 0x1C0099134 (-HandleSensorDispatcherSignal@IOCPDispatcher@@AEAAXI@Z.c)
+ *     ?RegisterInputDispatcherObjects@IOCPDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z @ 0x1C00A1B10 (-RegisterInputDispatcherObjects@IOCPDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z.c)
+ *     ?RegisterThreadDispatcherObject@IOCPDispatcher@@QEAAXPEAX@Z @ 0x1C00A9440 (-RegisterThreadDispatcherObject@IOCPDispatcher@@QEAAXPEAX@Z.c)
+ * Callees:
+ *     AssociateKernelIocpWcp @ 0x1C0034840 (AssociateKernelIocpWcp.c)
+ *     CreateKernelIocpWcp @ 0x1C00A1E60 (CreateKernelIocpWcp.c)
+ */
+
+__int64 __fastcall IOCPDispatcher::SetupIOCPForDispatcherHandle(__int64 a1, __int64 a2, int a3, int a4, int a5)
+{
+  __int64 v5; // rdi
+  __int64 KernelIocpWcp; // rbx
+
+  v5 = a4;
+  KernelIocpWcp = a2;
+  if ( !a2 )
+    KernelIocpWcp = CreateKernelIocpWcp();
+  if ( !KernelIocpWcp || (int)AssociateKernelIocpWcp(KernelIocpWcp, *(_QWORD *)(a1 + 2744), a3, a5, v5, 0, 0LL) < 0 )
+    KeBugCheck(0x164u);
+  return KernelIocpWcp;
+}

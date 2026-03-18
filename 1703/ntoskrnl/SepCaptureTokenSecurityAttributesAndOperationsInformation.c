@@ -1,0 +1,106 @@
+/*
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x14044AC80
+ * Callers:
+ *     NtSetInformationToken @ 0x14046DB70 (NtSetInformationToken.c)
+ * Callees:
+ *     SepCaptureTokenSecurityOperations @ 0x14003023C (SepCaptureTokenSecurityOperations.c)
+ *     ExAllocatePoolWithTag @ 0x140285010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x14044ADC8 (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x140456C14 (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14071ED60 (ExRaiseDatatypeMisalignment.c)
+ */
+
+NTSTATUS __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(_QWORD *a1, char a2, _QWORD *a3)
+{
+  _DWORD *v5; // rax
+  unsigned int v6; // edx
+  __int64 v7; // rbx
+  _DWORD *v8; // rcx
+  NTSTATUS result; // eax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  int v12; // edi
+  _QWORD *PoolWithTag; // rax
+  PVOID v14; // rcx
+  unsigned int v15; // [rsp+20h] [rbp-28h]
+  PVOID P; // [rsp+60h] [rbp+18h] BYREF
+  __int64 v17; // [rsp+68h] [rbp+20h] BYREF
+
+  *a3 = 0LL;
+  if ( a2 )
+  {
+    if ( ((unsigned __int8)a1 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v5 = (_DWORD *)a1[1];
+    if ( !v5 )
+      return -1073741811;
+    if ( ((unsigned __int8)v5 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v6 = 0;
+    v15 = 0;
+    v7 = *a1;
+    if ( *a1 )
+    {
+      if ( (*a1 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      v7 = *a1;
+      v6 = *(_DWORD *)(*a1 + 4LL);
+      v15 = v6;
+      v8 = (_DWORD *)a1[1];
+    }
+    else
+    {
+      v8 = (_DWORD *)a1[1];
+      if ( *v5 != 1 )
+        return -1073741811;
+    }
+    result = SepCaptureTokenSecurityOperations(v8, v6, a2, &P);
+    if ( result >= 0 )
+    {
+      if ( v7 )
+      {
+        LOBYTE(v11) = 1;
+        LOBYTE(v10) = a2;
+        v12 = SepCaptureTokenSecurityAttributesInformation(v7, v10, v11, &v17, v15);
+        if ( v12 < 0 )
+        {
+          v7 = 0LL;
+          v14 = P;
+          goto LABEL_20;
+        }
+        v7 = v17;
+      }
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 0x10uLL, 0x6F416553u);
+      v14 = P;
+      if ( !PoolWithTag )
+      {
+        v12 = -1073741801;
+        goto LABEL_28;
+      }
+      PoolWithTag[1] = P;
+      *PoolWithTag = v7;
+      *a3 = PoolWithTag;
+      v12 = 0;
+LABEL_20:
+      if ( v12 >= 0 )
+        return v12;
+LABEL_28:
+      if ( v14 )
+        ExFreePoolWithTag(v14, 0);
+      if ( v7 )
+        SepFreeCapturedTokenSecurityAttributesInformation(v7);
+      return v12;
+    }
+  }
+  else if ( a1[1] )
+  {
+    *a3 = a1;
+    return 0;
+  }
+  else
+  {
+    return -1073741811;
+  }
+  return result;
+}

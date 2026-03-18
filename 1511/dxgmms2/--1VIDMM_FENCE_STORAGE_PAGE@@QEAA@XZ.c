@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1VIDMM_FENCE_STORAGE_PAGE@@QEAA@XZ @ 0x1C003BC70
+ * Callers:
+ *     ??_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z @ 0x1C001048C (--_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall VIDMM_FENCE_STORAGE_PAGE::~VIDMM_FENCE_STORAGE_PAGE(PMDL *this)
+{
+  VIDMM_FENCE_STORAGE_PAGE::FreeStorage(this);
+}

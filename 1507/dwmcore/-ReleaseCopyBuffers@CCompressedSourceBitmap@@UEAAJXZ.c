@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?ReleaseCopyBuffers@CCompressedSourceBitmap@@UEAAJXZ @ 0x180145360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ @ 0x180097F10 (-OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ.c)
+ */
+
+__int64 __fastcall CCompressedSourceBitmap::ReleaseCopyBuffers(CCompressedSourceBitmap *this)
+{
+  __int64 v1; // r14
+  unsigned int v2; // edi
+  __int64 v4; // r14
+
+  v1 = *((_QWORD *)this + 1);
+  v2 = 0;
+  if ( v1 )
+  {
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v1 + 16LL))(*((_QWORD *)this + 1));
+    *((_QWORD *)this + 1) = 0LL;
+  }
+  v4 = *((_QWORD *)this + 2);
+  if ( v4 )
+  {
+    (*(void (__fastcall **)(_QWORD))(*(_QWORD *)v4 + 16LL))(*((_QWORD *)this + 2));
+    *((_QWORD *)this + 2) = 0LL;
+  }
+  else
+  {
+    return 1;
+  }
+  return v2;
+}

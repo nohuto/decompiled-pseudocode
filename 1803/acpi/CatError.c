@@ -1,0 +1,30 @@
+/*
+ * XREFs of CatError @ 0x1C0048590
+ * Callers:
+ *     AMLIAddNamespaceOverride @ 0x1C00457B8 (AMLIAddNamespaceOverride.c)
+ * Callees:
+ *     RtlStringCchCatA @ 0x1C0003734 (RtlStringCchCatA.c)
+ *     RtlStringCchVPrintfA @ 0x1C0042C44 (RtlStringCchVPrintfA.c)
+ *     AMLIDebugger @ 0x1C0048460 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C0048620 (ConPrintf.c)
+ */
+
+__int64 CatError(const char *a1, ...)
+{
+  __int64 v1; // rax
+  __int64 result; // rax
+  va_list argList; // [rsp+48h] [rbp+10h] BYREF
+
+  va_start(argList, a1);
+  RtlStringCchCatA(pszDest, 0x100uLL, "\n");
+  v1 = -1LL;
+  do
+    ++v1;
+  while ( pszDest[v1] );
+  RtlStringCchVPrintfA(&pszDest[v1], 256 - v1, a1, argList);
+  ConPrintf(pszDest);
+  result = ConPrintf("\n");
+  if ( (gDebugger & 0x4000) != 0 )
+    return AMLIDebugger();
+  return result;
+}

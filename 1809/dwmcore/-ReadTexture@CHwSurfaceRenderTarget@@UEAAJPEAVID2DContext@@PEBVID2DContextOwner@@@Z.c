@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?ReadTexture@CHwSurfaceRenderTarget@@UEAAJPEAVID2DContext@@PEBVID2DContextOwner@@@Z @ 0x180206750
+ * Callers:
+ *     ?ReadTexture@CHwTextureRenderTarget@@UEAAJPEAVID2DContext@@PEBVID2DContextOwner@@@Z @ 0x1802033C0 (-ReadTexture@CHwTextureRenderTarget@@UEAAJPEAVID2DContext@@PEBVID2DContextOwner@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x1800C7F7C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F00A0 (_guard_dispatch_icall_nop.c)
+ *     ?DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z @ 0x1801E16E8 (-DebugInspectTexture@@YAJPEAUID3D11Texture2D@@I@Z.c)
+ */
+
+__int64 __fastcall CHwSurfaceRenderTarget::ReadTexture(
+        CHwSurfaceRenderTarget *this,
+        struct ID2DContext *a2,
+        const struct ID2DContextOwner *a3)
+{
+  __int64 v6; // rcx
+  unsigned int v7; // ebx
+  int v8; // eax
+  __int64 v9; // rcx
+  unsigned int v11; // [rsp+20h] [rbp-18h]
+
+  if ( !(*(unsigned __int8 (__fastcall **)(CHwSurfaceRenderTarget *))(*(_QWORD *)this + 144LL))(this) )
+  {
+    if ( a2
+      && (v8 = (*(__int64 (__fastcall **)(struct ID2DContext *, const struct ID2DContextOwner *))(*(_QWORD *)a2 + 48LL))(
+                 a2,
+                 a3),
+          v7 = v8,
+          v8 < 0) )
+    {
+      v11 = 246;
+    }
+    else
+    {
+      v8 = DebugInspectTexture(*(struct ID3D11Texture2D **)(*((_QWORD *)this + 25) + 128LL), 0);
+      v7 = v8;
+      if ( v8 >= 0 )
+        return v7;
+      v11 = 249;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8, v11);
+    return v7;
+  }
+  v7 = -2147024891;
+  MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0, -2147024891, 0xEFu);
+  return v7;
+}

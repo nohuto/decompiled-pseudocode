@@ -1,0 +1,287 @@
+/*
+ * XREFs of ??1DXGGLOBAL@@AEAA@XZ @ 0x1C020D74C
+ * Callers:
+ *     ?DestroyGlobal@DXGGLOBAL@@SAXXZ @ 0x1C020E834 (-DestroyGlobal@DXGGLOBAL@@SAXXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C000DEEC (--3@YAXPEAX@Z.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C000EC58 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00103D4 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??_V@YAXPEAX@Z @ 0x1C0011F20 (--_V@YAXPEAX@Z.c)
+ *     McGenEventUnregister @ 0x1C003A254 (McGenEventUnregister.c)
+ *     ??_GDXGDIAGNOSTICS@@QEAAPEAXI@Z @ 0x1C003B8D0 (--_GDXGDIAGNOSTICS@@QEAAPEAXI@Z.c)
+ *     ??_GDXG_GUEST_GLOBAL_VMBUS@@QEAAPEAXI@Z @ 0x1C003B910 (--_GDXG_GUEST_GLOBAL_VMBUS@@QEAAPEAXI@Z.c)
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C00E9048 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     ??1AUTOEXPANDALLOCATION@@QEAA@XZ @ 0x1C01323EC (--1AUTOEXPANDALLOCATION@@QEAA@XZ.c)
+ *     ?DeAllocate@DripsBlockerInfoList@@QEAAXXZ @ 0x1C020E788 (-DeAllocate@DripsBlockerInfoList@@QEAAXXZ.c)
+ *     ??1EDIDCACHE@@QEAA@XZ @ 0x1C021B9C0 (--1EDIDCACHE@@QEAA@XZ.c)
+ *     ?Release@DXGMMS_EXPORT@@QEAAJXZ @ 0x1C021C28C (-Release@DXGMMS_EXPORT@@QEAAJXZ.c)
+ *     ??1REMOTE_VSYNC@@QEAA@XZ @ 0x1C022E958 (--1REMOTE_VSYNC@@QEAA@XZ.c)
+ *     ??1QDC_CACHE@@QEAA@XZ @ 0x1C0239198 (--1QDC_CACHE@@QEAA@XZ.c)
+ *     ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C02415E0 (--1DXGSESSIONMGR@@QEAA@XZ.c)
+ *     ??1DXGBLACKBOX@@QEAA@XZ @ 0x1C025FF78 (--1DXGBLACKBOX@@QEAA@XZ.c)
+ */
+
+void __fastcall DXGGLOBAL::~DXGGLOBAL(DXGGLOBAL *this)
+{
+  DXGMMS_EXPORT **v2; // rbx
+  __int64 v3; // rbp
+  DXGMMS_EXPORT *v4; // rsi
+  struct _ERESOURCE *v5; // rcx
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rcx
+  void *v8; // rbx
+  void *v9; // rbx
+  struct DXGPROCESS *v10; // rcx
+  void *v11; // rcx
+  ULONG v12; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rax
+  void *v15; // rbx
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  void *v18; // rcx
+  _QWORD *v19; // rcx
+  ReferenceCounted *v20; // rcx
+  __int64 v21; // rax
+  _QWORD *v22; // rsi
+  __int64 v23; // rax
+  _QWORD *v24; // rbp
+  __int64 v25; // rax
+  _QWORD *v26; // r14
+  __int64 v27; // rax
+  _QWORD *v28; // rbx
+  __int64 v29; // rax
+  __int64 v30; // rax
+  __int64 v31; // rcx
+  __int64 v32; // rax
+  __int64 v33; // rcx
+  __int64 v34; // rax
+  __int64 v35; // rcx
+  __int64 v36; // rax
+  __int64 v37; // rcx
+  __int64 v38; // rax
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  __int64 v41; // rcx
+  __int64 v42; // rax
+
+  v2 = (DXGMMS_EXPORT **)DXGGLOBAL::m_pDxgmmsExport;
+  v3 = 2LL;
+  do
+  {
+    v4 = *v2;
+    if ( *v2 )
+    {
+      DXGMMS_EXPORT::Release(*v2);
+      operator delete(v4);
+    }
+    *v2++ = 0LL;
+    --v3;
+  }
+  while ( v3 );
+  v5 = (struct _ERESOURCE *)*((_QWORD *)this + 43);
+  if ( v5 )
+  {
+    ExDeleteResourceLite(v5);
+    operator delete(*((void **)this + 43));
+    *((_QWORD *)this + 43) = 0LL;
+  }
+  v6 = (_QWORD *)*((_QWORD *)this + 75);
+  if ( v6 )
+  {
+    DXGDIAGNOSTICS::`scalar deleting destructor'(v6);
+    *((_QWORD *)this + 75) = 0LL;
+  }
+  v7 = (_QWORD *)*((_QWORD *)this + 76);
+  if ( v7 )
+  {
+    DXGDIAGNOSTICS::`scalar deleting destructor'(v7);
+    *((_QWORD *)this + 76) = 0LL;
+  }
+  v8 = (void *)*((_QWORD *)this + 77);
+  if ( v8 )
+  {
+    DXGSESSIONMGR::~DXGSESSIONMGR(*((DXGSESSIONMGR **)this + 77));
+    operator delete(v8);
+    *((_QWORD *)this + 77) = 0LL;
+  }
+  v9 = (void *)*((_QWORD *)this + 98);
+  if ( v9 )
+  {
+    EDIDCACHE::~EDIDCACHE(*((EDIDCACHE **)this + 98));
+    operator delete(v9);
+    *((_QWORD *)this + 98) = 0LL;
+  }
+  if ( *((_BYTE *)this + 1009) )
+  {
+    ExDeleteLookasideListEx((PLOOKASIDE_LIST_EX)((char *)this + 800));
+    *((_BYTE *)this + 1009) = 0;
+  }
+  if ( *((_BYTE *)this + 1010) )
+  {
+    ExDeleteLookasideListEx((PLOOKASIDE_LIST_EX)((char *)this + 896));
+    *((_BYTE *)this + 1010) = 0;
+  }
+  v10 = (struct DXGPROCESS *)*((_QWORD *)this + 129);
+  if ( v10 )
+  {
+    DXGPROCESS::DestroyDxgProcess(v10);
+    *((_QWORD *)this + 129) = 0LL;
+  }
+  v11 = (void *)*((_QWORD *)this + 2541);
+  if ( v11 )
+  {
+    operator delete(v11);
+    *((_QWORD *)this + 2541) = 0LL;
+  }
+  if ( *((_QWORD *)this + 65) )
+  {
+    v12 = RtlNumberOfClearBits((PRTL_BITMAP)((char *)this + 504));
+    v13 = (*((_DWORD *)this + 256) + 31) & 0xFFFFFFE0;
+    if ( v12 != (_DWORD)v13 )
+    {
+      v14 = WdLogNewEntry5_WdAssertion(v13);
+      *(_QWORD *)(v14 + 24) = 1397LL;
+      WdLogEvent5_WdAssertion(v14);
+    }
+    operator delete[](*((void **)this + 65));
+    *((_QWORD *)this + 65) = 0LL;
+    RtlInitializeBitMap((PRTL_BITMAP)((char *)this + 504), 0LL, 0);
+  }
+  v15 = (void *)*((_QWORD *)this + 143);
+  if ( v15 )
+  {
+    QDC_CACHE::~QDC_CACHE(*((QDC_CACHE **)this + 143));
+    operator delete(v15);
+    *((_QWORD *)this + 143) = 0LL;
+  }
+  v16 = *((_QWORD *)this + 190);
+  if ( v16 )
+  {
+    ExUnsubscribeWnfStateChange(v16);
+    *((_QWORD *)this + 190) = 0LL;
+  }
+  v17 = *((_QWORD *)this + 213);
+  if ( v17 )
+  {
+    ExUnsubscribeWnfStateChange(v17);
+    *((_QWORD *)this + 213) = 0LL;
+  }
+  v18 = (void *)*((_QWORD *)this + 214);
+  if ( v18 )
+  {
+    PoUnregisterPowerSettingCallback(v18);
+    *((_QWORD *)this + 214) = 0LL;
+  }
+  if ( *((_DWORD *)this + 432) )
+  {
+    McGenEventUnregister(&SLEEPSTUDY_ETW_PROVIDER_Context);
+    *((_DWORD *)this + 432) = 0;
+  }
+  KeCancelTimer((PKTIMER)this + 24);
+  operator delete[](*((void **)this + 2532));
+  v19 = (_QWORD *)*((_QWORD *)this + 168);
+  if ( v19 )
+    DXG_GUEST_GLOBAL_VMBUS::`scalar deleting destructor'(v19);
+  v20 = (ReferenceCounted *)*((_QWORD *)this + 2554);
+  if ( v20 )
+  {
+    ReferenceCounted::Release(v20);
+    *((_QWORD *)this + 2554) = 0LL;
+  }
+  if ( *((_DWORD *)this + 49) != *((_DWORD *)this + 48) )
+  {
+    v21 = WdLogNewEntry5_WdAssertion(v20);
+    *(_QWORD *)(v21 + 24) = 1470LL;
+    WdLogEvent5_WdAssertion(v21);
+  }
+  v22 = (_QWORD *)((char *)this + 328);
+  if ( (_QWORD *)*v22 != v22 )
+  {
+    v23 = WdLogNewEntry5_WdAssertion(v20);
+    *(_QWORD *)(v23 + 24) = 1471LL;
+    WdLogEvent5_WdAssertion(v23);
+  }
+  v24 = (_QWORD *)((char *)this + 392);
+  if ( (_QWORD *)*v24 != v24 )
+  {
+    v25 = WdLogNewEntry5_WdAssertion(v20);
+    *(_QWORD *)(v25 + 24) = 1472LL;
+    WdLogEvent5_WdAssertion(v25);
+  }
+  v26 = (_QWORD *)((char *)this + 448);
+  if ( (_QWORD *)*v26 != v26 )
+  {
+    v27 = WdLogNewEntry5_WdAssertion(v20);
+    *(_QWORD *)(v27 + 24) = 1473LL;
+    WdLogEvent5_WdAssertion(v27);
+  }
+  v28 = (_QWORD *)((char *)this + 1432);
+  if ( (_QWORD *)*v28 != v28 )
+  {
+    v29 = WdLogNewEntry5_WdAssertion(v20);
+    *(_QWORD *)(v29 + 24) = 1474LL;
+    WdLogEvent5_WdAssertion(v29);
+  }
+  if ( *((_QWORD *)this + 145) )
+  {
+    v30 = WdLogNewEntry5_WdAssertion(v20);
+    *(_QWORD *)(v30 + 24) = 1475LL;
+    WdLogEvent5_WdAssertion(v30);
+  }
+  DXGBLACKBOX::~DXGBLACKBOX((DXGGLOBAL *)((char *)this + 20376));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 20336));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 20272));
+  DripsBlockerInfoList::DeAllocate((DXGGLOBAL *)((char *)this + 1784));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 1736));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 1448));
+  if ( (_QWORD *)*v28 != v28 )
+  {
+    v32 = WdLogNewEntry5_WdAssertion(v31);
+    *(_QWORD *)(v32 + 24) = 702LL;
+    WdLogEvent5_WdAssertion(v32);
+  }
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 1272));
+  if ( *((DXGGLOBAL **)this + 155) != (DXGGLOBAL *)((char *)this + 1240) )
+  {
+    v34 = WdLogNewEntry5_WdAssertion(v33);
+    *(_QWORD *)(v34 + 24) = 702LL;
+    WdLogEvent5_WdAssertion(v34);
+  }
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 1200));
+  AUTOEXPANDALLOCATION::~AUTOEXPANDALLOCATION((DXGGLOBAL *)((char *)this + 1088));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 1048));
+  REMOTE_VSYNC::~REMOTE_VSYNC((DXGGLOBAL *)((char *)this + 720));
+  REMOTE_VSYNC::~REMOTE_VSYNC((DXGGLOBAL *)((char *)this + 656));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 464));
+  if ( (_QWORD *)*v26 != v26 )
+  {
+    v36 = WdLogNewEntry5_WdAssertion(v35);
+    *(_QWORD *)(v36 + 24) = 702LL;
+    WdLogEvent5_WdAssertion(v36);
+  }
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 408));
+  if ( (_QWORD *)*v24 != v24 )
+  {
+    v38 = WdLogNewEntry5_WdAssertion(v37);
+    *(_QWORD *)(v38 + 24) = 702LL;
+    WdLogEvent5_WdAssertion(v38);
+  }
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 352));
+  if ( (_QWORD *)*v22 != v22 )
+  {
+    v40 = WdLogNewEntry5_WdAssertion(v39);
+    *(_QWORD *)(v40 + 24) = 702LL;
+    WdLogEvent5_WdAssertion(v40);
+  }
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 288));
+  if ( *((DXGGLOBAL **)this + 31) != (DXGGLOBAL *)((char *)this + 248) )
+  {
+    v42 = WdLogNewEntry5_WdAssertion(v41);
+    *(_QWORD *)(v42 + 24) = 702LL;
+    WdLogEvent5_WdAssertion(v42);
+  }
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 208));
+  operator delete[](*((void **)this + 22));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGGLOBAL *)((char *)this + 136));
+}

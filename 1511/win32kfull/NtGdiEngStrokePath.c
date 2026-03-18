@@ -1,0 +1,108 @@
+/*
+ * XREFs of NtGdiEngStrokePath @ 0x1C02AD260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C005592C (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00DFB80 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     EngStrokePath @ 0x1C013CBC0 (EngStrokePath.c)
+ *     ??$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z @ 0x1C02A9024 (--$GetDDIOBJ@U_BRUSHOBJ@@@UMPDOBJ@@QEAAPEAU_BRUSHOBJ@@PEAU1@@Z.c)
+ *     ??$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z @ 0x1C02A90CC (--$GetDDIOBJ@U_PATHOBJ@@@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU1@@Z.c)
+ *     ??$GetDDIOBJ@U_XFORMOBJ@@@UMPDOBJ@@QEAAPEAU_XFORMOBJ@@PEAU1@@Z @ 0x1C02A9218 (--$GetDDIOBJ@U_XFORMOBJ@@@UMPDOBJ@@QEAAPEAU_XFORMOBJ@@PEAU1@@Z.c)
+ *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C02A9354 (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
+ *     ??1UMPDSURFOBJ@@QEAA@XZ @ 0x1C02A93C0 (--1UMPDSURFOBJ@@QEAA@XZ.c)
+ *     ?CaptureAndFakeBRUSHOBJ@@YAPEAU_BRUSHOBJ@@PEAU1@0@Z @ 0x1C02A93D8 (-CaptureAndFakeBRUSHOBJ@@YAPEAU_BRUSHOBJ@@PEAU1@0@Z.c)
+ *     ?CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z @ 0x1C02A9554 (-CapturePOINTL@@YAXPEAPEAU_POINTL@@PEAU1@@Z.c)
+ *     ?GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z @ 0x1C02A959C (-GetDDIOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@PEAU2@PEAUtagSIZE@@@Z.c)
+ *     ?bCaptureLINEATTRS@@YAHPEAPEAU_LINEATTRS@@PEAU1@@Z @ 0x1C02A9B14 (-bCaptureLINEATTRS@@YAHPEAPEAU_LINEATTRS@@PEAU1@@Z.c)
+ *     ?bCheckSurfacePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C02A9CC8 (-bCheckSurfacePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z.c)
+ */
+
+__int64 NtGdiEngStrokePath(struct _SURFOBJ *a1, __int64 a2, struct _CLIPOBJ *a3, __int64 a4, struct _BRUSHOBJ *a5, ...)
+{
+  struct _W32THREAD *ThreadWin32Thread; // rax
+  struct UMPDOBJ *ThreadCurrentObj; // rax
+  struct UMPDOBJ *v10; // rbx
+  __int64 result; // rax
+  PATHOBJ *v12; // r13
+  struct _BRUSHOBJ *pbo; // r14
+  SURFOBJ *v14; // r15
+  unsigned int v15; // edi
+  LINEATTRS *plineattrs; // rsi
+  struct _CLIPOBJ *DDIOBJ; // r12
+  unsigned __int64 v18; // rax
+  XFORMOBJ *v19; // r11
+  PFLOAT_LONG pstyle; // rcx
+  struct _POINTL v21; // [rsp+48h] [rbp-90h] BYREF
+  SURFOBJ *pso[2]; // [rsp+50h] [rbp-88h] BYREF
+  struct _BRUSHOBJ v23; // [rsp+60h] [rbp-78h] BYREF
+  struct _LINEATTRS v24; // [rsp+78h] [rbp-60h] BYREF
+  POINTL *pptlBrushOrg; // [rsp+108h] [rbp+30h] BYREF
+  va_list va; // [rsp+108h] [rbp+30h]
+  LINEATTRS *v28; // [rsp+110h] [rbp+38h] BYREF
+  va_list va1; // [rsp+110h] [rbp+38h]
+  __int64 mix; // [rsp+118h] [rbp+40h]
+  va_list va2; // [rsp+120h] [rbp+48h] BYREF
+
+  va_start(va2, a5);
+  va_start(va1, a5);
+  va_start(va, a5);
+  pptlBrushOrg = va_arg(va1, POINTL *);
+  va_copy(va2, va1);
+  v28 = va_arg(va2, LINEATTRS *);
+  mix = va_arg(va2, _QWORD);
+  ThreadWin32Thread = (struct _W32THREAD *)W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  ThreadCurrentObj = UMPDOBJ::GetThreadCurrentObj(ThreadWin32Thread);
+  v10 = ThreadCurrentObj;
+  if ( ThreadCurrentObj )
+    ++*((_DWORD *)ThreadCurrentObj + 108);
+  result = 0LL;
+  if ( v10 )
+  {
+    UMPDSURFOBJ::UMPDSURFOBJ((UMPDSURFOBJ *)pso, a1, v10);
+    v12 = (PATHOBJ *)UMPDOBJ::GetDDIOBJ<_PATHOBJ>((__int64)v10, a2);
+    pbo = (struct _BRUSHOBJ *)UMPDOBJ::GetDDIOBJ<_BRUSHOBJ>((__int64)v10, (__int64)a5);
+    if ( !pbo )
+      pbo = CaptureAndFakeBRUSHOBJ(a5, &v23);
+    v14 = pso[0];
+    if ( pso[0] && pbo && v12 && v28 && pptlBrushOrg )
+    {
+      CapturePOINTL((struct _POINTL **)va, &v21);
+      v15 = bCaptureLINEATTRS((struct _LINEATTRS **)va1, &v24);
+      plineattrs = v28;
+      if ( v15 )
+      {
+        if ( (*((_DWORD *)v10 + 103) & 0x100) != 0 && (v28->fl & 1) != 0 && !a3 )
+        {
+          if ( gfUMPDDebug )
+            DbgPrint(
+              "windows\\core\\ntgdi\\gre\\windows\\umpdeng.cxx:%d:NtGdiEngStrokePath:LA_GEOMETRIC && pco == NULL\n",
+              1746);
+          v15 = 0;
+        }
+        if ( v15 )
+        {
+          DDIOBJ = UMPDOBJ::GetDDIOBJ(v10, a3, &v14->sizlBitmap);
+          v18 = UMPDOBJ::GetDDIOBJ<_XFORMOBJ>((__int64)v10, a4);
+          if ( (plineattrs->fl & 1) != 0 )
+            v15 &= -(v18 != 0);
+          v15 = v15
+             && (unsigned int)bCheckSurfacePath(v14, v12, DDIOBJ)
+             && ((((unsigned __int8)mix ^ BYTE1(mix)) & 0xF) == 0 || pbo->iSolidColor == -1)
+             && EngStrokePath(v14, v12, DDIOBJ, v19, pbo, pptlBrushOrg, plineattrs, mix);
+          pstyle = plineattrs->pstyle;
+          if ( pstyle )
+            Win32FreePool(pstyle);
+        }
+      }
+    }
+    else
+    {
+      v15 = 0;
+    }
+    UMPDSURFOBJ::~UMPDSURFOBJ(pso);
+    --*((_DWORD *)v10 + 108);
+    return v15;
+  }
+  return result;
+}

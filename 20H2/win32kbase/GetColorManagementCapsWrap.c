@@ -1,0 +1,17 @@
+/*
+ * XREFs of GetColorManagementCapsWrap @ 0x1C0095598
+ * Callers:
+ *     ?GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z @ 0x1C00CF804 (-GreGetDeviceCapsInternal@@YAHAEAVPDEVOBJ@@H@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00D36F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 (__fastcall *__fastcall GetColorManagementCapsWrap(__int64 a1))(_QWORD)
+{
+  __int64 (__fastcall *result)(_QWORD); // rax
+
+  result = qword_1C024F150;
+  if ( qword_1C024F150 )
+    return (__int64 (__fastcall *)(_QWORD))qword_1C024F150(a1);
+  return result;
+}

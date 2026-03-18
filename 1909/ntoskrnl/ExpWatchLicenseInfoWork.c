@@ -1,0 +1,189 @@
+/*
+ * XREFs of ExpWatchLicenseInfoWork @ 0x14090A590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x140043CD0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1401A6BB0 (wcscat_s.c)
+ *     wcscpy_s @ 0x1401A6C50 (wcscpy_s.c)
+ *     ZwClose @ 0x1401C0E30 (ZwClose.c)
+ *     KeBugCheckEx @ 0x1401C46A0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D77C0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14036E010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
+ *     NtClose @ 0x1405FBB70 (NtClose.c)
+ *     CmOpenKey @ 0x1405FF600 (CmOpenKey.c)
+ *     NtQueryKey @ 0x1406010E0 (NtQueryKey.c)
+ *     NtNotifyChangeKey @ 0x14062BE10 (NtNotifyChangeKey.c)
+ *     NtSetValueKey @ 0x140630190 (NtSetValueKey.c)
+ *     NtEnumerateKey @ 0x140662B00 (NtEnumerateKey.c)
+ *     PsCreateSystemThreadEx @ 0x1406725D0 (PsCreateSystemThreadEx.c)
+ */
+
+NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
+{
+  char v2; // r14
+  HANDLE v3; // rcx
+  int v4; // eax
+  NTSTATUS v5; // eax
+  ULONG v6; // r12d
+  wchar_t *PoolWithTag; // r15
+  __int64 v8; // r10
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  unsigned __int16 v11; // cx
+  SIZE_T v12; // r9
+  unsigned __int64 v13; // rax
+  NTSTATUS v14; // eax
+  ULONG v15; // esi
+  ULONG i; // edx
+  __int64 v17; // rax
+  int v18; // eax
+  NTSTATUS v19; // eax
+  NTSTATUS v20; // eax
+  NTSTATUS result; // eax
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-69h] BYREF
+  ULONG ResultLength; // [rsp+60h] [rbp-59h] BYREF
+  HANDLE KeyHandle; // [rsp+68h] [rbp-51h] BYREF
+  UNICODE_STRING ValueName; // [rsp+70h] [rbp-49h] BYREF
+  _DWORD v26[2]; // [rsp+80h] [rbp-39h] BYREF
+  __int64 v27; // [rsp+88h] [rbp-31h]
+  UNICODE_STRING *p_DestinationString; // [rsp+90h] [rbp-29h]
+  int v29; // [rsp+98h] [rbp-21h]
+  int v30; // [rsp+9Ch] [rbp-1Dh]
+  __int128 v31; // [rsp+A0h] [rbp-19h]
+  _DWORD KeyInformation[12]; // [rsp+B0h] [rbp-9h] BYREF
+
+  memset(KeyInformation, 0, sizeof(KeyInformation));
+  v2 = 0;
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  DestinationString.Buffer = 0LL;
+  v26[1] = 0;
+  v30 = 0;
+  *(_QWORD *)&ValueName.Length = 0LL;
+  ValueName.Buffer = 0LL;
+  if ( !ExpSetupModeDetected )
+  {
+    RtlInitUnicodeString(&DestinationString, *(PCWSTR *)(a1 + 16));
+    v3 = *(HANDLE *)a1;
+    p_DestinationString = &DestinationString;
+    v31 = 0LL;
+    v26[0] = 48;
+    v27 = 0LL;
+    v29 = 576;
+    NtClose(v3);
+    v4 = CmOpenKey((HANDLE *)a1, 131103, (__int64)v26, 0, 0LL);
+    if ( v4 < 0 )
+      KeBugCheckEx(0x9Au, 0x12uLL, v4, 0LL, 0LL);
+    v5 = NtQueryKey(*(HANDLE *)a1, KeyFullInformation, KeyInformation, 0x30u, &ResultLength);
+    if ( v5 < 0 )
+      KeBugCheckEx(0x9Au, 0x13uLL, v5, 0LL, 0LL);
+    v6 = 2 * KeyInformation[6] + 56;
+    if ( v6 < KeyInformation[6] || v6 < 2 * (unsigned __int64)(unsigned int)(KeyInformation[6] + 16) )
+      v2 = 1;
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v6, 0x2079654Bu);
+    if ( !PoolWithTag || v2 )
+      KeBugCheckEx(0x9Au, 0x14uLL, v6, 0LL, 0LL);
+    v8 = *(_QWORD *)(a1 + 16);
+    v9 = -1LL;
+    v10 = -1LL;
+    do
+      ++v10;
+    while ( *(_WORD *)(v8 + 2 * v10 + 32) );
+    v11 = 2 * (LOWORD(KeyInformation[6]) + v10);
+    DestinationString.Length = v11;
+    if ( (unsigned int)v11 < KeyInformation[6] )
+      goto LABEL_19;
+    v12 = v11;
+    v13 = -1LL;
+    do
+      ++v13;
+    while ( *(_WORD *)(v8 + 2 * v13 + 32) );
+    if ( v11 < v13 )
+      goto LABEL_19;
+    do
+      ++v9;
+    while ( *(_WORD *)(v8 + 2 * v9 + 32) );
+    if ( v11 < (unsigned __int64)KeyInformation[6] + v9 )
+    {
+LABEL_19:
+      v2 = 1;
+      v12 = v11;
+    }
+    DestinationString.MaximumLength = v11;
+    DestinationString.Buffer = (wchar_t *)ExAllocatePoolWithTag(NonPagedPoolNx, v12, 0x2079654Bu);
+    if ( !DestinationString.Buffer || v2 )
+      KeBugCheckEx(0x9Au, 0x14uLL, DestinationString.Length, 1uLL, 0LL);
+    RtlInitUnicodeString(&ValueName, L"ConcurrentLimit");
+    v14 = NtSetValueKey(*(HANDLE *)a1, &ValueName, 0, 4u, (PVOID)(a1 + 8), 4u);
+    if ( v14 < 0 )
+      KeBugCheckEx(0x9Au, 0x15uLL, v14, 0LL, 0LL);
+    v15 = 0;
+    for ( i = 0; ; i = v15 )
+    {
+      v20 = NtEnumerateKey(*(HANDLE *)a1, i, KeyBasicInformation, PoolWithTag, v6, &ResultLength);
+      if ( v20 == -2147483622 )
+        break;
+      if ( v20 >= 0 )
+      {
+        PoolWithTag[((unsigned __int64)*((unsigned int *)PoolWithTag + 3) >> 1) + 8] = 0;
+        wcscpy_s(
+          DestinationString.Buffer,
+          (unsigned __int64)DestinationString.MaximumLength >> 1,
+          *(const wchar_t **)(a1 + 16));
+        wcscat_s(DestinationString.Buffer, (unsigned __int64)DestinationString.MaximumLength >> 1, L"\\");
+        wcscat_s(DestinationString.Buffer, (unsigned __int64)DestinationString.MaximumLength >> 1, PoolWithTag + 8);
+        v17 = -1LL;
+        do
+          ++v17;
+        while ( DestinationString.Buffer[v17] );
+        v26[0] = 48;
+        DestinationString.Length = 2 * v17;
+        v27 = 0LL;
+        p_DestinationString = &DestinationString;
+        v29 = 576;
+        v31 = 0LL;
+        v18 = CmOpenKey(&KeyHandle, 131103, (__int64)v26, 0, 0LL);
+        if ( v18 < 0 )
+          KeBugCheckEx(0x9Au, 0x16uLL, v18, 0LL, 0LL);
+        v19 = NtSetValueKey(KeyHandle, &ValueName, 0, 4u, (PVOID)(a1 + 8), 4u);
+        if ( v19 < 0 )
+          KeBugCheckEx(0x9Au, 0x17uLL, v19, 0LL, 0LL);
+        NtClose(KeyHandle);
+      }
+      ++v15;
+    }
+    ExFreePoolWithTag(PoolWithTag, 0);
+    ExFreePoolWithTag(DestinationString.Buffer, 0);
+  }
+  result = NtNotifyChangeKey(
+             *(HANDLE *)a1,
+             0LL,
+             (PIO_APC_ROUTINE)(a1 + 24),
+             (PVOID)1,
+             (PIO_STATUS_BLOCK)(a1 + 56),
+             0x10000005u,
+             1u,
+             (PVOID)(a1 + 72),
+             4u,
+             1u);
+  if ( result < 0 )
+    KeBugCheckEx(0x9Au, 0x18uLL, result, 0LL, 0LL);
+  if ( !ExpSetupModeDetected )
+  {
+    result = PsCreateSystemThreadEx(
+               (__int64)&KeyHandle,
+               0x1FFFFF,
+               0LL,
+               0LL,
+               0LL,
+               (__int64)ExpExpirationThread,
+               3221226090LL,
+               0LL,
+               0LL);
+    if ( result >= 0 )
+      return ZwClose(KeyHandle);
+  }
+  return result;
+}

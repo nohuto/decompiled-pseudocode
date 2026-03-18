@@ -1,0 +1,52 @@
+/*
+ * XREFs of MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE @ 0x140264B7C
+ * Callers:
+ *     MiResolveProtoPteFault @ 0x140015220 (MiResolveProtoPteFault.c)
+ *     MiDeleteSubsectionPages @ 0x140016E90 (MiDeleteSubsectionPages.c)
+ *     MiCompleteProtoPteFault @ 0x140019F00 (MiCompleteProtoPteFault.c)
+ *     MiDispatchFault @ 0x14001D2A0 (MiDispatchFault.c)
+ *     MiAccessCheck @ 0x14001F4F0 (MiAccessCheck.c)
+ *     MiInsertProtectedStandbyPage @ 0x14002FB90 (MiInsertProtectedStandbyPage.c)
+ *     MiUnlinkStandbyBatch @ 0x1400306A0 (MiUnlinkStandbyBatch.c)
+ *     MiWalkEntireImage @ 0x140030B50 (MiWalkEntireImage.c)
+ *     MiCheckProtoPtePageState @ 0x140031B60 (MiCheckProtoPtePageState.c)
+ *     MiPfPutPagesInTransition @ 0x140047200 (MiPfPutPagesInTransition.c)
+ *     MiInitializeReadInProgressPfn @ 0x140047D40 (MiInitializeReadInProgressPfn.c)
+ *     MiDecayPfnFullyInitialized @ 0x14004DA54 (MiDecayPfnFullyInitialized.c)
+ *     MiTryLockLeafPage @ 0x1400518D8 (MiTryLockLeafPage.c)
+ *     MiLockTransitionLeafPage @ 0x14005253C (MiLockTransitionLeafPage.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x140052D00 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MmPurgeSection @ 0x1400542A0 (MmPurgeSection.c)
+ *     MiBuildMdlForMappedFileFault @ 0x140056680 (MiBuildMdlForMappedFileFault.c)
+ *     MiResolveMappedFileFault @ 0x140056F30 (MiResolveMappedFileFault.c)
+ *     MiResolveProtoCombine @ 0x140058068 (MiResolveProtoCombine.c)
+ *     MiFinishHardFault @ 0x140058B10 (MiFinishHardFault.c)
+ *     MiIssueHardFault @ 0x140059D80 (MiIssueHardFault.c)
+ *     MiEmptyDecayClusterTimers @ 0x140080EE0 (MiEmptyDecayClusterTimers.c)
+ *     MiReplacePageTablePage @ 0x1400B97E0 (MiReplacePageTablePage.c)
+ *     MiUnlinkStandbyPfn @ 0x1400BBD84 (MiUnlinkStandbyPfn.c)
+ *     MiFlushSectionInternal @ 0x1401187E0 (MiFlushSectionInternal.c)
+ *     MiResolveTransitionFault @ 0x140119A70 (MiResolveTransitionFault.c)
+ *     MmCheckCachedPageStates @ 0x14011E3C0 (MmCheckCachedPageStates.c)
+ *     MiLockLeafPage @ 0x1401249A0 (MiLockLeafPage.c)
+ *     MiUpdatePfnPriorityByPte @ 0x140128510 (MiUpdatePfnPriorityByPte.c)
+ *     MiBuildMappedCluster @ 0x140133CF8 (MiBuildMappedCluster.c)
+ *     MiSetSystemCodeProtection @ 0x14013EB40 (MiSetSystemCodeProtection.c)
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14014FC20 (MiRemoveLowestPriorityStandbyPage.c)
+ *     MiResolvePageFileFault @ 0x140151874 (MiResolvePageFileFault.c)
+ *     MiMirrorGatherBrownPages @ 0x140156670 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorReduceBlackWrites @ 0x1401573F4 (MiMirrorReduceBlackWrites.c)
+ *     MiMakeOutswappedPageResident @ 0x140250B10 (MiMakeOutswappedPageResident.c)
+ *     MmProtectMdlSystemAddress @ 0x140254B70 (MmProtectMdlSystemAddress.c)
+ *     MiPurgeImageSection @ 0x14025ACE0 (MiPurgeImageSection.c)
+ *     MiPurgeFileOnlyPfn @ 0x14025E548 (MiPurgeFileOnlyPfn.c)
+ *     MiDuplicateCloneLeaf @ 0x14026AB9C (MiDuplicateCloneLeaf.c)
+ *     MiCopyDirectMapHeader @ 0x14074E4AC (MiCopyDirectMapHeader.c)
+ * Callees:
+ *     MiReverseSwizzleInvalidPte @ 0x1401A66D4 (MiReverseSwizzleInvalidPte.c)
+ */
+
+unsigned __int64 __fastcall MI_GET_PAGE_FRAME_FROM_TRANSITION_PTE(__int64 *a1)
+{
+  return (MiReverseSwizzleInvalidPte(*a1) >> 12) & 0xFFFFFFFFFLL;
+}

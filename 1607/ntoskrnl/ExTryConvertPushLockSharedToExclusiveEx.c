@@ -1,0 +1,16 @@
+/*
+ * XREFs of ExTryConvertPushLockSharedToExclusiveEx @ 0x1400AC5CC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x14015D500 (KeBugCheckEx.c)
+ */
+
+bool __fastcall ExTryConvertPushLockSharedToExclusiveEx(
+        volatile signed __int64 *BugCheckParameter2,
+        ULONG_PTR BugCheckParameter1)
+{
+  if ( (BugCheckParameter1 & 0xFFFFFFFC) != 0 )
+    KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, (ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+  return _InterlockedCompareExchange64(BugCheckParameter2, 1LL, 17LL) == 17;
+}

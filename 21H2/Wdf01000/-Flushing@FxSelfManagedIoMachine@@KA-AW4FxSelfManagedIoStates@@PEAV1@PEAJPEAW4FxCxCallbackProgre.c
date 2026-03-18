@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?Flushing@FxSelfManagedIoMachine@@KA?AW4FxSelfManagedIoStates@@PEAV1@PEAJPEAW4FxCxCallbackProgress@@@Z @ 0x1C008DF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?InvokeStateless@FxPrePostCallback@@QEAAJXZ @ 0x1C000D528 (-InvokeStateless@FxPrePostCallback@@QEAAJXZ.c)
+ */
+
+__int64 __fastcall FxSelfManagedIoMachine::Flushing(
+        FxSelfManagedIoMachine *This,
+        int *Status,
+        FxCxCallbackProgress *Progress)
+{
+  unsigned __int64 ObjectHandleUnchecked; // rax
+  __int64 v4; // rdx
+
+  ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(This->m_PkgPnp->m_DeviceBase);
+  *(_QWORD *)(v4 + 32) = ObjectHandleUnchecked;
+  FxPrePostCallback::InvokeStateless((FxPrePostCallback *)v4);
+  return 12LL;
+}

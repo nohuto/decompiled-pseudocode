@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?DrainResources@DXGDEVICE@@QEAAXXZ @ 0x1C00F2748
+ * Callers:
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00F0DE0 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C0014FAC (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0015370 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C00EF240 (-DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCA.c)
+ */
+
+void __fastcall DXGDEVICE::DrainResources(struct _KTHREAD **this)
+{
+  struct _KTHREAD *v2; // rdx
+  __int64 v3; // rax
+  _BYTE v4[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v4, this + 23);
+  while ( 1 )
+  {
+    v2 = this[7];
+    if ( !v2 )
+      break;
+    v3 = *((_QWORD *)v2 + 5);
+    if ( v3 )
+    {
+      *(_QWORD *)(v3 + 32) = 0LL;
+      v2 = this[7];
+    }
+    this[7] = (struct _KTHREAD *)*((_QWORD *)v2 + 5);
+    DXGDEVICE::DestroyResource((DXGDEVICE *)this, (struct DXGALLOCATION **)v2, 0LL, 0);
+  }
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v4);
+}

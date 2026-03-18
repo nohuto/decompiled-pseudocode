@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?PowerPolStoppingSendStatus@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00878B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z @ 0x1C007BC58 (-PnpProcessEvent@FxPkgPnp@@QEAAXW4FxPnpEvent@@E@Z.c)
+ *     ?Stop@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0083E0C (-Stop@FxPowerIdleMachine@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall FxPkgPnp::PowerPolStoppingSendStatus(FxPkgPnp *This)
+{
+  KIRQL v2; // bl
+
+  FxPowerIdleMachine::Stop(&This->m_PowerPolicyMachine.m_Owner->m_PowerIdleMachine);
+  v2 = KfRaiseIrql(2u);
+  FxPkgPnp::PnpProcessEvent(
+    This,
+    (FxPnpEvent)(This->m_PowerPolicyMachine.m_Owner->m_PowerFailed != 0
+               ? PnpEventPwrPolStopFailed
+               : PnpEventPwrPolStopped),
+    -This->m_PowerPolicyMachine.m_Owner->m_PowerFailed);
+  KeLowerIrql(v2);
+  This->m_PowerPolicyMachine.m_Owner->m_PowerFailed = 0;
+  return 1379LL;
+}

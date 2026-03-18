@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??_EFxUsbUrb@@MEAAPEAXI@Z @ 0x1C0052B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0005638 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxObject@@UEAA@XZ @ 0x1C00079A0 (--1FxObject@@UEAA@XZ.c)
+ */
+
+FxUsbUrb *__fastcall FxUsbUrb::`vector deleting destructor'(FxUsbUrb *this, unsigned int a2, unsigned int a3)
+{
+  char v3; // bl
+  FX_POOL_TRACKER *p_m_DisposeSingleEntry; // rcx
+
+  v3 = a2;
+  this->FxMemoryBufferPreallocated::FxMemoryObject::FxObject::__vftable = (FxUsbUrb_vtbl *)FxMemoryBufferPreallocated::`vftable'{for `FxObject'};
+  this->FxMemoryBufferPreallocated::FxMemoryObject::IFxMemory::__vftable = (IFxMemory_vtbl *)FxMemoryBufferPreallocated::`vftable'{for `IFxMemory'};
+  FxObject::~FxObject(this, a2, a3);
+  if ( (v3 & 1) != 0 )
+  {
+    p_m_DisposeSingleEntry = (FX_POOL_TRACKER *)&this[-1].m_DisposeSingleEntry;
+    if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
+      p_m_DisposeSingleEntry = (FX_POOL_TRACKER *)this;
+    FxPoolFree(p_m_DisposeSingleEntry);
+  }
+  return this;
+}

@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?GetGlobalPlaybackRate@CExpressionManager@@QEAAMPEAVCChannelContext@@@Z @ 0x18004F468
+ * Callers:
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18004E1B0 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x18004E930 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ * Callees:
+ *     ??$_Find_last@PEAVCChannelContext@@@?$_Hash@V?$_Umap_traits@PEAVCChannelContext@@MV?$_Uhash_compare@PEAVCChannelContext@@U?$hash@PEAVCChannelContext@@@std@@U?$equal_to@PEAVCChannelContext@@@3@@std@@V?$allocator@U?$pair@QEAVCChannelContext@@M@std@@@3@$0A@@std@@@std@@IEBA?AU?$_Hash_find_last_result@PEAU?$_List_node@U?$pair@QEAVCChannelContext@@M@std@@PEAX@std@@@1@AEBQEAVCChannelContext@@_K@Z @ 0x18004F4FC (--$_Find_last@PEAVCChannelContext@@@-$_Hash@V-$_Umap_traits@PEAVCChannelContext@@MV-$_Uhash_comp.c)
+ */
+
+float __fastcall CExpressionManager::GetGlobalPlaybackRate(CExpressionManager *this, struct CChannelContext *a2)
+{
+  char *v3; // rdi
+  unsigned __int64 v4; // rdx
+  __int64 v5; // r9
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+  struct CChannelContext *v10; // [rsp+48h] [rbp+10h] BYREF
+
+  v10 = a2;
+  if ( !a2 )
+    return *(float *)&FLOAT_1_0;
+  v3 = (char *)this + 464;
+  v4 = 0LL;
+  v5 = 0xCBF29CE484222325uLL;
+  do
+  {
+    v6 = *((unsigned __int8 *)&v10 + v4++);
+    v5 = 0x100000001B3LL * (v6 ^ v5);
+  }
+  while ( v4 < 8 );
+  v7 = *(_QWORD *)(std::_Hash<std::_Umap_traits<CChannelContext *,float,std::_Uhash_compare<CChannelContext *,std::hash<CChannelContext *>,std::equal_to<CChannelContext *>>,std::allocator<std::pair<CChannelContext * const,float>>,0>>::_Find_last<CChannelContext *>(
+                     v3,
+                     v9,
+                     &v10,
+                     v5)
+                 + 8);
+  if ( !v7 )
+    v7 = *((_QWORD *)v3 + 1);
+  if ( v7 == *((_QWORD *)this + 59) )
+    return *(float *)&FLOAT_1_0;
+  else
+    return *(float *)(v7 + 24);
+}

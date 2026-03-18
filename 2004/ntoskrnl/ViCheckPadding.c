@@ -1,0 +1,71 @@
+/*
+ * XREFs of ViCheckPadding @ 0x1409CAC90
+ * Callers:
+ *     ViFreeMapRegisterFile @ 0x1409CB3B4 (ViFreeMapRegisterFile.c)
+ *     ViSpecialFreeCommonBuffer @ 0x1409CC898 (ViSpecialFreeCommonBuffer.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x14059C924 (VfReportIssueWithOptions.c)
+ *     ViCheckTag @ 0x1409CAE40 (ViCheckTag.c)
+ *     ViHalPreprocessOptions @ 0x1409CBC50 (ViHalPreprocessOptions.c)
+ *     ViHasBufferBeenTouched @ 0x1409CBE04 (ViHasBufferBeenTouched.c)
+ */
+
+void __fastcall ViCheckPadding(__int64 a1, unsigned int a2, ULONG_PTR a3, unsigned int a4)
+{
+  ULONG_PTR v6; // rbx
+  ULONG_PTR v7; // rsi
+  unsigned __int64 v8; // rbx
+  __int64 v9; // r14
+  ULONG_PTR HasBufferBeenTouched; // r14
+  ULONG_PTR v11; // rbx
+
+  if ( a4 != a2 )
+  {
+    if ( a4 )
+    {
+      v7 = a3 + a4;
+      v8 = a1 + a2 - v7;
+      v9 = a3 - a1 - 8;
+      if ( a3 - a1 < 8 )
+        v9 = a3 - a1;
+      if ( v8 >= 8 )
+      {
+        v8 -= 8LL;
+        v7 += 8LL;
+      }
+      ViCheckTag(a3, a4);
+      HasBufferBeenTouched = ViHasBufferBeenTouched(a1, v9);
+      if ( HasBufferBeenTouched )
+      {
+        ViHalPreprocessOptions(
+          byte_140C12CE0,
+          "Padding before allocation at %p has been illegally modified at %p.",
+          (const void *)0x1000000F,
+          (const void *)4);
+        VfReportIssueWithOptions(0xE6u, 0xFuLL, 4uLL, a3, HasBufferBeenTouched, byte_140C12CE0);
+      }
+      v11 = ViHasBufferBeenTouched(v7, v8);
+      if ( v11 )
+      {
+        ViHalPreprocessOptions(
+          byte_140C12CE4,
+          "Padding after allocation at %p has been illegally modified at %p.",
+          (const void *)0x1000000F,
+          (const void *)5);
+        VfReportIssueWithOptions(0xE6u, 0xFuLL, 5uLL, a3, v11, byte_140C12CE4);
+      }
+    }
+    else
+    {
+      v6 = ViHasBufferBeenTouched(a1, a2);
+      if ( v6 )
+      {
+        ViHalPreprocessOptions(
+          &dword_140C12CDC,
+          "Verified driver or hardware has corrupted memory at %p.",
+          (const void *)0x1000000F);
+        VfReportIssueWithOptions(0xE6u, 0xFuLL, 3uLL, v6, 0LL, &dword_140C12CDC);
+      }
+    }
+  }
+}

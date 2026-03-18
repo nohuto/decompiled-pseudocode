@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C01D49E4
+ * Callers:
+ *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C01D6BB4 (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z.c)
+ *     DxgkAcquireSwapChain @ 0x1C01D6E00 (DxgkAcquireSwapChain.c)
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0002EF0 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ */
+
+DXGSWAPCHAINLOCKWITHDEVICE *__fastcall DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE(
+        DXGSWAPCHAINLOCKWITHDEVICE *this,
+        struct DXGSWAPCHAIN *a2,
+        char a3,
+        char a4)
+{
+  *(_BYTE *)this = a4;
+  *((_QWORD *)this + 1) = a2;
+  *((_BYTE *)this + 16) = a3;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGSWAPCHAINLOCKWITHDEVICE *)((char *)this + 24), a2);
+  *((_DWORD *)this + 10) = 0;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_BYTE *)this + 80) = 0;
+  return this;
+}

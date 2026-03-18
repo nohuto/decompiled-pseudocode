@@ -1,0 +1,43 @@
+/*
+ * XREFs of ??_ECDataSourceReader@@UEAAPEAXI@Z @ 0x1801CC770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x18007004C (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800789F0 (--1CResource@@MEAA@XZ.c)
+ *     ?PrepareForReuse@CSwRenderTargetGetBounds@@UEAAXXZ @ 0x1800DA5C0 (-PrepareForReuse@CSwRenderTargetGetBounds@@UEAAXXZ.c)
+ *     ?RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x1801882D4 (-RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z.c)
+ *     ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x180188390 (-UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z.c)
+ */
+
+CDataSourceReader *__fastcall CDataSourceReader::`vector deleting destructor'(CDataSourceReader *this, char a2)
+{
+  char v4; // al
+
+  *(_QWORD *)this = &CDataSourceReader::`vftable';
+  v4 = *((_BYTE *)this + 72);
+  if ( (v4 & 2) != 0 )
+  {
+    DataProviderManager::RemoveReaderFromReadyList(*(DataProviderManager **)(*((_QWORD *)this + 2) + 1232LL), this);
+    *((_BYTE *)this + 72) &= ~2u;
+    v4 = *((_BYTE *)this + 72);
+  }
+  if ( (v4 & 1) != 0 )
+  {
+    DataProviderManager::UnregisterReaderForDataSource(
+      *(DataProviderManager **)(*((_QWORD *)this + 2) + 1232LL),
+      *((_QWORD *)this + 7),
+      *((_QWORD *)this + 8),
+      this);
+    *((_BYTE *)this + 72) &= ~1u;
+  }
+  CResource::~CResource(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      CSwRenderTargetGetBounds::PrepareForReuse(this);
+    else
+      operator delete(this);
+  }
+  return this;
+}

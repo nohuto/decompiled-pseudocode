@@ -1,0 +1,66 @@
+/*
+ * XREFs of MiCreateSectionForDriver @ 0x14070F9B0
+ * Callers:
+ *     MiObtainSectionForDriver @ 0x14070E208 (MiObtainSectionForDriver.c)
+ * Callees:
+ *     MmGetSessionIdEx @ 0x14003F4F0 (MmGetSessionIdEx.c)
+ *     DbgPrintEx @ 0x1401264A0 (DbgPrintEx.c)
+ *     MiCreateSystemSection @ 0x140154C34 (MiCreateSystemSection.c)
+ *     ZwOpenFile @ 0x1401C0730 (ZwOpenFile.c)
+ *     ObCloseHandle @ 0x14060F280 (ObCloseHandle.c)
+ *     MiLogFailedDriverLoad @ 0x14088AA58 (MiLogFailedDriverLoad.c)
+ *     KdPullRemoteFile @ 0x140953D40 (KdPullRemoteFile.c)
+ */
+
+NTSTATUS __fastcall MiCreateSectionForDriver(UNICODE_STRING *a1, __int64 a2, char a3, _QWORD *a4)
+{
+  NTSTATUS result; // eax
+  int v8; // ebx
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-9h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp+7h] BYREF
+  HANDLE FileHandle; // [rsp+E8h] [rbp+6Fh] BYREF
+  __int64 v12; // [rsp+F8h] [rbp+7Fh] BYREF
+
+  byte_1404648E8 = 1;
+  *(&ObjectAttributes.Length + 1) = 0;
+  IoStatusBlock.Pointer = 0LL;
+  IoStatusBlock.Information = 0LL;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  *a4 = 0LL;
+  FileHandle = 0LL;
+  if ( a2 )
+    goto LABEL_4;
+  if ( (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent && (int)KdPullRemoteFile() >= 0 )
+    DbgPrintEx(0x66u, 2u, "MmLoadSystemImage: Pulled %wZ from kd\n", a1);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.ObjectName = a1;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwOpenFile(&FileHandle, 0x20u, &ObjectAttributes, &IoStatusBlock, 5u, 0);
+  if ( result >= 0 )
+  {
+LABEL_4:
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.ObjectName = 0LL;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( (a3 & 1) != 0 )
+      MmGetSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+    v8 = MiCreateSystemSection(&v12, a2, (int)&ObjectAttributes);
+    if ( FileHandle )
+      ObCloseHandle(FileHandle, 0);
+    if ( v8 < 0 )
+    {
+      MiLogFailedDriverLoad(a1, 0LL, 0LL, (unsigned int)v8);
+      return v8;
+    }
+    else
+    {
+      *a4 = v12;
+      return 0;
+    }
+  }
+  return result;
+}

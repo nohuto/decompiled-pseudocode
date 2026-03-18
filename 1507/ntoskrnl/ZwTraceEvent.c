@@ -1,0 +1,19 @@
+/*
+ * XREFs of ZwTraceEvent @ 0x14017FBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __stdcall ZwTraceEvent(
+        ULONG TraceHandle,
+        ULONG Flags,
+        ULONG TraceHeaderLength,
+        PEVENT_TRACE_HEADER TraceHeader)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(*(_QWORD *)&TraceHandle, *(_QWORD *)&Flags, *(_QWORD *)&TraceHeaderLength);
+}

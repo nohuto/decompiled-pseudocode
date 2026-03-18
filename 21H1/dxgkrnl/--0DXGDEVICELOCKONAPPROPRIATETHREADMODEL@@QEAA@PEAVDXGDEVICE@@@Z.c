@@ -1,0 +1,99 @@
+/*
+ * XREFs of ??0DXGDEVICELOCKONAPPROPRIATETHREADMODEL@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C000AAC0
+ * Callers:
+ *     DxgkReclaimAllocations2 @ 0x1C010EE80 (DxgkReclaimAllocations2.c)
+ *     ??$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCE@@@@YAJPEAU_D3DKMT_OPENRESOURCE@@IPEAU_DXGSHAREDALLOCOBJECT@@H@Z @ 0x1C011F10C (--$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCE@@@@YAJPEAU_D3DKMT_OPENRESOURCE@@.c)
+ *     ??$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCEFROMNTHANDLE@@@@YAJPEAU_D3DKMT_OPENRESOURCEFROMNTHANDLE@@IPEAU_DXGSHAREDALLOCOBJECT@@H@Z @ 0x1C01237E4 (--$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCEFROMNTHANDLE@@@@YAJPEAU_D3DKMT_OP.c)
+ *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z @ 0x1C0144A1C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEAD@Z.c)
+ *     DxgkInvalidateCache @ 0x1C0227C20 (DxgkInvalidateCache.c)
+ *     ?DestroyVirtualGpu@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_DESTROYVIRTUALGPU@@@Z @ 0x1C022B334 (-DestroyVirtualGpu@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_DESTROYVIRTUALGPU@@.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z @ 0x1C0232470 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1C0236CBC (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?VmBusCreateAllocation@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0239410 (-VmBusCreateAllocation@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusMapGpuVirtualAddress@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023F0C0 (-VmBusMapGpuVirtualAddress@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusSetExistingSysMemStore@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C024A440 (-VmBusSetExistingSysMemStore@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DxgkSubmitCommandToHwQueueInternal @ 0x1C026D408 (DxgkSubmitCommandToHwQueueInternal.c)
+ *     DxgkUpdateAllocationProperty @ 0x1C02782A0 (DxgkUpdateAllocationProperty.c)
+ *     NtDxgkGetAvailableTrackedWorkloadIndex @ 0x1C02B91C0 (NtDxgkGetAvailableTrackedWorkloadIndex.c)
+ *     NtDxgkUpdateTrackedWorkload @ 0x1C02B9A70 (NtDxgkUpdateTrackedWorkload.c)
+ * Callees:
+ *     ?TryWakeUpFromD3State@DXGADAPTER@@QEAAEXZ @ 0x1C000A358 (-TryWakeUpFromD3State@DXGADAPTER@@QEAAEXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EB8C (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024408 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?EnableD3Requests@DXGADAPTER@@QEAAXXZ @ 0x1C0208CF4 (-EnableD3Requests@DXGADAPTER@@QEAAXXZ.c)
+ */
+
+DXGDEVICELOCKONAPPROPRIATETHREADMODEL *__fastcall DXGDEVICELOCKONAPPROPRIATETHREADMODEL::DXGDEVICELOCKONAPPROPRIATETHREADMODEL(
+        DXGDEVICELOCKONAPPROPRIATETHREADMODEL *this,
+        struct DXGDEVICE *a2)
+{
+  __int64 v3; // rcx
+  int v4; // eax
+  struct _KEVENT *v5; // rbx
+  __int64 v6; // rdi
+  unsigned __int8 v7; // bl
+  __int64 v9; // rax
+  struct _KEVENT *v10; // rcx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+
+  *(_QWORD *)this = a2;
+  v3 = *(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL);
+  if ( *(int *)(v3 + 2304) >= 0x2000 || *(_BYTE *)(v3 + 2604) )
+  {
+    if ( !DXGGLOBAL::m_pGlobal )
+    {
+      v9 = WdLogNewEntry5_WdAssertion(v3, a2);
+      *(_QWORD *)(v9 + 24) = 2219LL;
+      WdLogEvent5_WdAssertion(v9);
+    }
+    v4 = *((_DWORD *)DXGGLOBAL::m_pGlobal + 283);
+  }
+  else
+  {
+    v4 = 0;
+  }
+  *((_DWORD *)this + 2) = v4;
+  v5 = *(struct _KEVENT **)(*(_QWORD *)this + 16LL);
+  if ( *(_DWORD *)(*(_QWORD *)this + 432LL) == 2 )
+  {
+    if ( KeReadStateEvent(v5 + 5) )
+      goto LABEL_7;
+    v10 = v5 + 5;
+  }
+  else
+  {
+    if ( KeReadStateEvent(v5 + 4) )
+      goto LABEL_7;
+    v10 = v5 + 4;
+  }
+  KeWaitForSingleObject(v10, Executive, 0, 0, 0LL);
+LABEL_7:
+  v6 = *(_QWORD *)this;
+  if ( *((_DWORD *)this + 2) )
+  {
+    KeEnterCriticalRegion();
+    if ( (unsigned __int8)ExTryAcquirePushLockSharedEx(v6 + 144, 0LL) )
+      return this;
+    KeLeaveCriticalRegion();
+    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(*(_QWORD *)(*(_QWORD *)(v6 + 16) + 16LL) + 104LL));
+    v7 = DXGADAPTER::TryWakeUpFromD3State(*(DXGADAPTER **)(*(_QWORD *)(v6 + 16) + 16LL));
+    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(v6 + 144));
+  }
+  else
+  {
+    KeEnterCriticalRegion();
+    if ( ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v6 + 136), 0) )
+      return this;
+    DXGPUSHLOCK::AcquireShared((DXGPUSHLOCK *)(*(_QWORD *)(*(_QWORD *)(v6 + 16) + 16LL) + 104LL));
+    v7 = DXGADAPTER::TryWakeUpFromD3State(*(DXGADAPTER **)(*(_QWORD *)(v6 + 16) + 16LL));
+    if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x40) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v11, &EventBlockThread, v12, 40LL);
+    ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v6 + 136), 1u);
+  }
+  if ( v7 )
+    DXGADAPTER::EnableD3Requests(*(DXGADAPTER **)(*(_QWORD *)(v6 + 16) + 16LL));
+  ExReleasePushLockSharedEx(*(_QWORD *)(*(_QWORD *)(v6 + 16) + 16LL) + 104LL, 0LL);
+  KeLeaveCriticalRegion();
+  return this;
+}

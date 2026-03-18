@@ -1,0 +1,145 @@
+/*
+ * XREFs of CleanupGDI @ 0x1C00514B8
+ * Callers:
+ *     CleanupResources @ 0x1C00522CC (CleanupResources.c)
+ * Callees:
+ *     ??1SURFREF@@QEAA@XZ @ 0x1C001F08C (--1SURFREF@@QEAA@XZ.c)
+ *     HmgShareLockCheck @ 0x1C0020DC0 (HmgShareLockCheck.c)
+ *     GreDeleteObject @ 0x1C0023690 (GreDeleteObject.c)
+ *     HmgSetOwner @ 0x1C0028640 (HmgSetOwner.c)
+ *     GreGetStockObject @ 0x1C002E9B0 (GreGetStockObject.c)
+ *     DestroyMonitor @ 0x1C0050630 (DestroyMonitor.c)
+ *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C0051830 (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
+ *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C0051858 (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
+ *     ?DestroyDC@@YAXPEAPEAUHDC__@@@Z @ 0x1C005188C (-DestroyDC@@YAXPEAPEAUHDC__@@@Z.c)
+ *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C0051938 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
+ *     DelayedDestroyCacheDC @ 0x1C005197C (DelayedDestroyCacheDC.c)
+ *     DestroyCacheDCEntries @ 0x1C0051A48 (DestroyCacheDCEntries.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C0052138 (DrvCleanupAndDestroyMDEV.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C00891DC (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     hbmSelectBitmap @ 0x1C009A990 (hbmSelectBitmap.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ *     ??0SURFREF@@QEAA@XZ @ 0x1C016C500 (--0SURFREF@@QEAA@XZ.c)
+ */
+
+PVOID CleanupGDI()
+{
+  HRGN *v0; // rdi
+  __int64 v1; // rbx
+  __int64 v2; // rbx
+  __int64 v3; // rdi
+  void *v4; // rdx
+  PVOID result; // rax
+  __int64 v6; // rcx
+  __int64 v7; // rbx
+  HBITMAP StockObject; // rax
+  _BYTE v9[32]; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-18h]
+
+  DestroyDC((HDC *)gpDispInfo + 7);
+  DestroyDC((HDC *)gpDispInfo + 8);
+  DestroyDC((HDC *)gpDispInfo + 9);
+  DestroyDC(&ghdcMem);
+  DestroyDC(&ghdcMem2);
+  if ( gfade && qword_1C029B990 && (int)qword_1C029B990() >= 0 && qword_1C029B998 )
+    qword_1C029B998();
+  DestroyDC(&qword_1C02971D8);
+  if ( qword_1C0297290 )
+  {
+    StockObject = (HBITMAP)GreGetStockObject(21);
+    hbmSelectBitmap(qword_1C0297298, StockObject, 0, 0);
+    GreDeleteObject((HRGN)qword_1C0297290);
+    qword_1C0297290 = 0LL;
+  }
+  DestroyDC(&qword_1C0297298);
+  DestroyCacheDCEntries(gptiCurrent);
+  DestroyCacheDCEntries(0LL);
+  DelayedDestroyCacheDC(1LL);
+  v0 = (HRGN *)gpDispInfo;
+  v1 = *((_QWORD *)gpDispInfo + 10);
+  if ( v1 )
+  {
+    SURFREF::SURFREF((SURFREF *)v9);
+    v10 = HmgShareLockCheck(v1, 5);
+    if ( v10 && (v1 & 0x800000) == 0 )
+      HmgSetOwner(v1, 0x80000002, 5);
+    SURFREF::~SURFREF((SURFREF *)v9);
+    GreDeleteObject(v0[10]);
+    v0[10] = 0LL;
+  }
+  if ( qword_1C029B9C0 && (int)qword_1C029B9C0() >= 0 && qword_1C029B9C8 )
+    qword_1C029B9C8();
+  DestroyFont(&ghbrHungApp);
+  DestroyFont((HFONT *)gpsi + 618);
+  DestroyFont(&ghbrWhite);
+  DestroyFont(&ghbrBlack);
+  v2 = 4696LL;
+  v3 = 31LL;
+  do
+  {
+    DestroyFont((HFONT *)((char *)gpsi + v2));
+    v2 += 8LL;
+    --v3;
+  }
+  while ( v3 );
+  DestroyRegion((HRGN *)gpDispInfo + 15);
+  DestroyRegion(&ghrgnInvalidSum);
+  DestroyRegion(&ghrgnVisNew);
+  DestroyRegion(&ghrgnSWP1);
+  DestroyRegion(&ghrgnValid);
+  DestroyRegion(&ghrgnValidSum);
+  DestroyRegion(&ghrgnInvalid);
+  DestroyRegion(&ghrgnInv0);
+  DestroyRegion(&ghrgnInv1);
+  DestroyRegion(&ghrgnInv2);
+  DestroyRegion(&ghrgnGDC);
+  DestroyRegion(&ghrgnSCR);
+  DestroyRegion(&ghrgnSPB1);
+  DestroyRegion(&ghrgnSPB2);
+  DestroyRegion(&ghrgnSW);
+  DestroyRegion(&ghrgnScrl1);
+  DestroyRegion(&ghrgnScrl2);
+  DestroyRegion(&ghrgnScrlVis);
+  DestroyRegion(&ghrgnScrlSrc);
+  DestroyRegion(&ghrgnScrlDst);
+  DestroyRegion(&ghrgnScrlValid);
+  DestroyAllDPIMETRICSFonts(&gSessionDpiMetrics);
+  DestroyAllDPIMETRICSFonts(&g96DpiMetrics);
+  if ( g_pWallpaperSettings )
+  {
+    if ( qword_1C029B9A0 && (int)qword_1C029B9A0() >= 0 && qword_1C029B9A8 )
+      qword_1C029B9A8(g_pWallpaperSettings);
+    g_pWallpaperSettings = 0LL;
+  }
+  if ( g_hbmDesktopPattern )
+  {
+    GreDeleteObject((HRGN)g_hbmDesktopPattern);
+    g_hbmDesktopPattern = 0LL;
+  }
+  if ( *((_QWORD *)gpDispInfo + 2) )
+  {
+    DrvCleanupAndDestroyMDEV();
+    v4 = (void *)*((_QWORD *)gpDispInfo + 2);
+    if ( v4 )
+      NSInstrumentation::CLeakTrackingAllocator::Free(
+        (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
+        v4);
+    *((_QWORD *)gpDispInfo + 2) = 0LL;
+    *((_QWORD *)gpDispInfo + 5) = 0LL;
+  }
+  result = gpDispInfo;
+  v6 = *((_QWORD *)gpDispInfo + 13);
+  if ( v6 )
+  {
+    do
+    {
+      v7 = *(_QWORD *)(v6 + 56);
+      result = (PVOID)DestroyMonitor((struct tagMONITOR *)v6);
+      v6 = v7;
+    }
+    while ( v7 );
+  }
+  if ( gpMonitorCached )
+    return (PVOID)DestroyMonitor(gpMonitorCached);
+  return result;
+}

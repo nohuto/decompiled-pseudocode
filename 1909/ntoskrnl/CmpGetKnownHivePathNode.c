@@ -1,0 +1,46 @@
+/*
+ * XREFs of CmpGetKnownHivePathNode @ 0x140A38EF8
+ * Callers:
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140A128A0 (CmpFindRedirectedDriverServiceStateNode.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x140666E20 (RtlEqualUnicodeString.c)
+ *     CmpGetNextName @ 0x14076A1A0 (CmpGetNextName.c)
+ *     CmpFindHiveSubKey @ 0x140A13A20 (CmpFindHiveSubKey.c)
+ */
+
+bool __fastcall CmpGetKnownHivePathNode(
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        unsigned int a4,
+        __int64 a5,
+        __int64 *a6,
+        __int64 *a7,
+        __int64 a8)
+{
+  bool result; // al
+  __int128 v13; // [rsp+30h] [rbp-20h] BYREF
+  UNICODE_STRING String1; // [rsp+40h] [rbp-10h] BYREF
+
+  DWORD1(v13) = 0;
+  *(_QWORD *)&String1.Length = 0LL;
+  String1.Buffer = 0LL;
+  *((_QWORD *)&v13 + 1) = *(_QWORD *)(a5 + 8) + 36LL;
+  WORD1(v13) = *(_WORD *)(a5 + 2) - 36;
+  LOWORD(v13) = *(_WORD *)a5 - 36;
+  if ( !CmpGetNextName((__int16 *)&v13, (__int64)&String1, (bool *)&a5) )
+    return 0;
+  if ( !RtlEqualUnicodeString(&String1, &CmpSystemHiveName, 1u) )
+  {
+    if ( !RtlEqualUnicodeString(&String1, &CmpDevicesHiveName, 1u) )
+      return 0;
+    a1 = a3;
+    a2 = a4;
+  }
+  if ( !a1 )
+    return 0;
+  result = CmpFindHiveSubKey(a1, a2, &v13, a7, a8);
+  if ( result )
+    *a6 = a1;
+  return result;
+}

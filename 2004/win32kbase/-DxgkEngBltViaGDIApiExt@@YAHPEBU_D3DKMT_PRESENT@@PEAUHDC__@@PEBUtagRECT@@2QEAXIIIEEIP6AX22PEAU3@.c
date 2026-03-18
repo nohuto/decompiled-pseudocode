@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?DxgkEngBltViaGDIApiExt@@YAHPEBU_D3DKMT_PRESENT@@PEAUHDC__@@PEBUtagRECT@@2QEAXIIIEEIP6AX22PEAU3@2II@ZP6AH4422@Z@Z @ 0x1C014D7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00D3820 (_guard_dispatch_icall_nop.c)
+ *     DxgkEngBltViaGDI @ 0x1C01F7624 (DxgkEngBltViaGDI.c)
+ */
+
+__int64 __fastcall DxgkEngBltViaGDIApiExt(
+        const struct _D3DKMT_PRESENT *a1,
+        HDC a2,
+        const struct tagRECT *a3,
+        const struct tagRECT *a4,
+        void *const a5,
+        unsigned int a6,
+        unsigned int a7,
+        unsigned int a8,
+        char a9,
+        char a10,
+        unsigned int a11,
+        void (*a12)(const struct tagRECT *, const struct tagRECT *, struct tagRECT *, const struct tagRECT *, unsigned int, unsigned int),
+        int (*a13)(struct tagRECT *, struct tagRECT *, const struct tagRECT *, const struct tagRECT *))
+{
+  unsigned int v13; // ebx
+  int v14; // edi
+  int v15; // esi
+  int v16; // ebp
+  int v17; // r14d
+  int v18; // eax
+
+  v13 = 0;
+  v14 = (int)a4;
+  v15 = (int)a3;
+  v16 = (int)a2;
+  v17 = (int)a1;
+  if ( qword_1C0251000 )
+    v18 = qword_1C0251000();
+  else
+    v18 = -1073741637;
+  if ( v18 >= 0 )
+    return (unsigned int)DxgkEngBltViaGDI(
+                           v17,
+                           v16,
+                           v15,
+                           v14,
+                           (__int64)a5,
+                           a6,
+                           a7,
+                           a8,
+                           a9,
+                           a10,
+                           a11,
+                           (__int64)a12,
+                           (__int64)a13);
+  return v13;
+}

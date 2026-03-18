@@ -1,0 +1,42 @@
+/*
+ * XREFs of RtlIntegerToUnicodeString @ 0x1406DC660
+ * Callers:
+ *     BapdpMarshallBootDataToRegistry @ 0x1403AB00C (BapdpMarshallBootDataToRegistry.c)
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x1405BCD24 (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpFormatPrefix @ 0x1405BDB2C (AdtpFormatPrefix.c)
+ *     RtlpInitNlsFileName @ 0x1406DC4B8 (RtlpInitNlsFileName.c)
+ *     pIoQueryDeviceDescription @ 0x140776374 (pIoQueryDeviceDescription.c)
+ *     AdtpObjsInitialize @ 0x1407A7B10 (AdtpObjsInitialize.c)
+ *     AdtpBuildAccessesString @ 0x140969A30 (AdtpBuildAccessesString.c)
+ *     AdtpBuildReplacementString @ 0x14096A0E8 (AdtpBuildReplacementString.c)
+ *     AdtpBuildUserAccountControlString @ 0x14096A184 (AdtpBuildUserAccountControlString.c)
+ *     ObCreateSiloRootDirectory @ 0x14097BC40 (ObCreateSiloRootDirectory.c)
+ *     ObGetSiloRootDirectoryPath @ 0x14097BF7C (ObGetSiloRootDirectoryPath.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     RtlAnsiStringToUnicodeString @ 0x14068A690 (RtlAnsiStringToUnicodeString.c)
+ *     RtlIntegerToChar @ 0x1406DC6F0 (RtlIntegerToChar.c)
+ */
+
+NTSTATUS __stdcall RtlIntegerToUnicodeString(ULONG Value, ULONG Base, PUNICODE_STRING String)
+{
+  NTSTATUS result; // eax
+  __int64 v5; // rax
+  STRING SourceString; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v7[40]; // [rsp+30h] [rbp-38h] BYREF
+
+  *(_DWORD *)(&SourceString.MaximumLength + 1) = 0;
+  result = RtlIntegerToChar(Value, Base, 33LL, v7);
+  if ( result >= 0 )
+  {
+    SourceString.MaximumLength = 33;
+    SourceString.Buffer = v7;
+    v5 = -1LL;
+    do
+      ++v5;
+    while ( v7[v5] );
+    SourceString.Length = v5;
+    return RtlAnsiStringToUnicodeString(String, &SourceString, 0);
+  }
+  return result;
+}

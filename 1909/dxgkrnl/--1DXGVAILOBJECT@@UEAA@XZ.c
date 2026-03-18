@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??1DXGVAILOBJECT@@UEAA@XZ @ 0x1C028F9DC
+ * Callers:
+ *     ??_GDXGVAILOBJECT@@UEAAPEAXI@Z @ 0x1C00497B0 (--_GDXGVAILOBJECT@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0007758 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?SetVmBusChannel@DXGVAILOBJECT@@QEAAXPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C0049930 (-SetVmBusChannel@DXGVAILOBJECT@@QEAAXPEAVDXGVMBUSCHANNEL@@@Z.c)
+ *     ?DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0290BBC (-DestroyVmBusHostSubscribers@DXGVAILOBJECT@@QEAAJXZ.c)
+ */
+
+void __fastcall DXGVAILOBJECT::~DXGVAILOBJECT(DXGVAILOBJECT *this)
+{
+  *(_QWORD *)this = &DXGVAILOBJECT::`vftable';
+  DXGVAILOBJECT::DestroyVmBusHostSubscribers(this);
+  DXGVAILOBJECT::SetVmBusChannel(this, 0LL);
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGVAILOBJECT *)((char *)this + 40));
+  *(_QWORD *)this = &SetElement::`vftable';
+}

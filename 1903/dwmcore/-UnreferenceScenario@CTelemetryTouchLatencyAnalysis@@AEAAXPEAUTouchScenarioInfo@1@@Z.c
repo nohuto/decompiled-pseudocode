@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?UnreferenceScenario@CTelemetryTouchLatencyAnalysis@@AEAAXPEAUTouchScenarioInfo@1@@Z @ 0x18001D85C
+ * Callers:
+ *     ?EndAnalyzingInteraction@CTelemetryTouchLatencyAnalysis@@QEAAX_K0AEB_K@Z @ 0x18001D1CC (-EndAnalyzingInteraction@CTelemetryTouchLatencyAnalysis@@QEAAX_K0AEB_K@Z.c)
+ *     ?UnreferenceScenario@CTelemetryTouchLatencyAnalysis@@AEAAX_K0@Z @ 0x18001D824 (-UnreferenceScenario@CTelemetryTouchLatencyAnalysis@@AEAAX_K0@Z.c)
+ * Callees:
+ *     ?RetireScenario@CTelemetryTouchLatencyAnalysis@@AEAAXPEAUTouchScenarioInfo@1@_N1@Z @ 0x18001DA78 (-RetireScenario@CTelemetryTouchLatencyAnalysis@@AEAAXPEAUTouchScenarioInfo@1@_N1@Z.c)
+ *     McTemplateU0xq @ 0x18015ED28 (McTemplateU0xq.c)
+ */
+
+void __fastcall CTelemetryTouchLatencyAnalysis::UnreferenceScenario(
+        CTelemetryTouchLatencyAnalysis *this,
+        struct CTelemetryTouchLatencyAnalysis::TouchScenarioInfo *a2)
+{
+  unsigned int v3; // eax
+
+  v3 = *((_DWORD *)a2 + 22) - 1;
+  *((_DWORD *)a2 + 22) = v3;
+  if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x400) != 0 )
+  {
+    McTemplateU0xq(this, &EVTDESC_TELEMETRY_TOUCH_ANALYSIS_UPDATEREFERENCE_EVENT, *((_QWORD *)a2 + 1), v3);
+    v3 = *((_DWORD *)a2 + 22);
+  }
+  if ( !v3 )
+    CTelemetryTouchLatencyAnalysis::RetireScenario(this, a2, 1, 0);
+}

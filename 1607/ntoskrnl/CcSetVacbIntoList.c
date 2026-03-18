@@ -1,0 +1,23 @@
+/*
+ * XREFs of CcSetVacbIntoList @ 0x1401B29B8
+ * Callers:
+ *     CcSetVacbInFreeList @ 0x1400182B4 (CcSetVacbInFreeList.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CcSetVacbIntoList(__int64 a1, __int64 *a2)
+{
+  __int64 result; // rax
+  _QWORD *v3; // rcx
+
+  result = *a2;
+  v3 = (_QWORD *)(a1 + 16);
+  if ( *(__int64 **)(*a2 + 8) != a2 )
+    __fastfail(3u);
+  *v3 = result;
+  v3[1] = a2;
+  *(_QWORD *)(result + 8) = v3;
+  *a2 = (__int64)v3;
+  return result;
+}

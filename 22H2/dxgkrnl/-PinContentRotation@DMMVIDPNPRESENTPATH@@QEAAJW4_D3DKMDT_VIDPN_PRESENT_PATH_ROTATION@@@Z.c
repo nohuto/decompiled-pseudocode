@@ -1,0 +1,116 @@
+/*
+ * XREFs of ?PinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C001593C
+ * Callers:
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C006A568 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
+ *     ?PinPathContentRotation@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@@IIW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@_N@Z @ 0x1C01E2D50 (-PinPathContentRotation@DXGDMM_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJPEAUD3DKMDT_HVIDPNTOPOLOGY__@.c)
+ *     ?PinPathContentRotation@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@_N@Z @ 0x1C03AF65C (-PinPathContentRotation@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_R.c)
+ *     ?CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@AEAK3PEAU_DXGK_SET_TIMING_RESULTS@@PEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C03B0888 (-CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_P.c)
+ * Callees:
+ *     ?IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x1C0002C60 (-IsFunctionalContentRotationType@DMMVIDPNPRESENTPATH@@SAEW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@.c)
+ *     ?D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C0002F04 (-D3DKMDT_VPPR_GET_CONTENT_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ *     ?D3DKMDT_VPPR_GET_OFFSET_ROTATION@@YA?AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z @ 0x1C000A660 (-D3DKMDT_VPPR_GET_OFFSET_ROTATION@@YA-AW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@W41@@Z.c)
+ */
+
+__int64 __fastcall DMMVIDPNPRESENTPATH::PinContentRotation(
+        DMMVIDPNPRESENTPATH *this,
+        enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION a2)
+{
+  __int64 v2; // rdi
+  int v4; // eax
+  int v5; // eax
+  int v6; // eax
+  int v7; // r8d
+  int v8; // eax
+  int v10; // eax
+  int v11; // eax
+  int v12; // eax
+  int v13; // eax
+  int v14; // eax
+  int v15; // eax
+
+  v2 = a2;
+  if ( !DMMVIDPNPRESENTPATH::IsFunctionalContentRotationType(a2) )
+    WdLogSingleEntry3(
+      2LL,
+      v2,
+      *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
+      *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
+  v4 = D3DKMDT_VPPR_GET_CONTENT_ROTATION((enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION)v2) - 1;
+  if ( !v4 )
+  {
+    LOBYTE(v5) = *((_BYTE *)this + 124);
+    goto LABEL_5;
+  }
+  v10 = v4 - 1;
+  if ( !v10 )
+  {
+    v5 = *((_DWORD *)this + 31) >> 1;
+LABEL_5:
+    if ( (v5 & 1) == 0 )
+      goto LABEL_23;
+    goto LABEL_6;
+  }
+  v11 = v10 - 1;
+  if ( !v11 )
+  {
+    v5 = *((_DWORD *)this + 31) >> 2;
+    goto LABEL_5;
+  }
+  v12 = v11 - 1;
+  if ( !v12 )
+  {
+    v5 = *((_DWORD *)this + 31) >> 3;
+    goto LABEL_5;
+  }
+  if ( v12 != 251 )
+  {
+LABEL_22:
+    WdLogSingleEntry1(2LL, v2);
+    goto LABEL_23;
+  }
+LABEL_6:
+  v6 = D3DKMDT_VPPR_GET_OFFSET_ROTATION(v2) - 1;
+  if ( !v6 )
+  {
+    v8 = *((_DWORD *)this + 31) >> 4;
+    goto LABEL_8;
+  }
+  v13 = v6 - 1;
+  if ( v13 )
+  {
+    v14 = v13 - 1;
+    if ( v14 )
+    {
+      v15 = v14 - 1;
+      if ( v15 )
+      {
+        if ( v15 == v7 )
+          goto LABEL_9;
+        goto LABEL_22;
+      }
+      v8 = *((_DWORD *)this + 31) >> 7;
+    }
+    else
+    {
+      v8 = *((_DWORD *)this + 31) >> 6;
+    }
+  }
+  else
+  {
+    v8 = *((_DWORD *)this + 31) >> 5;
+  }
+LABEL_8:
+  if ( (v8 & 1) != 0 )
+  {
+LABEL_9:
+    *((_DWORD *)this + 29) = v2;
+    return 0LL;
+  }
+LABEL_23:
+  WdLogSingleEntry3(
+    3LL,
+    v2,
+    *(unsigned int *)(*((_QWORD *)this + 11) + 24LL),
+    *(unsigned int *)(*((_QWORD *)this + 12) + 24LL));
+  return 3223192326LL;
+}

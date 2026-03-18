@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?HandleButtonSuppressionAndPendingUps@CPTPEngine@@AEAAXPEAUPTPInput@@H@Z @ 0x1C0196A88
+ * Callers:
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C0197AA8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ * Callees:
+ *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C01943DC (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
+ *     ?TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z @ 0x1C0199704 (-TPAAPShouldAllowNow@CPTPEngine@@AEAAHPEAUPTPInput@@KHH@Z.c)
+ */
+
+void __fastcall CPTPEngine::HandleButtonSuppressionAndPendingUps(CPTPEngine *this, struct PTPInput *a2, int a3)
+{
+  unsigned int v3; // eax
+  int v6; // edi
+  int v7; // ecx
+
+  v3 = *((_DWORD *)this + 814);
+  if ( (v3 & 1) == 0 )
+  {
+    v6 = *((_DWORD *)this + 742) & 0x10;
+    if ( (v3 & 0x1000) != 0 )
+      goto LABEL_13;
+    if ( v6 )
+    {
+      if ( *((_DWORD *)this + 26) == 2 && !(unsigned int)CPTPEngine::TPAAPShouldAllowNow(this, a2, 8u, 0, 0)
+        || *((_DWORD *)this + 735)
+        || *((_DWORD *)this + 808) && !a3 )
+      {
+        v7 = 4096;
+      }
+      else
+      {
+        v7 = 0;
+      }
+      v3 = v7 | *((_DWORD *)this + 814) & 0xFFFFEFFF;
+      *((_DWORD *)this + 814) = v3;
+    }
+    if ( (v3 & 0x1000) != 0 )
+    {
+LABEL_13:
+      if ( v6 )
+      {
+        *((_DWORD *)this + 742) &= ~0x10u;
+      }
+      else
+      {
+        v3 &= ~0x1000u;
+        *((_DWORD *)this + 814) = v3;
+      }
+    }
+    else if ( v6 )
+    {
+      CPTPEngine::CancelMouseUpTimer(this, 1);
+      v3 = *((_DWORD *)this + 814);
+    }
+  }
+  if ( (v3 & 2) == 0
+    && (v3 & 4) == 0
+    && ((*((_DWORD *)this + 742) & 0x20) != 0 || (*((_DWORD *)this + 742) & 0x40) != 0) )
+  {
+    CPTPEngine::CancelMouseUpTimer(this, 1);
+  }
+}

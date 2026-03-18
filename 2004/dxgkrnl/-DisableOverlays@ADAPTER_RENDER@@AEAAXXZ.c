@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?DisableOverlays@ADAPTER_RENDER@@AEAAXXZ @ 0x1C014AA54
+ * Callers:
+ *     ?DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z @ 0x1C0148508 (-DisablePrimaryAllocation@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVDXGALLOCATION@@@Z.c)
+ *     ?UpdateModeWithPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAVDXGADAPTERALLOCATION@@@Z @ 0x1C014A55C (-UpdateModeWithPrimary@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IPEAVDXGADAPTERALLOCATION@@@Z.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C014A790 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x1C0211B58 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002808 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002BB0 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0006598 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C0279CE0 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
+ */
+
+void __fastcall ADAPTER_RENDER::DisableOverlays(ADAPTER_RENDER *this)
+{
+  __int64 v2; // rdx
+  __int64 i; // rbx
+  DXGOVERLAY *v4; // rcx
+  __int64 v5; // rdx
+  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v6, (ADAPTER_RENDER *)((char *)this + 728), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6);
+  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(*((_QWORD *)this + 2) + 2036LL); i = (unsigned int)(i + 1) )
+  {
+    v4 = (DXGOVERLAY *)*((_QWORD *)this + i + 87);
+    if ( v4 )
+      DXGOVERLAY::Destroy(v4);
+  }
+  DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v6, v2);
+  if ( v6[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v6, v5);
+}

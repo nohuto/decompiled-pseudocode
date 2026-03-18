@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x1C0007620
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AD190 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C01B50A0 (-EnumAdaptersCallback@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x1C031E8D0 (DxgkSubmitPresentToHwQueue.c)
+ * Callees:
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000763C (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ */
+
+void __fastcall DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED(DXGADAPTERSTOPRESETLOCKSHARED *this)
+{
+  if ( *((_BYTE *)this + 16) )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release(this);
+}

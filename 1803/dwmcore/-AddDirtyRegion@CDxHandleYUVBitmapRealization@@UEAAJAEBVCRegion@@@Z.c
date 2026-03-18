@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?AddDirtyRegion@CDxHandleYUVBitmapRealization@@UEAAJAEBVCRegion@@@Z @ 0x180215370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800DD420 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CDxHandleYUVBitmapRealization::AddDirtyRegion(
+        CDxHandleYUVBitmapRealization *this,
+        const struct CRegion *a2)
+{
+  (*(void (__fastcall **)(CDxHandleYUVBitmapRealization *, const struct CRegion *))(*(_QWORD *)this + 128LL))(this, a2);
+  return 0LL;
+}

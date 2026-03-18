@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?AddRef@CGDISectionBitmapRealization@@$4PPPPPPPM@BMA@EAAKXZ @ 0x18010AF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall CGDISectionBitmapRealization::AddRef(__int64 a1)
+{
+  return CProjectedShadowReceiver::AddRef((CProjectedShadowReceiver *)(a1 - *(int *)(a1 - 4) - 448));
+}

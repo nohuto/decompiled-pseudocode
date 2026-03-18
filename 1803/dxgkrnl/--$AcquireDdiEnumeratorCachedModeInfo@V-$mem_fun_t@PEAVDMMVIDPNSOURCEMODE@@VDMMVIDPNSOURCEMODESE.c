@@ -1,0 +1,98 @@
+/*
+ * XREFs of ??$AcquireDdiEnumeratorCachedModeInfo@V?$mem_fun_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVIDPNSOURCEMODESET@@@KM_STL@@@DMMVIDPNSOURCEMODESET@@QEAAJV?$mem_fun_t@PEAVDMMVIDPNSOURCEMODE@@VDMMVIDPNSOURCEMODESET@@@KM_STL@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C00BDD54
+ * Callers:
+ *     ?AcquirePinnedModeInfo@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C00BE340 (-AcquirePinnedModeInfo@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMOD.c)
+ *     ?AcquirePinnedModeInfo@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C00C7000 (-AcquirePinnedModeInfo@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEM.c)
+ *     ?AcquireFirstModeInfo@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C0218A40 (-AcquireFirstModeInfo@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMO.c)
+ *     ?AcquireFirstModeInfo@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@PEAPEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C021F760 (-AcquireFirstModeInfo@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODE.c)
+ * Callees:
+ *     ?GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ @ 0x1C00059D4 (-GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0005B04 (--3@YAXPEAX@Z.c)
+ *     ?CreateInstance@?$SetEnumerator@U_D3DKMDT_VIDPN_SOURCE_MODE@@@?$Set@VDMMVIDPNSOURCEMODE@@@@SAPEAV12@QEBVDMMVIDPNSOURCEMODE@@@Z @ 0x1C000AF64 (-CreateInstance@-$SetEnumerator@U_D3DKMDT_VIDPN_SOURCE_MODE@@@-$Set@VDMMVIDPNSOURCEMODE@@@@SAPEA.c)
+ *     ?reset@?$auto_ptr@V?$SetEnumerator@U_D3DKMDT_VIDPN_PRESENT_PATH@@@?$Set@VDMMVIDPNPRESENTPATH@@@@@@QEAAXPEAV?$SetEnumerator@U_D3DKMDT_VIDPN_PRESENT_PATH@@@?$Set@VDMMVIDPNPRESENTPATH@@@@@Z @ 0x1C000B0F4 (-reset@-$auto_ptr@V-$SetEnumerator@U_D3DKMDT_VIDPN_PRESENT_PATH@@@-$Set@VDMMVIDPNPRESENTPATH@@@@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001C5F0 (_guard_dispatch_icall_nop.c)
+ *     ?GetTextInfo@DMMVIDPNSOURCEMODE@@QEBAPEBW4_D3DKMDT_TEXT_RENDERING_FORMAT@@XZ @ 0x1C00449D0 (-GetTextInfo@DMMVIDPNSOURCEMODE@@QEBAPEBW4_D3DKMDT_TEXT_RENDERING_FORMAT@@XZ.c)
+ */
+
+__int64 __fastcall DMMVIDPNSOURCEMODESET::AcquireDdiEnumeratorCachedModeInfo<KM_STL::mem_fun_t<DMMVIDPNSOURCEMODE *,DMMVIDPNSOURCEMODESET>>(
+        __int64 a1,
+        __int64 a2,
+        _QWORD *a3)
+{
+  unsigned int v3; // ebx
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  DMMVIDPNSOURCEMODE *v12; // rsi
+  _QWORD *Instance; // rax
+  __int64 v15; // rcx
+  char *v16; // rdi
+  int v17; // eax
+  __int64 v18; // rax
+  __int64 v19; // rax
+  __int64 v20; // rax
+  __int64 v21; // rax
+  _DWORD *v22; // [rsp+40h] [rbp+8h] BYREF
+
+  v3 = 0;
+  if ( !a3 )
+  {
+    v18 = WdLogNewEntry5_WdAssertion(a1);
+    WdLogEvent5_WdAssertion(v18);
+  }
+  *a3 = 0LL;
+  if ( *(_BYTE *)(a1 + 136) )
+  {
+    v7 = (*(__int64 (__fastcall **)(__int64))a2)(a1 + *(int *)(a2 + 8));
+    v12 = (DMMVIDPNSOURCEMODE *)v7;
+    if ( !v7 )
+    {
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v9, v8, v10, v11) + 24) = a2;
+      return 3223192394LL;
+    }
+    v22 = 0LL;
+    Instance = Set<DMMVIDPNSOURCEMODE>::SetEnumerator<_D3DKMDT_VIDPN_SOURCE_MODE>::CreateInstance(v7);
+    auto_ptr<Set<DMMVIDPNPRESENTPATH>::SetEnumerator<_D3DKMDT_VIDPN_PRESENT_PATH>>::reset((void **)&v22, Instance);
+    if ( !v22 )
+    {
+      v20 = WdLogNewEntry5_WdLowResource(v15);
+      *(_QWORD *)(v20 + 24) = a1;
+      WdLogEvent5_WdLowResource(v20);
+      v3 = -1073741801;
+      goto LABEL_10;
+    }
+    v16 = (char *)(v22 + 4);
+    v22[4] = *((_DWORD *)v12 + 6);
+    v17 = *((_DWORD *)v12 + 18);
+    *((_DWORD *)v16 + 1) = v17;
+    if ( v17 != 1 )
+    {
+      if ( v17 == 2 )
+      {
+        *((enum _D3DKMDT_TEXT_RENDERING_FORMAT *)v16 + 2) = *DMMVIDPNSOURCEMODE::GetTextInfo(v12);
+        goto LABEL_9;
+      }
+      if ( v17 <= 2 || v17 > 4 )
+      {
+        if ( (unsigned int)(v17 - 1) <= 3 )
+        {
+          v21 = WdLogNewEntry5_WdAssertion(v15);
+          WdLogEvent5_WdAssertion(v21);
+        }
+        goto LABEL_9;
+      }
+    }
+    *(struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT *)(v16 + 8) = *DMMVIDPNSOURCEMODE::GetGraphicsInfo(v12);
+LABEL_9:
+    *a3 = v16;
+LABEL_10:
+    operator delete(0LL);
+    return v3;
+  }
+  v19 = WdLogNewEntry5_WdError(a1);
+  *(_QWORD *)(v19 + 24) = a1;
+  WdLogEvent5_WdError(v19);
+  return 3223192352LL;
+}

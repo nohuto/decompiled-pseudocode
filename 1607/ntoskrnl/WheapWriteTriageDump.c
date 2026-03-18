@@ -1,0 +1,110 @@
+/*
+ * XREFs of WheapWriteTriageDump @ 0x1406BB1F8
+ * Callers:
+ *     WheapCreateTriageDumpFromPreviousSession @ 0x1403E07FC (WheapCreateTriageDumpFromPreviousSession.c)
+ *     WheaCrashDumpInitializationComplete @ 0x1405812AC (WheaCrashDumpInitializationComplete.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x140151960 (swprintf_s.c)
+ *     ZwWriteFile @ 0x140159D80 (ZwWriteFile.c)
+ *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x14015A020 (ZwCreateKey.c)
+ *     ZwCreateFile @ 0x14015A720 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x14015A880 (ZwSetValueKey.c)
+ *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
+ */
+
+__int64 __fastcall WheapWriteTriageDump(__int64 a1, int a2)
+{
+  ULONG v2; // esi
+  PVOID v3; // r14
+  NTSTATUS v4; // ebx
+  wchar_t *PoolWithTag; // rax
+  WCHAR *v6; // rdi
+  int v7; // r15d
+  __int64 v8; // rax
+  PLARGE_INTEGER AllocationSize; // [rsp+20h] [rbp-69h]
+  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-29h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+70h] [rbp-19h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+80h] [rbp-9h] BYREF
+  HANDLE KeyHandle; // [rsp+F0h] [rbp+67h] BYREF
+  int Data; // [rsp+F8h] [rbp+6Fh] BYREF
+  HANDLE FileHandle; // [rsp+100h] [rbp+77h] BYREF
+
+  Data = a2;
+  v2 = WheapTriageDumpLength;
+  v3 = WheapTriageDump;
+  FileHandle = 0LL;
+  KeyHandle = 0LL;
+  RtlInitUnicodeString(
+    &DestinationString,
+    L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\MachineCrash");
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v4 = ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes);
+  if ( v4 < 0 )
+  {
+    PoolWithTag = (wchar_t *)ExAllocatePoolWithTag(PagedPool, 0x200uLL, 0x61656857u);
+    v6 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      v7 = MEMORY[0xFFFFF78000000014];
+      swprintf_s(PoolWithTag, 0x100uLL, L"\\SystemRoot\\DUMP%04x.DMP", MEMORY[0xFFFFF78000000014]);
+      RtlInitUnicodeString(&DestinationString, v6);
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 576;
+      ObjectAttributes.ObjectName = &DestinationString;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v4 = ZwCreateFile(&FileHandle, 0x120116u, &ObjectAttributes, &IoStatusBlock, 0LL, 2u, 0, 0, 0x22u, 0LL, 0);
+      if ( v4 >= 0 )
+      {
+        v4 = ZwWriteFile(FileHandle, 0LL, 0LL, 0LL, &IoStatusBlock, v3, v2, 0LL, 0LL);
+        if ( v4 >= 0 )
+        {
+          RtlInitUnicodeString(
+            &DestinationString,
+            L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\MachineCrash");
+          ObjectAttributes.ObjectName = &DestinationString;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.RootDirectory = 0LL;
+          ObjectAttributes.Attributes = 576;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          v4 = ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 1u, 0LL);
+          if ( v4 >= 0 )
+          {
+            RtlInitUnicodeString(&DestinationString, L"DumpFile");
+            LODWORD(AllocationSize) = v7;
+            swprintf_s(v6, 0x100uLL, L"%s\\DUMP%04x.DMP", NtSystemRoot.Buffer, AllocationSize);
+            v8 = -1LL;
+            do
+              ++v8;
+            while ( v6[v8] );
+            v4 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 1u, v6, 2 * v8 + 2);
+            if ( v4 >= 0 )
+            {
+              RtlInitUnicodeString(&DestinationString, L"TempDestination");
+              Data = 1;
+              v4 = ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
+            }
+          }
+        }
+      }
+      ExFreePoolWithTag(v6, 0x61656857u);
+    }
+    else
+    {
+      v4 = -1073741670;
+    }
+  }
+  if ( FileHandle )
+    ZwClose(FileHandle);
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
+  return (unsigned int)v4;
+}

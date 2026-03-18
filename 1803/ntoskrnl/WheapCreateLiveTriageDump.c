@@ -1,0 +1,49 @@
+/*
+ * XREFs of WheapCreateLiveTriageDump @ 0x1407CB5CC
+ * Callers:
+ *     WheapCreateTriageDumpFromPreviousSession @ 0x140488084 (WheapCreateTriageDumpFromPreviousSession.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140187410 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x1401B2CF0 (RtlCaptureContext.c)
+ *     memset @ 0x1401BCC40 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x140235DE0 (KeCapturePersistentThreadState.c)
+ *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
+ *     WheapInsertTriageDataBlock @ 0x1407CB6D4 (WheapInsertTriageDataBlock.c)
+ */
+
+__int64 __fastcall WheapCreateLiveTriageDump(__int64 a1)
+{
+  __int64 v2; // rdi
+  __int64 v3; // rsi
+  PVOID PoolWithTag; // rbx
+  int inserted; // edi
+  ULONG v6; // esi
+  CONTEXT ContextRecord; // [rsp+40h] [rbp-4E8h] BYREF
+
+  memset(&ContextRecord, 0, sizeof(ContextRecord));
+  v2 = a1 + 40;
+  v3 = *(int *)(*(_QWORD *)(a1 + 32) + 40LL);
+  PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x40000uLL, 0x61656857u);
+  if ( PoolWithTag )
+  {
+    ContextRecord.ContextFlags = 1048587;
+    RtlCaptureContext(&ContextRecord);
+    v6 = KeCapturePersistentThreadState((__int64)&ContextRecord, 0LL, 292, v3, v2, 0LL, 0LL, (size_t)PoolWithTag);
+    inserted = WheapInsertTriageDataBlock(PoolWithTag, v2, *(unsigned int *)(v2 + 20));
+    if ( inserted < 0 )
+    {
+      ExFreePoolWithTag(PoolWithTag, 0x61656857u);
+    }
+    else
+    {
+      WheapTriageDump = PoolWithTag;
+      WheapTriageDumpLength = v6;
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return (unsigned int)inserted;
+}

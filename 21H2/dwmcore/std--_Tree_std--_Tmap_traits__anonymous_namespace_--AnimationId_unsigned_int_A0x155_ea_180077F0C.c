@@ -1,0 +1,53 @@
+/*
+ * XREFs of std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180077F0C
+ * Callers:
+ *     _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo @ 0x180077A0C (_anonymous_namespace_--FrameSequenceInfo--FrameSequenceInfo.c)
+ * Callees:
+ *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180077FB4 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
+ *     std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_nodes_std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_tag_ @ 0x18007800C (std--_Tree_std--_Tmap_traits__anonymous_namespace_--AnimationId_unsigned_int_A0x155_ea_18007800C.c)
+ *     std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Min @ 0x1800780D4 (std--_Tree_val_std--_Tree_simple_types_std--pair__anonymous_namespace_--AnimationId_const__unsig.c)
+ */
+
+__int64 __fastcall std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0____std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______(
+        __int64 a1,
+        __int64 a2,
+        char a3)
+{
+  __int64 v5; // rax
+  __int64 v6; // r9
+  _QWORD *v7; // r8
+  __int64 v9; // rax
+  __int64 *v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  __int64 i; // rcx
+
+  *(_QWORD *)(a1 + 8) = 0LL;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  v5 = std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______();
+  LOBYTE(v6) = a3;
+  *(_QWORD *)(a1 + 8) = v5;
+  *(_QWORD *)(*(_QWORD *)(a1 + 8) + 8LL) = std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_nodes_std::_Tree_std::_Tmap_traits__anonymous_namespace_::AnimationId_unsigned_int_A0x155a666c::AnimationId::LessThan_std::allocator_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int____0___::_Copy_tag_(
+                                             a1,
+                                             *(_QWORD *)(*(_QWORD *)(a2 + 8) + 8LL),
+                                             v5,
+                                             v6);
+  v7 = *(_QWORD **)(a1 + 8);
+  *(_QWORD *)(a1 + 16) = *(_QWORD *)(a2 + 16);
+  if ( *(_BYTE *)(v7[1] + 25LL) )
+  {
+    *v7 = v7;
+    *(_QWORD *)(*(_QWORD *)(a1 + 8) + 16LL) = *(_QWORD *)(a1 + 8);
+  }
+  else
+  {
+    v9 = std::_Tree_val_std::_Tree_simple_types_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int_____::_Min();
+    *v10 = v9;
+    v11 = *(_QWORD *)(a1 + 8);
+    v12 = *(_QWORD *)(v11 + 8);
+    for ( i = *(_QWORD *)(v12 + 16); !*(_BYTE *)(i + 25); i = *(_QWORD *)(i + 16) )
+      v12 = i;
+    *(_QWORD *)(v11 + 16) = v12;
+  }
+  return a1;
+}

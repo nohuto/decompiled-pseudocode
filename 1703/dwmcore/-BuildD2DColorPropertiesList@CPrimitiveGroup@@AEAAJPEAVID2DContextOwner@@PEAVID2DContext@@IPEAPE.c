@@ -1,0 +1,77 @@
+/*
+ * XREFs of ?BuildD2DColorPropertiesList@CPrimitiveGroup@@AEAAJPEAVID2DContextOwner@@PEAVID2DContext@@IPEAPEAUID2D1PrivateCompositorPrimitiveProperties@@@Z @ 0x18000BB5C
+ * Callers:
+ *     ?CreateNewD2DCommandList@CPrimitiveGroup@@AEAAJPEAVID2DContextOwner@@PEAVID2DContext@@PEAPEAVCD2DCommandList@@@Z @ 0x18000BCEC (-CreateNewD2DCommandList@CPrimitiveGroup@@AEAAJPEAVID2DContextOwner@@PEAVID2DContext@@PEAPEAVCD2.c)
+ * Callees:
+ *     ??$ReleaseInterfaceNoNULL@VCD2DPencil@@@@YAXPEAVCD2DPencil@@@Z @ 0x180002A58 (--$ReleaseInterfaceNoNULL@VCD2DPencil@@@@YAXPEAVCD2DPencil@@@Z.c)
+ *     ?FindOrCreatePrimitiveProperties@CPrimitiveColor@@AEAAJPEAVID2DContext@@PEAPEAVCD2DPrimitiveProperties@@@Z @ 0x18002459C (-FindOrCreatePrimitiveProperties@CPrimitiveColor@@AEAAJPEAVID2DContext@@PEAPEAVCD2DPrimitiveProp.c)
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x1800651F0 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ??$ReleaseInterface@VIBitmapLock@@@@YAXAEAPEAVIBitmapLock@@@Z @ 0x1800CE0F0 (--$ReleaseInterface@VIBitmapLock@@@@YAXAEAPEAVIBitmapLock@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800D53F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CPrimitiveGroup::BuildD2DColorPropertiesList(
+        CPrimitiveGroup *this,
+        struct ID2DContextOwner *a2,
+        struct ID2DContext *a3,
+        unsigned int a4,
+        struct ID2D1PrivateCompositorPrimitiveProperties **a5)
+{
+  int v5; // ebx
+  unsigned int v6; // ebp
+  CPrimitiveGroup *v9; // rax
+  struct ID2D1PrivateCompositorPrimitiveProperties **v10; // r12
+  __int64 v11; // rdi
+  __int64 v12; // rax
+  struct ID2D1PrivateCompositorPrimitiveProperties *v13; // rsi
+  int v14; // eax
+  struct CD2DPrimitiveProperties *v15; // r15
+  struct CD2DPrimitiveProperties *v17; // [rsp+30h] [rbp-48h] BYREF
+  struct ID2D1PrivateCompositorPrimitiveProperties *v19; // [rsp+88h] [rbp+10h] BYREF
+
+  v5 = 0;
+  v6 = 0;
+  v19 = 0LL;
+  v9 = this;
+  if ( a4 )
+  {
+    v10 = a5;
+    v11 = 0LL;
+    while ( 1 )
+    {
+      v12 = *((_QWORD *)v9 + 29);
+      v17 = 0LL;
+      v13 = 0LL;
+      v19 = 0LL;
+      v14 = CPrimitiveColor::FindOrCreatePrimitiveProperties(
+              (CPrimitiveColor *)((*(_QWORD *)(v11 * 8 + v12) - 8LL) & -(__int64)(*(_QWORD *)(v11 * 8 + v12) != 0LL)),
+              a3,
+              &v17);
+      v15 = v17;
+      v5 = v14;
+      if ( v14 < 0 )
+      {
+        MilInstrumentationCheckHR(0x14u, 0LL, 0, v14, 0xB7u);
+      }
+      else
+      {
+        v19 = (struct ID2D1PrivateCompositorPrimitiveProperties *)*((_QWORD *)v17 + 13);
+        v13 = v19;
+        (*(void (__fastcall **)(struct ID2D1PrivateCompositorPrimitiveProperties *))(*(_QWORD *)v13 + 8LL))(v13);
+      }
+      ReleaseInterfaceNoNULL<CD2DPencil>((__int64)v15);
+      if ( v5 < 0 )
+        break;
+      v19 = 0LL;
+      ++v6;
+      v9 = this;
+      v10[v11++] = v13;
+      if ( v6 >= a4 )
+        goto LABEL_7;
+    }
+    MilInstrumentationCheckHR(0x14u, 0LL, 0, v5, 0x486u);
+  }
+LABEL_7:
+  ReleaseInterface<IBitmapLock>(&v19);
+  return (unsigned int)v5;
+}

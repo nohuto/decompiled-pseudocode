@@ -1,0 +1,221 @@
+/*
+ * XREFs of EtwpAddLogHeader @ 0x14067C6E4
+ * Callers:
+ *     EtwpUpdateFileHeader @ 0x14067C0A4 (EtwpUpdateFileHeader.c)
+ *     EtwpPreserveLogger @ 0x14094405C (EtwpPreserveLogger.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x140240CA0 (KeQueryPerformanceCounter.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14024124C (EtwpQueryUsedProcessorCount.c)
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x140408CC0 (memmove.c)
+ *     memset @ 0x140408F80 (memset.c)
+ *     EtwpPrepareHeader @ 0x1405F23E0 (EtwpPrepareHeader.c)
+ *     EtwpAddDebugInfoEvents @ 0x14067AD64 (EtwpAddDebugInfoEvents.c)
+ *     EtwpIsWow64Logger @ 0x14067CC28 (EtwpIsWow64Logger.c)
+ *     RtlpQueryTimeZoneInformationWorker @ 0x14067CC40 (RtlpQueryTimeZoneInformationWorker.c)
+ *     EtwpAddBinaryInfoEvents @ 0x140938768 (EtwpAddBinaryInfoEvents.c)
+ */
+
+unsigned __int64 __fastcall EtwpAddLogHeader(__int64 a1, LARGE_INTEGER *a2)
+{
+  bool v4; // cf
+  unsigned __int64 result; // rax
+  __int64 v6; // rcx
+  unsigned __int16 v7; // r14
+  struct _KTHREAD *CurrentThread; // r15
+  _QWORD *v9; // r12
+  unsigned int UsedProcessorCount; // eax
+  char v11; // al
+  char v12; // cl
+  __int64 v13; // rdx
+  bool v14; // zf
+  int v15; // ecx
+  LARGE_INTEGER v16; // rax
+  __int64 v17; // r13
+  char *v18; // r13
+  __int64 v19; // rax
+  unsigned int *v20; // rbx
+  __int64 v21; // rdx
+  unsigned __int64 v22; // xmm0_8
+  __m128i v23; // xmm0
+  __int64 v24; // rdx
+  void *v25; // rcx
+  char *v26; // rdx
+  unsigned int LowPart; // r8d
+  char *v28; // rdx
+  __int64 v29; // rax
+  __int64 v30; // rcx
+  __int128 v31; // xmm1
+  __int64 v32; // r13
+  LARGE_INTEGER PerformanceFrequency; // [rsp+30h] [rbp-40h] BYREF
+  int v34; // [rsp+38h] [rbp-38h] BYREF
+  void *v35; // [rsp+40h] [rbp-30h]
+  __m128i v36; // [rsp+48h] [rbp-28h]
+  __int64 v37; // [rsp+58h] [rbp-18h] BYREF
+  unsigned int v38; // [rsp+60h] [rbp-10h]
+
+  v34 = 0;
+  PerformanceFrequency.QuadPart = 0LL;
+  v37 = 0LL;
+  v38 = 0;
+  v4 = (unsigned __int8)EtwpIsWow64Logger(a1, a2) != 0;
+  result = *(unsigned int *)(a1 + 4);
+  v7 = *(_WORD *)(v6 + 168) + *(_WORD *)(v6 + 152) + (v4 ? 276 : 284);
+  if ( result >= (unsigned __int64)v7 + 104 )
+  {
+    if ( ((int (__fastcall *)(__int64, __int64, __int64 *, int *))off_140C00A68[0])(25LL, 12LL, &v37, &v34) < 0 )
+    {
+      v37 = 0LL;
+      v38 = 0;
+    }
+    CurrentThread = KeGetCurrentThread();
+    HIWORD(a2[9].QuadPart) = 0;
+    v9 = (_QWORD *)(a1 + 328);
+    WORD2(a2[9].QuadPart) = v7 + 32;
+    a2[9].LowPart = -1073610750;
+    a2[10].LowPart = CurrentThread[1].CurrentRunTime;
+    a2[10].HighPart = CurrentThread[1].CycleTime;
+    a2[12].LowPart = CurrentThread->SchedulerApc.SpareLong0;
+    a2[12].HighPart = CurrentThread->UserTime;
+    a2[11] = *(LARGE_INTEGER *)(a1 + 328);
+    memset(&a2[13], 0, v7);
+    a2[13].LowPart = *(_DWORD *)(a1 + 4);
+    WORD2(a2[13].QuadPart) = 10;
+    a2[14].LowPart = (unsigned __int16)NtBuildNumber;
+    UsedProcessorCount = EtwpQueryUsedProcessorCount(a1);
+    a2[14].HighPart = UsedProcessorCount;
+    if ( (*(_DWORD *)(a1 + 12) & 0x4000000) != 0 || *(_DWORD *)(a1 + 4) > 0x100000u || UsedProcessorCount > 0x100 )
+    {
+      v11 = 0;
+      v12 = 2;
+    }
+    else
+    {
+      v11 = 5;
+      v12 = 1;
+    }
+    BYTE6(a2[13].QuadPart) = v12;
+    HIBYTE(a2[13].QuadPart) = v11;
+    a2[18].LowPart = 1;
+    a2[17].LowPart = *(_DWORD *)(a1 + 12) & 0xFF3FFEFF;
+    a2[16].HighPart = *(_DWORD *)(a1 + 308);
+    a2[16].LowPart = KeMaximumIncrement;
+    a2[19].HighPart = EtwCPUSpeedInMHz;
+    KeQueryPerformanceCounter(&PerformanceFrequency);
+    _InterlockedExchange64((volatile __int64 *)&EtwPerfFreq, PerformanceFrequency.QuadPart);
+    v14 = (unsigned __int8)EtwpIsWow64Logger(a1, v13) == 0;
+    v15 = 1;
+    v16 = PerformanceFrequency;
+    if ( v14 )
+    {
+      a2[45] = PerformanceFrequency;
+      a2[46] = *(LARGE_INTEGER *)(a1 + 320);
+      a2[44].QuadPart = EtwpBootTime;
+      a2[18].HighPart = 8;
+      if ( *(_DWORD *)(a1 + 216) != 4 )
+        v15 = *(_DWORD *)(a1 + 216);
+      a2[47].LowPart = v15;
+      a2[20].QuadPart = HIDWORD(v37);
+      a2[21].QuadPart = v38;
+      v17 = *(unsigned __int16 *)(a1 + 152);
+      v35 = &a2[48];
+      v18 = (char *)&a2[48] + v17;
+      v19 = 13LL;
+    }
+    else
+    {
+      a2[9].LowPart = -1073676286;
+      a2[44] = v16;
+      a2[18].HighPart = 4;
+      a2[45] = *(LARGE_INTEGER *)(a1 + 320);
+      a2[43].QuadPart = EtwpBootTime;
+      if ( *(_DWORD *)(a1 + 216) != 4 )
+        v15 = *(_DWORD *)(a1 + 216);
+      a2[46].LowPart = v15;
+      a2[20].LowPart = HIDWORD(v37);
+      a2[20].HighPart = v38;
+      v32 = *(unsigned __int16 *)(a1 + 152);
+      v35 = &a2[47];
+      v18 = (char *)&a2[47] + v32;
+      v19 = 12LL;
+    }
+    v20 = (unsigned int *)&a2[v19];
+    RtlpQueryTimeZoneInformationWorker(&a2[v19 + 9], 0xACuLL);
+    v21 = *(_QWORD *)(v20 + 35);
+    v22 = _mm_srli_si128(*(__m128i *)(v20 + 35), 8).m128i_u64[0];
+    *((_WORD *)v20 + 70) = v21;
+    *((_WORD *)v20 + 75) = v22;
+    *((_WORD *)v20 + 71) = WORD1(v21);
+    *((_WORD *)v20 + 73) = WORD2(v21);
+    *((_WORD *)v20 + 72) = HIWORD(v22);
+    *((_WORD *)v20 + 76) = WORD1(v22);
+    *((_WORD *)v20 + 74) = HIWORD(v21);
+    *((_WORD *)v20 + 77) = WORD2(v22);
+    v23 = *((__m128i *)v20 + 14);
+    v24 = *((_QWORD *)v20 + 28);
+    v20[56] = v24;
+    *((_WORD *)v20 + 115) = WORD2(v24);
+    *((_WORD *)v20 + 116) = HIWORD(v24);
+    v36 = v23;
+    v23.m128i_i64[0] = _mm_srli_si128(v23, 8).m128i_u64[0];
+    *((_WORD *)v20 + 117) = v23.m128i_i16[0];
+    *((_WORD *)v20 + 114) = v23.m128i_i16[3];
+    *((_WORD *)v20 + 119) = v23.m128i_i16[2];
+    v25 = v35;
+    *((_WORD *)v20 + 118) = v23.m128i_i16[1];
+    memmove(v25, *(const void **)(a1 + 160), *(unsigned __int16 *)(a1 + 152) + 2LL);
+    memmove(v18 + 2, *(const void **)(a1 + 176), *(unsigned __int16 *)(a1 + 168) + 2LL);
+    a2[1].LowPart += (v7 + 39) & 0xFFFFFFF8;
+    if ( (*(_DWORD *)(a1 + 12) & 0x2000000) != 0 && a2[1].LowPart + 68 <= a2->LowPart )
+    {
+      v28 = (char *)a2 + a2[1].LowPart;
+      *((_DWORD *)v28 + 1) = 327748;
+      *(_DWORD *)v28 = -1073610750;
+      *((_DWORD *)v28 + 2) = CurrentThread[1].CurrentRunTime;
+      *((_DWORD *)v28 + 3) = CurrentThread[1].CycleTime;
+      *((_DWORD *)v28 + 6) = CurrentThread->SchedulerApc.SpareLong0;
+      *((_DWORD *)v28 + 7) = CurrentThread->UserTime;
+      *((_QWORD *)v28 + 2) = *v9;
+      v29 = *(_QWORD *)(a1 + 1112);
+      v30 = 32LL * *(unsigned __int8 *)(a1 + 834);
+      *((_OWORD *)v28 + 2) = *(_OWORD *)(v30 + v29 + 4260);
+      v31 = *(_OWORD *)(v30 + v29 + 4276);
+      *((_DWORD *)v28 + 16) = 80;
+      *((_OWORD *)v28 + 3) = v31;
+      a2[1].LowPart += 72;
+    }
+    if ( a2[1].LowPart + 80 <= a2->LowPart )
+    {
+      v26 = (char *)a2 + a2[1].LowPart;
+      *((_DWORD *)v26 + 1) = 5242960;
+      *(_DWORD *)v26 = -1073610750;
+      *((_DWORD *)v26 + 2) = CurrentThread[1].CurrentRunTime;
+      *((_DWORD *)v26 + 3) = CurrentThread[1].CycleTime;
+      *((_DWORD *)v26 + 6) = CurrentThread->SchedulerApc.SpareLong0;
+      *((_DWORD *)v26 + 7) = CurrentThread->UserTime;
+      *((_QWORD *)v26 + 2) = *v9;
+      *((_DWORD *)v26 + 8) = 0;
+      *((_DWORD *)v26 + 9) = *(_DWORD *)(*(_QWORD *)(a1 + 1112) + 4204LL);
+      *((_OWORD *)v26 + 3) = *(_OWORD *)(*(_QWORD *)(a1 + 1112) + 4152LL);
+      *((_QWORD *)v26 + 5) = *(_QWORD *)(a1 + 1296);
+      *((_OWORD *)v26 + 4) = *(_OWORD *)(*(_QWORD *)(a1 + 1112) + 4168LL);
+      a2[1].LowPart += 80;
+    }
+    LowPart = a2->LowPart;
+    a2[6].LowPart = a2[1].LowPart;
+    if ( a2[1].LowPart < LowPart )
+    {
+      if ( *(_QWORD *)(a1 + 112) != a1 + 112 || *(_DWORD *)(a1 + 136) )
+        EtwpAddDebugInfoEvents(a1, (__int64)a2, LowPart, (__int64 *)(a1 + 328), 3);
+      if ( *(_QWORD *)(a1 + 1024) != a1 + 1024 )
+        EtwpAddBinaryInfoEvents(a1, a2, a2->LowPart, 2LL);
+    }
+    a2->HighPart = a2[6].LowPart;
+    a2[5].HighPart = 3;
+    EtwpPrepareHeader(a1, (__int64)a2, 1);
+    result = a2[1].LowPart;
+    a2->HighPart = result;
+  }
+  return result;
+}

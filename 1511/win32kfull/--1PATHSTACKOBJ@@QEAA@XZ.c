@@ -1,0 +1,32 @@
+/*
+ * XREFs of ??1PATHSTACKOBJ@@QEAA@XZ @ 0x1C0010348
+ * Callers:
+ *     NtGdiEllipse @ 0x1C0003B50 (NtGdiEllipse.c)
+ *     GrePolyPolygonInternal @ 0x1C0010084 (GrePolyPolygonInternal.c)
+ *     GreRectangle @ 0x1C00FC0C4 (GreRectangle.c)
+ *     ?SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C01324C0 (-SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_P.c)
+ *     ?vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@KKW4PRECOMPUTETYPE@@@Z @ 0x1C01327EC (-vInit@PRECOMPUTE@@QEAAXPEAVSURFACE@@PEAVPDEVOBJ@@PEAVEPATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEA.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C013BD04 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     ?SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C026CE50 (-SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C026DDB0 (-SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@.c)
+ *     ?GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z @ 0x1C02923B8 (-GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z.c)
+ *     GreAngleArc @ 0x1C02925A8 (GreAngleArc.c)
+ *     GrePolyBezierTo @ 0x1C0292CA0 (GrePolyBezierTo.c)
+ *     GrePolyDraw @ 0x1C0292E74 (GrePolyDraw.c)
+ *     GrePolyPolylineInternal @ 0x1C0293414 (GrePolyPolylineInternal.c)
+ *     GrePolylineTo @ 0x1C02935F0 (GrePolylineTo.c)
+ *     NtGdiRoundRect @ 0x1C02937B0 (NtGdiRoundRect.c)
+ *     NtGdiArcInternal @ 0x1C02A8B20 (NtGdiArcInternal.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall PATHSTACKOBJ::~PATHSTACKOBJ(PATHSTACKOBJ *this)
+{
+  EPATHOBJ::vUnlock(this);
+  if ( *((_DWORD *)this + 30) )
+  {
+    PopThreadGuardedObject((char *)this + 88);
+    *((_DWORD *)this + 30) = 0;
+  }
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of VideoPortCallout_0 @ 0x1C015CB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 VideoPortCallout_0()
+{
+  return VideoPortCallout();
+}

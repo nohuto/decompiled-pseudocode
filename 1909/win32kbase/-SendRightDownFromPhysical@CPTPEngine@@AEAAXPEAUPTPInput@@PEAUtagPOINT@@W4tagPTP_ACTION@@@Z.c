@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?SendRightDownFromPhysical@CPTPEngine@@AEAAXPEAUPTPInput@@PEAUtagPOINT@@W4tagPTP_ACTION@@@Z @ 0x1C0196D50
+ * Callers:
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C0192714 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ * Callees:
+ *     ?DoTPButtonWarpBack@CPTPEngine@@AEAA?AUtagPOINT@@PEAUPTPInput@@@Z @ 0x1C01932EC (-DoTPButtonWarpBack@CPTPEngine@@AEAA-AUtagPOINT@@PEAUPTPInput@@@Z.c)
+ *     ?SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z @ 0x1C0196CB0 (-SendMouseOutput@CBasePTPEngine@@IEAAXW4Action@Mouse@Payload@PTPEngineOutput@@UtagPOINT@@@Z.c)
+ *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C0196ED4 (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
+ */
+
+unsigned __int64 __fastcall CPTPEngine::SendRightDownFromPhysical(
+        CPTPEngine *a1,
+        __int64 a2,
+        _QWORD *a3,
+        unsigned int a4)
+{
+  unsigned __int64 result; // rax
+  __int64 v8; // r8
+  __int128 v9; // [rsp+20h] [rbp-40h]
+  __int128 v10; // [rsp+40h] [rbp-20h] BYREF
+  __int64 v11; // [rsp+50h] [rbp-10h]
+  char v12; // [rsp+70h] [rbp+10h] BYREF
+
+  *((_DWORD *)a1 + 814) |= 0x100u;
+  result = *((unsigned int *)a1 + 814);
+  if ( (result & 0x10) == 0 )
+  {
+    v10 = a4;
+    v11 = 0LL;
+    CBasePTPEngine::SendTelemetryOutput(a1, 4LL, &v10);
+    if ( a3 )
+    {
+      HIDWORD(v9) = 0;
+      *(_QWORD *)((char *)&v9 + 4) = *a3;
+      LODWORD(v9) = 1;
+      v11 = 0LL;
+      v10 = v9;
+      CBasePTPEngine::SendTelemetryOutput(a1, 6LL, &v10);
+    }
+    v8 = *(_QWORD *)(a2 + 28);
+    if ( (*((_DWORD *)a1 + 55) & 0x200) != 0 )
+      v8 = **(_QWORD **)&CPTPEngine::DoTPButtonWarpBack(a1, (struct PTPInput *)&v12, a2);
+    result = (unsigned __int64)CBasePTPEngine::SendMouseOutput((__int64)a1, 3, v8);
+    *((_DWORD *)a1 + 814) |= 0x10u;
+  }
+  return result;
+}

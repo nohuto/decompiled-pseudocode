@@ -1,0 +1,86 @@
+/*
+ * XREFs of ?InitContinuousReader@FxUsbPipe@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C006D8EC
+ * Callers:
+ *     imp_WdfUsbTargetPipeConfigContinuousReader @ 0x1C00688E0 (imp_WdfUsbTargetPipeConfigContinuousReader.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z @ 0x1C0009330 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@W4_POOL_TYPE@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z @ 0x1C006BDCC (-Config@FxUsbPipeContinuousReader@@QEAAJPEAU_WDF_USB_CONTINUOUS_READER_CONFIG@@_K@Z.c)
+ *     ??0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z @ 0x1C006C578 (--0FxUsbPipeContinuousReader@@QEAA@PEAVFxUsbPipe@@E@Z.c)
+ *     ??_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z @ 0x1C006C9D0 (--_GFxUsbPipeContinuousReader@@QEAAPEAXI@Z.c)
+ */
+
+__int64 __fastcall FxUsbPipe::InitContinuousReader(
+        FxUsbPipe *this,
+        _WDF_USB_CONTINUOUS_READER_CONFIG *Config,
+        unsigned __int64 TotalBufferLength)
+{
+  const void *_a1; // rax
+  unsigned __int8 NumPendingReads; // al
+  unsigned __int8 v9; // bl
+  FX_POOL **v10; // rax
+  FxUsbPipeContinuousReader *v11; // rax
+  FxUsbPipeContinuousReader *v12; // rbx
+  int v13; // ebp
+  void *retaddr; // [rsp+48h] [rbp+0h]
+
+  if ( this->m_Reader )
+  {
+    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+    WPP_IFR_SF_qL(this->m_Globals, 2u, 0xEu, 0x1Cu, (const _GUID *)&WPP_FxUsbPipe_cpp_Traceguids, _a1, 0xC0000184);
+    return 3221225860LL;
+  }
+  else
+  {
+    NumPendingReads = Config->NumPendingReads;
+    if ( NumPendingReads )
+    {
+      v9 = Config->NumPendingReads;
+      if ( NumPendingReads > 0xAu )
+        v9 = 10;
+    }
+    else
+    {
+      v9 = 2;
+    }
+    v10 = FxPoolAllocator(
+            this->m_Globals,
+            &this->m_Globals->FxPoolFrameworks,
+            ExDefaultNonPagedPoolType,
+            120LL * ((unsigned int)v9 - 1) + 216,
+            this->m_Globals->Tag,
+            retaddr);
+    if ( v10 )
+    {
+      FxUsbPipeContinuousReader::FxUsbPipeContinuousReader((FxUsbPipeContinuousReader *)v10, this, v9);
+      v12 = v11;
+    }
+    else
+    {
+      v12 = 0LL;
+    }
+    if ( v12 )
+    {
+      v13 = FxUsbPipeContinuousReader::Config(v12, Config, TotalBufferLength);
+      if ( v13 >= 0 )
+      {
+        v12->m_ReadCompleteCallback = Config->EvtUsbTargetPipeReadComplete;
+        v12->m_ReadCompleteContext = Config->EvtUsbTargetPipeReadCompleteContext;
+        v12->m_ReadersFailedCallback = Config->EvtUsbTargetPipeReadersFailed;
+        if ( _InterlockedCompareExchange64((volatile signed __int64 *)&this->m_Reader, (signed __int64)v12, 0LL) )
+          FxUsbPipeContinuousReader::`scalar deleting destructor'(v12);
+        return 0LL;
+      }
+      else
+      {
+        FxUsbPipeContinuousReader::`scalar deleting destructor'(v12);
+        return (unsigned int)v13;
+      }
+    }
+    else
+    {
+      return 3221225626LL;
+    }
+  }
+}

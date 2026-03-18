@@ -1,0 +1,83 @@
+/*
+ * XREFs of WPP_RECORDER_SF_ss @ 0x1C005B568
+ * Callers:
+ *     PciConfigSpaceHandlerWorker @ 0x1C000C920 (PciConfigSpaceHandlerWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C002FD90 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall WPP_RECORDER_SF_ss(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        int a5,
+        const char *a6,
+        const char *a7)
+{
+  __int64 v7; // rbx
+  const char *v8; // rsi
+  __int64 v10; // rdx
+  const char *v11; // r9
+  __int64 v12; // r8
+  __int64 v13; // r8
+  const char *v14; // rcx
+  __int64 v15; // rax
+  int v17; // [rsp+20h] [rbp-48h]
+
+  v7 = -1LL;
+  v8 = a6;
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x100000) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+  {
+    if ( a7 )
+    {
+      v10 = -1LL;
+      do
+        ++v10;
+      while ( a7[v10] );
+    }
+    v11 = a7;
+    if ( !a7 )
+      v11 = "NULL";
+    if ( a6 )
+    {
+      v12 = -1LL;
+      do
+        ++v12;
+      while ( a6[v12] );
+      v13 = v12 + 1;
+    }
+    else
+    {
+      v13 = 5LL;
+    }
+    v14 = a6;
+    if ( !a6 )
+      v14 = "NULL";
+    pfnWppTraceMessage(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_94f6cc7e4eb03ed98099c561227e81da_Traceguids,
+      11LL,
+      v14,
+      v13,
+      v11);
+  }
+  if ( a7 )
+  {
+    v15 = -1LL;
+    do
+      ++v15;
+    while ( a7[v15] );
+  }
+  if ( a6 )
+  {
+    do
+      ++v7;
+    while ( a6[v7] );
+  }
+  if ( !a6 )
+    v8 = "NULL";
+  LOWORD(v17) = 11;
+  return WppAutoLogTrace(a1, 2LL, 21LL, &WPP_94f6cc7e4eb03ed98099c561227e81da_Traceguids, v17, v8);
+}

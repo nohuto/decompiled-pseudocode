@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??$EraseIndexList@Ufloat3@Numerics@Foundation@Windows@@V?$allocator@Ufloat3@Numerics@Foundation@Windows@@@std@@@ParticleCollection@CParticleEmitterVisual@@AEAAXAEAV?$vector@Ufloat3@Numerics@Foundation@Windows@@V?$allocator@Ufloat3@Numerics@Foundation@Windows@@@std@@@std@@AEBV?$vector@HV?$allocator@H@std@@@3@@Z @ 0x1801DBE08
+ * Callers:
+ *     ?EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV?$vector@HV?$allocator@H@std@@@std@@@Z @ 0x1801DF74C (-EraseIndexList@ParticleCollection@CParticleEmitterVisual@@QEAAXAEBV-$vector@HV-$allocator@H@std.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CParticleEmitterVisual::ParticleCollection::EraseIndexList<Windows::Foundation::Numerics::float3,std::allocator<Windows::Foundation::Numerics::float3>>(
+        __int64 a1,
+        __int64 *a2,
+        char **a3)
+{
+  char *v3; // rbx
+  __int64 v4; // r11
+  unsigned __int64 v6; // r10
+  __int64 v7; // rax
+  __int64 v8; // r9
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // xmm1_8
+  int v12; // edx
+  __int64 result; // rax
+
+  v3 = *a3;
+  v4 = 0LL;
+  v6 = (unsigned __int64)(a3[1] - *a3 + 3) >> 2;
+  if ( *a3 > a3[1] )
+    v6 = 0LL;
+  if ( v6 )
+  {
+    do
+    {
+      v7 = *(int *)v3;
+      ++v4;
+      v8 = a2[1];
+      v3 += 4;
+      v9 = *a2;
+      v10 = 3 * v7;
+      v11 = *(_QWORD *)(*a2 + 12 * v7);
+      v12 = *(_DWORD *)(*a2 + 12 * v7 + 8);
+      *(_QWORD *)(v9 + 4 * v10) = *(_QWORD *)(v8 - 12);
+      result = *(unsigned int *)(v8 - 4);
+      *(_DWORD *)(v9 + 4 * v10 + 8) = result;
+      *(_QWORD *)(v8 - 12) = v11;
+      *(_DWORD *)(v8 - 4) = v12;
+      a2[1] -= 12LL;
+    }
+    while ( v4 != v6 );
+  }
+  return result;
+}

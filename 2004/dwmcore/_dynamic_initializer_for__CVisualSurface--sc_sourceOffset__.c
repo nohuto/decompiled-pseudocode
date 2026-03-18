@@ -1,0 +1,19 @@
+/*
+ * XREFs of _dynamic_initializer_for__CVisualSurface::sc_sourceOffset__ @ 0x180002AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 dynamic_initializer_for__CVisualSurface::sc_sourceOffset__()
+{
+  __int64 result; // rax
+  __int64 v1; // [rsp+10h] [rbp-18h]
+
+  result = 0LL;
+  LODWORD(v1) = 0;
+  xmmword_180344558 = (unsigned __int64)CVisualSurface::SetSourceOffset;
+  qword_180344568 = v1;
+  return result;
+}

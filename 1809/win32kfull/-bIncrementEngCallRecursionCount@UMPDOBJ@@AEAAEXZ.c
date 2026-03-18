@@ -1,0 +1,73 @@
+/*
+ * XREFs of ?bIncrementEngCallRecursionCount@UMPDOBJ@@AEAAEXZ @ 0x1C016211C
+ * Callers:
+ *     NtGdiFONTOBJ_pifi @ 0x1C00879A0 (NtGdiFONTOBJ_pifi.c)
+ *     NtGdiFONTOBJ_pxoGetXform @ 0x1C0087B00 (NtGdiFONTOBJ_pxoGetXform.c)
+ *     NtGdiXFORMOBJ_iGetXform @ 0x1C008BB40 (NtGdiXFORMOBJ_iGetXform.c)
+ *     NtGdiEngTextOut @ 0x1C008E9B0 (NtGdiEngTextOut.c)
+ *     NtGdiEngStretchBlt @ 0x1C008ED60 (NtGdiEngStretchBlt.c)
+ *     NtGdiBRUSHOBJ_ulGetBrushColor @ 0x1C008FB60 (NtGdiBRUSHOBJ_ulGetBrushColor.c)
+ *     NtGdiEngLockSurface @ 0x1C010A580 (NtGdiEngLockSurface.c)
+ *     NtGdiEngUnlockSurface @ 0x1C0130640 (NtGdiEngUnlockSurface.c)
+ *     NtGdiEngCopyBits @ 0x1C01475B0 (NtGdiEngCopyBits.c)
+ *     NtGdiEngBitBlt @ 0x1C0147840 (NtGdiEngBitBlt.c)
+ *     NtGdiEngStretchBltROP @ 0x1C0147ED0 (NtGdiEngStretchBltROP.c)
+ *     ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C029540C (-NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z.c)
+ *     NtGdiBRUSHOBJ_DeleteRbrush @ 0x1C0295A50 (NtGdiBRUSHOBJ_DeleteRbrush.c)
+ *     NtGdiBRUSHOBJ_hGetColorTransform @ 0x1C0295B80 (NtGdiBRUSHOBJ_hGetColorTransform.c)
+ *     NtGdiBRUSHOBJ_pvAllocRbrush @ 0x1C0295C10 (NtGdiBRUSHOBJ_pvAllocRbrush.c)
+ *     NtGdiBRUSHOBJ_pvGetRbrush @ 0x1C0295CB0 (NtGdiBRUSHOBJ_pvGetRbrush.c)
+ *     NtGdiCLIPOBJ_bEnum @ 0x1C0295D40 (NtGdiCLIPOBJ_bEnum.c)
+ *     NtGdiCLIPOBJ_cEnumStart @ 0x1C0295E90 (NtGdiCLIPOBJ_cEnumStart.c)
+ *     NtGdiCLIPOBJ_ppoGetPath @ 0x1C0295FA0 (NtGdiCLIPOBJ_ppoGetPath.c)
+ *     NtGdiEngAlphaBlend @ 0x1C0296030 (NtGdiEngAlphaBlend.c)
+ *     NtGdiEngCheckAbort @ 0x1C02962B0 (NtGdiEngCheckAbort.c)
+ *     NtGdiEngComputeGlyphSet @ 0x1C0296380 (NtGdiEngComputeGlyphSet.c)
+ *     NtGdiEngCreateClip @ 0x1C0296470 (NtGdiEngCreateClip.c)
+ *     NtGdiEngDeleteClip @ 0x1C0296540 (NtGdiEngDeleteClip.c)
+ *     NtGdiEngDeletePath @ 0x1C02965F0 (NtGdiEngDeletePath.c)
+ *     NtGdiEngEraseSurface @ 0x1C02966A0 (NtGdiEngEraseSurface.c)
+ *     NtGdiEngFillPath @ 0x1C0296830 (NtGdiEngFillPath.c)
+ *     NtGdiEngGradientFill @ 0x1C0296A50 (NtGdiEngGradientFill.c)
+ *     NtGdiEngLineTo @ 0x1C0296EB0 (NtGdiEngLineTo.c)
+ *     NtGdiEngPaint @ 0x1C0297120 (NtGdiEngPaint.c)
+ *     NtGdiEngPlgBlt @ 0x1C02972D0 (NtGdiEngPlgBlt.c)
+ *     NtGdiEngStrokeAndFillPath @ 0x1C02976F0 (NtGdiEngStrokeAndFillPath.c)
+ *     NtGdiEngStrokePath @ 0x1C0297A80 (NtGdiEngStrokePath.c)
+ *     NtGdiEngTransparentBlt @ 0x1C0297DC0 (NtGdiEngTransparentBlt.c)
+ *     NtGdiFONTOBJ_cGetAllGlyphHandles @ 0x1C0298020 (NtGdiFONTOBJ_cGetAllGlyphHandles.c)
+ *     NtGdiFONTOBJ_cGetGlyphs @ 0x1C0298150 (NtGdiFONTOBJ_cGetGlyphs.c)
+ *     NtGdiFONTOBJ_pQueryGlyphAttrs @ 0x1C02983B0 (NtGdiFONTOBJ_pQueryGlyphAttrs.c)
+ *     NtGdiFONTOBJ_pfdg @ 0x1C0298520 (NtGdiFONTOBJ_pfdg.c)
+ *     NtGdiFONTOBJ_pvTrueTypeFontFile @ 0x1C0298690 (NtGdiFONTOBJ_pvTrueTypeFontFile.c)
+ *     NtGdiFONTOBJ_vGetInfo @ 0x1C02987A0 (NtGdiFONTOBJ_vGetInfo.c)
+ *     NtGdiPATHOBJ_bEnum @ 0x1C02989C0 (NtGdiPATHOBJ_bEnum.c)
+ *     NtGdiPATHOBJ_bEnumClipLines @ 0x1C0298B60 (NtGdiPATHOBJ_bEnumClipLines.c)
+ *     NtGdiPATHOBJ_vEnumStart @ 0x1C0298D50 (NtGdiPATHOBJ_vEnumStart.c)
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C0298E20 (NtGdiPATHOBJ_vEnumStartClipLines.c)
+ *     NtGdiPATHOBJ_vGetBounds @ 0x1C0298FF0 (NtGdiPATHOBJ_vGetBounds.c)
+ *     NtGdiSTROBJ_bGetAdvanceWidths @ 0x1C0299120 (NtGdiSTROBJ_bGetAdvanceWidths.c)
+ *     NtGdiSTROBJ_dwGetCodePage @ 0x1C0299260 (NtGdiSTROBJ_dwGetCodePage.c)
+ *     NtGdiSTROBJ_vEnumStart @ 0x1C02992F0 (NtGdiSTROBJ_vEnumStart.c)
+ *     NtGdiXFORMOBJ_bApplyXform @ 0x1C0299430 (NtGdiXFORMOBJ_bApplyXform.c)
+ *     NtGdiXLATEOBJ_cGetPalette @ 0x1C0299600 (NtGdiXLATEOBJ_cGetPalette.c)
+ *     NtGdiXLATEOBJ_hGetColorTransform @ 0x1C0299730 (NtGdiXLATEOBJ_hGetColorTransform.c)
+ *     NtGdiXLATEOBJ_iXlate @ 0x1C02997C0 (NtGdiXLATEOBJ_iXlate.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int8 __fastcall UMPDOBJ::bIncrementEngCallRecursionCount(UMPDOBJ *this)
+{
+  signed __int32 v1; // eax
+
+  while ( 1 )
+  {
+    v1 = *((_DWORD *)this + 105);
+    if ( v1 < 0 || (unsigned int)(v1 + 1) >= 0x80000000 )
+      break;
+    if ( v1 == _InterlockedCompareExchange((volatile signed __int32 *)this + 105, v1 + 1, v1) )
+      return 1;
+  }
+  return 0;
+}

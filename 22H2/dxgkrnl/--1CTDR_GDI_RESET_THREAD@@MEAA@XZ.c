@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??1CTDR_GDI_RESET_THREAD@@MEAA@XZ @ 0x1C030D520
+ * Callers:
+ *     ??_GCTDR_GDI_RESET_THREAD@@MEAAPEAXI@Z @ 0x1C030D5C0 (--_GCTDR_GDI_RESET_THREAD@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1CVP_SYSTEM_THREAD@@MEAA@XZ @ 0x1C030D554 (--1CVP_SYSTEM_THREAD@@MEAA@XZ.c)
+ *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030F0D0 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ */
+
+void __fastcall CTDR_GDI_RESET_THREAD::~CTDR_GDI_RESET_THREAD(PVOID *this)
+{
+  *this = &CTDR_GDI_RESET_THREAD::`vftable';
+  TdrDereferenceRecoveryContext(this[3], 0);
+  CVP_SYSTEM_THREAD::~CVP_SYSTEM_THREAD((CVP_SYSTEM_THREAD *)this);
+}

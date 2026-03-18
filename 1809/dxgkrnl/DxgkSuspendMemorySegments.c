@@ -1,0 +1,34 @@
+/*
+ * XREFs of DxgkSuspendMemorySegments @ 0x1C01C85C0
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C015D200 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     ?SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ @ 0x1C01C799C (-SuspendMemorySegments@ADAPTER_RENDER@@QEAAJXZ.c)
+ */
+
+__int64 __fastcall DxgkSuspendMemorySegments(__int64 a1)
+{
+  __int64 v2; // rax
+  unsigned int v3; // ebx
+  ADAPTER_RENDER *v5; // rcx
+
+  if ( !a1 )
+  {
+    v2 = WdLogNewEntry5_WdError(0LL);
+    v3 = -1073741811;
+    *(_QWORD *)(v2 + 24) = -1073741811LL;
+LABEL_3:
+    WdLogEvent5_WdError(v2);
+    return v3;
+  }
+  v5 = *(ADAPTER_RENDER **)(a1 + 2528);
+  if ( !v5 )
+  {
+    v2 = WdLogNewEntry5_WdError(0LL);
+    *(_QWORD *)(v2 + 24) = a1;
+    v3 = -1073741637;
+    *(_QWORD *)(v2 + 32) = -1073741637LL;
+    goto LABEL_3;
+  }
+  return ADAPTER_RENDER::SuspendMemorySegments(v5);
+}

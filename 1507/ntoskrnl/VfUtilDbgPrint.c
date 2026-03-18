@@ -1,0 +1,66 @@
+/*
+ * XREFs of VfUtilDbgPrint @ 0x14025A0F4
+ * Callers:
+ *     VfReportIssueWithOptions @ 0x14025B0C0 (VfReportIssueWithOptions.c)
+ *     VfNotifyVerifierOfEvent @ 0x140737430 (VfNotifyVerifierOfEvent.c)
+ *     VfUtilClearOneBootSettings @ 0x14073777C (VfUtilClearOneBootSettings.c)
+ *     VfUtilPrintCheckinString @ 0x1407379BC (VfUtilPrintCheckinString.c)
+ *     ViGenericDumpIrpStack @ 0x140737DB0 (ViGenericDumpIrpStack.c)
+ *     ViGenericVerifyIrpStackDownward @ 0x140737E18 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyIrpStackUpward @ 0x140738120 (ViGenericVerifyIrpStackUpward.c)
+ *     ViGenericVerifyNewIrp @ 0x1407382DC (ViGenericVerifyNewIrp.c)
+ *     ViCiPreprocessOptions @ 0x140738838 (ViCiPreprocessOptions.c)
+ *     ViXdvBindXdvDDIWrappers @ 0x1407393BC (ViXdvBindXdvDDIWrappers.c)
+ *     ViXdvBindXdvDriverEntryWrappers @ 0x1407394A0 (ViXdvBindXdvDriverEntryWrappers.c)
+ *     ViXdvDriverLoadImage @ 0x1407395BC (ViXdvDriverLoadImage.c)
+ *     ViAdapterCallback @ 0x14073CEBC (ViAdapterCallback.c)
+ *     ViFlushDoubleBuffer @ 0x14073DE3C (ViFlushDoubleBuffer.c)
+ *     ViHalPreprocessOptions @ 0x14073E7D0 (ViHalPreprocessOptions.c)
+ *     ViSpecialAllocateCommonBuffer @ 0x14073F1E0 (ViSpecialAllocateCommonBuffer.c)
+ *     IovpCallDriver1 @ 0x14073F69C (IovpCallDriver1.c)
+ *     IovpCallDriver2 @ 0x14073FD1C (IovpCallDriver2.c)
+ *     IovpCompleteRequest1 @ 0x14074031C (IovpCompleteRequest1.c)
+ *     IovpCompleteRequest2 @ 0x1407404B4 (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest4 @ 0x1407408D4 (IovpCompleteRequest4.c)
+ *     IovpExamineIrpStackForwarding @ 0x140740A9C (IovpExamineIrpStackForwarding.c)
+ *     IovpValidateStatusInformation @ 0x140740C68 (IovpValidateStatusInformation.c)
+ *     VfAfterCallDriver @ 0x140740DEC (VfAfterCallDriver.c)
+ *     VfIoFreeIrp @ 0x140741298 (VfIoFreeIrp.c)
+ *     VfIoInitializeIrp @ 0x1407414D0 (VfIoInitializeIrp.c)
+ *     VfIoDeleteDevice @ 0x140742FD4 (VfIoDeleteDevice.c)
+ *     VfIoDetachDevice @ 0x140743140 (VfIoDetachDevice.c)
+ *     VfErrorReport7 @ 0x14074422C (VfErrorReport7.c)
+ *     VfErrorReport8 @ 0x1407442BC (VfErrorReport8.c)
+ *     ViErrorDisplayDescription @ 0x140744384 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x1407443D4 (ViErrorFinishReport.c)
+ *     ViShutdownWatchdogExecuteDpc @ 0x140747628 (ViShutdownWatchdogExecuteDpc.c)
+ *     ViWdIrpTimedOut @ 0x14074B1FC (ViWdIrpTimedOut.c)
+ *     VfPnpDumpIrpStack @ 0x14074C6C4 (VfPnpDumpIrpStack.c)
+ *     VfPnpVerifyIrpStackDownward @ 0x14074CB70 (VfPnpVerifyIrpStackDownward.c)
+ *     VfPnpVerifyIrpStackUpward @ 0x14074CE18 (VfPnpVerifyIrpStackUpward.c)
+ *     VfPnpVerifyNewRequest @ 0x14074D1B8 (VfPnpVerifyNewRequest.c)
+ *     ViPnpVerifyMinorWasProcessedProperly @ 0x14074D3D8 (ViPnpVerifyMinorWasProcessedProperly.c)
+ *     VfPowerDumpIrpStack @ 0x14074D7A4 (VfPowerDumpIrpStack.c)
+ *     VfPowerVerifyIrpStackDownward @ 0x14074D8E0 (VfPowerVerifyIrpStackDownward.c)
+ *     VfPowerVerifyIrpStackUpward @ 0x14074DAE8 (VfPowerVerifyIrpStackUpward.c)
+ *     VfPowerVerifyNewRequest @ 0x14074DB84 (VfPowerVerifyNewRequest.c)
+ *     VfWmiDumpIrpStack @ 0x14074DC40 (VfWmiDumpIrpStack.c)
+ *     VfWmiVerifyIrpStackDownward @ 0x14074DCEC (VfWmiVerifyIrpStackDownward.c)
+ *     VfWmiVerifyIrpStackUpward @ 0x14074DE18 (VfWmiVerifyIrpStackUpward.c)
+ *     VfWmiVerifyNewRequest @ 0x14074DEFC (VfWmiVerifyNewRequest.c)
+ *     ViCtxCheckAndReleaseIsrState @ 0x14074EA4C (ViCtxCheckAndReleaseIsrState.c)
+ *     ViDeadlockPreprocessOptions @ 0x140751278 (ViDeadlockPreprocessOptions.c)
+ *     VerifierNtCreateFile @ 0x14075428C (VerifierNtCreateFile.c)
+ *     VerifierNtReadFile @ 0x1407543A8 (VerifierNtReadFile.c)
+ *     VerifierNtWriteFile @ 0x1407544C0 (VerifierNtWriteFile.c)
+ * Callees:
+ *     vDbgPrintEx @ 0x140131EE4 (vDbgPrintEx.c)
+ */
+
+ULONG VfUtilDbgPrint(PCCH Format, ...)
+{
+  va_list va; // [rsp+38h] [rbp+10h] BYREF
+
+  va_start(va, Format);
+  return vDbgPrintEx(0x65u, 0, Format, va);
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?ZeroIfNeeded@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C006B5D4
+ * Callers:
+ *     ?Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C006BDF0 (-Lock@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1W4_LOCK_OPERATION@@PEAVVIDMM_SE.c)
+ * Callees:
+ *     ?ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C006C234 (-ZeroMultirangeMemory@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C006CEB8 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ */
+
+void __fastcall VIDMM_RECYCLE_MULTIRANGE::ZeroIfNeeded(struct VIDMM_RECYCLE_RANGE **this)
+{
+  VIDMM_RECYCLE_MULTIRANGE *v1; // r8
+  struct VIDMM_RECYCLE_RANGE *i; // rcx
+
+  v1 = (VIDMM_RECYCLE_MULTIRANGE *)this;
+  if ( dword_1C0040370 )
+  {
+    for ( i = this[8]; (*((_BYTE *)i + 84) & 2) == 0; i = VIDMM_RECYCLE_RANGE::GetNextRange(i) )
+    {
+      if ( i == *((struct VIDMM_RECYCLE_RANGE **)v1 + 9) )
+        return;
+    }
+    VIDMM_RECYCLE_MULTIRANGE::ZeroMultirangeMemory(v1);
+  }
+}

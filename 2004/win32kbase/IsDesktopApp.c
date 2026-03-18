@@ -1,0 +1,12 @@
+/*
+ * XREFs of IsDesktopApp @ 0x1C0032680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall IsDesktopApp(__int64 a1)
+{
+  return (*(_DWORD *)(a1 + 820) & 0x30) == 0;
+}

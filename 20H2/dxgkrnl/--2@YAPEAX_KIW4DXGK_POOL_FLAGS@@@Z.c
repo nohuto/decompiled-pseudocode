@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00269AC
+ * Callers:
+ *     ?InitializeAdapterObject@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@PEAVDXGDEVICE@@@Z @ 0x1C00DAE14 (-InitializeAdapterObject@DXGADAPTERSYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@PEAVDXGDEVICE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 operator new()
+{
+  return ExAllocatePool2(64LL, 56LL, 1265072196LL);
+}

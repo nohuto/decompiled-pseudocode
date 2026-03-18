@@ -1,0 +1,133 @@
+/*
+ * XREFs of MiRemoveSharedCommitNode @ 0x140623DA0
+ * Callers:
+ *     MiDeletePartialVad @ 0x14024FC00 (MiDeletePartialVad.c)
+ *     MiDeleteVad @ 0x14027E4D0 (MiDeleteVad.c)
+ *     MiMapViewOfDataSection @ 0x140622CE0 (MiMapViewOfDataSection.c)
+ *     MiRemoveSharedCommitNode @ 0x140623DA0 (MiRemoveSharedCommitNode.c)
+ *     MiInsertSharedCommitNode @ 0x140624010 (MiInsertSharedCommitNode.c)
+ *     MiSectionClose @ 0x1406245B0 (MiSectionClose.c)
+ *     MiMapViewOfImageSection @ 0x140626CE0 (MiMapViewOfImageSection.c)
+ *     MmLinkJobProcess @ 0x14062D970 (MmLinkJobProcess.c)
+ *     MiAllocateChildVads @ 0x1408DB2D0 (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x1408DBD68 (MiDeletePartialCloneVads.c)
+ * Callees:
+ *     KeAbPostRelease @ 0x14021ED30 (KeAbPostRelease.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140220A40 (ExAcquirePushLockExclusiveEx.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x140220E40 (KiLeaveGuardedRegionUnsafe.c)
+ *     MiIncludeSharedCommit @ 0x14022E8F0 (MiIncludeSharedCommit.c)
+ *     MiGetCommittedPages @ 0x14022E938 (MiGetCommittedPages.c)
+ *     ExfTryToWakePushLock @ 0x140242B40 (ExfTryToWakePushLock.c)
+ *     RtlAvlRemoveNode @ 0x1402C3340 (RtlAvlRemoveNode.c)
+ *     MiRemoveSharedCommitNode @ 0x140623DA0 (MiRemoveSharedCommitNode.c)
+ *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall MiRemoveSharedCommitNode(_QWORD *a1, unsigned __int64 a2, char a3)
+{
+  unsigned __int64 v6; // rbp
+  __int64 v7; // rcx
+  struct _KTHREAD *CurrentThread; // r15
+  __int64 v9; // rax
+  unsigned __int64 *v10; // rcx
+  unsigned __int64 *v11; // rdi
+  unsigned __int64 v13; // rax
+  unsigned __int64 v14; // rdx
+  unsigned __int64 **v15; // rcx
+  __int64 v16; // [rsp+20h] [rbp-48h]
+  unsigned __int64 *v17; // [rsp+78h] [rbp+10h]
+  unsigned __int64 v18; // [rsp+88h] [rbp+20h]
+
+  if ( (a2 & 1) != 0 )
+  {
+    v18 = a2 & 0xFFFFFFFFFFFFFFFEuLL;
+    v6 = 0LL;
+  }
+  else
+  {
+    v6 = a2;
+    if ( !(unsigned int)MiIncludeSharedCommit((__int64)a1)
+      || (*(_DWORD *)(v7 + 56) & 0x20) != 0
+      || (*(_DWORD *)(a2 + 2172) & 0x10) != 0 )
+    {
+      return;
+    }
+    v18 = 0LL;
+  }
+  CurrentThread = KeGetCurrentThread();
+  v9 = *a1;
+  v16 = *a1;
+  v10 = (unsigned __int64 *)(*a1 + 72LL);
+  v17 = v10;
+  if ( (a3 & 1) == 0 )
+  {
+    --CurrentThread->SpecialApcDisable;
+    ExAcquirePushLockExclusiveEx(v6 + 2352, 0LL);
+    v9 = v16;
+    v10 = v17;
+  }
+  if ( (a3 & 2) == 0 )
+  {
+    --CurrentThread->SpecialApcDisable;
+    ExAcquirePushLockExclusiveEx(v9 + 40, 0LL);
+    v10 = v17;
+  }
+  v11 = (unsigned __int64 *)*v10;
+  if ( *v10 )
+  {
+    do
+    {
+      if ( a2 > v11[3] )
+      {
+        v11 = (unsigned __int64 *)v11[1];
+      }
+      else
+      {
+        if ( a2 >= v11[3] )
+          break;
+        v11 = (unsigned __int64 *)*v11;
+      }
+    }
+    while ( v11 );
+  }
+  if ( v11[4]-- == 1 )
+  {
+    RtlAvlRemoveNode(v10, v11);
+    v13 = -MiGetCommittedPages(a1);
+    if ( v6 )
+    {
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 2344), v13);
+      v14 = v11[5];
+      if ( *(unsigned __int64 **)(v14 + 8) != v11 + 5 || (v15 = (unsigned __int64 **)v11[6], *v15 != v11 + 5) )
+        __fastfail(3u);
+      *v15 = (unsigned __int64 *)v14;
+      *(_QWORD *)(v14 + 8) = v15;
+      if ( (a3 & 4) == 0 && (*(_DWORD *)(v6 + 2172) & 8) != 0 )
+        MiRemoveSharedCommitNode(a1, *(_QWORD *)(v6 + 1296) | 1LL, 3LL);
+    }
+    else
+    {
+      _InterlockedExchangeAdd64((volatile signed __int64 *)(v18 + 1336), v13);
+    }
+  }
+  else
+  {
+    v11 = 0LL;
+  }
+  if ( (a3 & 2) == 0 )
+  {
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v16 + 40), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(v16 + 40));
+    KeAbPostRelease(v16 + 40);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  }
+  if ( (a3 & 1) == 0 )
+  {
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 + 2352), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(v6 + 2352));
+    KeAbPostRelease(v6 + 2352);
+    KiLeaveGuardedRegionUnsafe((__int64)CurrentThread);
+  }
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
+}

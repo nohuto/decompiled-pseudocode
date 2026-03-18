@@ -1,0 +1,177 @@
+/*
+ * XREFs of HUBREG_SetWinUsbIdleDefaults @ 0x1C0077B0C
+ * Callers:
+ *     FWUPDATE_EvtDeviceResourceRequirementsQuery @ 0x1C007A2D0 (FWUPDATE_EvtDeviceResourceRequirementsQuery.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0001A3C (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C003C610 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall HUBREG_SetWinUsbIdleDefaults(__int64 a1)
+{
+  __int64 v2; // rdi
+  __int64 result; // rax
+  unsigned __int16 v4; // r9
+  unsigned int v5; // r8d
+  int v6; // ebx
+  int v7; // ebx
+  __int64 v8; // [rsp+28h] [rbp-18h]
+  int v9; // [rsp+68h] [rbp+28h] BYREF
+  __int64 v10; // [rsp+70h] [rbp+30h] BYREF
+  __int64 v11; // [rsp+78h] [rbp+38h] BYREF
+
+  v10 = 0LL;
+  v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
+         WdfDriverGlobals,
+         a1,
+         off_1C005F0B8);
+  LODWORD(result) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64, __int64, _QWORD, __int64 *))(WdfFunctions_01015 + 384))(
+                      WdfDriverGlobals,
+                      a1,
+                      1LL,
+                      131103LL,
+                      0LL,
+                      &v10);
+  if ( (int)result < 0 )
+  {
+    v4 = 146;
+LABEL_3:
+    v5 = 3;
+LABEL_23:
+    LODWORD(v8) = result;
+    goto LABEL_24;
+  }
+  LODWORD(result) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD, __int64 *))(WdfFunctions_01015 + 2464))(
+                      WdfDriverGlobals,
+                      0LL,
+                      0LL,
+                      &v11);
+  if ( (int)result < 0 )
+  {
+    v4 = 147;
+    goto LABEL_3;
+  }
+  v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64))(WdfFunctions_01015 + 1912))(
+         WdfDriverGlobals,
+         v10,
+         L"&(",
+         v11);
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1664))(WdfDriverGlobals, v11);
+  if ( v6 != -1073741772 )
+  {
+    if ( v6 < 0 )
+    {
+      v4 = 150;
+      LODWORD(v8) = v6;
+      v5 = 5;
+      goto LABEL_24;
+    }
+LABEL_13:
+    result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+               WdfDriverGlobals,
+               v10,
+               L"\"$",
+               4LL,
+               &v9,
+               0LL,
+               0LL);
+    if ( (int)result >= 0 )
+      goto LABEL_25;
+    result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+               WdfDriverGlobals,
+               v10,
+               L" \"",
+               4LL,
+               &v9,
+               0LL,
+               0LL);
+    if ( (int)result >= 0 )
+      goto LABEL_25;
+    result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+               WdfDriverGlobals,
+               v10,
+               L"46",
+               4LL,
+               &v9,
+               0LL,
+               0LL);
+    if ( (int)result >= 0 )
+      goto LABEL_25;
+    v9 = 1;
+    LODWORD(result) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int, int *))(WdfFunctions_01015 + 1928))(
+                        WdfDriverGlobals,
+                        v10,
+                        L"\"$",
+                        4LL,
+                        4,
+                        &v9);
+    if ( (int)result >= 0 )
+    {
+      v9 = 1;
+      LODWORD(result) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int, int *))(WdfFunctions_01015 + 1928))(
+                          WdfDriverGlobals,
+                          v10,
+                          L" \"",
+                          4LL,
+                          4,
+                          &v9);
+      if ( (int)result >= 0 )
+      {
+        v9 = 1;
+        result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int, int *))(WdfFunctions_01015 + 1928))(
+                   WdfDriverGlobals,
+                   v10,
+                   L"46",
+                   4LL,
+                   4,
+                   &v9);
+        if ( (int)result >= 0 )
+          goto LABEL_25;
+        v4 = 153;
+      }
+      else
+      {
+        v4 = 152;
+      }
+    }
+    else
+    {
+      v4 = 151;
+    }
+    v5 = 5;
+    goto LABEL_23;
+  }
+  LODWORD(result) = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, const wchar_t *, _QWORD, __int64 *))(WdfFunctions_01015 + 2464))(
+                      WdfDriverGlobals,
+                      L"LN",
+                      0LL,
+                      &v11);
+  if ( (int)result < 0 )
+  {
+    v4 = 148;
+    goto LABEL_3;
+  }
+  v7 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64))(WdfFunctions_01015 + 1960))(
+         WdfDriverGlobals,
+         v10,
+         L"&(",
+         v11);
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 1664))(WdfDriverGlobals, v11);
+  if ( v7 >= 0 )
+    goto LABEL_13;
+  v4 = 149;
+  LODWORD(v8) = v7;
+  v5 = 3;
+LABEL_24:
+  result = WPP_RECORDER_SF_d(
+             *(_QWORD *)(*(_QWORD *)v2 + 2520LL),
+             2u,
+             v5,
+             v4,
+             (__int64)&WPP_a5d7102001b13a39eb4d855100c5c7b8_Traceguids,
+             v8);
+LABEL_25:
+  if ( v10 )
+    return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS))(WdfFunctions_01015 + 1848))(WdfDriverGlobals);
+  return result;
+}

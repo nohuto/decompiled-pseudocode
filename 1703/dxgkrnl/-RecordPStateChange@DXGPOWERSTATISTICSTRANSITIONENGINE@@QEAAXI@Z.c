@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?RecordPStateChange@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C0038C40
+ * Callers:
+ *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C0021628 (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGPOWERSTATISTICSTRANSITIONENGINE::RecordPStateChange(LARGE_INTEGER *this, DWORD a2)
+{
+  bool v4; // zf
+  LARGE_INTEGER PerformanceCounter; // rax
+  LARGE_INTEGER v6; // r9
+  __int64 v7; // r8
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)&this[3].QuadPart, &LockHandle);
+  v4 = this[7].HighPart == -1;
+  this[7].LowPart = a2;
+  if ( v4 )
+    this[7].HighPart = a2;
+  PerformanceCounter = KeQueryPerformanceCounter(0LL);
+  v4 = this[6].QuadPart == 0;
+  this[6] = PerformanceCounter;
+  if ( !v4 )
+  {
+    v6 = this[4];
+    if ( v6.QuadPart > this[5].QuadPart )
+    {
+      v7 = *(unsigned int *)(this[2].QuadPart + 4LL * this[7].LowPart + 4);
+      this[4] = PerformanceCounter;
+      this[9].QuadPart += (PerformanceCounter.QuadPart - v6.QuadPart) * v7;
+    }
+  }
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+}

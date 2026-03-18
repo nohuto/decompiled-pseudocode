@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?ForwardInputToKeyboardOverrider@CKeyboardProcessor@@SAX_NGGGPEAXKGPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C017CFB0
+ * Callers:
+ *     xxxKeyEventEx @ 0x1C01861D0 (xxxKeyEventEx.c)
+ * Callees:
+ *     ?CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z @ 0x1C00409F0 (-CoreMsgSendMessage@InputExtensibilityCallout@@QEBAJW4_MIT_ENDPOINT@@PEBXI@Z.c)
+ *     memset @ 0x1C00C1440 (memset.c)
+ *     ?CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0GPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@PEAU_MIT_KEYBOARD_INPUT_MESSAGE@@@Z @ 0x1C017C990 (-CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0GPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO.c)
+ */
+
+void __fastcall CKeyboardProcessor::ForwardInputToKeyboardOverrider(
+        unsigned __int8 a1,
+        __int16 a2,
+        unsigned __int16 a3,
+        __int16 a4,
+        void *a5,
+        unsigned int a6,
+        unsigned __int16 a7,
+        struct _KEYBOARD_VIRTUAL_DEVICE_INFO *a8)
+{
+  int v9; // ebp
+  __int64 v12; // rcx
+  _DWORD v13[92]; // [rsp+50h] [rbp-178h] BYREF
+
+  v9 = a1;
+  memset(v13, 0, sizeof(v13));
+  LOWORD(v13[88]) = a2;
+  v13[89] = v9;
+  LOWORD(v13[90]) = a3;
+  v13[91] = a6;
+  CKeyboardProcessor::CreateKeyboardInputMessage(
+    v9,
+    a2,
+    a3,
+    a4,
+    a5,
+    a6,
+    0,
+    a7,
+    a8,
+    (struct _MIT_KEYBOARD_INPUT_MESSAGE *)v13);
+  InputExtensibilityCallout::CoreMsgSendMessage(v12, 14);
+}

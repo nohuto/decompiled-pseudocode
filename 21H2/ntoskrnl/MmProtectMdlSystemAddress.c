@@ -1,0 +1,208 @@
+/*
+ * XREFs of MmProtectMdlSystemAddress @ 0x140585D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiLookupIoPageNode @ 0x1402137E4 (MiLookupIoPageNode.c)
+ *     MiMappingHasIoReferences @ 0x1402155C8 (MiMappingHasIoReferences.c)
+ *     MiMappingHasIoTracker @ 0x140215774 (MiMappingHasIoTracker.c)
+ *     MiWritePteShadow @ 0x1402294F0 (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140229550 (MiPteHasShadow.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14026C61C (MiMakeProtectionPfnCompatible.c)
+ *     MiMakeValidPte @ 0x1402CBD10 (MiMakeValidPte.c)
+ *     MiInsertTbFlushEntry @ 0x1402CF280 (MiInsertTbFlushEntry.c)
+ *     MiMakeTransitionPte @ 0x1402E4D28 (MiMakeTransitionPte.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x1402FDD20 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x140317A10 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140317A80 (MiPteInShadowRange.c)
+ *     MiMakeProtectionMask @ 0x14032BCC0 (MiMakeProtectionMask.c)
+ *     MiFlushTbList @ 0x14032F1B0 (MiFlushTbList.c)
+ *     MiWriteValidPteNewProtection @ 0x14033DBC0 (MiWriteValidPteNewProtection.c)
+ *     __security_check_cookie @ 0x1403DF760 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041F3D0 (KeBugCheckEx.c)
+ *     memset @ 0x140435E00 (memset.c)
+ */
+
+NTSTATUS __stdcall MmProtectMdlSystemAddress(PMDL MemoryDescriptorList, ULONG NewProtect)
+{
+  int v4; // r15d
+  unsigned __int64 MappedSystemVa; // rbp
+  unsigned int ProtectionMask; // eax
+  unsigned int v8; // r14d
+  __int64 v9; // rsi
+  __int64 ByteCount; // rbx
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rbp
+  int v13; // edi
+  unsigned __int64 *v14; // rsi
+  unsigned __int64 v15; // r12
+  ULONG_PTR BugCheckParameter4; // rax
+  unsigned __int64 v17; // rbx
+  unsigned __int64 v18; // rbx
+  __int64 TransitionPte; // rax
+  __int64 v20; // rdi
+  int v21; // r8d
+  int v22; // r15d
+  unsigned __int64 v23; // rbx
+  int ProtectionPfnCompatible; // edi
+  int v25; // eax
+  unsigned __int64 ValidPte; // rax
+  unsigned __int64 v27; // rdi
+  int v28; // r15d
+  unsigned __int64 v29; // rbx
+  int HasIoTracker; // [rsp+30h] [rbp-128h]
+  __int64 v31; // [rsp+38h] [rbp-120h] BYREF
+  unsigned __int64 v32; // [rsp+40h] [rbp-118h]
+  _QWORD v33[24]; // [rsp+50h] [rbp-108h] BYREF
+
+  memset(v33, 0, 0xB8uLL);
+  v4 = 1;
+  if ( (MemoryDescriptorList->MdlFlags & 1) == 0 )
+    return -1073741799;
+  MappedSystemVa = (unsigned __int64)MemoryDescriptorList->MappedSystemVa;
+  if ( (unsigned int)MI_IS_PHYSICAL_ADDRESS(MappedSystemVa) )
+    return -1073741637;
+  ProtectionMask = MiMakeProtectionMask(NewProtect);
+  v8 = ProtectionMask;
+  if ( ProtectionMask == -1
+    || (ProtectionMask >> 3) - 1 <= 1
+    || ProtectionMask >> 3 == 3 && (ProtectionMask & 7) != 0
+    || (ProtectionMask & 5) == 5 )
+  {
+    return -1073741755;
+  }
+  v9 = (MappedSystemVa >> 9) & 0x7FFFFFFFF8LL;
+  ByteCount = MemoryDescriptorList->ByteCount;
+  v33[3] = 0LL;
+  v11 = MappedSystemVa & 0xFFF;
+  LODWORD(v33[1]) = 20;
+  v12 = MappedSystemVa & 0xFFFFFFFFFFFFF000uLL;
+  v13 = 0;
+  v14 = (unsigned __int64 *)(v9 - 0x98000000000LL);
+  v32 = (v11 + ByteCount + 4095) >> 12;
+  HasIoTracker = 0;
+  v15 = v12;
+  while ( v32 )
+  {
+    BugCheckParameter4 = MI_READ_PTE_LOCK_FREE((unsigned __int64)v14);
+    v31 = BugCheckParameter4;
+    if ( (BugCheckParameter4 & 1) != 0 )
+    {
+      v17 = ((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v31) >> 12) & 0xFFFFFFFFFFLL;
+      MiInsertTbFlushEntry((__int64)v33, v15, 1LL, 0);
+      if ( v15 == v12 )
+        HasIoTracker = MiMappingHasIoTracker(v12);
+    }
+    else
+    {
+      if ( (BugCheckParameter4 & 0x800) == 0 || ((BugCheckParameter4 >> 5) & 0x1F) != 0x18 )
+        KeBugCheckEx(0x1Au, 0x1235uLL, (ULONG_PTR)MemoryDescriptorList, (ULONG_PTR)v14, BugCheckParameter4);
+      v18 = BugCheckParameter4;
+      if ( qword_140C50780 )
+      {
+        if ( (BugCheckParameter4 & 0x10) != 0 )
+          v18 = BugCheckParameter4 & 0xFFFFFFFFFFFFFFEFuLL;
+        else
+          v18 = BugCheckParameter4 & ~qword_140C50780;
+      }
+      v17 = (v18 >> 12) & 0xFFFFFFFFFFLL;
+      v4 = 0;
+      if ( v15 == v12 )
+      {
+        if ( (BugCheckParameter4 & 8) != 0 )
+          v13 = 1;
+        HasIoTracker = v13;
+      }
+    }
+    if ( v8 != 24 )
+    {
+      if ( v17 <= qword_140C50840 && ((*(_QWORD *)(48 * v17 - 0x21FFFFFFFFD8LL) >> 54) & 1) != 0 )
+      {
+        ProtectionPfnCompatible = MiMakeProtectionPfnCompatible(v8, 48 * v17 - 0x220000000000LL);
+      }
+      else
+      {
+        ProtectionPfnCompatible = v8 & 7;
+        v25 = MiLookupIoPageNode(v17, 1);
+        if ( v25 )
+        {
+          if ( v25 == 2 )
+            ProtectionPfnCompatible |= 0x18u;
+        }
+        else
+        {
+          ProtectionPfnCompatible |= 8u;
+        }
+      }
+      ValidPte = MiMakeValidPte((unsigned __int64)v14, v17, ProtectionPfnCompatible | 0xA0000000);
+      v31 = ValidPte;
+      v27 = ValidPte;
+      if ( v4 )
+      {
+        MiWriteValidPteNewProtection((unsigned __int64)v14, ValidPte);
+LABEL_58:
+        v13 = HasIoTracker;
+        if ( HasIoTracker && v15 == v12 )
+          MiMappingHasIoReferences(v12);
+        goto LABEL_38;
+      }
+      v28 = 0;
+      v29 = ValidPte;
+      if ( MiPteInShadowRange((unsigned __int64)v14) )
+      {
+        if ( (unsigned int)MiPteHasShadow() )
+        {
+          v28 = 1;
+          if ( !HIBYTE(word_140C51864) )
+            goto LABEL_54;
+        }
+        else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+        {
+LABEL_54:
+          if ( (v27 & 1) != 0 )
+            v29 = v27 | 0x8000000000000000uLL;
+        }
+      }
+      *v14 = v29;
+      if ( v28 )
+        MiWritePteShadow((__int64)v14, v29);
+      goto LABEL_58;
+    }
+    TransitionPte = MiMakeTransitionPte(v17, 24);
+    v31 = TransitionPte;
+    v20 = TransitionPte;
+    if ( v21 && v15 == v12 )
+    {
+      v20 = TransitionPte | 8;
+      v31 = TransitionPte | 8;
+    }
+    v22 = 0;
+    v23 = v20;
+    if ( MiPteInShadowRange((unsigned __int64)v14) )
+    {
+      if ( (unsigned int)MiPteHasShadow() )
+      {
+        v22 = 1;
+        if ( !HIBYTE(word_140C51864) )
+          goto LABEL_33;
+      }
+      else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) != 0 )
+      {
+LABEL_33:
+        if ( (v20 & 1) != 0 )
+          v23 = v20 | 0x8000000000000000uLL;
+      }
+    }
+    *v14 = v23;
+    if ( v22 )
+      MiWritePteShadow((__int64)v14, v23);
+    v13 = HasIoTracker;
+LABEL_38:
+    v15 += 4096LL;
+    ++v14;
+    v4 = 1;
+    --v32;
+  }
+  MiFlushTbList((__int64)v33);
+  return 0;
+}

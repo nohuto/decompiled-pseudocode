@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?FillPathDescriptor@CDS_JOURNAL@CCD_BTL@@SAXPEAU_D3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_D3DKMT_AUGMENT_CDSJ@@_N2PEAVDXGADAPTER@@@Z @ 0x1C005EBEC
+ * Callers:
+ *     ?AugmentTopology@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAU_D3DKMT_AUGMENT_CDSJ@@_N@Z @ 0x1C005E9F8 (-AugmentTopology@BTL_TOPOLOGY_CONSTRUCTOR@@SAJPEAVCCD_TOPOLOGY@@PEAU_D3DKMT_AUGMENT_CDSJ@@_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C000FC20 (__security_check_cookie.c)
+ *     memset @ 0x1C0010C80 (memset.c)
+ *     ?_FillEntry@CDS_JOURNAL@CCD_BTL@@CAXPEAU_ENTRY@12@AEBU_D3DKMT_AUGMENT_CDSJ@@PEAVDXGADAPTER@@@Z @ 0x1C005EAF4 (-_FillEntry@CDS_JOURNAL@CCD_BTL@@CAXPEAU_ENTRY@12@AEBU_D3DKMT_AUGMENT_CDSJ@@PEAVDXGADAPTER@@@Z.c)
+ *     ?_FillPathDescriptor@CDS_JOURNAL@CCD_BTL@@CAXPEAU_D3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@12@_N2PEAVDXGADAPTER@@@Z @ 0x1C00611E8 (-_FillPathDescriptor@CDS_JOURNAL@CCD_BTL@@CAXPEAU_D3DKMT_PATHMODALITY_DESCRIPTOR@@AEBU_ENTRY@12@.c)
+ */
+
+void __fastcall CCD_BTL::CDS_JOURNAL::FillPathDescriptor(
+        struct _D3DKMT_PATHMODALITY_DESCRIPTOR *a1,
+        const struct _D3DKMT_AUGMENT_CDSJ *a2,
+        struct DXGADAPTER *a3,
+        __int64 a4,
+        struct DXGADAPTER *a5)
+{
+  bool v5; // si
+  _QWORD v7[10]; // [rsp+30h] [rbp-78h] BYREF
+
+  v5 = (char)a3;
+  v7[0] = 0LL;
+  v7[1] = 0LL;
+  memset((char *)&v7[2] + 4, 0, 60);
+  CCD_BTL::CDS_JOURNAL::_FillEntry((struct CCD_BTL::CDS_JOURNAL::_ENTRY *)v7, a2, a3);
+  CCD_BTL::CDS_JOURNAL::_FillPathDescriptor(a1, (const struct CCD_BTL::CDS_JOURNAL::_ENTRY *)v7, v5, 0, a5);
+}

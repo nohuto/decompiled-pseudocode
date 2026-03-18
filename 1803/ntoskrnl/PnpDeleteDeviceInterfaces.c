@@ -1,0 +1,81 @@
+/*
+ * XREFs of PnpDeleteDeviceInterfaces @ 0x1407253AC
+ * Callers:
+ *     PiDevCfgConfigureDevice @ 0x1405CF9D8 (PiDevCfgConfigureDevice.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x14006DDA0 (RtlInitUnicodeStringEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x1400EF520 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1400FFE30 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x140102980 (ExReleaseResourceLite.c)
+ *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x140490A68 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     PnpUnicodeStringToWstrFree @ 0x140509650 (PnpUnicodeStringToWstrFree.c)
+ *     PnpUnicodeStringToWstr @ 0x140509688 (PnpUnicodeStringToWstr.c)
+ *     _CmDeleteDeviceInterface @ 0x1407E76B0 (_CmDeleteDeviceInterface.c)
+ */
+
+__int64 __fastcall PnpDeleteDeviceInterfaces(unsigned __int16 *a1)
+{
+  PVOID PoolWithTag; // rbx
+  struct _KTHREAD *CurrentThread; // rax
+  int MatchingFilteredDeviceInterfaceList; // edi
+  unsigned int v5; // esi
+  const WCHAR *i; // rsi
+  UNICODE_STRING DestinationString; // [rsp+50h] [rbp-28h] BYREF
+  unsigned int v9; // [rsp+88h] [rbp+10h] BYREF
+  __int16 *v10; // [rsp+90h] [rbp+18h] BYREF
+
+  v10 = 0LL;
+  PoolWithTag = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&PnpRegistryDeviceResource, 1u);
+  MatchingFilteredDeviceInterfaceList = PnpUnicodeStringToWstr(&v10, 0LL, a1);
+  if ( MatchingFilteredDeviceInterfaceList >= 0 )
+  {
+    v9 = 4096;
+    MatchingFilteredDeviceInterfaceList = -1073741789;
+    v5 = 0;
+    while ( v5 < 5 )
+    {
+      if ( PoolWithTag )
+        ExFreePoolWithTag(PoolWithTag, 0);
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, 2LL * v9, 0x20207050u);
+      if ( !PoolWithTag )
+      {
+        MatchingFilteredDeviceInterfaceList = -1073741670;
+        break;
+      }
+      ++v5;
+      MatchingFilteredDeviceInterfaceList = CmGetMatchingFilteredDeviceInterfaceList(
+                                              *(__int64 *)&PiPnpRtlCtx,
+                                              0LL,
+                                              (__int64)v10,
+                                              0,
+                                              0LL,
+                                              0LL,
+                                              (__int64)PoolWithTag,
+                                              v9,
+                                              (__int64)&v9,
+                                              0);
+      if ( MatchingFilteredDeviceInterfaceList != -1073741789 )
+        break;
+    }
+    if ( MatchingFilteredDeviceInterfaceList >= 0 )
+    {
+      for ( i = (const WCHAR *)PoolWithTag; *i; i += ((unsigned __int64)DestinationString.Length + 2) >> 1 )
+      {
+        MatchingFilteredDeviceInterfaceList = RtlInitUnicodeStringEx(&DestinationString, i);
+        if ( MatchingFilteredDeviceInterfaceList >= 0 )
+          CmDeleteDeviceInterface(PiPnpRtlCtx, DestinationString.Buffer);
+      }
+    }
+  }
+  ExReleaseResourceLite(&PnpRegistryDeviceResource);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( PoolWithTag )
+    ExFreePoolWithTag(PoolWithTag, 0);
+  PnpUnicodeStringToWstrFree(v10, (__int64)a1);
+  return (unsigned int)MatchingFilteredDeviceInterfaceList;
+}

@@ -1,0 +1,86 @@
+/*
+ * XREFs of Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000CBC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00029C0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000D86C (WPP_RECORDER_SF_d.c)
+ *     Crashdump_ProcessSystemPowerAction @ 0x1C0038184 (Crashdump_ProcessSystemPowerAction.c)
+ */
+
+__int64 __fastcall Controller_WdfEvtPreprocessSetPowerIrp(__int64 a1, __int64 a2)
+{
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rsi
+  __int64 v7; // rbx
+  unsigned int v8; // ecx
+  unsigned int v9; // edx
+  int v10; // eax
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  int v13; // eax
+  int v14; // edx
+  unsigned int v15; // ebx
+
+  v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+         WdfDriverGlobals,
+         a1,
+         off_1C004B408);
+  v5 = *(_QWORD *)(a2 + 184);
+  v6 = v4;
+  v7 = *(_QWORD *)(v4 + 8);
+  if ( *(_DWORD *)(v5 + 16) )
+    goto LABEL_14;
+  v8 = *(_DWORD *)(v5 + 8);
+  v9 = (v8 >> 8) & 0xF;
+  if ( v9 == 1 )
+  {
+    v10 = ((v8 & 0xF0000) == 327680) + 1;
+  }
+  else
+  {
+    if ( v9 <= 1 )
+      goto LABEL_12;
+    if ( v9 <= 4 )
+    {
+      v10 = 4 - ((v8 & 0xF000) != 20480);
+    }
+    else
+    {
+      if ( v9 == 5 )
+      {
+        *(_DWORD *)(v7 + 348) = 5;
+        goto LABEL_12;
+      }
+      if ( v9 != 6 )
+        goto LABEL_12;
+      v10 = ((v8 & 0xF000) != 20480) + 5;
+    }
+  }
+  *(_DWORD *)(v7 + 348) = v10;
+LABEL_12:
+  LOBYTE(v9) = 4;
+  WPP_RECORDER_SF_d(
+    *(_QWORD *)(v6 + 16),
+    v9,
+    4,
+    200,
+    (__int64)&WPP_7140d4b18c8734a335f2373eb7eb1be4_Traceguids,
+    *(_DWORD *)(v7 + 348));
+  v11 = *(_QWORD *)(v7 + 352);
+  if ( v11 )
+    Crashdump_ProcessSystemPowerAction(v11, *(unsigned int *)(v7 + 348));
+LABEL_14:
+  v12 = WdfFunctions_01023;
+  ++*(_BYTE *)(a2 + 67);
+  *(_QWORD *)(a2 + 184) += 72LL;
+  v13 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64))(v12 + 272))(WdfDriverGlobals, a1, a2);
+  v15 = v13;
+  if ( v13 < 0 )
+  {
+    LOBYTE(v14) = 2;
+    WPP_RECORDER_SF_d(*(_QWORD *)(v6 + 16), v14, 4, 201, (__int64)&WPP_7140d4b18c8734a335f2373eb7eb1be4_Traceguids, v13);
+  }
+  return v15;
+}

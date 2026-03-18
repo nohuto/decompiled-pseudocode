@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?GetPolicyDword@CSettingsManager@@UEAAJPEBGPEAK@Z @ 0x140007590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CSettingsManager::GetPolicyDword(
+        CSettingsManager *this,
+        const unsigned __int16 *a2,
+        unsigned int *a3)
+{
+  return CSettingsManager::GetDword((__int64)this, 1, a2, a3);
+}

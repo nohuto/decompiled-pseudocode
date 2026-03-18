@@ -1,0 +1,54 @@
+/*
+ * XREFs of PpmInitIdlePolicy @ 0x140A68EF4
+ * Callers:
+ *     PoInitSystem @ 0x140A3BD5C (PoInitSystem.c)
+ * Callees:
+ *     PpmConvertTime @ 0x14029857C (PpmConvertTime.c)
+ *     RtlInitUnicodeString @ 0x140298F60 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x1403F6020 (ZwQueryLicenseValue.c)
+ */
+
+__int64 PpmInitIdlePolicy()
+{
+  ULONGLONG v0; // rax
+  ULONGLONG *v1; // rbx
+  __int64 v2; // rdi
+  ULONGLONG v3; // rcx
+  __int64 result; // rax
+  UNICODE_STRING DestinationString; // [rsp+30h] [rbp-10h] BYREF
+  int v6; // [rsp+68h] [rbp+28h] BYREF
+  int v7; // [rsp+70h] [rbp+30h]
+
+  dword_140C1ECC0 = 50000;
+  dword_140C1F770 = 50000;
+  v0 = 2 * PopQpcFrequency;
+  v7 = 0;
+  PopIdleTransitionTimeout = 2 * PopQpcFrequency;
+  v6 = 0;
+  DestinationString = 0LL;
+  word_140C1ECBC = 0;
+  word_140C1F76C = 0;
+  word_140C1ECC5 = 60;
+  word_140C1F775 = 60;
+  byte_140C1ECC4 = 40;
+  byte_140C1F774 = 40;
+  if ( !KdPitchDebugger )
+    v0 = 90 * PopQpcFrequency;
+  PopCoordinatedIdleExitTimeout = v0;
+  v1 = (ULONGLONG *)&PpmIdleIntervalLimits;
+  v2 = 26LL;
+  do
+  {
+    v3 = v1[1];
+    if ( v3 != -1LL )
+      *v1 = PpmConvertTime(v3, 10000000LL, PopQpcFrequency);
+    v1 += 3;
+    --v2;
+  }
+  while ( v2 );
+  RtlInitUnicodeString(&DestinationString, L"Power-IdleStatesMax-Enabled");
+  result = ZwQueryLicenseValue((__int64)&DestinationString, (__int64)&v6);
+  if ( PpmIdleDisableStatesAtBoot == -1 )
+    PpmIdleDisableStatesAtBoot = 0;
+  return result;
+}

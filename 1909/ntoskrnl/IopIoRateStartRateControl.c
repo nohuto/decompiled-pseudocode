@@ -1,0 +1,60 @@
+/*
+ * XREFs of IopIoRateStartRateControl @ 0x140001578
+ * Callers:
+ *     IoStartIoRateControl @ 0x140001470 (IoStartIoRateControl.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x140043C20 (ExReleaseRundownProtection_0.c)
+ *     IoDiskIoAttributionQuery @ 0x1400EBED0 (IoDiskIoAttributionQuery.c)
+ *     ExGetExtensionTable @ 0x1400FD850 (ExGetExtensionTable.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1401CD170 (_guard_dispatch_icall.c)
+ *     memset @ 0x1401D77C0 (memset.c)
+ */
+
+__int64 __fastcall IopIoRateStartRateControl(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4,
+        __int64 a5,
+        _QWORD *a6,
+        __int64 a7)
+{
+  __int64 (__fastcall **ExtensionTable)(__int64, __int64, _QWORD, __int64, _OWORD *, __int64, __int64 *, __int64); // rbx
+  __int64 v11; // rdx
+  int v12; // ebx
+  __int64 v13; // rax
+  __int64 v15; // [rsp+50h] [rbp-61h] BYREF
+  _QWORD v16[4]; // [rsp+58h] [rbp-59h] BYREF
+  __m128i v17[2]; // [rsp+78h] [rbp-39h] BYREF
+  _OWORD v18[2]; // [rsp+98h] [rbp-19h] BYREF
+
+  memset(v17, 0, sizeof(v17));
+  memset(v16, 0, sizeof(v16));
+  memset(v18, 0, sizeof(v18));
+  v15 = 0LL;
+  ExtensionTable = (__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, _OWORD *, __int64, __int64 *, __int64))ExGetExtensionTable(IopIoRateExtensionHost);
+  if ( ExtensionTable )
+  {
+    IoDiskIoAttributionQuery(a5, v17, v16);
+    v11 = *(_QWORD *)(a5 + 24);
+    *(_QWORD *)&v18[1] = v16[3] + v17[1].m128i_i64[0];
+    *((_QWORD *)&v18[1] + 1) = v16[3] + _mm_srli_si128(v17[1], 8).m128i_u64[0];
+    *(_QWORD *)&v18[0] = v16[0] + v17[0].m128i_i64[0];
+    *((_QWORD *)&v18[0] + 1) = v16[1] + v17[0].m128i_i64[1];
+    v12 = (*ExtensionTable)(a1, 15LL, a3, a4, v18, v11, &v15, a7);
+    if ( v12 >= 0 )
+    {
+      v13 = v15;
+      v15 = 0LL;
+      v12 = 0;
+      *a6 = v13;
+    }
+    ExReleaseRundownProtection_0((PEX_RUNDOWN_REF)(IopIoRateExtensionHost + 64));
+  }
+  else
+  {
+    return (unsigned int)-1073741822;
+  }
+  return (unsigned int)v12;
+}

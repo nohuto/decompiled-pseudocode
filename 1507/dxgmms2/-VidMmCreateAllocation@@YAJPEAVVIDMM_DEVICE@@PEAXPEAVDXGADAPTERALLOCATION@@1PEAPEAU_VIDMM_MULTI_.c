@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?VidMmCreateAllocation@@YAJPEAVVIDMM_DEVICE@@PEAXPEAVDXGADAPTERALLOCATION@@1PEAPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z @ 0x1C0003DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKKU_DXGK_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@KPEAVDXGADAPTERALLOCATION@@PEAXPEAPEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z @ 0x1C0030EE8 (-CreateAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKKU_DXGK_SEGMENTPREFERENCE@@U_DXGK_.c)
+ */
+
+__int64 __fastcall VidMmCreateAllocation(
+        struct VIDMM_DEVICE *a1,
+        _QWORD *a2,
+        struct DXGADAPTERALLOCATION *a3,
+        void *a4)
+{
+  return VIDMM_GLOBAL::CreateAllocation(
+           *(_QWORD *)a1,
+           a1,
+           *((unsigned int *)a2 + 13),
+           a2[2],
+           a2[3],
+           *((_DWORD *)a2 + 3));
+}

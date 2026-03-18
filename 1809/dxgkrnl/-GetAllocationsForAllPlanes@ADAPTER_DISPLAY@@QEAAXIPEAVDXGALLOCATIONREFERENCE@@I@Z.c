@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?GetAllocationsForAllPlanes@ADAPTER_DISPLAY@@QEAAXIPEAVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C01C2A64
+ * Callers:
+ *     ?GetDisplayedAllMultiPlaneOverlays@DXGDEVICE@@QEAAXIPEAVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C0040B24 (-GetDisplayedAllMultiPlaneOverlays@DXGDEVICE@@QEAAXIPEAVDXGALLOCATIONREFERENCE@@I@Z.c)
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000DF84 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000E054 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C000E790 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?GetAllocationsForAllPlanesUnsafe@DISPLAY_SOURCE@@QEAAXPEAVDXGALLOCATIONREFERENCE@@I@Z @ 0x1C01C2AE4 (-GetAllocationsForAllPlanesUnsafe@DISPLAY_SOURCE@@QEAAXPEAVDXGALLOCATIONREFERENCE@@I@Z.c)
+ */
+
+void __fastcall ADAPTER_DISPLAY::GetAllocationsForAllPlanes(
+        ADAPTER_DISPLAY *this,
+        unsigned int a2,
+        struct DXGALLOCATIONREFERENCE *a3,
+        unsigned int a4)
+{
+  __int64 v4; // rbx
+  _BYTE v8[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  v4 = a2;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v8, (ADAPTER_DISPLAY *)((char *)this + 400), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v8);
+  DISPLAY_SOURCE::GetAllocationsForAllPlanesUnsafe((DISPLAY_SOURCE *)(*((_QWORD *)this + 14) + 3760 * v4), a3, a4);
+  if ( v8[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v8);
+}

@@ -1,0 +1,45 @@
+/*
+ * XREFs of UsbhUxdShutdown @ 0x1C005EEC0
+ * Callers:
+ *     UsbhDeviceShutdown @ 0x1C0051350 (UsbhDeviceShutdown.c)
+ * Callees:
+ *     FdoExt @ 0x1C0012920 (FdoExt.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C0022BD0 (UsbhGetGlobalUxdSettings.c)
+ *     WPP_RECORDER_SF_ @ 0x1C00415CC (WPP_RECORDER_SF_.c)
+ *     UsbhDeleteUxdSubKeys @ 0x1C005E2E0 (UsbhDeleteUxdSubKeys.c)
+ *     UsbhOpenRegistryKey @ 0x1C005E99C (UsbhOpenRegistryKey.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005EA28 (UsbhOpenUxdPortHandle.c)
+ */
+
+__int64 __fastcall UsbhUxdShutdown(__int64 a1)
+{
+  PDEVICE_OBJECT v2; // rcx
+  _DWORD *v3; // rdi
+  HANDLE Handle; // [rsp+48h] [rbp+10h] BYREF
+
+  v3 = FdoExt(a1);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v2 = WPP_GLOBAL_Control;
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        0,
+        1u,
+        0x23u,
+        (__int64)&WPP_dd05d02cb99337cab6a3b345564f2de7_Traceguids);
+  }
+  UsbhGetGlobalUxdSettings((__int64)v2, (_QWORD *)v3 + 647);
+  if ( UsbhOpenRegistryKey(&Handle) >= 0 )
+  {
+    UsbhDeleteUxdSubKeys(a1, (WCHAR *)Handle);
+    ZwClose(Handle);
+  }
+  Handle = 0LL;
+  if ( (int)UsbhOpenUxdPortHandle(a1, &Handle) >= 0 )
+  {
+    UsbhDeleteUxdSubKeys(a1, (WCHAR *)Handle);
+    ZwClose(Handle);
+  }
+  return 0LL;
+}

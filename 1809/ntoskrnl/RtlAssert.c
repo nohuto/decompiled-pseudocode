@@ -1,0 +1,95 @@
+/*
+ * XREFs of RtlAssert @ 0x1402EF760
+ * Callers:
+ *     KseShimDatabaseClose @ 0x14067D9AC (KseShimDatabaseClose.c)
+ *     KsepStringConcatenate @ 0x14067DD34 (KsepStringConcatenate.c)
+ *     KsepRegistryOpenKey @ 0x14067DE78 (KsepRegistryOpenKey.c)
+ *     KsepStringFree @ 0x14067E16C (KsepStringFree.c)
+ *     KsepStringDuplicateUnicode @ 0x14067E1A4 (KsepStringDuplicateUnicode.c)
+ *     KsepGetShimCallbacksForDriver @ 0x140680898 (KsepGetShimCallbacksForDriver.c)
+ *     KsepStringDuplicate @ 0x14070CDB8 (KsepStringDuplicate.c)
+ *     KseDriverUnloadImage @ 0x14070F05C (KseDriverUnloadImage.c)
+ *     KsepStringTransform @ 0x140720C58 (KsepStringTransform.c)
+ *     KsepRegistryQueryDWORD @ 0x1407281C4 (KsepRegistryQueryDWORD.c)
+ *     KsepRegistryQuerySZ @ 0x14072829C (KsepRegistryQuerySZ.c)
+ *     KsepStringSplitMultiString @ 0x140848C94 (KsepStringSplitMultiString.c)
+ *     KsepRegistryCreateKey @ 0x140848F74 (KsepRegistryCreateKey.c)
+ *     KsepRegistryQueryValue @ 0x14084936C (KsepRegistryQueryValue.c)
+ *     KseShimDatabaseBootInitialize @ 0x1409AEFF4 (KseShimDatabaseBootInitialize.c)
+ *     KsepEngineInitialize @ 0x1409AF0F4 (KsepEngineInitialize.c)
+ *     KsepEngineReadFlags @ 0x1409AF4F4 (KsepEngineReadFlags.c)
+ * Callees:
+ *     DbgPrintEx @ 0x140160440 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ZwTerminateThread @ 0x1401B8BD0 (ZwTerminateThread.c)
+ *     RtlCaptureContext @ 0x1401C54D0 (RtlCaptureContext.c)
+ *     DbgPrompt @ 0x1402EC890 (DbgPrompt.c)
+ *     RtlpTerminateCurrentProcess @ 0x14089569C (RtlpTerminateCurrentProcess.c)
+ */
+
+void __stdcall RtlAssert(PVOID VoidFailedAssertion, PVOID VoidFileName, ULONG LineNumber, PSTR MutableMessage)
+{
+  PSTR v8; // r9
+  bool v9; // zf
+  int v10; // ecx
+  int v11; // ecx
+  int v12; // ecx
+  __int64 v13; // [rsp+30h] [rbp-528h]
+  CHAR Response[16]; // [rsp+40h] [rbp-518h] BYREF
+  CONTEXT ContextRecord; // [rsp+50h] [rbp-508h] BYREF
+
+  RtlCaptureContext(&ContextRecord);
+  while ( 1 )
+  {
+    LODWORD(v13) = LineNumber;
+    v8 = (PSTR)&File;
+    if ( MutableMessage )
+      v8 = MutableMessage;
+    DbgPrintEx(
+      0x65u,
+      0,
+      "\n*** Assertion failed: %s%s\n***   Source File: %s, line %ld\n\n",
+      v8,
+      VoidFailedAssertion,
+      VoidFileName,
+      v13);
+    if ( (MEMORY[0xFFFFF780000002D4] & 3) != 3 )
+      break;
+    if ( !DbgPrompt(
+            "Break repeatedly, break Once, Ignore, terminate Process, or terminate Thread (boipt)? ",
+            Response,
+            2u) )
+    {
+      __debugbreak();
+LABEL_18:
+      RtlpTerminateCurrentProcess();
+      return;
+    }
+    if ( Response[0] > 98 )
+    {
+      v10 = Response[0] - 105;
+      v9 = Response[0] == 105;
+    }
+    else
+    {
+      if ( Response[0] == 98 || Response[0] == 66 )
+        goto LABEL_16;
+      v10 = Response[0] - 73;
+      v9 = Response[0] == 73;
+    }
+    if ( v9 )
+      return;
+    v11 = v10 - 6;
+    if ( !v11 )
+    {
+LABEL_16:
+      DbgPrintEx(0x65u, 0, "Execute '.cxr %p' to dump context\n", &ContextRecord);
+      __debugbreak();
+    }
+    v12 = v11 - 1;
+    if ( !v12 )
+      goto LABEL_18;
+    if ( v12 == 4 )
+      ZwTerminateThread((HANDLE)0xFFFFFFFFFFFFFFFELL, -1073741823);
+  }
+}

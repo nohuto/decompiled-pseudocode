@@ -1,0 +1,51 @@
+/*
+ * XREFs of InitClientInfo @ 0x1C003F27C
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C003F3A0 (xxxCreateThreadInfo.c)
+ *     InitSystemThread @ 0x1C007C320 (InitSystemThread.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C00436EC (UserSetLastError.c)
+ */
+
+__int64 __fastcall InitClientInfo(__int64 a1)
+{
+  unsigned int v2; // ebx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  PVOID CurrentProcess; // rcx
+  BOOL v7; // eax
+  __int64 v8; // rcx
+
+  v2 = 0;
+  v3 = *(_QWORD *)(a1 + 432);
+  *(_DWORD *)(v3 + 16) = *(_DWORD *)(a1 + 552);
+  v4 = *(_QWORD *)(a1 + 432);
+  *(_DWORD *)(v4 + 28) = *(_DWORD *)(a1 + 440);
+  *(_QWORD *)(*(_QWORD *)(a1 + 432) + 208LL) = 0LL;
+  v5 = *(_QWORD *)(a1 + 392);
+  if ( v5 )
+  {
+    *(_WORD *)(*(_QWORD *)(a1 + 432) + 152LL) = *(_WORD *)(v5 + 72);
+    v4 = *(_QWORD *)(a1 + 432);
+    *(_QWORD *)(v4 + 144) = *(_QWORD *)(*(_QWORD *)(a1 + 392) + 40LL);
+  }
+  else
+  {
+    *(_WORD *)(*(_QWORD *)(a1 + 432) + 152LL) = 0;
+    *(_QWORD *)(*(_QWORD *)(a1 + 432) + 144LL) = 0LL;
+  }
+  CurrentProcess = (PVOID)PsGetCurrentProcess(v4, v3);
+  v7 = 0;
+  if ( CurrentProcess )
+    v7 = CurrentProcess == g_pepDwm;
+  if ( v7 )
+    v2 = 1;
+  v8 = *(_QWORD *)(a1 + 376);
+  if ( *(int *)(v8 + 12) < 0 )
+    v2 |= 2u;
+  if ( (*(_DWORD *)(v8 + 776) & 0x800) != 0 )
+    v2 |= 4u;
+  *(_QWORD *)(*(_QWORD *)(a1 + 432) + 224LL) |= v2;
+  return 1LL;
+}

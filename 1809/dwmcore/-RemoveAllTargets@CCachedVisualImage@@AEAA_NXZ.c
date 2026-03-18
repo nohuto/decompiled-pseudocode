@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?RemoveAllTargets@CCachedVisualImage@@AEAA_NXZ @ 0x1800920F0
+ * Callers:
+ *     ?EnsureRenderTargetBitmapInfo@CCachedVisualImage@@AEAAJU_LUID@@VDisplayId@@PEAPEAURenderTargetBitmapInfo@1@@Z @ 0x18008BF90 (-EnsureRenderTargetBitmapInfo@CCachedVisualImage@@AEAAJU_LUID@@VDisplayId@@PEAPEAURenderTargetBi.c)
+ *     ??1CCachedVisualImage@@MEAA@XZ @ 0x180092014 (--1CCachedVisualImage@@MEAA@XZ.c)
+ *     ?NotifyInvalidResource@CCachedVisualImage@@UEAAXPEBVIDeviceResource@@@Z @ 0x18018D460 (-NotifyInvalidResource@CCachedVisualImage@@UEAAXPEBVIDeviceResource@@@Z.c)
+ * Callees:
+ *     ?Destruct@RenderTargetBitmapInfo@CCachedVisualImage@@QEAAXXZ @ 0x18008C270 (-Destruct@RenderTargetBitmapInfo@CCachedVisualImage@@QEAAXXZ.c)
+ *     ?RemoveAt@?$DynArray@URenderTargetBitmapInfo@CCachedVisualImage@@$00@@QEAAJI@Z @ 0x180091468 (-RemoveAt@-$DynArray@URenderTargetBitmapInfo@CCachedVisualImage@@$00@@QEAAJI@Z.c)
+ */
+
+char __fastcall CCachedVisualImage::RemoveAllTargets(CCachedVisualImage *this)
+{
+  int v1; // esi
+  char v2; // di
+  __int64 *v3; // rbp
+  __int64 v4; // rbx
+
+  v1 = *((_DWORD *)this + 66);
+  v2 = 0;
+  if ( v1 > 0 )
+  {
+    v3 = (__int64 *)((char *)this + 240);
+    v2 = 1;
+    do
+    {
+      v4 = (unsigned int)(v1 - 1);
+      CCachedVisualImage::RenderTargetBitmapInfo::Destruct((CCachedVisualImage::RenderTargetBitmapInfo *)(*v3 + 48 * v4));
+      DynArray<CCachedVisualImage::RenderTargetBitmapInfo,1>::RemoveAt(v3, v4);
+      --v1;
+    }
+    while ( v1 > 0 );
+  }
+  return v2;
+}

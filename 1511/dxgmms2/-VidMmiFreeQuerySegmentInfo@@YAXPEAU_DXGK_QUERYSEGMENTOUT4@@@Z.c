@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?VidMmiFreeQuerySegmentInfo@@YAXPEAU_DXGK_QUERYSEGMENTOUT4@@@Z @ 0x1C0064A10
+ * Callers:
+ *     ?VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@@Z @ 0x1C00647D4 (-VidMmiInit@@YAPEAVVIDMM_GLOBAL@@PEAVADAPTER_RENDER@@@Z.c)
+ * Callees:
+ *     ??_V@YAXPEAX@Z @ 0x1C001132C (--_V@YAXPEAX@Z.c)
+ */
+
+void __fastcall VidMmiFreeQuerySegmentInfo(struct _DXGK_QUERYSEGMENTOUT4 *a1)
+{
+  UCHAR *pSegmentDescriptor; // rcx
+
+  pSegmentDescriptor = a1->pSegmentDescriptor;
+  if ( pSegmentDescriptor )
+  {
+    operator delete[](pSegmentDescriptor);
+    a1->pSegmentDescriptor = 0LL;
+  }
+}

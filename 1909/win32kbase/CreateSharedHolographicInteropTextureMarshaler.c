@@ -1,0 +1,23 @@
+/*
+ * XREFs of CreateSharedHolographicInteropTextureMarshaler @ 0x1C01C4900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@CSharedHolographicInteropTextureMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01C4738 (-Create@CSharedHolographicInteropTextureMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
+ */
+
+__int64 __fastcall CreateSharedHolographicInteropTextureMarshaler(
+        const struct DirectComposition::CSharedSystemResource *a1,
+        int a2,
+        struct DirectComposition::CSharedHolographicInteropTextureMarshaler **a3)
+{
+  __int64 result; // rax
+  struct DirectComposition::CSharedHolographicInteropTextureMarshaler *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  *a3 = 0LL;
+  if ( *((_DWORD *)a1 + 3) != a2 )
+    return 3221225485LL;
+  result = DirectComposition::CSharedHolographicInteropTextureMarshaler::Create(a1, &v5);
+  *a3 = v5;
+  return result;
+}

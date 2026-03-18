@@ -1,0 +1,28 @@
+/*
+ * XREFs of CmpLockHashEntryShared @ 0x1405E2210
+ * Callers:
+ *     CmpWalkOneLevel @ 0x1404AA800 (CmpWalkOneLevel.c)
+ *     CmpFindSubkeyInHashByChildCell @ 0x1405E2080 (CmpFindSubkeyInHashByChildCell.c)
+ * Callees:
+ *     ExAcquirePushLockSharedEx @ 0x140104200 (ExAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1401AAED0 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x14049D1FC (CmpReferenceHive.c)
+ */
+
+char __fastcall CmpLockHashEntryShared(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
+{
+  ULONG_PTR v2; // rbx
+  char result; // al
+
+  v2 = (unsigned int)BugCheckParameter4;
+  ExAcquirePushLockSharedEx(
+    *(_QWORD *)(BugCheckParameter2 + 1640)
+  + 24
+  * ((unsigned int)(*(_DWORD *)(BugCheckParameter2 + 1648) - 1) & ((101027
+                                                                  * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) ^ ((unsigned __int64)(101027 * ((unsigned int)BugCheckParameter4 ^ ((unsigned int)BugCheckParameter4 >> 9))) >> 9))),
+    0LL);
+  result = CmpReferenceHive(BugCheckParameter2);
+  if ( !result )
+    KeBugCheckEx(0x51u, 0x17uLL, BugCheckParameter2, 9uLL, v2);
+  return result;
+}

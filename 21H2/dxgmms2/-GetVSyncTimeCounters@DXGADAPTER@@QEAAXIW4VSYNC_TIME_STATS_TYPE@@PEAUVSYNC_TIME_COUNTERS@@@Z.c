@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?GetVSyncTimeCounters@DXGADAPTER@@QEAAXIW4VSYNC_TIME_STATS_TYPE@@PEAUVSYNC_TIME_COUNTERS@@@Z @ 0x1C00342A4
+ * Callers:
+ *     ?VidSchiLogAggregatedTelemetry@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C0016E38 (-VidSchiLogAggregatedTelemetry@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchQueryVidPnSourceStatistics @ 0x1C003DD10 (VidSchQueryVidPnSourceStatistics.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall DXGADAPTER::GetVSyncTimeCounters(__int64 a1, unsigned int a2, int a3, __int64 a4)
+{
+  __int64 result; // rax
+  __int64 v6; // rbx
+  __int64 v7; // rbx
+  __int64 v8; // rcx
+  __int64 v9; // rdx
+
+  result = *(unsigned int *)(a1 + 1544);
+  if ( a2 < (unsigned int)result )
+  {
+    if ( a3 < 3 )
+    {
+      if ( a4 )
+      {
+        v8 = *(_QWORD *)(a1 + 4088);
+        if ( v8 )
+        {
+          if ( (*(_DWORD *)(a1 + 2664) & 0x10) != 0 )
+            v9 = v8 + 112LL * a2;
+          else
+            v9 = v8;
+          result = a3;
+          *(_OWORD *)a4 = *(_OWORD *)(v9 + 24LL * a3 + 16);
+          *(_QWORD *)(a4 + 16) = *(_QWORD *)(v9 + 24LL * a3 + 32);
+        }
+      }
+    }
+    else
+    {
+      v7 = a3;
+      WdLogSingleEntry2(2LL, a3, 3LL);
+      return ((__int64 (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, __int64, _QWORD, _QWORD, _QWORD))DxgCoreInterface[85])(
+               0LL,
+               0x40000LL,
+               0xFFFFFFFFLL,
+               L"Invalid QueriedPowerState:%u. Should be less than :%u",
+               v7,
+               3LL,
+               0LL,
+               0LL,
+               0LL);
+    }
+  }
+  else
+  {
+    v6 = a2;
+    WdLogSingleEntry2(2LL, a2, (unsigned int)result);
+    return ((__int64 (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[85])(
+             0LL,
+             0x40000LL,
+             0xFFFFFFFFLL,
+             L"Invalid VidPnSourceId:%u. Should be less than :%u",
+             v6,
+             *(unsigned int *)(a1 + 1544),
+             0LL,
+             0LL,
+             0LL);
+  }
+  return result;
+}

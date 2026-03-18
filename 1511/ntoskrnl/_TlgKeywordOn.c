@@ -1,0 +1,78 @@
+/*
+ * XREFs of _TlgKeywordOn @ 0x1400923CC
+ * Callers:
+ *     MiLogProcessWorkingSetsStop @ 0x140092348 (MiLogProcessWorkingSetsStop.c)
+ *     TraceLoggingProviderEnabled @ 0x1400923A4 (TraceLoggingProviderEnabled.c)
+ *     MiProcessWorkingSets @ 0x1400A53A0 (MiProcessWorkingSets.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x1400C7CC0 (MmNotifyProcessInSwapTrigger.c)
+ *     HvlpEnterIumSecureMode @ 0x1400EB69C (HvlpEnterIumSecureMode.c)
+ *     MiLogTrimWs @ 0x1400F15D4 (MiLogTrimWs.c)
+ *     MiStoreLogNotCandidate @ 0x140108AFC (MiStoreLogNotCandidate.c)
+ *     PopTraceEsState @ 0x14011A04C (PopTraceEsState.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x14011A180 (PopTraceThermalZonePassiveHistogram.c)
+ *     MiLogWsEmptyControl @ 0x14012D9C4 (MiLogWsEmptyControl.c)
+ *     PopTraceEsSetting @ 0x140142208 (PopTraceEsSetting.c)
+ *     SetFailureLocation @ 0x1401A9C98 (SetFailureLocation.c)
+ *     MiLogOutswappedProcessCommitReacquire @ 0x1401CF924 (MiLogOutswappedProcessCommitReacquire.c)
+ *     MiLogOutswappedProcessCommitRelease @ 0x1401CFA94 (MiLogOutswappedProcessCommitRelease.c)
+ *     MiLogContinueTrim @ 0x1401D7C40 (MiLogContinueTrim.c)
+ *     MiStoreLogFullPagefile @ 0x1401E538C (MiStoreLogFullPagefile.c)
+ *     MiStoreLogWriteCompleteFailure @ 0x1401E53F4 (MiStoreLogWriteCompleteFailure.c)
+ *     MiStoreLogWriteDisabled @ 0x1401E5494 (MiStoreLogWriteDisabled.c)
+ *     MiStoreLogWriteIssueFailure @ 0x1401E5524 (MiStoreLogWriteIssueFailure.c)
+ *     MiStoreLogWriteIssueRetry @ 0x1401E5668 (MiStoreLogWriteIssueRetry.c)
+ *     PopTraceCr3Mitigated @ 0x1401F0BE4 (PopTraceCr3Mitigated.c)
+ *     PopTraceCr3Tripped @ 0x1401F0C78 (PopTraceCr3Tripped.c)
+ *     PopTracePowerReconfig @ 0x1401F0D0C (PopTracePowerReconfig.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x1401F0E14 (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalStandbyComplete @ 0x1401F0FD4 (PopTraceThermalStandbyComplete.c)
+ *     PopTraceThermalStandbyInitiated @ 0x1401F10A0 (PopTraceThermalStandbyInitiated.c)
+ *     EtwTraceSystemTimeChange @ 0x14039DA64 (EtwTraceSystemTimeChange.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x1403AE820 (IopLiveDumpCaptureMemoryPages.c)
+ *     PopGetLockConsoleTimeoutUnsafe @ 0x1403B56AC (PopGetLockConsoleTimeoutUnsafe.c)
+ *     HvLoadHive @ 0x1403D3A54 (HvLoadHive.c)
+ *     SeTokenCanImpersonate @ 0x140426A30 (SeTokenCanImpersonate.c)
+ *     EtwTraceProcess @ 0x1404497E4 (EtwTraceProcess.c)
+ *     EtwTraceAppStateChange @ 0x14044A950 (EtwTraceAppStateChange.c)
+ *     PnpTraceSetDevNodeProblem @ 0x1404A0CC8 (PnpTraceSetDevNodeProblem.c)
+ *     HvSwapLogFiles @ 0x1404BF75C (HvSwapLogFiles.c)
+ *     PopBatteryApplyCompositeState @ 0x1404F9820 (PopBatteryApplyCompositeState.c)
+ *     PnpCompareInterruptInformation @ 0x14050B294 (PnpCompareInterruptInformation.c)
+ *     PopTransitionTelemetryOsState @ 0x14050BE6C (PopTransitionTelemetryOsState.c)
+ *     PnpTraceDeviceConfig @ 0x140513818 (PnpTraceDeviceConfig.c)
+ *     PnpTraceClearDevNodeProblem @ 0x140519F98 (PnpTraceClearDevNodeProblem.c)
+ *     CmpLogFailureToGetFileSize @ 0x1405E7624 (CmpLogFailureToGetFileSize.c)
+ *     HvpGetLogHeader @ 0x1405EC47C (HvpGetLogHeader.c)
+ *     IoCaptureLiveDump @ 0x1405FC30C (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x1405FC8A4 (IoWriteDeferredLiveDumpData.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1405FCA38 (IopLiveDumpAllocAndInitResources.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x14061441C (PnpTraceDeviceRemovalForResetComplete.c)
+ *     PnpTraceDeviceRemoveProcessVeto @ 0x1406145E4 (PnpTraceDeviceRemoveProcessVeto.c)
+ *     PnpTraceDockDeviceEnumeration @ 0x1406146DC (PnpTraceDockDeviceEnumeration.c)
+ *     PnpTraceQueryStopFailure @ 0x1406147B8 (PnpTraceQueryStopFailure.c)
+ *     PnpTraceRebalanceResult @ 0x1406148CC (PnpTraceRebalanceResult.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x140614AF0 (PnpTraceRequestDeviceRemovalForReset.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x1406218DC (MiLogStrongCodeDriverLoadFailure.c)
+ *     MiLogCreateImageFileMapFailure @ 0x140623B00 (MiLogCreateImageFileMapFailure.c)
+ *     PopEstimateChargeTime @ 0x14063727C (PopEstimateChargeTime.c)
+ *     PopSqmFanEnumeration @ 0x14063E094 (PopSqmFanEnumeration.c)
+ *     PopSqmThermalCriticalEvent @ 0x14063E108 (PopSqmThermalCriticalEvent.c)
+ *     PopSqmThermalUsermodeEvent @ 0x14063E2F0 (PopSqmThermalUsermodeEvent.c)
+ *     PopSqmThermalZoneEnumeration @ 0x14063E404 (PopSqmThermalZoneEnumeration.c)
+ *     EtwpTraceSystemShutdown @ 0x1406625C8 (EtwpTraceSystemShutdown.c)
+ *     MiFlushStrongCodeDriverLoadFailures @ 0x14074CCA4 (MiFlushStrongCodeDriverLoadFailures.c)
+ *     EtwpTraceSystemInitialization @ 0x140755A0C (EtwpTraceSystemInitialization.c)
+ *     HvlpIumInitializeTelemetry @ 0x140782AA8 (HvlpIumInitializeTelemetry.c)
+ * Callees:
+ *     <none>
+ */
+
+BOOLEAN __stdcall TlgKeywordOn(TraceLoggingHProvider hProvider, ULONGLONG keyword)
+{
+  BOOLEAN v2; // r8
+
+  v2 = 0;
+  if ( !keyword || (keyword & hProvider->KeywordAny) != 0 && (keyword & hProvider->KeywordAll) == hProvider->KeywordAll )
+    return 1;
+  return v2;
+}

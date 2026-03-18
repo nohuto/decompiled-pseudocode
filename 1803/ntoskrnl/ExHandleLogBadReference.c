@@ -1,0 +1,54 @@
+/*
+ * XREFs of ExHandleLogBadReference @ 0x1402B8000
+ * Callers:
+ *     ObpCloseHandle @ 0x1404B5E0C (ObpCloseHandle.c)
+ *     AlpcpLookupMessage @ 0x1404CDFA0 (AlpcpLookupMessage.c)
+ *     NtWriteFile @ 0x1404D10C0 (NtWriteFile.c)
+ *     ExMapHandleToPointerEx @ 0x140512180 (ExMapHandleToPointerEx.c)
+ *     NtClose @ 0x1405A2660 (NtClose.c)
+ *     ObWaitForMultipleObjects @ 0x1405A40F0 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1405A4770 (ObpReferenceObjectByHandleWithTag.c)
+ * Callees:
+ *     DbgPrintEx @ 0x14014C9D0 (DbgPrintEx.c)
+ *     KeBugCheckEx @ 0x1401AAED0 (KeBugCheckEx.c)
+ *     KeRaiseUserException @ 0x1402421A0 (KeRaiseUserException.c)
+ *     ExpUpdateDebugInfo @ 0x1407BD7BC (ExpUpdateDebugInfo.c)
+ */
+
+struct _KTHREAD *__fastcall ExHandleLogBadReference(
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter1,
+        char a3)
+{
+  struct _KTHREAD *result; // rax
+
+  if ( (*(_BYTE *)(BugCheckParameter2 + 44) & 2) != 0 )
+  {
+    if ( *(_QWORD *)(BugCheckParameter2 + 96) )
+      result = (struct _KTHREAD *)ExpUpdateDebugInfo(BugCheckParameter2, KeGetCurrentThread(), BugCheckParameter1, 3LL);
+    if ( a3 == 1 )
+    {
+      result = KeGetCurrentThread();
+      if ( result->ApcStateIndex != 1 )
+      {
+        result = KeGetCurrentThread();
+        if ( BugCheckParameter2 == result->ApcState.Process[1].ActiveProcessors.Bitmap[5] )
+        {
+          if ( (NtGlobalFlag & 0x100) != 0 )
+            DbgPrintEx(
+              0x5Du,
+              0,
+              "AVRF: Invalid handle %p in process %p \n",
+              (const void *)BugCheckParameter1,
+              KeGetCurrentThread()->ApcState.Process);
+          return (struct _KTHREAD *)KeRaiseUserException(0xC0000008);
+        }
+      }
+    }
+    else if ( (NtGlobalFlag & 0x40000000) != 0 )
+    {
+      KeBugCheckEx(0x93u, BugCheckParameter1, BugCheckParameter2, 0LL, 1uLL);
+    }
+  }
+  return result;
+}

@@ -1,0 +1,79 @@
+/*
+ * XREFs of HvpViewMapMakeViewRangeCOWByCaller @ 0x14069C9CC
+ * Callers:
+ *     HvpViewMapCOWAndUnsealRange @ 0x14069C914 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpViewMapMigrateCOWData @ 0x1407207EC (HvpViewMapMigrateCOWData.c)
+ * Callees:
+ *     CmSiProtectViewOfSection @ 0x1402D5750 (CmSiProtectViewOfSection.c)
+ *     CmSiUnlockViewOfSection @ 0x14034CF5C (CmSiUnlockViewOfSection.c)
+ *     HvpViewMapTouchPages @ 0x140637C5C (HvpViewMapTouchPages.c)
+ */
+
+__int64 __fastcall HvpViewMapMakeViewRangeCOWByCaller(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
+{
+  __int64 v4; // rbx
+  __int64 v8; // rcx
+  int v9; // r14d
+  __int64 v10; // rsi
+  __int64 v11; // rdx
+  __int64 v12; // rax
+  unsigned __int64 v13; // rsi
+  __int64 v14; // r8
+  __int64 v16; // rcx
+  int v17; // [rsp+60h] [rbp+8h] BYREF
+
+  v17 = 0;
+  v4 = a3;
+  v9 = CmSiProtectViewOfSection(a1, *(__int64 **)(a1 + 24), a2[7] + a3 - a2[3], a4 - a3, 8u, (__int64)&v17);
+  if ( v9 >= 0 )
+  {
+    v10 = v4;
+    if ( v4 >= a4 )
+    {
+      return 0;
+    }
+    else
+    {
+      while ( 1 )
+      {
+        v11 = a2[3];
+        if ( (*((_BYTE *)a2 + ((unsigned __int64)(v10 - v11) >> 12) + 72) & 2) == 0 )
+        {
+          v9 = HvpViewMapTouchPages((_BYTE *)(a2[7] + v10 - v11), 4096LL, 1);
+          if ( v9 < 0 )
+            break;
+        }
+        v10 += 4096LL;
+        if ( v10 >= a4 )
+        {
+          while ( v4 < a4 )
+          {
+            v12 = a2[3];
+            v13 = (unsigned __int64)(v4 - v12) >> 12;
+            v14 = a2[7] + v4 - v12;
+            LOBYTE(v12) = *((_BYTE *)a2 + v13 + 72) | 0xA;
+            *((_BYTE *)a2 + v13 + 72) = v12;
+            if ( (v12 & 0x10) != 0 )
+            {
+              CmSiUnlockViewOfSection(v8, *(__int64 **)(a1 + 24), v14, 4096LL);
+              *((_BYTE *)a2 + v13 + 72) &= ~0x10u;
+              --a2[8];
+              *((_BYTE *)a2 + v13 + 72) |= 4u;
+            }
+            v4 += 4096LL;
+          }
+          return 0;
+        }
+      }
+      do
+      {
+        v16 = a2[3];
+        if ( (*((_BYTE *)a2 + ((unsigned __int64)(v4 - v16) >> 12) + 72) & 6) == 0 )
+          CmSiProtectViewOfSection(v16, *(__int64 **)(a1 + 24), a2[7] + v4 - v16, 4096LL, 0x80000002, (__int64)&v17);
+        v4 += 4096LL;
+      }
+      while ( v4 < a4 );
+    }
+  }
+  return (unsigned int)v9;
+}

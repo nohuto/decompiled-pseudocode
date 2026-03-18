@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?SetBufferProperty@CParticleEmitterVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C01DEF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetBufferProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00400F0 (-SetBufferProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA.c)
+ */
+
+__int64 __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetBufferProperty(
+        DirectComposition::CParticleEmitterVisualMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        unsigned int *a4,
+        unsigned __int64 a5,
+        bool *a6)
+{
+  unsigned int v6; // r10d
+  unsigned int v7; // eax
+  unsigned int v8; // eax
+  unsigned int v9; // eax
+
+  v6 = 0;
+  *a6 = 0;
+  switch ( a3 )
+  {
+    case 'B':
+      if ( a4 && a5 == 12 )
+      {
+        *(_QWORD *)((char *)this + 444) = *(_QWORD *)a4;
+        v9 = a4[2];
+        *((_DWORD *)this + 136) |= 0x10000u;
+        *((_DWORD *)this + 113) = v9;
+        goto LABEL_14;
+      }
+      break;
+    case 'E':
+      if ( a4 && a5 == 12 )
+      {
+        *((_QWORD *)this + 58) = *(_QWORD *)a4;
+        v8 = a4[2];
+        *((_DWORD *)this + 136) |= 0x80000u;
+        *((_DWORD *)this + 118) = v8;
+        goto LABEL_14;
+      }
+      break;
+    case 'G':
+      if ( a4 && a5 == 12 )
+      {
+        *((_QWORD *)this + 60) = *(_QWORD *)a4;
+        v7 = a4[2];
+        *((_DWORD *)this + 136) |= 0x200000u;
+        *((_DWORD *)this + 122) = v7;
+LABEL_14:
+        *a6 = 1;
+      }
+      break;
+    default:
+      return (unsigned int)DirectComposition::CVisualMarshaler::SetBufferProperty(this, a2, a3, a4, a5, a6);
+  }
+  return v6;
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??1VIDMM_MEMORY_SEGMENT@@UEAA@XZ @ 0x1C00B0460
+ * Callers:
+ *     ??_EVIDMM_MEMORY_SEGMENT@@UEAAPEAXI@Z @ 0x1C00260B0 (--_EVIDMM_MEMORY_SEGMENT@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0002BF0 (--3@YAXPEAX@Z.c)
+ *     ??1VIDMM_CPU_HOST_APERTURE@@QEAA@XZ @ 0x1C00268FC (--1VIDMM_CPU_HOST_APERTURE@@QEAA@XZ.c)
+ *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00B1878 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
+ */
+
+void __fastcall VIDMM_MEMORY_SEGMENT::~VIDMM_MEMORY_SEGMENT(VIDMM_MEMORY_SEGMENT *this)
+{
+  VIDMM_CPU_HOST_APERTURE *v1; // rdi
+
+  v1 = (VIDMM_CPU_HOST_APERTURE *)*((_QWORD *)this + 61);
+  *(_QWORD *)this = &VIDMM_MEMORY_SEGMENT::`vftable';
+  if ( v1 )
+  {
+    VIDMM_CPU_HOST_APERTURE::~VIDMM_CPU_HOST_APERTURE(v1);
+    operator delete(v1);
+  }
+  if ( g_IsInternalReleaseOrDbg )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = this;
+  VIDMM_SEGMENT::~VIDMM_SEGMENT(this);
+}

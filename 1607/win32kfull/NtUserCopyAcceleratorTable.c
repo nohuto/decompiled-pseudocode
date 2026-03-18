@@ -1,0 +1,66 @@
+/*
+ * XREFs of NtUserCopyAcceleratorTable @ 0x1C01011D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandle @ 0x1C003BC68 (HMValidateHandle.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C007672C (--0UserAtomicCheck@@QEAA@XZ.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C00768C8 (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C00A6F5C (UserSetLastError.c)
+ */
+
+__int64 __fastcall NtUserCopyAcceleratorTable(__int64 a1, char *a2, int a3)
+{
+  unsigned __int64 v3; // rdi
+  int v6; // esi
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // rbx
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 CurrentProcessWow64Process; // rax
+  __int64 v17; // rcx
+  _BYTE v18[48]; // [rsp+38h] [rbp-30h] BYREF
+
+  v3 = a3;
+  v6 = 0;
+  EnterCrit(0LL, 1LL);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)v18);
+  LOBYTE(v7) = 8;
+  v10 = HMValidateHandle(a1, v7, v8, v9);
+  v12 = v10;
+  if ( v10 )
+  {
+    if ( a2 )
+    {
+      if ( v3 > 0x2AAAAAAAAAAAAAAALL )
+        ExRaiseAccessViolation();
+      CurrentProcessWow64Process = PsGetCurrentProcessWow64Process(v11);
+      ProbeForWrite(a2, 6 * v3, CurrentProcessWow64Process != 0 ? 1 : 4);
+      if ( (int)v3 > *(_DWORD *)(v12 + 24) )
+        LODWORD(v3) = *(_DWORD *)(v12 + 24);
+      while ( v6 < (int)v3 )
+      {
+        v17 = 3LL * v6;
+        *(_BYTE *)(v12 + 2 * v17 + 29) = 0;
+        *(_DWORD *)&a2[2 * v17] = *(_DWORD *)(v12 + 6LL * v6 + 28);
+        *(_WORD *)&a2[2 * v17 + 4] = *(_WORD *)(v12 + 6LL * v6 + 32);
+        a2[2 * v17] = a2[6 * v6++] & 0x7F;
+      }
+    }
+    else
+    {
+      LODWORD(v3) = *(_DWORD *)(v10 + 24);
+    }
+  }
+  else
+  {
+    LODWORD(v3) = 0;
+  }
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)v18);
+  UserSessionSwitchLeaveCrit(v14, v13);
+  return (unsigned int)v3;
+}

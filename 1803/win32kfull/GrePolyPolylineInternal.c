@@ -1,0 +1,95 @@
+/*
+ * XREFs of GrePolyPolylineInternal @ 0x1C026FE74
+ * Callers:
+ *     GrePolyPolyline @ 0x1C026FD60 (GrePolyPolyline.c)
+ * Callees:
+ *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0078C50 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C007BC4C (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C007BE98 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C008FC84 (-vUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C009C134 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C0139660 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall GrePolyPolylineInternal(HDC a1, struct _POINTL *a2, int *a3, unsigned int a4, int a5)
+{
+  __int64 v6; // rdi
+  unsigned int v8; // ebx
+  POINTL v9; // rdx
+  int v10; // ebx
+  ULONG v11; // ecx
+  int *v13; // r12
+  __int64 v14; // rdi
+  POINTL *v16[2]; // [rsp+30h] [rbp-D0h] BYREF
+  struct _XFORMOBJ v17; // [rsp+40h] [rbp-C0h] BYREF
+  PATHOBJ v18[10]; // [rsp+50h] [rbp-B0h] BYREF
+  _BYTE v19[32]; // [rsp+A0h] [rbp-60h] BYREF
+  int v20; // [rsp+C0h] [rbp-40h]
+
+  v6 = a4;
+  v8 = 0;
+  MDCOBJ::MDCOBJ((MDCOBJ *)v16, a1);
+  if ( !v16[0] || (v16[0][4].y & 0x10000) != 0 )
+  {
+    EngSetLastError(6u);
+  }
+  else
+  {
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v17, (struct XDCOBJ *)v16, 516);
+    v9 = v16[0][10];
+    v10 = *(_DWORD *)(*(_QWORD *)&v9 + 8LL);
+    if ( (v10 & 0x1000) != 0 )
+      GreDCSelectBrush(v16[0], *(_QWORD *)(*(_QWORD *)&v9 + 16LL));
+    if ( (v10 & 0x2000) != 0 )
+      GreDCSelectPen(v16[0], *(_QWORD *)(*(_QWORD *)&v16[0][10] + 24LL));
+    v8 = 1;
+    if ( (_DWORD)v6 )
+    {
+      PATHSTACKOBJ::PATHSTACKOBJ((PATHSTACKOBJ *)v18, (DC **)v16, 1);
+      if ( v18[1] )
+      {
+        v13 = &a3[v6];
+        do
+        {
+          v14 = *a3;
+          a5 -= v14;
+          if ( a5 < 0 || (int)v14 < 2 )
+          {
+            v11 = 87;
+            goto LABEL_22;
+          }
+          if ( !EPATHOBJ::bMoveTo((EPATHOBJ *)v18, (struct EXFORMOBJ *)&v17, a2)
+            || !EPATHOBJ::bPolyLineTo((EPATHOBJ *)v18, (struct EXFORMOBJ *)&v17, a2 + 1, v14 - 1) )
+          {
+            goto LABEL_23;
+          }
+          ++a3;
+          a2 += v14;
+        }
+        while ( a3 < v13 );
+        if ( (v16[0][32].x & 1) == 0
+          && !(unsigned int)EPATHOBJ::bStrokeAndOrFill(v18, v16, (LINEATTRS *)&v16[0][27], &v17, 1u) )
+        {
+          v8 = 0;
+        }
+        EPATHOBJ::vUnlock((EPATHOBJ *)v18);
+        if ( v20 )
+          PopThreadGuardedObject(v19);
+      }
+      else
+      {
+        v11 = 8;
+LABEL_22:
+        EngSetLastError(v11);
+LABEL_23:
+        EPATHOBJ::vUnlock((EPATHOBJ *)v18);
+        if ( v20 )
+          PopThreadGuardedObject(v19);
+        v8 = 0;
+      }
+    }
+  }
+  if ( v16[0] )
+    XDCOBJ::vUnlockFast((XDCOBJ *)v16);
+  return v8;
+}

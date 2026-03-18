@@ -1,0 +1,38 @@
+/*
+ * XREFs of HalpGenInitialRead @ 0x1409A39DC
+ * Callers:
+ *     HalpInitializeGenericErrorSource @ 0x1409A40C4 (HalpInitializeGenericErrorSource.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     HalpCheckAndReportGhes @ 0x1404CA568 (HalpCheckAndReportGhes.c)
+ *     HalpFindGhesEntry @ 0x1404CA618 (HalpFindGhesEntry.c)
+ */
+
+char __fastcall HalpGenInitialRead(__int64 a1)
+{
+  int v1; // ecx
+  __int64 ***v2; // r9
+  __int64 *GhesEntry; // rax
+  int v4; // r8d
+  __int64 v5; // r9
+  _QWORD v7[5]; // [rsp+20h] [rbp-38h] BYREF
+
+  v1 = *(_DWORD *)(a1 + 28);
+  v7[0] = &HalpGenericPeiErrorSourceListHead;
+  v2 = (__int64 ***)v7;
+  v7[1] = &HalpGenericNmiErrorSourceListHead;
+  v7[2] = &HalpGenericSeaErrorSourceListHead;
+  v7[3] = &HalpGenericSdeiErrorSourceListHead;
+  v7[4] = &HalpGenericSeiErrorSourceListHead;
+  while ( 1 )
+  {
+    GhesEntry = HalpFindGhesEntry(v1, *v2);
+    if ( GhesEntry )
+      break;
+    v2 = (__int64 ***)(v5 + 8);
+    if ( (unsigned int)(v4 + 1) >= 5 )
+      return (char)GhesEntry;
+  }
+  LOBYTE(GhesEntry) = HalpCheckAndReportGhes((__int64)GhesEntry);
+  return (char)GhesEntry;
+}

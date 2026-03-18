@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?ProcessSetTint@CParticleBehaviors@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PARTICLEBEHAVIORS_SETTINT@@@Z @ 0x1801E8D28
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009D840 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x180083C40 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ */
+
+__int64 __fastcall CParticleBehaviors::ProcessSetTint(
+        CParticleBehaviors *this,
+        struct CResourceTable *a2,
+        const struct tagMILCMD_PARTICLEBEHAVIORS_SETTINT *a3)
+{
+  struct CResource *ResourceWithoutType; // rax
+  struct CResource **v4; // r8
+  CResource *v5; // r10
+
+  ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, *((_DWORD *)a3 + 2));
+  return CParticleBehaviors::SetBehavior<CParticleColorBehavior>(v5, ResourceWithoutType, v4);
+}

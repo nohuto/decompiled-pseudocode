@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?SetMargins@CGDIBitmapRealization@@UEAAXAEBU_MARGINS@@@Z @ 0x1800DDF50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CGDIBitmapRealization::SetMargins(struct _MARGINS *this, const struct _MARGINS *a2)
+{
+  this[1] = *a2;
+}

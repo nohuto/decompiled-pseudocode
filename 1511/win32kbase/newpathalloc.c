@@ -1,0 +1,45 @@
+/*
+ * XREFs of newpathalloc @ 0x1C00704B0
+ * Callers:
+ *     ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C006F89C (-newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z.c)
+ *     ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C006FA50 (-createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     PALLOCMEM2 @ 0x1C0020C1C (PALLOCMEM2.c)
+ *     EngAcquireSemaphore @ 0x1C00372E0 (EngAcquireSemaphore.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C006E380 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
+struct PATHALLOC *newpathalloc()
+{
+  __int64 v0; // rdx
+  __int64 v1; // r8
+  struct PATHALLOC *v2; // rcx
+  struct PATHALLOC *v3; // rbx
+  struct PATHALLOC *v4; // rax
+  HSEMAPHORE v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v6 = PATHALLOC::hsemFreelist;
+  EngAcquireSemaphore(PATHALLOC::hsemFreelist);
+  v2 = PATHALLOC::freelist;
+  v3 = 0LL;
+  if ( PATHALLOC::freelist )
+  {
+    v4 = *(struct PATHALLOC **)PATHALLOC::freelist;
+    --PATHALLOC::cFree;
+    PATHALLOC::freelist = v4;
+  }
+  else
+  {
+    v2 = (struct PATHALLOC *)PALLOCMEM2(0xFC0uLL, 1952542791LL, 1);
+    if ( !v2 )
+      goto LABEL_4;
+    ++PATHALLOC::cAllocated;
+  }
+  *(_QWORD *)v2 = 0LL;
+  *((_QWORD *)v2 + 1) = (char *)v2 + 24;
+  v3 = v2;
+  *((_DWORD *)v2 + 4) = 4032;
+LABEL_4:
+  SEMOBJ::vUnlock((SEMOBJ *)&v6, v0, v1);
+  return v3;
+}

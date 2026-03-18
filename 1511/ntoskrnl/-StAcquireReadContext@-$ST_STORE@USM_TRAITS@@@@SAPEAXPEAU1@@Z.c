@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?StAcquireReadContext@?$ST_STORE@USM_TRAITS@@@@SAPEAXPEAU1@@Z @ 0x1400F744C
+ * Callers:
+ *     ?SmStReadThread@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1400F7294 (-SmStReadThread@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x140109F6C (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
+ * Callees:
+ *     ?BTreeSearchResultInit@?$B_TREE@KU_ST_REGION_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@@@SAXPEAUSEARCH_RESULT@1@K@Z @ 0x1400F8A70 (-BTreeSearchResultInit@-$B_TREE@KU_ST_REGION_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@.c)
+ *     RtlpInterlockedPopEntrySList @ 0x14015B960 (RtlpInterlockedPopEntrySList.c)
+ *     memset @ 0x140166CC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x140238380 (ExAllocatePoolWithTag.c)
+ */
+
+PSLIST_ENTRY __fastcall ST_STORE<SM_TRAITS>::StAcquireReadContext(__int64 a1)
+{
+  PSLIST_ENTRY v2; // rdi
+  unsigned int v4; // ecx
+  struct _SLIST_ENTRY *PoolWithTag; // rax
+  unsigned __int64 v6; // rbx
+  unsigned __int64 v7; // rbx
+  unsigned __int64 v8; // r14
+
+  v2 = RtlpInterlockedPopEntrySList((PSLIST_HEADER)(a1 + 2528));
+  if ( !v2 )
+  {
+    v4 = *(_DWORD *)(a1 + 2520) + 432;
+    if ( (*(_DWORD *)(a1 + 208) & 0x40000) != 0 )
+      v4 = *(_DWORD *)(a1 + 2520) + 4528;
+    PoolWithTag = (struct _SLIST_ENTRY *)ExAllocatePoolWithTag(NonPagedPoolNx, v4, 0x74536D73u);
+    v2 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 0x40uLL);
+      v6 = ((unsigned __int64)&v2[4].Next + 15) & 0xFFFFFFFFFFFFFFF0uLL;
+      if ( *(_DWORD *)(a1 + 2520) )
+      {
+        v2[1].Next = (_SLIST_ENTRY *)v6;
+        v6 += *(unsigned int *)(a1 + 2520);
+      }
+      v7 = (v6 + 7) & 0xFFFFFFFFFFFFFFF8uLL;
+      *((_QWORD *)&v2[1].Next + 1) = v7;
+      v8 = (v7 + 175) & 0xFFFFFFFFFFFFFFF8uLL;
+      v2[2].Next = (_SLIST_ENTRY *)v8;
+      B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT>::BTreeSearchResultInit(v7, 0LL);
+      *(_DWORD *)(v7 + 24) = 0;
+      *(_QWORD *)v7 = v7 + 40;
+      *(_DWORD *)(v7 + 28) = 8;
+      B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_REGION_ENTRY,4096,NP_CONTEXT>::BTreeSearchResultInit(v8, 0LL);
+      *(_DWORD *)(v8 + 24) = 0;
+      *(_QWORD *)v8 = v8 + 40;
+      *(_DWORD *)(v8 + 28) = 8;
+      if ( (*(_DWORD *)(a1 + 208) & 0x40000) != 0 )
+        v2[3].Next = (_SLIST_ENTRY *)(v8 + 168);
+    }
+    else
+    {
+      return 0LL;
+    }
+  }
+  return v2;
+}

@@ -1,0 +1,74 @@
+/*
+ * XREFs of Register_WriteSecureMmio @ 0x1C006869C
+ * Callers:
+ *     Register_BiosHandoff @ 0x1C001FE14 (Register_BiosHandoff.c)
+ *     XilRegister_WriteUlong @ 0x1C0020E08 (XilRegister_WriteUlong.c)
+ *     XilRegister_WriteUlong64 @ 0x1C0020E44 (XilRegister_WriteUlong64.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00021E0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0008A40 (memmove.c)
+ *     memset @ 0x1C0008D80 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000B24C (WPP_RECORDER_SF_d.c)
+ *     Debug_FreAssertMsg @ 0x1C00157EC (Debug_FreAssertMsg.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C006B43C (SecureChannel_SendRequestSynchronously.c)
+ */
+
+__int64 __fastcall Register_WriteSecureMmio(__int64 a1, __int64 a2, int a3, const void *a4)
+{
+  __int64 v8; // rbp
+  size_t v9; // rbx
+  __int64 result; // rax
+  int v11; // [rsp+30h] [rbp-98h] BYREF
+  _QWORD v12[8]; // [rsp+40h] [rbp-88h] BYREF
+
+  v11 = 0;
+  if ( KeGetCurrentIrql() )
+    Debug_FreAssertMsg(
+      (__int64)"Code Path Requires Passive Level",
+      0,
+      (int)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\register.c",
+      2543);
+  v8 = *(_QWORD *)(*(_QWORD *)(a1 + 8) + 112LL);
+  if ( a3 )
+  {
+    switch ( a3 )
+    {
+      case 1:
+        v9 = 2LL;
+        break;
+      case 2:
+        v9 = 4LL;
+        break;
+      case 3:
+        v9 = 8LL;
+        break;
+      default:
+        v9 = 0LL;
+        break;
+    }
+  }
+  else
+  {
+    v9 = 1LL;
+  }
+  memset(v12, 0, sizeof(v12));
+  v12[3] = *(_QWORD *)(a1 + 120);
+  LODWORD(v12[4]) = 11;
+  v12[5] = a2;
+  LODWORD(v12[6]) = a3;
+  memmove(&v12[7], a4, v9);
+  result = SecureChannel_SendRequestSynchronously(v8, (unsigned int)v12, 64, (unsigned int)&v11, 4);
+  if ( (int)result >= 0 )
+  {
+    result = (unsigned int)v11;
+    if ( v11 < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      return WPP_RECORDER_SF_d(
+               *(_QWORD *)(*(_QWORD *)(a1 + 8) + 72LL),
+               2u,
+               6u,
+               0x4Cu,
+               (__int64)&WPP_9d05267a3ed0340255d9e56cf9248aa3_Traceguids,
+               v11);
+  }
+  return result;
+}

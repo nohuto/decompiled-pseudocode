@@ -1,0 +1,82 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceSelfManagedIoInit @ 0x1C0009BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0006B30 (WPP_RECORDER_SF_d.c)
+ *     Controller_PopulateDeviceFlagsFromKse @ 0x1C0008A30 (Controller_PopulateDeviceFlagsFromKse.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0008E10 (WPP_RECORDER_SF_q.c)
+ *     CommonBuffer_AcquireBuffer @ 0x1C0009960 (CommonBuffer_AcquireBuffer.c)
+ *     Controller_InUseByDebugger @ 0x1C0009E10 (Controller_InUseByDebugger.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0010C80 (_guard_dispatch_icall_nop.c)
+ *     Controller_PopulateHardwareVerifierFlags @ 0x1C004AC74 (Controller_PopulateHardwareVerifierFlags.c)
+ *     Controller_SetDeviceDescription @ 0x1C004B870 (Controller_SetDeviceDescription.c)
+ */
+
+__int64 __fastcall Controller_WdfEvtDeviceSelfManagedIoInit(__int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 *v5; // rax
+  NTSTATUS v7; // eax
+  __int64 v8; // [rsp+28h] [rbp-10h]
+
+  v2 = *(_QWORD *)((*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
+                     WdfDriverGlobals,
+                     a1,
+                     off_1C00412A0)
+                 + 8);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_q(
+      *(_QWORD *)(v2 + 64),
+      5u,
+      3u,
+      0x36u,
+      (__int64)&WPP_a6e1c58309a3d9966a339d413262311d_Traceguids,
+      a1);
+  if ( (unsigned __int8)Controller_InUseByDebugger(v2) )
+  {
+    WPP_RECORDER_SF_q(
+      *(_QWORD *)(v2 + 64),
+      4u,
+      3u,
+      0x37u,
+      (__int64)&WPP_a6e1c58309a3d9966a339d413262311d_Traceguids,
+      a1);
+    v7 = PoRegisterPowerSettingCallback(
+           0LL,
+           &GUID_LOW_POWER_EPOCH,
+           Controller_LPEEnterExitCallback,
+           (PVOID)v2,
+           (PVOID *)(v2 + 400));
+    if ( v7 < 0 )
+    {
+      LODWORD(v8) = v7;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(v2 + 64),
+        3u,
+        3u,
+        0x38u,
+        (__int64)&WPP_a6e1c58309a3d9966a339d413262311d_Traceguids,
+        v8);
+    }
+  }
+  Controller_SetDeviceDescription(v2);
+  Controller_PopulateHardwareVerifierFlags(v2);
+  Controller_PopulateDeviceFlagsFromKse(v2, v3, v4);
+  if ( (*(_QWORD *)(v2 + 232) & 0x400000000LL) != 0 )
+  {
+    v5 = CommonBuffer_AcquireBuffer(*(KSPIN_LOCK **)(v2 + 88), 0x200u, v2, 0x31727443u);
+    *(_QWORD *)(v2 + 336) = v5;
+    if ( !v5 )
+      WPP_RECORDER_SF_q(
+        *(_QWORD *)(v2 + 64),
+        3u,
+        3u,
+        0x39u,
+        (__int64)&WPP_a6e1c58309a3d9966a339d413262311d_Traceguids,
+        a1);
+  }
+  return 0LL;
+}

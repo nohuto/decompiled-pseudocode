@@ -1,0 +1,29 @@
+/*
+ * XREFs of PopDiagTraceSetSystemState @ 0x14014AD5C
+ * Callers:
+ *     PopSetSystemState @ 0x14014ABF4 (PopSetSystemState.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140047810 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140094690 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140169210 (__security_check_cookie.c)
+ */
+
+void __fastcall PopDiagTraceSetSystemState(int a1)
+{
+  REGHANDLE v1; // rbx
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-28h] BYREF
+  int v3; // [rsp+70h] [rbp+8h] BYREF
+
+  v3 = a1;
+  if ( PopDiagHandleRegistered )
+  {
+    v1 = PopDiagHandle;
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SETSYSTEMSTATE) )
+    {
+      UserData.Reserved = 0;
+      UserData.Ptr = (ULONGLONG)&v3;
+      UserData.Size = 4;
+      EtwWriteEx(v1, &POP_ETW_EVENT_SETSYSTEMSTATE, 0LL, 0, 0LL, 0LL, 1u, &UserData);
+    }
+  }
+}

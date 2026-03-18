@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?SupportsInteractionType@CInteractionRoot@@UEBAHW4InputType@@I_N@Z @ 0x18023ECF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CInteractionRoot::SupportsInteractionType(__int64 a1, int a2, unsigned int a3, char a4)
+{
+  return CInteractionProcessor::SupportsInteractionType(a1 + 32, a2, a3, a4);
+}

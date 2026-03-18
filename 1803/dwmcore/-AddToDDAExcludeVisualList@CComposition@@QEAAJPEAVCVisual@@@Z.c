@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?AddToDDAExcludeVisualList@CComposition@@QEAAJPEAVCVisual@@@Z @ 0x180149DCC
+ * Callers:
+ *     ?Partition_SetExcludeFromDDA@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUMILCMD_PARTITION_SETEXCLUDEFROMDDA@@@Z @ 0x18014A77C (-Partition_SetExcludeFromDDA@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUMIL.c)
+ * Callees:
+ *     ?GetWeakReferenceBase@CComposition@@AEAAJPEAVCResource@@PEAPEAVCWeakReferenceBase@@@Z @ 0x180034994 (-GetWeakReferenceBase@CComposition@@AEAAJPEAVCResource@@PEAPEAVCWeakReferenceBase@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18005E450 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x18007968C (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?FindDDAExcludeVisual@CComposition@@QEAAIPEAVCVisual@@@Z @ 0x18014A1D0 (-FindDDAExcludeVisual@CComposition@@QEAAIPEAVCVisual@@@Z.c)
+ */
+
+__int64 __fastcall CComposition::AddToDDAExcludeVisualList(CComposition *this, struct CVisual *a2)
+{
+  int v3; // ebx
+  unsigned int DDAExcludeVisual; // eax
+  struct CResource *v5; // rdx
+  CComposition *v6; // rcx
+  int WeakReferenceBase; // eax
+  _QWORD *v8; // r10
+  unsigned int v9; // eax
+  unsigned int v10; // edx
+  int v11; // eax
+  struct CWeakReferenceBase *v13; // [rsp+40h] [rbp+8h] BYREF
+
+  v3 = 0;
+  DDAExcludeVisual = CComposition::FindDDAExcludeVisual(this, a2);
+  if ( DDAExcludeVisual == *((_DWORD *)v6 + 252) )
+  {
+    v13 = 0LL;
+    WeakReferenceBase = CComposition::GetWeakReferenceBase(v6, v5, &v13);
+    v3 = WeakReferenceBase;
+    if ( WeakReferenceBase < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, WeakReferenceBase, 0x1083u);
+    }
+    else
+    {
+      v8 = (_QWORD *)((char *)this + 984);
+      v9 = *((_DWORD *)this + 252);
+      v10 = v9 + 1;
+      v3 = v9 + 1 < v9 ? 0x80070216 : 0;
+      if ( v9 + 1 < v9 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v3, 0xB5u);
+      }
+      else if ( v10 > *((_DWORD *)this + 251) )
+      {
+        v11 = DynArrayImpl<0>::AddMultipleAndSet((__int64)v8, 8u, 1, &v13);
+        v3 = v11;
+        if ( v11 < 0 )
+          MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v11, 0xC0u);
+      }
+      else
+      {
+        *(_QWORD *)(*v8 + 8LL * v9) = v13;
+        *((_DWORD *)this + 252) = v10;
+      }
+      if ( v3 < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, v3, 0x1084u);
+    }
+  }
+  return (unsigned int)v3;
+}

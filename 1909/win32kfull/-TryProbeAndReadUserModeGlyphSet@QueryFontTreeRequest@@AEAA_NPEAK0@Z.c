@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?TryProbeAndReadUserModeGlyphSet@QueryFontTreeRequest@@AEAA_NPEAK0@Z @ 0x1C011EE3C
+ * Callers:
+ *     ?CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ @ 0x1C011E4E0 (-CaptureGlyphSet@QueryFontTreeRequest@@AEAAXXZ.c)
+ * Callees:
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C011EE90 (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ */
+
+char __fastcall QueryFontTreeRequest::TryProbeAndReadUserModeGlyphSet(
+        QueryFontTreeRequest *this,
+        unsigned int *a2,
+        unsigned int *a3)
+{
+  unsigned int *v5; // rbx
+
+  v5 = (unsigned int *)*((_QWORD *)this + 11);
+  Win32ProbeForRead(v5, 0x20uLL, 8u);
+  *a2 = *v5;
+  *a3 = v5[3];
+  return 1;
+}

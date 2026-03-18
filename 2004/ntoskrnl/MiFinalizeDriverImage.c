@@ -1,0 +1,14 @@
+/*
+ * XREFs of MiFinalizeDriverImage @ 0x1407471C8
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14074603C (MmLoadSystemImageEx.c)
+ * Callees:
+ *     KseDriverLoadImage @ 0x140745ACC (KseDriverLoadImage.c)
+ *     VfDriverLoadImage @ 0x1409BF090 (VfDriverLoadImage.c)
+ */
+
+__int64 __fastcall MiFinalizeDriverImage(__int64 a1)
+{
+  VfDriverLoadImage(a1, 0LL, 0LL, 0LL);
+  return KseDriverLoadImage(a1);
+}

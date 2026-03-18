@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?AddRenderTarget@CCaptureController@@QEAAXPEAVCCaptureRenderTarget@@@Z @ 0x1801BACAC
+ * Callers:
+ *     ?SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z @ 0x18018C2A4 (-SetController@CCaptureRenderTarget@@QEAAXPEAVCCaptureController@@@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180006810 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EBD90 (_guard_dispatch_icall_nop.c)
+ *     ?SetRootVisual@CCaptureRenderTarget@@QEAAJPEAVCVisual@@@Z @ 0x18018C2F4 (-SetRootVisual@CCaptureRenderTarget@@QEAAJPEAVCVisual@@@Z.c)
+ *     ?SetTransform@CCaptureRenderTarget@@QEAAJPEAVCTransform3D@@@Z @ 0x18018C35C (-SetTransform@CCaptureRenderTarget@@QEAAJPEAVCTransform3D@@@Z.c)
+ *     ??$_Emplace_reallocate@V?$com_ptr_t@VCCaptureRenderTarget@@Uerr_returncode_policy@wil@@@wil@@@?$vector@V?$com_ptr_t@VCCaptureRenderTarget@@Uerr_returncode_policy@wil@@@wil@@V?$allocator@V?$com_ptr_t@VCCaptureRenderTarget@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@QEAAPEAV?$com_ptr_t@VCCaptureRenderTarget@@Uerr_returncode_policy@wil@@@wil@@QEAV23@$$QEAV23@@Z @ 0x1801BAACC (--$_Emplace_reallocate@V-$com_ptr_t@VCCaptureRenderTarget@@Uerr_returncode_policy@wil@@@wil@@@-$.c)
+ */
+
+void __fastcall CCaptureController::AddRenderTarget(CCaptureController *this, struct CCaptureRenderTarget *a2)
+{
+  __int64 *v4; // rdx
+  int v5; // xmm0_4
+  float v6; // xmm1_4
+  struct CCaptureRenderTarget *v7; // [rsp+30h] [rbp+8h] BYREF
+
+  v7 = a2;
+  if ( a2 )
+    (*(void (__fastcall **)(struct CCaptureRenderTarget *))(*(_QWORD *)a2 + 8LL))(a2);
+  v4 = (__int64 *)*((_QWORD *)this + 8);
+  if ( *((__int64 **)this + 9) == v4 )
+  {
+    std::vector<wil::com_ptr_t<CCaptureRenderTarget,wil::err_returncode_policy>>::_Emplace_reallocate<wil::com_ptr_t<CCaptureRenderTarget,wil::err_returncode_policy>>(
+      (__int64 **)this + 7,
+      v4,
+      (__int64 *)&v7);
+  }
+  else
+  {
+    v7 = 0LL;
+    *v4 = (__int64)a2;
+    *((_QWORD *)this + 8) += 8LL;
+  }
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v7);
+  CCaptureRenderTarget::SetRootVisual(a2, *((struct CVisual **)this + 10));
+  *((_BYTE *)a2 + 1912) = *((_BYTE *)this + 96);
+  v5 = *((_DWORD *)this + 26);
+  *((_DWORD *)a2 + 520) = *((_DWORD *)this + 25);
+  *((_DWORD *)a2 + 521) = v5;
+  v6 = *((float *)this + 28);
+  *((_DWORD *)a2 + 20) = (int)*((float *)this + 27);
+  *((_DWORD *)a2 + 21) = (int)v6;
+  CCaptureRenderTarget::SetTransform((struct CResource **)a2, *((struct CTransform3D **)this + 15));
+  *((_BYTE *)a2 + 1913) = *((_BYTE *)this + 97);
+}

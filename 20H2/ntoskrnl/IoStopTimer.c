@@ -1,0 +1,12 @@
+/*
+ * XREFs of IoStopTimer @ 0x1403CE110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopDisableTimer @ 0x1403CE12C (IopDisableTimer.c)
+ */
+
+void __stdcall IoStopTimer(PDEVICE_OBJECT DeviceObject)
+{
+  IopDisableTimer(DeviceObject->Timer);
+}

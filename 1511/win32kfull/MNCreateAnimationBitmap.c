@@ -1,0 +1,25 @@
+/*
+ * XREFs of MNCreateAnimationBitmap @ 0x1C01FD3AC
+ * Callers:
+ *     xxxMenuWindowProc @ 0x1C0135770 (xxxMenuWindowProc.c)
+ * Callees:
+ *     GreCreateCompatibleBitmapInternal @ 0x1C0040968 (GreCreateCompatibleBitmapInternal.c)
+ */
+
+__int64 __fastcall MNCreateAnimationBitmap(_QWORD *a1, int a2, int a3)
+{
+  __int64 result; // rax
+  __int64 v5; // rbx
+
+  result = GreCreateCompatibleBitmapInternal(*(_QWORD *)(gpDispInfo + 24LL), a2, a3, 0, 0LL);
+  v5 = result;
+  if ( result )
+  {
+    if ( a1 == gMenuState )
+      GreSetBitmapOwner(result, 0LL);
+    GreSelectBitmap(a1[17], v5);
+    result = 1LL;
+    a1[16] = v5;
+  }
+  return result;
+}

@@ -1,0 +1,188 @@
+/*
+ * XREFs of NtBindCompositionSurface @ 0x1C0020870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO@@PEAPEAV1@@Z @ 0x1C0020BFC (-Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO@@PEAPEAV1@@Z.c)
+ *     ?LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z @ 0x1C0021950 (-LockForWrite@CompositionSurfaceObject@@QEAAJPEAPEAVCCompositionSurface@@@Z.c)
+ *     ?ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00252F4 (-ResolveHandle@CompositionSurfaceObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?ReleaseAllBuffers@CCompositionSurface@@IEAA_NXZ @ 0x1C0038AFC (-ReleaseAllBuffers@CCompositionSurface@@IEAA_NXZ.c)
+ *     ?UnlockAndRelease@CInputSink@@QEBA_NXZ @ 0x1C0038F40 (-UnlockAndRelease@CInputSink@@QEBA_NXZ.c)
+ *     ?Bind@CCompositionSurface@@QEAAJPEAVCCompositionBuffer@@_N@Z @ 0x1C0038F70 (-Bind@CCompositionSurface@@QEAAJPEAVCCompositionBuffer@@_N@Z.c)
+ *     __security_check_cookie @ 0x1C00A7160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00AB7F0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00ABB80 (memset.c)
+ *     ?Create@CCompositionBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SINGLE_BUFFER_INFO@@PEAPEAV1@@Z @ 0x1C01529D8 (-Create@CCompositionBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SINGLE_BUFFER_INFO@@PEAPEAV1@@.c)
+ */
+
+__int64 __fastcall NtBindCompositionSurface(void *a1, int a2, unsigned int a3, _OWORD *a4, _QWORD *a5)
+{
+  int v7; // ebx
+  __int64 v8; // r12
+  _OWORD *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  _OWORD *v12; // rax
+  _OWORD *v13; // rcx
+  struct CCompositionBuffer *v14; // rdi
+  __int64 v15; // r15
+  char v16; // r14
+  char v17; // r8
+  PVOID Object; // [rsp+28h] [rbp-8B0h] BYREF
+  struct CCompositionBuffer *v20; // [rsp+30h] [rbp-8A8h] BYREF
+  void *v21; // [rsp+38h] [rbp-8A0h]
+  unsigned int v22; // [rsp+40h] [rbp-898h]
+  CInputSink *v23; // [rsp+48h] [rbp-890h] BYREF
+  CInputSink *v24; // [rsp+50h] [rbp-888h] BYREF
+  __int64 v25; // [rsp+58h] [rbp-880h]
+  _QWORD *v26; // [rsp+60h] [rbp-878h]
+  struct CFlipExBuffer *v27; // [rsp+68h] [rbp-870h] BYREF
+  _BYTE v28[1040]; // [rsp+70h] [rbp-868h] BYREF
+  _QWORD v29[130]; // [rsp+480h] [rbp-458h] BYREF
+
+  v21 = a1;
+  v22 = a3;
+  v26 = a5;
+  v7 = 0;
+  v8 = 0LL;
+  v25 = 0LL;
+  memset(v29, 0, sizeof(v29));
+  if ( a4 )
+  {
+    if ( a4 + 65 < a4 || (unsigned __int64)(a4 + 65) > MmUserProbeAddress )
+      a4 = (_OWORD *)MmUserProbeAddress;
+    v9 = v28;
+    v10 = 8LL;
+    v11 = 8LL;
+    do
+    {
+      *v9 = *a4;
+      v9[1] = a4[1];
+      v9[2] = a4[2];
+      v9[3] = a4[3];
+      v9[4] = a4[4];
+      v9[5] = a4[5];
+      v9[6] = a4[6];
+      v9 += 8;
+      *(v9 - 1) = a4[7];
+      a4 += 8;
+      --v11;
+    }
+    while ( v11 );
+    *v9 = *a4;
+    v12 = v29;
+    v13 = v28;
+    do
+    {
+      *v12 = *v13;
+      v12[1] = v13[1];
+      v12[2] = v13[2];
+      v12[3] = v13[3];
+      v12[4] = v13[4];
+      v12[5] = v13[5];
+      v12[6] = v13[6];
+      v12 += 8;
+      *(v12 - 1) = v13[7];
+      v13 += 8;
+      --v10;
+    }
+    while ( v10 );
+    *v12 = *v13;
+    if ( a5 + 1 < a5 || (unsigned __int64)(a5 + 1) > MmUserProbeAddress )
+      *(_BYTE *)MmUserProbeAddress = 0;
+    *a5 = 0LL;
+  }
+  else
+  {
+    v7 = -1073741811;
+  }
+  if ( v7 >= 0 )
+  {
+    v14 = 0LL;
+    v20 = 0LL;
+    v15 = 0LL;
+    v21 = 0LL;
+    v16 = 0;
+    KeEnterCriticalRegion();
+    if ( LODWORD(v29[0]) == 1 )
+    {
+      v7 = CCompositionBuffer::Create(
+             (const struct CSM_BUFFER_ATTRIBUTES *)&v29[2],
+             (const struct CSM_SINGLE_BUFFER_INFO *)&v29[17],
+             &v20);
+      v14 = v20;
+    }
+    else if ( LODWORD(v29[0]) == 2 )
+    {
+      v7 = CFlipExBuffer::Create(
+             (const struct CSM_BUFFER_ATTRIBUTES *)&v29[2],
+             (const struct CSM_SWAPCHAIN_BUFFER_INFO *)&v29[17],
+             &v27);
+      if ( v7 >= 0 )
+      {
+        v14 = v27;
+        v20 = v27;
+        v15 = v29[17];
+        v21 = (void *)v29[17];
+      }
+    }
+    else
+    {
+      v7 = -1073741811;
+    }
+    if ( v7 >= 0 )
+    {
+      Object = 0LL;
+      v7 = CompositionSurfaceObject::ResolveHandle(a1, 2u, v17, (struct CompositionSurfaceObject **)&Object);
+      if ( v7 >= 0 )
+      {
+        v23 = 0LL;
+        v7 = CompositionSurfaceObject::LockForWrite(Object, &v23);
+        if ( v7 >= 0 )
+        {
+          v7 = CCompositionSurface::Bind(v23, v14, a2 != 0);
+          if ( v7 >= 0 )
+          {
+            v16 = 1;
+            v8 = *((_QWORD *)v14 + 2);
+            v25 = v8;
+          }
+          CInputSink::UnlockAndRelease(v23);
+        }
+      }
+      if ( a5 )
+      {
+        if ( a5 + 1 < a5 || (unsigned __int64)(a5 + 1) > MmUserProbeAddress )
+          *(_BYTE *)MmUserProbeAddress = 0;
+        *a5 = v8;
+      }
+      else
+      {
+        v7 = -1073741811;
+      }
+      if ( v7 < 0 )
+        goto LABEL_52;
+      if ( v15 && !(unsigned int)UserSetWindowedSwapChainApiExt(v15, v22, Object) )
+        v7 = -1073741790;
+      if ( v7 < 0 )
+      {
+LABEL_52:
+        if ( v16 )
+        {
+          v24 = 0LL;
+          if ( (int)CompositionSurfaceObject::LockForWrite(Object, &v24) >= 0 )
+          {
+            CCompositionSurface::ReleaseAllBuffers(v24);
+            CInputSink::UnlockAndRelease(v24);
+          }
+        }
+      }
+      if ( Object )
+        ObfDereferenceObject(Object);
+      if ( v14 && !v16 )
+        _guard_dispatch_icall_fptr();
+    }
+    KeLeaveCriticalRegion();
+  }
+  return (unsigned int)v7;
+}

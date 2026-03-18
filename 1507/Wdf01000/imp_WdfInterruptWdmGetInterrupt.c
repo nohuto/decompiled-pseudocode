@@ -1,0 +1,45 @@
+/*
+ * XREFs of imp_WdfInterruptWdmGetInterrupt @ 0x1C0098FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z @ 0x1C001F354 (-FxObjectHandleGetPtrQI@@YAXPEAVFxObject@@PEAPEAXPEAXGG@Z.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0031DE8 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
+struct _KINTERRUPT *__fastcall imp_WdfInterruptWdmGetInterrupt(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        unsigned __int64 Interrupt)
+{
+  FxInterrupt *v2; // rcx
+  __int64 Offset; // r8
+  struct _KINTERRUPT *result; // rax
+  FxInterrupt *pFxInterrupt; // [rsp+48h] [rbp+10h] BYREF
+
+  if ( !Interrupt )
+    FxVerifierBugCheckWorker(
+      (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8].DriverName[16],
+      WDF_INVALID_HANDLE,
+      0LL,
+      0x1027uLL);
+  v2 = (FxInterrupt *)(~Interrupt & 0xFFFFFFFFFFFFFFF8uLL);
+  LOWORD(Offset) = 0;
+  if ( (Interrupt & 1) != 0 )
+  {
+    Offset = LOWORD(v2->__vftable);
+    v2 = (FxInterrupt *)((char *)v2 - Offset);
+  }
+  if ( v2->m_Type == 4135 )
+  {
+    pFxInterrupt = v2;
+  }
+  else
+  {
+    FxObjectHandleGetPtrQI(v2, (void **)&pFxInterrupt, (void *)Interrupt, 0x1027u, Offset);
+    v2 = pFxInterrupt;
+  }
+  result = v2->m_Interrupt;
+  if ( !result )
+    return v2->m_InterruptCaptured;
+  return result;
+}

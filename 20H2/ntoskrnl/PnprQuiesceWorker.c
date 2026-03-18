@@ -1,0 +1,49 @@
+/*
+ * XREFs of PnprQuiesceWorker @ 0x1409B1D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x140219280 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14021B560 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1402DCE40 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403CFAF0 (__security_check_cookie.c)
+ *     PnprCompleteWake @ 0x14050D5F8 (PnprCompleteWake.c)
+ *     PnprLockPagesForReplace @ 0x1408B09F4 (PnprLockPagesForReplace.c)
+ *     PnprQuiesceDevices @ 0x1409B1310 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x1409B1E9C (PnprWakeDevices.c)
+ *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall PnprQuiesceWorker(PVOID P)
+{
+  int v2; // eax
+  struct _KEVENT *v3; // rcx
+  int v4; // ebx
+  PVOID v5[2]; // [rsp+40h] [rbp-68h] BYREF
+  _OWORD v6[3]; // [rsp+50h] [rbp-58h] BYREF
+  __int64 v7; // [rsp+80h] [rbp-28h]
+  int v8; // [rsp+88h] [rbp-20h]
+
+  memset(v6, 0, sizeof(v6));
+  v7 = 0LL;
+  v8 = 0;
+  v5[0] = (PVOID)(PnprContext + 20760);
+  v5[1] = (PVOID)(PnprContext + 20808);
+  if ( KeWaitForMultipleObjects(2u, v5, WaitAny, Executive, 0, 0, 0LL, 0LL) != 1 )
+  {
+    PnprLockPagesForReplace();
+    v2 = PnprQuiesceDevices((__int64)v6);
+    v3 = (struct _KEVENT *)PnprContext;
+    v4 = v2;
+    *(_DWORD *)(PnprContext + 20856) = v2;
+    KeSetEvent(v3 + 866, 0, 0);
+    if ( v4 >= 0 )
+    {
+      KeWaitForSingleObject((PVOID)(PnprContext + 20808), Executive, 0, 0, 0LL);
+      PnprWakeDevices(v6);
+    }
+    PnprCompleteWake();
+  }
+  KeSetEvent((PRKEVENT)(PnprContext + 20832), 0, 0);
+  ExFreePoolWithTag(P, 0x51706E50u);
+}

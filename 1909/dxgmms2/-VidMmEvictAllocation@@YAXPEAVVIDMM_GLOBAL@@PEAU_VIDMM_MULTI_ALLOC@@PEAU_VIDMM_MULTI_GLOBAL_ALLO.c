@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?VidMmEvictAllocation@@YAXPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C0024420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C00B16A4 (-VidMmEvictAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@.c)
+ */
+
+void __fastcall VidMmEvictAllocation(
+        struct VIDMM_GLOBAL *a1,
+        struct _VIDMM_MULTI_ALLOC *a2,
+        struct _VIDMM_MULTI_GLOBAL_ALLOC *a3,
+        struct _D3DKMT_EVICTION_CRITERIA *a4)
+{
+  VIDMM_GLOBAL::VidMmEvictAllocation(a1, a2, a3, a4);
+}

@@ -1,0 +1,22 @@
+/*
+ * XREFs of KsepStringAnsiToUnicode @ 0x140544F54
+ * Callers:
+ *     KsepMatchInitCpuInfo @ 0x14076CD84 (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x14076CE04 (KsepMatchInitAcpiOemInfo.c)
+ * Callees:
+ *     RtlAnsiStringToUnicodeString @ 0x1403E1384 (RtlAnsiStringToUnicodeString.c)
+ */
+
+NTSTATUS __fastcall KsepStringAnsiToUnicode(wchar_t *a1, unsigned __int16 a2, char *a3, unsigned __int16 a4)
+{
+  STRING v5; // [rsp+20h] [rbp-28h] BYREF
+  UNICODE_STRING v6; // [rsp+30h] [rbp-18h] BYREF
+
+  v6.Buffer = a1;
+  v6.MaximumLength = a2;
+  v5.Buffer = a3;
+  v6.Length = 0;
+  v5.MaximumLength = a4;
+  v5.Length = a4;
+  return RtlAnsiStringToUnicodeString(&v6, &v5, 0);
+}

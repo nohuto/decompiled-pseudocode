@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ @ 0x1C001D470
+ * Callers:
+ *     ?CheckMcdmDdiSubmission@DXGADAPTER@@AEAAJXZ @ 0x1C0026D90 (-CheckMcdmDdiSubmission@DXGADAPTER@@AEAAJXZ.c)
+ *     ?CreateDriverAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAPEAX5PEAXPEBU_D3DKM_CREATESTANDARDALLOCATION@@HPEAU_D3DKMT_CREATESTANDARDALLOCATION@@@Z @ 0x1C0173080 (-CreateDriverAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINF.c)
+ *     DxgkEscape @ 0x1C0179FA0 (DxgkEscape.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C01C7E74 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C0203930 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ @ 0x1C02BAA6C (-DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DXGADAPTER::GetNumDifferentPhysicalAdapters(DXGADAPTER *this)
+{
+  if ( *((int *)this + 606) < 0x2000 )
+    return 1LL;
+  else
+    return *((unsigned int *)this + 72);
+}

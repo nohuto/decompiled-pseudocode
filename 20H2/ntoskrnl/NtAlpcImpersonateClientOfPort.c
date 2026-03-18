@@ -1,0 +1,128 @@
+/*
+ * XREFs of NtAlpcImpersonateClientOfPort @ 0x1405F1050
+ * Callers:
+ *     NtImpersonateClientOfPort @ 0x1408C4820 (NtImpersonateClientOfPort.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14021EB00 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x1402211F0 (HalPutDmaAdapter.c)
+ *     AlpcpLookupMessage @ 0x1405EDE10 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockBlob @ 0x1405EEEC0 (AlpcpUnlockBlob.c)
+ *     AlpcpImpersonateMessage @ 0x1405F1220 (AlpcpImpersonateMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x1405F1480 (AlpcpCaptureIdMessage.c)
+ *     AlpcpReferenceConnectedPort @ 0x1405F1540 (AlpcpReferenceConnectedPort.c)
+ *     ObReferenceObjectByHandle @ 0x1406118C0 (ObReferenceObjectByHandle.c)
+ *     SeImpersonateClientEx @ 0x140717A40 (SeImpersonateClientEx.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x1408C5414 (AlpcpEnterStateChangeEventMessageLog.c)
+ */
+
+__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+{
+  struct _DMA_ADAPTER *v6; // rbx
+  struct _KTHREAD *CurrentThread; // rax
+  KPROCESSOR_MODE PreviousMode; // dl
+  unsigned int v9; // r15d
+  unsigned __int64 v10; // rdi
+  int v11; // r12d
+  BOOL v12; // r13d
+  __int64 v13; // r9
+  int v14; // r14d
+  struct _DMA_ADAPTER *v15; // rsi
+  ULONG_PTR v16; // rdi
+  __int64 v18; // rax
+  int Object; // [rsp+20h] [rbp-A8h]
+  int v20; // [rsp+30h] [rbp-98h] BYREF
+  PADAPTER_OBJECT DmaAdapter; // [rsp+38h] [rbp-90h]
+  ULONG_PTR BugCheckParameter2[2]; // [rsp+40h] [rbp-88h] BYREF
+  struct _SECURITY_CLIENT_CONTEXT ClientContext; // [rsp+50h] [rbp-78h] BYREF
+  PVOID v24; // [rsp+D8h] [rbp+10h] BYREF
+  unsigned int v25; // [rsp+E8h] [rbp+20h] BYREF
+
+  v6 = 0LL;
+  BugCheckParameter2[0] = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v25 = 0;
+  v20 = 0;
+  DmaAdapter = 0LL;
+  BugCheckParameter2[1] = 0LL;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  LOBYTE(v24) = PreviousMode;
+  if ( a2 )
+  {
+    AlpcpCaptureIdMessage(a2, &v25, &v20);
+    v9 = v25;
+    if ( !v25 )
+    {
+LABEL_28:
+      v15 = DmaAdapter;
+      v14 = -1073741811;
+      goto LABEL_11;
+    }
+    PreviousMode = (char)v24;
+  }
+  else
+  {
+    v9 = v25;
+  }
+  v10 = a3 >> 2;
+  if ( (unsigned int)(a3 >> 2) > 3 )
+    goto LABEL_28;
+  v11 = a3 & 1;
+  v12 = (((4 * (_DWORD)v10) | 2) & (unsigned int)a3) != 0LL;
+  v24 = 0LL;
+  v14 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &v24, 0LL);
+  v15 = (struct _DMA_ADAPTER *)v24;
+  if ( v14 < 0 )
+    goto LABEL_11;
+  if ( v9 )
+  {
+    v14 = AlpcpLookupMessage((__int64)v24, v9, v20, v13, BugCheckParameter2);
+    if ( v14 >= 0 )
+    {
+      Object = v10;
+      v16 = BugCheckParameter2[0];
+      v14 = AlpcpImpersonateMessage((_DWORD)v15, BugCheckParameter2[0], v11, v12, Object);
+      if ( AlpcpMessageLogEnabled )
+        AlpcpEnterStateChangeEventMessageLog(v16);
+      AlpcpUnlockBlob(v16);
+    }
+  }
+  else
+  {
+    v18 = AlpcpReferenceConnectedPort(v24);
+    v6 = (struct _DMA_ADAPTER *)v18;
+    if ( !v18 )
+    {
+      v14 = -1073741790;
+      goto LABEL_11;
+    }
+    if ( (*(_DWORD *)(v18 + 256) & 0x10000) == 0 )
+    {
+      v14 = -1073741790;
+      goto LABEL_11;
+    }
+    if ( (*(_DWORD *)(v18 + 416) & 0x400) != 0 )
+    {
+      v14 = -1073741790;
+      goto LABEL_11;
+    }
+    ClientContext = *(struct _SECURITY_CLIENT_CONTEXT *)(v18 + 64);
+    if ( v12 )
+    {
+      if ( (int)v10 > ClientContext.SecurityQos.ImpersonationLevel )
+      {
+        v14 = -1073741790;
+        goto LABEL_11;
+      }
+      ClientContext.SecurityQos.ImpersonationLevel = v10;
+    }
+    v14 = SeImpersonateClientEx(&ClientContext, 0LL);
+  }
+LABEL_11:
+  if ( v6 )
+    HalPutDmaAdapter(v6);
+  if ( v15 )
+    HalPutDmaAdapter(v15);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return (unsigned int)v14;
+}

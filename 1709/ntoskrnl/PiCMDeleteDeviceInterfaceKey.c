@@ -1,0 +1,50 @@
+/*
+ * XREFs of PiCMDeleteDeviceInterfaceKey @ 0x1406CFD04
+ * Callers:
+ *     PiCMHandleIoctl @ 0x140525E40 (PiCMHandleIoctl.c)
+ * Callees:
+ *     PiCMReturnBasicResultData @ 0x14052FF90 (PiCMReturnBasicResultData.c)
+ *     PiCMReleaseObjectInputData @ 0x140530DB0 (PiCMReleaseObjectInputData.c)
+ *     PiCMCaptureObjectInputData @ 0x140531014 (PiCMCaptureObjectInputData.c)
+ *     PiAuDoesClientHaveAccess @ 0x140574D38 (PiAuDoesClientHaveAccess.c)
+ *     _CmDeleteDeviceInterfaceRegKey @ 0x14077EBD0 (_CmDeleteDeviceInterfaceRegKey.c)
+ */
+
+__int64 __fastcall PiCMDeleteDeviceInterfaceKey(
+        unsigned __int64 a1,
+        unsigned int a2,
+        _QWORD *a3,
+        unsigned int a4,
+        int a5,
+        _DWORD *a6)
+{
+  int v8; // ebx
+  int v9; // r9d
+  int v10; // eax
+  char v12[4]; // [rsp+30h] [rbp-38h] BYREF
+  int v13; // [rsp+34h] [rbp-34h]
+  int v14; // [rsp+38h] [rbp-30h]
+  __int64 v15; // [rsp+40h] [rbp-28h]
+  int v16; // [rsp+4Ch] [rbp-1Ch]
+  int v17; // [rsp+50h] [rbp-18h]
+
+  *a6 = 0;
+  v8 = PiCMCaptureObjectInputData(a1, a2, a5, v12);
+  if ( v8 >= 0 )
+  {
+    if ( PiAuDoesClientHaveAccess(2u) )
+    {
+      if ( v15 && !v13 && v14 == 4 && !v16 && a3 && a4 >= 8 )
+        v10 = CmDeleteDeviceInterfaceRegKey(PiPnpRtlCtx, v15, 50, v9, 1);
+      else
+        v10 = -1073741811;
+    }
+    else
+    {
+      v10 = -1073741790;
+    }
+    v8 = PiCMReturnBasicResultData(v10, v17, a3, a4, a6);
+  }
+  PiCMReleaseObjectInputData((__int64)v12);
+  return (unsigned int)v8;
+}

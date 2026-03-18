@@ -1,0 +1,71 @@
+/*
+ * XREFs of NtUserSetProp @ 0x1C007AE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _FindProp @ 0x1C007B010 (_FindProp.c)
+ *     CreateProp @ 0x1C007B05C (CreateProp.c)
+ *     UserSetLastError @ 0x1C00A6F5C (UserSetLastError.c)
+ */
+
+__int64 __fastcall NtUserSetProp(__int64 a1, int a2, __int64 a3)
+{
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  int v9; // ebx
+  __int64 v10; // rdi
+  __int64 v11; // rcx
+  __int64 Prop; // rax
+  __int64 CurrentProcessWin32Process; // rax
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+
+  EnterCrit(0LL, 1LL);
+  v6 = ValidateHwndEx(a1, 1LL, 1LL);
+  v9 = 0;
+  v10 = v6;
+  if ( v6 )
+  {
+    v11 = *(_QWORD *)(*(_QWORD *)(gptiCurrent + 408LL) + 8LL);
+    if ( *(_QWORD *)(v11 + 16) != v6 )
+    {
+      if ( !gbEnforceUIPI || (v11 = *(unsigned int *)(*(_QWORD *)(v6 + 16) + 440LL), (v11 & 0xC) != 0) )
+      {
+        CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v11, v7);
+        v15 = *(_QWORD *)(*(_QWORD *)(v10 + 16) + 376LL);
+        v16 = *(unsigned int *)(v15 + 732);
+        if ( *(_DWORD *)(CurrentProcessWin32Process + 732) != (_DWORD)v16
+          || *(_DWORD *)(PsGetCurrentProcessWin32Process(v16, v15) + 736) != *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(v10 + 16) + 376LL)
+                                                                                       + 736LL) )
+        {
+          v17 = 5LL;
+LABEL_15:
+          UserSetLastError(v17);
+          goto LABEL_10;
+        }
+      }
+    }
+    if ( !(_WORD)a2 )
+    {
+      v17 = 87LL;
+      goto LABEL_15;
+    }
+    Prop = FindProp(v10, (unsigned __int16)a2, 0LL);
+    if ( Prop )
+      goto LABEL_9;
+    Prop = CreateProp(v10);
+    if ( Prop )
+    {
+      *(_WORD *)(Prop + 8) = a2;
+      *(_WORD *)(Prop + 10) = HIWORD(a2) != 0 ? 2 : 0;
+LABEL_9:
+      *(_QWORD *)Prop = a3;
+      v9 = 1;
+    }
+  }
+LABEL_10:
+  UserSessionSwitchLeaveCrit(v8, v7);
+  return v9;
+}

@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?VidMmPinAllocation@VIDMM_EXPORT@@QEAAJPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_ALLOC@@PEAKPEAT_LARGE_INTEGER@@@Z @ 0x1C0013B08
+ * Callers:
+ *     ?PinPrimaryAllocations@DXGDEVICE@@QEAAJI@Z @ 0x1C00D45D0 (-PinPrimaryAllocations@DXGDEVICE@@QEAAJI@Z.c)
+ *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C0102860 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
+ *     ?AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z @ 0x1C0121440 (-AddPrimaryAllocation@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@@Z.c)
+ *     ?PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z @ 0x1C013FB08 (-PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z.c)
+ *     ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z @ 0x1C01E6AF0 (-CreateVirtualGpu@DXGVIRTUALGPUMANAGER_GPUP@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@E@Z.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C0206D20 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ * Callees:
+ *     ??0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FF18 (--0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0022E60 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0102F10 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
+__int64 __fastcall VIDMM_EXPORT::VidMmPinAllocation(
+        VIDMM_EXPORT *this,
+        struct VIDMM_GLOBAL *a2,
+        struct _VIDMM_MULTI_ALLOC *a3,
+        unsigned int *a4,
+        union _LARGE_INTEGER *a5)
+{
+  struct _KTHREAD **Current; // rax
+  unsigned int v10; // ebx
+  __int64 v11; // rcx
+  __int64 v13; // [rsp+40h] [rbp+8h] BYREF
+
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent();
+  DXGPROCESSVIDMMLOCK::DXGPROCESSVIDMMLOCK((DXGPROCESSVIDMMLOCK *)&v13, Current);
+  v10 = (*(__int64 (__fastcall **)(struct VIDMM_GLOBAL *, struct _VIDMM_MULTI_ALLOC *, unsigned int *, union _LARGE_INTEGER *))(*((_QWORD *)this + 1) + 224LL))(
+          a2,
+          a3,
+          a4,
+          a5);
+  if ( v13 )
+  {
+    v11 = v13 + 144;
+    *(_QWORD *)(v13 + 152) = 0LL;
+    ExReleasePushLockExclusiveEx(v11, 0LL);
+    KeLeaveCriticalRegion();
+  }
+  return v10;
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?SetTargetActivated@DMMVIDEOPRESENTTARGET@@QEAAXEE@Z @ 0x1C0171F8C
+ * Callers:
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0173F88 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C03B213C (-UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_.c)
+ * Callees:
+ *     ?SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z @ 0x1C00025BC (-SetPowerState@DMMVIDEOPRESENTTARGET@@QEAAXPEAVDXGADAPTER@@E@Z.c)
+ */
+
+void __fastcall DMMVIDEOPRESENTTARGET::SetTargetActivated(DMMVIDEOPRESENTTARGET *this, char a2, unsigned __int8 a3)
+{
+  __int64 v6; // rsi
+
+  if ( !*((_QWORD *)this + 5) )
+    WdLogSingleEntry0(1LL);
+  v6 = *(_QWORD *)(*((_QWORD *)this + 5) + 88LL);
+  if ( !*(_QWORD *)(v6 + 8) )
+    WdLogSingleEntry0(1LL);
+  DMMVIDEOPRESENTTARGET::SetPowerState(this, *(struct DXGADAPTER **)(*(_QWORD *)(v6 + 8) + 16LL), a3);
+  if ( *((_BYTE *)this + 418) != a2 )
+  {
+    if ( a2 )
+      *((_QWORD *)this + 53) = MEMORY[0xFFFFF78000000014];
+    else
+      *((_QWORD *)this + 54) = MEMORY[0xFFFFF78000000014];
+  }
+  *((_BYTE *)this + 418) = a2;
+}

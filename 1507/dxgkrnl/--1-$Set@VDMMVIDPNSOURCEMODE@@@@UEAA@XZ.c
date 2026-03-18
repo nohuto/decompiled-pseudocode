@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??1?$Set@VDMMVIDPNSOURCEMODE@@@@UEAA@XZ @ 0x1C00075A4
+ * Callers:
+ *     ??1DMMVIDPNSOURCEMODESET@@UEAA@XZ @ 0x1C0007334 (--1DMMVIDPNSOURCEMODESET@@UEAA@XZ.c)
+ *     ??_G?$IndexedSet@VDMMVIDPNSOURCEMODE@@@@UEAAPEAXI@Z @ 0x1C002C1D0 (--_G-$IndexedSet@VDMMVIDPNSOURCEMODE@@@@UEAAPEAXI@Z.c)
+ *     ??_E?$Set@VDMMVIDPNSOURCEMODE@@@@UEAAPEAXI@Z @ 0x1C002C210 (--_E-$Set@VDMMVIDPNSOURCEMODE@@@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Set<DMMVIDPNSOURCEMODE>::~Set<DMMVIDPNSOURCEMODE>(_QWORD *a1)
+{
+  _QWORD *v1; // rcx
+
+  *a1 = &Set<DMMVIDPNSOURCEMODE>::`vftable';
+  v1 = a1 + 1;
+  *v1 = &DoublyLinkedList<DMMVIDPNSOURCEMODE>::`vftable';
+  DoublyLinkedList<DMMVIDPNSOURCEMODE>::Clear((__int64)v1);
+}

@@ -1,0 +1,35 @@
+/*
+ * XREFs of MiWaitForPageWriteCompletion @ 0x1401585BC
+ * Callers:
+ *     MmPurgeSection @ 0x140031240 (MmPurgeSection.c)
+ *     MiFlushSectionInternal @ 0x140038530 (MiFlushSectionInternal.c)
+ * Callees:
+ *     MiUnlockProtoPoolPage @ 0x140030AF0 (MiUnlockProtoPoolPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140066560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140067810 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeWaitForGate @ 0x1400E3F18 (KeWaitForGate.c)
+ */
+
+__int64 __fastcall MiWaitForPageWriteCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
+{
+  __int64 v9; // [rsp+20h] [rbp-30h] BYREF
+  int v10; // [rsp+28h] [rbp-28h]
+  __int16 v11; // [rsp+30h] [rbp-20h] BYREF
+  char v12; // [rsp+32h] [rbp-1Eh]
+  int v13; // [rsp+34h] [rbp-1Ch]
+  _QWORD v14[3]; // [rsp+38h] [rbp-18h] BYREF
+
+  v13 = 0;
+  v14[1] = v14;
+  v10 = 8;
+  v14[0] = v14;
+  v11 = 263;
+  v12 = 6;
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(a2 + 72));
+  v9 = *(_QWORD *)(a2 + 80);
+  *(_QWORD *)(a2 + 80) = &v9;
+  ExReleaseSpinLockExclusiveFromDpcLevel((PEX_SPIN_LOCK)(a2 + 72));
+  _InterlockedAnd64((volatile signed __int64 *)(a1 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  MiUnlockProtoPoolPage(a3, a4);
+  return KeWaitForGate((__int64)&v11, 0x12u);
+}

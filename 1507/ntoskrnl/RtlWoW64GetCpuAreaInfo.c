@@ -1,0 +1,41 @@
+/*
+ * XREFs of RtlWoW64GetCpuAreaInfo @ 0x140531984
+ * Callers:
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x1405315F4 (PspWow64ReadOrWriteThreadCpuArea.c)
+ * Callees:
+ *     RtlpGetLegacyContextLength @ 0x1400206FC (RtlpGetLegacyContextLength.c)
+ *     RtlpGetContextFlagsLocation @ 0x140119764 (RtlpGetContextFlagsLocation.c)
+ *     RtlpArchContextFlagFromMachine @ 0x140531A14 (RtlpArchContextFlagFromMachine.c)
+ */
+
+__int64 __fastcall RtlWoW64GetCpuAreaInfo(__int64 a1, __int16 a2, __int64 a3)
+{
+  int v4; // eax
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  __int64 *v7; // r10
+  int v8; // r11d
+  __int64 ContextFlagsLocation; // rax
+  __int64 v10; // r10
+  __int64 result; // rax
+  int v12; // r11d
+  unsigned int v13; // [rsp+30h] [rbp+8h] BYREF
+  unsigned int v14; // [rsp+38h] [rbp+10h] BYREF
+
+  LOWORD(v14) = a2;
+  *(_QWORD *)(a3 + 24) = a1;
+  v4 = RtlpArchContextFlagFromMachine(332LL);
+  if ( !v4 )
+    return 3221225485LL;
+  RtlpGetLegacyContextLength(v4, (int *)&v13, &v14);
+  v5 = ~(v14 - 1) & (a1 + v14 + 3LL);
+  v6 = v5 + v13 + 7LL;
+  *v7 = v5;
+  v7[1] = v6 & 0xFFFFFFFFFFFFFFF8uLL;
+  ContextFlagsLocation = RtlpGetContextFlagsLocation(v5, v8);
+  *(_QWORD *)(v10 + 16) = ContextFlagsLocation;
+  result = 0LL;
+  *(_DWORD *)(v10 + 32) = v12;
+  *(_WORD *)(v10 + 36) = 332;
+  return result;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1C00042C0
+ * Callers:
+ *     ?SerializeFunctionalPath@DMMVIDPNPRESENTPATH@@QEBAJQEAU_D3DKMDT_FUNCTIONAL_VIDPN_PRESENT_PATH@@@Z @ 0x1C0080CB8 (-SerializeFunctionalPath@DMMVIDPNPRESENTPATH@@QEBAJQEAU_D3DKMDT_FUNCTIONAL_VIDPN_PRESENT_PATH@@@.c)
+ *     ?RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z @ 0x1C01A1A24 (-RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z.c)
+ *     ?Serialize@DMMVIDPN@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z @ 0x1C01A9694 (-Serialize@DMMVIDPN@@QEBAJPEAV-$AutoBuffer@U_DMM_VIDPN_SERIALIZATION@@@DMM@@@Z.c)
+ *     ?Serialize@DMMVIDPNSOURCEMODESET@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPNSOURCEMODESET_SERIALIZATION@@@DMM@@@Z @ 0x1C01A9CC8 (-Serialize@DMMVIDPNSOURCEMODESET@@QEBAJPEAV-$AutoBuffer@U_DMM_VIDPNSOURCEMODESET_SERIALIZATION@@.c)
+ * Callees:
+ *     ?GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ @ 0x1C0004248 (-GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ.c)
+ *     ?GetTextInfo@DMMVIDPNSOURCEMODE@@QEBAPEBW4_D3DKMDT_TEXT_RENDERING_FORMAT@@XZ @ 0x1C00339A4 (-GetTextInfo@DMMVIDPNSOURCEMODE@@QEBAPEBW4_D3DKMDT_TEXT_RENDERING_FORMAT@@XZ.c)
+ */
+
+void __fastcall DMMVIDPNSOURCEMODE::Serialize(DMMVIDPNSOURCEMODE *this, struct _D3DKMDT_VIDPN_SOURCE_MODE *const a2)
+{
+  int v3; // eax
+  __int64 v4; // rax
+
+  a2->Id = *((_DWORD *)this + 6);
+  a2->Type = *((_DWORD *)this + 18);
+  v3 = *((_DWORD *)this + 18);
+  if ( v3 == 1 )
+    goto LABEL_2;
+  if ( v3 == 2 )
+  {
+    a2->Format.Text = *DMMVIDPNSOURCEMODE::GetTextInfo(this);
+  }
+  else
+  {
+    if ( v3 > 2 && v3 <= 4 )
+    {
+LABEL_2:
+      a2->Format.Graphics = *DMMVIDPNSOURCEMODE::GetGraphicsInfo(this);
+      return;
+    }
+    v4 = WdLogNewEntry5_WdError();
+    *(_QWORD *)(v4 + 24) = this;
+    *(_QWORD *)(v4 + 32) = *((int *)this + 18);
+    WdLogEvent5_WdError(v4);
+  }
+}

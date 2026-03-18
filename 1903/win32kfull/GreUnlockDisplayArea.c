@@ -1,0 +1,78 @@
+/*
+ * XREFs of GreUnlockDisplayArea @ 0x1C028289C
+ * Callers:
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C00CD04C (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0043E30 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C00589F4 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0091FF0 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1C0162AB0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C01664D0 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall GreUnlockDisplayArea(__int64 a1, struct tagRECT *a2)
+{
+  __int64 v3; // r8
+  BOOL v4; // esi
+  __int64 v5; // r14
+  struct tagRECT v6; // xmm6
+  __int64 v7; // rbx
+  int v8; // ecx
+  int v9; // edx
+  void (__fastcall *v10)(_QWORD, struct _RECTL *); // rax
+  void (__fastcall *v11)(_QWORD, __int64); // rax
+  struct tagRECT v12; // [rsp+20h] [rbp-50h] BYREF
+  struct tagRECT v13; // [rsp+30h] [rbp-40h] BYREF
+  struct _RECTL v14; // [rsp+40h] [rbp-30h] BYREF
+
+  v13 = *a2;
+  ERECTL::vOrder((ERECTL *)&v13);
+  if ( !IsRectEmptyInl(&v13) )
+  {
+    if ( *(_DWORD *)(a1 + 148) )
+    {
+      v4 = GreIsSemaphoreOwnedByCurrentThread(ghsemSprite) != 0;
+      v5 = 0LL;
+      if ( *(_DWORD *)(a1 + 148) )
+      {
+        v6 = v13;
+        do
+        {
+          v7 = *(_QWORD *)(*(_QWORD *)(a1 + 152) + 8 * v5);
+          v12 = v6;
+          v8 = *(_DWORD *)(v7 + 2584);
+          v9 = *(_DWORD *)(v7 + 2588);
+          v12.right = v6.right - v8;
+          v12.top = v6.top - v9;
+          v12.bottom = v6.bottom - v9;
+          v12.left = v13.left - v8;
+          if ( bIntersect((const struct _RECTL *)&v12, (const struct _RECTL *)(v7 + 128), &v14) )
+          {
+            v10 = *(void (__fastcall **)(_QWORD, struct _RECTL *))(v7 + 3504);
+            if ( v10 )
+              v10(*(_QWORD *)(v7 + 1800), &v14);
+            if ( v4 )
+              SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(v7 + 208));
+          }
+          v5 = (unsigned int)(v5 + 1);
+        }
+        while ( (unsigned int)v5 < *(_DWORD *)(a1 + 148) );
+      }
+      if ( v4 )
+        goto LABEL_17;
+    }
+    else
+    {
+      v11 = *(void (__fastcall **)(_QWORD, __int64))(a1 + 3504);
+      if ( v11 )
+        v11(*(_QWORD *)(a1 + 1800), v3);
+      if ( (unsigned int)GreIsSemaphoreOwnedByCurrentThread(ghsemSprite) )
+      {
+        SPRITERANGELOCK::vUnlock((SPRITERANGELOCK *)(a1 + 208));
+LABEL_17:
+        EtwTraceGreLockReleaseSemaphore(L"ghsemSprite", ghsemSprite);
+        GreReleaseSemaphoreInternal(ghsemSprite);
+      }
+    }
+  }
+}

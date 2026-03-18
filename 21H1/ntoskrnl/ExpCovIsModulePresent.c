@@ -1,0 +1,41 @@
+/*
+ * XREFs of ExpCovIsModulePresent @ 0x140952788
+ * Callers:
+ *     ExpCovIsLoadedModulePresent @ 0x140952750 (ExpCovIsLoadedModulePresent.c)
+ *     ExpCovIsUnLoadedModulePresent @ 0x140952830 (ExpCovIsUnLoadedModulePresent.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x1403FE5E0 (RtlCompareMemory.c)
+ *     RtlFreeAnsiString @ 0x1405D8770 (RtlFreeAnsiString.c)
+ *     RtlCompareUnicodeString @ 0x14061BCF0 (RtlCompareUnicodeString.c)
+ *     ExpCovReadFriendlyName @ 0x14095313C (ExpCovReadFriendlyName.c)
+ */
+
+bool __fastcall ExpCovIsModulePresent(__int64 a1, __int64 a2, int a3, const UNICODE_STRING *a4, void *Source1)
+{
+  char v6; // bl
+  int v7; // r8d
+  UNICODE_STRING String2; // [rsp+20h] [rbp-18h] BYREF
+
+  *(_QWORD *)&String2.Length = 0LL;
+  String2.Buffer = 0LL;
+  v6 = 0;
+  if ( !a3 )
+    goto LABEL_6;
+  v7 = a3 - 1;
+  if ( !v7 )
+    return RtlCompareMemory(Source1, (const void *)(a2 + 8), 0x10uLL) == 16;
+  if ( v7 == 1 )
+  {
+    if ( (int)ExpCovReadFriendlyName(a2, a1, &String2) < 0 || RtlCompareUnicodeString(a4, &String2, 1u) )
+    {
+LABEL_7:
+      if ( String2.Buffer )
+        RtlFreeAnsiString(&String2);
+      return v6;
+    }
+LABEL_6:
+    v6 = 1;
+    goto LABEL_7;
+  }
+  return v6;
+}

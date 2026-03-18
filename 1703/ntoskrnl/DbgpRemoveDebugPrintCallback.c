@@ -1,0 +1,58 @@
+/*
+ * XREFs of DbgpRemoveDebugPrintCallback @ 0x14023B1FC
+ * Callers:
+ *     DbgSetDebugPrintCallback @ 0x14023B0F0 (DbgSetDebugPrintCallback.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14006CF50 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140094C70 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140096D40 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1400A5D60 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14010EFC0 (ExWaitForRundownProtectionRelease.c)
+ *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall DbgpRemoveDebugPrintCallback(void *a1)
+{
+  unsigned __int8 CurrentIrql; // si
+  _UNKNOWN **i; // rdx
+  struct _EX_RUNDOWN_REF *v4; // rbx
+  unsigned int v5; // edi
+  unsigned __int64 Count; // rdx
+  struct _EX_RUNDOWN_REF **v8; // rax
+
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xCuLL);
+  ExAcquireSpinLockSharedAtDpcLevel(&RtlpDebugPrintCallbackLock);
+  for ( i = (_UNKNOWN **)RtlpDebugPrintCallbackList; ; i = (_UNKNOWN **)*i )
+  {
+    if ( i == &RtlpDebugPrintCallbackList )
+    {
+      ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
+      __writecr8(CurrentIrql);
+      return (unsigned int)-1073741275;
+    }
+    v4 = (struct _EX_RUNDOWN_REF *)(i - 3);
+    if ( *(i - 1) == a1 )
+    {
+      _m_prefetchw(v4);
+      if ( (_InterlockedOr((volatile signed __int32 *)v4, 1u) & 1) == 0 )
+        break;
+    }
+  }
+  ExReleaseSpinLockSharedFromDpcLevel(&RtlpDebugPrintCallbackLock);
+  ExWaitForRundownProtectionRelease(v4 + 1);
+  ExAcquireSpinLockExclusiveAtDpcLevel(&RtlpDebugPrintCallbackLock);
+  Count = v4[3].Count;
+  v8 = (struct _EX_RUNDOWN_REF **)v4[4].Count;
+  if ( *(struct _EX_RUNDOWN_REF **)(Count + 8) != &v4[3] || *v8 != &v4[3] )
+    __fastfail(3u);
+  v5 = 0;
+  *v8 = (struct _EX_RUNDOWN_REF *)Count;
+  *(_QWORD *)(Count + 8) = v8;
+  if ( v8 == (struct _EX_RUNDOWN_REF **)Count )
+    RtlpDebugPrintCallbacksActive = 0;
+  ExReleaseSpinLockExclusiveFromDpcLevel(&RtlpDebugPrintCallbackLock);
+  __writecr8(CurrentIrql);
+  ExFreePoolWithTag(v4, 0);
+  return v5;
+}

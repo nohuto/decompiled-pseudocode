@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?VailGuestDisconnect@DXGSESSIONDATA@@QEAAJXZ @ 0x1C01E7970
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C00F71CC (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     NtDxgkVailDisconnect @ 0x1C01E8F80 (NtDxgkVailDisconnect.c)
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C00167D8 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0016828 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C001688C (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGVAILGUESTOBJECT@@QEAAXXZ @ 0x1C01E6CF8 (-ReleaseReference@DXGVAILGUESTOBJECT@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall DXGSESSIONDATA::VailGuestDisconnect(DXGSESSIONDATA *this)
+{
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v4, (DXGSESSIONDATA *)((char *)this + 18688), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v4);
+  if ( (*((_DWORD *)this + 4682))-- == 1 )
+  {
+    ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)(*((_QWORD *)this + 2342) + 56LL));
+    DXGVAILGUESTOBJECT::ReleaseReference(*((DXGVAILGUESTOBJECT **)this + 2342));
+    *((_QWORD *)this + 2342) = 0LL;
+  }
+  if ( v4[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v4);
+  return 0LL;
+}

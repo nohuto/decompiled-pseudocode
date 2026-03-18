@@ -1,0 +1,39 @@
+/*
+ * XREFs of _BuildHimcList @ 0x1C010AE28
+ * Callers:
+ *     NtUserBuildHimcList @ 0x1C010AD30 (NtUserBuildHimcList.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall BuildHimcList(__int64 a1, __int64 a2, __int64 a3)
+{
+  unsigned int v4; // edi
+  __int64 v5; // rbx
+  _QWORD *i; // rdx
+  __int64 j; // r9
+  _QWORD *k; // rdx
+
+  v4 = a2;
+  v5 = 0LL;
+  if ( a1 )
+  {
+    for ( i = *(_QWORD **)(a1 + 784); i && (unsigned int)v5 < v4; i = (_QWORD *)i[7] )
+    {
+      *(_QWORD *)(a3 + 8 * v5) = *i;
+      v5 = (unsigned int)(v5 + 1);
+    }
+  }
+  else
+  {
+    for ( j = *(_QWORD *)(PsGetCurrentProcessWin32Process(0LL, a2) + 320); j; j = *(_QWORD *)(j + 656) )
+    {
+      for ( k = *(_QWORD **)(j + 784); k && (unsigned int)v5 < v4; k = (_QWORD *)k[7] )
+      {
+        *(_QWORD *)(a3 + 8 * v5) = *k;
+        v5 = (unsigned int)(v5 + 1);
+      }
+    }
+  }
+  return (unsigned int)v5;
+}

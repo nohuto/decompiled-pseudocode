@@ -1,0 +1,78 @@
+/*
+ * XREFs of ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C0291C8C
+ * Callers:
+ *     GreEnableEUDC @ 0x1C00E966C (GreEnableEUDC.c)
+ * Callees:
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C0049D28 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C004A19C (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEAGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ */
+
+__int64 bSetupDefaultFlEntry(void)
+{
+  char *v0; // rbx
+  unsigned int v1; // esi
+  unsigned int i; // edi
+  __int64 v3; // rcx
+  unsigned __int16 *v4; // r14
+  struct _FONTHASH **v5; // rcx
+  __int64 *v6; // rcx
+  __int64 v7; // rdx
+  __int64 v8; // rax
+  __int128 v10; // [rsp+40h] [rbp-20h] BYREF
+  _QWORD v11[2]; // [rsp+50h] [rbp-10h] BYREF
+  unsigned int v12; // [rsp+A0h] [rbp+40h] BYREF
+  struct _FONTHASH **v13; // [rsp+A8h] [rbp+48h] BYREF
+  struct PFF *v14; // [rsp+B0h] [rbp+50h] BYREF
+
+  v0 = (char *)&unk_1C032624C;
+  v13 = gpPFTPublic;
+  v1 = 0;
+  for ( i = 0; i < 7; ++i )
+  {
+    if ( *((_DWORD *)v0 - 31) && *(_WORD *)v0 && !*(_QWORD *)(v0 + 524) )
+    {
+      v10 = 0uLL;
+      v3 = 664LL * i;
+      v11[0] = &v10;
+      v11[1] = (char *)&FontAssocDefaultTable + v3 + 58;
+      v4 = (unsigned __int16 *)((char *)&FontAssocDefaultTable + v3);
+      if ( (unsigned int)PUBLIC_PFTOBJ::bLoadAFont(
+                           (PUBLIC_PFTOBJ *)&v13,
+                           (unsigned __int16 *)((char *)&FontAssocDefaultTable + v3 + 124),
+                           &v12,
+                           0xAu,
+                           &v14,
+                           (struct _EUDCLOAD *)v11,
+                           0) )
+      {
+        if ( (_QWORD)v10 )
+        {
+          v6 = (__int64 *)&v10;
+          v7 = 2LL;
+          do
+          {
+            v8 = *v6++;
+            *(_DWORD *)(v8 + 12) |= 0x200u;
+            --v7;
+          }
+          while ( v7 );
+          v1 = 1;
+          *(_OWORD *)(v0 + 524) = v10;
+        }
+        else
+        {
+          PFTOBJ::bUnloadEUDCFont(v5, v4 + 62);
+          *(_WORD *)v0 = 0;
+        }
+      }
+      else
+      {
+        *(_WORD *)v0 = 0;
+        *(_QWORD *)(v0 + 524) = 0LL;
+        *(_QWORD *)(v0 + 532) = 0LL;
+      }
+    }
+    v0 += 664;
+  }
+  return v1;
+}

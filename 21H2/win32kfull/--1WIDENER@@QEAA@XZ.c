@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1WIDENER@@QEAA@XZ @ 0x1C012FF24
+ * Callers:
+ *     ?bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C012FEB0 (-bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEAU_LINEATTRS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall WIDENER::~WIDENER(WIDENER *this)
+{
+  PATHMEMOBJ::~PATHMEMOBJ((WIDENER *)((char *)this + 1136));
+  PATHMEMOBJ::~PATHMEMOBJ((WIDENER *)((char *)this + 984));
+  PATHMEMOBJ::~PATHMEMOBJ((WIDENER *)((char *)this + 824));
+}

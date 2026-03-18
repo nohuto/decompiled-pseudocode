@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?AdvanceInertiaToTimeDefault@CScaleMotion@@MEAAMXZ @ 0x18025FF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x180260140 (-UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z.c)
+ */
+
+float __fastcall CScaleMotion::AdvanceInertiaToTimeDefault(CScaleMotion *this)
+{
+  *((float *)this + 5) = CScaleMotion::UnboundedValueAtTime(this, fminf(*((float *)this + 6), *((float *)this + 17)));
+  return CMotion::AdvanceInertiaToTimeDefault(this);
+}

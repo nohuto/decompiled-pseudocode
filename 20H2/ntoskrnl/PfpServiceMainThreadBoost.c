@@ -1,0 +1,83 @@
+/*
+ * XREFs of PfpServiceMainThreadBoost @ 0x14038C828
+ * Callers:
+ *     PfpScenCtxScenarioSet @ 0x14099D618 (PfpScenCtxScenarioSet.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14021E5F0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxReleaseSpinLock @ 0x14021E780 (KxReleaseSpinLock.c)
+ *     KiSetTimerEx @ 0x140247520 (KiSetTimerEx.c)
+ *     KeSetActualBasePriorityThread @ 0x1402BE010 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F1DD4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall PfpServiceMainThreadBoost(__int64 a1, __int64 *a2)
+{
+  __int64 v2; // rsi
+  unsigned int v3; // ebx
+  KIRQL v6; // al
+  __int64 v7; // r8
+  _DWORD *v8; // r9
+  unsigned __int64 v9; // r15
+  __int64 v10; // rcx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v15; // eax
+  bool v16; // zf
+
+  v2 = a2[1];
+  v3 = 0;
+  if ( *a2 )
+  {
+    *(_DWORD *)(v2 + 160) = 1;
+    v6 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 104));
+    ++*(_DWORD *)(a1 + 112);
+    v9 = v6;
+    *(_DWORD *)(v2 + 164) = *(_DWORD *)(a1 + 112);
+    if ( !*(_QWORD *)(a1 + 88) )
+    {
+      v10 = *a2;
+      *(_QWORD *)(a1 + 88) = *a2;
+      *a2 = 0LL;
+      *(_DWORD *)(a1 + 96) = KeSetActualBasePriorityThread(v10, 12, v7, v8);
+    }
+    KxReleaseSpinLock((PKSPIN_LOCK)(a1 + 104));
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && (unsigned __int8)v9 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v15 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v9 + 1));
+          v16 = (v15 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v15;
+          if ( v16 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v9);
+    *(_QWORD *)(v2 + 64) = 0LL;
+    *(_QWORD *)(v2 + 80) = v2 + 72;
+    *(_QWORD *)(v2 + 72) = v2 + 72;
+    *(_BYTE *)(v2 + 64) = 8;
+    *(_QWORD *)(v2 + 88) = 0LL;
+    *(_DWORD *)(v2 + 124) = 0;
+    *(_WORD *)(v2 + 120) = 0;
+    *(_QWORD *)(v2 + 24) = PfpPowerActionDpcRoutine;
+    *(_DWORD *)v2 = 275;
+    *(_QWORD *)(v2 + 32) = v2;
+    *(_QWORD *)(v2 + 56) = 0LL;
+    *(_QWORD *)(v2 + 16) = 0LL;
+    KiSetTimerEx(v2 + 64, -200000000LL, 0, 0, v2);
+    a2[1] = 0LL;
+  }
+  else
+  {
+    return (unsigned int)-2147483614;
+  }
+  return v3;
+}

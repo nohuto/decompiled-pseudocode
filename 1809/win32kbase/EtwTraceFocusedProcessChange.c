@@ -1,0 +1,50 @@
+/*
+ * XREFs of EtwTraceFocusedProcessChange @ 0x1C0089FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qqq @ 0x1C00E94C0 (McTemplateK0qqq.c)
+ */
+
+char __fastcall EtwTraceFocusedProcessChange(GUID *Activity, __int64 a2)
+{
+  __int64 v4; // rax
+  struct _MCGEN_TRACE_CONTEXT *Arg1; // rcx
+  unsigned int Arg2; // edx
+
+  if ( (W32kEtwEnabledKeyword & 0x8000000000020000uLL) != 0 )
+  {
+    LOBYTE(v4) = byte_1C01C3328 - 1;
+    if ( (unsigned __int8)(byte_1C01C3328 - 1) > 2u && (qword_1C01C3310 & 0x8000000000020000uLL) != 0 )
+    {
+      LOBYTE(v4) = 0;
+      if ( (qword_1C01C3318 & 0x8000000000020000uLL) == qword_1C01C3318 )
+      {
+        Arg1 = 0LL;
+        if ( Activity )
+        {
+          v4 = *(_QWORD *)Activity[26].Data4;
+          Arg2 = *(_DWORD *)(v4 + 56);
+        }
+        else
+        {
+          Arg2 = 0;
+        }
+        if ( a2 )
+        {
+          v4 = *(_QWORD *)(a2 + 424);
+          Arg1 = (struct _MCGEN_TRACE_CONTEXT *)*(unsigned int *)(v4 + 56);
+        }
+        if ( ((unsigned __int8)Microsoft_Windows_Win32kEnableBits & 0x20) != 0 )
+          LOBYTE(v4) = McTemplateK0qqq(
+                         Arg1,
+                         &FocusedProcessChangeEvent,
+                         Activity,
+                         gSessionId,
+                         (const unsigned int)Arg1,
+                         Arg2);
+      }
+    }
+  }
+  return v4;
+}

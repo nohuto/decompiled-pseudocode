@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?SetEnvironment@PTPEngineTraceProducer@@UEAAJPEBUPTPEnvironment@@@Z @ 0x1C01C4250
+ * Callers:
+ *     ?InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A0CFC (-InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C01A2A24 (-UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INF.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00D36F0 (_guard_dispatch_icall_nop.c)
+ *     ?TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z @ 0x1C01C432C (-TraceEnvironment@PTPEngineTraceProducer@@AEAAXPEBUPTPEnvironment@@@Z.c)
+ */
+
+__int64 __fastcall PTPEngineTraceProducer::SetEnvironment(
+        PTPEngineTraceProducer *this,
+        const struct PTPEnvironment *a2)
+{
+  const struct PTPEnvironment *v2; // rdi
+  __int64 result; // rax
+  __int64 v5; // rcx
+  char *v6; // rbx
+  __int128 v7; // xmm1
+
+  v2 = a2;
+  PTPEngineTraceProducer::TraceEnvironment(this, a2);
+  LODWORD(result) = (*(__int64 (__fastcall **)(_QWORD, const struct PTPEnvironment *))(**((_QWORD **)this + 3) + 8LL))(
+                      *((_QWORD *)this + 3),
+                      v2);
+  v5 = 3LL;
+  v6 = (char *)this + 40;
+  do
+  {
+    *(_OWORD *)v6 = *(_OWORD *)v2;
+    *((_OWORD *)v6 + 1) = *((_OWORD *)v2 + 1);
+    *((_OWORD *)v6 + 2) = *((_OWORD *)v2 + 2);
+    *((_OWORD *)v6 + 3) = *((_OWORD *)v2 + 3);
+    *((_OWORD *)v6 + 4) = *((_OWORD *)v2 + 4);
+    *((_OWORD *)v6 + 5) = *((_OWORD *)v2 + 5);
+    *((_OWORD *)v6 + 6) = *((_OWORD *)v2 + 6);
+    v6 += 128;
+    v7 = *((_OWORD *)v2 + 7);
+    v2 = (const struct PTPEnvironment *)((char *)v2 + 128);
+    *((_OWORD *)v6 - 1) = v7;
+    --v5;
+  }
+  while ( v5 );
+  *(_OWORD *)v6 = *(_OWORD *)v2;
+  *((_OWORD *)v6 + 1) = *((_OWORD *)v2 + 1);
+  *((_OWORD *)v6 + 2) = *((_OWORD *)v2 + 2);
+  *((_OWORD *)v6 + 3) = *((_OWORD *)v2 + 3);
+  *((_OWORD *)v6 + 4) = *((_OWORD *)v2 + 4);
+  *((_OWORD *)v6 + 5) = *((_OWORD *)v2 + 5);
+  *((_OWORD *)v6 + 6) = *((_OWORD *)v2 + 6);
+  *((_QWORD *)v6 + 14) = *((_QWORD *)v2 + 14);
+  *((_DWORD *)v6 + 30) = *((_DWORD *)v2 + 30);
+  return (unsigned int)result;
+}

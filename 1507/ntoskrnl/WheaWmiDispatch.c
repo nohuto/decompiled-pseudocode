@@ -1,0 +1,29 @@
+/*
+ * XREFs of WheaWmiDispatch @ 0x14016F4E4
+ * Callers:
+ *     <none>
+ * Callees:
+ *     sub_14016F53C @ 0x14016F53C (sub_14016F53C.c)
+ *     WheapWmiExecuteMethod @ 0x140267CA8 (WheapWmiExecuteMethod.c)
+ *     sub_140267EBC @ 0x140267EBC (sub_140267EBC.c)
+ *     sub_140267F14 @ 0x140267F14 (sub_140267F14.c)
+ */
+
+__int64 __fastcall WheaWmiDispatch(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, int a5, _DWORD *a6)
+{
+  __int64 v6; // rcx
+  __int64 v7; // rcx
+
+  if ( !(_DWORD)a1 )
+    return sub_140267EBC(a1, a3, a4, a6);
+  v6 = (unsigned int)(a1 - 1);
+  if ( !(_DWORD)v6 )
+    return sub_140267F14(v6, a3, a4, a6);
+  v7 = (unsigned int)(v6 - 7);
+  if ( !(_DWORD)v7 )
+    return sub_14016F53C(v7, a3, a4, a6);
+  if ( (_DWORD)v7 == 1 )
+    return WheapWmiExecuteMethod(a2, a3, a4, a6);
+  *a6 = 0;
+  return 3221225488LL;
+}

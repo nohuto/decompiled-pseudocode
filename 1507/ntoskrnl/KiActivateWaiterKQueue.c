@@ -1,0 +1,54 @@
+/*
+ * XREFs of KiActivateWaiterKQueue @ 0x14000C6D8
+ * Callers:
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14000C528 (KiActivateWaiterQueueWithNoLocks.c)
+ * Callees:
+ *     KiWakeQueueWaiter @ 0x140043EC0 (KiWakeQueueWaiter.c)
+ */
+
+__int64 __fastcall KiActivateWaiterKQueue(__int64 a1)
+{
+  __int64 result; // rax
+  __int64 *v3; // rsi
+  __int64 *v4; // rdi
+  __int64 v5; // rcx
+  __int64 **v6; // rax
+
+  result = *(unsigned int *)(a1 + 40);
+  if ( (unsigned int)result < *(_DWORD *)(a1 + 44) )
+  {
+    v3 = (__int64 *)(a1 + 24);
+    v4 = *(__int64 **)(a1 + 24);
+    if ( v4 != (__int64 *)(a1 + 24) )
+    {
+      result = a1 + 8;
+      if ( *(_QWORD *)(a1 + 16) != a1 + 8 )
+      {
+        v5 = *v4;
+        v6 = (__int64 **)v4[1];
+        if ( *(__int64 **)(*v4 + 8) != v4 || *v6 != v4 )
+          __fastfail(3u);
+        *v6 = (__int64 *)v5;
+        *(_QWORD *)(v5 + 8) = v6;
+        *v4 = 0LL;
+        result = KiWakeQueueWaiter(KeGetCurrentPrcb(), a1, v4);
+        if ( (_BYTE)result )
+        {
+          --*(_DWORD *)(a1 + 4);
+        }
+        else
+        {
+          result = *v3;
+          *v4 = *v3;
+          v4[1] = (__int64)v3;
+          if ( *(__int64 **)(result + 8) != v3 )
+            __fastfail(3u);
+          *(_QWORD *)(result + 8) = v4;
+          *v3 = (__int64)v4;
+        }
+      }
+    }
+  }
+  _InterlockedAnd((volatile signed __int32 *)a1, 0xFFFFFF7F);
+  return result;
+}

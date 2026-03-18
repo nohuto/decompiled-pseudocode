@@ -1,0 +1,23 @@
+/*
+ * XREFs of Unload @ 0x1C0068A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ValidateArgTypes @ 0x1C0009B90 (ValidateArgTypes.c)
+ *     PushPost @ 0x1C00680E8 (PushPost.c)
+ */
+
+__int64 __fastcall Unload(struct _SLIST_ENTRY *a1, __int64 a2)
+{
+  __int64 result; // rax
+  __int64 v5; // r8
+
+  result = ValidateArgTypes((__int64)a1, *(_QWORD *)(a2 + 80), 1, "H");
+  if ( !(_DWORD)result )
+  {
+    v5 = *(_QWORD *)(*(_QWORD *)(a2 + 80) + 16LL);
+    if ( v5 )
+      return PushPost(a1, (__int64)ParseUnload, v5, 0LL, *(_QWORD *)(a2 + 88));
+  }
+  return result;
+}

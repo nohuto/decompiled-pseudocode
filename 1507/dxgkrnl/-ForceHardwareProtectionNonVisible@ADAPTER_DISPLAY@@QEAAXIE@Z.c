@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?ForceHardwareProtectionNonVisible@ADAPTER_DISPLAY@@QEAAXIE@Z @ 0x1C000E1A4
+ * Callers:
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C006CD00 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?DmmCommitVidPnOnAdapter@@YAJPEAVDXGDEVICE@@PEAUD3DKMDT_HVIDPN__@@KPEAK22PEAEQEAJPEAVCOREDEVICEACCESS@@@Z @ 0x1C00A9BAC (-DmmCommitVidPnOnAdapter@@YAJPEAVDXGDEVICE@@PEAUD3DKMDT_HVIDPN__@@KPEAK22PEAEQEAJPEAVCOREDEVICEA.c)
+ *     ?CheckHardwareProtectionVisibility@DXGADAPTER@@QEAAXPEAV1@@Z @ 0x1C011E5F4 (-CheckHardwareProtectionVisibility@DXGADAPTER@@QEAAXPEAV1@@Z.c)
+ *     DxgkSetVidPnSourceHwProtection @ 0x1C012C1D0 (DxgkSetVidPnSourceHwProtection.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall ADAPTER_DISPLAY::ForceHardwareProtectionNonVisible(ADAPTER_DISPLAY *this, unsigned int a2, char a3)
+{
+  if ( (*(_DWORD *)(*((_QWORD *)this + 2) + 284LL) & 0x80u) == 0 )
+    *(_BYTE *)(1008LL * a2 + *((_QWORD *)this + 14) + 993) = a3;
+}

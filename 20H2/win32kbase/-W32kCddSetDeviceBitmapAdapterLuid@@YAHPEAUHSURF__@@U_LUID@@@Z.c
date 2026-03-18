@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?W32kCddSetDeviceBitmapAdapterLuid@@YAHPEAUHSURF__@@U_LUID@@@Z @ 0x1C00AB570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HmgDecrementShareReferenceCountEx @ 0x1C0043DF0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockIgnoreStockBit @ 0x1C00A5058 (HmgShareLockIgnoreStockBit.c)
+ */
+
+__int64 __fastcall W32kCddSetDeviceBitmapAdapterLuid(HSURF a1, struct _LUID a2)
+{
+  __int64 v3; // rax
+  unsigned int v4; // edi
+
+  v3 = HmgShareLockIgnoreStockBit((unsigned int)a1);
+  if ( v3 && ((v4 = 1, (*(_DWORD *)(v3 + 112) & 0x400000) != 0) || *(_WORD *)(v3 + 100) == 1) )
+    *(struct _LUID *)(v3 + 576) = a2;
+  else
+    v4 = 0;
+  if ( v3 )
+    HmgDecrementShareReferenceCountEx(v3, 0LL);
+  return v4;
+}

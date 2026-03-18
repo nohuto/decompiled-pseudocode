@@ -1,0 +1,167 @@
+/*
+ * XREFs of DpiMiracastFindDisplayAdapterFdo @ 0x1C02CCB04
+ * Callers:
+ *     DxgkMiracastStartMiracastSession @ 0x1C0054860 (DxgkMiracastStartMiracastSession.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C00186B0 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiCheckForOutstandingD3Requests @ 0x1C001E4A0 (DpiCheckForOutstandingD3Requests.c)
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001E5B0 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     DpiEnableD3Requests @ 0x1C00E103C (DpiEnableD3Requests.c)
+ *     DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C0170450 (DpiMiracastFindDisplayAdapterFdoIhv.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C0170584 (DxgkMiracastQueryMiracastSupportInternal.c)
+ */
+
+__int64 __fastcall DpiMiracastFindDisplayAdapterFdo(struct _DEVICE_OBJECT *Object, __int64 *a2, _BYTE *a3)
+{
+  char v4; // bl
+  __int64 *v5; // r12
+  struct _DEVICE_OBJECT *v6; // r13
+  __int64 v7; // rbp
+  int MiracastSupportInternal; // r14d
+  char v9; // al
+  int DisplayAdapterFdoIhv; // eax
+  __int64 v11; // r15
+  __int64 v12; // rsi
+  bool v13; // zf
+  struct _IO_REMOVE_LOCK *v14; // r12
+  int v15; // ecx
+  struct _DEVICE_OBJECT *LowerDeviceObject; // r12
+  struct _DEVICE_OBJECT *v17; // r13
+  __int64 v19; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v20; // [rsp+38h] [rbp-50h] BYREF
+  int v21; // [rsp+48h] [rbp-40h]
+
+  v4 = 0;
+  v5 = a2;
+  v6 = Object;
+  if ( !IsMiniportListMutexOwnedByCurrentThread() )
+  {
+    AcquireMiniportListMutex();
+    v4 = 1;
+  }
+  v19 = 0LL;
+  v20 = 0LL;
+  v21 = 0;
+  v7 = 0LL;
+  MiracastSupportInternal = DxgkMiracastQueryMiracastSupportInternal((__int64)&v20);
+  if ( MiracastSupportInternal < 0 )
+    goto LABEL_48;
+  v9 = BYTE8(v20);
+  if ( a3 )
+    *a3 = BYTE8(v20);
+  if ( v9 )
+  {
+    DisplayAdapterFdoIhv = DpiMiracastFindDisplayAdapterFdoIhv(&v19);
+    v7 = v19;
+    MiracastSupportInternal = DisplayAdapterFdoIhv;
+    goto LABEL_42;
+  }
+  v11 = qword_1C00B0B40;
+  MiracastSupportInternal = -1073741275;
+  if ( *(_QWORD *)v11 == v11 )
+  {
+LABEL_47:
+    *v5 = 0LL;
+    goto LABEL_48;
+  }
+  do
+  {
+    if ( MiracastSupportInternal >= 0 )
+    {
+      v5 = a2;
+      goto LABEL_52;
+    }
+    KeWaitForSingleObject((PVOID)(v11 + 72), Executive, 0, 0, 0LL);
+    v12 = *(_QWORD *)(v11 + 56);
+    if ( *(_QWORD *)v12 == v12 )
+      goto LABEL_40;
+    while ( 1 )
+    {
+      v13 = *(_DWORD *)(v12 + 16) == 1953656900;
+      v7 = v12;
+      v19 = v12;
+      if ( v13 && *(_DWORD *)(v12 + 20) == 2 )
+      {
+        v14 = (struct _IO_REMOVE_LOCK *)(v12 + 64);
+        if ( IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v12 + 64), (PVOID)v12, File, 1u, 0x20u) >= 0 )
+          break;
+      }
+LABEL_37:
+      v12 = *(_QWORD *)v12;
+      if ( *(_QWORD *)v12 == *(_QWORD *)(v11 + 56) )
+        goto LABEL_40;
+    }
+    KeEnterCriticalRegion();
+    if ( *(_BYTE *)(v12 + 484) )
+      DpiCheckForOutstandingD3Requests(v12);
+    ExAcquireResourceSharedLite(*(PERESOURCE *)(v12 + 168), 1u);
+    v15 = *(_DWORD *)(v12 + 236);
+    if ( v15 != 2 && (*(_DWORD *)(v12 + 240) != 2 || ((v15 - 3) & 0xFFFFFFFC) != 0 || v15 == 4)
+      || *(_DWORD *)(v12 + 3224) == -1
+      || *(_DWORD *)(v12 + 3976) == 1
+      || *(_DWORD *)(v12 + 284) != 1
+      || !*(_QWORD *)(v12 + 4928) )
+    {
+      goto LABEL_34;
+    }
+    LowerDeviceObject = v6;
+    ObfReferenceObject(v6);
+    if ( v6 )
+    {
+      do
+      {
+        if ( LowerDeviceObject == *(struct _DEVICE_OBJECT **)(v12 + 24) )
+          break;
+        v17 = LowerDeviceObject;
+        LowerDeviceObject = IoGetLowerDeviceObject(LowerDeviceObject);
+        if ( v17 )
+          ObfDereferenceObject(v17);
+      }
+      while ( LowerDeviceObject );
+      if ( LowerDeviceObject )
+        ObfDereferenceObject(LowerDeviceObject);
+      v6 = Object;
+    }
+    if ( LowerDeviceObject != *(struct _DEVICE_OBJECT **)(v12 + 24) )
+    {
+      v14 = (struct _IO_REMOVE_LOCK *)(v12 + 64);
+LABEL_34:
+      if ( *(_BYTE *)(v12 + 484) )
+        DpiEnableD3Requests(*(_QWORD *)(v12 + 24));
+      ExReleaseResourceLite(*(PERESOURCE *)(v12 + 168));
+      KeLeaveCriticalRegion();
+      IoReleaseRemoveLockEx(v14, (PVOID)v12, 0x20u);
+      v7 = 0LL;
+      v19 = 0LL;
+      goto LABEL_37;
+    }
+    MiracastSupportInternal = 0;
+LABEL_40:
+    KeReleaseMutex((PRKMUTEX)(v11 + 72), 0);
+    v11 = *(_QWORD *)v11;
+  }
+  while ( *(_QWORD *)v11 != qword_1C00B0B40 );
+  v5 = a2;
+LABEL_42:
+  if ( MiracastSupportInternal < 0 )
+  {
+    if ( v7 )
+    {
+      if ( *(_BYTE *)(v7 + 484) )
+        DpiEnableD3Requests(*(_QWORD *)(v7 + 24));
+      ExReleaseResourceLite(*(PERESOURCE *)(v7 + 168));
+      KeLeaveCriticalRegion();
+    }
+    goto LABEL_47;
+  }
+LABEL_52:
+  *v5 = v7;
+  MiracastSupportInternal = 0;
+LABEL_48:
+  if ( v4 )
+  {
+    _InterlockedExchange64(&qword_1C00B0B50, 0LL);
+    KeReleaseMutex(Mutex, 0);
+  }
+  return (unsigned int)MiracastSupportInternal;
+}

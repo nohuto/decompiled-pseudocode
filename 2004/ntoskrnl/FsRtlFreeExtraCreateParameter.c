@@ -1,0 +1,64 @@
+/*
+ * XREFs of FsRtlFreeExtraCreateParameter @ 0x140616D60
+ * Callers:
+ *     IopDeleteFileObjectExtension @ 0x140269E64 (IopDeleteFileObjectExtension.c)
+ *     FsRtlCheckOplockEx2 @ 0x140291210 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x14033C7A8 (FsRtlpAttachOplockKey.c)
+ *     IopCreateFile @ 0x140615C80 (IopCreateFile.c)
+ *     FsRtlpCleanupEcps @ 0x140616C40 (FsRtlpCleanupEcps.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x140616CA0 (FsRtlFreeExtraCreateParameterList.c)
+ *     PspCreateUserProcessEcp @ 0x140617104 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkPropagateToExtensionIfNeeded @ 0x140678DB0 (IopSymlinkPropagateToExtensionIfNeeded.c)
+ *     IopSymlinkUpdateECP @ 0x1406EECE8 (IopSymlinkUpdateECP.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x1406EF218 (IopSymlinkAllocateAndAddECP.c)
+ *     IopGraftName @ 0x1406EF340 (IopGraftName.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140269FBC (ExFreeToNPagedLookasideList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1403FF030 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1403FFC70 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x1409B1140 (ExFreePoolWithTag.c)
+ */
+
+void __stdcall FsRtlFreeExtraCreateParameter(PVOID EcpContext)
+{
+  void (__fastcall *v1)(PVOID, char *); // rax
+  __int64 v2; // rdi
+  __int64 v4; // rcx
+
+  v1 = (void (__fastcall *)(PVOID, char *))*((_QWORD *)EcpContext - 4);
+  v2 = 0LL;
+  if ( v1 )
+    v1(EcpContext, (char *)EcpContext - 48);
+  if ( (*((_DWORD *)EcpContext - 6) & 0x20) != 0 && FltMgrCallbacks )
+  {
+    v2 = *((_QWORD *)EcpContext - 1);
+    (*(void (__fastcall **)(__int64, PVOID))FltMgrCallbacks)(v2, EcpContext);
+  }
+  v4 = *((_QWORD *)EcpContext - 2);
+  if ( v4 )
+  {
+    if ( (*((_DWORD *)EcpContext - 6) & 0x40) != 0 )
+    {
+      ExFreeToNPagedLookasideList((PNPAGED_LOOKASIDE_LIST)v4, (char *)EcpContext - 72);
+    }
+    else
+    {
+      ++*(_DWORD *)(v4 + 28);
+      if ( *(_WORD *)v4 >= *(_WORD *)(v4 + 16) )
+      {
+        ++*(_DWORD *)(v4 + 32);
+        (*(void (__fastcall **)(char *))(v4 + 56))((char *)EcpContext - 72);
+      }
+      else
+      {
+        RtlpInterlockedPushEntrySList((PSLIST_HEADER)v4, (PSLIST_ENTRY)((char *)EcpContext - 72));
+      }
+    }
+  }
+  else
+  {
+    ExFreePoolWithTag((char *)EcpContext - 72, 0);
+  }
+  if ( v2 )
+    (*(void (__fastcall **)(__int64))(FltMgrCallbacks + 8))(v2);
+}

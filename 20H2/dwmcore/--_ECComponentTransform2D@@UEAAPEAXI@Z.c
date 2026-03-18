@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??_ECComponentTransform2D@@UEAAPEAXI@Z @ 0x1800CA170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x18009F4CC (--3@YAXPEAX@Z.c)
+ *     ??1CResource@@MEAA@XZ @ 0x1800ABB58 (--1CResource@@MEAA@XZ.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800DD940 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ */
+
+CComponentTransform2D *__fastcall CComponentTransform2D::`vector deleting destructor'(
+        CComponentTransform2D *this,
+        char a2)
+{
+  unsigned int v4; // r8d
+
+  *(_QWORD *)this = &CNotificationResource::`vftable';
+  CResource::~CResource(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      CDrawListPolygonBuilder::AddBeziers(this, (const struct D2D1_BEZIER_SEGMENT *)0xD8, v4);
+    else
+      operator delete(this);
+  }
+  return this;
+}

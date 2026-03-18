@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?GetUserModeViewAtOffset@CBatchSharedMemoryPool@DirectComposition@@QEAAJ_KPEAPEAX@Z @ 0x1C0083F08
+ * Callers:
+ *     ?GetChannelRDPHeaders@CApplicationChannel@DirectComposition@@QEAAJPEAPEAUUCE_RDP_HEADER@@0@Z @ 0x1C00837A4 (-GetChannelRDPHeaders@CApplicationChannel@DirectComposition@@QEAAJPEAPEAUUCE_RDP_HEADER@@0@Z.c)
+ *     ?RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z @ 0x1C0083AD8 (-RetrieveBatches@CConnection@DirectComposition@@AEAAJ_KPEAPEBUUCE_RDP_HEADER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DirectComposition::CBatchSharedMemoryPool::GetUserModeViewAtOffset(
+        DirectComposition::CBatchSharedMemoryPool *this,
+        __int64 a2,
+        void **a3)
+{
+  __int64 v3; // rax
+  int v4; // r9d
+  __int64 v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // [rsp+50h] [rbp-18h] BYREF
+  __int64 v12; // [rsp+70h] [rbp+8h] BYREF
+  __int64 v13; // [rsp+88h] [rbp+20h] BYREF
+
+  v3 = *((_QWORD *)this + 6);
+  v4 = 0;
+  if ( !v3 )
+  {
+    v9 = *((_QWORD *)this + 2);
+    v11 = 0LL;
+    v13 = 0LL;
+    v12 = 0LL;
+    v4 = MmMapViewOfSection(*((_QWORD *)this + 3), *(_QWORD *)(v9 + 16), &v12, 0LL, 4096LL, &v11, &v13, 2, 0x400000, 2);
+    if ( v4 < 0 )
+      return (unsigned int)v4;
+    v10 = v12;
+    *((_QWORD *)this + 6) = v12;
+    v3 = v10;
+  }
+  *a3 = (void *)(v3 + a2);
+  return (unsigned int)v4;
+}

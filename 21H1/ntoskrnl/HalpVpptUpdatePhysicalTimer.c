@@ -1,0 +1,75 @@
+/*
+ * XREFs of HalpVpptUpdatePhysicalTimer @ 0x1404BB884
+ * Callers:
+ *     HalpVpptAcknowledgeInterrupt @ 0x1404BB140 (HalpVpptAcknowledgeInterrupt.c)
+ *     HalpVpptArmTimer @ 0x1404BB2F0 (HalpVpptArmTimer.c)
+ *     HalpVpptStop @ 0x1404BB5C0 (HalpVpptStop.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x140278330 (RtlGetInterruptTimePrecise.c)
+ *     HalpTimerGetInternalData @ 0x1402785B0 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     ExtEnvSetVpptTarget @ 0x1404BA1D4 (ExtEnvSetVpptTarget.c)
+ *     HalpSetTimerAnyMode @ 0x1404BA3EC (HalpSetTimerAnyMode.c)
+ *     ExtEnvCriticalFailure @ 0x1404CFF7C (ExtEnvCriticalFailure.c)
+ */
+
+__int64 HalpVpptUpdatePhysicalTimer()
+{
+  int v0; // ebx
+  unsigned __int64 v1; // rdi
+  __int64 InternalData; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rdx
+  int v7; // eax
+  int v8; // ecx
+  unsigned __int64 InterruptTimePrecise; // rax
+  __int64 v10; // r8
+  unsigned __int64 v11; // rdi
+  unsigned __int64 v12; // rbx
+  __int64 result; // rax
+  int v14; // ecx
+  LARGE_INTEGER v15; // [rsp+40h] [rbp+8h] BYREF
+
+  v0 = *(_DWORD *)(*(_QWORD *)&HalpVpptQueue + 16LL);
+  v1 = *(_QWORD *)(*(_QWORD *)&HalpVpptQueue + 32LL);
+  if ( HalpVpptPhysicalTimerTarget != v0 )
+  {
+    InternalData = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
+    (*(void (__fastcall **)(__int64))(v3 + 136))(InternalData);
+    if ( (*(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 224LL) & 0x200000) == 0 )
+    {
+      v5 = HalpTimerGetInternalData(*(__int64 *)&HalpVpptPhysicalTimer);
+      (*(void (__fastcall **)(__int64))(v6 + 104))(v5);
+    }
+    if ( HalpVpptPhysicalTimerTarget != v0 )
+    {
+      v7 = ExtEnvSetVpptTarget(v4, v0);
+      if ( v7 < 0 )
+        ExtEnvCriticalFailure(v8, 276, HalpVpptPhysicalTimerTarget, v0, v7);
+      HalpVpptPhysicalTimerTarget = v0;
+    }
+  }
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v15);
+  if ( InterruptTimePrecise <= v1 )
+    v11 = v1 - InterruptTimePrecise;
+  else
+    v11 = 0LL;
+  v12 = 0x989680uLL / *(_QWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 192LL);
+  if ( *(_DWORD *)(*(_QWORD *)&HalpVpptPhysicalTimer + 228LL) == 2 )
+  {
+    if ( v12 < 0x1312 )
+      v12 = 4882LL;
+  }
+  else if ( v12 < 0x1388 )
+  {
+    v12 = 5000LL;
+  }
+  if ( v11 >= v12 )
+    v12 = v11;
+  result = HalpSetTimerAnyMode(*(__int64 *)&HalpVpptPhysicalTimer, v12, v10, (unsigned __int64 *)&v15.QuadPart);
+  if ( (int)result < 0 )
+    ExtEnvCriticalFailure(v14, 277, HalpVpptPhysicalTimer, v12, (int)result);
+  return result;
+}

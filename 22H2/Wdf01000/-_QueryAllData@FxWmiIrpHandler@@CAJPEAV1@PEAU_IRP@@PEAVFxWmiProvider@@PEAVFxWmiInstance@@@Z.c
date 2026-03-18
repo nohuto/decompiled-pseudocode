@@ -1,0 +1,293 @@
+/*
+ * XREFs of ?_QueryAllData@FxWmiIrpHandler@@CAJPEAV1@PEAU_IRP@@PEAVFxWmiProvider@@PEAVFxWmiInstance@@@Z @ 0x1C0040590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001D510 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qddd @ 0x1C002F86C (WPP_IFR_SF_qddd.c)
+ *     WPP_IFR_SF_dqd @ 0x1C0034404 (WPP_IFR_SF_dqd.c)
+ *     WPP_IFR_SF_qdd @ 0x1C003C938 (WPP_IFR_SF_qdd.c)
+ *     ?GetInstanceReferenced@FxWmiProvider@@QEAAPEAVFxWmiInstance@@KPEAX@Z @ 0x1C003E340 (-GetInstanceReferenced@FxWmiProvider@@QEAAPEAVFxWmiInstance@@KPEAX@Z.c)
+ *     ?CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z @ 0x1C003FEF4 (-CompleteWmiRequest@FxWmiIrpHandler@@AEAAJPEAU_IRP@@JK@Z.c)
+ */
+
+__int64 __fastcall FxWmiIrpHandler::_QueryAllData(
+        FxWmiIrpHandler *This,
+        _IRP *Irp,
+        FxWmiProvider *Provider,
+        FxWmiInstance *Instance)
+{
+  _IO_STACK_LOCATION *CurrentStackLocation; // r13
+  unsigned int _a3; // edi
+  bool v8; // cf
+  signed int v9; // ebx
+  __int64 _a2; // r12
+  unsigned __int8 v11; // r8
+  unsigned __int8 FxVerboseOn; // al
+  const void *_a1; // rax
+  _FX_DRIVER_GLOBALS *v14; // r10
+  const void *ObjectHandleUnchecked; // rax
+  const _GUID *traceGuid; // rdx
+  _FX_DRIVER_GLOBALS *v17; // r10
+  _NAMED_PIPE_CREATE_PARAMETERS *v18; // r8
+  unsigned int v19; // eax
+  unsigned int v20; // ecx
+  unsigned int v21; // ebp
+  unsigned int LowPart; // r9d
+  unsigned int v23; // r9d
+  unsigned int *p_OutboundQuota; // r10
+  unsigned int m_MinInstanceBufferSize; // r8d
+  unsigned __int64 v26; // rdx
+  unsigned int v27; // eax
+  FxWmiInstance *InstanceReferenced; // rax
+  unsigned int v29; // r8d
+  const void *v30; // rax
+  int v31; // edx
+  unsigned int *v32; // rax
+  int v33; // eax
+  signed int v34; // edx
+  const void *v35; // rax
+  unsigned int v36; // edx
+  const void *v37; // rax
+  unsigned __int8 v38; // dl
+  int v39; // r8d
+  unsigned int *v40; // rax
+  const void *v41; // rax
+  const void *v42; // rax
+  const void *v43; // rax
+  _FX_DRIVER_GLOBALS *v44; // r10
+  const void *v45; // rax
+  const _GUID *v46; // rdx
+  char v48; // [rsp+50h] [rbp-68h]
+  unsigned __int8 irql[3]; // [rsp+51h] [rbp-67h] BYREF
+  unsigned int v50; // [rsp+54h] [rbp-64h]
+  unsigned int v51; // [rsp+58h] [rbp-60h]
+  unsigned int tmpSize; // [rsp+5Ch] [rbp-5Ch] BYREF
+  unsigned int v53; // [rsp+60h] [rbp-58h]
+  __int64 v54; // [rsp+68h] [rbp-50h]
+  unsigned int *v55; // [rsp+70h] [rbp-48h]
+  FxObject *v56; // [rsp+78h] [rbp-40h]
+  unsigned int *v57; // [rsp+80h] [rbp-38h]
+  _NAMED_PIPE_CREATE_PARAMETERS *Parameters; // [rsp+88h] [rbp-30h]
+
+  CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+  irql[0] = 0;
+  _a3 = 0;
+  v51 = 0;
+  v8 = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart < 0x48;
+  Parameters = CurrentStackLocation->Parameters.CreatePipe.Parameters;
+  v48 = 0;
+  if ( v8 )
+  {
+    v9 = -1073741823;
+    return FxWmiIrpHandler::CompleteWmiRequest(This, Irp, v9, _a3);
+  }
+  FxNonPagedObject::Lock(This, irql, (unsigned __int8)Provider);
+  _a2 = Provider->m_NumInstances;
+  FxNonPagedObject::Unlock(This, irql[0], v11);
+  FxVerboseOn = This->m_Globals->FxVerboseOn;
+  if ( !(_DWORD)_a2 )
+  {
+    v9 = -1073741162;
+    if ( FxVerboseOn )
+    {
+      _a1 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+      WPP_IFR_SF_qL(v14, 5u, 0xCu, 0xFu, WPP_FxWmiIrpHandler_cpp_Traceguids, _a1, 0xC0000296);
+    }
+    return FxWmiIrpHandler::CompleteWmiRequest(This, Irp, v9, _a3);
+  }
+  if ( FxVerboseOn )
+  {
+    ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+    WPP_IFR_SF_qL(v17, 5u, 0xCu, 0x10u, traceGuid, ObjectHandleUnchecked, _a2);
+  }
+  v18 = Parameters;
+  v19 = 8 * _a2;
+  Parameters[1].ReadMode &= ~0x10u;
+  v18[1].MaximumInstances = _a2;
+  if ( (unsigned __int64)(8 * _a2) > 0xFFFFFFFF || (v20 = v19 + 60, v19 >= 0xFFFFFFC4) )
+  {
+    v9 = -1073741675;
+    goto LABEL_59;
+  }
+  v21 = (v19 + 75) & 0xFFFFFFF0;
+  v9 = v21 < v20 ? 0xC0000095 : 0;
+  if ( v21 < v20 )
+  {
+LABEL_59:
+    v45 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+    WPP_IFR_SF_dqd(This->m_Globals, 2u, 0xCu, 0x11u, v46, _a2, v45, v9);
+    return FxWmiIrpHandler::CompleteWmiRequest(This, Irp, v9, _a3);
+  }
+  v18[1].CompletionMode = v21;
+  LowPart = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart;
+  if ( v21 > LowPart )
+  {
+    v54 = 0LL;
+    p_OutboundQuota = 0LL;
+    v23 = 0;
+    v48 = 1;
+    v9 = -1073741789;
+  }
+  else
+  {
+    v23 = LowPart - v21;
+    p_OutboundQuota = &v18[1].OutboundQuota;
+    v54 = (__int64)v18 + v21;
+  }
+  v50 = v23;
+  v57 = p_OutboundQuota;
+  m_MinInstanceBufferSize = Provider->m_MinInstanceBufferSize;
+  if ( !m_MinInstanceBufferSize )
+    goto LABEL_21;
+  v26 = (unsigned int)(_a2 - 1) * (unsigned __int64)((m_MinInstanceBufferSize + 15) & 0xFFFFFFF0);
+  if ( v26 > 0xFFFFFFFF || m_MinInstanceBufferSize + (unsigned int)v26 < (unsigned int)v26 )
+  {
+    v9 = -1073741675;
+    return FxWmiIrpHandler::CompleteWmiRequest(This, Irp, v9, _a3);
+  }
+  v9 = 0;
+  if ( v23 < m_MinInstanceBufferSize + (unsigned int)v26 )
+  {
+    _a3 = m_MinInstanceBufferSize + v26;
+    v9 = -1073741789;
+  }
+  else
+  {
+LABEL_21:
+    v27 = 0;
+    v53 = 0;
+    v55 = p_OutboundQuota;
+    do
+    {
+      InstanceReferenced = FxWmiProvider::GetInstanceReferenced(Provider, v27, Irp);
+      v56 = InstanceReferenced;
+      if ( !InstanceReferenced )
+        break;
+      if ( InstanceReferenced->IsQueryInstanceSupported(InstanceReferenced) )
+      {
+        tmpSize = 0;
+        v9 = ((__int64 (__fastcall *)(FxObject *, _QWORD, __int64, unsigned int *))v56->__vftable[1].~FxObject)(
+               v56,
+               v50,
+               v54,
+               &tmpSize);
+        if ( (int)(v9 + 0x80000000) < 0 || v9 == -1073741789 )
+        {
+          v29 = (tmpSize + 15) & 0xFFFFFFF0;
+          if ( v29 >= tmpSize )
+          {
+            v51 = v29 - tmpSize;
+            if ( v9 < 0 || v48 )
+            {
+              v48 = 1;
+            }
+            else
+            {
+              v32 = v55;
+              v55[1] = tmpSize;
+              *v32 = v21;
+              v54 += v29;
+            }
+            if ( v29 > v50 )
+            {
+              v33 = -1;
+              if ( v50 + v21 >= v21 )
+                v33 = v50 + v21;
+              v34 = v50 + v21 < v21 ? 0xC0000095 : 0;
+              v50 = 0;
+            }
+            else
+            {
+              v50 -= v29;
+              v33 = -1;
+              if ( v29 + v21 >= v21 )
+                v33 = v29 + v21;
+              v34 = v29 + v21 < v21 ? 0xC0000095 : 0;
+            }
+            v21 = v33;
+            if ( v34 >= 0 )
+            {
+              if ( v29 + _a3 < _a3 )
+              {
+                _a3 = -1;
+                v9 = -1073741675;
+                v37 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+                WPP_IFR_SF_qddd(
+                  This->m_Globals,
+                  v38,
+                  0xCu,
+                  0x14u,
+                  WPP_FxWmiIrpHandler_cpp_Traceguids,
+                  v37,
+                  -1,
+                  v39,
+                  -1073741675);
+              }
+              else
+              {
+                _a3 += v29;
+              }
+            }
+            else
+            {
+              v9 = v34;
+              v35 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+              WPP_IFR_SF_qL(This->m_Globals, 2u, 0xCu, 0x13u, WPP_FxWmiIrpHandler_cpp_Traceguids, v35, v36);
+            }
+          }
+          else
+          {
+            v9 = -1073741675;
+            v30 = (const void *)FxObject::GetObjectHandleUnchecked(v56);
+            WPP_IFR_SF_qdd(This->m_Globals, 2u, 0xCu, 0x12u, WPP_FxWmiIrpHandler_cpp_Traceguids, v30, v31, 0xC0000095);
+          }
+        }
+      }
+      else if ( v57 )
+      {
+        v40 = v55;
+        v55[1] = 0;
+        *v40 = v21;
+      }
+      v56->Release(v56, Irp, 1178, "minkernel\\wdf\\framework\\kmdf\\src\\irphandlers\\wmi\\fxwmiirphandler.cpp");
+      if ( (int)(v9 + 0x80000000) >= 0 && v9 != -1073741789 )
+        goto LABEL_51;
+      v55 += 2;
+      v27 = v53 + 1;
+      v53 = v27;
+    }
+    while ( v27 < (unsigned int)_a2 );
+    if ( v9 == -1073741789 )
+      goto LABEL_55;
+LABEL_51:
+    if ( v9 < 0 )
+    {
+      v41 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+      WPP_IFR_SF_qL(This->m_Globals, 2u, 0xCu, 0x16u, WPP_FxWmiIrpHandler_cpp_Traceguids, v41, v9);
+      _a3 = 0;
+      goto LABEL_56;
+    }
+    if ( !v48 )
+    {
+      _a3 = v21 - Parameters[1].CompletionMode - v51;
+      goto LABEL_56;
+    }
+LABEL_55:
+    _a3 -= v51;
+    v9 = -1073741789;
+    v42 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+    WPP_IFR_SF_qdd(This->m_Globals, 4u, 0xCu, 0x15u, WPP_FxWmiIrpHandler_cpp_Traceguids, v42, -1073741789, _a3);
+LABEL_56:
+    if ( This->m_Globals->FxVerboseOn )
+    {
+      v43 = (const void *)FxObject::GetObjectHandleUnchecked(Provider);
+      WPP_IFR_SF_qdd(v44, 5u, 0xCu, 0x17u, WPP_FxWmiIrpHandler_cpp_Traceguids, v43, v9, _a3);
+    }
+  }
+  return FxWmiIrpHandler::CompleteWmiRequest(This, Irp, v9, _a3);
+}

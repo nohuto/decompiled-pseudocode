@@ -1,0 +1,48 @@
+/*
+ * XREFs of MiExamineHalVa @ 0x1407E6624
+ * Callers:
+ *     MmInitNucleus @ 0x1407D42F4 (MmInitNucleus.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1401716B0 (__security_check_cookie.c)
+ */
+
+__int64 MiExamineHalVa()
+{
+  unsigned __int64 v0; // rdx
+  unsigned __int64 *v1; // rcx
+  __int64 v2; // r9
+  unsigned __int64 v3; // rax
+  __int64 v4; // r8
+  _QWORD v6[3]; // [rsp+0h] [rbp-28h] BYREF
+
+  v0 = 0xFFFFF6FB7FFFFFF0uLL;
+LABEL_2:
+  v0 -= 8LL;
+  v1 = v6;
+  v2 = 3LL;
+  v3 = v0;
+  LODWORD(v4) = 3;
+  do
+  {
+    *v1++ = v3;
+    v3 = ((v3 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    --v2;
+  }
+  while ( v2 );
+  while ( 1 )
+  {
+    v4 = (unsigned int)(v4 - 1);
+    if ( (*(_BYTE *)v6[v4] & 1) == 0 )
+      return (__int64)((v0 << 25) + 0x10000000) >> 16 << 25 >> 16;
+    if ( !(_DWORD)v4 )
+    {
+      while ( (v0 & 0xFFF) != 0 )
+      {
+        v0 -= 8LL;
+        if ( (*(_BYTE *)v0 & 1) == 0 )
+          return (__int64)((v0 << 25) + 0x10000000) >> 16 << 25 >> 16;
+      }
+      goto LABEL_2;
+    }
+  }
+}

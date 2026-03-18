@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierHalExamineMBR @ 0x140931710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierHalExamineMBR()
+{
+  return ((__int64 (*)(void))pXdvHalExamineMBR)();
+}

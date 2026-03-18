@@ -1,0 +1,28 @@
+/*
+ * XREFs of MagpInverseMagnificationTransformFromPoint @ 0x1C0009F08
+ * Callers:
+ *     xxxIsDCompSpeedHitTest @ 0x1C0066924 (xxxIsDCompSpeedHitTest.c)
+ * Callees:
+ *     AcquireMagInputLock @ 0x1C0009F50 (AcquireMagInputLock.c)
+ *     PtInRect @ 0x1C0066AB8 (PtInRect.c)
+ *     MagnificationInverseTransformPoint @ 0x1C0203C08 (MagnificationInverseTransformPoint.c)
+ */
+
+__int64 __fastcall MagpInverseMagnificationTransformFromPoint(_QWORD *a1)
+{
+  __int64 result; // rax
+  __int64 v3; // rcx
+  __int64 v4; // rcx
+
+  AcquireMagInputLock();
+  result = *(_QWORD *)(gptiRit + 408LL);
+  v3 = *(_QWORD *)(result + 208);
+  if ( v3 )
+  {
+    result = PtInRect(v3, *a1);
+    if ( (_DWORD)result )
+      result = MagnificationInverseTransformPoint(v4, a1);
+  }
+  _InterlockedExchange64(&gpMagInputLock, 0LL);
+  return result;
+}

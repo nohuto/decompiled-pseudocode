@@ -1,0 +1,53 @@
+/*
+ * XREFs of ViLookasideAdd @ 0x1409DE544
+ * Callers:
+ *     VerifierExInitializeLookasideListEx @ 0x1409DE130 (VerifierExInitializeLookasideListEx.c)
+ *     ViLookasideTrackList @ 0x1409DE74C (ViLookasideTrackList.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x1402D7298 (ExFreeToNPagedLookasideList.c)
+ *     VfAvlCleanupLockContext @ 0x14036EA64 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x14036EAB0 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlReserveNode @ 0x14036EC30 (VfAvlReserveNode.c)
+ *     VfAvlDeleteTreeNode @ 0x14036F604 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x14036F6C0 (VfAvlLookupTreeNode.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x14036F910 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlInitializeLockContext @ 0x14059CA14 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1409CDD34 (VerifierBugCheckIfAppropriate.c)
+ */
+
+void __fastcall ViLookasideAdd(ULONG_PTR BugCheckParameter2)
+{
+  char *v2; // rsi
+  struct _SLIST_ENTRY *v3; // rbx
+  __int128 v4; // [rsp+30h] [rbp-18h] BYREF
+
+  v4 = 0LL;
+  if ( ViLookasideInitialized )
+  {
+    v2 = VfAvlReserveNode(ViLookasideAvl, BugCheckParameter2, 0LL);
+    if ( v2 )
+    {
+      v3 = 0LL;
+      VfAvlInitializeLockContext((__int64)&v4, 0);
+      if ( VfAvlLookupTreeNode(ViLookasideAvl, (__int64)&v4, BugCheckParameter2, 0LL) )
+      {
+        if ( !ViLookasideAllocationFailures && !ViLookasideAlreadyLoadedDrivers && (MmVerifierData & 0x800) != 0 )
+          VerifierBugCheckIfAppropriate(0xC4u, 0xCAuLL, BugCheckParameter2, 0LL, 0LL);
+        v3 = (struct _SLIST_ENTRY *)VfAvlDeleteTreeNode((__int64)ViLookasideAvl, (__int64)&v4, BugCheckParameter2, 0LL);
+      }
+      VfAvlInsertReservedTreeNode((__int64)ViLookasideAvl, (__int64)&v4, v2);
+      VfAvlCleanupLockContext((__int64)&v4);
+      if ( v3 )
+      {
+        if ( dword_140D484F8 == 1 )
+          ExFreeToNPagedLookasideList(&ViAvlNodeLookaside, v3);
+        else
+          VfUtilFreePoolCheckIRQL(v3);
+      }
+    }
+    else
+    {
+      _InterlockedExchange(&ViLookasideAllocationFailures, 1);
+    }
+  }
+}

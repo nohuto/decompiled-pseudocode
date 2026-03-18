@@ -1,0 +1,18 @@
+/*
+ * XREFs of RtlClearAllBitsEx @ 0x1400A9490
+ * Callers:
+ *     IopLiveDumpEstimateMemoryPages @ 0x1405A89AC (IopLiveDumpEstimateMemoryPages.c)
+ *     MiCopyToCfgBitMap @ 0x1405EC930 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x14066E880 (MiUpdateCfgSystemWideBitmapWorker.c)
+ *     MiCreateVadEventBitmap @ 0x14066FCC8 (MiCreateVadEventBitmap.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x140859728 (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpWriteDumpFileWithHvPages @ 0x14085A994 (IopLiveDumpWriteDumpFileWithHvPages.c)
+ *     MiCreateAweInfoBitMap @ 0x140896244 (MiCreateAweInfoBitMap.c)
+ * Callees:
+ *     memset @ 0x1401D6BC0 (memset.c)
+ */
+
+void *__fastcall RtlClearAllBitsEx(__int64 a1)
+{
+  return memset(*(void **)(a1 + 8), 0, 4 * ((*(_QWORD *)a1 >> 5) + ((*(_QWORD *)a1 & 0x1F) != 0)));
+}

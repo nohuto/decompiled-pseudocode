@@ -1,0 +1,606 @@
+/*
+ * XREFs of IoInitSystemPreDrivers @ 0x140A3B0DC
+ * Callers:
+ *     IoInitSystem @ 0x140A5F46C (IoInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x140206450 (RtlInitUnicodeString.c)
+ *     ExQueueWorkItem @ 0x140226F40 (ExQueueWorkItem.c)
+ *     HalPutDmaAdapter @ 0x140261190 (HalPutDmaAdapter.c)
+ *     ExInitializeResourceLite @ 0x14026C4C0 (ExInitializeResourceLite.c)
+ *     ExInitializePushLock @ 0x1402C0830 (ExInitializePushLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402E4740 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlInitializeGenericTableAvl @ 0x1402E59F0 (RtlInitializeGenericTableAvl.c)
+ *     KeReleaseSpinLock @ 0x1402E7EE0 (KeReleaseSpinLock.c)
+ *     KeQueryActiveProcessorCountEx @ 0x140328380 (KeQueryActiveProcessorCountEx.c)
+ *     HeadlessKernelAddLogEntry @ 0x14036AF8C (HeadlessKernelAddLogEntry.c)
+ *     ExInitializeNPagedLookasideList @ 0x140377980 (ExInitializeNPagedLookasideList.c)
+ *     KeIpiGenericCall @ 0x1403A1600 (KeIpiGenericCall.c)
+ *     IopRemoveDumpCapsuleSupport @ 0x1403BBEF0 (IopRemoveDumpCapsuleSupport.c)
+ *     IopInitializeIoRate @ 0x1403BF6DC (IopInitializeIoRate.c)
+ *     SecureDump_PrepareForInit @ 0x1403C8050 (SecureDump_PrepareForInit.c)
+ *     IopInitDumpCapsuleSupport @ 0x1403C9F80 (IopInitDumpCapsuleSupport.c)
+ *     IopInitializeSystemVariableService @ 0x1403CA5A8 (IopInitializeSystemVariableService.c)
+ *     VslpIumPhase4Initialize @ 0x1403CA9EC (VslpIumPhase4Initialize.c)
+ *     HvlPhase2Initialize @ 0x1403CACE8 (HvlPhase2Initialize.c)
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F2510 (ZwClose.c)
+ *     ZwOpenKey @ 0x1403F2570 (ZwOpenKey.c)
+ *     ZwOpenFile @ 0x1403F2990 (ZwOpenFile.c)
+ *     KeBugCheck @ 0x1403F5E20 (KeBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140408F80 (memset.c)
+ *     NtQueryValueKey @ 0x1405EC5D0 (NtQueryValueKey.c)
+ *     NtCreateEvent @ 0x1406013B0 (NtCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x140637550 (ObCloseHandle.c)
+ *     ExSubscribeWnfStateChange @ 0x1406DD990 (ExSubscribeWnfStateChange.c)
+ *     RtlIsStateSeparationEnabled @ 0x1406E2F30 (RtlIsStateSeparationEnabled.c)
+ *     NtPowerInformation @ 0x14070B1B0 (NtPowerInformation.c)
+ *     PoRegisterPowerSettingCallback @ 0x140711220 (PoRegisterPowerSettingCallback.c)
+ *     EtwRegister @ 0x14074B4C0 (EtwRegister.c)
+ *     EtwWriteStartScenario @ 0x140773CA0 (EtwWriteStartScenario.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1407788A4 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     IoInitializeProcessor @ 0x14077F048 (IoInitializeProcessor.c)
+ *     PsLocateSystemDlls @ 0x140781030 (PsLocateSystemDlls.c)
+ *     EtwInitialize @ 0x1407867D8 (EtwInitialize.c)
+ *     EtwTraceLeapSecondDataUpdate @ 0x14079046C (EtwTraceLeapSecondDataUpdate.c)
+ *     SeAuditBootConfiguration @ 0x1407A3B08 (SeAuditBootConfiguration.c)
+ *     IopInitializeTriageDumpData @ 0x1407B34F8 (IopInitializeTriageDumpData.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x1407B5BA0 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     IopQueryProcessorInitValues @ 0x1407BDC0C (IopQueryProcessorInitValues.c)
+ *     CmIsStateSeparationDevModeEnabled @ 0x14086368C (CmIsStateSeparationDevModeEnabled.c)
+ *     PpPagePathAssign @ 0x14089CB80 (PpPagePathAssign.c)
+ *     EtwTraceLeapSecondDataParseFailure @ 0x140931C94 (EtwTraceLeapSecondDataParseFailure.c)
+ *     BapdRecordFirmwareBootStats @ 0x1409948D0 (BapdRecordFirmwareBootStats.c)
+ *     PfSnBeginBootPhase @ 0x1409968F4 (PfSnBeginBootPhase.c)
+ *     ExInitializeSystemLookasideList @ 0x140997D24 (ExInitializeSystemLookasideList.c)
+ *     KseInitialize @ 0x140A38EBC (KseInitialize.c)
+ *     WMIInitialize @ 0x140A39174 (WMIInitialize.c)
+ *     PoInitSystem @ 0x140A3BEEC (PoInitSystem.c)
+ *     BootApplicationPersistentDataProcess @ 0x140A3D71C (BootApplicationPersistentDataProcess.c)
+ *     IopInitializePlugPlayServices @ 0x140A4AB7C (IopInitializePlugPlayServices.c)
+ *     IopCreateRootDirectories @ 0x140A53CFC (IopCreateRootDirectories.c)
+ *     IopStoreArcInformation @ 0x140A56308 (IopStoreArcInformation.c)
+ *     IopInitializeBootDrivers @ 0x140A56C1C (IopInitializeBootDrivers.c)
+ *     WheaInitialize @ 0x140A5B63C (WheaInitialize.c)
+ *     SmInitSystem @ 0x140A676A4 (SmInitSystem.c)
+ *     IopInitCrashDumpDuringSysInit @ 0x140A69598 (IopInitCrashDumpDuringSysInit.c)
+ *     IopInitializePassiveInterruptServices @ 0x140A69754 (IopInitializePassiveInterruptServices.c)
+ *     IopInitializeReserveIrps @ 0x140A6B0E8 (IopInitializeReserveIrps.c)
+ *     PpLastGoodDoBootProcessing @ 0x140A6B468 (PpLastGoodDoBootProcessing.c)
+ *     IopReassignSystemRoot @ 0x140A6C5A8 (IopReassignSystemRoot.c)
+ *     PnpMarkHalDeviceNode @ 0x140A6D4E0 (PnpMarkHalDeviceNode.c)
+ *     KitpInitAitSampleRate @ 0x140A6D994 (KitpInitAitSampleRate.c)
+ *     PoInitDriverServices @ 0x140A6DF0C (PoInitDriverServices.c)
+ *     IopProtectSystemPartition @ 0x140A6E9C4 (IopProtectSystemPartition.c)
+ *     IopInitializeSessionNotifications @ 0x140A6F44C (IopInitializeSessionNotifications.c)
+ *     IopLoadBootHotPatches @ 0x140A6FBA0 (IopLoadBootHotPatches.c)
+ */
+
+char __fastcall IoInitSystemPreDrivers(__int64 a1)
+{
+  unsigned __int64 v2; // r8
+  int v3; // eax
+  ULONG ActiveProcessorCount; // eax
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+  _DWORD *v7; // rbx
+  unsigned int v8; // eax
+  __int64 v9; // rcx
+  int v10; // eax
+  __int64 v11; // r9
+  KIRQL v12; // bl
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rdx
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  ULONG v18; // ebx
+  int SystemDlls; // eax
+  bool IsStateSeparationDevModeEnabled; // al
+  size_t Size; // [rsp+28h] [rbp-E0h]
+  __int64 OutputBuffer; // [rsp+48h] [rbp-C0h] BYREF
+  HANDLE KeyHandle; // [rsp+50h] [rbp-B8h] BYREF
+  __int64 v25; // [rsp+58h] [rbp-B0h] BYREF
+  PVOID Object; // [rsp+60h] [rbp-A8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+68h] [rbp-A0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+98h] [rbp-70h] BYREF
+  _QWORD v29[2]; // [rsp+A8h] [rbp-60h] BYREF
+  __int64 v30; // [rsp+B8h] [rbp-50h] BYREF
+  ULONG Context; // [rsp+C0h] [rbp-48h] BYREF
+  ULONG Context_4; // [rsp+C4h] [rbp-44h]
+  __int128 v33; // [rsp+C8h] [rbp-40h]
+  __int64 v34; // [rsp+D8h] [rbp-30h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+E0h] [rbp-28h] BYREF
+  __int128 v36; // [rsp+F0h] [rbp-18h] BYREF
+  __int128 v37; // [rsp+100h] [rbp-8h]
+
+  v29[0] = 0x1000000LL;
+  v34 = 0LL;
+  v30 = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  KeyHandle = 0LL;
+  v33 = 0LL;
+  LOBYTE(OutputBuffer) = 0;
+  DestinationString = 0LL;
+  v29[1] = IoInitSystem_deviceNameBuffer;
+  IoStatusBlock = 0LL;
+  v36 = 0LL;
+  v37 = 0LL;
+  ExInitializeResourceLite(&IopDriverLoadResource);
+  ExInitializeResourceLite(&IopDatabaseResource);
+  ExInitializeResourceLite(&IopSecurityResource);
+  ExInitializeResourceLite(&IopCrashDumpLock);
+  ExInitializeResourceLite(&IopLiveDumpLock);
+  ExInitializePushLock(&IopFilesystemDatabaseShutdownRundown);
+  IopPerfIoTrackingLock = 0LL;
+  qword_140C45B48 = (__int64)&IopDiskFileSystemQueueHead;
+  IopDiskFileSystemQueueHead = (__int64)&IopDiskFileSystemQueueHead;
+  qword_140C45B18 = (__int64)&IopCdRomFileSystemQueueHead;
+  IopCdRomFileSystemQueueHead = (__int64)&IopCdRomFileSystemQueueHead;
+  qword_140C45B28 = (__int64)&IopTapeFileSystemQueueHead;
+  IopTapeFileSystemQueueHead = (__int64)&IopTapeFileSystemQueueHead;
+  qword_140C45B78 = (__int64)&IopNetworkFileSystemQueueHead;
+  IopNetworkFileSystemQueueHead = (__int64)&IopNetworkFileSystemQueueHead;
+  qword_140C45B88 = (__int64)&IopBootDriverReinitializeQueueHead;
+  IopBootDriverReinitializeQueueHead = (__int64)&IopBootDriverReinitializeQueueHead;
+  qword_140C45B58 = (__int64)&IopDriverReinitializeQueueHead;
+  IopDriverReinitializeQueueHead = (__int64)&IopDriverReinitializeQueueHead;
+  qword_140C45B68 = (__int64)&IopNotifyShutdownQueueHead;
+  IopNotifyShutdownQueueHead = &IopNotifyShutdownQueueHead;
+  qword_140C45BB8 = (__int64)&IopNotifyLastChanceShutdownQueueHead;
+  IopNotifyLastChanceShutdownQueueHead = &IopNotifyLastChanceShutdownQueueHead;
+  qword_140C45BC8 = (__int64)&IopFsNotifyChangeQueueHead;
+  IopFsNotifyChangeQueueHead = (__int64)&IopFsNotifyChangeQueueHead;
+  qword_140C45B98 = (__int64)&IopPerfIoTrackingListHead;
+  IopPerfIoTrackingListHead = (__int64)&IopPerfIoTrackingListHead;
+  IoStatisticsLock = 0LL;
+  IopFunctionPointerLock = 0LL;
+  IopDiskIoAttributionTree = 0LL;
+  IopUniqueDeviceObjectNumber = 0;
+  IopIrpStackProfilerFlags = 0;
+  v2 = __rdtsc() >> 4;
+  v3 = 0;
+  IopUniqueDriverObjectNumber = v2 % 0x64 + 10;
+  if ( !IopLargeIrpStackLocations )
+  {
+    IopLargeIrpStackLocations = 14;
+    v3 = 1;
+    IopIrpStackProfilerFlags = 1;
+  }
+  if ( !IopMediumIrpStackLocations )
+  {
+    IopMediumIrpStackLocations = 4;
+    IopIrpStackProfilerFlags = v3 | 2;
+  }
+  if ( (unsigned int)(IopIrpCompletionTimeoutInSeconds - 2) > 0x12A )
+    IopIrpCompletionTimeoutInSeconds = 300;
+  IopQueryProcessorInitValues((__int64)&v36);
+  ExInitializeSystemLookasideList(
+    (__int64)&IopCompletionLookasideList,
+    512,
+    56,
+    544236361,
+    SWORD3(v36),
+    (__int64)&ExSystemLookasideListHead);
+  ExInitializeSystemLookasideList(
+    (__int64)&IopLargeIrpLookasideList,
+    512,
+    SDWORD1(v37),
+    1819308617,
+    SWORD2(v36),
+    (__int64)&ExSystemLookasideListHead);
+  ExInitializeSystemLookasideList(
+    (__int64)&IopMediumIrpLookasideList,
+    512,
+    v37,
+    1836085833,
+    SWORD1(v36),
+    (__int64)&ExSystemLookasideListHead);
+  ExInitializeSystemLookasideList(
+    (__int64)&IopSmallIrpLookasideList,
+    512,
+    SHIDWORD(v36),
+    1936749129,
+    v36,
+    (__int64)&ExSystemLookasideListHead);
+  ExInitializeSystemLookasideList(
+    (__int64)&IopMdlLookasideList,
+    512,
+    SDWORD2(v37),
+    543974477,
+    SWORD4(v36),
+    (__int64)&ExSystemLookasideListHead);
+  ExInitializeNPagedLookasideList(&IopSafeCompletionLookasideList, 0LL, 0LL, 0x200u, 0x20uLL, 0x73556F49u, 0);
+  FsRtlInitExtraCreateParameterLookasideList(&IopSymlinkInfoLookasideList, 0, 0x11EuLL, 0x69536F49u);
+  ExInitializeNPagedLookasideList(&IopOplockFoExtLookasideList, 0LL, 0LL, 0x200u, 0x30uLL, 0x7443704Fu, 0);
+  ActiveProcessorCount = KeQueryActiveProcessorCountEx(0xFFFFu);
+  v5 = 0LL;
+  v6 = ActiveProcessorCount;
+  for ( LODWORD(v25) = 0; (unsigned int)v5 < v6; LODWORD(v25) = v5 )
+  {
+    IoInitializeProcessor(KiProcessorBlock[v5], &v36);
+    v5 = (unsigned int)(v25 + 1);
+  }
+  IopErrorLogLock = 0LL;
+  qword_140C45CF8 = (__int64)&IopErrorLogListHead;
+  IopErrorLogListHead = (__int64)&IopErrorLogListHead;
+  if ( (unsigned __int8)IopInitializeReserveIrps() )
+  {
+    if ( (IopIrpStackProfilerFlags & 3) != 0 )
+    {
+      IopIrpStackProfilerMinSizeThreshold = 400;
+      IopIrpStackProfilerDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)IopIrpStackProfilerDpcRoutine;
+      IopIrpStackProfilerFlags |= 4u;
+      IopIrpStackProfilerSampleSize = 2000;
+      IopIrpStackProfilerDpc.TargetInfoAsUlong = 275;
+      IopIrpStackProfilerDpc.DeferredContext = 0LL;
+      IopIrpStackProfilerDpc.DpcData = 0LL;
+      IopIrpStackProfilerDpc.ProcessorHistory = 0LL;
+    }
+    v7 = IopRevocationExtension;
+    memset(IopRevocationExtension, 0, 0x58uLL);
+    *v7 = 4;
+    v8 = IopDiskIoAttributionBaseIoSize;
+    if ( (unsigned int)IopDiskIoAttributionBaseIoSize >= 0x400000 )
+    {
+      v8 = 0x400000;
+      IopDiskIoAttributionBaseIoSize = 0x400000;
+    }
+    if ( v8 <= 0x1000 )
+      IopDiskIoAttributionBaseIoSize = 4096;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSetServicesEventLog;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
+    {
+      IopErrorLogDisabledThisBoot = 1;
+    }
+    else
+    {
+      RtlInitUnicodeString(&DestinationString, L"Start");
+      LODWORD(Size) = 32;
+      IopErrorLogDisabledThisBoot = (int)NtQueryValueKey(
+                                           KeyHandle,
+                                           (unsigned __int64)&DestinationString,
+                                           2LL,
+                                           (unsigned __int64)IoInitSystem_valueBuffer,
+                                           Size,
+                                           (unsigned __int64)&v25) < 0
+                                 || dword_140D55944 != 4
+                                 || dword_140D5594C == 4;
+      ObCloseHandle(KeyHandle, 0);
+    }
+    *(_QWORD *)&IopTimer.Header.Lock = 9LL;
+    IopTimerQueueHead.Blink = &IopTimerQueueHead;
+    IopTimerQueueHead.Flink = &IopTimerQueueHead;
+    IopTimerLock = 0LL;
+    IopTimerDpc.DeferredRoutine = (PKDEFERRED_ROUTINE)IopTimerDispatch;
+    IopTimerDpc.DeferredContext = &IopTimerCount;
+    IopTimer.Header.WaitListHead.Blink = &IopTimer.Header.WaitListHead;
+    IopTimer.Header.WaitListHead.Flink = &IopTimer.Header.WaitListHead;
+    qword_140C45E68 = (__int64)&IopDeadIrps;
+    IopDeadIrps = (__int64)&IopDeadIrps;
+    IopHardError.WorkerRoutine = (void (__fastcall *)(void *))IopHardErrorThread;
+    qword_140C45E28 = (__int64)&qword_140C45E20;
+    qword_140C45E20 = (__int64)&qword_140C45E20;
+    qword_140C45E48 = (__int64)&qword_140C45E40;
+    qword_140C45E40 = (__int64)&qword_140C45E40;
+    IopKeepAliveTracker.WorkerRoutine = (void (__fastcall *)(void *))IopKeepAliveWorker;
+    qword_140C45EA8 = (__int64)&qword_140C45EA0;
+    qword_140C45EA0 = &qword_140C45EA0;
+    IopTimerDpc.TargetInfoAsUlong = 275;
+    IopTimerDpc.DpcData = 0LL;
+    IopTimerDpc.ProcessorHistory = 0LL;
+    IopTimer.DueTime.QuadPart = 0LL;
+    IopTimer.Period = 0;
+    IopTimer.Processor = 0;
+    IopHardError.Parameter = 0LL;
+    IopHardError.List.Flink = 0LL;
+    qword_140C45E30 = 0LL;
+    byte_140C45E38 = 5;
+    byte_140C45E3A = 8;
+    dword_140C45E3C = 0;
+    dword_140C45E50 = 0x7FFFFFFF;
+    byte_140C45E58 = 0;
+    IopKeepAliveTracker.Parameter = 0LL;
+    IopKeepAliveTracker.List.Flink = 0LL;
+    qword_140C45EB0 = 0LL;
+    byte_140C45ED8 = 0;
+    IopErrorLogSessionPending = 1;
+    RtlInitUnicodeString(&DestinationString, L"\\Security\\TRKWKS_EVENT");
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 528;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( (int)NtCreateEvent((unsigned __int64)&KeyHandle, 2031619LL, (int)&ObjectAttributes, NotificationEvent, 0) < 0 )
+    {
+      HeadlessKernelAddLogEntry();
+    }
+    else
+    {
+      Object = 0LL;
+      ObReferenceObjectByHandle(KeyHandle, 0, (POBJECT_TYPE)ExEventObjectType, 0, &Object, 0LL);
+      IopLinkTrackingServiceEvent = (__int64)Object;
+      IopMountCompletionEvent.Header.WaitListHead.Blink = &IopMountCompletionEvent.Header.WaitListHead;
+      IopMountCompletionEvent.Header.WaitListHead.Flink = &IopMountCompletionEvent.Header.WaitListHead;
+      stru_140C45F60.Header.WaitListHead.Blink = &stru_140C45F60.Header.WaitListHead;
+      stru_140C45F60.Header.WaitListHead.Flink = &stru_140C45F60.Header.WaitListHead;
+      IopLinkTrackingPortObject.Header.WaitListHead.Blink = &IopLinkTrackingPortObject.Header.WaitListHead;
+      IopLinkTrackingPortObject.Header.WaitListHead.Flink = &IopLinkTrackingPortObject.Header.WaitListHead;
+      LOWORD(IopMountCompletionEvent.Header.Lock) = 0;
+      IopMountCompletionEvent.Header.Size = 6;
+      IopMountCompletionEvent.Header.SignalState = 0;
+      LOWORD(stru_140C45F60.Header.Lock) = 0;
+      stru_140C45F60.Header.Size = 6;
+      stru_140C45F60.Header.SignalState = 0;
+      LOWORD(IopLinkTrackingPortObject.Header.Lock) = 1;
+      IopLinkTrackingPortObject.Header.Size = 6;
+      IopLinkTrackingPortObject.Header.SignalState = 1;
+      ObCloseHandle(KeyHandle, 0);
+      if ( (unsigned __int8)IopCreateRootDirectories() )
+      {
+        if ( (int)IopInitializeSessionNotifications() < 0 )
+        {
+          IopInitFailCode = 15;
+        }
+        else if ( (int)IopInitializePlugPlayServices(a1, 0LL) < 0 )
+        {
+          HeadlessKernelAddLogEntry();
+          IopInitFailCode = 4;
+        }
+        else
+        {
+          KseInitialize(a1, 0);
+          PoInitDriverServices();
+          off_140C00AC0[0]();
+          PnpMarkHalDeviceNode();
+          if ( WMIInitialize(0LL, a1) )
+          {
+            if ( !RtlIsStateSeparationEnabled()
+              || (IsStateSeparationDevModeEnabled = CmIsStateSeparationDevModeEnabled(),
+                  LOBYTE(v9) = 1,
+                  IsStateSeparationDevModeEnabled) )
+            {
+              LOBYTE(v9) = 0;
+            }
+            v10 = ExpInitializeStateSeparationPhase0(v9);
+            if ( (int)(v10 + 0x80000000) < 0 || v10 == -1073741637 )
+            {
+              EtwInitialize(0);
+              if ( EtwRegister(&IoTraceProvider, (PETWENABLECALLBACK)IopEtwEnableCallback, 0LL, &IoTraceHandle) < 0 )
+              {
+                IopInitFailCode = 16;
+              }
+              else if ( EtwRegister(&IoMgrProvider, 0LL, 0LL, &IoMgrTraceHandle) < 0 )
+              {
+                IopInitFailCode = 11;
+              }
+              else
+              {
+                SeAuditBootConfiguration(*(_QWORD *)(*(_QWORD *)(a1 + 240) + 2848LL));
+                BootApplicationPersistentDataProcess(1LL);
+                BapdRecordFirmwareBootStats();
+                KdInitialize(2LL, 0LL, (char *)&KdDebuggerNotPresent + 5, v11);
+                TraceLoggingRegisterEx_EtwRegister_EtwSetInformation((ULONGLONG *)&dword_140C01A70, 0LL, 0LL);
+                if ( !IopErrorLogDisabledThisBoot )
+                {
+                  v12 = KeAcquireSpinLockRaiseToDpc(&IopErrorLogLock);
+                  if ( (__int64 *)IopErrorLogListHead == &IopErrorLogListHead )
+                  {
+                    IopErrorLogSessionPending = 0;
+                  }
+                  else
+                  {
+                    IopErrorLogWorkItem.Parameter = 0LL;
+                    IopErrorLogWorkItem.WorkerRoutine = (void (__fastcall *)(void *))IopErrorLogThread;
+                    IopErrorLogWorkItem.List.Flink = 0LL;
+                    ExQueueWorkItem(&IopErrorLogWorkItem, DelayedWorkQueue);
+                  }
+                  KeReleaseSpinLock(&IopErrorLogLock, v12);
+                }
+                WheaInitialize(a1, 0LL);
+                if ( (int)IopStoreArcInformation(a1) >= 0 )
+                {
+                  if ( (int)IopInitializePlugPlayServices(a1, 1LL) < 0 )
+                  {
+                    HeadlessKernelAddLogEntry();
+                    IopInitFailCode = 5;
+                  }
+                  else
+                  {
+                    RtlInitializeGenericTableAvl(
+                      &IoStatusBlockRangeTable,
+                      (PRTL_AVL_COMPARE_ROUTINE)IopCompareIosbRanges,
+                      (PRTL_AVL_ALLOCATE_ROUTINE)IopAllocateGenericTableEntry,
+                      (PRTL_AVL_FREE_ROUTINE)IopFreeGenericTableEntry,
+                      0LL);
+                    IoStatusBlockRangeTableLock.Count = 1;
+                    IoStatusBlockRangeTableLock.Event.Header.WaitListHead.Blink = &IoStatusBlockRangeTableLock.Event.Header.WaitListHead;
+                    IoStatusBlockRangeTableLock.Event.Header.WaitListHead.Flink = &IoStatusBlockRangeTableLock.Event.Header.WaitListHead;
+                    IoStatusBlockRangeTableLock.Owner = 0LL;
+                    IoStatusBlockRangeTableLock.Contention = 0;
+                    LOWORD(IoStatusBlockRangeTableLock.Event.Header.Lock) = 1;
+                    IoStatusBlockRangeTableLock.Event.Header.Size = 6;
+                    IoStatusBlockRangeTableLock.Event.Header.SignalState = 0;
+                    KitpInitAitSampleRate(a1);
+                    if ( EtwRegister(&MS_Windows_AIT_Provider, 0LL, 0LL, &KitEtwHandle) < 0 )
+                      KitEtwHandle = 0LL;
+                    KseInitialize(a1, 1);
+                    if ( HvlPhase2Initialize(a1, v13) >= 0 )
+                    {
+                      Context_4 = KeQueryActiveProcessorCountEx(0xFFFFu);
+                      Context = Context_4;
+                      KeIpiGenericCall((PKIPI_BROADCAST_WORKER)KeOptimizeSpecCtrlSettings, (ULONG_PTR)&Context);
+                      VslpIumPhase4Initialize();
+                      if ( PnpEtwHandle )
+                        EtwWriteStartScenario(
+                          (ULONG_PTR *)PnpEtwHandle,
+                          &KMPnPEvt_DriverInitPhase_Start,
+                          &PnpDriverInitPhaseActivityId,
+                          0,
+                          0LL);
+                      LOWORD(ActiveConnectListLock.Header.Lock) = 1;
+                      qword_140C45508 = (__int64)&ActiveConnectList;
+                      ActiveConnectList = (__int64)&ActiveConnectList;
+                      ActiveConnectListLock.Header.WaitListHead.Blink = &ActiveConnectListLock.Header.WaitListHead;
+                      ActiveConnectListLock.Header.WaitListHead.Flink = &ActiveConnectListLock.Header.WaitListHead;
+                      ActiveConnectListLock.Header.Size = 6;
+                      ActiveConnectListLock.Header.SignalState = 1;
+                      if ( (int)IopInitializePassiveInterruptServices() >= 0 )
+                      {
+                        SecureDump_PrepareForInit(v14, &OutputBuffer);
+                        if ( ForceDumpDisabled || (_BYTE)OutputBuffer )
+                          CapsuleDumpAllowed = 0;
+                        else
+                          IopInitDumpCapsuleSupport();
+                        if ( ExLeapSecondDataLastParseResult )
+                          EtwTraceLeapSecondDataParseFailure(ExLeapSecondDataLastParseResult);
+                        EtwTraceLeapSecondDataUpdate(
+                          0,
+                          *(unsigned __int8 *)ExLeapSecondData,
+                          *((_DWORD *)ExLeapSecondData + 1),
+                          0);
+                        IopInitializeIoRate(v16, v15);
+                        PsAltSystemCallRegistrationLock = 0LL;
+                        PsAltSystemCallHandlers[0] = (__int64)PsPicoAltSystemCallDispatch;
+                        if ( (unsigned int)IopInitializeBootDrivers(a1, &v30) )
+                        {
+                          if ( (int)IopLoadBootHotPatches() < 0 )
+                          {
+                            IopInitFailCode = 21;
+                          }
+                          else
+                          {
+                            if ( !(unsigned __int8)PoInitSystem(2LL, a1, v17) )
+                              KeBugCheck(0xA0u);
+                            SmInitSystem(1LL);
+                            EtwInitialize(1u);
+                            LOBYTE(OutputBuffer) = 0;
+                            if ( VslVsmEnabled
+                              && NtPowerInformation(PlatformInformation, 0LL, 0, &OutputBuffer, 1u) >= 0
+                              && (_BYTE)OutputBuffer )
+                            {
+                              ExSubscribeWnfStateChange(
+                                (__int64)&VslpIumCsWnfSubscription,
+                                (__int64)&WNF_PO_SCENARIO_CHANGE,
+                                1,
+                                0,
+                                (__int64)VslpConnectedStandbyWnfCallback,
+                                0LL);
+                              PoRegisterPowerSettingCallback(
+                                0LL,
+                                &GUID_LOW_POWER_EPOCH,
+                                (PPOWER_SETTING_CALLBACK)VslpConnectedStandbyPoCallback,
+                                0LL,
+                                0LL);
+                              PoRegisterPowerSettingCallback(
+                                0LL,
+                                &GUID_PDC_IDLE_RESILIENCY_ENGAGED,
+                                (PPOWER_SETTING_CALLBACK)VslpConnectedStandbyPoCallback,
+                                0LL,
+                                0LL);
+                            }
+                            IopInitializeSystemVariableService();
+                            if ( !ForceDumpDisabled )
+                            {
+                              EtwRegister(
+                                &LiveDumpProvGuid,
+                                (PETWENABLECALLBACK)IopLiveDumpTracingControlCallback,
+                                0LL,
+                                &IopLiveDumpEtwRegHandle);
+                              TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
+                                (ULONGLONG *)&dword_140C04458,
+                                0LL,
+                                0LL);
+                            }
+                            IopInitializeTriageDumpData();
+                            if ( (int)IopInitCrashDumpDuringSysInit(a1) >= 0 )
+                              IopRemoveDumpCapsuleSupport();
+                            if ( !RtlIsStateSeparationEnabled() )
+                              PpLastGoodDoBootProcessing();
+                            v18 = NtGlobalFlag;
+                            NtGlobalFlag |= 0x40000u;
+                            SystemDlls = PsLocateSystemDlls();
+                            NtGlobalFlag = v18;
+                            if ( SystemDlls < 0 )
+                            {
+                              HeadlessKernelAddLogEntry();
+                              IopInitFailCode = 7;
+                            }
+                            else
+                            {
+                              PfSnBeginBootPhase(0);
+                              if ( (unsigned __int8)IopReassignSystemRoot(a1, v29) )
+                              {
+                                if ( (unsigned __int8)IopProtectSystemPartition(a1) )
+                                {
+                                  if ( NtVhdBootFile )
+                                  {
+                                    ObjectAttributes.ObjectName = (PUNICODE_STRING)((char *)PsLoadedModuleList + 72);
+                                    ObjectAttributes.Length = 48;
+                                    ObjectAttributes.RootDirectory = 0LL;
+                                    ObjectAttributes.Attributes = 576;
+                                    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+                                    if ( ZwOpenFile(&KeyHandle, 0x80000000, &ObjectAttributes, &IoStatusBlock, 1u, 0) >= 0 )
+                                    {
+                                      Object = 0LL;
+                                      if ( ObReferenceObjectByHandle(KeyHandle, 0x80u, 0LL, 0, &Object, 0LL) >= 0 )
+                                      {
+                                        PpPagePathAssign((struct _FILE_OBJECT *)Object);
+                                        HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+                                      }
+                                      ZwClose(KeyHandle);
+                                    }
+                                  }
+                                  if ( WMIInitialize(1LL, 0LL) )
+                                  {
+                                    WheaInitialize(a1, 1LL);
+                                    return 1;
+                                  }
+                                }
+                                else
+                                {
+                                  HeadlessKernelAddLogEntry();
+                                  IopInitFailCode = 10;
+                                }
+                              }
+                              else
+                              {
+                                HeadlessKernelAddLogEntry();
+                                IopInitFailCode = 9;
+                              }
+                            }
+                          }
+                        }
+                        else
+                        {
+                          HeadlessKernelAddLogEntry();
+                          IopInitFailCode = 6;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      else
+      {
+        HeadlessKernelAddLogEntry();
+        IopInitFailCode = 3;
+      }
+    }
+  }
+  else
+  {
+    IopInitFailCode = 1;
+  }
+  return 0;
+}

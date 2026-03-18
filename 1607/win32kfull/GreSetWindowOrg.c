@@ -1,0 +1,53 @@
+/*
+ * XREFs of GreSetWindowOrg @ 0x1C0144ABC
+ * Callers:
+ *     xxxMenuWindowProc @ 0x1C013CEA0 (xxxMenuWindowProc.c)
+ *     ?xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z @ 0x1C0144604 (-xxxDWPPrint@@YAHPEAUtagWND@@PEAUHDC__@@_J@Z.c)
+ * Callees:
+ *     ?bValid@RFONTOBJ@@QEAAHXZ @ 0x1C0022AB0 (-bValid@RFONTOBJ@@QEAAHXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0039508 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004A058 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C004A0A0 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C013A07C (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall GreSetWindowOrg(HDC a1, int a2, int a3)
+{
+  unsigned int v5; // ebx
+  DC *v6; // rdx
+  DC *v7; // rcx
+  _BYTE v9[16]; // [rsp+20h] [rbp-50h] BYREF
+  _BYTE v10[16]; // [rsp+30h] [rbp-40h] BYREF
+  DC *v11[6]; // [rsp+40h] [rbp-30h] BYREF
+
+  DCOBJ::DCOBJ((DCOBJ *)v11, a1);
+  v5 = 0;
+  if ( v11[0] )
+  {
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)v10, (struct XDCOBJ *)v11, 0x204u);
+    v6 = v11[0];
+    if ( (*(_DWORD *)(*((_QWORD *)v11[0] + 10) + 8LL) & 0x100) != 0 )
+    {
+      EXFORMOBJ::vQuickInit((EXFORMOBJ *)v9, (struct XDCOBJ *)v11, 0x402u);
+      if ( RFONTOBJ::bValid((RFONTOBJ *)v9) )
+        EXFORMOBJ::bXform(
+          (EXFORMOBJ *)v9,
+          (struct _POINTFIX *)(*((_QWORD *)v11[0] + 10) + 84LL),
+          (struct _POINTL *)(*((_QWORD *)v11[0] + 10) + 76LL),
+          1uLL);
+      *(_DWORD *)(*((_QWORD *)v11[0] + 10) + 8LL) &= ~0x100u;
+      v6 = v11[0];
+    }
+    *(_DWORD *)(*((_QWORD *)v6 + 10) + 8LL) |= 0x200u;
+    *(_DWORD *)(*((_QWORD *)v11[0] + 10) + 352LL) |= 0x2010u;
+    *(_DWORD *)(*((_QWORD *)v11[0] + 10) + 320LL) = a2;
+    *(_DWORD *)(*((_QWORD *)v11[0] + 10) + 324LL) = a3;
+    v7 = v11[0];
+    *(_DWORD *)(*((_QWORD *)v11[0] + 10) + 316LL) = a2;
+    DC::MirrorWindowOrg(v7);
+    EXFORMOBJ::vInit((EXFORMOBJ *)v10, (struct XDCOBJ *)v11, 0x402u, 0);
+    v5 = 1;
+  }
+  DCOBJ::~DCOBJ((DCOBJ *)v11);
+  return v5;
+}

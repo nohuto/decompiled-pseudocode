@@ -1,0 +1,48 @@
+/*
+ * XREFs of FsRtlFastUnlockSingle @ 0x1402E3170
+ * Callers:
+ *     FsRtlProcessFileLock @ 0x1404EA530 (FsRtlProcessFileLock.c)
+ * Callees:
+ *     FsRtlFastUnlockSingleShared @ 0x1402E2CEC (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402E3254 (FsRtlFastUnlockSingleExclusive.c)
+ */
+
+NTSTATUS __stdcall FsRtlFastUnlockSingle(
+        PFILE_LOCK FileLock,
+        PFILE_OBJECT FileObject,
+        LARGE_INTEGER *FileOffset,
+        PLARGE_INTEGER Length,
+        PEPROCESS ProcessId,
+        ULONG Key,
+        PVOID Context,
+        BOOLEAN AlreadySynchronized)
+{
+  PVOID LockInformation; // r10
+
+  LockInformation = FileLock->LockInformation;
+  if ( !LockInformation )
+    return -1073741698;
+  if ( (unsigned __int64)(Length->QuadPart + FileOffset->QuadPart - 1) < FileOffset->QuadPart && Length->QuadPart )
+    return -1073741407;
+  if ( (unsigned int)FsRtlFastUnlockSingleExclusive(
+                       (_DWORD)LockInformation,
+                       (_DWORD)FileObject,
+                       (_DWORD)FileOffset,
+                       (_DWORD)Length,
+                       (__int64)ProcessId,
+                       Key,
+                       (__int64)Context,
+                       0,
+                       1) )
+    return FsRtlFastUnlockSingleShared(
+             (__int64)FileLock->LockInformation,
+             (__int64)FileObject,
+             (unsigned __int64 *)&FileOffset->QuadPart,
+             Length,
+             (__int64)ProcessId,
+             Key,
+             (__int64)Context,
+             0,
+             1);
+  return 0;
+}

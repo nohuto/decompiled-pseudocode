@@ -1,0 +1,36 @@
+/*
+ * XREFs of PopIdleCsStateChanged @ 0x1408F0F54
+ * Callers:
+ *     PdcPoCurrentPdcPhase @ 0x140570930 (PdcPoCurrentPdcPhase.c)
+ * Callees:
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14037EF24 (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopGetModernStandbyTransitionReason @ 0x140570A70 (PopGetModernStandbyTransitionReason.c)
+ *     PopIdleArmAoAcDozeS4Timer @ 0x140576788 (PopIdleArmAoAcDozeS4Timer.c)
+ *     PopReleasePolicyLock @ 0x14098C054 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x14098C094 (PopAcquirePolicyLock.c)
+ */
+
+__int64 __fastcall PopIdleCsStateChanged(int a1)
+{
+  char v1; // bl
+  __int64 v2; // rdx
+  __int64 v3; // rcx
+
+  v1 = a1;
+  PopAcquirePolicyLock(a1);
+  byte_140C23391 = v1;
+  if ( v1 )
+  {
+    qword_140C23398 = qword_140C4FE48;
+    if ( !qword_140C4FE48 )
+      qword_140C23398 = MEMORY[0xFFFFF78000000008];
+    PopIdleArmAoAcDozeS4Timer();
+  }
+  else if ( (unsigned int)PopGetModernStandbyTransitionReason(0, 0LL) != 6 )
+  {
+    PopIdleCancelAoAcDozeS4Timer(1u);
+    dword_140C23370 = 0;
+    qword_140C23398 = 0LL;
+  }
+  return PopReleasePolicyLock(v3, v2);
+}

@@ -1,0 +1,93 @@
+/*
+ * XREFs of ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02A1AF0
+ * Callers:
+ *     ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C0145C20 (-UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?UMPDDrvDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z @ 0x1C029D0A0 (-UMPDDrvDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z.c)
+ *     ?UMPDDrvEndDoc@@YAHPEAU_SURFOBJ@@K@Z @ 0x1C029D3B0 (-UMPDDrvEndDoc@@YAHPEAU_SURFOBJ@@K@Z.c)
+ *     ?UMPDDrvFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C029D520 (-UMPDDrvFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C029D740 (-UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C029DB40 (-UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_R.c)
+ *     ?UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z @ 0x1C029DE40 (-UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z.c)
+ *     ?UMPDDrvLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C029E220 (-UMPDDrvLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1C029E420 (-UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvPaint@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C029E5C0 (-UMPDDrvPaint@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z @ 0x1C029ED50 (-UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z.c)
+ *     ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C029F6D0 (-UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z.c)
+ *     ?UMPDDrvSendPage@@YAHPEAU_SURFOBJ@@@Z @ 0x1C029FC50 (-UMPDDrvSendPage@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?UMPDDrvStartBanding@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1C029FDC0 (-UMPDDrvStartBanding@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z @ 0x1C029FF60 (-UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z.c)
+ *     ?UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z @ 0x1C02A0130 (-UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?UMPDDrvStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C02A0AD0 (-UMPDDrvStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUS.c)
+ *     ?UMPDDrvStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C02A0DA0 (-UMPDDrvStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@P.c)
+ *     ?UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C02A1030 (-UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRU.c)
+ *     ?bThunkLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00PEAPEAX11111PEAH22222PEAK@Z @ 0x1C02A1BEC (-bThunkLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00PEAPEAX11111PEAH22222PEAK@Z.c)
+ * Callees:
+ *     ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02A1958 (-bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z.c)
+ *     ?ulGetMaxSize@UMPDOBJ@@QEAAKXZ @ 0x1C02A1D88 (-ulGetMaxSize@UMPDOBJ@@QEAAKXZ.c)
+ */
+
+__int64 __fastcall UMPDOBJ::bThunkLargeBitmap(
+        UMPDOBJ *this,
+        struct _SURFOBJ *a2,
+        void **a3,
+        void **a4,
+        int *a5,
+        int *a6,
+        unsigned int *a7)
+{
+  unsigned int v11; // edi
+  int v12; // ebp
+  __int64 v13; // rax
+  int v14; // ecx
+  unsigned int MaxSize; // edx
+  unsigned int v16; // esi
+  ULONG cjBits; // eax
+  unsigned int v18; // ecx
+
+  v11 = 1;
+  if ( !a2 || !a2->pvBits )
+    return v11;
+  v12 = 0;
+  v13 = SURFOBJ_TO_SURFACE_NOT_NULL(a2);
+  if ( *(_WORD *)(v13 + 100) || *(char *)(v13 + 102) >= 0 )
+  {
+    v14 = 1;
+  }
+  else
+  {
+    v12 = 1;
+    v14 = 0;
+  }
+  *a5 = v14;
+  *a3 = a2->pvBits;
+  *a4 = a2->pvScan0;
+  MaxSize = UMPDOBJ::ulGetMaxSize(this);
+  v16 = *a7 + 80;
+  if ( *a7 < 0xFFFFFFB0 )
+  {
+    if ( !a2->pvBits )
+      goto LABEL_16;
+    cjBits = a2->cjBits;
+    if ( cjBits + 7 >= cjBits )
+    {
+      v18 = (cjBits + 7) & 0xFFFFFFF8;
+      if ( v18 + v16 >= v18 )
+      {
+        if ( v18 + v16 <= MaxSize || v12 )
+        {
+          v16 += v18;
+        }
+        else
+        {
+          v11 = UMPDOBJ::bSendLargeBitmap(this, a2, a6);
+          if ( !v11 )
+            return v11;
+        }
+LABEL_16:
+        *a7 = v16;
+        return v11;
+      }
+    }
+  }
+  return 0LL;
+}

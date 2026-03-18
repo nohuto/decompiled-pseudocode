@@ -1,0 +1,13 @@
+/*
+ * XREFs of IsFontDriverQueryRoutineSupported_0 @ 0x1C0001978
+ * Callers:
+ *     FontDriverQueryRoutineApiExt @ 0x1C007F090 (FontDriverQueryRoutineApiExt.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 IsFontDriverQueryRoutineSupported_0()
+{
+  return IsFontDriverQueryRoutineSupported();
+}

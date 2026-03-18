@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?ProcessEnableClear@CHwndRenderTarget@@UEAAJPEAVCResourceTable@@PEBUMILCMD_RENDERTARGET_ENABLECLEAR@@@Z @ 0x180157FD0
+ * Callers:
+ *     ?ProcessEnableClear@CDesktopRenderTarget@@UEAAJPEAVCResourceTable@@PEBUMILCMD_RENDERTARGET_ENABLECLEAR@@@Z @ 0x1800444F0 (-ProcessEnableClear@CDesktopRenderTarget@@UEAAJPEAVCResourceTable@@PEBUMILCMD_RENDERTARGET_ENABL.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CHwndRenderTarget::ProcessEnableClear(
+        CHwndRenderTarget *this,
+        struct CResourceTable *a2,
+        const struct MILCMD_RENDERTARGET_ENABLECLEAR *a3)
+{
+  char v3; // al
+
+  v3 = *((_DWORD *)a3 + 2) != 0;
+  if ( *((_BYTE *)this + 160) != v3 )
+  {
+    *((_BYTE *)this + 160) = v3;
+    *((_BYTE *)this + 161) = 1;
+  }
+  return 0LL;
+}

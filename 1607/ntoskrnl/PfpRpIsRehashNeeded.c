@@ -1,0 +1,23 @@
+/*
+ * XREFs of PfpRpIsRehashNeeded @ 0x1400EF824
+ * Callers:
+ *     PfpRpFileKeyUpdate @ 0x140512DD0 (PfpRpFileKeyUpdate.c)
+ *     PfpRpRehashIfNeeded @ 0x140513324 (PfpRpRehashIfNeeded.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PfpRpIsRehashNeeded(_DWORD *a1, _DWORD *a2)
+{
+  unsigned __int64 v3; // rax
+
+  if ( *a1 < (unsigned int)(2 * (a1[1] >> 5)) )
+    return 0LL;
+  v3 = 2 * ((unsigned __int64)(unsigned int)a1[1] >> 5);
+  if ( v3 > 0xFFFFFFFF )
+    return 0LL;
+  if ( !(_DWORD)v3 )
+    LODWORD(v3) = 64;
+  *a2 = v3;
+  return 1LL;
+}

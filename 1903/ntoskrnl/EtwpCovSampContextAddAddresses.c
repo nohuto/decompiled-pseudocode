@@ -1,0 +1,57 @@
+/*
+ * XREFs of EtwpCovSampContextAddAddresses @ 0x140901970
+ * Callers:
+ *     EtwpCovSampCaptureBufferProcess @ 0x140900E7C (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x140904A18 (EtwpCovSampSampleBufferProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x14019E700 (__security_check_cookie.c)
+ *     EtwpCovSampContextAddSamples @ 0x140901A64 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x1409046EC (EtwpCovSampProcessMapAddresses.c)
+ */
+
+__int64 __fastcall EtwpCovSampContextAddAddresses(
+        ULONG_PTR BugCheckParameter2,
+        __int64 a2,
+        _QWORD *a3,
+        unsigned int a4)
+{
+  unsigned int v4; // esi
+  __int64 v7; // rdi
+  unsigned int i; // ebx
+  int v9; // r8d
+  int v10; // r14d
+  int v11; // eax
+  int v13; // [rsp+40h] [rbp-258h] BYREF
+  _QWORD *v14; // [rsp+48h] [rbp-250h]
+  _BYTE v15[512]; // [rsp+50h] [rbp-248h] BYREF
+
+  v4 = 0;
+  v14 = a3;
+  if ( *a3 < 0xFFFF800000000000uLL )
+  {
+    v7 = *(_QWORD *)(a2 + 2160);
+    if ( !v7 )
+      return v4;
+  }
+  else
+  {
+    LODWORD(v7) = BugCheckParameter2 + 752;
+  }
+  for ( i = 0; i < a4; i += v10 )
+  {
+    v9 = (_DWORD)a3 + 8 * i;
+    v10 = 64;
+    if ( a4 - i < 0x40 )
+      v10 = a4 - i;
+    EtwpCovSampProcessMapAddresses(v7, BugCheckParameter2 + 16, v9, v10, (__int64)v15, 64, (__int64)&v13);
+    if ( v13 )
+    {
+      v11 = EtwpCovSampContextAddSamples(BugCheckParameter2);
+      v4 += v11;
+      if ( v11 != v13 )
+        break;
+    }
+    LODWORD(a3) = (_DWORD)v14;
+  }
+  return v4;
+}

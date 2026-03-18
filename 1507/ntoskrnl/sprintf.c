@@ -1,0 +1,40 @@
+/*
+ * XREFs of sprintf @ 0x140172FA4
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopPoCoalescinCallback @ 0x140139F40 (PopPoCoalescinCallback.c)
+ *     _flsbuf @ 0x1401747D8 (_flsbuf.c)
+ *     _output_l @ 0x140175228 (_output_l.c)
+ */
+
+int sprintf(char *Dest, const char *Format, ...)
+{
+  int v3; // eax
+  bool v4; // sf
+  int v5; // ebx
+  FILE File; // [rsp+30h] [rbp-38h] BYREF
+  va_list va; // [rsp+80h] [rbp+18h] BYREF
+
+  va_start(va, Format);
+  if ( Format && Dest )
+  {
+    File._base = Dest;
+    File._ptr = Dest;
+    File._cnt = 0x7FFFFFFF;
+    File._flag = 66;
+    v3 = output_l(&File, Format, 0LL, va);
+    v4 = --File._cnt < 0;
+    v5 = v3;
+    if ( v4 )
+      flsbuf(0, &File);
+    else
+      *File._ptr = 0;
+    return v5;
+  }
+  else
+  {
+    PopPoCoalescinCallback();
+    return -1;
+  }
+}

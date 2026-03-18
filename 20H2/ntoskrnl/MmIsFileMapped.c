@@ -1,0 +1,108 @@
+/*
+ * XREFs of MmIsFileMapped @ 0x1408D3860
+ * Callers:
+ *     IopQueryProcessIdsUsingFile @ 0x140898438 (IopQueryProcessIdsUsingFile.c)
+ * Callees:
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14021E7C0 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14022C03C (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiVadDeleted @ 0x14022C150 (MiVadDeleted.c)
+ *     MiLockVadShared @ 0x14022C164 (MiLockVadShared.c)
+ *     KiUnstackDetachProcess @ 0x140268320 (KiUnstackDetachProcess.c)
+ *     MiDereferenceControlAreaFile @ 0x1402A039C (MiDereferenceControlAreaFile.c)
+ *     MiReferenceControlAreaFile @ 0x1402A0600 (MiReferenceControlAreaFile.c)
+ *     KiStackAttachProcess @ 0x1402D6FA0 (KiStackAttachProcess.c)
+ *     MiUnlockVadShared @ 0x140338F00 (MiUnlockVadShared.c)
+ *     __security_check_cookie @ 0x1403CFAF0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall MmIsFileMapped(_KPROCESS *a1, __int64 a2)
+{
+  __int64 v2; // r13
+  unsigned int v3; // r15d
+  __int64 v4; // rsi
+  struct _KTHREAD *CurrentThread; // rbp
+  int v6; // r12d
+  _QWORD *v7; // rax
+  _QWORD *i; // rbx
+  _QWORD **v9; // rax
+  __int64 v10; // rdi
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rcx
+  __int64 *v13; // rax
+  __int64 v14; // r14
+  ULONG_PTR v15; // rdx
+  _OWORD v18[3]; // [rsp+28h] [rbp-70h] BYREF
+
+  v2 = *(_QWORD *)(a2 + 40);
+  memset(v18, 0, sizeof(v18));
+  v3 = 0;
+  v4 = (__int64)a1;
+  CurrentThread = KeGetCurrentThread();
+  if ( CurrentThread->ApcState.Process == a1 )
+  {
+    v6 = 0;
+  }
+  else
+  {
+    KiStackAttachProcess(a1, 0, (__int64)v18);
+    v6 = 1;
+  }
+  LOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, v4);
+  v7 = *(_QWORD **)(v4 + 2008);
+  i = 0LL;
+  while ( v7 )
+  {
+    i = v7;
+    v7 = (_QWORD *)*v7;
+  }
+  if ( i )
+  {
+    do
+    {
+      v9 = (_QWORD **)i[1];
+      v10 = (__int64)i;
+      v11 = i;
+      if ( v9 )
+      {
+        v12 = *v9;
+        for ( i = (_QWORD *)i[1]; v12; v12 = (_QWORD *)*v12 )
+          i = v12;
+      }
+      else
+      {
+        while ( 1 )
+        {
+          i = (_QWORD *)(i[2] & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !i || (_QWORD *)*i == v11 )
+            break;
+          v11 = i;
+        }
+      }
+      if ( (*(_DWORD *)(v10 + 48) & 0x100000) == 0 )
+      {
+        MiLockVadShared((__int64)CurrentThread, v10);
+        if ( !(unsigned int)MiVadDeleted(v10) )
+        {
+          v13 = *(__int64 **)(v10 + 72);
+          v14 = *v13;
+          if ( *(_QWORD *)(*v13 + 64) )
+          {
+            v15 = MiReferenceControlAreaFile(*v13);
+            if ( *(_QWORD *)(v15 + 40) == v2 )
+              v3 = 1;
+            MiDereferenceControlAreaFile(v14, v15);
+          }
+        }
+        MiUnlockVadShared((__int64)CurrentThread, v10);
+        if ( v3 == 1 )
+          break;
+      }
+    }
+    while ( i );
+    v4 = (__int64)a1;
+  }
+  UNLOCK_ADDRESS_SPACE_SHARED((__int64)CurrentThread, v4);
+  if ( v6 == 1 )
+    KiUnstackDetachProcess((__int64)v18, 0);
+  return v3;
+}

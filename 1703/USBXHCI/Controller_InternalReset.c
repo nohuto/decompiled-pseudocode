@@ -1,0 +1,220 @@
+/*
+ * XREFs of Controller_InternalReset @ 0x1C001B1A8
+ * Callers:
+ *     Controller_InitiateBootRecovery @ 0x1C001AE50 (Controller_InitiateBootRecovery.c)
+ *     Controller_InitiateRecovery @ 0x1C001AEDC (Controller_InitiateRecovery.c)
+ *     Controller_UcxEvtReset @ 0x1C001C140 (Controller_UcxEvtReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002180 (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_FlushWorkItems @ 0x1C0003C20 (CommonBuffer_FlushWorkItems.c)
+ *     DeviceSlot_ScratchpadBuffersInitialize @ 0x1C0003C90 (DeviceSlot_ScratchpadBuffersInitialize.c)
+ *     DeviceSlot_DisableAllDeviceSlots @ 0x1C0003CD0 (DeviceSlot_DisableAllDeviceSlots.c)
+ *     Register_ControllerStop @ 0x1C0004194 (Register_ControllerStop.c)
+ *     Controller_Start @ 0x1C0005CF0 (Controller_Start.c)
+ *     DeviceSlot_Initialize @ 0x1C0005F04 (DeviceSlot_Initialize.c)
+ *     Register_ControllerReset @ 0x1C0006120 (Register_ControllerReset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0006370 (WPP_RECORDER_SF_d.c)
+ *     RootHub_D0Entry @ 0x1C0006460 (RootHub_D0Entry.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0010A80 (_guard_dispatch_icall_nop.c)
+ *     Command_ControllerResetPostReset @ 0x1C0017874 (Command_ControllerResetPostReset.c)
+ *     Command_ControllerResetPostResetSuccess @ 0x1C0017A40 (Command_ControllerResetPostResetSuccess.c)
+ *     Command_FailAllCommands @ 0x1C0017B3C (Command_FailAllCommands.c)
+ *     Controller_DisableController @ 0x1C001AAB0 (Controller_DisableController.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C001ACD8 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_ReportFatalError @ 0x1C001B890 (Controller_ReportFatalError.c)
+ *     Template_p @ 0x1C001C618 (Template_p.c)
+ *     Template_pq @ 0x1C001C818 (Template_pq.c)
+ *     DeviceSlot_ControllerResetPreReset @ 0x1C001CE60 (DeviceSlot_ControllerResetPreReset.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C0022B10 (Interrupter_ControllerResetPostReset.c)
+ *     UsbDevice_ControllerResetPostReset @ 0x1C002CC88 (UsbDevice_ControllerResetPostReset.c)
+ */
+
+__int64 __fastcall Controller_InternalReset(__int64 a1, __int64 a2, __int64 a3)
+{
+  int v4; // ebp
+  __int64 v5; // r8
+  __int64 v6; // rax
+  __int64 v7; // rbx
+  KIRQL v8; // al
+  int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rdi
+  unsigned int i; // r14d
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  int v15; // r8d
+  int v16; // eax
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 result; // rax
+  __int64 v21; // [rsp+28h] [rbp-30h]
+  int v22; // [rsp+28h] [rbp-30h]
+  int v23; // [rsp+28h] [rbp-30h]
+
+  v4 = 0;
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
+    Template_p(a1, &USBXHCI_ETW_EVENT_CONTROLLER_INTERNAL_RESET_START, a3, *(_QWORD *)(a1 + 8));
+  WPP_RECORDER_SF_(*(_QWORD *)(a1 + 64), 4u, 3u, 0xADu, (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids);
+  if ( _InterlockedIncrement((volatile signed __int32 *)(a1 + 304)) != 1 && !KdRefreshDebuggerNotPresent() )
+    __debugbreak();
+  v6 = WdfFunctions_01015;
+  LOBYTE(v5) = 1;
+  ++*(_DWORD *)(a1 + 296);
+  ++*(_DWORD *)(a1 + 360);
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, __int64))(v6 + 2560))(
+    WdfDriverGlobals,
+    *(_QWORD *)(a1 + 256),
+    v5);
+  v7 = *(_QWORD *)(a1 + 112);
+  v8 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(v7 + 128));
+  *(_DWORD *)(v7 + 36) = 3;
+  *(_BYTE *)(v7 + 137) = 0;
+  KeReleaseSpinLock((PKSPIN_LOCK)(v7 + 128), v8);
+  DeviceSlot_ControllerResetPreReset(*(_QWORD *)(a1 + 104));
+  KeFlushQueuedDpcs();
+  v9 = Register_ControllerStop(*(_QWORD *)(a1 + 80));
+  KeFlushQueuedDpcs();
+  if ( v9 >= 0 )
+  {
+    v10 = Register_ControllerReset(*(_QWORD *)(a1 + 80), 1);
+    v4 = v10;
+    if ( v10 < 0 )
+    {
+      v23 = v10;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(a1 + 64),
+        2u,
+        3u,
+        0xAFu,
+        (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids,
+        v23);
+    }
+  }
+  else
+  {
+    v22 = v9;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(a1 + 64),
+      2u,
+      3u,
+      0xAEu,
+      (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids,
+      v22);
+    Controller_DisableController(a1);
+  }
+  Command_ControllerResetPostReset(*(_QWORD *)(a1 + 112));
+  CommonBuffer_FlushWorkItems(*(_QWORD **)(a1 + 88));
+  v11 = *(_QWORD *)(a1 + 104);
+  for ( i = 1; i <= *(_DWORD *)(v11 + 16); ++i )
+  {
+    v13 = *(_QWORD *)(v11 + 32);
+    if ( v13 )
+      v14 = *(_QWORD *)(v13 + 8LL * i);
+    else
+      v14 = 0LL;
+    if ( v14 )
+      UsbDevice_ControllerResetPostReset();
+  }
+  DeviceSlot_DisableAllDeviceSlots(v11);
+  DeviceSlot_ScratchpadBuffersInitialize(v11);
+  DeviceSlot_Initialize(v11);
+  RootHub_D0Entry(*(_QWORD *)(a1 + 120));
+  if ( v9 < 0 )
+  {
+    LODWORD(v21) = v9;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(a1 + 64),
+      2u,
+      3u,
+      0xB0u,
+      (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids,
+      v21);
+    Controller_HwVerifierBreakIfEnabled(
+      (_QWORD *)a1,
+      0,
+      0,
+      8LL,
+      "During controller reset recovery, controller stop timed out",
+      0LL,
+      0LL);
+    v15 = 4107;
+LABEL_19:
+    Controller_ReportFatalError(a1, 4, v15, 0, 0LL, 0LL);
+    goto LABEL_25;
+  }
+  Interrupter_ControllerResetPostReset(*(_QWORD *)(a1 + 96));
+  if ( v4 >= 0 )
+  {
+    v16 = Controller_Start((__int64 *)a1);
+    v9 = v16;
+    if ( v16 < 0 )
+    {
+      LODWORD(v21) = v16;
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(a1 + 64),
+        2u,
+        3u,
+        0xB2u,
+        (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids,
+        v21);
+      Controller_HwVerifierBreakIfEnabled(
+        (_QWORD *)a1,
+        0,
+        0,
+        32LL,
+        "During controller reset recovery, controller start timed out",
+        0LL,
+        0LL);
+      v15 = 4104;
+      goto LABEL_19;
+    }
+    v9 = 0;
+  }
+  else
+  {
+    LODWORD(v21) = v4;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(a1 + 64),
+      2u,
+      3u,
+      0xB1u,
+      (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids,
+      v21);
+    Controller_HwVerifierBreakIfEnabled(
+      (_QWORD *)a1,
+      0,
+      0,
+      16LL,
+      "During controller reset recovery, controller reset timed out",
+      0LL,
+      0LL);
+    Controller_ReportFatalError(a1, 4, 4103, 0, 0LL, 0LL);
+    v9 = v4;
+  }
+LABEL_25:
+  v17 = *(_QWORD *)(a1 + 112);
+  if ( v9 < 0 )
+  {
+    Command_FailAllCommands(v17);
+    ((void (__fastcall *)(void *, _QWORD))qword_1C0046740)(WPP_MAIN_CB.Dpc.SystemArgument2, *(_QWORD *)(a1 + 8));
+    LODWORD(v21) = v9;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(a1 + 64),
+      2u,
+      3u,
+      0xB4u,
+      (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids,
+      v21);
+  }
+  else
+  {
+    Command_ControllerResetPostResetSuccess(v17);
+    WPP_RECORDER_SF_(*(_QWORD *)(a1 + 64), 4u, 3u, 0xB3u, (__int64)&WPP_701346eebafd3a8cb9c6116049697060_Traceguids);
+  }
+  result = LODWORD(WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc);
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
+    result = Template_pq(v18, &USBXHCI_ETW_EVENT_CONTROLLER_INTERNAL_RESET_COMPLETE, v19, *(_QWORD *)(a1 + 8), v9);
+  _InterlockedDecrement((volatile signed __int32 *)(a1 + 304));
+  return result;
+}

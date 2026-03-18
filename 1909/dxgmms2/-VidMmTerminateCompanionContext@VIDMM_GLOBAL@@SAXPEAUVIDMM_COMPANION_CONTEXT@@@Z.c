@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?VidMmTerminateCompanionContext@VIDMM_GLOBAL@@SAXPEAUVIDMM_COMPANION_CONTEXT@@@Z @ 0x1C00B1C8C
+ * Callers:
+ *     VidMmTerminateCompanionContext @ 0x1C0024CF0 (VidMmTerminateCompanionContext.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001710 (--3@YAXPEAX@Z.c)
+ *     ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C0062444 (-Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::VidMmTerminateCompanionContext(struct VIDMM_COMPANION_CONTEXT *a1)
+{
+  if ( KeReadStateSemaphore((PRKSEMAPHORE)((char *)a1 + 24)) )
+    VIDMM_PAGING_QUEUE::Flush((VIDMM_PAGING_QUEUE *)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 72LL)
+                                                   + 176LL
+                                                   * *(unsigned __int16 *)(*(_QWORD *)(*((_QWORD *)a1 + 1) + 96LL) + 6LL)));
+  operator delete(a1);
+}

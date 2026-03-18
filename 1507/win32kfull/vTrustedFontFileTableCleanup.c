@@ -1,0 +1,40 @@
+/*
+ * XREFs of vTrustedFontFileTableCleanup @ 0x1C0132DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+PVOID vTrustedFontFileTableCleanup()
+{
+  PVOID result; // rax
+  struct _RTL_AVL_TABLE *v1; // rbx
+  BOOLEAN i; // dl
+  struct _UNICODE_STRING *v3; // rax
+  struct _UNICODE_STRING *v4; // rdi
+
+  result = (PVOID)gSessionId;
+  if ( !gSessionId )
+  {
+    *((_QWORD *)gpxsGlobals + 2) = 0LL;
+    result = gpxsGlobals;
+    v1 = (struct _RTL_AVL_TABLE *)*((_QWORD *)gpxsGlobals + 3);
+    if ( v1 )
+    {
+      for ( i = 1; ; i = 0 )
+      {
+        v3 = (struct _UNICODE_STRING *)RtlEnumerateGenericTableAvl(v1, i);
+        v4 = v3;
+        if ( !v3 )
+          break;
+        RtlFreeUnicodeString(v3);
+        RtlDeleteElementGenericTableAvl(v1, v4);
+      }
+      Win32FreePool(*((_QWORD *)gpxsGlobals + 3));
+      result = gpxsGlobals;
+      *((_QWORD *)gpxsGlobals + 3) = 0LL;
+    }
+  }
+  return result;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of TR_OkToReclaimTransfersOnCancel @ 0x1C0028F0C
+ * Callers:
+ *     ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel @ 0x1C003AA00 (ESM_NotifyingTransferRingsOkToReclaimTransfersOnCancel.c)
+ *     ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval @ 0x1C003ABD0 (ESM_ReclaimingCanceledTransfersAfterControllerSurpriseRemoval.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall TR_OkToReclaimTransfersOnCancel(__int64 a1)
+{
+  return (*(__int64 (**)(void))(*(_QWORD *)(a1 + 32) + 56LL))();
+}

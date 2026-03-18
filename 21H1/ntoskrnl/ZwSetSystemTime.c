@@ -1,0 +1,15 @@
+/*
+ * XREFs of ZwSetSystemTime @ 0x1403F58B0
+ * Callers:
+ *     ExpTimeZoneWork @ 0x140947350 (ExpTimeZoneWork.c)
+ *     Phase1InitializationDiscard @ 0x140A382A8 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwSetSystemTime(__int64 a1, __int64 a2)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(a1, a2);
+}

@@ -1,0 +1,33 @@
+/*
+ * XREFs of UsbhFdoReturnDeviceBusInfo @ 0x1C0042584
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0016790 (UsbhPdoInternalDeviceControl.c)
+ * Callees:
+ *     PdoExt @ 0x1C0010C40 (PdoExt.c)
+ *     UsbhDecPdoIoCount @ 0x1C001A400 (UsbhDecPdoIoCount.c)
+ *     UsbhGetDeviceBusInfo @ 0x1C003ED80 (UsbhGetDeviceBusInfo.c)
+ *     WPP_RECORDER_SF_q @ 0x1C004051C (WPP_RECORDER_SF_q.c)
+ */
+
+__int64 __fastcall UsbhFdoReturnDeviceBusInfo(__int64 a1, ULONG_PTR a2, IRP *a3)
+{
+  _IO_STACK_LOCATION *CurrentStackLocation; // rbx
+  int DeviceBusInfo; // eax
+
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_q(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      1u,
+      0xAu,
+      (__int64)&WPP_38146f0944ab375cd6e5344c57b34d0f_Traceguids,
+      a2);
+  CurrentStackLocation = a3->Tail.Overlay.CurrentStackLocation;
+  PdoExt(a2);
+  DeviceBusInfo = UsbhGetDeviceBusInfo(a1, a2, CurrentStackLocation->Parameters.Create.SecurityContext, 0x10u);
+  a3->IoStatus.Status = DeviceBusInfo;
+  LODWORD(CurrentStackLocation) = DeviceBusInfo;
+  IofCompleteRequest(a3, 0);
+  UsbhDecPdoIoCount(a2, (ULONG_PTR)a3);
+  return (unsigned int)CurrentStackLocation;
+}

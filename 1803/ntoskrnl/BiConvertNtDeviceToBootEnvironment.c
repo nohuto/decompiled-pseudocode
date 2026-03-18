@@ -1,0 +1,321 @@
+/*
+ * XREFs of BiConvertNtDeviceToBootEnvironment @ 0x14060985C
+ * Callers:
+ *     BiConvertElementToRegistryData @ 0x1406093F4 (BiConvertElementToRegistryData.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14060985C (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x140609914 (BiCreatePartitionDevice.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x1407E2658 (BiConvertNtFilePathToBootEnvironment.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x1401054F0 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x14018EC10 (wcscpy_s.c)
+ *     memmove @ 0x1401BC900 (memmove.c)
+ *     memset @ 0x1401BCC40 (memset.c)
+ *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14060985C (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x140609914 (BiCreatePartitionDevice.c)
+ *     BiGetPartitionVhdFilePathFromUnicodeString @ 0x140609BD8 (BiGetPartitionVhdFilePathFromUnicodeString.c)
+ *     BiIsVolumePartitionInformationRetained @ 0x140609F70 (BiIsVolumePartitionInformationRetained.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x1407E2658 (BiConvertNtFilePathToBootEnvironment.c)
+ */
+
+__int64 __fastcall BiConvertNtDeviceToBootEnvironment(const WCHAR *a1, unsigned int a2, unsigned int a3, _QWORD *a4)
+{
+  int v5; // edx
+  char *v7; // rdi
+  int v8; // edx
+  int v9; // edx
+  int PartitionDevice; // ebx
+  int v12; // edx
+  int v13; // edx
+  int v14; // edx
+  int v15; // edx
+  __int64 v16; // rcx
+  size_t v17; // rax
+  unsigned int *v18; // rax
+  unsigned int v19; // ebx
+  bool v20; // zf
+  __int64 v21; // rdx
+  unsigned int v22; // ecx
+  const WCHAR *v23; // rdx
+  void *PartitionVhdFilePathFromUnicodeString; // rax
+  __int64 v25; // rbx
+  __int64 v26; // rcx
+  char *v27; // rax
+  int v28; // eax
+  unsigned int v29; // ebx
+  const wchar_t *v30; // rsi
+  __int64 v31; // rdx
+  char *v32; // r9
+  int v33; // eax
+  char *v34; // rax
+  unsigned int v35; // eax
+  char *v36; // rax
+  __int64 v37; // rax
+  unsigned int *v38; // rbx
+  unsigned int v39; // esi
+  char *v40; // rax
+  void *v41; // rcx
+  __int64 v42; // rax
+  unsigned int v43; // esi
+  char *v44; // rax
+  char *PoolWithTag; // rax
+  unsigned int v46; // [rsp+30h] [rbp-30h]
+  void *Src; // [rsp+38h] [rbp-28h] BYREF
+  size_t Size; // [rsp+40h] [rbp-20h]
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-18h] BYREF
+  PVOID P; // [rsp+80h] [rbp+20h] BYREF
+  unsigned int v51; // [rsp+90h] [rbp+30h]
+  _QWORD *v52; // [rsp+98h] [rbp+38h]
+
+  v52 = a4;
+  v51 = a3;
+  v5 = *(_DWORD *)a1;
+  Src = 0LL;
+  v7 = 0LL;
+  v8 = v5 - 1;
+  if ( !v8 )
+  {
+    if ( a2 < 0x14 )
+      goto LABEL_10;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x4B444342u);
+    v7 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      memset(PoolWithTag, 0, 0x48uLL);
+      *(_DWORD *)v7 = 5;
+      *((_DWORD *)v7 + 2) = 72;
+      goto LABEL_6;
+    }
+    goto LABEL_40;
+  }
+  v9 = v8 - 1;
+  if ( !v9 )
+  {
+    if ( a2 >= 0x16 )
+    {
+      if ( (unsigned __int8)BiIsVolumePartitionInformationRetained(a1 + 10) )
+      {
+        v7 = 0LL;
+        PartitionDevice = BiCreatePartitionDevice(a1 + 10);
+        if ( PartitionDevice < 0 )
+          goto LABEL_7;
+        goto LABEL_6;
+      }
+      goto LABEL_11;
+    }
+LABEL_10:
+    PartitionDevice = -1073741811;
+    goto LABEL_9;
+  }
+  v12 = v9 - 1;
+  if ( !v12 )
+  {
+    if ( a2 < 0x2E )
+      goto LABEL_10;
+    v42 = *((unsigned int *)a1 + 5);
+    if ( !(_DWORD)v42 )
+      goto LABEL_10;
+    P = 0LL;
+    PartitionDevice = BiConvertNtFilePathToBootEnvironment((char *)a1 + v42, a2 - (unsigned int)v42, a1 + 12, a3, &P);
+    if ( PartitionDevice < 0 )
+      goto LABEL_7;
+    v38 = (unsigned int *)P;
+    v43 = *((_DWORD *)P + 1) + 20;
+    v44 = (char *)ExAllocatePoolWithTag(PagedPool, v43, 0x4B444342u);
+    v7 = v44;
+    if ( v44 )
+    {
+      memset(v44, 0, v43);
+      v41 = v7 + 20;
+      *(_DWORD *)v7 = 0;
+      *((_DWORD *)v7 + 2) = v43;
+      *((_DWORD *)v7 + 4) = 5;
+      goto LABEL_61;
+    }
+LABEL_39:
+    ExFreePoolWithTag(v38, 0x4B444342u);
+    goto LABEL_40;
+  }
+  v13 = v12 - 1;
+  if ( !v13 )
+  {
+    if ( a2 < 0x2E )
+      goto LABEL_10;
+    v37 = *((unsigned int *)a1 + 5);
+    if ( !(_DWORD)v37 )
+      goto LABEL_10;
+    P = 0LL;
+    PartitionDevice = BiConvertNtFilePathToBootEnvironment((char *)a1 + v37, a2 - (unsigned int)v37, a1 + 12, a3, &P);
+    if ( PartitionDevice < 0 )
+      goto LABEL_7;
+    v38 = (unsigned int *)P;
+    v39 = *((_DWORD *)P + 1) + 40;
+    v40 = (char *)ExAllocatePoolWithTag(PagedPool, v39, 0x4B444342u);
+    v7 = v40;
+    if ( v40 )
+    {
+      memset(v40, 0, v39);
+      v41 = v7 + 40;
+      *(_DWORD *)v7 = 0;
+      *((_DWORD *)v7 + 1) = 1;
+      *((_DWORD *)v7 + 2) = v39;
+      *((_DWORD *)v7 + 4) = 3;
+LABEL_61:
+      memmove(v41, v38, v38[1]);
+      ExFreePoolWithTag(v38, 0x4B444342u);
+      goto LABEL_6;
+    }
+    goto LABEL_39;
+  }
+  v14 = v13 - 1;
+  if ( !v14 )
+  {
+    if ( a2 < 0x20 )
+      goto LABEL_10;
+    v35 = *((_DWORD *)a1 + 7);
+    if ( v35 > 0x100000 )
+      goto LABEL_10;
+    v36 = (char *)ExAllocatePoolWithTag(PagedPool, v35, 0x4B444342u);
+    PartitionDevice = 0;
+    v7 = v36;
+    if ( v36 )
+    {
+      memmove(v36, a1 + 10, *((unsigned int *)a1 + 7));
+      goto LABEL_7;
+    }
+    goto LABEL_40;
+  }
+  v15 = v14 - 2;
+  if ( !v15 )
+  {
+    if ( a2 < 0x24 )
+      goto LABEL_10;
+    v34 = (char *)ExAllocatePoolWithTag(PagedPool, 0x48uLL, 0x4B444342u);
+    v7 = v34;
+    if ( v34 )
+    {
+      memset(v34, 0, 0x48uLL);
+      *(_DWORD *)v7 = 7;
+      *((_DWORD *)v7 + 2) = 72;
+      *((_OWORD *)v7 + 1) = VmbFsInterfaceTypeGuid;
+      *((_OWORD *)v7 + 2) = *(_OWORD *)(a1 + 10);
+LABEL_6:
+      PartitionDevice = 0;
+      goto LABEL_7;
+    }
+LABEL_40:
+    PartitionDevice = -1073741670;
+    goto LABEL_7;
+  }
+  if ( v15 != 1 )
+    goto LABEL_10;
+  if ( a2 < 0x22 )
+    goto LABEL_10;
+  v16 = *((unsigned int *)a1 + 6);
+  if ( a2 <= (unsigned int)v16 )
+    goto LABEL_10;
+  v17 = 30LL;
+  LODWORD(P) = 30;
+  v46 = 0;
+  if ( !(_DWORD)v16 )
+  {
+LABEL_32:
+    v25 = -1LL;
+    v20 = *((_DWORD *)a1 + 5) == 1;
+    *(_QWORD *)&DestinationString.Length = a1 + 16;
+    if ( v20 )
+    {
+      v26 = -1LL;
+      do
+        ++v26;
+      while ( a1[v26 + 16] );
+      v17 = (unsigned int)(v17 + 2 * v26);
+      LODWORD(P) = v17;
+    }
+    Size = v17;
+    v27 = (char *)ExAllocatePoolWithTag(PagedPool, v17, 0x4B444342u);
+    v7 = v27;
+    if ( v27 )
+    {
+      memset(v27, 0, Size);
+      v28 = (int)P;
+      *(_DWORD *)v7 = 8;
+      *((_DWORD *)v7 + 2) = v28;
+      if ( *((_DWORD *)a1 + 5) )
+      {
+        v30 = *(const wchar_t **)&DestinationString.Length;
+        v31 = -1LL;
+        *((_DWORD *)v7 + 4) = 1;
+        do
+          ++v31;
+        while ( v30[v31] );
+        wcscpy_s((wchar_t *)v7 + 14, v31 + 1, v30);
+        do
+          ++v25;
+        while ( v30[v25] );
+        v29 = 2 * v25 + 30;
+      }
+      else
+      {
+        *((_DWORD *)v7 + 4) = 0;
+        v29 = 30;
+        *((_DWORD *)v7 + 5) = *((_DWORD *)a1 + 7);
+      }
+      if ( Src )
+      {
+        v32 = &v7[v29];
+        *(_DWORD *)v32 = 0;
+        v33 = *((_DWORD *)Src + 2);
+        *((_DWORD *)v32 + 4) = 6;
+        *((_DWORD *)v32 + 2) = v46 + v33;
+        memmove(&v32[v46], Src, *((unsigned int *)Src + 2));
+        *((_DWORD *)v7 + 6) = v29;
+      }
+      goto LABEL_6;
+    }
+    goto LABEL_40;
+  }
+  v18 = (unsigned int *)((char *)a1 + v16);
+  v19 = a2 - v16;
+  v20 = *(_DWORD *)((char *)a1 + v16) == 3;
+  P = (char *)a1 + v16;
+  if ( !v20 || v19 < 0x2E )
+    goto LABEL_10;
+  v21 = v18[5];
+  v22 = v19 - v21;
+  v23 = (const WCHAR *)((char *)v18 + v21);
+  if ( *(_DWORD *)v23 == 2 )
+  {
+    if ( v22 < 0x16 )
+      goto LABEL_10;
+    RtlInitUnicodeString(&DestinationString, v23 + 10);
+    PartitionVhdFilePathFromUnicodeString = (void *)BiGetPartitionVhdFilePathFromUnicodeString(&DestinationString);
+    if ( PartitionVhdFilePathFromUnicodeString )
+    {
+      ExFreePoolWithTag(PartitionVhdFilePathFromUnicodeString, 0x4B444342u);
+LABEL_11:
+      PartitionDevice = -1073741637;
+      goto LABEL_7;
+    }
+    v18 = (unsigned int *)P;
+  }
+  else if ( *(_DWORD *)v23 != 8 || v22 < 0x22 )
+  {
+    goto LABEL_10;
+  }
+  PartitionDevice = BiConvertNtDeviceToBootEnvironment(v18, v19, 0LL, &Src);
+  if ( PartitionDevice >= 0 )
+  {
+    v46 = 40;
+    v17 = (unsigned int)(*((_DWORD *)Src + 2) + 70);
+    LODWORD(P) = *((_DWORD *)Src + 2) + 70;
+    goto LABEL_32;
+  }
+LABEL_7:
+  if ( Src )
+    ExFreePoolWithTag(Src, 0x4B444342u);
+LABEL_9:
+  *v52 = v7;
+  return (unsigned int)PartitionDevice;
+}

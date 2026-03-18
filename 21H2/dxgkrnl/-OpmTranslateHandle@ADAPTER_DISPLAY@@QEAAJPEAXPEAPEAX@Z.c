@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?OpmTranslateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x1C01EDD28
+ * Callers:
+ *     DxgkOpmTranslateHandle @ 0x1C01EDC40 (DxgkOpmTranslateHandle.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?OpmValidateAdapterHandle@ADAPTER_DISPLAY@@AEAAEPEAX@Z @ 0x1C01EDE04 (-OpmValidateAdapterHandle@ADAPTER_DISPLAY@@AEAAEPEAX@Z.c)
+ */
+
+__int64 __fastcall ADAPTER_DISPLAY::OpmTranslateHandle(DXGADAPTER **this, _QWORD *a2, void **a3)
+{
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
+  {
+    WdLogSingleEntry1(1LL, 6618LL);
+    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 6618LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( this[49] != KeGetCurrentThread() )
+  {
+    WdLogSingleEntry1(1LL, 6619LL);
+    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_OpmI2CMutex.IsOwner()", 6619LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( ADAPTER_DISPLAY::OpmValidateAdapterHandle((ADAPTER_DISPLAY *)this, a2) )
+  {
+    if ( *((_BYTE *)a2 + 24) )
+    {
+      return 3221225473LL;
+    }
+    else
+    {
+      *a3 = (void *)a2[2];
+      return 0LL;
+    }
+  }
+  else
+  {
+    WdLogSingleEntry1(1LL, 6627LL);
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      -1,
+      (__int64)L"OPM passed in an invalid hOpmAdapterHandle!",
+      6627LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    return 3223192844LL;
+  }
+}

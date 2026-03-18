@@ -1,0 +1,78 @@
+/*
+ * XREFs of ?bTextOutSimpleStroke1@EPATHOBJ@@QEAAHAEAVXDCOBJ@@AEAVRFONTOBJ@@PEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C0285C68
+ * Callers:
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z @ 0x1C00AC7E0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXK@Z.c)
+ * Callees:
+ *     ?UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z @ 0x1C0132CC4 (-UMPDReleaseRFONTSem@@YAHAEAVRFONTOBJ@@PEAVUMPDOBJ@@PEAK2PEAPEAH@Z.c)
+ *     ?UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z @ 0x1C0132E9C (-UMPDAcquireRFONTSem@@YAXAEAVRFONTOBJ@@PEAVUMPDOBJ@@KKPEBH@Z.c)
+ *     ?bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C013AF70 (-bSimpleStroke@EPATHOBJ@@QEAAHKPEAVPDEVOBJ@@PEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSH.c)
+ *     __security_check_cookie @ 0x1C015A0C0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall EPATHOBJ::bTextOutSimpleStroke1(
+        PATHOBJ *ppo,
+        struct XDCOBJ *a2,
+        struct RFONTOBJ *a3,
+        struct PDEVOBJ *a4,
+        struct SURFACE *a5,
+        struct _CLIPOBJ *a6,
+        struct _BRUSHOBJ *a7,
+        struct _POINTL *a8)
+{
+  int *v8; // rbx
+  unsigned int v10; // r14d
+  unsigned int v11; // r15d
+  __int64 v13; // rdx
+  int v14; // r12d
+  __int64 v16; // rax
+  int v17; // ecx
+  int v18; // eax
+  unsigned int v19; // esi
+  unsigned int v21; // [rsp+50h] [rbp-89h] BYREF
+  unsigned int v22; // [rsp+54h] [rbp-85h] BYREF
+  int *v23; // [rsp+58h] [rbp-81h] BYREF
+  POINTL *v24; // [rsp+60h] [rbp-79h]
+  BRUSHOBJ *v25; // [rsp+68h] [rbp-71h]
+  CLIPOBJ *pco; // [rsp+70h] [rbp-69h]
+  struct SURFACE *v27; // [rsp+78h] [rbp-61h]
+  struct PDEVOBJ *v28; // [rsp+80h] [rbp-59h]
+  LINEATTRS v29; // [rsp+88h] [rbp-51h] BYREF
+  int v30[10]; // [rsp+B0h] [rbp-29h] BYREF
+
+  v8 = v30;
+  v27 = a5;
+  v10 = 0;
+  pco = a6;
+  v11 = 0;
+  v13 = *(_QWORD *)a2;
+  v14 = 0;
+  v25 = a7;
+  v24 = a8;
+  v16 = *(_QWORD *)(v13 + 48);
+  v28 = a4;
+  v21 = 0;
+  v22 = 0;
+  v17 = *(_DWORD *)(v16 + 40) & 0x8080;
+  v23 = v30;
+  if ( v17 == 32896 && *(_QWORD *)a3 )
+  {
+    v18 = UMPDReleaseRFONTSem(a3, 0LL, &v21, &v22, (void **)&v23);
+    v13 = *(_QWORD *)a2;
+    v14 = v18;
+    v10 = v21;
+    v11 = v22;
+    v8 = v23;
+  }
+  v29 = glaSimpleStroke;
+  v19 = EPATHOBJ::bSimpleStroke(ppo, *(_DWORD *)(v13 + 72), v28, v27, pco, 0LL, v25, v24, &v29, 0xD0Du);
+  if ( v14 )
+  {
+    UMPDAcquireRFONTSem(a3, 0LL, v10, v11, v8);
+    if ( v8 )
+    {
+      if ( v8 != v30 )
+        Win32FreePool(v8);
+    }
+  }
+  return v19;
+}

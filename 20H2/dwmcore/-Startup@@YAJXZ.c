@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?Startup@@YAJXZ @ 0x1800DD2CC
+ * Callers:
+ *     ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800DCFB0 (-DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x180068608 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ @ 0x1800DD40C (-InitializeDWMKeysFromRegistry@CCommonRegistryData@@CAXXZ.c)
+ *     ?EnsureD2DFactory@CD2DFactory@@QEAAJXZ @ 0x1800DD768 (-EnsureD2DFactory@CD2DFactory@@QEAAJXZ.c)
+ *     __security_check_cookie @ 0x1800E29B0 (__security_check_cookie.c)
+ *     ?RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z @ 0x18020CF84 (-RegReadDWORD@@YA_NPEAUHKEY__@@PEBGPEAK@Z.c)
+ */
+
+__int64 Startup(void)
+{
+  CD2DFactory *v0; // rcx
+  int v1; // eax
+  __int64 v2; // rcx
+  unsigned int v3; // ebx
+  bool v5; // al
+  unsigned int v6; // ecx
+  bool v7; // al
+  unsigned int v8; // ecx
+  __int64 v9; // rcx
+  unsigned int v10; // [rsp+30h] [rbp-D0h] BYREF
+  HKEY hKey; // [rsp+38h] [rbp-C8h] BYREF
+  _SYSTEM_INFO SystemInfo; // [rsp+40h] [rbp-C0h] BYREF
+  _OSVERSIONINFOW VersionInformation; // [rsp+70h] [rbp-90h] BYREF
+
+  GetSystemInfo(&SystemInfo);
+  VersionInformation.dwOSVersionInfoSize = 284;
+  GetVersionExW(&VersionInformation);
+  QueryPerformanceFrequency(&g_qpcFrequency);
+  hKey = 0LL;
+  g_qpcFrequencyPerMillisecond.QuadPart = g_qpcFrequency.QuadPart / 1000;
+  CCommonRegistryData::InitializeDWMKeysFromRegistry();
+  if ( !RegOpenKeyExW(HKEY_LOCAL_MACHINE, L"Software\\Microsoft\\Avalon.Graphics", 0, 1u, &hKey) )
+  {
+    v10 = 0;
+    RegReadDWORD(hKey, L"UseD3DDebugLayer", &v10);
+    v10 = 0;
+    v5 = RegReadDWORD(hKey, L"Force10Level9", &v10);
+    v6 = CCommonRegistryData::m_fForce10Level9;
+    if ( v5 )
+      v6 = v10;
+    v10 = 0;
+    CCommonRegistryData::m_fForce10Level9 = v6;
+    v7 = RegReadDWORD(hKey, L"Force10OnWDDM1_0", &v10);
+    v8 = CCommonRegistryData::m_fForce10OnWDDM1_0;
+    if ( v7 )
+      v8 = v10;
+    CCommonRegistryData::m_fForce10OnWDDM1_0 = v8;
+  }
+  v0 = (CD2DFactory *)hKey;
+  if ( hKey )
+    RegCloseKey(hKey);
+  v1 = CD2DFactory::EnsureD2DFactory(v0);
+  v3 = v1;
+  if ( v1 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0, v1, 0x66u, 0LL);
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v3, 0xEEu, 0LL);
+  }
+  return v3;
+}

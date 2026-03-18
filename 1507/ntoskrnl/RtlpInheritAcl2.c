@@ -1,0 +1,259 @@
+/*
+ * XREFs of RtlpInheritAcl2 @ 0x1404876F0
+ * Callers:
+ *     RtlpNewSecurityObject @ 0x140488DB0 (RtlpNewSecurityObject.c)
+ * Callees:
+ *     memmove @ 0x140195740 (memmove.c)
+ *     RtlpGenerateInheritAcl @ 0x140434C10 (RtlpGenerateInheritAcl.c)
+ *     RtlpCopyAces @ 0x140486AE0 (RtlpCopyAces.c)
+ *     RtlFirstFreeAce @ 0x1404C9220 (RtlFirstFreeAce.c)
+ */
+
+__int64 __fastcall RtlpInheritAcl2(
+        _BYTE *a1,
+        unsigned __int8 *a2,
+        __int16 a3,
+        unsigned __int8 a4,
+        __int64 a5,
+        char a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9,
+        __int64 a10,
+        PGENERIC_MAPPING a11,
+        int a12,
+        __int64 a13,
+        int a14,
+        PACE a15,
+        PACL Acl,
+        _BYTE *a17,
+        int *a18)
+{
+  PACE v18; // r12
+  PACL v19; // rbx
+  __int16 v21; // r10
+  int v22; // r8d
+  ACE_HEADER Header; // edx
+  char v24; // r13
+  int v25; // esi
+  int v26; // ebp
+  int v27; // r14d
+  unsigned int v28; // r9d
+  unsigned __int8 v29; // di
+  _BYTE *v30; // r11
+  int *v31; // rax
+  int v32; // ecx
+  int v33; // edx
+  char v34; // r9
+  char v35; // al
+  __int64 result; // rax
+  int v37; // ecx
+  char v38; // al
+  int v39; // eax
+  __int64 v40; // rax
+  char v41; // [rsp+80h] [rbp-58h]
+  char v42; // [rsp+81h] [rbp-57h]
+  USHORT AceCount; // [rsp+82h] [rbp-56h]
+  unsigned int v44; // [rsp+84h] [rbp-54h]
+  __int64 v45; // [rsp+88h] [rbp-50h] BYREF
+  PACE Ace; // [rsp+90h] [rbp-48h] BYREF
+  char v48; // [rsp+F0h] [rbp+18h]
+
+  v48 = a3;
+  v18 = a15;
+  v19 = Acl;
+  v21 = a3;
+  v22 = 2;
+  v45 = 0LL;
+  Header = a15->Header;
+  v24 = 0;
+  Ace = 0LL;
+  v25 = 0;
+  v26 = 0;
+  AceCount = 0;
+  v27 = 0;
+  v41 = 0;
+  v42 = 1;
+  LOBYTE(v44) = 2;
+  v28 = 2;
+  if ( (unsigned int)(*(_DWORD *)&Header - 8) <= 0xFFF4 )
+  {
+    memset(Acl, 0, *(unsigned int *)&Header);
+    *(_WORD *)&v19->AclRevision = 2;
+    *(_DWORD *)&v19->AceCount = 0;
+    v19->AclSize = *(_WORD *)&Header.AceType & 0xFFFC;
+  }
+  v29 = a5;
+  v30 = a17;
+  v31 = a18;
+  v32 = (_BYTE)a5 != 0 ? 0x400 : 0;
+  *a17 = 0;
+  v33 = v21 & 8;
+  LODWORD(a5) = v33;
+  *v31 = v32;
+  if ( (v21 & 8) != 0 )
+  {
+    v38 = 0;
+    goto LABEL_32;
+  }
+  if ( (v21 & 0x1000) != 0 )
+  {
+    v41 = 1;
+    *v31 = v32 | 0x1000;
+  }
+  if ( (v21 & 0x1004) == 0 )
+    goto LABEL_30;
+  if ( a2 )
+  {
+    v42 = 0;
+    if ( *a2 >= 2u )
+      v28 = *a2;
+    v44 = v28;
+    if ( v29 )
+    {
+      if ( (v21 & 0x1000) != 0 )
+      {
+        v34 = 16;
+      }
+      else
+      {
+        v22 = 1;
+        v34 = 0;
+      }
+      v35 = 1;
+    }
+    else
+    {
+      v34 = 0;
+      v35 = 0;
+    }
+    result = RtlpCopyAces(
+               (__int64)a2,
+               a11,
+               v22,
+               v34,
+               v35,
+               a7,
+               a8,
+               a9,
+               a10,
+               a4,
+               0,
+               a12,
+               (unsigned int *)&v45 + 1,
+               (__int64)v19);
+    v26 = HIDWORD(v45);
+    v25 = HIDWORD(v45);
+    if ( (_DWORD)result == -1073741789 )
+    {
+      v24 = 1;
+    }
+    else if ( (int)result < 0 )
+    {
+      return result;
+    }
+    if ( a6 )
+    {
+      if ( HIDWORD(v45) )
+      {
+        AceCount = v19->AceCount;
+        if ( !RtlFirstFreeAce(v19, &Ace) )
+          return 3221225597LL;
+      }
+    }
+    v28 = v44;
+    LOBYTE(v21) = v48;
+    v30 = a17;
+  }
+  else if ( v29 )
+  {
+    v37 = a12;
+    if ( a12 == 1 )
+    {
+      if ( (v21 & 0x1004) == 4 )
+        return 3221225591LL;
+      goto LABEL_29;
+    }
+LABEL_43:
+    v38 = v41;
+    if ( v37 == 2 && (v26 || v41 || a2 && !*((_WORD *)a2 + 2)) )
+      *v30 = 1;
+    goto LABEL_31;
+  }
+  v37 = a12;
+  if ( a12 != 1 )
+    goto LABEL_43;
+LABEL_29:
+  *v30 = 1;
+LABEL_30:
+  v38 = v41;
+LABEL_31:
+  v33 = a5;
+LABEL_32:
+  if ( (!v29 && (v21 & 4) == 0 || v33 || v29 && !v38) && a1 )
+  {
+    if ( (unsigned __int8)(*a1 - 2) > 2u )
+      return 3221225560LL;
+    if ( v28 <= (unsigned __int8)*a1 )
+      LOBYTE(v28) = *a1;
+    LOBYTE(v44) = v28;
+    result = RtlpGenerateInheritAcl(
+               (__int64)a1,
+               a4,
+               v29,
+               a7,
+               a8,
+               a9,
+               a10,
+               a11,
+               a13,
+               a14,
+               a12,
+               v24,
+               &v45,
+               (__int64)v19,
+               &a5);
+    if ( (_DWORD)result == -1073741789 )
+    {
+      v24 = 1;
+    }
+    else if ( (int)result < 0 )
+    {
+      return result;
+    }
+    if ( a6 && v26 && (_BYTE)a5 && !v24 )
+    {
+      if ( !RtlFirstFreeAce(v19, &a15) )
+        return 3221225597LL;
+      v39 = (int)a15;
+      if ( !a15 )
+        v39 = (_DWORD)v19 + v19->AclSize;
+      memmove(&v19[1], Ace, (unsigned int)(v39 - (_DWORD)Ace));
+      v19->AceCount -= AceCount;
+      v25 = 0;
+    }
+    v27 = v45;
+  }
+  v40 = (unsigned int)(v27 + v25);
+  if ( !(_DWORD)v40 )
+  {
+    if ( !*a17 )
+    {
+      v18->Header = 0;
+      return 2147483659LL;
+    }
+    if ( v42 )
+    {
+      v18->Header = 0;
+      return 0LL;
+    }
+  }
+  if ( (unsigned __int64)(v40 + 8) > 0xFFFF )
+    return 3221225597LL;
+  v18->Header = (ACE_HEADER)(v27 + v26 + 8);
+  if ( v24 )
+    return 3221225507LL;
+  v19->AclRevision = v44;
+  v19->AclSize = v27 + v25 + 8;
+  return 0LL;
+}

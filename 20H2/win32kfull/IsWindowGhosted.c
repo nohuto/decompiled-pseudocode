@@ -1,0 +1,23 @@
+/*
+ * XREFs of IsWindowGhosted @ 0x1C00CF8CC
+ * Callers:
+ *     xxxHandleHealthyThread @ 0x1C00034E0 (xxxHandleHealthyThread.c)
+ *     xxxSetWindowPosAndBand @ 0x1C004B0D8 (xxxSetWindowPosAndBand.c)
+ *     xxxUpdateInputHangInfo @ 0x1C0051A40 (xxxUpdateInputHangInfo.c)
+ *     xxxDestroyWindow @ 0x1C00CEED0 (xxxDestroyWindow.c)
+ * Callees:
+ *     _GetProp @ 0x1C004C9B4 (_GetProp.c)
+ */
+
+__int64 __fastcall IsWindowGhosted(__int64 a1)
+{
+  unsigned int v2; // ebx
+
+  v2 = 0;
+  if ( **(_WORD **)(*(_QWORD *)(a1 + 136) + 8LL) != *(_WORD *)(gpsi + 900LL)
+    && (GetProp(a1, *(unsigned __int16 *)(gpsi + 900LL), 1LL) || GetProp(a1, *(unsigned __int16 *)(gpsi + 1378LL), 1LL)) )
+  {
+    return 1;
+  }
+  return v2;
+}

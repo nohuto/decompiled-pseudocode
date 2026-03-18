@@ -1,0 +1,46 @@
+/*
+ * XREFs of VfDeadlockDeleteMemoryRange @ 0x1409E0E40
+ * Callers:
+ *     VfDriverUnloadImage @ 0x1409C54C4 (VfDriverUnloadImage.c)
+ *     VfFreeMemoryNotification @ 0x1409C8FF0 (VfFreeMemoryNotification.c)
+ *     VfFreePoolNotification @ 0x1409E3084 (VfFreePoolNotification.c)
+ * Callees:
+ *     ViDeadlockRemoveMemoryRangeResources @ 0x1405A07F8 (ViDeadlockRemoveMemoryRangeResources.c)
+ *     ViDeadlockRemoveMemoryRangeThreads @ 0x1405A0958 (ViDeadlockRemoveMemoryRangeThreads.c)
+ *     ViDeadlockCanProceed @ 0x1409E1E18 (ViDeadlockCanProceed.c)
+ */
+
+__int64 __fastcall VfDeadlockDeleteMemoryRange(unsigned __int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+  unsigned __int64 v5; // rsi
+  __int64 v6; // rbp
+  unsigned __int64 v7; // r8
+  __int64 v8; // r14
+  __int64 v9; // rbx
+
+  result = ViDeadlockCanProceed(0LL);
+  if ( (_DWORD)result )
+  {
+    result = a1 & 0xFFF;
+    v5 = a1 + a2;
+    v6 = a1;
+    v7 = (unsigned __int64)(result + a2 + 4095) >> 12;
+    if ( (_DWORD)v7 )
+    {
+      v8 = (unsigned int)v7;
+      do
+      {
+        v9 = v5;
+        if ( v6 + 4096 <= v5 )
+          v9 = v6 + 4096;
+        ViDeadlockRemoveMemoryRangeResources(v6, v9, a1, v5);
+        result = ViDeadlockRemoveMemoryRangeThreads(v6, v9, a1, v5);
+        v6 = v9;
+        --v8;
+      }
+      while ( v8 );
+    }
+  }
+  return result;
+}

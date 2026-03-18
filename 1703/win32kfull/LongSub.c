@@ -1,0 +1,24 @@
+/*
+ * XREFs of LongSub @ 0x1C0251454
+ * Callers:
+ *     EngCopyBits @ 0x1C0075490 (EngCopyBits.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall LongSub(int a1, int a2, _DWORD *a3)
+{
+  __int64 v3; // r9
+
+  v3 = a1 - (__int64)a2;
+  if ( (unsigned __int64)(v3 + 0x80000000LL) > 0xFFFFFFFF )
+  {
+    *a3 = -1;
+    return 2147942934LL;
+  }
+  else
+  {
+    *a3 = v3;
+    return 0LL;
+  }
+}

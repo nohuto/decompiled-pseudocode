@@ -1,0 +1,53 @@
+/*
+ * XREFs of IopSetEnvironmentVariableSysEnv @ 0x1405FF074
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x140166980 (memmove.c)
+ *     sub_1401BD68C @ 0x1401BD68C (sub_1401BD68C.c)
+ *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x1405FEC4C (IopIssueSystemEnvironmentRequest.c)
+ */
+
+__int64 __fastcall IopSetEnvironmentVariableSysEnv(
+        __int64 a1,
+        struct _DEVICE_OBJECT *a2,
+        _WORD *a3,
+        __int128 *a4,
+        void *Src,
+        unsigned int Size,
+        int a7)
+{
+  __int64 v7; // rax
+  unsigned int v11; // ebp
+  _DWORD *v12; // rax
+  _DWORD *InputBuffer; // rdi
+  unsigned int v14; // ebx
+  __int128 v15; // xmm0
+
+  v7 = -1LL;
+  do
+    ++v7;
+  while ( a3[v7] );
+  v11 = 2 * v7 + 2;
+  v12 = sub_1401BD68C(a1, v11 + Size + 32);
+  InputBuffer = v12;
+  if ( v12 )
+  {
+    v15 = *a4;
+    *v12 = 0;
+    *((_OWORD *)v12 + 1) = v15;
+    v12[3] = a7;
+    memmove(v12 + 8, a3, v11);
+    memmove((char *)InputBuffer + v11 + 32, Src, Size);
+    InputBuffer[1] = v11 + 32;
+    InputBuffer[2] = Size;
+    v14 = IopIssueSystemEnvironmentRequest(0x520008u, 1u, 0LL, a2, InputBuffer, v11 + Size + 32, 0LL, 0, 0LL);
+    ExFreePoolWithTag(InputBuffer, 0);
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return v14;
+}

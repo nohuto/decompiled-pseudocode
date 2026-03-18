@@ -1,0 +1,22 @@
+/*
+ * XREFs of FindRSAccess @ 0x1C004B458
+ * Callers:
+ *     RegRSAccess @ 0x1C004CD44 (RegRSAccess.c)
+ *     AccessBaseField @ 0x1C00517D0 (AccessBaseField.c)
+ *     RawFieldAccess @ 0x1C0052780 (RawFieldAccess.c)
+ *     SupportsOnlyRawAccess @ 0x1C0052F78 (SupportsOnlyRawAccess.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall FindRSAccess(int a1)
+{
+  KIRQL v2; // al
+  __int64 i; // rbx
+
+  v2 = ExAcquireSpinLockShared(&RSAccessLock);
+  for ( i = gpRSAccessHead; i && *(_DWORD *)(i + 8) != a1; i = *(_QWORD *)i )
+    ;
+  ExReleaseSpinLockShared(&RSAccessLock, v2);
+  return i;
+}

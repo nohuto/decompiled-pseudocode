@@ -1,0 +1,26 @@
+/*
+ * XREFs of CmCheckNoTxContext @ 0x14049E830
+ * Callers:
+ *     CmLoadDifferencingKey @ 0x14049ED68 (CmLoadDifferencingKey.c)
+ *     NtCompactKeys @ 0x1406EBADC (NtCompactKeys.c)
+ *     NtCompressKey @ 0x1406EBDBC (NtCompressKey.c)
+ *     NtReplaceKey @ 0x1406EC954 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x1406ECCC8 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x1406ECF78 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x1406ED214 (NtSaveMergedKeys.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 CmCheckNoTxContext()
+{
+  __int64 result; // rax
+  __int64 v1; // [rsp+30h] [rbp+8h] BYREF
+
+  result = TmCurrentTransaction(&v1);
+  if ( (_DWORD)result == -1073741637 )
+    return 0LL;
+  if ( (int)result >= 0 )
+    return v1 != 0 ? 0xC0190001 : 0;
+  return result;
+}

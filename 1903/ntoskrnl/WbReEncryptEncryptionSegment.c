@@ -1,0 +1,53 @@
+/*
+ * XREFs of WbReEncryptEncryptionSegment @ 0x1405B36BC
+ * Callers:
+ *     WbDispatchOperation @ 0x1405CA8A0 (WbDispatchOperation.c)
+ * Callees:
+ *     KeLeaveGuardedRegion @ 0x140004580 (KeLeaveGuardedRegion.c)
+ *     KeAbPreAcquire @ 0x14003E610 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14003F880 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14009C990 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x14009E550 (ExfTryToWakePushLock.c)
+ *     sub_1405B378C @ 0x1405B378C (sub_1405B378C.c)
+ *     sub_1405B3A44 @ 0x1405B3A44 (sub_1405B3A44.c)
+ *     WbReEncryptWarbirdEncryptionSegment @ 0x1405B3FB0 (WbReEncryptWarbirdEncryptionSegment.c)
+ */
+
+__int64 __fastcall WbReEncryptEncryptionSegment(__int64 a1, __int64 a2, __int64 a3)
+{
+  int v3; // esi
+  struct _KTHREAD *CurrentThread; // rax
+  unsigned __int64 *v5; // rdi
+  __int64 v6; // rax
+  __int64 v7; // rsi
+  __int64 v9; // [rsp+48h] [rbp+20h] BYREF
+
+  v9 = 0LL;
+  if ( (unsigned int)a3 < 0x10 )
+  {
+    v3 = -1073741811;
+  }
+  else
+  {
+    v3 = sub_1405B378C(a1, a2, a3, &v9);
+    if ( v3 >= 0 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->SpecialApcDisable;
+      v5 = (unsigned __int64 *)(v9 + 8);
+      v6 = KeAbPreAcquire(v9 + 8, 0LL, 0);
+      v7 = v6;
+      if ( _interlockedbittestandset64((volatile signed __int32 *)v5, 0LL) )
+        ExfAcquirePushLockExclusiveEx(v5, v6, (ULONG_PTR)v5);
+      if ( v7 )
+        *(_BYTE *)(v7 + 26) |= 1u;
+      v3 = WbReEncryptWarbirdEncryptionSegment(v9);
+      if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v5, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+        ExfTryToWakePushLock((volatile signed __int64 *)v5);
+      KeAbPostRelease((ULONG_PTR)v5);
+      KeLeaveGuardedRegion();
+    }
+  }
+  sub_1405B3A44(v9);
+  return (unsigned int)v3;
+}

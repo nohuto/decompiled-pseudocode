@@ -1,0 +1,26 @@
+/*
+ * XREFs of DpiFreeAdapterInfo @ 0x1C0192DA4
+ * Callers:
+ *     DpiGetAdapterInfo @ 0x1C00E7F68 (DpiGetAdapterInfo.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C01451AC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkFreeUnicodeString @ 0x1C01936B8 (DxgkFreeUnicodeString.c)
+ */
+
+__int64 __fastcall DpiFreeAdapterInfo(_BYTE *a1)
+{
+  __int64 result; // rax
+
+  if ( *a1 )
+  {
+    DxgkFreeUnicodeString(a1 + 8);
+    DxgkFreeUnicodeString(a1 + 24);
+    DxgkFreeUnicodeString(a1 + 112);
+    DxgkFreeUnicodeString(a1 + 128);
+    DxgkFreeUnicodeString(a1 + 48);
+    DxgkFreeUnicodeString(a1 + 72);
+    DxgkFreeUnicodeString(a1 + 144);
+    return DxgkFreeUnicodeString(a1 + 160);
+  }
+  return result;
+}

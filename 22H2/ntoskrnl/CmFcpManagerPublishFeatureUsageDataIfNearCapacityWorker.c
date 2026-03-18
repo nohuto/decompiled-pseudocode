@@ -1,0 +1,13 @@
+/*
+ * XREFs of CmFcpManagerPublishFeatureUsageDataIfNearCapacityWorker @ 0x140680460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmFcpManagerPublishFeatureUsageDataIfNearCapacity @ 0x1406802F8 (CmFcpManagerPublishFeatureUsageDataIfNearCapacity.c)
+ */
+
+void __fastcall CmFcpManagerPublishFeatureUsageDataIfNearCapacityWorker(__int64 a1, __int64 a2)
+{
+  _InterlockedAnd((volatile signed __int32 *)(a2 + 1748), 0xFFFFFFFE);
+  CmFcpManagerPublishFeatureUsageDataIfNearCapacity(a2);
+}

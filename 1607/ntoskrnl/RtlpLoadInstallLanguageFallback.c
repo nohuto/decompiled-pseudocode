@@ -1,0 +1,111 @@
+/*
+ * XREFs of RtlpLoadInstallLanguageFallback @ 0x14055FD24
+ * Callers:
+ *     _RtlpMuiRegLoadInstalled @ 0x140560888 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x1406E7C88 (_RtlpMuiRegPopulateBaseLanguages.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14002DC60 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x14013FF84 (_MuiRegAllocArray.c)
+ *     ZwClose @ 0x140159E60 (ZwClose.c)
+ *     ZwOpenKey @ 0x140159EC0 (ZwOpenKey.c)
+ *     memset @ 0x1401715C0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
+ *     LdrpQueryValueKey @ 0x140560C34 (LdrpQueryValueKey.c)
+ *     RtlCultureNameToLCID @ 0x1405617C8 (RtlCultureNameToLCID.c)
+ */
+
+__int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD *a3)
+{
+  WCHAR *v5; // rsi
+  WCHAR *v6; // rax
+  NTSTATUS v7; // edi
+  const WCHAR *i; // rbx
+  HANDLE KeyHandle; // [rsp+30h] [rbp-50h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-48h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+48h] [rbp-38h] BYREF
+  int v13; // [rsp+B0h] [rbp+30h] BYREF
+  __int64 v14; // [rsp+C8h] [rbp+48h] BYREF
+
+  KeyHandle = 0LL;
+  v5 = 0LL;
+  if ( a1 && a2 && a3 )
+  {
+    v6 = (WCHAR *)MuiRegAllocArray(a1, 0xACu);
+    v5 = v6;
+    if ( v6 )
+    {
+      memset(v6, 0, 0x158uLL);
+      *a2 = 0;
+      v13 = 0;
+      *a3 = 0;
+      RtlInitUnicodeString(
+        &DestinationString,
+        L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\NLS\\Language");
+      KeyHandle = 0LL;
+      ObjectAttributes.ObjectName = &DestinationString;
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.RootDirectory = 0LL;
+      ObjectAttributes.Attributes = 576;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v7 = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+      if ( v7 >= 0 )
+      {
+        RtlInitUnicodeString(&DestinationString, L"InstallLanguageFallback");
+        LODWORD(v14) = 8;
+        v7 = LdrpQueryValueKey(KeyHandle, &DestinationString, (__int64)&v14);
+        if ( v7 >= 0 )
+        {
+          if ( v13 != 1 )
+            goto LABEL_18;
+          for ( i = v5; *i; ++i )
+          {
+            if ( *i == 44 )
+            {
+              *i = 0;
+              goto LABEL_20;
+            }
+          }
+          while ( *i == 32 )
+LABEL_20:
+            ++i;
+          RtlInitUnicodeString(&DestinationString, v5);
+          if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+          {
+            *a2 = v13;
+            if ( *i )
+            {
+              RtlInitUnicodeString(&DestinationString, i);
+              if ( (unsigned __int8)RtlCultureNameToLCID(&DestinationString, &v13) )
+              {
+                *a3 = v13;
+              }
+              else
+              {
+                v7 = -1073741823;
+                *a2 = 0;
+              }
+            }
+          }
+          else
+          {
+LABEL_18:
+            v7 = -1073741823;
+          }
+        }
+      }
+    }
+    else
+    {
+      v7 = -1073741801;
+    }
+  }
+  else
+  {
+    v7 = -1073741811;
+  }
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  return (unsigned int)v7;
+}

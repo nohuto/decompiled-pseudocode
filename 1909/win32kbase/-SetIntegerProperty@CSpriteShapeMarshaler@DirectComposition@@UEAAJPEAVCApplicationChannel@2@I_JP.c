@@ -1,0 +1,71 @@
+/*
+ * XREFs of ?SetIntegerProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C01B16A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetIntegerProperty(
+        DirectComposition::CSpriteShapeMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        __int64 a4,
+        bool *a5)
+{
+  unsigned int v5; // edx
+  int v6; // r8d
+  int v7; // r8d
+  int v8; // r8d
+  int v9; // r8d
+  int v10; // eax
+
+  v5 = 0;
+  *a5 = 0;
+  v6 = a3 - 4;
+  if ( !v6 )
+  {
+    v10 = a4 != 0;
+    if ( *((_DWORD *)this + 29) == v10 )
+      return v5;
+    *((_DWORD *)this + 4) |= 0x4000u;
+    *((_DWORD *)this + 29) = v10;
+LABEL_18:
+    *a5 = 1;
+    return v5;
+  }
+  v7 = v6 - 1;
+  if ( !v7 )
+  {
+    if ( *((_DWORD *)this + 25) == a4 )
+      return v5;
+    *((_DWORD *)this + 25) = a4;
+LABEL_9:
+    *((_DWORD *)this + 4) |= 0x200u;
+    goto LABEL_18;
+  }
+  v8 = v7 - 1;
+  if ( !v8 )
+  {
+    if ( *((_DWORD *)this + 26) == a4 )
+      return v5;
+    *((_DWORD *)this + 26) = a4;
+    goto LABEL_9;
+  }
+  v9 = v8 - 1;
+  if ( !v9 )
+  {
+    if ( *((_DWORD *)this + 27) == a4 )
+      return v5;
+    *((_DWORD *)this + 27) = a4;
+    goto LABEL_9;
+  }
+  if ( v9 == 1 )
+  {
+    if ( *((_DWORD *)this + 28) == a4 )
+      return v5;
+    *((_DWORD *)this + 28) = a4;
+    goto LABEL_9;
+  }
+  return (unsigned int)-1073741811;
+}

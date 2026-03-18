@@ -1,0 +1,24 @@
+/*
+ * XREFs of PoSetSystemWakeDevice @ 0x14055FF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140208290 (ObfDereferenceObjectWithTag.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x14027746C (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopUpdateWakeSource @ 0x140569C1C (PopUpdateWakeSource.c)
+ */
+
+void *__fastcall PoSetSystemWakeDevice(__int64 a1)
+{
+  void *result; // rax
+  void *v2; // rbx
+
+  result = IoGetDeviceAttachmentBaseRefWithTag(a1, 0x72496F50u);
+  v2 = result;
+  if ( result )
+  {
+    PopUpdateWakeSource(result);
+    return (void *)ObfDereferenceObjectWithTag(v2, 0x72496F50u);
+  }
+  return result;
+}

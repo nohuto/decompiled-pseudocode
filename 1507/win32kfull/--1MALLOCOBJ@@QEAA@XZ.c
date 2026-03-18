@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??1MALLOCOBJ@@QEAA@XZ @ 0x1C00F9B94
+ * Callers:
+ *     bAddFlEntry @ 0x1C013F410 (bAddFlEntry.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@@Z @ 0x1C013FB2C (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@@Z.c)
+ *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C027E2E8 (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall MALLOCOBJ::~MALLOCOBJ(MALLOCOBJ *this)
+{
+  __int64 v2; // rcx
+
+  v2 = *(_QWORD *)this;
+  if ( v2 )
+  {
+    Win32FreePool(v2);
+    *(_QWORD *)this = 0LL;
+  }
+}

@@ -1,0 +1,60 @@
+/*
+ * XREFs of VerifierMmMapLockedPagesSpecifyCache @ 0x1407C45E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmMapLockedPagesSpecifyCache @ 0x14009A990 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlRaiseStatus @ 0x1400D9BF0 (RtlRaiseStatus.c)
+ *     VfCheckPagePriority @ 0x1407A8230 (VfCheckPagePriority.c)
+ *     VerifierBugCheckIfAppropriate @ 0x1407B01F4 (VerifierBugCheckIfAppropriate.c)
+ *     ViTargetAddToCounter @ 0x1407B6F9C (ViTargetAddToCounter.c)
+ *     ViPoolLogStackTrace @ 0x1407B78E8 (ViPoolLogStackTrace.c)
+ *     VfFaultsInjectResourceFailure @ 0x1407B7B44 (VfFaultsInjectResourceFailure.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x1407B7C7C (VfFaultsIsSystemSufficientlyBooted.c)
+ *     ViMmMapLockedPagesSanityChecks @ 0x1407C4EC8 (ViMmMapLockedPagesSanityChecks.c)
+ */
+
+PVOID __fastcall VerifierMmMapLockedPagesSpecifyCache(
+        struct _MDL *BugCheckParameter2,
+        KPROCESSOR_MODE a2,
+        MEMORY_CACHING_TYPE a3,
+        void *a4,
+        ULONG BugCheckOnFailure,
+        ULONG Priority)
+{
+  PVOID v10; // rax
+  PVOID v11; // rdi
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
+
+  if ( (MmVerifierData & 1) != 0 )
+    ViMmMapLockedPagesSanityChecks((ULONG_PTR)BugCheckParameter2);
+  VfCheckPagePriority(Priority, retaddr);
+  if ( (BugCheckParameter2->MdlFlags & 0x2000) == 0 && BugCheckOnFailure )
+  {
+    if ( (unsigned int)VfFaultsIsSystemSufficientlyBooted() && (MmVerifierData & 1) != 0 )
+      VerifierBugCheckIfAppropriate(
+        0xC4u,
+        0x82uLL,
+        (ULONG_PTR)BugCheckParameter2,
+        BugCheckParameter2->MdlFlags,
+        BugCheckOnFailure);
+    goto LABEL_8;
+  }
+  if ( (unsigned int)VfFaultsInjectResourceFailure(0) != 1 )
+  {
+LABEL_8:
+    v10 = MmMapLockedPagesSpecifyCache(BugCheckParameter2, a2, a3, a4, BugCheckOnFailure, Priority);
+    v11 = v10;
+    if ( VfPoolTraces )
+      ViPoolLogStackTrace((__int64)v10, BugCheckParameter2->ByteCount);
+    if ( v11 )
+    {
+      if ( (MmVerifierData & 0x1000) != 0 )
+        ViTargetAddToCounter(retaddr, 168LL, 0xB0u, BugCheckParameter2->ByteCount);
+    }
+    return v11;
+  }
+  if ( a2 )
+    RtlRaiseStatus(-1073741670);
+  return 0LL;
+}

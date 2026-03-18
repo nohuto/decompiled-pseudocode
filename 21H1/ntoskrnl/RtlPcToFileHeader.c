@@ -1,0 +1,29 @@
+/*
+ * XREFs of RtlPcToFileHeader @ 0x140311C70
+ * Callers:
+ *     RtlGuardCheckExceptionHandler @ 0x14032BAD0 (RtlGuardCheckExceptionHandler.c)
+ *     KiLockExtendedServiceTable @ 0x1403D7A88 (KiLockExtendedServiceTable.c)
+ *     RtlGuardCheckLongJumpTarget @ 0x140589918 (RtlGuardCheckLongJumpTarget.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x1406D736C (EtwpLocateDbgIdForRegEntry.c)
+ *     KeSetTracepoint @ 0x1408B7B50 (KeSetTracepoint.c)
+ *     sub_140A19EE4 @ 0x140A19EE4 (sub_140A19EE4.c)
+ * Callees:
+ *     RtlpxLookupFunctionTable @ 0x14032E430 (RtlpxLookupFunctionTable.c)
+ */
+
+__int64 __fastcall RtlPcToFileHeader(ULONG_PTR a1, _QWORD *a2)
+{
+  __int64 result; // rax
+  __int128 v4; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v5; // [rsp+30h] [rbp-18h]
+
+  v5 = 0LL;
+  v4 = 0LL;
+  if ( a1 >= *(&xmmword_140E00020 + 1) && a1 < *(&xmmword_140E00020 + 1) + (unsigned int)qword_140E00030 )
+    v4 = *(_OWORD *)&xmmword_140E00020;
+  else
+    RtlpxLookupFunctionTable(a1, &v4);
+  result = *((_QWORD *)&v4 + 1);
+  *a2 = *((_QWORD *)&v4 + 1);
+  return result;
+}

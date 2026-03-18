@@ -1,0 +1,71 @@
+/*
+ * XREFs of RtlRunOnceExecuteOnce @ 0x140711660
+ * Callers:
+ *     RtlpHpMetadataHeapStart @ 0x14035FB34 (RtlpHpMetadataHeapStart.c)
+ *     ExCheckFullProcessInformationAccess @ 0x14070DFA4 (ExCheckFullProcessInformationAccess.c)
+ *     SdbpGetStringTableItemFromStringRef @ 0x14073F120 (SdbpGetStringTableItemFromStringRef.c)
+ *     SdbGetIndex @ 0x1407430E4 (SdbGetIndex.c)
+ *     ExQueryBootEntropyInformation @ 0x1407812D4 (ExQueryBootEntropyInformation.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x140916FF4 (RtlpLogCapabilityCheckLatency.c)
+ *     ExpCheckTestsigningEnabled @ 0x14094AC3C (ExpCheckTestsigningEnabled.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x14094BAD0 (ExpFirmwareAccessAppContainerCheck.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x1402486B0 (KeLeaveCriticalRegionThread.c)
+ *     RtlRaiseStatus @ 0x1402EE870 (RtlRaiseStatus.c)
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     RtlRunOnceBeginInitialize @ 0x140711740 (RtlRunOnceBeginInitialize.c)
+ *     RtlRunOnceComplete @ 0x1407117F0 (RtlRunOnceComplete.c)
+ */
+
+NTSTATUS __stdcall RtlRunOnceExecuteOnce(
+        PRTL_RUN_ONCE RunOnce,
+        PRTL_RUN_ONCE_INIT_FN InitFn,
+        PVOID Parameter,
+        PVOID *Context)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  NTSTATUS v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  __int64 v12; // r9
+  NTSTATUS v13; // ebx
+  PVOID v15; // r8
+  NTSTATUS v16; // eax
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v9 = RtlRunOnceBeginInitialize(RunOnce, 0, Context);
+  v13 = v9;
+  if ( v9 < 0 )
+    goto LABEL_12;
+  if ( v9 == 259 )
+  {
+    if ( ((unsigned int (__fastcall *)(PRTL_RUN_ONCE, PVOID, PVOID *))InitFn)(RunOnce, Parameter, Context) )
+    {
+      if ( Context )
+        v15 = *Context;
+      else
+        v15 = 0LL;
+      v13 = RtlRunOnceComplete(RunOnce, 0, v15);
+      if ( v13 >= 0 )
+      {
+        v13 = 0;
+        goto LABEL_3;
+      }
+    }
+    else
+    {
+      v13 = -1073741823;
+      v16 = RtlRunOnceComplete(RunOnce, 4u, 0LL);
+      if ( v16 >= 0 )
+        goto LABEL_3;
+      v13 = v16;
+    }
+LABEL_12:
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
+    RtlRaiseStatus(v13);
+  }
+LABEL_3:
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v10, v11, v12);
+  return v13;
+}

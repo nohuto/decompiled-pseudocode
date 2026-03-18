@@ -1,0 +1,30 @@
+/*
+ * XREFs of MiDereferenceSubsectionProtos @ 0x14070A6BC
+ * Callers:
+ *     MiDereferencePerSessionProtos @ 0x14070A60C (MiDereferencePerSessionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14070A724 (MiCreatePerSessionProtos.c)
+ * Callees:
+ *     MiLocateSessionProtosInSubsection @ 0x14035CBF4 (MiLocateSessionProtosInSubsection.c)
+ *     MiUpdatePerSessionProto @ 0x14035CC20 (MiUpdatePerSessionProto.c)
+ */
+
+void __fastcall MiDereferenceSubsectionProtos(__int64 a1, unsigned int a2, __int64 *a3)
+{
+  __int64 *SessionProtosInSubsection; // rax
+  __int64 *v6; // rcx
+  __int64 *v7; // rbx
+
+  if ( (*(_BYTE *)(a1 + 34) & 2) != 0 )
+  {
+    SessionProtosInSubsection = MiLocateSessionProtosInSubsection(a1, a2);
+    v7 = SessionProtosInSubsection;
+    if ( (*((_DWORD *)SessionProtosInSubsection + 20))-- == 1 )
+    {
+      MiUpdatePerSessionProto(*v6, a1, (__int64)SessionProtosInSubsection, 0);
+      *((_DWORD *)v7 + 20) = *(_DWORD *)(a1 + 44);
+      *v7 = *a3;
+      v7[8] = a1;
+      *a3 = (__int64)v7;
+    }
+  }
+}

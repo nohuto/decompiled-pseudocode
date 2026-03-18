@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?ModeFromCeaVideoFormat@EDID_MODES@MonDescParser@@QEAAJPEBU_EDID_V1_CEA_861_SHORT_VIDEO_DESC@@PEAU_VideoModeDescriptor@@@Z @ 0x1C0060C20
+ * Callers:
+ *     ?ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z @ 0x1C001E994 (-ObtainSupportedModes@EDID_MODES@MonDescParser@@QEAAJPEAG0PEAU_VideoModeDescriptor@@@Z.c)
+ * Callees:
+ *     ?GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z @ 0x1C001F020 (-GTF_GetVideoModeDescriptor@@YAJGGKKEPEAU_VideoModeDescriptor@@@Z.c)
+ */
+
+__int64 __fastcall MonDescParser::EDID_MODES::ModeFromCeaVideoFormat(
+        UCHAR *this,
+        const struct _EDID_V1_CEA_861_SHORT_VIDEO_DESC *a2,
+        struct _VideoModeDescriptor *a3)
+{
+  char v5; // cl
+  __int64 result; // rax
+  __int64 v7; // r10
+
+  v5 = *(_BYTE *)a2;
+  if ( (*(_BYTE *)a2 & 0x7Fu) >= 0x3F )
+    return 3223126018LL;
+  *(_OWORD *)&a3->PixelClockRate = 0LL;
+  *(_OWORD *)&a3->HorizontalRefreshRateDenominator = 0LL;
+  *(_OWORD *)&a3->HorizontalSyncPulseWidth = 0LL;
+  v7 = 28LL * (v5 & 0x7F);
+  *(_QWORD *)&a3->IsSyncOnRGB = 0LL;
+  a3->HorizontalImageSize = *(unsigned __int8 *)(**(_QWORD **)this + 21LL);
+  a3->VerticalImageSize = *(unsigned __int8 *)(**(_QWORD **)this + 22LL);
+  result = GTF_GetVideoModeDescriptor(
+             *(_WORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 8],
+             *(_WORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 12],
+             *(_DWORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 20],
+             *(_DWORD *)&MonDescParser::CeaVideoFormatEntries[v7 + 24],
+             MonDescParser::CeaVideoFormatEntries[v7 + 16],
+             a3);
+  if ( (int)result >= 0 )
+  {
+    *(_DWORD *)&a3->StereoModeType = 33685504;
+    *(_DWORD *)&a3->CompositePolarityType = 453116418;
+    a3->Origin = this[8];
+    result = 0LL;
+    a3->TimingType = 1;
+  }
+  return result;
+}

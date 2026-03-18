@@ -1,0 +1,99 @@
+/*
+ * XREFs of ?GetNumDescriptors@DXGK_MONITORDESCRIPTORSET_INTERFACE_V1_IMPL@@CAJQEAUD3DKMDT_HMONITORDESCRIPTORSET__@@QEA_K@Z @ 0x1C0215F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B780 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000D9B8 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0011D60 (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ??0?$RESOURCE_LOCK@VMonitorDescriptorState@DxgMonitor@@@@QEAA@PEAVMonitorDescriptorState@DxgMonitor@@_N@Z @ 0x1C001CB44 (--0-$RESOURCE_LOCK@VMonitorDescriptorState@DxgMonitor@@@@QEAA@PEAVMonitorDescriptorState@DxgMoni.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002B284 (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall DXGK_MONITORDESCRIPTORSET_INTERFACE_V1_IMPL::GetNumDescriptors(
+        struct D3DKMDT_HMONITORDESCRIPTORSET__ *const a1,
+        unsigned __int64 *const a2,
+        __int64 a3)
+{
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rax
+  int MonitorFromHandle; // eax
+  PERESOURCE v9; // rbx
+  struct _ERESOURCE *v10; // rbx
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  unsigned int v13; // eax
+  unsigned int v14; // edi
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  int v18; // [rsp+20h] [rbp-20h] BYREF
+  __int64 v19; // [rsp+28h] [rbp-18h]
+  char v20; // [rsp+30h] [rbp-10h]
+  PERESOURCE Resource; // [rsp+50h] [rbp+10h] BYREF
+
+  v18 = -1;
+  v19 = 0LL;
+  if ( (qword_1C012F870 & 2) != 0 )
+  {
+    v20 = 1;
+    v18 = 7027;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)a1, &EventProfilerEnter, a3, 7027);
+  }
+  else
+  {
+    v20 = 0;
+  }
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v18, 7027);
+  v7 = WdLogNewEntry5_WdTrace(v6, v5);
+  *(_QWORD *)(v7 + 24) = a1;
+  *(_QWORD *)(v7 + 32) = a2;
+  if ( a2 )
+  {
+    *a2 = 0LL;
+    Resource = 0LL;
+    MonitorFromHandle = MONITOR_MGR::_GetMonitorFromHandle((struct HDXGMONITOR__ *)a1, (struct DXGMONITOR **)&Resource);
+    if ( MonitorFromHandle == -1073741816 )
+    {
+      WdLogSingleEntry1(2LL, a1);
+      v14 = -1071774934;
+    }
+    else
+    {
+      if ( MonitorFromHandle < 0 )
+        WdLogSingleEntry0(1LL);
+      v9 = Resource;
+      if ( !Resource )
+        WdLogSingleEntry0(1LL);
+      RESOURCE_LOCK<DxgMonitor::MonitorDescriptorState>::RESOURCE_LOCK<DxgMonitor::MonitorDescriptorState>(
+        &Resource,
+        (struct _ERESOURCE *)v9[2].SystemResourcesList.Blink,
+        0);
+      v10 = Resource;
+      v11 = *(_QWORD *)&Resource[1].ActiveCount;
+      if ( v11 && (v12 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v11 + 8LL))(v11)) != 0 )
+        v13 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v12 + 24LL))(v12);
+      else
+        v13 = 0;
+      *a2 = v13;
+      v14 = 0;
+      ExReleaseResourceLite(v10);
+      KeLeaveCriticalRegion();
+    }
+  }
+  else
+  {
+    WdLogSingleEntry2(2LL, 0LL, a1);
+    v14 = -1073741811;
+  }
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v18);
+  if ( v20 )
+  {
+    LOBYTE(v15) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v15, &EventProfilerExit, v16, v18);
+  }
+  return v14;
+}

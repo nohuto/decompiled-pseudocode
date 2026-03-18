@@ -1,0 +1,39 @@
+/*
+ * XREFs of FsRtlpHeatUnregisterVolume @ 0x1405F56A0
+ * Callers:
+ *     FsRtlHeatUninit @ 0x1405F54EC (FsRtlHeatUninit.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x14003F890 (ExAcquireResourceExclusiveLite.c)
+ *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall FsRtlpHeatUnregisterVolume(_QWORD *a1)
+{
+  __int64 *i; // rcx
+  __int64 v3; // rdx
+  __int64 *v5; // rdx
+  __int64 **v6; // rax
+
+  ExAcquireResourceExclusiveLite(&Resource, 1u);
+  for ( i = (__int64 *)FsRtlTieringHeatData; i != &FsRtlTieringHeatData; i = (__int64 *)*i )
+  {
+    v3 = *(__int64 *)((char *)i + 20) - *a1;
+    if ( !v3 )
+      v3 = *(__int64 *)((char *)i + 28) - a1[1];
+    if ( !v3 )
+    {
+      if ( (*((_DWORD *)i + 4))-- == 1 )
+      {
+        v5 = (__int64 *)*i;
+        v6 = (__int64 **)i[1];
+        if ( *(__int64 **)(*i + 8) != i || *v6 != i )
+          __fastfail(3u);
+        *v6 = v5;
+        v5[1] = (__int64)v6;
+        ExFreePoolWithTag(i, 0x68745346u);
+      }
+      break;
+    }
+  }
+  ExReleaseResourceLite(&Resource);
+}

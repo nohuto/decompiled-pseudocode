@@ -1,0 +1,17 @@
+/*
+ * XREFs of UserSetWindowedSwapChainApiExt @ 0x1C02333D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 (*UserSetWindowedSwapChainApiExt())(void)
+{
+  __int64 (*result)(void); // rax
+
+  result = qword_1C0296110;
+  if ( qword_1C0296110 )
+    return (__int64 (*)(void))qword_1C0296110();
+  return result;
+}

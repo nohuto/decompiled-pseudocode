@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z @ 0x180255058
+ * Callers:
+ *     ?ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN@@@Z @ 0x180255600 (-ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPH.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800393BC (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x1800A0618 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?AttachExclusiveSwapChain@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z @ 0x180251284 (-AttachExclusiveSwapChain@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z.c)
+ */
+
+__int64 __fastcall CHolographicExclusiveView::AttachSwapChain(RTL_SRWLOCK *this, struct CResource *a2)
+{
+  int v2; // edi
+  RTL_SRWLOCK *v5; // rbx
+  int v6; // eax
+  __int64 v7; // rcx
+  CHolographicInteropTaskQueue **Ptr; // rcx
+
+  v2 = 0;
+  if ( a2 )
+  {
+    v5 = this + 50;
+    AcquireSRWLockExclusive(this + 50);
+    this[10].Ptr = a2;
+    v6 = CResource::RegisterNotifier((CResource *)this, a2);
+    v2 = v6;
+    if ( v6 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0x17Eu, 0LL);
+    }
+    else
+    {
+      Ptr = (CHolographicInteropTaskQueue **)this[7].Ptr;
+      if ( Ptr )
+        CHolographicManager::AttachExclusiveSwapChain(Ptr, (struct IUnknown *)this);
+    }
+    ReleaseSRWLockExclusive(v5);
+    if ( v2 < 0 )
+      this[10].Ptr = 0LL;
+  }
+  return (unsigned int)v2;
+}

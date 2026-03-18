@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?CreatePathPersistentMonitorsIfNeeded@@YAJIPEBUD3DKMT_GETPATHSMODALITY@@PEAG@Z @ 0x1C00C1B18
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C0065F30 (DrvSetDisplayConfig.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CreatePathPersistentMonitorsIfNeeded(
+        __int64 a1,
+        const struct D3DKMT_GETPATHSMODALITY *a2,
+        unsigned __int16 *a3)
+{
+  int v5; // ebp
+  unsigned int i; // r14d
+  __int64 v7; // rdi
+  __int64 v8; // rcx
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  __int64 v12; // [rsp+20h] [rbp-38h]
+
+  v5 = 0;
+  if ( a3 )
+    *a3 = 0;
+  for ( i = 0; i < *((unsigned __int16 *)a2 + 10); ++i )
+  {
+    v7 = 296LL * i;
+    v8 = *(_QWORD *)((char *)a2 + v7 + 56);
+    if ( (v8 & 0x1100000000000000LL) != 0x100000000000000LL )
+    {
+      if ( (v8 & 0x200000000000000LL) != 0 )
+      {
+        v5 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64, __int64))qword_1C0296740)(
+               *(_QWORD *)((char *)a2 + v7 + 72),
+               *(unsigned int *)((char *)a2 + v7 + 84),
+               0LL,
+               2LL,
+               v12);
+        if ( v5 < 0 )
+        {
+          WdLogSingleEntry4(4LL, *((int *)a2 + 74 * i + 19), *((unsigned int *)a2 + 74 * i + 18));
+          return (unsigned int)v5;
+        }
+        if ( (*(_QWORD *)((_BYTE *)a2 + v7 + 56) & 0x1000000000000000LL) != 0 )
+        {
+          WdLogSingleEntry3(
+            5LL,
+            *(int *)((char *)a2 + v7 + 76),
+            *(unsigned int *)((char *)a2 + v7 + 72),
+            *(unsigned int *)((char *)a2 + v7 + 84));
+        }
+        else if ( a3 )
+        {
+          ++*a3;
+        }
+      }
+      else
+      {
+        v10 = *(int *)((char *)a2 + v7 + 76);
+        v11 = *(unsigned int *)((char *)a2 + v7 + 84);
+        if ( (v8 & 0x1000000000000000LL) == 0 )
+        {
+          WdLogSingleEntry3(4LL, v11, v10, *(unsigned int *)((char *)a2 + v7 + 72));
+          return (unsigned int)-1073741811;
+        }
+        v12 = 1LL;
+        WdLogSingleEntry4(4LL, v11, v10);
+      }
+    }
+  }
+  return (unsigned int)v5;
+}

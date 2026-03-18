@@ -1,0 +1,66 @@
+/*
+ * XREFs of ExWaitForRundownProtectionRelease @ 0x140040D50
+ * Callers:
+ *     PfSnDeactivateTrace @ 0x14007A440 (PfSnDeactivateTrace.c)
+ *     NtShutdownWorkerFactory @ 0x140085388 (NtShutdownWorkerFactory.c)
+ *     PfFileInfoNotify @ 0x14008D1A0 (PfFileInfoNotify.c)
+ *     CmpTryToRundownHive @ 0x1400A1F10 (CmpTryToRundownHive.c)
+ *     IoStopDiskIoAttributionForContext @ 0x1400CD8D4 (IoStopDiskIoAttributionForContext.c)
+ *     BgkNotifyDisplayOwnershipChange @ 0x140164C40 (BgkNotifyDisplayOwnershipChange.c)
+ *     MiModifiedPageWriter @ 0x14017CFC0 (MiModifiedPageWriter.c)
+ *     BgkpDisableConsole @ 0x140231798 (BgkpDisableConsole.c)
+ *     PfFbBufferListShutdown @ 0x140271230 (PfFbBufferListShutdown.c)
+ *     DbgpRemoveDebugPrintCallback @ 0x140286508 (DbgpRemoveDebugPrintCallback.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1402A2A64 (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     PfTAccessTracingCleanup @ 0x1404780E0 (PfTAccessTracingCleanup.c)
+ *     IoShutdownSystem @ 0x1404812F8 (IoShutdownSystem.c)
+ *     PspIoRateEntryDeactivate @ 0x140489E6C (PspIoRateEntryDeactivate.c)
+ *     PfSnPowerBoost @ 0x14048C930 (PfSnPowerBoost.c)
+ *     PfSnPrefetchSections @ 0x14048F0B8 (PfSnPrefetchSections.c)
+ *     PfSnPrefetchSectionsCleanup @ 0x14048F364 (PfSnPrefetchSectionsCleanup.c)
+ *     CmLoadAppKey @ 0x14049C2A8 (CmLoadAppKey.c)
+ *     PspExitThread @ 0x1404B8D70 (PspExitThread.c)
+ *     ExpWnfDeleteSubscription @ 0x1405115F8 (ExpWnfDeleteSubscription.c)
+ *     SmKmStoreAdd @ 0x14052B218 (SmKmStoreAdd.c)
+ *     PspIoRateEntryInitialize @ 0x140530244 (PspIoRateEntryInitialize.c)
+ *     PspRundownSingleProcess @ 0x1405322EC (PspRundownSingleProcess.c)
+ *     SmKmStoreDelete @ 0x140539560 (SmKmStoreDelete.c)
+ *     CmpPerformUnloadKey @ 0x14054D0B4 (CmpPerformUnloadKey.c)
+ *     ExpWnfFreeScopeInstance @ 0x14056705C (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfDeleteNameInstance @ 0x140567528 (ExpWnfDeleteNameInstance.c)
+ *     ObDestroyHandleRevocationBlock @ 0x14056FD8C (ObDestroyHandleRevocationBlock.c)
+ *     PfSnPrefetchScenario @ 0x1405781C0 (PfSnPrefetchScenario.c)
+ *     IoDiskIoAttributionAllocate @ 0x14057D838 (IoDiskIoAttributionAllocate.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140628520 (PspSetCreateProcessNotifyRoutine.c)
+ *     ExRegisterHost @ 0x1406423DC (ExRegisterHost.c)
+ *     CmShutdownSystem @ 0x1406EFFE4 (CmShutdownSystem.c)
+ *     DbgkLkmdUnregisterCallback @ 0x140711BB0 (DbgkLkmdUnregisterCallback.c)
+ *     ObUnRegisterCallbacks @ 0x140759D40 (ObUnRegisterCallbacks.c)
+ *     PfpRpShutdown @ 0x14075C858 (PfpRpShutdown.c)
+ *     PoUnregisterCoalescingCallback @ 0x140761490 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x14077E100 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x14077E200 (PsRemoveLoadImageNotifyRoutine.c)
+ *     PdcNotificationClientUnregister @ 0x14078BB20 (PdcNotificationClientUnregister.c)
+ *     SmKmCleanup @ 0x14079CEC0 (SmKmCleanup.c)
+ *     SmcCacheInitialize @ 0x14079F328 (SmcCacheInitialize.c)
+ *     SmcCacheRemove @ 0x14079F5C0 (SmcCacheRemove.c)
+ *     SmcStoreDelete @ 0x14079FBE0 (SmcStoreDelete.c)
+ *     EtwpCoverageSamplerStop @ 0x1407B8748 (EtwpCoverageSamplerStop.c)
+ *     ExWaitForCallBacks @ 0x1407BEA78 (ExWaitForCallBacks.c)
+ *     ExUnregisterExtension @ 0x1407C6170 (ExUnregisterExtension.c)
+ *     PfInitializeSuperfetch @ 0x1408C032C (PfInitializeSuperfetch.c)
+ *     PfpRpInitialize @ 0x1408C087C (PfpRpInitialize.c)
+ *     SmGlobalsInitialize @ 0x1408C17A4 (SmGlobalsInitialize.c)
+ *     EtwpInitializeCoverageSampler @ 0x1408C8D9C (EtwpInitializeCoverageSampler.c)
+ * Callees:
+ *     ExfWaitForRundownProtectionRelease @ 0x1400A9C20 (ExfWaitForRundownProtectionRelease.c)
+ */
+
+void __stdcall ExWaitForRundownProtectionRelease(PEX_RUNDOWN_REF RunRef)
+{
+  unsigned __int64 v1; // rax
+
+  v1 = _InterlockedCompareExchange64((volatile signed __int64 *)RunRef, 1LL, 0LL);
+  if ( v1 >= 2 )
+    ExfWaitForRundownProtectionRelease(RunRef, v1);
+}

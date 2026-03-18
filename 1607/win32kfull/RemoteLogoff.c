@@ -1,0 +1,17 @@
+/*
+ * XREFs of RemoteLogoff @ 0x1C01FA140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall RemoteLogoff(__int64 a1)
+{
+  if ( PsGetCurrentProcess(a1) != gpepCSRSS )
+    return 3221225506LL;
+  gdwHydraHint |= 0x40u;
+  PostWinlogonMessage(3LL, 4LL);
+  return 0LL;
+}

@@ -1,0 +1,46 @@
+/*
+ * XREFs of WbProcessStartup @ 0x14045B80C
+ * Callers:
+ *     WbDispatchOperation @ 0x14053BA60 (WbDispatchOperation.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
+ *     WbAlloc @ 0x14053BF78 (WbAlloc.c)
+ */
+
+__int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
+{
+  int v5; // ebx
+  unsigned __int64 v6; // rax
+  __int64 v7; // rax
+  int v8; // eax
+
+  if ( a3 >= 0x10 && *a2 == 8LL )
+  {
+    v5 = WbAlloc(0x18uLL);
+    if ( v5 >= 0 )
+    {
+      v6 = a2[1];
+      if ( v6 + 24 > 0x7FFFFFFF0000LL || v6 + 24 < v6 )
+        MEMORY[0x7FFFFFFF0000] = 0;
+      v7 = a2[1];
+      MEMORY[0] = *(_OWORD *)v7;
+      MEMORY[0x10] = *(_QWORD *)(v7 + 16);
+      if ( MEMORY[0] )
+      {
+        return (unsigned int)-1073741811;
+      }
+      else if ( *(_DWORD *)(a1 + 56) )
+      {
+        v8 = 60;
+        if ( MEMORY[4] < 0x3Cu )
+          v8 = MEMORY[4];
+        *(_DWORD *)(a1 + 56) = v8;
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return (unsigned int)v5;
+}

@@ -1,0 +1,38 @@
+/*
+ * XREFs of KeEnumerateProcessorDpcs @ 0x14020765C
+ * Callers:
+ *     DbgkpLkmdSnapGlobals @ 0x1401E60EC (DbgkpLkmdSnapGlobals.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x140061000 (KxAcquireSpinLock.c)
+ *     KxReleaseSpinLock @ 0x140061030 (KxReleaseSpinLock.c)
+ *     _guard_dispatch_icall @ 0x140189900 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall KeEnumerateProcessorDpcs(int a1, __int64 a2, __int64 a3)
+{
+  __int64 v4; // rbx
+  unsigned __int8 CurrentIrql; // r14
+  KSPIN_LOCK *v6; // rbx
+  __int64 v7; // rsi
+  _QWORD *i; // rdi
+  __int64 result; // rax
+
+  v4 = KiProcessorBlock[a1];
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xFuLL);
+  v6 = (KSPIN_LOCK *)(v4 + 11792);
+  v7 = 2LL;
+  do
+  {
+    KxAcquireSpinLock(v6);
+    for ( i = (_QWORD *)*(v6 - 2); i; i = (_QWORD *)*i )
+      (*(void (__fastcall **)(__int64, _QWORD *, __int64))(a3 + 10304))(a3 + 10240, i - 1, 64LL);
+    KxReleaseSpinLock(v6);
+    v6 += 5;
+    --v7;
+  }
+  while ( v7 );
+  result = CurrentIrql;
+  __writecr8(CurrentIrql);
+  return result;
+}

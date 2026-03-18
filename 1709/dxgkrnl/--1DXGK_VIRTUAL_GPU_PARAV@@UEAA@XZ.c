@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1DXGK_VIRTUAL_GPU_PARAV@@UEAA@XZ @ 0x1C0024A80
+ * Callers:
+ *     ??_EDXGK_VIRTUAL_GPU_PARAV@@UEAAPEAXI@Z @ 0x1C0024AB0 (--_EDXGK_VIRTUAL_GPU_PARAV@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?DestroyVirtualGpu@DXGK_VIRTUAL_GPU_PARAV@@UEAAXE@Z @ 0x1C018DF20 (-DestroyVirtualGpu@DXGK_VIRTUAL_GPU_PARAV@@UEAAXE@Z.c)
+ */
+
+void __fastcall DXGK_VIRTUAL_GPU_PARAV::~DXGK_VIRTUAL_GPU_PARAV(DXGK_VIRTUAL_GPU_PARAV *this)
+{
+  *(_QWORD *)this = &DXGK_VIRTUAL_GPU_PARAV::`vftable';
+  DXGK_VIRTUAL_GPU_PARAV::DestroyVirtualGpu(this, 1u);
+  *(_QWORD *)this = &DXGK_VIRTUAL_GPU::`vftable';
+}

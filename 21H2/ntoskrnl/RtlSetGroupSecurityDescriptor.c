@@ -1,0 +1,51 @@
+/*
+ * XREFs of RtlSetGroupSecurityDescriptor @ 0x14078ED60
+ * Callers:
+ *     RtlCheckTokenCapability @ 0x140201400 (RtlCheckTokenCapability.c)
+ *     RtlCheckTokenMembershipEx @ 0x1402E0CA0 (RtlCheckTokenMembershipEx.c)
+ *     _CmGetRegKeySecurityDescriptor @ 0x1407438D8 (_CmGetRegKeySecurityDescriptor.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x140743C8C (_PnpGetPropertiesSecurityDescriptor.c)
+ *     LocalConvertStringSDToSD_Rev1 @ 0x140743E60 (LocalConvertStringSDToSD_Rev1.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x14085C290 (_PnpGetEnumSecurityDescriptor.c)
+ *     CmpCopySaclToVirtualKey @ 0x14091822C (CmpCopySaclToVirtualKey.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x140918670 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     PiAuCheckTokenMembership @ 0x140949950 (PiAuCheckTokenMembership.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x140949AF8 (PiAuGetServiceStateSecurityObject.c)
+ *     PiAuGetStateDirectorySecurityObject @ 0x140949D40 (PiAuGetStateDirectorySecurityObject.c)
+ *     DrvDbGetSecurityDescriptor @ 0x140A305C4 (DrvDbGetSecurityDescriptor.c)
+ *     SeMakeSystemToken @ 0x140B1E75C (SeMakeSystemToken.c)
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B1ED10 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140B1EFA0 (SeMakeAnonymousLogonToken.c)
+ *     SepInitSystemDacls @ 0x140B2114C (SepInitSystemDacls.c)
+ *     PiAuCreateLocalSystemSecurityObject @ 0x140B22228 (PiAuCreateLocalSystemSecurityObject.c)
+ *     PiAuCreateStandardSecurityObject @ 0x140B225D8 (PiAuCreateStandardSecurityObject.c)
+ *     WmipInitializeSecurity @ 0x140B22DD4 (WmipInitializeSecurity.c)
+ *     PiAuGetDriverDataDirectorySecurityObject @ 0x140B2888C (PiAuGetDriverDataDirectorySecurityObject.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall RtlSetGroupSecurityDescriptor(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID Group,
+        BOOLEAN GroupDefaulted)
+{
+  __int16 v4; // cx
+  PSID v5; // rax
+  __int16 v6; // cx
+
+  if ( *(_BYTE *)SecurityDescriptor != 1 )
+    return -1073741736;
+  v4 = *((_WORD *)SecurityDescriptor + 1);
+  if ( v4 < 0 )
+    return -1073741703;
+  v5 = 0LL;
+  if ( Group )
+    v5 = Group;
+  *((_QWORD *)SecurityDescriptor + 2) = v5;
+  v6 = v4 & 0xFFFD;
+  *((_WORD *)SecurityDescriptor + 1) = v6;
+  if ( GroupDefaulted )
+    *((_WORD *)SecurityDescriptor + 1) = v6 | 2;
+  return 0;
+}

@@ -1,0 +1,159 @@
+/*
+ * XREFs of NtQueryBootOptions @ 0x14094FA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x1402486B0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14025BC80 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14025BE10 (ExReleaseFastMutexUnsafe.c)
+ *     SeSinglePrivilegeCheck @ 0x1405E3050 (SeSinglePrivilegeCheck.c)
+ *     ProbeForWrite @ 0x1405E9480 (ProbeForWrite.c)
+ *     IoGetEnvironmentVariableEx @ 0x1408954AC (IoGetEnvironmentVariableEx.c)
+ */
+
+__int64 __fastcall NtQueryBootOptions(_DWORD *Address, _DWORD *a2)
+{
+  __int64 v5; // rcx
+  unsigned int v6; // ebx
+  unsigned int v7; // ebx
+  struct _KTHREAD *v8; // rax
+  unsigned int EnvironmentVariable; // eax
+  int v10; // eax
+  unsigned int v11; // eax
+  unsigned int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // r8
+  __int64 v15; // r9
+  unsigned int v16; // [rsp+30h] [rbp-48h] BYREF
+  unsigned int v17; // [rsp+34h] [rbp-44h] BYREF
+  int v18; // [rsp+3Ch] [rbp-3Ch] BYREF
+  int v19; // [rsp+40h] [rbp-38h] BYREF
+  unsigned int v20; // [rsp+44h] [rbp-34h]
+  struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-20h]
+  KPROCESSOR_MODE PreviousMode; // [rsp+90h] [rbp+18h]
+
+  v17 = 0;
+  v18 = 0;
+  v19 = 0;
+  if ( dword_140C19730 != 2 )
+    return 3221225474LL;
+  CurrentThread = KeGetCurrentThread();
+  PreviousMode = CurrentThread->PreviousMode;
+  if ( PreviousMode )
+  {
+    v5 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
+      v5 = (__int64)a2;
+    *(_DWORD *)v5 = *(_DWORD *)v5;
+    v6 = Address != 0LL ? *a2 : 0;
+    v20 = v6;
+    if ( v6 )
+      ProbeForWrite(Address, v6, 4u);
+    if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
+      return 3221225569LL;
+  }
+  else
+  {
+    v6 = Address != 0LL ? *a2 : 0;
+    v20 = v6;
+  }
+  if ( v6 >= 0x16 )
+  {
+    v8 = KeGetCurrentThread();
+    --v8->KernelApcDisable;
+    ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
+    v16 = 4;
+    EnvironmentVariable = IoGetEnvironmentVariableEx(
+                            (const size_t *)L"Timeout",
+                            (__int64)&EfiBootVariablesGuid,
+                            (__int64)&v17,
+                            (int *)&v16,
+                            0LL);
+    v7 = EnvironmentVariable;
+    if ( EnvironmentVariable == -1073741789 )
+    {
+      v17 = -2;
+LABEL_24:
+      v16 = 4;
+      v11 = IoGetEnvironmentVariableEx(
+              (const size_t *)L"BootCurrent",
+              (__int64)&EfiBootVariablesGuid,
+              (__int64)&v18,
+              (int *)&v16,
+              0LL);
+      v7 = v11;
+      if ( v11 == -1073741789 || v11 == -1073741568 )
+      {
+        v18 = -2;
+LABEL_30:
+        v16 = 2;
+        v12 = IoGetEnvironmentVariableEx(
+                (const size_t *)L"BootNext",
+                (__int64)&EfiBootVariablesGuid,
+                (__int64)&v19,
+                (int *)&v16,
+                0LL);
+        v7 = v12;
+        if ( v12 == -1073741789 || v12 == -1073741568 )
+        {
+          v19 = -2;
+          v7 = 0;
+        }
+        else if ( !v12 && v16 > 2 )
+        {
+          v19 = (unsigned __int16)v19;
+        }
+        goto LABEL_36;
+      }
+      if ( !v11 )
+      {
+        if ( v16 > 2 )
+          v18 = (unsigned __int16)v18;
+        goto LABEL_30;
+      }
+LABEL_36:
+      ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
+      KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v13, v14, v15);
+      goto LABEL_37;
+    }
+    if ( EnvironmentVariable != -1073741568 )
+    {
+      if ( EnvironmentVariable )
+        goto LABEL_36;
+      if ( v16 <= 2 )
+      {
+LABEL_21:
+        if ( v17 != 0xFFFF )
+          goto LABEL_24;
+        goto LABEL_22;
+      }
+      v10 = v17;
+      if ( v17 != -1 )
+      {
+        if ( v17 > 0xFFFE )
+          v10 = 65534;
+        v17 = v10;
+        goto LABEL_21;
+      }
+    }
+LABEL_22:
+    v17 = -1;
+    goto LABEL_24;
+  }
+  v7 = -1073741789;
+LABEL_37:
+  if ( !v7 )
+  {
+    if ( Address )
+    {
+      *Address = 1;
+      Address[1] = 22;
+      Address[2] = v17;
+      Address[3] = v18;
+      Address[4] = v19;
+      *((_WORD *)Address + 10) = 0;
+    }
+  }
+  *a2 = 22;
+  return v7;
+}

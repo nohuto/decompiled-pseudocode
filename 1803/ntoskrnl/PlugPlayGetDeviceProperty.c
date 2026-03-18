@@ -1,0 +1,45 @@
+/*
+ * XREFs of PlugPlayGetDeviceProperty @ 0x14057AC70
+ * Callers:
+ *     PiPnpRtlGetDeviceNtPropertyRoutine @ 0x14057AC30 (PiPnpRtlGetDeviceNtPropertyRoutine.c)
+ * Callees:
+ *     ZwPlugPlayControl @ 0x1401A9A20 (ZwPlugPlayControl.c)
+ *     memset @ 0x1401BCC40 (memset.c)
+ */
+
+__int64 __fastcall PlugPlayGetDeviceProperty(__int128 *a1, int a2, __int64 a3, unsigned int a4, _DWORD *a5, int a6)
+{
+  int v6; // ebx
+  __int128 v11; // xmm0
+  NTSTATUS v12; // ebp
+  int v13; // ecx
+  _OWORD Buffer[3]; // [rsp+20h] [rbp-48h] BYREF
+
+  v6 = 0;
+  if ( !a1 || !a5 || a6 )
+    return 3221225485LL;
+  memset(Buffer, 0, 0x28uLL);
+  v11 = *a1;
+  LODWORD(Buffer[1]) = a2;
+  *((_QWORD *)&Buffer[1] + 1) = a3;
+  LODWORD(Buffer[2]) = a4;
+  Buffer[0] = v11;
+  v12 = ZwPlugPlayControl(PlugPlayControlProperty, Buffer, 0x28u);
+  if ( v12 < 0 )
+  {
+    if ( v12 == -1073741789 )
+      v6 = Buffer[2];
+    *a5 = v6;
+  }
+  else
+  {
+    v13 = Buffer[2];
+    if ( a4 > LODWORD(Buffer[2]) )
+    {
+      memset((void *)(a3 + LODWORD(Buffer[2])), 0, a4 - LODWORD(Buffer[2]));
+      v13 = Buffer[2];
+    }
+    *a5 = v13;
+  }
+  return (unsigned int)v12;
+}

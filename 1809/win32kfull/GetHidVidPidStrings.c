@@ -1,0 +1,19 @@
+/*
+ * XREFs of GetHidVidPidStrings @ 0x1C01BBAA8
+ * Callers:
+ *     GetTelemDeviceData @ 0x1C01BBB0C (GetTelemDeviceData.c)
+ *     _TelemPTPConfigUpdateEx @ 0x1C01BBF68 (_TelemPTPConfigUpdateEx.c)
+ *     GetHidTelemetryData @ 0x1C01D9D38 (GetHidTelemetryData.c)
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall GetHidVidPidStrings(__int64 a1, struct _UNICODE_STRING *a2, struct _UNICODE_STRING *a3)
+{
+  int result; // eax
+
+  result = RtlIntegerToUnicodeString(*(unsigned __int16 *)(*(_QWORD *)(a1 + 464) + 110LL), 0x10u, a2);
+  if ( result >= 0 )
+    return RtlIntegerToUnicodeString(*(unsigned __int16 *)(*(_QWORD *)(a1 + 464) + 112LL), 0x10u, a3);
+  return result;
+}

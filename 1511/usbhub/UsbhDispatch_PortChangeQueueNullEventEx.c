@@ -1,0 +1,15 @@
+/*
+ * XREFs of UsbhDispatch_PortChangeQueueNullEventEx @ 0x1C0016A50
+ * Callers:
+ *     UsbhHubRunPortChangeQueue @ 0x1C0016A90 (UsbhHubRunPortChangeQueue.c)
+ * Callees:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00170F0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ */
+
+__int64 __fastcall UsbhDispatch_PortChangeQueueNullEventEx(int a1, int a2, int a3, int a4, __int64 a5)
+{
+  int v6; // [rsp+40h] [rbp-18h]
+
+  v6 = 0;
+  return UsbhDispatch_PortChangeQueueEventEx(a1, a2, a3, a4, v6, 0, 0LL, a5);
+}

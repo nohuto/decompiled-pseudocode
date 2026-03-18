@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?TimerHandler@FxTimer@@QEAAXXZ @ 0x1C005C720
+ * Callers:
+ *     ?_FxTimerDpcThunk@FxTimer@@CAXPEAU_KDPC@@PEAX11@Z @ 0x1C00779B0 (-_FxTimerDpcThunk@FxTimer@@CAXPEAU_KDPC@@PEAX11@Z.c)
+ *     ?_FxTimerWorkItemCallback@FxTimer@@CAXPEAX@Z @ 0x1C0077A20 (-_FxTimerWorkItemCallback@FxTimer@@CAXPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall FxTimer::TimerHandler(FxTimer *this)
+{
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  void (__fastcall **p_m_Callback)(WDFTIMER__ *); // rdi
+  FxCallbackLock **p_m_CallbackLock; // r14
+  FxCallbackLock *m_CallbackLock; // rcx
+  _KTHREAD *volatile *p_m_CallbackThread; // rsi
+  unsigned __int64 v7; // rbx
+  __int64 v8; // rdx
+  unsigned __int64 v9; // rbx
+  unsigned __int8 irql; // [rsp+40h] [rbp+8h] BYREF
+
+  m_Globals = this->m_Globals;
+  if ( m_Globals->FxTrackDriverForMiniDumpLog )
+    *(_FX_DRIVER_GLOBALS *volatile *)((char *)&FxLibraryGlobals.DriverTracker.m_DriverUsage->FxDriverGlobals
+                                    + PfnKeGetCurrentProcessorNumberEx(0LL) * FxLibraryGlobals.DriverTracker.m_EntrySize) = m_Globals;
+  p_m_Callback = &this->m_Callback;
+  if ( this->m_Callback )
+  {
+    p_m_CallbackLock = &this->m_CallbackLock;
+    m_CallbackLock = this->m_CallbackLock;
+    p_m_CallbackThread = &this->m_CallbackThread;
+    this->m_CallbackThread = KeGetCurrentThread();
+    if ( m_CallbackLock )
+    {
+      irql = 0;
+      m_CallbackLock->Lock(m_CallbackLock, &irql);
+      if ( this->m_ObjectSize )
+        v7 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+      else
+        v7 = 0LL;
+      (*p_m_Callback)((WDFTIMER__ *)v7);
+      LOBYTE(v8) = irql;
+      (*p_m_CallbackLock)->Unlock(*p_m_CallbackLock, v8);
+    }
+    else
+    {
+      if ( this->m_ObjectSize )
+        v9 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+      else
+        v9 = 0LL;
+      (*p_m_Callback)((WDFTIMER__ *)v9);
+    }
+    *p_m_CallbackThread = 0LL;
+  }
+}

@@ -1,0 +1,86 @@
+/*
+ * XREFs of ?EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0218F4C
+ * Callers:
+ *     ?EmitUpdateCommands@CGenericInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02190E0 (-EmitUpdateCommands@CGenericInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z @ 0x1C000B6D8 (-AllocateNewFragment@CBatch@DirectComposition@@SA_NPEAPEAV12@PEA_K@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0011E08 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memmove @ 0x1C00DE8C0 (memmove.c)
+ *     ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C0219200 (-GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ.c)
+ *     ?NeedsSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEBA_NXZ @ 0x1C0219224 (-NeedsSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEBA_NXZ.c)
+ */
+
+char __fastcall DirectComposition::CGenericInkMarshaler::EmitSegmentUpdate(
+        DirectComposition::CGenericInkMarshaler *this,
+        struct DirectComposition::CBatch ***a2)
+{
+  DirectComposition::CGenericInkMarshaler *v4; // rcx
+  unsigned int SegmentCount; // ebp
+  unsigned __int64 v7; // rcx
+  void *v8; // rax
+  unsigned __int64 v9; // rax
+  unsigned int v10; // esi
+  unsigned int v11; // ebx
+  char *v12; // r9
+  int v13; // ebx
+  unsigned int v14; // ebx
+  unsigned int v15; // eax
+  unsigned int v16; // ecx
+  void *v17; // [rsp+50h] [rbp+18h] BYREF
+
+  if ( !DirectComposition::CGenericInkMarshaler::NeedsSegmentUpdate(this) )
+    return 1;
+  SegmentCount = DirectComposition::CGenericInkMarshaler::GetSegmentCount(v4);
+  while ( 1 )
+  {
+    v7 = *((_QWORD *)this + 18) + 32LL;
+    v8 = (void *)(4096LL - *((_QWORD *)(*a2)[17] + 5));
+    v17 = v8;
+    if ( (unsigned __int64)v8 < v7 )
+    {
+      if ( !DirectComposition::CBatch::AllocateNewFragment(a2, (unsigned __int64 *)&v17) )
+        return !DirectComposition::CGenericInkMarshaler::NeedsSegmentUpdate(this);
+      v8 = v17;
+    }
+    v9 = ((unsigned __int64)v8 - 32) / *((_QWORD *)this + 18);
+    v10 = SegmentCount - *((_DWORD *)this + 39);
+    if ( v10 >= (unsigned int)v9 )
+      v10 = v9;
+    v17 = 0LL;
+    v11 = *((_DWORD *)this + 36) * v10 + 32;
+    if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, v11, &v17) )
+      break;
+    v12 = (char *)v17;
+    *(_DWORD *)v17 = v11;
+    v13 = *((_DWORD *)this + 39);
+    *(_OWORD *)(v12 + 4) = 0LL;
+    *(_QWORD *)(v12 + 20) = 0LL;
+    v14 = v10 + v13;
+    *((_DWORD *)v12 + 7) = 0;
+    *((_DWORD *)v12 + 1) = 150;
+    *((_DWORD *)v12 + 2) = *((_DWORD *)this + 8);
+    *((_DWORD *)v12 + 3) = *((_DWORD *)this + 39);
+    *((_DWORD *)v12 + 4) = v10;
+    *((_DWORD *)v12 + 6) = *((_DWORD *)this + 41);
+    *((_DWORD *)v12 + 7) = *((_DWORD *)this + 62);
+    v15 = *((_DWORD *)this + 38);
+    v16 = v15;
+    if ( v15 <= v14 )
+      v16 = v14;
+    *((_DWORD *)v12 + 5) = v16 - v15;
+    memmove(
+      v12 + 32,
+      (const void *)(*((_QWORD *)this + 13)
+                   + *((_QWORD *)this + 18) * *((_QWORD *)this + 17) * *((unsigned int *)this + 39)),
+      *((_QWORD *)this + 18) * *((_QWORD *)this + 17) * v10);
+    *((_BYTE *)this + 160) = 0;
+    *((_DWORD *)this + 39) = v14;
+    if ( v14 == SegmentCount )
+    {
+      *((_DWORD *)this + 4) |= 0x40u;
+      *((_DWORD *)this + 62) = 0;
+      return !DirectComposition::CGenericInkMarshaler::NeedsSegmentUpdate(this);
+    }
+  }
+  return !DirectComposition::CGenericInkMarshaler::NeedsSegmentUpdate(this);
+}

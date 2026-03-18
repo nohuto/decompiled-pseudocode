@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C012E668
+ * Callers:
+ *     xxxSetDeskWallpaper @ 0x1C012E514 (xxxSetDeskWallpaper.c)
+ * Callees:
+ *     xxxSendNotifyMessage @ 0x1C00AA4C0 (xxxSendNotifyMessage.c)
+ */
+
+__int64 xxxNotifyShellOfWallpaperChange(void)
+{
+  unsigned int v0; // ebx
+  __int64 v1; // rax
+  __int64 v2; // rcx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  _QWORD v6[5]; // [rsp+30h] [rbp-28h] BYREF
+
+  v0 = 0;
+  v1 = *(_QWORD *)(gptiCurrent + 408LL);
+  if ( v1 )
+  {
+    v2 = *(_QWORD *)(*(_QWORD *)(v1 + 8) + 160LL);
+    if ( v2 )
+    {
+      v6[0] = *(_QWORD *)(gptiCurrent + 368LL);
+      *(_QWORD *)(gptiCurrent + 368LL) = v6;
+      ++*(_DWORD *)(v2 + 8);
+      v6[1] = v2;
+      v0 = xxxSendNotifyMessage((struct tagWND *)v2, 0x34u, 4LL, 0LL, 1);
+      ThreadUnlock1(v4, v3);
+    }
+  }
+  return v0;
+}

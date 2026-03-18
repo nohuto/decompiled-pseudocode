@@ -1,0 +1,160 @@
+/*
+ * XREFs of NtAlpcOpenSenderProcess @ 0x140480FF8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x140020AB0 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x1400309E0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140042090 (KeAbPostRelease.c)
+ *     ObfDereferenceObjectWithTag @ 0x1400423C0 (ObfDereferenceObjectWithTag.c)
+ *     KeLeaveCriticalRegion @ 0x140042660 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140042920 (ObfDereferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x140042AE0 (ObfReferenceObjectWithTag.c)
+ *     KeAbPreAcquire @ 0x140042DA0 (KeAbPreAcquire.c)
+ *     RtlCompareMemory @ 0x14015BFC0 (RtlCompareMemory.c)
+ *     ObReferenceObjectByHandle @ 0x14040B9B0 (ObReferenceObjectByHandle.c)
+ *     AlpcpUnlockMessage @ 0x140423364 (AlpcpUnlockMessage.c)
+ *     AlpcpLookupMessage @ 0x140426D80 (AlpcpLookupMessage.c)
+ *     PsOpenProcess @ 0x140476110 (PsOpenProcess.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x14047E410 (AlpcpProbeAndCaptureMessageHeader.c)
+ */
+
+__int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int64 a3, int a4, ACCESS_MASK a5, __int128 *a6)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  KPROCESSOR_MODE PreviousMode; // r14
+  int v11; // ebx
+  PVOID v12; // rdi
+  _QWORD *v13; // rcx
+  __int128 *v14; // rdx
+  ULONG_PTR v15; // rbx
+  __int64 v16; // rsi
+  _QWORD *v17; // rsi
+  __int64 v19; // rsi
+  signed __int64 *v20; // rbx
+  __int64 v21; // rdi
+  PVOID v22; // rcx
+  PVOID Object; // [rsp+30h] [rbp-98h] BYREF
+  ULONG_PTR v24[2]; // [rsp+38h] [rbp-90h] BYREF
+  __int64 v25; // [rsp+48h] [rbp-80h] BYREF
+  __m128i Source2; // [rsp+50h] [rbp-78h] BYREF
+  __int128 v27; // [rsp+60h] [rbp-68h]
+  __int64 v28; // [rsp+70h] [rbp-58h]
+  __int128 v29; // [rsp+78h] [rbp-50h] BYREF
+  __int128 v30; // [rsp+88h] [rbp-40h]
+  __int128 v31; // [rsp+98h] [rbp-30h]
+  PVOID v32; // [rsp+A8h] [rbp-20h]
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v11 = ObReferenceObjectByHandle(a2, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+  v12 = Object;
+  v32 = Object;
+  if ( v11 < 0 )
+    goto LABEL_15;
+  if ( PreviousMode )
+  {
+    v13 = a1;
+    if ( (unsigned __int64)a1 >= MmUserProbeAddress )
+      v13 = (_QWORD *)MmUserProbeAddress;
+    *v13 = *v13;
+    AlpcpProbeAndCaptureMessageHeader((__m128i *)a3, (__int64)&Source2, a4);
+    v14 = a6;
+    if ( (unsigned __int64)a6 >= MmUserProbeAddress )
+      v14 = (__int128 *)MmUserProbeAddress;
+    v29 = *v14;
+    v30 = v14[1];
+    v31 = v14[2];
+    v12 = Object;
+  }
+  else
+  {
+    Source2 = *(__m128i *)a3;
+    v27 = *(_OWORD *)(a3 + 16);
+    v28 = *(_QWORD *)(a3 + 32);
+    v29 = *a6;
+    v30 = a6[1];
+    v31 = a6[2];
+  }
+  v11 = AlpcpLookupMessage((__int64)v12, DWORD2(v27), v28, v24);
+  if ( v11 < 0 )
+  {
+    ObfDereferenceObject(v12);
+    goto LABEL_15;
+  }
+  v15 = v24[0];
+  if ( (*(_DWORD *)(v24[0] + 40) & 0x80u) != 0 )
+  {
+    AlpcpUnlockMessage(v24[0]);
+    ObfDereferenceObject(v12);
+    v11 = -1073740029;
+    goto LABEL_15;
+  }
+  v16 = *(_QWORD *)(v24[0] + 32);
+  if ( v16 )
+  {
+    if ( RtlCompareMemory((const void *)(v16 + 1576), &Source2.m128i_u64[1], 0x10uLL) != 16 )
+    {
+      AlpcpUnlockMessage(v15);
+      ObfDereferenceObject(v12);
+      v11 = -1073741813;
+      goto LABEL_15;
+    }
+    v17 = *(_QWORD **)(v16 + 544);
+    ObfReferenceObjectWithTag(v17, 0x63706C41u);
+    goto LABEL_13;
+  }
+  v19 = *(_QWORD *)(v24[0] + 24);
+  if ( !v19 )
+  {
+    AlpcpUnlockMessage(v24[0]);
+    v22 = v12;
+    goto LABEL_32;
+  }
+  v20 = (signed __int64 *)(v19 + 352);
+  v21 = KeAbPreAcquire(v19 + 352, 0LL, 0LL);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v19 + 352), 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((unsigned __int64 *)(v19 + 352), v21, v19 + 352);
+  if ( v21 )
+    *(_BYTE *)(v21 + 26) |= 1u;
+  if ( (*(_DWORD *)(v19 + 416) & 0x40) == 0 )
+  {
+    v17 = *(_QWORD **)(v19 + 24);
+    if ( v17[93] == Source2.m128i_i64[1] )
+    {
+      ObfReferenceObjectWithTag(v17, 0x63706C41u);
+      if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+        ExfReleasePushLockShared(v20);
+      KeAbPostRelease((ULONG_PTR)v20);
+      v15 = v24[0];
+      v12 = Object;
+LABEL_13:
+      AlpcpUnlockMessage(v15);
+      v11 = PsOpenProcess(&v25, a5, (__int64)&v29, (__int128 *)&Source2.m128i_u64[1], 0, PreviousMode);
+      ObfDereferenceObjectWithTag(v17, 0x63706C41u);
+      ObfDereferenceObject(v12);
+      if ( v11 >= 0 )
+        *a1 = v25;
+      goto LABEL_15;
+    }
+    if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(v20);
+    KeAbPostRelease((ULONG_PTR)v20);
+    AlpcpUnlockMessage(v24[0]);
+    v22 = Object;
+LABEL_32:
+    ObfDereferenceObject(v22);
+    v11 = -1073741790;
+    goto LABEL_15;
+  }
+  if ( _InterlockedCompareExchange64(v20, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)(v19 + 352));
+  KeAbPostRelease(v19 + 352);
+  AlpcpUnlockMessage(v24[0]);
+  ObfDereferenceObject(Object);
+  v11 = -1073741769;
+LABEL_15:
+  KeLeaveCriticalRegion();
+  return (unsigned int)v11;
+}

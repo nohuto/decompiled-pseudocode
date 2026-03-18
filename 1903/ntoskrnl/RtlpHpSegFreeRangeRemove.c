@@ -1,0 +1,27 @@
+/*
+ * XREFs of RtlpHpSegFreeRangeRemove @ 0x14001F2AC
+ * Callers:
+ *     RtlpHpSegPageRangeCoalesce @ 0x14001EDE0 (RtlpHpSegPageRangeCoalesce.c)
+ *     RtlpHpSegContextCompact @ 0x14010B040 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1401767B4 (RtlpHpSegLargeRangeAllocate.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x140063870 (RtlRbRemoveNode.c)
+ */
+
+__int64 __fastcall RtlpHpSegFreeRangeRemove(__int64 a1, __int64 a2)
+{
+  unsigned __int16 v4; // ax
+  __int64 v5; // rdx
+  __int64 result; // rax
+
+  RtlRbRemoveNode(a1 + 96);
+  *(_QWORD *)a2 = 0LL;
+  *(_QWORD *)(a2 + 8) = 0LL;
+  *(_QWORD *)(a2 + 16) = 0LL;
+  v4 = ~(unsigned __int16)*(_DWORD *)(a2 + 28);
+  *(_DWORD *)a2 = -857879331;
+  v5 = v4;
+  result = *(__int16 *)(a1 + 22);
+  _InterlockedExchangeAdd64((volatile signed __int64 *)(result + a1 + 16), -v5);
+  return result;
+}

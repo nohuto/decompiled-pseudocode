@@ -1,0 +1,23 @@
+/*
+ * XREFs of KiIsIntelPebsSupported @ 0x1403ACA18
+ * Callers:
+ *     KeAllocateProcessorProfileStructures @ 0x1403AC860 (KeAllocateProcessorProfileStructures.c)
+ *     KeProcessorProfileControlArea @ 0x14050E80C (KeProcessorProfileControlArea.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall KiIsIntelPebsSupported(__int64 a1)
+{
+  unsigned __int64 v1; // rax
+  bool result; // al
+
+  result = 0;
+  if ( *(_BYTE *)(a1 + 141) == 2 )
+  {
+    v1 = __readmsr(0x1A0u);
+    if ( (v1 & 0x1080) == 0x80 )
+      return 1;
+  }
+  return result;
+}

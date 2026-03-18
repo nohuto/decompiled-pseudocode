@@ -1,0 +1,17 @@
+/*
+ * XREFs of IoRegisterDeviceInterface_0 @ 0x1C000FE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+NTSTATUS __stdcall IoRegisterDeviceInterface_0(
+        PDEVICE_OBJECT PhysicalDeviceObject,
+        const GUID *InterfaceClassGuid,
+        PUNICODE_STRING ReferenceString,
+        PUNICODE_STRING SymbolicLinkName)
+{
+  return IoRegisterDeviceInterface(PhysicalDeviceObject, InterfaceClassGuid, ReferenceString, SymbolicLinkName);
+}

@@ -1,0 +1,75 @@
+/*
+ * XREFs of PopEtEnergyContextSetState @ 0x140532154
+ * Callers:
+ *     PoEnergyContextUpdateComponentPower @ 0x140531AD4 (PoEnergyContextUpdateComponentPower.c)
+ *     PoSetProcessEnergyTrackingState @ 0x14057B25C (PoSetProcessEnergyTrackingState.c)
+ * Callees:
+ *     RtlStateDurationUpdate @ 0x14008A92C (RtlStateDurationUpdate.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x14052F950 (PopEtEnergyContextProcessStateUpdate.c)
+ *     RtlInternEntryDereference @ 0x140535108 (RtlInternEntryDereference.c)
+ *     PopEtStringSet @ 0x140538578 (PopEtStringSet.c)
+ *     PopEtStringIntern @ 0x140559704 (PopEtStringIntern.c)
+ */
+
+__int64 __fastcall PopEtEnergyContextSetState(_QWORD *a1, _DWORD *a2)
+{
+  int v2; // eax
+  __int64 v3; // rbp
+  __int64 v4; // rbx
+  char v7; // r14
+  int v8; // ecx
+  int v9; // edi
+  unsigned int v10; // edi
+  unsigned int v12; // r8d
+  _DWORD *v13; // rcx
+  __int64 v14; // rdx
+  int v15; // eax
+  __int64 v16; // [rsp+50h] [rbp+8h] BYREF
+
+  v2 = a2[3];
+  v3 = a1[232];
+  v4 = 0LL;
+  v16 = 0LL;
+  v7 = 0;
+  if ( (v2 & 1) != 0 )
+  {
+    v13 = a2 + 4;
+    v14 = -1LL;
+    do
+      ++v14;
+    while ( *((_WORD *)v13 + v14) );
+    if ( v14 )
+    {
+      v15 = PopEtStringIntern(v13, v14, &v16);
+      v4 = v16;
+      v10 = v15;
+      if ( v15 < 0 )
+        goto LABEL_7;
+    }
+    if ( *(_QWORD *)(v3 + 456) != v4 )
+    {
+      PopEtStringSet(v3 + 456, v4);
+      v7 = 1;
+    }
+  }
+  v8 = *(_DWORD *)(v3 + 464);
+  v9 = a2[1] | (unsigned __int16)(v8 & ~(unsigned __int16)*a2);
+  if ( (unsigned __int16)v8 != v9 )
+  {
+    RtlStateDurationUpdate(
+      (signed __int64 *)(v3 + 120),
+      (v9 & 4) != 0,
+      (MEMORY[0xFFFFF78000000320] * (unsigned __int64)MEMORY[0xFFFFF78000000004]) >> 24);
+    RtlStateDurationUpdate((signed __int64 *)(v3 + 416), (v9 & 8) != 0, v12);
+    v4 = v16;
+    v7 = 1;
+    *(_WORD *)(v3 + 464) = v9;
+  }
+  if ( v7 )
+    PopEtEnergyContextProcessStateUpdate(a1);
+  v10 = 0;
+LABEL_7:
+  if ( v4 )
+    RtlInternEntryDereference(PopEtGlobals + 56);
+  return v10;
+}

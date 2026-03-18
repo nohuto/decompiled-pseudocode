@@ -1,0 +1,53 @@
+/*
+ * XREFs of KiResumeClockTimer @ 0x140382E98
+ * Callers:
+ *     KeResumeClockTimer @ 0x140382E80 (KeResumeClockTimer.c)
+ *     KeResumeClockTimerSafe @ 0x1405121D4 (KeResumeClockTimerSafe.c)
+ * Callees:
+ *     KiEventClockStateChange @ 0x140266CF4 (KiEventClockStateChange.c)
+ *     KiRestoreClockTickRate @ 0x140266D34 (KiRestoreClockTickRate.c)
+ *     RtlGetInterruptTimePrecise @ 0x140288C20 (RtlGetInterruptTimePrecise.c)
+ *     _guard_dispatch_icall @ 0x140405F40 (_guard_dispatch_icall.c)
+ */
+
+__int64 KiResumeClockTimer()
+{
+  char v0; // di
+  int v1; // ebx
+  __int64 result; // rax
+  __int64 v3; // rcx
+  __int64 InterruptTimePrecise; // rdi
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v6; // [rsp+38h] [rbp+10h] BYREF
+  LARGE_INTEGER v7; // [rsp+40h] [rbp+18h] BYREF
+
+  v6 = 0LL;
+  v0 = 0;
+  v1 = KiClockState;
+  v5 = 0LL;
+  result = (unsigned int)KiClockTimerOwner;
+  if ( KeGetCurrentPrcb()->Number == (_DWORD)KiClockTimerOwner )
+  {
+    v0 = 1;
+  }
+  else if ( !KiClockTimerPerCpu )
+  {
+    return result;
+  }
+  off_140C00880[0]();
+  LOBYTE(v3) = v0;
+  result = ((__int64 (__fastcall *)(__int64))off_140C00878[0])(v3);
+  if ( v0 )
+  {
+    ++dword_140C31424;
+    KeGetCurrentPrcb()->ClockOwner = 1;
+    InterruptTimePrecise = RtlGetInterruptTimePrecise(&v7);
+    KiRestoreClockTickRate(InterruptTimePrecise, &v5);
+    if ( v1 == 2 )
+      LOBYTE(v1) = _InterlockedExchange(&KiClockState, 0);
+    KiEventClockStateChange(0, v1, &v6, &v5);
+    result = InterruptTimePrecise + (unsigned int)KeTimeIncrement;
+    KiClockTimerNextTickTime = result;
+  }
+  return result;
+}

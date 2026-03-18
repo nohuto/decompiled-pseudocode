@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?CreatePowerThreadIfNeeded@FxPkgPnp@@AEAAJXZ @ 0x1C0021D04
+ * Callers:
+ *     ?PnpEventHardwareAvailable@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C0021720 (-PnpEventHardwareAvailable@FxPkgPnp@@KA-AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall FxPkgPnp::CreatePowerThreadIfNeeded(FxPkgPnp *this)
+{
+  int v2; // esi
+  PDEVICE_OBJECT AttachedDeviceReference; // rax
+  PDEVICE_OBJECT v4; // rbx
+  FxDeviceBase *m_DeviceBase; // rcx
+
+  v2 = 0;
+  AttachedDeviceReference = IoGetAttachedDeviceReference(this->m_DeviceBase->m_DeviceObject.m_DeviceObject);
+  v4 = AttachedDeviceReference;
+  if ( AttachedDeviceReference )
+  {
+    if ( (AttachedDeviceReference->Flags & 0x2000) == 0 && !this->m_HasPowerThread )
+    {
+      v2 = this->QueryForPowerThread(this);
+      if ( v2 < 0 )
+      {
+        m_DeviceBase = this->m_DeviceBase;
+        this->m_InternalFailure = 1;
+        IoInvalidateDeviceState(m_DeviceBase->m_PhysicalDevice.m_DeviceObject);
+        this->m_PendingPnPIrp->IoStatus.Status = v2;
+      }
+    }
+    ObfDereferenceObject(v4);
+  }
+  return (unsigned int)v2;
+}

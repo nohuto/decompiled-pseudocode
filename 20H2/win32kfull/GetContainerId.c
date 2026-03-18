@@ -1,0 +1,62 @@
+/*
+ * XREFs of GetContainerId @ 0x1C01180C0
+ * Callers:
+ *     IsLegacyTouchPadDevice @ 0x1C0117D00 (IsLegacyTouchPadDevice.c)
+ * Callees:
+ *     GetPointerDevicePDO @ 0x1C0118630 (GetPointerDevicePDO.c)
+ */
+
+__int64 __fastcall GetContainerId(struct _DEVICE_OBJECT *a1, void *a2, _DWORD *a3)
+{
+  int v4; // ebx
+  NTSTATUS PointerDevicePDO; // edi
+  struct _DEVICE_OBJECT *v7; // r14
+  PVOID Data; // [rsp+28h] [rbp-28h]
+  ULONG Type; // [rsp+40h] [rbp-10h] BYREF
+  ULONG RequiredSize; // [rsp+44h] [rbp-Ch] BYREF
+  PDEVICE_OBJECT Pdo; // [rsp+48h] [rbp-8h]
+  char v13; // [rsp+88h] [rbp+38h] BYREF
+
+  v4 = 0;
+  Pdo = 0LL;
+  PointerDevicePDO = GetPointerDevicePDO(a1);
+  if ( PointerDevicePDO >= 0 )
+  {
+    v13 = 0;
+    Type = 0;
+    Data = a2;
+    v7 = Pdo;
+    RequiredSize = 0;
+    PointerDevicePDO = IoGetDevicePropertyData(
+                         Pdo,
+                         &DEVPKEY_Device_ContainerId,
+                         0,
+                         0,
+                         0x10u,
+                         Data,
+                         &RequiredSize,
+                         &Type);
+    if ( PointerDevicePDO >= 0 )
+    {
+      if ( a3 )
+      {
+        PointerDevicePDO = IoGetDevicePropertyData(
+                             v7,
+                             &DEVPKEY_Device_InLocalMachineContainer,
+                             0,
+                             0,
+                             1u,
+                             &v13,
+                             &RequiredSize,
+                             &Type);
+        if ( PointerDevicePDO >= 0 )
+        {
+          LOBYTE(v4) = v13 != -1;
+          *a3 = v4;
+        }
+      }
+    }
+    ObfDereferenceObject(v7);
+  }
+  return (unsigned int)PointerDevicePDO;
+}

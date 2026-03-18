@@ -1,0 +1,39 @@
+/*
+ * XREFs of PspLockRootJobFromProcess @ 0x1403E95DC
+ * Callers:
+ *     PspSendProcessNotificationToJobChain @ 0x1403E8DC0 (PspSendProcessNotificationToJobChain.c)
+ *     PspRemoveProcessFromJobChain @ 0x1403E96D0 (PspRemoveProcessFromJobChain.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x14003F890 (ExAcquireResourceExclusiveLite.c)
+ *     PspUnlockJob @ 0x1403EB8D0 (PspUnlockJob.c)
+ */
+
+__int64 __fastcall PspLockRootJobFromProcess(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
+{
+  __int64 v8; // rcx
+  __int64 result; // rax
+  __int64 v10; // [rsp+40h] [rbp+8h]
+  __int64 v11; // [rsp+48h] [rbp+10h]
+
+  v10 = *(_QWORD *)(a1 + 944);
+  v11 = *(_QWORD *)(v10 + 1072);
+  v8 = v11;
+  if ( a2 )
+    --*(_WORD *)(a2 + 486);
+  while ( 1 )
+  {
+    ExAcquireResourceExclusiveLite((PERESOURCE)(v8 + 56), 1u);
+    if ( v10 == *(_QWORD *)(a1 + 944) && v11 == *(_QWORD *)(v10 + 1072) )
+      break;
+    PspUnlockJob(v11, a2);
+    v10 = *(_QWORD *)(a1 + 944);
+    v11 = *(_QWORD *)(v10 + 1072);
+    v8 = v11;
+    if ( a2 )
+      --*(_WORD *)(a2 + 486);
+  }
+  *a3 = v10;
+  result = v11;
+  *a4 = v11;
+  return result;
+}

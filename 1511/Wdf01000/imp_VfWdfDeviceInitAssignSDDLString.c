@@ -1,0 +1,18 @@
+/*
+ * XREFs of imp_VfWdfDeviceInitAssignSDDLString @ 0x1C00B4700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall imp_VfWdfDeviceInitAssignSDDLString(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFDEVICE_INIT *DeviceInit,
+        const _UNICODE_STRING *SDDLString)
+{
+  return ((__int64 (__fastcall *)(_WDF_DRIVER_GLOBALS *, WDFDEVICE_INIT *, const _UNICODE_STRING *))WdfVersion.Functions.pfnWdfDeviceInitAssignSDDLString)(
+           DriverGlobals,
+           DeviceInit,
+           SDDLString);
+}

@@ -1,0 +1,59 @@
+/*
+ * XREFs of WheaUnconfigureErrorSource @ 0x1409B6870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAbPostRelease @ 0x14021ED30 (KeAbPostRelease.c)
+ *     KeAbPreAcquire @ 0x1402202E0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140241C10 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x140241E40 (ExfAcquirePushLockSharedEx.c)
+ *     ExfReleasePushLockShared @ 0x140242A40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140242B40 (ExfTryToWakePushLock.c)
+ */
+
+__int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1)
+{
+  unsigned __int64 *v1; // rbx
+  unsigned int v2; // esi
+  __int64 v3; // rdi
+  __int64 v4; // rax
+  __int64 v5; // rdi
+
+  if ( a1 > 0x10 )
+  {
+    return (unsigned int)-1073741811;
+  }
+  else
+  {
+    v1 = (unsigned __int64 *)((char *)&WheapSourceConfiguration + 64 * (__int64)(int)a1);
+    v2 = -1073741823;
+    v3 = KeAbPreAcquire((ULONG_PTR)&WheapConfigTableLock, 0LL, 0LL);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx(&WheapConfigTableLock, v3, (ULONG_PTR)&WheapConfigTableLock);
+    if ( v3 )
+      *(_BYTE *)(v3 + 26) |= 1u;
+    v4 = KeAbPreAcquire((ULONG_PTR)v1, 0LL, 0LL);
+    v5 = v4;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)v1, 0LL) )
+      ExfAcquirePushLockExclusiveEx(v1, v4, (ULONG_PTR)v1);
+    if ( v5 )
+      *(_BYTE *)(v5 + 26) |= 1u;
+    if ( *((_BYTE *)v1 + 8) )
+    {
+      *((_BYTE *)v1 + 8) = 0;
+      v1[2] = (unsigned __int64)HalSystemVectorDispatchEntry;
+      v1[3] = (unsigned __int64)xHalPciEarlyRestore;
+      v1[4] = (unsigned __int64)WheapDefaultErrSrcCreateRecord;
+      v1[5] = (unsigned __int64)HalSystemVectorDispatchEntry;
+      v1[6] = (unsigned __int64)xHalTimerWatchdogStop;
+      v1[7] = 0LL;
+    }
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)v1);
+    KeAbPostRelease((ULONG_PTR)v1);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&WheapConfigTableLock, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&WheapConfigTableLock);
+    KeAbPostRelease((ULONG_PTR)&WheapConfigTableLock);
+  }
+  return v2;
+}

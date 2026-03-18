@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?ProcessCreate@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUMILCMD_METABITMAPRENDERTARGET_CREATE@@@Z @ 0x18011EFE0
+ * Callers:
+ *     ?MetaBitmapRenderTarget_Create@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUMILCMD_METABITMAPRENDERTARGET_CREATE@@@Z @ 0x18010F7B4 (-MetaBitmapRenderTarget_Create@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUM.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x180047444 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ?UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z @ 0x18011F494 (-UpdatePixelFormatInfo@COffScreenRenderTarget@@IEAAJW4DXGI_FORMAT@@@Z.c)
+ */
+
+__int64 __fastcall CMagnifierRenderTarget::ProcessCreate(
+        CMagnifierRenderTarget *this,
+        struct CResourceTable *a2,
+        const struct MILCMD_METABITMAPRENDERTARGET_CREATE *a3)
+{
+  int updated; // eax
+  unsigned int v6; // ebx
+  bool v7; // cc
+
+  *((_QWORD *)this + 42) = *((_QWORD *)a3 + 1);
+  updated = COffScreenRenderTarget::UpdatePixelFormatInfo(this, *((enum DXGI_FORMAT *)a3 + 5));
+  v6 = updated;
+  if ( updated < 0 )
+  {
+    MilInstrumentationCheckHR(0x14u, 0LL, 0, updated, 0x253u);
+  }
+  else
+  {
+    v7 = *((_DWORD *)this + 100) <= 6u;
+    *((_DWORD *)this + 86) = *((_DWORD *)a3 + 6);
+    *((_DWORD *)this + 87) = *((_DWORD *)a3 + 7);
+    if ( v7 )
+    {
+      *((_OWORD *)this + 25) = *((_OWORD *)a3 + 1);
+      *((_OWORD *)this + 26) = *((_OWORD *)a3 + 2);
+      *((_OWORD *)this + 27) = *((_OWORD *)a3 + 3);
+      *((_OWORD *)this + 28) = *((_OWORD *)a3 + 4);
+      *((_OWORD *)this + 29) = *((_OWORD *)a3 + 5);
+      *((_OWORD *)this + 30) = *((_OWORD *)a3 + 6);
+      *((_OWORD *)this + 31) = *((_OWORD *)a3 + 7);
+      *((_OWORD *)this + 32) = *((_OWORD *)a3 + 8);
+      *((_OWORD *)this + 33) = *((_OWORD *)a3 + 9);
+      *((_OWORD *)this + 34) = *((_OWORD *)a3 + 10);
+      *((_OWORD *)this + 35) = *((_OWORD *)a3 + 11);
+      *((_OWORD *)this + 36) = *((_OWORD *)a3 + 12);
+      *((_OWORD *)this + 37) = *((_OWORD *)a3 + 13);
+    }
+    else
+    {
+      v6 = -2147024809;
+      MilInstrumentationCheckHR(0x14u, 0LL, 0, -2147024809, 0x25Au);
+    }
+  }
+  return v6;
+}

@@ -1,0 +1,54 @@
+/*
+ * XREFs of MiUpdateOldPte @ 0x1405370E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x140238530 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetVaAge @ 0x1402471D0 (MiGetVaAge.c)
+ *     MiWalkVaCheckCommon @ 0x14032DAC4 (MiWalkVaCheckCommon.c)
+ *     MI_PFN_IS_PROTO @ 0x1403EEC18 (MI_PFN_IS_PROTO.c)
+ *     MiInsertVmAccessedEntry @ 0x140535F30 (MiInsertVmAccessedEntry.c)
+ *     MiUpdateOldPteWorker @ 0x140537258 (MiUpdateOldPteWorker.c)
+ *     MiUpdateOldWorkingSetPagesTail @ 0x1405372B0 (MiUpdateOldWorkingSetPagesTail.c)
+ */
+
+__int64 __fastcall MiUpdateOldPte(__int64 a1, unsigned __int64 a2, int a3)
+{
+  __int64 v5; // r15
+  _QWORD *v6; // rsi
+  __int64 v7; // rcx
+  __int64 v8; // rbx
+  unsigned int *v9; // rcx
+  unsigned __int64 v11; // [rsp+68h] [rbp+20h] BYREF
+
+  if ( a3 >= 1 )
+    return 0LL;
+  v5 = *(_QWORD *)(a1 + 24);
+  v11 = MI_READ_PTE_LOCK_FREE(a2);
+  v6 = (_QWORD *)(48 * (((unsigned __int64)MI_READ_PTE_LOCK_FREE((unsigned __int64)&v11) >> 12) & 0xFFFFFFFFFLL)
+                - 0x58000000000LL);
+  if ( !(unsigned int)MiWalkVaCheckCommon(v5, a2, v6, 1, (__int64 *)&v11)
+    || MiGetVaAge(v7, (__int64)(a2 << 25) >> 16) != 6 )
+  {
+    return 0LL;
+  }
+  v8 = *(_QWORD *)(a1 + 168);
+  if ( (v6[3] & 0x3FFFFFFFFFFFFFFFLL) == 1 && ((*(_DWORD *)v8 & 1) == 0 || !MI_PFN_IS_PROTO((__int64)v6)) )
+  {
+    if ( ((v11 >> 5) & 1) != 0
+      && (v9 = *(unsigned int **)(v8 + 208)) != 0LL
+      && (unsigned __int64)((__int64)(a2 << 25) >> 16) <= 0x7FFFFFFEFFFFLL )
+    {
+      if ( (unsigned int)MiInsertVmAccessedEntry(v9, (__int64)(a2 << 25) >> 16) )
+        return MiUpdateOldWorkingSetPagesTail(a1);
+    }
+    else if ( ((v11 >> 5) & 1) == 0 )
+    {
+      MiUpdateOldPteWorker(v5, a2, v6, v8);
+    }
+  }
+  if ( ++*(_QWORD *)(v8 + 16) >= *(_QWORD *)(v8 + 8) )
+    return 3LL;
+  else
+    return 0LL;
+}

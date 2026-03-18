@@ -1,0 +1,22 @@
+/*
+ * XREFs of RtlQueryThreadPlaceholderCompatibilityMode @ 0x1407890E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+char RtlQueryThreadPlaceholderCompatibilityMode()
+{
+  _BYTE *Teb; // rcx
+  char result; // al
+
+  if ( (KeGetCurrentThread()->MiscFlags & 0x400) != 0 || KeGetCurrentThread()->ApcStateIndex == 1 )
+    Teb = 0LL;
+  else
+    Teb = KeGetCurrentThread()->Teb;
+  result = -2;
+  if ( Teb )
+    return Teb[640];
+  return result;
+}

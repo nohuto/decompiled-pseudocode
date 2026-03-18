@@ -1,0 +1,18 @@
+/*
+ * XREFs of imp_VfWdfWmiProviderIsEnabled @ 0x1C00C39F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall imp_VfWdfWmiProviderIsEnabled(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFWMIPROVIDER__ *WmiProvider,
+        __int64 ProviderControl)
+{
+  return ((__int64 (__fastcall *)(_WDF_DRIVER_GLOBALS *, WDFWMIPROVIDER__ *, __int64))WdfVersion.Functions.pfnWdfWmiProviderIsEnabled)(
+           DriverGlobals,
+           WmiProvider,
+           ProviderControl);
+}

@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z @ 0x1C0040AC4
+ * Callers:
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C0041C3C (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0042E30 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ * Callees:
+ *     Win32FreePool @ 0x1C0012E40 (Win32FreePool.c)
+ *     ?vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C0040AF4 (-vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ.c)
+ */
+
+MULTIDEVLOCKOBJ *__fastcall MULTIDEVLOCKOBJ::`scalar deleting destructor'(MULTIDEVLOCKOBJ *this)
+{
+  MULTIDEVLOCKOBJ::vUnlock(this);
+  if ( (*(_DWORD *)this & 2) != 0 )
+    Win32FreePool(*((_QWORD *)this + 1));
+  Win32FreePool((__int64)this);
+  return this;
+}

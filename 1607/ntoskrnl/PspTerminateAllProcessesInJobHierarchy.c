@@ -1,0 +1,40 @@
+/*
+ * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x1404E2F28
+ * Callers:
+ *     PspEnforceLimitsJobPostCallback @ 0x1404688C0 (PspEnforceLimitsJobPostCallback.c)
+ *     PspJobClose @ 0x1404E2DE8 (PspJobClose.c)
+ *     NtTerminateJobObject @ 0x1404E2EBC (NtTerminateJobObject.c)
+ *     PsTerminateServerSilo @ 0x14067E178 (PsTerminateServerSilo.c)
+ * Callees:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x140468674 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspEvaluateAndNotifyEmptyJob @ 0x140469F64 (PspEvaluateAndNotifyEmptyJob.c)
+ *     EtwTraceJob @ 0x1406A179C (EtwTraceJob.c)
+ */
+
+char __fastcall PspTerminateAllProcessesInJobHierarchy(PRKEVENT Event, unsigned int a2, char a3)
+{
+  char v5; // di
+  bool v6; // al
+  unsigned int v8; // [rsp+40h] [rbp+8h] BYREF
+  bool v9; // [rsp+44h] [rbp+Ch]
+
+  _InterlockedOr((volatile signed __int32 *)&Event[54].Header.WaitListHead, 0x80u);
+  _InterlockedOr((volatile signed __int32 *)&Event[54].Header.WaitListHead, 0x80u);
+  v5 = 0;
+  v8 = a2;
+  v9 = a3 != 0;
+  PspEnumJobsAndProcessesInJobHierarchy(Event, 0, (int)PspTerminateProcessesJobCallback, 0, (__int64)&v8, 2);
+  v6 = v9;
+  if ( (v9 & 2) != 0 )
+  {
+    v5 = 1;
+  }
+  else
+  {
+    PspEvaluateAndNotifyEmptyJob(Event, 0, 0);
+    v6 = v9;
+  }
+  if ( (PerfGlobalGroupMask & 0x80000) != 0 )
+    EtwTraceJob(Event, v6, a2, 1825LL);
+  return v5;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of IsvCleanupFontsSupported_0 @ 0x1C0001840
+ * Callers:
+ *     ?NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z @ 0x1C00599AC (-NtGdiCloseProcess@@YAHKW4_CLEANUPTYPE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 IsvCleanupFontsSupported_0()
+{
+  return IsvCleanupFontsSupported();
+}

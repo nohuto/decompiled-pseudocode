@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ @ 0x1801BB504
+ * Callers:
+ *     ?ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ @ 0x1801BB504 (-ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ.c)
+ *     ?RemoveLargestInputFragment@CRenderingTechniqueFragment@@QEAA?AV?$unique_ptr@VCRenderingTechniqueFragment@@U?$default_delete@VCRenderingTechniqueFragment@@@std@@@std@@PEAVCBrushRenderingGraph@@I@Z @ 0x1801BB6B8 (-RemoveLargestInputFragment@CRenderingTechniqueFragment@@QEAA-AV-$unique_ptr@VCRenderingTechniqu.c)
+ * Callees:
+ *     ?IsUVClampingRequiredForInput@CRenderingTechniqueFragment@@AEBA_NIPEAW4Enum@ExtendMode@@0@Z @ 0x180015B34 (-IsUVClampingRequiredForInput@CRenderingTechniqueFragment@@AEBA_NIPEAW4Enum@ExtendMode@@0@Z.c)
+ *     ?ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ @ 0x1801BB504 (-ClearConsumerUVClampingRequirement@CRenderingTechniqueFragment@@QEAAXXZ.c)
+ */
+
+void __fastcall CRenderingTechniqueFragment::ClearConsumerUVClampingRequirement(CRenderingTechniqueFragment *this)
+{
+  unsigned int v2; // ebp
+  __int64 v3; // rdi
+  __int64 v4; // rsi
+  __int64 v5; // [rsp+30h] [rbp+8h]
+
+  if ( *((_BYTE *)this + 120) )
+  {
+    *((_BYTE *)this + 120) = 0;
+    v2 = 0;
+    v3 = (__int64)(*((_QWORD *)this + 5) - *((_QWORD *)this + 4)) >> 4;
+    if ( (_DWORD)v3 )
+    {
+      v4 = 0LL;
+      do
+      {
+        v5 = *((_QWORD *)this + 4);
+        if ( *(_QWORD *)(v4 + v5 + 8) )
+        {
+          if ( !CRenderingTechniqueFragment::IsUVClampingRequiredForInput(this, v2, 0LL, 0LL) )
+            CRenderingTechniqueFragment::ClearConsumerUVClampingRequirement(*(CRenderingTechniqueFragment **)(v4 + v5 + 8));
+        }
+        ++v2;
+        v4 += 16LL;
+      }
+      while ( v2 < (unsigned int)v3 );
+    }
+  }
+}

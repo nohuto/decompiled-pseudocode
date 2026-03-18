@@ -1,0 +1,32 @@
+/*
+ * XREFs of HUBMISC_LogDescriptorValidationWarningForDevice @ 0x1C002B5A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppqq @ 0x1C0010AE4 (McTemplateK0ppqq.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C002A814 (HUBMISC_VerifierDbgBreak.c)
+ */
+
+void __fastcall HUBMISC_LogDescriptorValidationWarningForDevice(__int64 a1, ULONG a2)
+{
+  int v4; // [rsp+28h] [rbp-20h]
+
+  if ( a1 )
+  {
+    if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.DmaWaitEntry.Blink & 0x800000) != 0 )
+    {
+      v4 = *(unsigned __int16 *)(*(_QWORD *)(a1 + 8) + 200LL);
+      McTemplateK0ppqq(
+        a1,
+        &USBHUB3_ETW_EVENT_DESCRIPTOR_VALIDATION_WARNING,
+        (const GUID *)(a1 + 1516),
+        *(_QWORD *)(*(_QWORD *)a1 + 240LL),
+        *(_QWORD *)(a1 + 24),
+        v4,
+        a2);
+    }
+    if ( (*(_DWORD *)(a1 + 2436) & 2) != 0 )
+      HUBMISC_VerifierDbgBreak("DeviceHwVerifierDescriptorValidationFailure", a1 + 504);
+    RtlSetBit((PRTL_BITMAP)(a1 + 2584), a2);
+  }
+}

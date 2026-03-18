@@ -1,0 +1,29 @@
+/*
+ * XREFs of ACPIBusIrpQueryBusInformation @ 0x1C00720D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ACPIBusIrpQueryBusInformation(__int64 a1, IRP *a2)
+{
+  unsigned int v2; // ebx
+  GUID *PoolWithTag; // rax
+
+  v2 = 0;
+  PoolWithTag = (GUID *)ExAllocatePoolWithTag(PagedPool, 0x18uLL, 0x4D706341u);
+  if ( PoolWithTag )
+  {
+    *(_QWORD *)&PoolWithTag[1].Data1 = 17LL;
+    *PoolWithTag = GUID_BUS_TYPE_ACPI;
+  }
+  else
+  {
+    v2 = -1073741670;
+  }
+  a2->IoStatus.Status = v2;
+  a2->IoStatus.Information = (unsigned __int64)PoolWithTag;
+  IofCompleteRequest(a2, 0);
+  return v2;
+}

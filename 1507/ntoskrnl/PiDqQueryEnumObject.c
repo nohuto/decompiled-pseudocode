@@ -1,0 +1,69 @@
+/*
+ * XREFs of PiDqQueryEnumObject @ 0x14043E924
+ * Callers:
+ *     PiDqEnumQueryObjectsCallback @ 0x14043E910 (PiDqEnumQueryObjectsCallback.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140444E04 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ * Callees:
+ *     PiDqQueryEvaluateFilter @ 0x14043E724 (PiDqQueryEvaluateFilter.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x14043EC3C (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiDqQueryAppendActionEntry @ 0x1404407A4 (PiDqQueryAppendActionEntry.c)
+ *     PiDqQueryActionQueueEntryCreate @ 0x1404407EC (PiDqQueryActionQueueEntryCreate.c)
+ *     PiDqQueryAddObjectToResultSet @ 0x1404E6010 (PiDqQueryAddObjectToResultSet.c)
+ */
+
+__int64 __fastcall PiDqQueryEnumObject(_QWORD *a1, __int64 a2)
+{
+  __int64 v2; // rax
+  int AddObjectToResultSet; // ebx
+  char v6; // al
+  char v7; // al
+  __int64 v9; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = a1[3];
+  AddObjectToResultSet = 0;
+  LOBYTE(v9) = 1;
+  if ( *(_DWORD *)(v2 + 20) )
+    goto LABEL_12;
+  if ( (unsigned int)(*(_DWORD *)(v2 + 16) - 1) > 2 )
+  {
+    v6 = 1;
+    LOBYTE(v9) = 1;
+  }
+  else
+  {
+    AddObjectToResultSet = PiPnpRtlApplyMandatoryFilters(
+                             PiPnpRtlCtx,
+                             *(_QWORD *)(a2 + 16),
+                             *(_DWORD *)(a2 + 28),
+                             0,
+                             (unsigned __int8)a1 + 32,
+                             (__int64)&v9);
+    v6 = v9;
+  }
+  if ( AddObjectToResultSet == -1073741772 || AddObjectToResultSet == -1073741275 )
+  {
+    v6 = 0;
+    LOBYTE(v9) = 0;
+    AddObjectToResultSet = 0;
+  }
+  if ( AddObjectToResultSet >= 0 && v6 )
+  {
+LABEL_12:
+    if ( !*(_QWORD *)(a1[3] + 88LL)
+      || ((AddObjectToResultSet = PiDqQueryEvaluateFilter(a1, *(void **)(a2 + 16), (bool *)&v9),
+           AddObjectToResultSet == -1073741772)
+        ? (v7 = 0, AddObjectToResultSet = 0)
+        : (v7 = v9),
+          AddObjectToResultSet >= 0 && v7) )
+    {
+      if ( (*(_DWORD *)(a1[3] + 40LL) & 1) == 0
+        || (AddObjectToResultSet = PiDqQueryAddObjectToResultSet(a1, a2), AddObjectToResultSet >= 0) )
+      {
+        AddObjectToResultSet = PiDqQueryActionQueueEntryCreate(1LL, a2, 0LL, &v9);
+        if ( AddObjectToResultSet >= 0 )
+          PiDqQueryAppendActionEntry(a1, v9);
+      }
+    }
+  }
+  return (unsigned int)AddObjectToResultSet;
+}

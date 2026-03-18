@@ -1,0 +1,37 @@
+/*
+ * XREFs of HalpMcaReadErrorCorrected @ 0x1404B7DB0
+ * Callers:
+ *     HalpMcaReadError @ 0x1404B5250 (HalpMcaReadError.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14039DA1C (HalpGetCpuVendor.c)
+ *     HalpMcaReadErrorCorrectedAMD @ 0x1404B7E28 (HalpMcaReadErrorCorrectedAMD.c)
+ */
+
+__int64 __fastcall HalpMcaReadErrorCorrected(__int64 a1, _BYTE *a2)
+{
+  char CpuVendor; // cl
+  __int64 result; // rax
+
+  CpuVendor = HalpGetCpuVendor();
+  if ( CpuVendor == 1 )
+    return HalpMcaReadErrorCorrectedAMD(a1, a2);
+  result = *(_QWORD *)a1;
+  if ( CpuVendor != 2 )
+  {
+    if ( (result & 0x2000000000000000LL) != 0 )
+      return result;
+    goto LABEL_9;
+  }
+  if ( (result & 0x2000000000000000LL) == 0 )
+  {
+LABEL_9:
+    *a2 = 1;
+    return result;
+  }
+  if ( *(_BYTE *)(a1 + 8) )
+  {
+    if ( (result & 0x300000000000000LL) == 0 )
+      *(_WORD *)a2 = 257;
+  }
+  return result;
+}

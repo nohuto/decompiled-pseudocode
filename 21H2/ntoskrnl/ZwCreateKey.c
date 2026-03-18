@@ -1,0 +1,107 @@
+/*
+ * XREFs of ZwCreateKey @ 0x14041BB00
+ * Callers:
+ *     KvfCommitFeatureStates @ 0x14025D1A4 (KvfCommitFeatureStates.c)
+ *     BiZwCreateKey @ 0x1403955DC (BiZwCreateKey.c)
+ *     PopOpenKey @ 0x1403B1A48 (PopOpenKey.c)
+ *     BapdpMarshallBootDataToRegistry @ 0x1403CCE24 (BapdpMarshallBootDataToRegistry.c)
+ *     PopOpenThermalLoggingKey @ 0x1403DBE38 (PopOpenThermalLoggingKey.c)
+ *     DifZwCreateKeyWrapper @ 0x14061EB20 (DifZwCreateKeyWrapper.c)
+ *     EtwpCreateKey @ 0x14063323C (EtwpCreateKey.c)
+ *     WheaPersistBadPageToRegistry @ 0x140644EEC (WheaPersistBadPageToRegistry.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140679BEC (PiDevCfgCopyDeviceKey.c)
+ *     IopCreateRegistryKeyEx @ 0x14067A8B0 (IopCreateRegistryKeyEx.c)
+ *     VrpCreateNamespaceNodePlaceholderKey @ 0x140691B00 (VrpCreateNamespaceNodePlaceholderKey.c)
+ *     PspReadUserQuotaLimits @ 0x1406C89B8 (PspReadUserQuotaLimits.c)
+ *     CmpQueryHiveRedirectionFileList @ 0x1406DD50C (CmpQueryHiveRedirectionFileList.c)
+ *     IopOpenRegistryKey @ 0x1406DE960 (IopOpenRegistryKey.c)
+ *     PiCreateServiceStateKey @ 0x1406DF14C (PiCreateServiceStateKey.c)
+ *     PiCreateDriverRedirectedStateKey @ 0x1406DF254 (PiCreateDriverRedirectedStateKey.c)
+ *     CmpAddToHiveFileList @ 0x1406E36C4 (CmpAddToHiveFileList.c)
+ *     ExpWnfGetNameStoreRegistryRoot @ 0x14075A30C (ExpWnfGetNameStoreRegistryRoot.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140772D80 (_RegRtlCreateKeyTransacted.c)
+ *     RtlpGetRegistryHandle @ 0x14077FDA0 (RtlpGetRegistryHandle.c)
+ *     ExpSetPendingUILanguage @ 0x1407F44F0 (ExpSetPendingUILanguage.c)
+ *     EtwStartAutoLogger @ 0x140817CD8 (EtwStartAutoLogger.c)
+ *     PopOpenHiberPersistedKey @ 0x14081C590 (PopOpenHiberPersistedKey.c)
+ *     PopInitializePowerPolicySimulate @ 0x14081C69C (PopInitializePowerPolicySimulate.c)
+ *     HalpRecordSecondaryGsivRange @ 0x14081E4C0 (HalpRecordSecondaryGsivRange.c)
+ *     HalpPutAcpiHacksInRegistry @ 0x14081E700 (HalpPutAcpiHacksInRegistry.c)
+ *     PopOpenPersistedRegistryKey @ 0x140828F18 (PopOpenPersistedRegistryKey.c)
+ *     CmpFinishSystemHivesLoad @ 0x140833B80 (CmpFinishSystemHivesLoad.c)
+ *     CmpLinkKeyToHive @ 0x140834318 (CmpLinkKeyToHive.c)
+ *     CmpSetVersionData @ 0x140834684 (CmpSetVersionData.c)
+ *     CmpInitializeRegistryNode @ 0x140837AD4 (CmpInitializeRegistryNode.c)
+ *     CmSetAcpiHwProfile @ 0x140837F88 (CmSetAcpiHwProfile.c)
+ *     ArbBuildAssignmentOrdering @ 0x14083AAB8 (ArbBuildAssignmentOrdering.c)
+ *     IopUpdateSecureDeviceClassState @ 0x14084D3DC (IopUpdateSecureDeviceClassState.c)
+ *     ExpGetLeapSecondDataRegistryKeyHandle @ 0x1408583D0 (ExpGetLeapSecondDataRegistryKeyHandle.c)
+ *     PopDirectedDripsQueryRegistryValues @ 0x140858994 (PopDirectedDripsQueryRegistryValues.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x14085939C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     SpRegOpenKey @ 0x14085E294 (SpRegOpenKey.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x14085EDEC (CmpUpdateReorganizeRegistryValues.c)
+ *     CmpSaveBootControlSet @ 0x14090BC6C (CmpSaveBootControlSet.c)
+ *     CmpRecordShutdownStopTime @ 0x140911EA8 (CmpRecordShutdownStopTime.c)
+ *     CmpSyncNextBackupHive @ 0x140917F4C (CmpSyncNextBackupHive.c)
+ *     CmInitializeProcessor @ 0x140919E48 (CmInitializeProcessor.c)
+ *     CmpAddAcpiAliasEntry @ 0x14091D950 (CmpAddAcpiAliasEntry.c)
+ *     CmpCloneHwProfile @ 0x14091DBC4 (CmpCloneHwProfile.c)
+ *     CmpDoReDoCreateKey @ 0x140925A8C (CmpDoReDoCreateKey.c)
+ *     IopCrashDumpPolicyChangeWnfCallback @ 0x1409335E0 (IopCrashDumpPolicyChangeWnfCallback.c)
+ *     IopLiveDumpPolicyChangeWnfCallback @ 0x14093CC30 (IopLiveDumpPolicyChangeWnfCallback.c)
+ *     PiCreateRegistryPath @ 0x140943E3C (PiCreateRegistryPath.c)
+ *     KsepRegistryCreateKey @ 0x1409651B8 (KsepRegistryCreateKey.c)
+ *     PfpParametersWatcher @ 0x140989150 (PfpParametersWatcher.c)
+ *     SmcCacheManagerStart @ 0x1409D7A90 (SmcCacheManagerStart.c)
+ *     EtwpAddMicroarchitecturalPmcToPmcGroup @ 0x1409DFC30 (EtwpAddMicroarchitecturalPmcToPmcGroup.c)
+ *     EtwpAddMicroarchitecturalPmcToRegistry @ 0x1409DFF60 (EtwpAddMicroarchitecturalPmcToRegistry.c)
+ *     EtwpFindMatchingPmcRegistryGroup @ 0x1409E0DC0 (EtwpFindMatchingPmcRegistryGroup.c)
+ *     ExpUpdateComPlusPackage @ 0x1409F7B3C (ExpUpdateComPlusPackage.c)
+ *     CMFRegisterEventTime @ 0x140A04ECC (CMFRegisterEventTime.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140A084FC (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     HalpPiix4Detect @ 0x140A53294 (HalpPiix4Detect.c)
+ *     BapdpWriteEventDataToRegistry @ 0x140A5496C (BapdpWriteEventDataToRegistry.c)
+ *     BapdGetISRegistryKey @ 0x140A5A4CC (BapdGetISRegistryKey.c)
+ *     LogFwpRegisterWorker @ 0x140AADDA0 (LogFwpRegisterWorker.c)
+ *     IopInitializePlugPlayServices @ 0x140B0046C (IopInitializePlugPlayServices.c)
+ *     SaveNodeDistanceInformation @ 0x140B063D4 (SaveNodeDistanceInformation.c)
+ *     EmInitSystem @ 0x140B0B630 (EmInitSystem.c)
+ *     CmInitSystem1 @ 0x140B15F88 (CmInitSystem1.c)
+ *     CmpInitializeHardwareConfiguration @ 0x140B171AC (CmpInitializeHardwareConfiguration.c)
+ *     CmpInitializeMachineDependentConfiguration @ 0x140B17304 (CmpInitializeMachineDependentConfiguration.c)
+ *     CmpCreateHardwareProfiles @ 0x140B183B4 (CmpCreateHardwareProfiles.c)
+ *     BapdpRegisterBitlockerStatus @ 0x140B1C88C (BapdpRegisterBitlockerStatus.c)
+ *     BapdpRegisterResumeInformation @ 0x140B1C9E0 (BapdpRegisterResumeInformation.c)
+ *     PfpParametersInitialize @ 0x140B23B40 (PfpParametersInitialize.c)
+ *     PiLastGoodCopyKeyContents @ 0x140B2AEDC (PiLastGoodCopyKeyContents.c)
+ *     SepSecureBootSetRegistryKey @ 0x140B2C034 (SepSecureBootSetRegistryKey.c)
+ *     CmpCreateControlSet @ 0x140B2C540 (CmpCreateControlSet.c)
+ *     ArbInitializeOsInaccessibleRange @ 0x140B2D294 (ArbInitializeOsInaccessibleRange.c)
+ *     MfgInitSystem @ 0x140B30BB0 (MfgInitSystem.c)
+ *     CreateMiniNtBootKey @ 0x140B4B5E0 (CreateMiniNtBootKey.c)
+ *     InitSafeBoot @ 0x140B4B918 (InitSafeBoot.c)
+ *     CmpAddAliasEntry @ 0x140B4DA1C (CmpAddAliasEntry.c)
+ *     CmpCreateControlSetOverride @ 0x140B4DCBC (CmpCreateControlSetOverride.c)
+ *     CmpInitializeSystemBiosInformation @ 0x140B4DE9C (CmpInitializeSystemBiosInformation.c)
+ *     CmpSetNetworkValue @ 0x140B4E014 (CmpSetNetworkValue.c)
+ *     BapdpRegisterEDrvHintInfo @ 0x140B53EA4 (BapdpRegisterEDrvHintInfo.c)
+ *     BapdpRegisterFwUpdateResults @ 0x140B5400C (BapdpRegisterFwUpdateResults.c)
+ *     BapdpRegisterWmdResult @ 0x140B5421C (BapdpRegisterWmdResult.c)
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __stdcall ZwCreateKey(
+        PHANDLE KeyHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes,
+        ULONG TitleIndex,
+        PUNICODE_STRING Class,
+        ULONG CreateOptions,
+        PULONG Disposition)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(KeyHandle, *(_QWORD *)&DesiredAccess);
+}

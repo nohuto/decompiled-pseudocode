@@ -1,0 +1,43 @@
+/*
+ * XREFs of PspGetPreviousProcessThread @ 0x1403F29CC
+ * Callers:
+ *     PspTerminateAllThreads @ 0x1403F2750 (PspTerminateAllThreads.c)
+ * Callees:
+ *     PspUnlockProcessShared @ 0x14002E340 (PspUnlockProcessShared.c)
+ *     PspLockProcessShared @ 0x14002E384 (PspLockProcessShared.c)
+ *     ObReferenceObjectSafeWithTag @ 0x140042340 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1400423C0 (ObfDereferenceObjectWithTag.c)
+ */
+
+__int64 __fastcall PspGetPreviousProcessThread(__int64 a1, _QWORD *a2)
+{
+  struct _KTHREAD *CurrentThread; // r12
+  __int64 v3; // rbp
+  __int64 v6; // r14
+  int v7; // esi
+  __int64 v8; // rbx
+
+  CurrentThread = KeGetCurrentThread();
+  v3 = a1 + 1160;
+  v6 = 0LL;
+  v7 = 0;
+  PspLockProcessShared(a1, (__int64)CurrentThread);
+  if ( a2 )
+    v8 = a2[211];
+  else
+    v8 = *(_QWORD *)(v3 + 8);
+  while ( v8 != v3 )
+  {
+    v6 = v8 - 1680;
+    if ( ObReferenceObjectSafeWithTag(v8 - 1680) )
+    {
+      v7 = 1;
+      break;
+    }
+    v8 = *(_QWORD *)(v8 + 8);
+  }
+  PspUnlockProcessShared(a1, (__int64)CurrentThread);
+  if ( a2 )
+    ObfDereferenceObjectWithTag(a2, 0x6E457350u);
+  return v6 & -(__int64)(v7 != 0);
+}

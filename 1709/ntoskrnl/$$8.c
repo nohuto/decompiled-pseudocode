@@ -1,0 +1,12 @@
+/*
+ * XREFs of $$8 @ 0x14018B480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __8()
+{
+  return FsRtlTruncateSmallMcb();
+}

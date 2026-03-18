@@ -1,0 +1,17 @@
+/*
+ * XREFs of xxxEndGetWidnowTrackInfoAsync @ 0x1C0084CFC
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C00CFAB0 (xxxProcessEventMessage.c)
+ * Callees:
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C00764D8 (xxxInitSendValidateMinMaxInfoEx.c)
+ *     xxxNotifyShellTrackedWindowTrackingInfo @ 0x1C0084DEC (xxxNotifyShellTrackedWindowTrackingInfo.c)
+ *     __security_check_cookie @ 0x1C0143530 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall xxxEndGetWidnowTrackInfoAsync(struct tagWND *a1)
+{
+  _BYTE v3[40]; // [rsp+20h] [rbp-38h] BYREF
+
+  xxxInitSendValidateMinMaxInfoEx(a1, (__int64)v3, 0LL, 0);
+  return xxxNotifyShellTrackedWindowTrackingInfo(a1, v3);
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of SepImageVerificationCallbackWorker @ 0x1406CE8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExNotifyWithProcessing @ 0x14008E578 (ExNotifyWithProcessing.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall SepImageVerificationCallbackWorker(unsigned int *P)
+{
+  _QWORD v2[5]; // [rsp+20h] [rbp-28h] BYREF
+
+  v2[1] = 0LL;
+  v2[0] = &SepImageVerificationCallbackPreProcess;
+  v2[2] = *((_QWORD *)P + 4);
+  v2[3] = P[10];
+  ExNotifyWithProcessing((__int64)ExCbSeImageVerificationDriverInfo, 1LL, (__int64)(P + 12), (__int64)v2);
+  ExFreePoolWithTag(*((PVOID *)P + 4), 0x63734943u);
+  ExFreePoolWithTag(P, 0x63734943u);
+}

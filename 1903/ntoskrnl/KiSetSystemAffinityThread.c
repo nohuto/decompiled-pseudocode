@@ -1,0 +1,131 @@
+/*
+ * XREFs of KiSetSystemAffinityThread @ 0x1400F8B40
+ * Callers:
+ *     KeRevertToUserGroupAffinityThread @ 0x1400F85B0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400F8850 (KeSetSystemGroupAffinityThread.c)
+ * Callees:
+ *     KiUpdateSharedReadyQueueAffinityThread @ 0x14000FAD0 (KiUpdateSharedReadyQueueAffinityThread.c)
+ *     KiSelectNextThread @ 0x1400136A0 (KiSelectNextThread.c)
+ *     KiPrcbInGroupAffinity @ 0x1400156A4 (KiPrcbInGroupAffinity.c)
+ *     KiUpdateNodeAffinitizedFlag @ 0x14001C0F0 (KiUpdateNodeAffinitizedFlag.c)
+ *     KeYieldProcessorEx @ 0x14002D3D0 (KeYieldProcessorEx.c)
+ *     KiComputeThreadAffinity @ 0x1400F8CF0 (KiComputeThreadAffinity.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BE818 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall KiSetSystemAffinityThread(__int64 a1, __int64 a2, unsigned int a3, __int64 *a4)
+{
+  __int64 v4; // rbx
+  __int64 v7; // rsi
+  __int64 v8; // rdx
+  unsigned __int64 v9; // r8
+  __int64 v10; // rax
+  unsigned __int16 v11; // r9
+  unsigned __int64 v12; // rcx
+  unsigned __int64 v13; // rax
+  __int64 v14; // rax
+  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // rbx
+  _DWORD *SchedulerAssist; // rcx
+  struct _KPRCB *v18; // rcx
+  _DWORD *v19; // rdx
+  _DWORD *v20; // rcx
+  int v21; // eax
+  bool v22; // zf
+  int v23; // eax
+  int v24; // [rsp+50h] [rbp+18h] BYREF
+
+  v4 = *(_QWORD *)(a1 + 8);
+  *(_WORD *)(v4 + 584) = *(_WORD *)(a2 + 8);
+  *(_QWORD *)(v4 + 576) = *(_QWORD *)a2;
+  if ( a3 < 0x500 )
+  {
+    *(_DWORD *)(v4 + 588) = a3;
+    v14 = a3;
+    v9 = 0x140000000uLL;
+LABEL_7:
+    v7 = *(_QWORD *)(v9 + 8 * v14 + 5716672);
+    goto LABEL_8;
+  }
+  v7 = KiProcessorBlock[*(unsigned int *)(v4 + 588)];
+  if ( !KiPrcbInGroupAffinity(v7, a2) )
+  {
+    v10 = *(_QWORD *)(v7 + 192);
+    v11 = *(_WORD *)(v8 + 8);
+    v12 = *(_QWORD *)v8;
+    if ( v11 == *(_WORD *)(v10 + 144) )
+    {
+      v13 = v12 & *(_QWORD *)(v10 + 136);
+      if ( v13 )
+        v12 = v13;
+    }
+    _BitScanReverse64(&v12, v12);
+    v14 = *(unsigned int *)(v9 + 4LL * ((unsigned int)v12 + (v11 << 6)) + 5730528);
+    *(_DWORD *)(v4 + 588) = v14;
+    goto LABEL_7;
+  }
+LABEL_8:
+  if ( (*(_DWORD *)(v4 + 116) & 8) != 0 || !(unsigned int)KiComputeThreadAffinity(v4) )
+  {
+    KiUpdateSharedReadyQueueAffinityThread(v7, v4);
+    KiUpdateNodeAffinitizedFlag(v4);
+  }
+  result = KiPrcbInGroupAffinity(a1, v4 + 576);
+  if ( !(_DWORD)result )
+  {
+    _interlockedbittestandset((volatile signed __int32 *)(v4 + 120), 0xCu);
+    if ( !*(_QWORD *)(a1 + 16) )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      v24 = 0;
+      while ( 1 )
+      {
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        if ( SchedulerAssist )
+        {
+          if ( CurrentPrcb->NestingLevel <= 1u )
+          {
+            v21 = SchedulerAssist[5];
+            v22 = v21 == -1;
+            result = (unsigned int)(v21 + 1);
+            SchedulerAssist[5] = result;
+            if ( v22 )
+              result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
+        if ( !_interlockedbittestandset64((volatile signed __int32 *)(a1 + 48), 0LL) )
+          break;
+        v20 = CurrentPrcb->SchedulerAssist;
+        if ( v20 )
+        {
+          if ( CurrentPrcb->NestingLevel <= 1u )
+          {
+            v23 = v20[5] - 1;
+            v20[5] = v23;
+            if ( !v23 )
+              KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+          }
+        }
+        do
+        {
+          KeYieldProcessorEx(&v24);
+          result = *(_QWORD *)(a1 + 48);
+        }
+        while ( result );
+      }
+      if ( !*(_QWORD *)(a1 + 16) )
+        result = KiSelectNextThread(a1, a4);
+      _InterlockedAnd64((volatile signed __int64 *)(a1 + 48), 0LL);
+      v18 = KeGetCurrentPrcb();
+      v19 = v18->SchedulerAssist;
+      if ( v19 && v18->NestingLevel <= 1u )
+      {
+        result = (unsigned int)(v19[5] - 1);
+        v19[5] = result;
+        if ( !(_DWORD)result )
+          return KiRemoveSystemWorkPriorityKick(v18);
+      }
+    }
+  }
+  return result;
+}

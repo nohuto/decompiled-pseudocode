@@ -1,0 +1,90 @@
+/*
+ * XREFs of ?SetBackdropVisualImage@CTreeData@@IEAAXAEBVCVisualTreePath@@PEAVCBackdropVisualImage@@@Z @ 0x1800DB714
+ * Callers:
+ *     ?CreateOrUpdateBVI@CVisual@@QEAAJAEBVCVisualTreePath@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEA_N@Z @ 0x180086704 (-CreateOrUpdateBVI@CVisual@@QEAAJAEBVCVisualTreePath@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
+ * Callees:
+ *     ?LogEtwEvent@CBackdropVisualImage@@QEBAXVDbgString@DwmDbg@@0@Z @ 0x180053AAC (-LogEtwEvent@CBackdropVisualImage@@QEBAXVDbgString@DwmDbg@@0@Z.c)
+ *     ??0DbgString@DwmDbg@@QEAA@QEBDZZ @ 0x18008D5F4 (--0DbgString@DwmDbg@@QEAA@QEBDZZ.c)
+ *     ??4?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCBackdropVisualImage@@@Z @ 0x1800D4528 (--4-$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCBackdrop.c)
+ *     ?clear_region@?$vector_facade@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800DB6AC (-clear_region@-$vector_facade@V-$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@w.c)
+ *     ?reserve_region@?$vector_facade@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAV?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@_K0@Z @ 0x1800DB7E4 (-reserve_region@-$vector_facade@V-$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@.c)
+ *     ??0?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCBackdropVisualImage@@@Z @ 0x1800DB914 (--0-$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCBackdropVisual.c)
+ */
+
+void __fastcall CTreeData::SetBackdropVisualImage(
+        CTreeData *this,
+        const struct CVisualTreePath *a2,
+        struct CBackdropVisualImage *a3)
+{
+  __int64 *v3; // r14
+  CResource **i; // rbx
+  _QWORD *v8; // rax
+  __int64 v9; // rdi
+  __int64 v10; // r15
+  __int64 v11; // rbp
+  _QWORD *v12; // rcx
+  __int64 v13; // rdx
+  __int64 v14; // rdx
+  void **v15; // rbx
+  void **v16; // rax
+  __int64 v17; // rdi
+  char *v18; // [rsp+50h] [rbp+8h] BYREF
+  char *v19; // [rsp+68h] [rbp+20h] BYREF
+
+  v3 = (__int64 *)((char *)this + 192);
+  for ( i = (CResource **)*((_QWORD *)this + 24); ; ++i )
+  {
+    if ( i == (CResource **)v3[1] )
+    {
+      wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>(
+        &v18,
+        a3);
+      v8 = (_QWORD *)detail::vector_facade<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,detail::buffer_impl<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,1,1,detail::liberal_expansion_policy>>::reserve_region(
+                       v3,
+                       (v3[1] - *v3) >> 3);
+      *v8 = v18;
+      *((_QWORD *)a3 + 248) = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 36) + 16LL) + 496LL);
+      v9 = *v3;
+      if ( ((v3[1] - *v3) & 0xFFFFFFFFFFFFFFF8uLL) != 0 )
+      {
+        v10 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 36) + 16LL) + 496LL);
+        while ( v9 != *((_QWORD *)this + 25) )
+        {
+          v11 = *(_QWORD *)v9;
+          if ( (unsigned __int64)(v10 - *(_QWORD *)(*(_QWORD *)v9 + 1984LL)) > 0xA )
+          {
+            v15 = (void **)DwmDbg::DbgString::DbgString(&v18, &byte_18032C47F);
+            v16 = (void **)DwmDbg::DbgString::DbgString(&v19, "BVI-StaleDelete");
+            CBackdropVisualImage::LogEtwEvent(v11, v16, v15);
+            v17 = (v9 - *v3) >> 3;
+            detail::vector_facade<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,detail::buffer_impl<wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>,1,1,detail::liberal_expansion_policy>>::clear_region(
+              v3,
+              v17,
+              1LL);
+            v9 = *v3 + 8 * v17;
+          }
+          else
+          {
+            v9 += 8LL;
+          }
+        }
+      }
+      return;
+    }
+    v12 = *(_QWORD **)a2;
+    v13 = *((_QWORD *)*i + 224);
+    if ( (((*((_QWORD *)a2 + 1) - *(_QWORD *)a2) ^ (*((_QWORD *)*i + 225) - v13)) & 0xFFFFFFFFFFFFFFF0uLL) == 0 )
+      break;
+LABEL_15:
+    ;
+  }
+  v14 = v13 - (_QWORD)v12;
+  while ( (_QWORD *)((char *)v12 + v14) != *((_QWORD **)*i + 225) )
+  {
+    if ( *(_QWORD *)((char *)v12 + v14) != *v12 || *(_QWORD *)((char *)v12 + v14 + 8) != v12[1] )
+      goto LABEL_15;
+    v12 += 2;
+  }
+  wil::com_ptr_t<CBackdropVisualImage,wil::err_returncode_policy>::operator=(i, (__int64)a3);
+  *((_QWORD *)*i + 248) = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 36) + 16LL) + 496LL);
+}

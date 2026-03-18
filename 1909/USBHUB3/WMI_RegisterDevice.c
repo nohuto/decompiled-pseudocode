@@ -1,0 +1,50 @@
+/*
+ * XREFs of WMI_RegisterDevice @ 0x1C00818E0
+ * Callers:
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C0074BD0 (HUBPDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0001B44 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0041200 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00412F0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0041640 (memset.c)
+ */
+
+__int64 __fastcall WMI_RegisterDevice(__int64 a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rdi
+  __int64 result; // rax
+  _QWORD v5[8]; // [rsp+30h] [rbp-19h] BYREF
+  _DWORD v6[10]; // [rsp+70h] [rbp+27h] BYREF
+
+  memset(v6, 0, sizeof(v6));
+  memset(v5, 0, sizeof(v5));
+  v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
+         WdfDriverGlobals,
+         a1,
+         off_1C0064040);
+  v6[0] = 40;
+  v3 = v2;
+  memset(&v6[5], 0, 20);
+  *(GUID *)&v6[1] = GUID_USB_WMI_NODE_INFO;
+  memset(v5, 0, sizeof(v5));
+  v5[2] = v6;
+  LODWORD(v5[0]) = 64;
+  v5[4] = WMI_QueryInstanceDeviceNodeInfo;
+  BYTE1(v5[3]) = 1;
+  result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD *, _QWORD, _QWORD))(WdfFunctions_01015 + 2984))(
+             WdfDriverGlobals,
+             a1,
+             v5,
+             0LL,
+             0LL);
+  if ( (int)result < 0 && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    return WPP_RECORDER_SF_d(
+             *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(v3 + 24) + 8LL) + 1432LL),
+             2u,
+             5u,
+             0x11u,
+             (__int64)&WPP_1362546fee9e322e2fa74dbd802c5a46_Traceguids,
+             result);
+  return result;
+}

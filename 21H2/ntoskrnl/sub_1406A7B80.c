@@ -1,0 +1,23 @@
+/*
+ * XREFs of sub_1406A7B80 @ 0x1406A7B80
+ * Callers:
+ *     sub_1406A74E4 @ 0x1406A74E4 (sub_1406A74E4.c)
+ *     sub_1407D0090 @ 0x1407D0090 (sub_1407D0090.c)
+ *     sub_140855AB0 @ 0x140855AB0 (sub_140855AB0.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall sub_1406A7B80(
+        char a1,
+        unsigned __int64 a2,
+        unsigned __int64 a3,
+        __int64 a4,
+        int a5,
+        __int64 a6,
+        unsigned int a7)
+{
+  return (a7 - *(unsigned __int16 *)(a6 + 2LL * (((a1 & 3) + (unsigned __int8)(a2 / 3) + (_BYTE)a2 + 1) & 3)))
+       * *(unsigned __int16 *)(a6 + 2LL * (a1 & 3))
+       - (a7 >> (a3 % 0xF + 1));
+}

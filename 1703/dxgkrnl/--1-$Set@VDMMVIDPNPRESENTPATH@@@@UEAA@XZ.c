@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??1?$Set@VDMMVIDPNPRESENTPATH@@@@UEAA@XZ @ 0x1C0002320
+ * Callers:
+ *     ??1DMMVIDPNTOPOLOGY@@UEAA@XZ @ 0x1C000A6BC (--1DMMVIDPNTOPOLOGY@@UEAA@XZ.c)
+ *     ??_E?$Set@VDMMVIDPNPRESENTPATH@@@@UEAAPEAXI@Z @ 0x1C00456C0 (--_E-$Set@VDMMVIDPNPRESENTPATH@@@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Set<DMMVIDPNPRESENTPATH>::~Set<DMMVIDPNPRESENTPATH>(_QWORD *a1)
+{
+  *a1 = &Set<DMMVIDPNPRESENTPATH>::`vftable';
+  a1[1] = &DoublyLinkedList<DMMVIDPNPRESENTPATH>::`vftable';
+  return DoublyLinkedList<DMMVIDPNPRESENTPATH>::Clear();
+}

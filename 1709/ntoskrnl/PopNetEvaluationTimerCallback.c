@@ -1,0 +1,17 @@
+/*
+ * XREFs of PopNetEvaluationTimerCallback @ 0x140249B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopQueueWorkItem @ 0x140139F70 (PopQueueWorkItem.c)
+ */
+
+char PopNetEvaluationTimerCallback()
+{
+  signed __int32 v0; // eax
+
+  v0 = _InterlockedCompareExchange(&PopNetGracePeriodState, 2, 1);
+  if ( v0 == 1 )
+    LOBYTE(v0) = PopQueueWorkItem((__int64)&unk_1403647C8, DelayedWorkQueue);
+  return v0;
+}

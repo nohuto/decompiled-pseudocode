@@ -1,0 +1,30 @@
+/*
+ * XREFs of CatError @ 0x1C005A994
+ * Callers:
+ *     AMLIInitialize @ 0x1C00A6000 (AMLIInitialize.c)
+ * Callees:
+ *     RtlStringCchCatA @ 0x1C0055BF4 (RtlStringCchCatA.c)
+ *     RtlStringCchVPrintfA @ 0x1C00593C0 (RtlStringCchVPrintfA.c)
+ *     AMLIDebugger @ 0x1C005A948 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C005AA1C (ConPrintf.c)
+ */
+
+__int64 CatError(const char *a1, ...)
+{
+  __int64 v1; // rax
+  __int64 result; // rax
+  va_list argList; // [rsp+48h] [rbp+10h] BYREF
+
+  va_start(argList, a1);
+  RtlStringCchCatA(byte_1C007469C, 0x100uLL, "\n");
+  v1 = -1LL;
+  do
+    ++v1;
+  while ( byte_1C007469C[v1] );
+  RtlStringCchVPrintfA(&byte_1C007469C[v1], 256 - v1, a1, argList);
+  ConPrintf(byte_1C007469C);
+  result = ConPrintf("\n");
+  if ( (gDebugger & 0x4000) != 0 )
+    return AMLIDebugger();
+  return result;
+}

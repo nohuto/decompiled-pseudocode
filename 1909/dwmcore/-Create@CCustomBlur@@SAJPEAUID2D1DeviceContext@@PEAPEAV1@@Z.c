@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?Create@CCustomBlur@@SAJPEAUID2D1DeviceContext@@PEAPEAV1@@Z @ 0x1800D78E4
+ * Callers:
+ *     ?GetCustomBlurEffectNoRef@CDrawingContext@@QEAAJPEAPEAVCCustomBlur@@@Z @ 0x1800510C8 (-GetCustomBlurEffectNoRef@CDrawingContext@@QEAAJPEAPEAVCCustomBlur@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800738CC (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x18007BD70 (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Initialize@CCustomBlur@@AEAAJPEAUID2D1DeviceContext@@@Z @ 0x1800D7988 (-Initialize@CCustomBlur@@AEAAJPEAUID2D1DeviceContext@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F0230 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CCustomBlur::Create(struct ID2D1DeviceContext *a1, struct CCustomBlur **a2)
+{
+  CCustomBlur *v4; // rax
+  __int64 v5; // rcx
+  CCustomBlur *v6; // rbx
+  signed int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // edi
+
+  v4 = (CCustomBlur *)DefaultHeap::Alloc(0x40uLL);
+  v6 = v4;
+  if ( v4 )
+  {
+    *((_DWORD *)v4 + 2) = 0;
+    *(_QWORD *)v4 = &CCustomBlur::`vftable';
+    *((_QWORD *)v4 + 2) = 0LL;
+    *((_QWORD *)v4 + 3) = 0LL;
+    *((_QWORD *)v4 + 4) = 0LL;
+    *((_QWORD *)v4 + 5) = 0LL;
+    *((_QWORD *)v4 + 6) = 0LL;
+    *((_QWORD *)v4 + 7) = 0LL;
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  if ( v6 )
+  {
+    (**(void (__fastcall ***)(CCustomBlur *))v6)(v6);
+    v7 = CCustomBlur::Initialize(v6, a1);
+    v9 = v7;
+    if ( v7 >= 0 )
+    {
+      *a2 = v6;
+      return v9;
+    }
+    MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x26u, 0LL);
+  }
+  else
+  {
+    v9 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, 0x8007000E, 0x24u, 0LL);
+  }
+  if ( v6 )
+    (*(void (__fastcall **)(CCustomBlur *))(*(_QWORD *)v6 + 8LL))(v6);
+  return v9;
+}

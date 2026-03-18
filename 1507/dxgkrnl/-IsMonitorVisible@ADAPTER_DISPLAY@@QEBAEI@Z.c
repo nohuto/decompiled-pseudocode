@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?IsMonitorVisible@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C000AFDC
+ * Callers:
+ *     ?DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEAPEBIIU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEBI@Z @ 0x1C005C690 (-DxgkDestroyAllocationInternal@@YAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAIPEAPEAVDXGALLOCATION@@IAEA.c)
+ *     ?EnsureGdiOutput@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@PEAE2@Z @ 0x1C00B60B8 (-EnsureGdiOutput@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@PEAE2@Z.c)
+ *     ?IsDisplayingOnVidPnSource@DXGDEVICE@@QEAA_NI@Z @ 0x1C013636C (-IsDisplayingOnVidPnSource@DXGDEVICE@@QEAA_NI@Z.c)
+ *     ?Serialize@DMMVIDEOPRESENTSOURCE@@QEBAXQEAU_DMM_VIDEOPRESENTSOURCE_SERIALIZATION@@@Z @ 0x1C017D27C (-Serialize@DMMVIDEOPRESENTSOURCE@@QEBAXQEAU_DMM_VIDEOPRESENTSOURCE_SERIALIZATION@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int8 __fastcall ADAPTER_DISPLAY::IsMonitorVisible(ADAPTER_DISPLAY *this, unsigned int a2)
+{
+  __int64 v3; // rbx
+  __int64 v5; // rax
+
+  v3 = a2;
+  if ( a2 >= *((_DWORD *)this + 20) )
+  {
+    v5 = WdLogNewEntry5_WdAssertion();
+    *(_QWORD *)(v5 + 24) = 3997LL;
+    WdLogEvent5_WdAssertion(v5);
+  }
+  return *(_BYTE *)(1008 * v3 + *((_QWORD *)this + 14) + 697);
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?IsClientInfoValid@@YAEPEAU_CLIENT_INFO@@@Z @ 0x1C002CE3C
+ * Callers:
+ *     GetEnhancedVerifierOptions @ 0x1C002CC88 (GetEnhancedVerifierOptions.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall IsClientInfoValid(_CLIENT_INFO *ClientInfo)
+{
+  _UNICODE_STRING *RegistryPath; // rax
+  bool result; // al
+
+  result = 0;
+  if ( ClientInfo )
+  {
+    if ( ClientInfo->Size == 16 )
+    {
+      RegistryPath = ClientInfo->RegistryPath;
+      if ( RegistryPath )
+      {
+        if ( RegistryPath->Length && RegistryPath->Buffer )
+          return 1;
+      }
+    }
+  }
+  return result;
+}

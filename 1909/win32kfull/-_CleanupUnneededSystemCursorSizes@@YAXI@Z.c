@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C01CC1FC
+ * Callers:
+ *     ?RefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C013C800 (-RefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ * Callees:
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C002404C (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C00F15B4 (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ */
+
+void __fastcall _CleanupUnneededSystemCursorSizes(int a1)
+{
+  __int64 v1; // rbx
+  __int64 v3; // rsi
+  struct tagCURSOR *v4; // rcx
+  struct tagCURSOR *DPICursor; // rax
+  struct tagCURSOR *v6; // rcx
+  struct tagCURSOR *v7; // rdi
+  __int64 ProcessWin32Process; // rax
+
+  v1 = 0LL;
+  v3 = 19LL;
+  do
+  {
+    v4 = *(struct tagCURSOR **)(v1 + gasyscur[0] + 8);
+    if ( v4 )
+    {
+      DPICursor = FindDPICursor(v4, a1);
+      v7 = DPICursor;
+      if ( DPICursor )
+      {
+        if ( DPICursor != v6 )
+        {
+          ProcessWin32Process = PsGetProcessWin32Process(gpepCSRSS);
+          FixupGlobalCursor(v7, ProcessWin32Process);
+          _DestroyCursor(v7, 0);
+        }
+      }
+    }
+    v1 += 552LL;
+    --v3;
+  }
+  while ( v3 );
+}

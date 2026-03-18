@@ -1,0 +1,27 @@
+/*
+ * XREFs of VfDevObjIsDeviceRemoved @ 0x140742E88
+ * Callers:
+ *     VfWmiVerifyIrpStackUpward @ 0x14074DE18 (VfWmiVerifyIrpStackUpward.c)
+ * Callees:
+ *     VfAvlCleanupLockContext @ 0x1400257E0 (VfAvlCleanupLockContext.c)
+ *     VfAvlLookupTreeNode @ 0x140025810 (VfAvlLookupTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x140025AC8 (VfAvlInitializeLockContext.c)
+ */
+
+char VfDevObjIsDeviceRemoved()
+{
+  bool v1; // bl
+  unsigned __int64 v2; // r8
+  _BYTE *v3; // rax
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  if ( (MmVerifierData & 0x10) == 0 )
+    return 1;
+  v1 = 1;
+  VfAvlInitializeLockContext((__int64)v4, 1);
+  v3 = VfAvlLookupTreeNode(ViDevObjAvl, (__int64)v4, v2, 0LL);
+  if ( v3 )
+    v1 = (v3[16] & 2) != 0;
+  VfAvlCleanupLockContext((__int64)v4);
+  return v1;
+}

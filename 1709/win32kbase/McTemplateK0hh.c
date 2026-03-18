@@ -1,0 +1,30 @@
+/*
+ * XREFs of McTemplateK0hh @ 0x1C00E2B0C
+ * Callers:
+ *     EtwTraceBeginPointerMessageGeneration @ 0x1C00DFD60 (EtwTraceBeginPointerMessageGeneration.c)
+ *     EtwTraceEndPointerMessageGeneration @ 0x1C00E0290 (EtwTraceEndPointerMessageGeneration.c)
+ * Callees:
+ *     McGenEventWriteKM @ 0x1C0009120 (McGenEventWriteKM.c)
+ *     __security_check_cookie @ 0x1C00A7160 (__security_check_cookie.c)
+ */
+
+NTSTATUS __fastcall McTemplateK0hh(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, __int16 a4, __int64 a5)
+{
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-48h] BYREF
+  __int16 *v7; // [rsp+40h] [rbp-38h]
+  int v8; // [rsp+48h] [rbp-30h]
+  int v9; // [rsp+4Ch] [rbp-2Ch]
+  __int64 *v10; // [rsp+50h] [rbp-28h]
+  int v11; // [rsp+58h] [rbp-20h]
+  int v12; // [rsp+5Ch] [rbp-1Ch]
+  __int16 v13; // [rsp+98h] [rbp+20h] BYREF
+
+  v13 = a4;
+  v7 = &v13;
+  v9 = 0;
+  v8 = 2;
+  v10 = &a5;
+  v12 = 0;
+  v11 = 2;
+  return McGenEventWriteKM(2LL, a2, &W32kControlGuid, 3u, &v6);
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of ?SetBufferProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C001DCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PEBUD2D_RECT_F@@PEA_N@Z @ 0x1C001DD08 (-SetRectangleHelper@CRectangleClipMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@PE.c)
+ */
+
+__int64 __fastcall DirectComposition::CRectangleClipMarshaler::SetBufferProperty(
+        DirectComposition::CRectangleClipMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        const struct D2D_RECT_F *a4,
+        unsigned __int64 a5,
+        bool *a6)
+{
+  unsigned int v6; // ebx
+  int v7; // r8d
+  int v9; // r8d
+  int v10; // r8d
+  __int64 v11; // xmm0_8
+  __int64 v12; // xmm0_8
+  __int64 v13; // xmm0_8
+
+  v6 = 0;
+  v7 = a3 - 16;
+  if ( v7 )
+  {
+    v9 = v7 - 1;
+    if ( v9 )
+    {
+      v10 = v9 - 1;
+      if ( v10 )
+      {
+        if ( v10 != 1 || a5 != 8 || !*((_BYTE *)this + 145) )
+          return (unsigned int)-1073741811;
+        v11 = *(_QWORD *)a4;
+        *((_DWORD *)this + 4) &= ~0x800u;
+        *((_QWORD *)this + 14) = v11;
+      }
+      else
+      {
+        if ( a5 != 8 || !*((_BYTE *)this + 145) )
+          return (unsigned int)-1073741811;
+        v13 = *(_QWORD *)a4;
+        *((_DWORD *)this + 4) &= ~0x4000u;
+        *((_QWORD *)this + 13) = v13;
+      }
+    }
+    else
+    {
+      if ( a5 != 8 || !*((_BYTE *)this + 145) )
+        return (unsigned int)-1073741811;
+      v12 = *(_QWORD *)a4;
+      *((_DWORD *)this + 4) &= ~0x1000u;
+      *((_QWORD *)this + 12) = v12;
+    }
+    *a6 = 1;
+    return v6;
+  }
+  if ( a5 != 16 || *((_BYTE *)this + 145) )
+    return (unsigned int)-1073741811;
+  DirectComposition::CRectangleClipMarshaler::SetRectangleHelper(this, a2, a4, a6);
+  return v6;
+}

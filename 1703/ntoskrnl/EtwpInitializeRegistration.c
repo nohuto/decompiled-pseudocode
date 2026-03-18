@@ -1,0 +1,34 @@
+/*
+ * XREFs of EtwpInitializeRegistration @ 0x140825108
+ * Callers:
+ *     EtwpInitialize @ 0x1407FBF08 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x1400F0F60 (RtlInitUnicodeString.c)
+ *     KiInitializeMutant @ 0x140121F00 (KiInitializeMutant.c)
+ *     memset @ 0x140192D80 (memset.c)
+ *     ObCreateObjectType @ 0x14059EB50 (ObCreateObjectType.c)
+ */
+
+__int64 EtwpInitializeRegistration()
+{
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF
+  _QWORD v2[16]; // [rsp+30h] [rbp-29h] BYREF
+
+  KiInitializeMutant((__int64)&EtwpGlobalMutex, 0, 1);
+  EtwpReplyListLock = 0LL;
+  qword_140344BB8 = (__int64)&EtwpReplyListHead;
+  EtwpReplyListHead = (__int64)&EtwpReplyListHead;
+  memset(v2, 0, 0x78uLL);
+  BYTE2(v2[0]) |= 0x18u;
+  v2[7] = EtwpOpenRealTimeConnectionObject;
+  LOWORD(v2[0]) = 120;
+  v2[8] = EtwpCloseRegistrationObject;
+  LODWORD(v2[1]) = 256;
+  v2[9] = EtwpDeleteRegistrationObject;
+  *(GENERIC_MAPPING *)((char *)&v2[1] + 4) = EtwpGenericMapping;
+  HIDWORD(v2[3]) = 2052;
+  HIDWORD(v2[4]) = 512;
+  HIDWORD(v2[5]) = 112;
+  RtlInitUnicodeString(&DestinationString, L"EtwRegistration");
+  return ObCreateObjectType(&DestinationString, (__int64)v2, 0LL, (__int64)&EtwpRegistrationObjectType);
+}

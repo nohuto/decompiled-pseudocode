@@ -1,0 +1,33 @@
+/*
+ * XREFs of ObDisableEtwReferenceTrace @ 0x140667240
+ * Callers:
+ *     EtwpDisableKernelTrace @ 0x1404960E4 (EtwpDisableKernelTrace.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x14002C1B0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14006AEC0 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1400C8070 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400C8738 (ExfTryToWakePushLock.c)
+ */
+
+__int64 ObDisableEtwReferenceTrace()
+{
+  struct _KTHREAD *CurrentThread; // rax
+  _BYTE *v1; // rax
+  signed __int8 v2; // cf
+  _BYTE *v3; // rdi
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->SpecialApcDisable;
+  v1 = (_BYTE *)KeAbPreAcquire((ULONG_PTR)&ObpStackTraceLock, 0LL, 0);
+  v2 = _interlockedbittestandset64((volatile signed __int32 *)&ObpStackTraceLock, 0LL);
+  v3 = v1;
+  if ( v2 )
+    ExfAcquirePushLockExclusiveEx(&ObpStackTraceLock, v1, (ULONG_PTR)&ObpStackTraceLock);
+  if ( v3 )
+    v3[26] |= 1u;
+  ObpTraceFlags &= ~4u;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ObpStackTraceLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&ObpStackTraceLock);
+  KeAbPostRelease((ULONG_PTR)&ObpStackTraceLock);
+  return KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+}

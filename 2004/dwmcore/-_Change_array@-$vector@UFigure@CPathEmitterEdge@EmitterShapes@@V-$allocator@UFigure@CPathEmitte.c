@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?_Change_array@?$vector@UFigure@CPathEmitterEdge@EmitterShapes@@V?$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@std@@@std@@AEAAXQEAUFigure@CPathEmitterEdge@EmitterShapes@@_K1@Z @ 0x1802089C4
+ * Callers:
+ *     ??$_Emplace_reallocate@AEBUFigure@CPathEmitterEdge@EmitterShapes@@@?$vector@UFigure@CPathEmitterEdge@EmitterShapes@@V?$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@std@@@std@@QEAAPEAUFigure@CPathEmitterEdge@EmitterShapes@@QEAU234@AEBU234@@Z @ 0x180206B6C (--$_Emplace_reallocate@AEBUFigure@CPathEmitterEdge@EmitterShapes@@@-$vector@UFigure@CPathEmitter.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C4B4C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@std@@@std@@YAXPEAUFigure@CPathEmitterEdge@EmitterShapes@@0AEAV?$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@0@@Z @ 0x1802069B0 (--$_Destroy_range@V-$allocator@UFigure@CPathEmitterEdge@EmitterShapes@@@std@@@std@@YAXPEAUFigure.c)
+ */
+
+__int64 __fastcall std::vector<EmitterShapes::CPathEmitterEdge::Figure>::_Change_array(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  void *v6; // rcx
+  __int64 result; // rax
+
+  v6 = *(void **)a1;
+  if ( v6 )
+  {
+    std::_Destroy_range<std::allocator<EmitterShapes::CPathEmitterEdge::Figure>>((__int64)v6, *(_QWORD *)(a1 + 8));
+    std::_Deallocate<16,0>(*(void **)a1, 56 * ((*(_QWORD *)(a1 + 16) - *(_QWORD *)a1) / 56LL));
+  }
+  *(_QWORD *)a1 = a2;
+  *(_QWORD *)(a1 + 8) = a2 + 56 * a3;
+  result = a2 + 56 * a4;
+  *(_QWORD *)(a1 + 16) = result;
+  return result;
+}

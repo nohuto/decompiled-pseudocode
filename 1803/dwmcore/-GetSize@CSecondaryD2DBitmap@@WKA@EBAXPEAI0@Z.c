@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetSize@CSecondaryD2DBitmap@@WKA@EBAXPEAI0@Z @ 0x1800DD9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CSecondaryD2DBitmap::GetSize(__int64 a1, unsigned int *a2, unsigned int *a3)
+{
+  CSecondaryD2DBitmap::GetSize((CSecondaryD2DBitmap *)(a1 - 160), a2, a3);
+}

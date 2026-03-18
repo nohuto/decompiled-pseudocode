@@ -1,0 +1,12 @@
+/*
+ * XREFs of STROBJ_dwGetCodePage @ 0x1C0290A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+DWORD __stdcall STROBJ_dwGetCodePage(STROBJ *pstro)
+{
+  return *((_DWORD *)&pstro[2].rclBkGround + 4);
+}

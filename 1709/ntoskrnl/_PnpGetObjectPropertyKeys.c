@@ -1,0 +1,82 @@
+/*
+ * XREFs of _PnpGetObjectPropertyKeys @ 0x140781FAC
+ * Callers:
+ *     PiDqPnPGetObjectPropertyKeys @ 0x1406C46E4 (PiDqPnPGetObjectPropertyKeys.c)
+ *     PiCMGetObjectPropertyKeys @ 0x1406D064C (PiCMGetObjectPropertyKeys.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140189900 (_guard_dispatch_icall.c)
+ *     memset @ 0x140192F40 (memset.c)
+ *     _PnpGetObjectPropertyKeysWorker @ 0x140782128 (_PnpGetObjectPropertyKeysWorker.c)
+ */
+
+__int64 __fastcall PnpGetObjectPropertyKeys(
+        __int64 a1,
+        __int64 a2,
+        unsigned int a3,
+        __int64 a4,
+        __int64 a5,
+        char a6,
+        __int64 a7,
+        int a8,
+        __int64 a9)
+{
+  __int64 (__fastcall *v13)(__int64, __int64, _QWORD, __int64, int, _QWORD *); // rdi
+  int v14; // eax
+  unsigned int ObjectPropertyKeysWorker; // eax
+  unsigned int v16; // ebx
+  int v17; // eax
+  int v18; // ecx
+  unsigned int v19; // eax
+  _QWORD v21[10]; // [rsp+58h] [rbp-39h] BYREF
+
+  LODWORD(v21[0]) = 0;
+  memset(&v21[1], 0, 0x48uLL);
+  v13 = *(__int64 (__fastcall **)(__int64, __int64, _QWORD, __int64, int, _QWORD *))(a1 + 312);
+  v21[3] = 0LL;
+  LODWORD(v21[8]) = 0;
+  LOBYTE(v21[4]) = a6;
+  v21[5] = a7;
+  LODWORD(v21[6]) = a8;
+  v21[7] = a9;
+  v21[2] = a4;
+  if ( v13 )
+  {
+    v14 = v13(a1, a2, a3, 6LL, 1, v21);
+    if ( v14 == -1073741822 )
+    {
+      v13 = 0LL;
+    }
+    else
+    {
+      if ( v14 == -1073741536 )
+        return LODWORD(v21[0]);
+      if ( v14 )
+        return (unsigned int)-1073741595;
+    }
+  }
+  ObjectPropertyKeysWorker = PnpGetObjectPropertyKeysWorker(
+                               a1,
+                               a2,
+                               a3,
+                               v21[2],
+                               v21[3],
+                               v21[4],
+                               v21[5],
+                               v21[6],
+                               v21[7],
+                               v21[8]);
+  v16 = ObjectPropertyKeysWorker;
+  if ( !v13 )
+    return v16;
+  LODWORD(v21[0]) = ObjectPropertyKeysWorker;
+  v17 = v13(a1, a2, a3, 6LL, 2, v21);
+  v18 = v17;
+  if ( v17 == -1073741822 )
+    return v16;
+  if ( v17 == -1073741536 )
+    return LODWORD(v21[0]);
+  v19 = v16;
+  if ( v18 )
+    return (unsigned int)-1073741595;
+  return v19;
+}

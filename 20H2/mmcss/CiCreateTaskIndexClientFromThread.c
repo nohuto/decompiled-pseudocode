@@ -1,0 +1,74 @@
+/*
+ * XREFs of CiCreateTaskIndexClientFromThread @ 0x1C000B290
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A350 (CiDispatchFastIoDeviceControl.c)
+ * Callees:
+ *     CiTaskIndexDereference @ 0x1C0001B60 (CiTaskIndexDereference.c)
+ *     CiThreadReferenceTaskIndex @ 0x1C0001D30 (CiThreadReferenceTaskIndex.c)
+ *     __security_check_cookie @ 0x1C0002FD0 (__security_check_cookie.c)
+ *     memset @ 0x1C0003440 (memset.c)
+ *     WPP_SF_d @ 0x1C0004604 (WPP_SF_d.c)
+ */
+
+__int64 __fastcall CiCreateTaskIndexClientFromThread(__int64 a1, _DWORD *a2)
+{
+  void *v4; // rdi
+  NTSTATUS v5; // eax
+  unsigned int v6; // esi
+  void *FileHandle[2]; // [rsp+88h] [rbp-1A0h] BYREF
+  _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+98h] [rbp-190h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+C8h] [rbp-160h] BYREF
+  _QWORD EaBuffer[36]; // [rsp+E0h] [rbp-148h] BYREF
+
+  memset(EaBuffer, 0, 0x118uLL);
+  IoStatusBlock = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  FileHandle[0] = 0LL;
+  v4 = (void *)CiThreadReferenceTaskIndex(a1);
+  FileHandle[1] = v4;
+  if ( !v4 )
+    return 3221225865LL;
+  HIWORD(EaBuffer[0]) = 271;
+  EaBuffer[2] = v4;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  if ( ExGetPreviousMode() )
+    ObjectAttributes.Attributes = 0;
+  else
+    ObjectAttributes.Attributes = 512;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)L".0";
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v5 = IoCreateFileEx(
+         FileHandle,
+         0x120089u,
+         &ObjectAttributes,
+         &IoStatusBlock,
+         0LL,
+         0,
+         0,
+         0,
+         0,
+         EaBuffer,
+         0x118u,
+         CreateFileTypeNone,
+         0LL,
+         0,
+         0LL);
+  v6 = v5;
+  if ( v5 < 0 )
+  {
+    if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+      WPP_SF_d(
+        (__int64)WPP_GLOBAL_Control->AttachedDevice,
+        0x11u,
+        (__int64)&WPP_0f75fd9923be30bc1807a9ff104f69db_Traceguids,
+        v5);
+  }
+  else
+  {
+    *a2 = FileHandle[0];
+  }
+  CiTaskIndexDereference((volatile signed __int64 *)v4);
+  return v6;
+}

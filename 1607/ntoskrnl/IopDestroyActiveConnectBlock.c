@@ -1,0 +1,77 @@
+/*
+ * XREFs of IopDestroyActiveConnectBlock @ 0x140539F98
+ * Callers:
+ *     IoDisconnectInterrupt @ 0x1405324F4 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x140539BEC (IopConnectInterrupt.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
+ *     KiLeaveCriticalRegionUnsafe @ 0x140055FA0 (KiLeaveCriticalRegionUnsafe.c)
+ *     KeSetEvent @ 0x1400562D0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x14053A144 (IopAcquireReleaseConnectLockInternal.c)
+ */
+
+_UNKNOWN **__fastcall IopDestroyActiveConnectBlock(volatile signed __int32 *a1)
+{
+  _UNKNOWN **result; // rax
+  __int64 v3; // rbp
+  volatile signed __int32 *v4; // rsi
+  struct _KEVENT *v5; // rdi
+  __int64 v6; // rdx
+  char v7; // r14
+  signed __int32 v8; // eax
+  __int64 v9; // rcx
+  volatile signed __int32 **v10; // rax
+  __int64 v11; // rdx
+  __int64 v12; // r8
+  __int64 v13; // r9
+  struct _KTHREAD *CurrentThread; // rax
+  struct _KEVENT Object; // [rsp+30h] [rbp-38h] BYREF
+  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
+
+  result = &retaddr;
+  if ( *((_QWORD *)a1 + 3) )
+  {
+    v3 = *((_QWORD *)a1 + 4);
+    v4 = a1 + 16;
+    KeInitializeEvent(&Object, SynchronizationEvent, 0);
+    v5 = 0LL;
+    LOBYTE(v6) = 1;
+    v7 = 0;
+    IopAcquireReleaseConnectLockInternal(0LL, v6, 2LL);
+    v8 = _InterlockedDecrement((volatile signed __int32 *)v3);
+    if ( (volatile signed __int32 *)v3 == v4 )
+    {
+      if ( v8 )
+      {
+        v7 = 1;
+        *((_QWORD *)a1 + 9) = &Object;
+      }
+    }
+    else
+    {
+      if ( !v8 )
+        v5 = *(struct _KEVENT **)(v3 + 8);
+      _InterlockedAdd(v4, 0xFFFFFFFF);
+    }
+    v9 = *(_QWORD *)a1;
+    v10 = (volatile signed __int32 **)*((_QWORD *)a1 + 1);
+    if ( *(volatile signed __int32 **)(*(_QWORD *)a1 + 8LL) != a1 || *v10 != a1 )
+      __fastfail(3u);
+    *v10 = (volatile signed __int32 *)v9;
+    *(_QWORD *)(v9 + 8) = v10;
+    IopAcquireReleaseConnectLockInternal(0LL, 0LL, 2LL);
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    if ( v7 )
+    {
+      KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
+    }
+    else if ( v5 )
+    {
+      KeSetEvent(v5, 0, 0);
+    }
+    return (_UNKNOWN **)KiLeaveCriticalRegionUnsafe((__int64)KeGetCurrentThread(), v11, v12, v13);
+  }
+  return result;
+}

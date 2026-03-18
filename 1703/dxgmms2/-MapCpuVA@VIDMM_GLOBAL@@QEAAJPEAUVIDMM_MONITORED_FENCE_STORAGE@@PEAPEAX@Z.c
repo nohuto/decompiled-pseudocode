@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z @ 0x1C00635DC
+ * Callers:
+ *     ?VidMmMapCpuVA@@YAJPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z @ 0x1C0012A20 (-VidMmMapCpuVA@@YAJPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0002B40 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_N2PEAPEAX@Z @ 0x1C004F678 (-MapCpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@_.c)
+ */
+
+__int64 __fastcall VIDMM_GLOBAL::MapCpuVA(VIDMM_GLOBAL *this, VIDMM_FENCE_STORAGE_PAGE **a2, void **a3)
+{
+  struct VIDMM_PROCESS *v6; // rbx
+  __int64 v7; // r9
+
+  v6 = 0LL;
+  if ( DXGPROCESS::GetCurrent() )
+  {
+    v7 = *((_QWORD *)DXGPROCESS::GetCurrent() + 8);
+    if ( v7 )
+      v6 = *(struct VIDMM_PROCESS **)(v7 + 8);
+  }
+  return VIDMM_FENCE_STORAGE_PAGE::MapCpuVA(
+           *a2,
+           v6,
+           (struct VIDMM_MONITORED_FENCE_STORAGE *)a2,
+           (*((_BYTE *)this + 40872) & 2) != 0,
+           (*((_BYTE *)this + 40872) & 4) != 0,
+           (unsigned __int64)a3);
+}

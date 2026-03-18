@@ -1,0 +1,51 @@
+/*
+ * XREFs of xxxClientMonitorEnumProc @ 0x1C00F6A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C0020920 (--0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C00209AC (--1ReleaseAndReacquirePerObjectLocks@@QEAA@XZ.c)
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0020BF8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0020C50 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C0139660 (__security_check_cookie.c)
+ *     memset @ 0x1C013D6C0 (memset.c)
+ */
+
+__int64 __fastcall xxxClientMonitorEnumProc(__int64 a1, __int64 a2, _OWORD *a3, __int64 a4, __int64 a5)
+{
+  int v9; // ebx
+  __int64 v10; // rdx
+  __int64 *v11; // rcx
+  __int64 result; // rax
+  char v13; // [rsp+30h] [rbp-68h] BYREF
+  _BYTE v14[3]; // [rsp+31h] [rbp-67h] BYREF
+  int v15; // [rsp+34h] [rbp-64h] BYREF
+  _QWORD v16[3]; // [rsp+38h] [rbp-60h] BYREF
+  _OWORD v17[3]; // [rsp+50h] [rbp-48h] BYREF
+
+  memset(v17, 0, sizeof(v17));
+  *(_QWORD *)&v17[0] = a1;
+  *((_QWORD *)&v17[0] + 1) = a2;
+  v17[1] = *a3;
+  *(_QWORD *)&v17[2] = a4;
+  *((_QWORD *)&v17[2] + 1) = a5;
+  if ( gdwInAtomicOperation && (gdwExtraInstrumentations & 1) != 0 )
+    KeBugCheckEx(0x160u, gdwInAtomicOperation, 0LL, 0LL, 0LL);
+  ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks(
+    (ReleaseAndReacquirePerObjectLocks *)v14,
+    gdwInAtomicOperation);
+  LeaveEnterCritProperDisposition::LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
+  EtwTraceBeginCallback(87LL);
+  v9 = KeUserModeCallback(87LL, v17, 48LL, v16, &v15);
+  EtwTraceEndCallback(87LL);
+  LeaveEnterCritProperDisposition::~LeaveEnterCritProperDisposition((LeaveEnterCritProperDisposition *)&v13);
+  ReleaseAndReacquirePerObjectLocks::~ReleaseAndReacquirePerObjectLocks((ReleaseAndReacquirePerObjectLocks *)v14, v10);
+  if ( v9 < 0 || v15 != 24 )
+    return 0LL;
+  v11 = (__int64 *)v16[0];
+  if ( (unsigned __int64)(v16[0] + 8LL) < v16[0] || v16[0] + 8LL > MmUserProbeAddress )
+    v11 = (__int64 *)MmUserProbeAddress;
+  result = *v11;
+  v16[1] = *v11;
+  return result;
+}

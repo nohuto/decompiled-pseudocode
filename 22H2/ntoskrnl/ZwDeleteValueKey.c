@@ -1,0 +1,67 @@
+/*
+ * XREFs of ZwDeleteValueKey @ 0x14041C240
+ * Callers:
+ *     BiZwDeleteValueKey @ 0x140374614 (BiZwDeleteValueKey.c)
+ *     CmpSetSystemRegistryString @ 0x140374C28 (CmpSetSystemRegistryString.c)
+ *     VfClearVerifierSettings @ 0x1405CDEAC (VfClearVerifierSettings.c)
+ *     DifZwDeleteValueKeyWrapper @ 0x1405EF800 (DifZwDeleteValueKeyWrapper.c)
+ *     CmpCompleteUnloadKey @ 0x140688D18 (CmpCompleteUnloadKey.c)
+ *     RtlpQueryRegistryValues @ 0x1406C5A80 (RtlpQueryRegistryValues.c)
+ *     PiQueryAndAllocateBootResources @ 0x14078FF34 (PiQueryAndAllocateBootResources.c)
+ *     PiQueryResourceRequirements @ 0x140790854 (PiQueryResourceRequirements.c)
+ *     PiProcessDriverInstance @ 0x1407C22B0 (PiProcessDriverInstance.c)
+ *     ExpWnfDeletePermanentName @ 0x1407CA118 (ExpWnfDeletePermanentName.c)
+ *     ExpSetPendingUILanguage @ 0x1407FC998 (ExpSetPendingUILanguage.c)
+ *     NtSetDefaultLocale @ 0x1407FCF20 (NtSetDefaultLocale.c)
+ *     CmpSetVersionData @ 0x14080E008 (CmpSetVersionData.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x1408186D4 (IopWriteAllocatedResourcesToRegistry.c)
+ *     IopWriteResourceList @ 0x14081AEF8 (IopWriteResourceList.c)
+ *     WdipSemDeleteValueFromRegistry @ 0x14083436C (WdipSemDeleteValueFromRegistry.c)
+ *     PopThermalHandlePreviousShutdown @ 0x1408601A8 (PopThermalHandlePreviousShutdown.c)
+ *     PnpDriverLoadingFailed @ 0x140862E64 (PnpDriverLoadingFailed.c)
+ *     DrvDbSetRegValueMappedProperty @ 0x140866A64 (DrvDbSetRegValueMappedProperty.c)
+ *     IopReleaseDeviceResources @ 0x140869C4C (IopReleaseDeviceResources.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086CE70 (_CmSetDeviceRegPropWorker.c)
+ *     _PnpDeletePropertyWorker @ 0x14086FB0C (_PnpDeletePropertyWorker.c)
+ *     RtlDeleteRegistryValue @ 0x1408741D0 (RtlDeleteRegistryValue.c)
+ *     PiDevCfgMigrateDevice @ 0x14087C44C (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14087E8F4 (PiDevCfgCopyDeviceKey.c)
+ *     _CmGetInstallerClassMappedPropertyFromCoInstallers @ 0x140882F04 (_CmGetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     PiRearrangeDeviceInstances @ 0x140883308 (PiRearrangeDeviceInstances.c)
+ *     NtEnableLastKnownGood @ 0x140884340 (NtEnableLastKnownGood.c)
+ *     PipHardwareConfigClearStartOverrideCallback @ 0x140951DF0 (PipHardwareConfigClearStartOverrideCallback.c)
+ *     PnpSetRegistryRequirementsList @ 0x140958544 (PnpSetRegistryRequirementsList.c)
+ *     PnpSetRegistryResourceList @ 0x1409585AC (PnpSetRegistryResourceList.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x14095D064 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14095FC00 (PiDevCfgResetDeviceDriverSettings.c)
+ *     PiCMCreateDevice @ 0x1409684E0 (PiCMCreateDevice.c)
+ *     SmKmKeyGenNewKey @ 0x1409D9224 (SmKmKeyGenNewKey.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A0739C (ExpWnfDeletePermanentStateData.c)
+ *     CmpDoReDoDeleteValue @ 0x140A2A930 (CmpDoReDoDeleteValue.c)
+ *     _PnpCtxRegDeleteValue @ 0x140A60BB8 (_PnpCtxRegDeleteValue.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A63400 (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmRemoveDeviceFromContainerWorker @ 0x140A647EC (_CmRemoveDeviceFromContainerWorker.c)
+ *     _CmRemovePanelDeviceWorker @ 0x140A66D74 (_CmRemovePanelDeviceWorker.c)
+ *     _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x140A67254 (_CmDeleteDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A67510 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A67674 (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x140A6779C (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A67818 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140A679E8 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A6B02C (DrvDbDeleteObjectSubKey.c)
+ *     DrvDbSetDeviceIdDriverInfMatches @ 0x140A6CA68 (DrvDbSetDeviceIdDriverInfMatches.c)
+ *     BapdRemoveWbclData @ 0x140AAAB84 (BapdRemoveWbclData.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140B39350 (BapdpProcessVsmKeyBlobs.c)
+ *     PipInitComputerIds @ 0x140B3D92C (PipInitComputerIds.c)
+ *     ArbDeleteMmConfigRange @ 0x140B6AE30 (ArbDeleteMmConfigRange.c)
+ *     PipHardwareConfigInit @ 0x140B6D528 (PipHardwareConfigInit.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall ZwDeleteValueKey(HANDLE KeyHandle, PUNICODE_STRING ValueName)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(KeyHandle, ValueName);
+}

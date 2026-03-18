@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00A45F0
+ * Callers:
+ *     ?MKHideMouseCursor@@YAXXZ @ 0x1C0075F50 (-MKHideMouseCursor@@YAXXZ.c)
+ *     ?MKShowMouseCursor@@YAXXZ @ 0x1C015E460 (-MKShowMouseCursor@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall SetGlobalCursorLevel(int a1)
+{
+  __int64 i; // rdx
+  __int64 *j; // rcx
+  __int64 k; // rcx
+  __int64 v5; // rax
+  __int64 v6; // rax
+
+  if ( grpdeskRitInput )
+  {
+    for ( i = *(_QWORD *)(*((_QWORD *)grpdeskRitInput + 5) + 16LL); i; i = *(_QWORD *)(i + 32) )
+    {
+      for ( j = *(__int64 **)(i + 168); j != (__int64 *)(i + 168); j = (__int64 *)*j )
+      {
+        v5 = *(j - 39);
+        *((_DWORD *)j + 4) = a1;
+        *(_DWORD *)(v5 + 392) = a1;
+      }
+    }
+  }
+  for ( k = *(_QWORD *)(PsGetProcessWin32Process(gpepCSRSS) + 320); k; k = *(_QWORD *)(k + 656) )
+  {
+    v6 = *(_QWORD *)(k + 424);
+    *(_DWORD *)(k + 752) = a1;
+    *(_DWORD *)(v6 + 392) = a1;
+  }
+}

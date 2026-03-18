@@ -1,0 +1,96 @@
+/*
+ * XREFs of PALLOCMEM2 @ 0x1C0012FFC
+ * Callers:
+ *     HmgAllocateObjectAttr @ 0x1C000F318 (HmgAllocateObjectAttr.c)
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C00116C0 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0012318 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C00163D0 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0017174 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     GreCombineRgn @ 0x1C00247C0 (GreCombineRgn.c)
+ *     ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C0027830 (-bSetDefaultRegion@DC@@QEAAHXZ.c)
+ *     HmgAllocateDcAttr @ 0x1C0027C58 (HmgAllocateDcAttr.c)
+ *     HmgFreeDcAttr @ 0x1C0027DBC (HmgFreeDcAttr.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0028030 (GreCreateRectRgnIndirect.c)
+ *     AllocateObject @ 0x1C002A780 (AllocateObject.c)
+ *     ?iCombine@DC@@QEAAJPEAU_RECTL@@J@Z @ 0x1C002B180 (-iCombine@DC@@QEAAJPEAU_RECTL@@J@Z.c)
+ *     ?vCopyTo@DC@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C002B778 (-vCopyTo@DC@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     DrvEnumDisplaySettings @ 0x1C0038F60 (DrvEnumDisplaySettings.c)
+ *     ?DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z @ 0x1C003AA94 (-DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z.c)
+ *     DrvEnumDisplayDevices @ 0x1C003B980 (DrvEnumDisplayDevices.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C003C300 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C003CF80 (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     UpdateMonitorDevices @ 0x1C003D6C0 (UpdateMonitorDevices.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C003D888 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     DrvUpdateDisplayDriverParameters @ 0x1C003E120 (DrvUpdateDisplayDriverParameters.c)
+ *     ApplyPathModalityToCdsRegistryStore @ 0x1C00416B0 (ApplyPathModalityToCdsRegistryStore.c)
+ *     ?DrvDisableDirectDrawForModeChange@@YAPEAPEAUHDEV__@@PEAU_MDEV@@0PEAPEAU1@K@Z @ 0x1C0041B50 (-DrvDisableDirectDrawForModeChange@@YAPEAPEAUHDEV__@@PEAU_MDEV@@0PEAPEAU1@K@Z.c)
+ *     ?CheckAndNotifyDualView@@YA?AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z @ 0x1C0042C08 (-CheckAndNotifyDualView@@YA-AW4_DUALVIEW_STATE@@PEAU_UNICODE_STRING@@PEAU_MDEV@@@Z.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0042E30 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     ?vInit@MULTIDEVLOCKOBJ@@QEAAXPEAU_MDEV@@@Z @ 0x1C00441DC (-vInit@MULTIDEVLOCKOBJ@@QEAAXPEAU_MDEV@@@Z.c)
+ *     DrvGetDisplayDriverNames @ 0x1C0044530 (DrvGetDisplayDriverNames.c)
+ *     ?DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z @ 0x1C0044A2C (-DrvProbeAndCaptureDevmode@@YAJPEAUtagGRAPHICS_DEVICE@@PEAPEAU_devicemodeW@@PEAH2PEAU2@HHHH3@Z.c)
+ *     DrvBuildDevmodeList @ 0x1C0045480 (DrvBuildDevmodeList.c)
+ *     LogDiagCDS @ 0x1C0047688 (LogDiagCDS.c)
+ *     LogDiagSDC @ 0x1C0047D78 (LogDiagSDC.c)
+ *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C0048D88 (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
+ *     DrvInitConsole @ 0x1C0063C08 (DrvInitConsole.c)
+ *     GreSfmCleanupPresentHistory @ 0x1C0067B00 (GreSfmCleanupPresentHistory.c)
+ *     bDynamicModeChange @ 0x1C00686C0 (bDynamicModeChange.c)
+ *     ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C006B0A8 (-ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z.c)
+ *     ?ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z @ 0x1C006B69C (-ldevLoadImageInternal@@YAPEAU_LDEV@@PEBGHPEAHHH@Z.c)
+ *     MakeSystemRelativePath @ 0x1C006B940 (MakeSystemRelativePath.c)
+ *     ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C006BA80 (-ldevBindDisplayStub@@YAPEAU_LDEV@@XZ.c)
+ *     ldevLoadInternal @ 0x1C006C880 (ldevLoadInternal.c)
+ *     newpathalloc @ 0x1C0073080 (newpathalloc.c)
+ *     ?PruneModesByDisplayDeviceCaps@@YAKPEAUtagGRAPHICS_DEVICE@@KPEAUtagDEVMODEMARK@@@Z @ 0x1C0085BB4 (-PruneModesByDisplayDeviceCaps@@YAKPEAUtagGRAPHICS_DEVICE@@KPEAUtagDEVMODEMARK@@@Z.c)
+ *     HmgCreate @ 0x1C008E07C (HmgCreate.c)
+ *     HmgFreeObjectAttr @ 0x1C0090E70 (HmgFreeObjectAttr.c)
+ *     ?GDIEngUserMemAllocNodeAlloc@@YAPEAXPEAU_RTL_AVL_TABLE@@K@Z @ 0x1C00969C0 (-GDIEngUserMemAllocNodeAlloc@@YAPEAXPEAU_RTL_AVL_TABLE@@K@Z.c)
+ *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C0098014 (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
+ *     ?GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z @ 0x1C00992EC (-GetMonitorBrightnessCaps@@YAXPEAU_DISPLAYCONFIG_GET_MONITOR_INTERNAL_INFO@@@Z.c)
+ *     ?TryFillOnce@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z @ 0x1C009E2C0 (-TryFillOnce@QDC_AUTO_BUFFERS@@QEAAJIPEAW4DISPLAYCONFIG_TOPOLOGY_ID@@@Z.c)
+ *     ?DrvGetPreferredMode@@YAJPEAU_devicemodeW@@PEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C009FE44 (-DrvGetPreferredMode@@YAJPEAU_devicemodeW@@PEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?vCheckIsSetupRunning@@YAXXZ @ 0x1C00A253C (-vCheckIsSetupRunning@@YAXXZ.c)
+ *     ?GetLanguageID@@YAGXZ @ 0x1C00A26A8 (-GetLanguageID@@YAGXZ.c)
+ *     ?__EnumDisplayQueryRoutine@@YAJPEAGKPEAXK11@Z @ 0x1C00A5C50 (-__EnumDisplayQueryRoutine@@YAJPEAGKPEAXK11@Z.c)
+ *     ?__DisplayDriverQueryRoutine@@YAJPEAGKPEAXK11@Z @ 0x1C00A5F80 (-__DisplayDriverQueryRoutine@@YAJPEAGKPEAXK11@Z.c)
+ *     DrvSetWddmDeviceMonitorPowerState @ 0x1C00AB1F4 (DrvSetWddmDeviceMonitorPowerState.c)
+ *     NtGdiPolyPolyDraw @ 0x1C00AD960 (NtGdiPolyPolyDraw.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C00AF3A0 (DrvCreatePhysicalMonitorObjects.c)
+ *     ?DrvAddMirrorDriversToRemoteList@@YAHKK@Z @ 0x1C00B3B28 (-DrvAddMirrorDriversToRemoteList@@YAHKK@Z.c)
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C00BAC30 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
+ *     ?bAddIcmDIB@BRUSH@@QEAAHPEAXPEAUHBITMAP__@@@Z @ 0x1C01203E0 (-bAddIcmDIB@BRUSH@@QEAAHPEAXPEAUHBITMAP__@@@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C01216B4 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
+ *     ?RECALTLOCKSTACKBACKTRACE@@YAXIPEAU_BASEOBJECT@@@Z @ 0x1C0122F38 (-RECALTLOCKSTACKBACKTRACE@@YAXIPEAU_BASEOBJECT@@@Z.c)
+ *     ?RECALTUNLOCKSTACKBACKTRACE@@YAXI@Z @ 0x1C0122FF0 (-RECALTUNLOCKSTACKBACKTRACE@@YAXI@Z.c)
+ *     ?RECSTACKBACKTRACE@@YAXI@Z @ 0x1C0123094 (-RECSTACKBACKTRACE@@YAXI@Z.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C012781C (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     ?DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESKTOP@@PEAEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0127EB4 (-DrvProcessSetDisplayConfigParameters@@YAJAEAU_D3DKMT_DISPLAY_CALLOUT_BATCH_ACTION@@IPEAUtagDESK.c)
+ *     ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C012817C (-DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
+ *     DrvSetVideoParameters @ 0x1C012BEE0 (DrvSetVideoParameters.c)
+ *     ?GreSetPrivateDeviceGammaRampInternal@@YAHPEAUHDEV__@@PEAXH@Z @ 0x1C012C7FC (-GreSetPrivateDeviceGammaRampInternal@@YAHPEAUHDEV__@@PEAXH@Z.c)
+ *     NtGdiGetAppliedDeviceGammaRamp @ 0x1C012CBD0 (NtGdiGetAppliedDeviceGammaRamp.c)
+ *     NtGdiSetPrivateDeviceGammaRamp @ 0x1C012CE70 (NtGdiSetPrivateDeviceGammaRamp.c)
+ *     NtHWCursorUpdatePointer @ 0x1C012DDE0 (NtHWCursorUpdatePointer.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C012F82C (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     MakeSystemDriversRelativePath @ 0x1C0130864 (MakeSystemDriversRelativePath.c)
+ * Callees:
+ *     memset @ 0x1C00BF640 (memset.c)
+ */
+
+void *__fastcall PALLOCMEM2(size_t Size, unsigned int a2, int a3)
+{
+  void *v3; // rbx
+  size_t v6; // rdi
+
+  v3 = 0LL;
+  if ( (_DWORD)Size )
+  {
+    v6 = (unsigned int)Size;
+    if ( (int)IsWin32AllocPoolImplSupported() >= 0 )
+      v3 = (void *)Win32AllocPoolImpl(33LL, (unsigned int)v6, a2);
+    if ( v3 && a3 )
+      memset(v3, 0, v6);
+  }
+  return v3;
+}

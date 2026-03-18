@@ -1,0 +1,55 @@
+/*
+ * XREFs of BiLogMessage @ 0x140807BA0
+ * Callers:
+ *     BiMapEfiDeviceForSpaces @ 0x1403745C4 (BiMapEfiDeviceForSpaces.c)
+ *     BiLogFileOwnerProcess @ 0x140671500 (BiLogFileOwnerProcess.c)
+ *     BiSpacesUpdatePhysicalDevicePath @ 0x140671814 (BiSpacesUpdatePhysicalDevicePath.c)
+ *     BiLoadSystemStore @ 0x1408046A8 (BiLoadSystemStore.c)
+ *     BiQueryBootOptions @ 0x140804AD4 (BiQueryBootOptions.c)
+ *     BiCloseStore @ 0x140804B8C (BiCloseStore.c)
+ *     BiAddStoreFromFile @ 0x140804BEC (BiAddStoreFromFile.c)
+ *     BiBindEfiNamespaceObjects @ 0x140804D40 (BiBindEfiNamespaceObjects.c)
+ *     BiBindEfiBootManager @ 0x140805090 (BiBindEfiBootManager.c)
+ *     BcdCloseStore @ 0x140805378 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x14080561C (BcdOpenStore.c)
+ *     BcdGetSystemStorePath @ 0x1408056F0 (BcdGetSystemStorePath.c)
+ *     BiCreateObject @ 0x14080581C (BiCreateObject.c)
+ *     BiOpenSystemStore @ 0x140805A48 (BiOpenSystemStore.c)
+ *     BiDeleteElement @ 0x140805C00 (BiDeleteElement.c)
+ *     BiBindEfiEntries @ 0x140805D6C (BiBindEfiEntries.c)
+ *     BcdSetElementDataWithFlags @ 0x14080669C (BcdSetElementDataWithFlags.c)
+ *     BiUpdateBcdObject @ 0x140806888 (BiUpdateBcdObject.c)
+ *     BiBuildIdentifierList @ 0x140806BE8 (BiBuildIdentifierList.c)
+ *     BcdGetElementDataWithFlags @ 0x14080723C (BcdGetElementDataWithFlags.c)
+ *     BcdOpenObject @ 0x1408074C4 (BcdOpenObject.c)
+ *     BiGetRegistryValue @ 0x1408079C4 (BiGetRegistryValue.c)
+ *     BiConvertRegistryDataToElement @ 0x140807EB4 (BiConvertRegistryDataToElement.c)
+ *     BiTranslateBootEntryId @ 0x140808178 (BiTranslateBootEntryId.c)
+ *     BiQueryBootEntryOrder @ 0x1408094AC (BiQueryBootEntryOrder.c)
+ *     BiEnumerateBootEntries @ 0x140809560 (BiEnumerateBootEntries.c)
+ *     BiLoadHive @ 0x140809604 (BiLoadHive.c)
+ *     SepSecureBootCorrectBcd @ 0x1409D0A14 (SepSecureBootCorrectBcd.c)
+ *     BcdFlushStore @ 0x140A5C298 (BcdFlushStore.c)
+ *     BcdForciblyUnloadStore @ 0x140A5C300 (BcdForciblyUnloadStore.c)
+ *     BcdSetSystemStore @ 0x140A5C3E0 (BcdSetSystemStore.c)
+ *     BiAddBootEntry @ 0x140A5D7BC (BiAddBootEntry.c)
+ *     BiCreateBootEntry @ 0x140A5DA9C (BiCreateBootEntry.c)
+ *     BiCreateEfiEntry @ 0x140A5DE50 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x140A5E380 (BiDeleteBootEntry.c)
+ *     BiDeleteEfiVariable @ 0x140A5E400 (BiDeleteEfiVariable.c)
+ *     BiExportBcdObjects @ 0x140A5E514 (BiExportBcdObjects.c)
+ *     BiExportEfiBootManager @ 0x140A5E63C (BiExportEfiBootManager.c)
+ *     BiExportStoreAlterationsToEfi @ 0x140A5E9AC (BiExportStoreAlterationsToEfi.c)
+ *     BiModifyBootEntry @ 0x140A5EC3C (BiModifyBootEntry.c)
+ *     BiSetBootEntryOrder @ 0x140A5ED5C (BiSetBootEntryOrder.c)
+ *     BiSetBootOptions @ 0x140A5EDD4 (BiSetBootOptions.c)
+ *     BiTranslateObjectIdentifier @ 0x140A5EED4 (BiTranslateObjectIdentifier.c)
+ *     BiUpdateEfiEntry @ 0x140A5EF5C (BiUpdateEfiEntry.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 BiLogMessage(_QWORD a1, _QWORD a2, ...)
+{
+  return 0LL;
+}

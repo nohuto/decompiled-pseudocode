@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CHwStereoFullScreenRenderTarget@@WCAI@EAAKXZ @ 0x1800F0640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall CHwStereoFullScreenRenderTarget::Release(__int64 a1)
+{
+  return CHwStereoFullScreenRenderTarget::Release((CHwStereoFullScreenRenderTarget *)(a1 - 520));
+}

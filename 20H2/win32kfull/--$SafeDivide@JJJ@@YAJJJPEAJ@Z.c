@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1C0115CF0
+ * Callers:
+ *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1C0025258 (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C005A300 (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C0115CB4 (-bWin31BitmapHeightScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ *     ?MirrorWindowOrg@DC@@QEAAXXZ @ 0x1C01238B4 (-MirrorWindowOrg@DC@@QEAAXXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C0144154 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z @ 0x1C0155DD0 (-bWin31BitmapWidthScaling@MAPPER@@QEAAHJJPEAJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall SafeDivide<long,long,long>(int a1, int a2, int *a3)
+{
+  if ( !a2 || a1 == 0x80000000 && a2 == -1 )
+    return 2147500037LL;
+  *a3 = a1 / a2;
+  return 0LL;
+}

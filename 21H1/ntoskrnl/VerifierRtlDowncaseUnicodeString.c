@@ -1,0 +1,27 @@
+/*
+ * XREFs of VerifierRtlDowncaseUnicodeString @ 0x1409E27F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     ViRtlReplaceStringBuffer @ 0x1409E2CCC (ViRtlReplaceStringBuffer.c)
+ */
+
+__int64 __fastcall VerifierRtlDowncaseUnicodeString(__int64 a1, __int64 a2, char a3)
+{
+  __int64 result; // rax
+  void *retaddr; // [rsp+28h] [rbp+0h]
+  unsigned int v7; // [rsp+48h] [rbp+20h] BYREF
+
+  result = ((__int64 (*)(void))pXdvRtlDowncaseUnicodeString)();
+  v7 = result;
+  if ( (int)result >= 0 )
+  {
+    if ( a3 )
+    {
+      ViRtlReplaceStringBuffer(a1, &v7, retaddr);
+      return v7;
+    }
+  }
+  return result;
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of PiCollapseEnumRequests @ 0x140163714
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1405CDC7C (PipProcessDevNodeTree.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x140034850 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1400693C0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x1400FEDA0 (ObfDereferenceObjectWithTag.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1405CA6C0 (PiMarkDeviceTreeForReenumeration.c)
+ */
+
+bool __fastcall PiCollapseEnumRequests(__int64 a1)
+{
+  KIRQL v2; // al
+  __int64 v3; // rdx
+  __int64 **v4; // rsi
+  KIRQL v5; // bl
+  __int64 v6; // rdx
+  __int64 *i; // rbx
+  __int64 *v9; // rcx
+  int v10; // eax
+  __int64 **v11; // rax
+  __int64 *v12; // rax
+
+  v2 = KeAcquireSpinLockRaiseToDpc(&PnpSpinLock);
+  v3 = PnpEnumerationRequestList;
+  v4 = *(__int64 ***)(a1 + 8);
+  v5 = v2;
+  if ( (__int64 *)PnpEnumerationRequestList != &PnpEnumerationRequestList )
+  {
+    do
+    {
+      v9 = *(__int64 **)v3;
+      if ( *(_BYTE *)(v3 + 28) )
+        break;
+      v10 = *(_DWORD *)(v3 + 24);
+      if ( v10 >= 9 && (v10 <= 10 || v10 == 14) )
+      {
+        if ( v9[1] != v3 || (v11 = *(__int64 ***)(v3 + 8), *v11 != (__int64 *)v3) )
+          __fastfail(3u);
+        *v11 = v9;
+        v9[1] = (__int64)v11;
+        v12 = *(__int64 **)(a1 + 8);
+        if ( *v12 != a1 )
+          __fastfail(3u);
+        *(_QWORD *)v3 = a1;
+        *(_QWORD *)(v3 + 8) = v12;
+        *v12 = v3;
+        *(_QWORD *)(a1 + 8) = v3;
+      }
+      v3 = (__int64)v9;
+    }
+    while ( v9 != &PnpEnumerationRequestList );
+  }
+  KxReleaseSpinLock(&PnpSpinLock);
+  __writecr8(v5);
+  for ( i = *v4; i != (__int64 *)a1; i = (__int64 *)*i )
+  {
+    LOBYTE(v6) = 1;
+    PiMarkDeviceTreeForReenumeration(*(_QWORD *)(*(_QWORD *)(i[2] + 312) + 40LL), v6);
+    ObfDereferenceObjectWithTag((PVOID)i[2], 0x746C6644u);
+    i[2] = 0LL;
+  }
+  return v4 != *(__int64 ***)(a1 + 8);
+}

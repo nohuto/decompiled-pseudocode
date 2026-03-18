@@ -1,0 +1,63 @@
+/*
+ * XREFs of WerpAllocateAndInitializeSid @ 0x1C0042680
+ * Callers:
+ *     WerKernelSubmitReport @ 0x1C0042EF8 (WerKernelSubmitReport.c)
+ * Callees:
+ *     memset @ 0x1C0043B00 (memset.c)
+ */
+
+__int64 __fastcall WerpAllocateAndInitializeSid(
+        PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        int a5,
+        int a6,
+        int a7,
+        int a8,
+        int a9,
+        int a10,
+        _QWORD *a11)
+{
+  ULONG v12; // eax
+  NTSTATUS v13; // edi
+  size_t v14; // rbp
+  void *Pool2; // rax
+  void *v17; // rbx
+
+  v12 = RtlLengthRequiredSid(1u);
+  v13 = -1073741823;
+  v14 = v12;
+  if ( a11 )
+  {
+    Pool2 = (void *)ExAllocatePool2(256LL, (int)v12, 2003137131LL);
+    v17 = Pool2;
+    if ( Pool2 )
+    {
+      memset(Pool2, 0, v14);
+      v13 = RtlInitializeSid(v17, IdentifierAuthority, 1u);
+      if ( v13 >= 0 )
+      {
+        v13 = 0;
+        *RtlSubAuthoritySid(v17, 0) = 18;
+      }
+      else
+      {
+        DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR RtlInitializeSid failed\n", 260);
+        ExFreePoolWithTag(v17, 0);
+        v17 = 0LL;
+      }
+    }
+    else
+    {
+      DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR NtAllocateVirtualMemory failed\n", 250);
+    }
+    *a11 = v17;
+    return (unsigned int)v13;
+  }
+  else
+  {
+    DbgPrintEx(0x96u, 0, "WERLIVEKERNELREPORTING:%u: ERROR Invalid params\n", 242);
+    return 3221225485LL;
+  }
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C001515C
+ * Callers:
+ *     ?RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z @ 0x1C01DFA38 (-RemoveAdapterFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@@Z.c)
+ *     DxgkDestroyCsrssProcess @ 0x1C01E54B4 (DxgkDestroyCsrssProcess.c)
+ *     ?AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z @ 0x1C01E7908 (-AddAdapterToSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@PEAVDXGADAPTER@@PEAPEAVSESSION_ADAPTER@@@Z.c)
+ * Callees:
+ *     ??1SESSION_ADAPTER@@QEAA@XZ @ 0x1C01DFAB4 (--1SESSION_ADAPTER@@QEAA@XZ.c)
+ */
+
+SESSION_ADAPTER *__fastcall SESSION_ADAPTER::`scalar deleting destructor'(SESSION_ADAPTER *P)
+{
+  SESSION_ADAPTER::~SESSION_ADAPTER(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

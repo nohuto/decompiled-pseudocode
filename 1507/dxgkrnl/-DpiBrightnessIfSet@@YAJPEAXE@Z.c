@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C016C690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DxgkDiagInitializeCodePointPacket@@YAXPEAU_DXGK_DIAG_CODE_POINT_PACKET@@W4_DXGK_DIAG_CODE_POINT_TYPE@@III@Z @ 0x1C0008568 (-DxgkDiagInitializeCodePointPacket@@YAXPEAU_DXGK_DIAG_CODE_POINT_PACKET@@W4_DXGK_DIAG_CODE_POINT.c)
+ *     __security_check_cookie @ 0x1C000FC20 (__security_check_cookie.c)
+ *     memset @ 0x1C0010C80 (memset.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0061D64 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0061DDC (DpiAcquireCoreSyncAccessSafe.c)
+ *     DxgkWriteDiagEntry @ 0x1C009AC30 (DxgkWriteDiagEntry.c)
+ *     DpiCallDrvSetBrightness @ 0x1C016CCBC (DpiCallDrvSetBrightness.c)
+ */
+
+__int64 __fastcall DpiBrightnessIfSet(_QWORD *a1, unsigned __int8 a2)
+{
+  __int64 v2; // rdi
+  int v5; // ebx
+  __int64 v6; // r8
+  bool v7; // zf
+  __int64 v8; // rdx
+  __int64 v9; // r8
+  __int64 v10; // r9
+  _DWORD v12[16]; // [rsp+30h] [rbp-78h] BYREF
+
+  v2 = a1[8];
+  v5 = -1073741661;
+  KeWaitForSingleObject((PVOID)(v2 + 2928), Executive, 0, 0, 0LL);
+  if ( *(_QWORD *)(v2 + 3168) )
+  {
+    v5 = DpiAcquireCoreSyncAccessSafe((__int64)a1, 0);
+    if ( v5 >= 0 )
+    {
+      v7 = *(_BYTE *)(v2 + 2912) == 0;
+      *(_BYTE *)(v2 + 2920) = a2;
+      if ( v7 )
+      {
+        LOBYTE(v6) = a2;
+        v5 = DpiCallDrvSetBrightness(a1, v2 + 3128, v6);
+        if ( v5 >= 0 )
+          *(_BYTE *)(v2 + 2856) = a2;
+        if ( *(_BYTE *)(v2 + 2913) )
+        {
+          memset(v12, 0, sizeof(v12));
+          DxgkDiagInitializeCodePointPacket(v12, 67, a2, v5, 0);
+          DxgkWriteDiagEntry((struct _DXGK_DIAG_HEADER *)v12, v8, v9, v10);
+        }
+      }
+      else
+      {
+        v5 = 0;
+      }
+      DpiReleaseCoreSyncAccessSafe((__int64)a1, 0);
+    }
+  }
+  KeReleaseMutex((PRKMUTEX)(v2 + 2928), 0);
+  return (unsigned int)v5;
+}

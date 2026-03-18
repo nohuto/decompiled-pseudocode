@@ -1,0 +1,24 @@
+/*
+ * XREFs of PopWakeInfoDereference @ 0x1401585C0
+ * Callers:
+ *     PopTimeoutWakeTracking @ 0x1401583CC (PopTimeoutWakeTracking.c)
+ *     PopDereferenceWakeInfos @ 0x14015853C (PopDereferenceWakeInfos.c)
+ *     PopUpdateWakeSourceWorker @ 0x1402DBD60 (PopUpdateWakeSourceWorker.c)
+ *     PopNewWakeInfo @ 0x140566640 (PopNewWakeInfo.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x1400D19E0 (ExQueueWorkItem.c)
+ */
+
+void __fastcall PopWakeInfoDereference(__int64 a1)
+{
+  struct _WORK_QUEUE_ITEM *v2; // rcx
+
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)(a1 + 16), 0xFFFFFFFF) == 1 )
+  {
+    v2 = (struct _WORK_QUEUE_ITEM *)(a1 + 48);
+    v2->Parameter = (void *)a1;
+    v2->List.Flink = 0LL;
+    v2->WorkerRoutine = (void (__fastcall *)(void *))PopFreeWakeInfo;
+    ExQueueWorkItem(v2, DelayedWorkQueue);
+  }
+}

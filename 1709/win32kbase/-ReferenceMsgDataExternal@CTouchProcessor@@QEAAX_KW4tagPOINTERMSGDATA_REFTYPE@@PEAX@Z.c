@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?ReferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C0125210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@@Z @ 0x1C0005008 (--0CInpLockGuardExclusiveIfNeeded@@QEAA@AEAUCInpLockGuard@@@Z.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0016BAC (WPP_RECORDER_SF_.c)
+ *     ?ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C0125184 (-ReferenceMsgData@CTouchProcessor@@AEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ */
+
+void __fastcall CTouchProcessor::ReferenceMsgDataExternal(__int64 a1, __int64 a2, int a3)
+{
+  PERESOURCE *v6; // rcx
+  __int64 v7; // [rsp+30h] [rbp-18h] BYREF
+  int v8; // [rsp+38h] [rbp-10h]
+
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      5u,
+      0xBu,
+      0x11Au,
+      (__int64)&WPP_ab792a5fe60e342e9a304d2fbada8869_Traceguids);
+  CInpLockGuardExclusiveIfNeeded::CInpLockGuardExclusiveIfNeeded(
+    (CInpLockGuardExclusiveIfNeeded *)&v7,
+    (struct CInpLockGuard *)(a1 + 224));
+  CTouchProcessor::ReferenceMsgData(a1, a2, a3);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      5u,
+      0xBu,
+      0x11Bu,
+      (__int64)&WPP_ab792a5fe60e342e9a304d2fbada8869_Traceguids);
+  if ( !v8 )
+  {
+    v6 = (PERESOURCE *)v7;
+    *(_QWORD *)(v7 + 32) = 0LL;
+    ExReleaseResourceAndLeaveCriticalRegion(*v6);
+  }
+}

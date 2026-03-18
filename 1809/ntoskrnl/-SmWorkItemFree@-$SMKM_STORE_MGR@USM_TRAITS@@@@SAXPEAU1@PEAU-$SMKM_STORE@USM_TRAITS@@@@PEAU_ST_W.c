@@ -1,0 +1,113 @@
+/*
+ * XREFs of ?SmWorkItemFree@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_WORK_ITEM_HDR@@PEAJ@Z @ 0x14014C69C
+ * Callers:
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x14011E2C0 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmStDirectReadComplete@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@J@Z @ 0x140145CC0 (-SmStDirectReadComplete@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRA.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14004D2F0 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x1400E1208 (SmKmStoreRefFromStoreIndex.c)
+ *     ?SmWorkItemFreeResource@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_CONTEXT@1@@Z @ 0x14014BF2C (-SmWorkItemFreeResource@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@PEAU_SM_IO_C.c)
+ *     ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x14014C800 (-SmIoCtxWorkItemComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU-$SM.c)
+ *     SmFpFree @ 0x14014CA1C (SmFpFree.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1401C53F0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFree(__int64 a1, __int64 a2, __int128 *a3, unsigned int *a4)
+{
+  __int64 v4; // r15
+  unsigned int v5; // esi
+  int v6; // ebp
+  int v9; // r14d
+  __int128 v10; // xmm1
+  union _SLIST_HEADER *v11; // rcx
+  BOOL v12; // edi
+  struct _EX_RUNDOWN_REF *v13; // rax
+  int v14; // ebx
+  __int128 v15; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v16; // [rsp+30h] [rbp-48h]
+  __int64 v17; // [rsp+40h] [rbp-38h]
+
+  v4 = *((_QWORD *)a3 + 4);
+  v5 = *(_DWORD *)a3 & 7;
+  v6 = 1;
+  v9 = 1;
+  if ( a4 )
+  {
+    v10 = a3[1];
+    v15 = *a3;
+    v17 = *((_QWORD *)a3 + 4);
+    v16 = v10;
+  }
+  if ( v5 < 4 )
+  {
+    if ( v5 == 2 )
+    {
+      if ( (*((_DWORD *)a3 + 2) & 0x4000000) != 0 )
+      {
+        if ( LOWORD(stru_14055AEA0.Alignment) >= 0x1000u )
+        {
+          ExFreePoolWithTag(a3, 0);
+          goto LABEL_9;
+        }
+        v11 = &stru_14055AEA0;
+        goto LABEL_8;
+      }
+    }
+    else if ( !v5 && *((int *)a3 + 2) < 0 )
+    {
+      *(_QWORD *)&v16 = **((_QWORD **)a3 + 2);
+      v11 = &stru_14055AF40;
+LABEL_8:
+      RtlpInterlockedPushEntrySList(v11, (PSLIST_ENTRY)a3);
+LABEL_9:
+      v12 = v5 == 1;
+      goto LABEL_10;
+    }
+    SMKM_STORE_MGR<SM_TRAITS>::SmWorkItemFreeResource((__int64)&SmGlobals, a3, v4);
+    goto LABEL_9;
+  }
+  v14 = *((_DWORD *)a3 + 2) & 7;
+  if ( v5 == 5 )
+  {
+    ExFreePoolWithTag(a3, 0);
+    if ( v14 )
+    {
+      v12 = 0;
+      goto LABEL_10;
+    }
+LABEL_16:
+    v13 = (struct _EX_RUNDOWN_REF *)SmKmStoreRefFromStoreIndex((__int64)&SmGlobals, *(_DWORD *)(a2 + 6016) & 0x3FF);
+    ExReleaseRundownProtection_0(v13 + 1);
+    return;
+  }
+  v12 = 0;
+  if ( v14 )
+  {
+    if ( v14 == 3 )
+    {
+      ExFreePoolWithTag(a3, 0);
+      goto LABEL_16;
+    }
+    if ( (unsigned int)(v14 - 1) <= 1 )
+      v9 = 0;
+  }
+  else
+  {
+    *((_QWORD *)a3 + 4) = 0LL;
+  }
+LABEL_10:
+  if ( a4 )
+    v6 = ((__int64 (__fastcall *)(__int128 *, __int64, __int64, _QWORD))SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete)(
+           &v15,
+           a2,
+           a2,
+           *a4);
+  if ( v6 )
+  {
+    if ( v12 )
+      SmFpFree(&dword_14055AF50, 0LL, v4, v4);
+  }
+  if ( v9 )
+    goto LABEL_16;
+}

@@ -1,0 +1,57 @@
+/*
+ * XREFs of ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0069C30
+ * Callers:
+ *     xxxDrawMenuBarUnderlines @ 0x1C000A004 (xxxDrawMenuBarUnderlines.c)
+ *     xxxMNCanClose @ 0x1C0020A70 (xxxMNCanClose.c)
+ *     xxxGetSysMenuPtr @ 0x1C0020FE8 (xxxGetSysMenuPtr.c)
+ *     MNLookUpItem @ 0x1C0021208 (MNLookUpItem.c)
+ *     xxxCreateWindowEx @ 0x1C003DE94 (xxxCreateWindowEx.c)
+ *     xxxSetWindowData @ 0x1C0065ECC (xxxSetWindowData.c)
+ *     NtUserCreateWindowEx @ 0x1C00685B0 (NtUserCreateWindowEx.c)
+ *     xxxInsertMenuItem @ 0x1C0069348 (xxxInsertMenuItem.c)
+ *     NtUserThunkedMenuItemInfo @ 0x1C006A1B0 (NtUserThunkedMenuItemInfo.c)
+ *     ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C006AA5C (-SetLPITEMInfoNoRedraw@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@.c)
+ *     ?LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C006BABC (-LockWndMenuWorker@@YAPEAXPEAUtagWND@@_NAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxGetSysMenu @ 0x1C00A60E8 (xxxGetSysMenu.c)
+ *     xxxGetSystemMenu @ 0x1C00A625C (xxxGetSystemMenu.c)
+ *     xxxSetSysMenu @ 0x1C00A6430 (xxxSetSysMenu.c)
+ *     xxxPaintMenuBar @ 0x1C00A6E80 (xxxPaintMenuBar.c)
+ *     ?MNInitDrawItemStruct@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagDRAWITEMSTRUCT@@@Z @ 0x1C00AB7F8 (-MNInitDrawItemStruct@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagD.c)
+ *     NtUserDeleteMenu @ 0x1C0109420 (NtUserDeleteMenu.c)
+ *     NtUserDestroyMenu @ 0x1C011D8C0 (NtUserDestroyMenu.c)
+ *     NtUserRemoveMenu @ 0x1C0123E00 (NtUserRemoveMenu.c)
+ *     NtUserSetMenuDefaultItem @ 0x1C0127530 (NtUserSetMenuDefaultItem.c)
+ *     xxxSetDialogSystemMenu @ 0x1C0128350 (xxxSetDialogSystemMenu.c)
+ *     xxxLoadSysDesktopMenu @ 0x1C01283F8 (xxxLoadSysDesktopMenu.c)
+ *     LockDesktopMenu @ 0x1C01284C8 (LockDesktopMenu.c)
+ *     NtUserEnableMenuItem @ 0x1C012A6D0 (NtUserEnableMenuItem.c)
+ *     ??9?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C0135490 (--9-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     NtUserSetSystemMenu @ 0x1C014D560 (NtUserSetSystemMenu.c)
+ *     NtUserSetMenu @ 0x1C014D990 (NtUserSetMenu.c)
+ *     NtUserThunkedMenuInfo @ 0x1C014FBF0 (NtUserThunkedMenuInfo.c)
+ *     NtUserCheckMenuItem @ 0x1C0152020 (NtUserCheckMenuItem.c)
+ *     ?xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV?$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z @ 0x1C015293C (-xxxTA_AccelerateMenu@@YAIQEAUtagWND@@AEBV-$SmartObjStackRef@UtagMENU@@@@IQEAPEAUHMENU__@@@Z.c)
+ *     xxxMNStartMenu @ 0x1C01FA218 (xxxMNStartMenu.c)
+ *     ?UnlockPopupMenuWindow@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z @ 0x1C020A310 (-UnlockPopupMenuWindow@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z.c)
+ *     LockPopupMenu @ 0x1C020B0D8 (LockPopupMenu.c)
+ *     xxxMNDoubleClick @ 0x1C020C670 (xxxMNDoubleClick.c)
+ *     xxxMNSetTop @ 0x1C020F0B8 (xxxMNSetTop.c)
+ *     NtUserGetMenuItemRect @ 0x1C02159C0 (NtUserGetMenuItemRect.c)
+ *     NtUserHiliteMenuItem @ 0x1C0217DC0 (NtUserHiliteMenuItem.c)
+ *     NtUserMenuItemFromPoint @ 0x1C021A4A0 (NtUserMenuItemFromPoint.c)
+ *     NtUserSetMenuContextHelpId @ 0x1C021CD00 (NtUserSetMenuContextHelpId.c)
+ *     NtUserSetMenuFlagRtoL @ 0x1C021CDE0 (NtUserSetMenuFlagRtoL.c)
+ *     NtUserTrackPopupMenuEx @ 0x1C021E580 (NtUserTrackPopupMenuEx.c)
+ *     ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C0228D28 (-xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z.c)
+ *     xxxDoScrollMenu @ 0x1C02296AC (xxxDoScrollMenu.c)
+ *     xxxMNInvertItem @ 0x1C0231D7C (xxxMNInvertItem.c)
+ *     xxxMenuBarDraw @ 0x1C0232510 (xxxMenuBarDraw.c)
+ *     xxxSendMenuSelect @ 0x1C0233710 (xxxSendMenuSelect.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall SmartObjStackRef<tagMENU>::operator==(__int64 a1)
+{
+  return !*(_QWORD *)(a1 + 16) && **(_QWORD **)a1 == 0LL;
+}

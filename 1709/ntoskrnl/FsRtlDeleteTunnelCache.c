@@ -1,0 +1,40 @@
+/*
+ * XREFs of FsRtlDeleteTunnelCache @ 0x140565A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x1400E53C4 (ExFreeToNPagedLookasideList.c)
+ *     ExFreePoolWithTag @ 0x1402B2440 (ExFreePoolWithTag.c)
+ */
+
+void __stdcall FsRtlDeleteTunnelCache(TUNNEL *Cache)
+{
+  LIST_ENTRY *p_TimerQueue; // rbx
+  TUNNEL *Flink; // rax
+  TUNNEL *v3; // rdi
+  LIST_ENTRY *v4; // rcx
+
+  if ( TunnelMaxEntries )
+  {
+    p_TimerQueue = &Cache->TimerQueue;
+    Cache->Cache = 0LL;
+    Cache->NumEntries = 0;
+    Flink = (TUNNEL *)Cache->TimerQueue.Flink;
+    if ( Flink != (TUNNEL *)&Cache->TimerQueue )
+    {
+      do
+      {
+        v3 = *(TUNNEL **)&Flink->Mutex.Count;
+        v4 = &Flink[-1].TimerQueue;
+        if ( ((__int64)Flink->Mutex.Event.Header.WaitListHead.Flink & 1) != 0 )
+          ExFreePoolWithTag(v4, 0);
+        else
+          ExFreeToNPagedLookasideList(&TunnelLookasideList, v4);
+        Flink = v3;
+      }
+      while ( v3 != (TUNNEL *)p_TimerQueue );
+    }
+    p_TimerQueue->Blink = p_TimerQueue;
+    p_TimerQueue->Flink = p_TimerQueue;
+  }
+}

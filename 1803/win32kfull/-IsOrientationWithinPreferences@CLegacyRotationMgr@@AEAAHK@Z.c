@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?IsOrientationWithinPreferences@CLegacyRotationMgr@@AEAAHK@Z @ 0x1C019FD48
+ * Callers:
+ *     ?xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z @ 0x1C01A01D0 (-xxxAutoRotateScreen@CLegacyRotationMgr@@UEAAJK@Z.c)
+ * Callees:
+ *     ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C00BC8D8 (-GetCurrentOrientation@@YAJPEAK@Z.c)
+ *     ?GetActivePpiPreference@CRotationMgr@@SA?AW4ORIENTATION_PREFERENCE@@XZ @ 0x1C019FB24 (-GetActivePpiPreference@CRotationMgr@@SA-AW4ORIENTATION_PREFERENCE@@XZ.c)
+ */
+
+__int64 __fastcall CLegacyRotationMgr::IsOrientationWithinPreferences(CLegacyRotationMgr *this, int a2)
+{
+  unsigned int v3; // ebx
+  int ActivePpiPreference; // ecx
+  int v6; // edi
+  int v7; // edi
+  int v8; // ebx
+  CLegacyRotationMgr *v9; // [rsp+30h] [rbp+8h] BYREF
+
+  v9 = this;
+  v3 = 0;
+  ActivePpiPreference = CRotationMgr::GetActivePpiPreference();
+  if ( !ActivePpiPreference )
+    return 1LL;
+  if ( ActivePpiPreference == 0x80000000 )
+    return 0LL;
+  if ( ActivePpiPreference != 0x40000000 )
+  {
+    if ( a2 )
+    {
+      v6 = a2 - 1;
+      if ( v6 )
+      {
+        v7 = v6 - 1;
+        if ( v7 )
+        {
+          if ( v7 != 1 )
+            return v3;
+          v8 = dword_1C03227B8 != 0 ? 1 : 8;
+        }
+        else
+        {
+          v8 = dword_1C03227B8 != 0 ? 8 : 4;
+        }
+      }
+      else
+      {
+        v8 = dword_1C03227B8 != 0 ? 4 : 2;
+      }
+    }
+    else
+    {
+      v8 = (dword_1C03227B8 != 0) + 1;
+    }
+    return ActivePpiPreference & (unsigned int)v8;
+  }
+  if ( (int)GetCurrentOrientation((unsigned int *)&v9) < 0 )
+    return 0LL;
+  return ((unsigned __int8)a2 ^ (unsigned __int8)~(_BYTE)v9) & 1;
+}

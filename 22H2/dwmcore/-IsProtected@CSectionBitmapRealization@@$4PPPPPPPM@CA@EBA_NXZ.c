@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsProtected@CSectionBitmapRealization@@$4PPPPPPPM@CA@EBA_NXZ @ 0x180121D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CSectionBitmapRealization::IsProtected(__int64 a1)
+{
+  return CWICBitmapRealization::IsProtected((CWICBitmapRealization *)(a1 - *(int *)(a1 - 4) - 32));
+}

@@ -1,0 +1,51 @@
+/*
+ * XREFs of CheckHandleFlag @ 0x1C0023A58
+ * Callers:
+ *     OkayToCloseWindowStation @ 0x1C00231A0 (OkayToCloseWindowStation.c)
+ *     OkayToCloseDesktop @ 0x1C0023250 (OkayToCloseDesktop.c)
+ *     zzzSetDesktop @ 0x1C00232E0 (zzzSetDesktop.c)
+ *     _GetUserObjectInformation @ 0x1C00BEBCC (_GetUserObjectInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0162AB0 (__security_check_cookie.c)
+ *     memset @ 0x1C0166840 (memset.c)
+ */
+
+__int64 __fastcall CheckHandleFlag(PRKPROCESS PROCESS, int a2, unsigned int a3, int a4)
+{
+  unsigned int v6; // ebx
+  int v7; // ebp
+  unsigned int v8; // esi
+  __int64 v9; // rdx
+  __int64 v10; // rcx
+  __int64 ProcessWin32Process; // rax
+  struct _KAPC_STATE ApcState; // [rsp+20h] [rbp-58h] BYREF
+
+  v6 = 0;
+  v7 = 0;
+  v8 = a4 + 2 * (a3 >> 2) + (a3 >> 2);
+  memset(&ApcState, 0, sizeof(ApcState));
+  EnterHandleFlagsCrit();
+  if ( PROCESS )
+  {
+    if ( (unsigned int)PsGetProcessSessionId(PROCESS) != a2 )
+    {
+      KeStackAttachProcess(PROCESS, &ApcState);
+      v7 = 1;
+    }
+    ProcessWin32Process = PsGetProcessWin32Process(PROCESS);
+  }
+  else
+  {
+    ProcessWin32Process = PsGetCurrentProcessWin32Process(v10, v9);
+  }
+  if ( ProcessWin32Process
+    && v8 < *(_DWORD *)(ProcessWin32Process + 712)
+    && _bittest64(*(const signed __int64 **)(ProcessWin32Process + 720), v8) )
+  {
+    v6 = 1;
+  }
+  if ( v7 )
+    KeUnstackDetachProcess(&ApcState);
+  LeaveHandleFlagsCrit();
+  return v6;
+}

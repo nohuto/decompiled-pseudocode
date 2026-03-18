@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?Reset@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAXE@Z @ 0x1C0064CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0001EBC (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C00021D8 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0002280 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C0018050 (__security_check_cookie.c)
+ *     ?Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C0064A70 (-Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@E@Z.c)
+ *     ?SafeAttach@VIDMM_PROCESS@@QEAAXPEAU_KAPC_STATE@@@Z @ 0x1C007F510 (-SafeAttach@VIDMM_PROCESS@@QEAAXPEAU_KAPC_STATE@@@Z.c)
+ *     ?SafeDetach@VIDMM_PROCESS@@QEAAXPEAU_KAPC_STATE@@@Z @ 0x1C007F530 (-SafeDetach@VIDMM_PROCESS@@QEAAXPEAU_KAPC_STATE@@@Z.c)
+ */
+
+__int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::Reset(
+        VIDMM_RECYCLE_HEAP_MGR *this,
+        struct _VIDMM_GLOBAL_ALLOC *a2,
+        VIDMM_RECYCLE_MULTIRANGE *a3,
+        char a4)
+{
+  VIDMM_PROCESS *v8; // rcx
+  unsigned int v9; // ebx
+  _BYTE v11[16]; // [rsp+20h] [rbp-68h] BYREF
+  struct _KAPC_STATE v12; // [rsp+30h] [rbp-58h] BYREF
+  VIDMM_PROCESS *v13; // [rsp+60h] [rbp-28h]
+
+  v13 = (VIDMM_PROCESS *)*((_QWORD *)this + 1);
+  VIDMM_PROCESS::SafeAttach(v13, &v12);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v11, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
+  v9 = VIDMM_RECYCLE_MULTIRANGE::Reset(a3, a2, a4);
+  if ( v11[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11);
+  VIDMM_PROCESS::SafeDetach(v8, &v12);
+  return v9;
+}

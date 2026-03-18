@@ -1,0 +1,145 @@
+/*
+ * XREFs of WmipForwardWmiIrp @ 0x14051BADC
+ * Callers:
+ *     WmipQueryAllData @ 0x14051A7B0 (WmipQueryAllData.c)
+ *     WmipQuerySetExecuteSI @ 0x14051B0F8 (WmipQuerySetExecuteSI.c)
+ *     WmipSendWmiIrp @ 0x1405DCF88 (WmipSendWmiIrp.c)
+ *     WmipSetTraceNotify @ 0x140600BEC (WmipSetTraceNotify.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x1406464B0 (WmipSendWmiIrpToTraceDeviceList.c)
+ * Callees:
+ *     WmipUnreferenceRegEntry @ 0x1400739AC (WmipUnreferenceRegEntry.c)
+ *     WmipFindRegEntryByProviderId @ 0x1400739DC (WmipFindRegEntryByProviderId.c)
+ *     IoGetAttachedDeviceReference @ 0x1400DF830 (IoGetAttachedDeviceReference.c)
+ *     KeWaitForSingleObject @ 0x1400F5B20 (KeWaitForSingleObject.c)
+ *     IofCallDriver @ 0x1400FD990 (IofCallDriver.c)
+ *     ObfDereferenceObject @ 0x140103810 (ObfDereferenceObject.c)
+ *     KeInitializeEvent @ 0x140107370 (KeInitializeEvent.c)
+ *     _guard_dispatch_icall @ 0x1401B3560 (_guard_dispatch_icall.c)
+ *     WmipTranslatePDOInstanceNames @ 0x1405F4194 (WmipTranslatePDOInstanceNames.c)
+ *     WmipUpdateDeviceStackSize @ 0x140600B9C (WmipUpdateDeviceStackSize.c)
+ */
+
+__int64 __fastcall WmipForwardWmiIrp(
+        PIRP Irp,
+        UCHAR a2,
+        unsigned int a3,
+        UNICODE_STRING *a4,
+        unsigned int a5,
+        __int64 a6)
+{
+  __int64 RegEntryByProviderId; // rax
+  __int64 v10; // rdi
+  int v11; // eax
+  PDEVICE_OBJECT v12; // rsi
+  __int64 v13; // rax
+  __int64 v14; // rax
+  PDEVICE_OBJECT AttachedDeviceReference; // r13
+  CCHAR v16; // r15
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  struct _IO_STACK_LOCATION *v18; // rax
+  struct _IO_STACK_LOCATION *v19; // rax
+  __int64 v20; // rdx
+  NTSTATUS Status; // esi
+  __int64 result; // rax
+  unsigned int v23; // ebx
+  __int64 v24; // rcx
+  unsigned int v25; // [rsp+40h] [rbp-48h] BYREF
+  struct _KEVENT Event; // [rsp+48h] [rbp-40h] BYREF
+
+  RegEntryByProviderId = WmipFindRegEntryByProviderId(a3);
+  v10 = RegEntryByProviderId;
+  if ( RegEntryByProviderId )
+  {
+    v11 = *(_DWORD *)(RegEntryByProviderId + 48);
+    if ( (v11 & 0x20000000) == 0 )
+    {
+      v12 = *(PDEVICE_OBJECT *)(v10 + 16);
+      if ( (v11 & 0x10000000) != 0 )
+      {
+        v25 = 0;
+        v23 = (*(__int64 (__fastcall **)(_QWORD, UNICODE_STRING *, _QWORD, __int64, PDEVICE_OBJECT, unsigned int *))&v12->Type)(
+                a2,
+                a4,
+                a5,
+                a6,
+                v12,
+                &v25);
+        Irp->IoStatus.Information = v25;
+        Irp->IoStatus.Status = v23;
+        WmipUnreferenceRegEntry(v10);
+        return v23;
+      }
+      else
+      {
+        if ( a2 != 11 && a2 != 8 )
+        {
+          v13 = *(_QWORD *)(a6 + 24) - WmipDataProviderPnpidGuid;
+          if ( !v13 )
+            v13 = *(_QWORD *)(a6 + 32) - *((_QWORD *)&WmipDataProviderPnpidGuid + 1);
+          if ( !v13 )
+            goto LABEL_36;
+          v14 = *(_QWORD *)(a6 + 24) - WmipDataProviderPnPIdInstanceNamesGuid;
+          if ( !v14 )
+            v14 = *(_QWORD *)(a6 + 32) - *((_QWORD *)&WmipDataProviderPnPIdInstanceNamesGuid + 1);
+          if ( !v14 )
+          {
+LABEL_36:
+            if ( *(_QWORD *)(v10 + 24) )
+              v12 = WmipServiceDeviceObject;
+          }
+        }
+        AttachedDeviceReference = IoGetAttachedDeviceReference(v12);
+        v16 = AttachedDeviceReference->StackSize + 1;
+        if ( v16 <= WmipServiceDeviceObject->StackSize || AttachedDeviceReference == WmipServiceDeviceObject )
+        {
+          KeInitializeEvent(&Event, SynchronizationEvent, 0);
+          CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+          CurrentStackLocation[-1].CompletionRoutine = (PIO_COMPLETION_ROUTINE)SmKmGenericCompletion;
+          CurrentStackLocation[-1].Context = &Event;
+          CurrentStackLocation[-1].Control = -32;
+          v18 = Irp->Tail.Overlay.CurrentStackLocation;
+          v18[-1].Parameters.CreatePipe.Parameters = (PNAMED_PIPE_CREATE_PARAMETERS)a6;
+          v18[-1].MajorFunction = 23;
+          v18[-1].MinorFunction = a2;
+          v18[-1].Parameters.WMI.ProviderId = (ULONG_PTR)v12;
+          v18[-1].Parameters.QueryDirectory.FileName = a4;
+          v18[-1].Parameters.Read.ByteOffset.LowPart = a5;
+          v19 = Irp->Tail.Overlay.CurrentStackLocation;
+          Irp->IoStatus.Status = -1073741637;
+          v19->Control |= 1u;
+          Status = IofCallDriver(AttachedDeviceReference, Irp);
+          if ( Status == 259 )
+          {
+            KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+            Status = Irp->IoStatus.Status;
+          }
+          if ( Status == -1073741637 )
+          {
+            Status = -1073741163;
+            Irp->IoStatus.Status = -1073741163;
+          }
+          if ( (a2 == 11 || a2 == 8) && Status >= 0 && Irp->IoStatus.Information > 0x18 )
+          {
+            LOBYTE(v20) = a2;
+            WmipTranslatePDOInstanceNames(Irp, v20, a5, v10);
+          }
+          WmipUnreferenceRegEntry(v10);
+        }
+        else
+        {
+          WmipUnreferenceRegEntry(v10);
+          LOBYTE(v24) = v16;
+          WmipUpdateDeviceStackSize(v24);
+          Status = -1073741160;
+        }
+        ObfDereferenceObject(AttachedDeviceReference);
+        return (unsigned int)Status;
+      }
+    }
+    WmipUnreferenceRegEntry(v10);
+  }
+  result = 3221226134LL;
+  if ( (unsigned __int8)(a2 - 1) > 1u )
+    return 3221225473LL;
+  return result;
+}

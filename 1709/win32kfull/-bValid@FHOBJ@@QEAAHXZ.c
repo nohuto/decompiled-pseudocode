@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?bValid@FHOBJ@@QEAAHXZ @ 0x1C0039D8C
+ * Callers:
+ *     ?bAddHash@PFFOBJ@@QEAAHH@Z @ 0x1C0038CF4 (-bAddHash@PFFOBJ@@QEAAHH@Z.c)
+ *     ?vRemoveHash@PFFOBJ@@QEAAXXZ @ 0x1C0038E48 (-vRemoveHash@PFFOBJ@@QEAAXXZ.c)
+ *     ?bFindBitmapFont@MAPPER@@QEAAHPEAG@Z @ 0x1C00ADD44 (-bFindBitmapFont@MAPPER@@QEAAHPEAG@Z.c)
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00BEED0 (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
+ *     ?EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C00F7C3C (-EnumEngineOnly@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2PEAVDCOBJ@@PEAKPEAX@Z.c)
+ *     ?EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@@PEAVDCOBJ@@PEAKPEAX@Z @ 0x1C0292FBC (-EnumDeviceAndEngine@@YA_NPEBGKKPEAU_EFFILTER_INFO@@AEAVPUBLIC_PFTOBJ@@2AEAVPFFOBJ@@AEAVPDEVOBJ@.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall FHOBJ::bValid(FHOBJ *this)
+{
+  _BOOL8 result; // rax
+
+  result = 0LL;
+  if ( *(_QWORD *)this )
+    return **(_QWORD **)this != 0LL;
+  return result;
+}

@@ -1,0 +1,18 @@
+/*
+ * XREFs of ?GetGeometryBounds@CWindowNode@@AEAAJPEAVCGeometry@@PEAV?$TMilRect_@MUMilRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1801050F0
+ * Callers:
+ *     ?ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUMILCMD_WINDOWNODE_SETDXCLIP@@@Z @ 0x1800796BC (-ProcessSetDxClip@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUMILCMD_WINDOWNODE_SETDXCLIP@@@Z.c)
+ * Callees:
+ *     ?GetShapeDataNoRef@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAPEAVCShape@@@Z @ 0x18001793C (-GetShapeDataNoRef@CGeometry@@QEAAJPEBUD2D_SIZE_F@@PEAPEAVCShape@@@Z.c)
+ *     ?OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ @ 0x180097F10 (-OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ.c)
+ */
+
+__int64 __fastcall CWindowNode::GetGeometryBounds(__int64 a1, CGeometry *a2, __int64 a3)
+{
+  struct CShape *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v5 = 0LL;
+  CGeometry::GetShapeDataNoRef(a2, (const struct D2D_SIZE_F *)(a1 + 148), &v5);
+  (*(void (__fastcall **)(struct CShape *, __int64, _QWORD))(*(_QWORD *)v5 + 24LL))(v5, a3, 0LL);
+  return 0LL;
+}

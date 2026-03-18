@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?SetGammaRamp@DMMVIDPNPRESENTPATH@@QEAAJAEBU_D3DKMDT_GAMMA_RAMP@@@Z @ 0x1C0080F20
+ * Callers:
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C0004B84 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@AEBV0@@Z @ 0x1C000537C (--0DMMVIDPNPRESENTPATH@@QEAA@AEBV0@@Z.c)
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@QEBV0@@Z @ 0x1C000560C (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@QEBV0@@Z.c)
+ *     DmmUpdateGammaRampOnAllClientVidPnPathsFromSource @ 0x1C00B9AE8 (DmmUpdateGammaRampOnAllClientVidPnPathsFromSource.c)
+ * Callees:
+ *     memmove @ 0x1C0012480 (memmove.c)
+ *     ??3@YAXPEAX@Z @ 0x1C007F918 (--3@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C007F930 (--2@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ */
+
+__int64 __fastcall DMMVIDPNPRESENTPATH::SetGammaRamp(DMMVIDPNPRESENTPATH *this, const struct _D3DKMDT_GAMMA_RAMP *a2)
+{
+  D3DDDI_GAMMARAMP_TYPE Type; // eax
+  PVOID v5; // rdi
+  void *v6; // rcx
+  __int64 v8; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+
+  Type = a2->Type;
+  if ( (a2->Type != D3DDDI_GAMMARAMP_RGB256x3x16 || !a2->DataSize || !a2->Data.pRgb256x3x16)
+    && (Type != D3DDDI_GAMMARAMP_DXGI_1 || !a2->DataSize || !a2->Data.pRgb256x3x16)
+    && (Type != D3DDDI_GAMMARAMP_DEFAULT || a2->DataSize || a2->Data.pRgb256x3x16) )
+  {
+    v9 = WdLogNewEntry5_WdAssertion(this);
+    WdLogEvent5_WdAssertion(v9);
+  }
+  v5 = 0LL;
+  if ( !a2->Data.pRgb256x3x16 || (v5 = operator new(a2->DataSize, 0x4E506456u, PagedPool)) != 0LL )
+  {
+    v6 = (void *)*((_QWORD *)this + 25);
+    if ( v6 )
+    {
+      operator delete(v6);
+      *((_QWORD *)this + 25) = 0LL;
+      *((_QWORD *)this + 24) = 0LL;
+    }
+    if ( v5 )
+    {
+      if ( a2->Data.pRgb256x3x16 )
+        goto LABEL_18;
+    }
+    else if ( !a2->Data.pRgb256x3x16 )
+    {
+LABEL_11:
+      *((_QWORD *)this + 25) = v5;
+      *((_QWORD *)this + 24) = a2->DataSize;
+      *((_DWORD *)this + 46) = a2->Type;
+      return 0LL;
+    }
+    v11 = WdLogNewEntry5_WdAssertion(v6);
+    WdLogEvent5_WdAssertion(v11);
+LABEL_18:
+    if ( v5 )
+      memmove(v5, a2->Data.pRgb256x3x16, a2->DataSize);
+    goto LABEL_11;
+  }
+  v10 = WdLogNewEntry5_WdLowResource(v8);
+  *(_QWORD *)(v10 + 24) = a2->DataSize;
+  WdLogEvent5_WdLowResource(v10);
+  return 3221225495LL;
+}

@@ -1,0 +1,26 @@
+/*
+ * XREFs of rimObsReadMaxQueueSize @ 0x1C015A2E8
+ * Callers:
+ *     RawInputManagerInputObserverObjectCreate @ 0x1C0147B00 (RawInputManagerInputObserverObjectCreate.c)
+ * Callees:
+ *     RIMRegQueryDWord @ 0x1C005C50C (RIMRegQueryDWord.c)
+ */
+
+__int64 rimObsReadMaxQueueSize()
+{
+  __int64 result; // rax
+  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v2; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = 0;
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  DestinationString.Buffer = 0LL;
+  RtlInitUnicodeString(
+    &DestinationString,
+    L"\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Windows");
+  RIMRegQueryDWord((__int64)&DestinationString, (__int64)L"RimObserverQueueSize", 256, &v2);
+  result = v2;
+  if ( v2 > 0xFA00 )
+    return 64000LL;
+  return result;
+}

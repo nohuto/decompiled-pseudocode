@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@QueryFontTreeRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C02D75B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C02D49CC (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
+__int64 __fastcall QueryFontTreeRequest::CreateUsermodeParameters(
+        QueryFontTreeRequest *this,
+        UmfdUMBuffer **a2,
+        void **a3)
+{
+  char *v5; // rax
+  _QWORD *v6; // rdx
+  char *v8; // rax
+
+  v5 = (char *)UmfdTls::CommitUMBuffer(a2, 0x30u);
+  v6 = v5;
+  if ( !v5 )
+    return 3221225495LL;
+  v8 = v5 + 40;
+  *((_QWORD *)this + 8) = v8;
+  v6[3] = v8;
+  *v6 = *((_QWORD *)this + 3);
+  v6[1] = **((_QWORD **)this + 4);
+  *((_DWORD *)v6 + 4) = *((_DWORD *)this + 10);
+  *((_DWORD *)v6 + 5) = *((_DWORD *)this + 11);
+  *a3 = v6;
+  return 0LL;
+}

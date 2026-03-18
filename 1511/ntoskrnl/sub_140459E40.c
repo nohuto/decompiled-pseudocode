@@ -1,0 +1,48 @@
+/*
+ * XREFs of sub_140459E40 @ 0x140459E40
+ * Callers:
+ *     sub_140458F88 @ 0x140458F88 (sub_140458F88.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x140043C70 (RtlInitUnicodeString.c)
+ *     RtlHashUnicodeString @ 0x14043D630 (RtlHashUnicodeString.c)
+ */
+
+NTSTATUS __fastcall sub_140459E40(_DWORD *a1, __int16 *a2)
+{
+  unsigned __int16 v2; // ax
+  const WCHAR *v4; // rbx
+  unsigned int v5; // edx
+  int v6; // edi
+  NTSTATUS result; // eax
+  __int64 v8; // rcx
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+  ULONG HashValue; // [rsp+48h] [rbp+10h] BYREF
+
+  v2 = *a2;
+  if ( !*a2 )
+    return 0;
+  v4 = (const WCHAR *)*((_QWORD *)a2 + 1);
+  v5 = v2 >> 1;
+  if ( (v2 & 1) != 0 || v5 < 2 || v4[v5 - 2] || v4[v5 - 1] )
+    return -1073741762;
+  v6 = 0;
+  while ( 1 )
+  {
+    RtlInitUnicodeString(&DestinationString, v4);
+    result = RtlHashUnicodeString(&DestinationString, 1u, 0, &HashValue);
+    if ( result < 0 )
+      break;
+    v6 += HashValue;
+    v8 = -1LL;
+    do
+      ++v8;
+    while ( v4[v8] );
+    v4 += v8 + 1;
+    if ( !*v4 )
+    {
+      *a1 += v6;
+      return result;
+    }
+  }
+  return result;
+}

@@ -1,0 +1,56 @@
+/*
+ * XREFs of WPP_IFR_SF_qqxxd @ 0x1C005D914
+ * Callers:
+ *     ?TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C00357B0 (-TransferCompleted@FxDmaPacketTransaction@@UEAAJXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C0009960 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C005F3FC (FxWmiTraceMessage.c)
+ */
+
+void __fastcall WPP_IFR_SF_qqxxd(
+        _FX_DRIVER_GLOBALS *globals,
+        unsigned __int8 _a1,
+        unsigned int _a2,
+        unsigned __int16 _a3,
+        const _GUID *_a4,
+        const void *_a5,
+        const void *globals_0,
+        __int64 level,
+        __int64 flags,
+        int id)
+{
+  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x4000) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 2u )
+    FxWmiTraceMessage(
+      (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
+      0x2Bu,
+      WPP_FxDmaTransaction_hpp_Traceguids,
+      0x10u,
+      &_a5,
+      8LL,
+      &globals_0,
+      8LL,
+      &level,
+      8LL,
+      &flags,
+      8LL,
+      &id,
+      4LL,
+      0LL);
+  FxIFR(
+    globals,
+    2u,
+    0xFu,
+    WPP_FxDmaTransaction_hpp_Traceguids,
+    0x10u,
+    &_a5,
+    8LL,
+    &globals_0,
+    8LL,
+    &level,
+    8LL,
+    &flags,
+    8LL,
+    &id,
+    4LL,
+    0LL);
+}

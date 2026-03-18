@@ -1,0 +1,84 @@
+/*
+ * XREFs of RtlpLogCapabilityCheckLatency @ 0x1408D87C8
+ * Callers:
+ *     RtlCapabilityCheck @ 0x1408D1390 (RtlCapabilityCheck.c)
+ * Callees:
+ *     _TlgKeywordOn @ 0x14008B9D4 (_TlgKeywordOn.c)
+ *     _TlgWrite @ 0x14008BA00 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ *     RtlRunOnceExecuteOnce @ 0x14061A280 (RtlRunOnceExecuteOnce.c)
+ */
+
+signed __int16 __fastcall RtlpLogCapabilityCheckLatency(_QWORD *a1, _QWORD *a2, char a3, char a4, char a5, char a6)
+{
+  signed __int16 result; // ax
+  const GUID *v11; // r9
+  __int64 v12; // rax
+  char v13; // [rsp+38h] [rbp-49h] BYREF
+  char v14; // [rsp+39h] [rbp-48h] BYREF
+  char v15; // [rsp+3Ah] [rbp-47h] BYREF
+  char v16; // [rsp+3Bh] [rbp-46h] BYREF
+  LONGLONG v17; // [rsp+40h] [rbp-41h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+48h] [rbp-39h] BYREF
+  LONGLONG *v19; // [rsp+68h] [rbp-19h]
+  __int64 v20; // [rsp+70h] [rbp-11h]
+  char *v21; // [rsp+78h] [rbp-9h]
+  __int64 v22; // [rsp+80h] [rbp-1h]
+  char *v23; // [rsp+88h] [rbp+7h]
+  __int64 v24; // [rsp+90h] [rbp+Fh]
+  char *v25; // [rsp+98h] [rbp+17h]
+  __int64 v26; // [rsp+A0h] [rbp+1Fh]
+  char *v27; // [rsp+A8h] [rbp+27h]
+  __int64 v28; // [rsp+B0h] [rbp+2Fh]
+
+  result = RtlRunOnceExecuteOnce(
+             &RtlpCapChkTelemetryRunOnceCtx,
+             (PRTL_RUN_ONCE_INIT_FN)RtlpCapChkTelemetryRunOnce,
+             0LL,
+             0LL);
+  if ( a1 )
+  {
+    if ( a2 )
+    {
+      if ( *a1 )
+      {
+        if ( *a2 )
+        {
+          if ( RtlpPerformanceCounterFrequency.QuadPart )
+          {
+            result = _InterlockedDecrement16(&TelemetryEventThrottle);
+            if ( !result )
+            {
+              if ( stru_140427EF0.LevelPlus1 > 5 )
+              {
+                if ( TlgKeywordOn(&stru_140427EF0, 0x200000000000uLL) )
+                {
+                  v12 = 1000000LL * (*a2 - *a1);
+                  v13 = a3;
+                  v14 = a4;
+                  v20 = 8LL;
+                  v17 = v12 / RtlpPerformanceCounterFrequency.QuadPart;
+                  v15 = a5;
+                  v16 = a6;
+                  v19 = &v17;
+                  v21 = &v13;
+                  v23 = &v14;
+                  v25 = &v15;
+                  v27 = &v16;
+                  v22 = 1LL;
+                  v24 = 1LL;
+                  v26 = 1LL;
+                  v28 = 1LL;
+                  TlgWrite(&stru_140427EF0, &unk_14039369A, 0LL, v11, 7u, &pData);
+                }
+              }
+              result = TelemetryEventThrottle;
+              TelemetryEventThrottle = 100;
+            }
+          }
+        }
+      }
+    }
+  }
+  return result;
+}

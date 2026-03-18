@@ -1,0 +1,21 @@
+/*
+ * XREFs of PoFxIdleComponent @ 0x140246BF0
+ * Callers:
+ *     PopFxIdleWorkerTail @ 0x140246910 (PopFxIdleWorkerTail.c)
+ *     PoFxIdleDevice @ 0x14036D564 (PoFxIdleDevice.c)
+ *     PoFxReportDevicePoweredOn @ 0x14039C2E0 (PoFxReportDevicePoweredOn.c)
+ *     PoFxStartDevicePowerManagement @ 0x1403BD510 (PoFxStartDevicePowerManagement.c)
+ * Callees:
+ *     PopFxIdleComponent @ 0x140246C40 (PopFxIdleComponent.c)
+ *     memset @ 0x140411300 (memset.c)
+ */
+
+__int64 __fastcall PoFxIdleComponent(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
+{
+  unsigned int v2; // edi
+  _BYTE v5[64]; // [rsp+20h] [rbp-48h] BYREF
+
+  v2 = BugCheckParameter3;
+  memset(v5, 0, sizeof(v5));
+  return PopFxIdleComponent(BugCheckParameter2, v2);
+}

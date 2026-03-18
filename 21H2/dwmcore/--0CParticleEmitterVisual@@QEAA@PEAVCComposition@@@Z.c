@@ -1,0 +1,87 @@
+/*
+ * XREFs of ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x18022D114
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800BE0A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ?SetContent@CVisual@@MEAAJPEAVCContent@@@Z @ 0x1800471B0 (-SetContent@CVisual@@MEAAJPEAVCContent@@@Z.c)
+ *     ??2KeyframeInterpolation@@SAPEAX_K@Z @ 0x18004D79C (--2KeyframeInterpolation@@SAPEAX_K@Z.c)
+ *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180105110 (_alloca_probe.c)
+ *     memcpy_0 @ 0x18010517F (memcpy_0.c)
+ *     ?InitializeParticleLists@CParticleEmitterVisual@@IEAAXXZ @ 0x1801A0BF8 (-InitializeParticleLists@CParticleEmitterVisual@@IEAAXXZ.c)
+ *     ??0CParticleEmitter@@QEAA@PEAVCComposition@@@Z @ 0x18022B470 (--0CParticleEmitter@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z @ 0x18022CFE8 (--0-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@IEAA@PEAVCComposition.c)
+ *     ??0ParticleCollection@CParticleEmitterVisual@@QEAA@XZ @ 0x18022D3E4 (--0ParticleCollection@CParticleEmitterVisual@@QEAA@XZ.c)
+ */
+
+CParticleEmitterVisual *__fastcall CParticleEmitterVisual::CParticleEmitterVisual(
+        CParticleEmitterVisual *this,
+        struct CComposition *a2)
+{
+  CParticleEmitter *v4; // rdi
+  unsigned int *v5; // r8
+  unsigned int v6; // ecx
+  unsigned __int64 v7; // rdx
+  CParticleEmitter *v8; // rax
+  unsigned int v9; // eax
+  unsigned __int64 v10; // rdx
+  unsigned int v11; // r8d
+  int Src; // [rsp+20h] [rbp-13B8h] BYREF
+  _DWORD v14[1251]; // [rsp+24h] [rbp-13B4h]
+
+  CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>::CParticleEmitterVisualGeneratedT<CParticleEmitterVisual,CVisual>(
+    (__int64)this,
+    a2);
+  *(_QWORD *)this = &CParticleEmitterVisual::`vftable';
+  CParticleEmitterVisual::ParticleCollection::ParticleCollection((CParticleEmitterVisual *)((char *)this + 896));
+  v4 = 0LL;
+  *((_QWORD *)this + 170) = 0LL;
+  v5 = (unsigned int *)((char *)this + 1420);
+  *((_QWORD *)this + 171) = 0LL;
+  v6 = 5489;
+  *((_QWORD *)this + 172) = 0LL;
+  *((_QWORD *)this + 173) = 0LL;
+  v7 = 1LL;
+  *((_QWORD *)this + 174) = 0LL;
+  *((_QWORD *)this + 175) = 0LL;
+  *((_DWORD *)this + 1602) = -1;
+  *((_DWORD *)this + 354) = 5489;
+  do
+  {
+    v6 = v7++ + 1812433253 * (v6 ^ (v6 >> 30));
+    *v5++ = v6;
+  }
+  while ( v7 < 0x270 );
+  *((_DWORD *)this + 353) = 624;
+  *((_DWORD *)this + 1611) = 1065353216;
+  *((_QWORD *)this + 806) = 1065353216LL;
+  *(_QWORD *)((char *)this + 6412) = 0LL;
+  *((_DWORD *)this + 1605) = 0;
+  *((_QWORD *)this + 803) = 0LL;
+  *((_DWORD *)this + 1608) = 0;
+  *((_QWORD *)this + 807) = 0LL;
+  *((_DWORD *)this + 1616) = 0;
+  *((_WORD *)this + 3234) = 1;
+  *((_BYTE *)this + 6470) = 0;
+  v8 = (CParticleEmitter *)KeyframeInterpolation::operator new(0x78uLL);
+  if ( v8 )
+    v4 = CParticleEmitter::CParticleEmitter(v8, a2);
+  *((_QWORD *)this + 809) = v4;
+  *((_QWORD *)v4 + 9) = this;
+  v9 = std::_Random_device();
+  v14[1248] = -1;
+  v10 = 1LL;
+  v11 = v9;
+  v14[0] = v9;
+  do
+  {
+    v11 = v10 + 1812433253 * (v11 ^ (v11 >> 30));
+    v14[v10++] = v11;
+  }
+  while ( v10 < 0x270 );
+  Src = 624;
+  memcpy_0((char *)this + 1412, &Src, 0x1388uLL);
+  CParticleEmitterVisual::InitializeParticleLists(this);
+  CVisual::SetContent((struct CResource **)this, *((struct CContent **)this + 809));
+  return this;
+}

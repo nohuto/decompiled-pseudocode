@@ -1,0 +1,36 @@
+/*
+ * XREFs of imp_WdfIoTargetStop @ 0x1C0087280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0002960 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00030C8 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C0035590 (WPP_IFR_SF_d.c)
+ */
+
+void __fastcall imp_WdfIoTargetStop(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFIOTARGET__ *IoTarget, int Action)
+{
+  FxIoTarget *v4; // rcx
+  FxIoTarget *pTarget; // [rsp+40h] [rbp+8h] BYREF
+
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)IoTarget,
+    0x1200u,
+    (void **)&pTarget);
+  v4 = pTarget;
+  if ( Action && Action <= 3 )
+  {
+    if ( (unsigned int)(Action - 1) <= 1 )
+    {
+      if ( (int)FxVerifierCheckIrqlLevel(pTarget->m_Globals, 0) < 0 )
+        return;
+      v4 = pTarget;
+    }
+    v4->Stop(v4, (_WDF_IO_TARGET_SENT_IO_ACTION)Action);
+  }
+  else
+  {
+    WPP_IFR_SF_d(pTarget->m_Globals, 2u, 0xEu, 0xAu, WPP_FxIoTargetAPI_cpp_Traceguids, Action);
+  }
+}

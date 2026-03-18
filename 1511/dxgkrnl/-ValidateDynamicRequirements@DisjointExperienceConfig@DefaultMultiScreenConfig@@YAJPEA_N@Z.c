@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?ValidateDynamicRequirements@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z @ 0x1C0020644
+ * Callers:
+ *     ?DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities@@@Z @ 0x1C001FE30 (-DetermineMultiScreenCapabilities@DefaultMultiScreenConfig@@YAJPEAW4MultiScreenShellCapabilities.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0011390 (__security_check_cookie.c)
+ *     ?RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C001FFB8 (-RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
+ *     ?RegQueryIsUnsupportedLanguage@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z @ 0x1C00203B8 (-RegQueryIsUnsupportedLanguage@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEA_N@Z.c)
+ */
+
+__int64 __fastcall DefaultMultiScreenConfig::DisjointExperienceConfig::ValidateDynamicRequirements(
+        DefaultMultiScreenConfig::DisjointExperienceConfig *this,
+        bool *a2)
+{
+  int ControllerInstallKey; // edi
+  unsigned __int16 *v4; // rdx
+  unsigned int *v5; // r9
+  _BYTE v7[4]; // [rsp+20h] [rbp-238h] BYREF
+  unsigned int v8[3]; // [rsp+24h] [rbp-234h] BYREF
+  wchar_t pszDest[264]; // [rsp+30h] [rbp-228h] BYREF
+
+  *(_BYTE *)this = 0;
+  ControllerInstallKey = 0;
+  v7[0] = 0;
+  DefaultMultiScreenConfig::DisjointExperienceConfig::RegQueryIsUnsupportedLanguage(
+    (DefaultMultiScreenConfig::DisjointExperienceConfig *)v7,
+    a2);
+  if ( !v7[0] )
+  {
+    ControllerInstallKey = DefaultMultiScreenConfig::DisjointExperienceConfig::RegQueryControllerInstallKey(
+                             pszDest,
+                             v4,
+                             v8,
+                             v5);
+    if ( ControllerInstallKey >= 0 )
+      *(_BYTE *)this = v8[0] != 0;
+  }
+  return (unsigned int)ControllerInstallKey;
+}

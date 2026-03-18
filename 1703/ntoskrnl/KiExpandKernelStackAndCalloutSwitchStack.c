@@ -1,0 +1,56 @@
+/*
+ * XREFs of KiExpandKernelStackAndCalloutSwitchStack @ 0x14010F550
+ * Callers:
+ *     KeExpandKernelStackAndCalloutInternal @ 0x14010F480 (KeExpandKernelStackAndCalloutInternal.c)
+ * Callees:
+ *     KeQueryCurrentStackInformation @ 0x1400E7800 (KeQueryCurrentStackInformation.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x14010F680 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     MmGrowKernelStackEx @ 0x1401359F0 (MmGrowKernelStackEx.c)
+ *     KeBugCheckEx @ 0x140181890 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x140181EE0 (KeGetCurrentStackPointer.c)
+ */
+
+__int64 __fastcall KiExpandKernelStackAndCalloutSwitchStack(int a1, int a2, unsigned __int64 a3, int a4, __int64 a5)
+{
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 CurrentStackPointer; // rax
+  unsigned __int64 StackLimit; // r12
+  __int64 v12; // rbp
+  unsigned __int64 v13; // rdi
+  unsigned __int8 CurrentIrql; // cl
+  unsigned __int64 v16; // [rsp+30h] [rbp-38h] BYREF
+  unsigned __int64 v17; // [rsp+38h] [rbp-30h] BYREF
+  int v18; // [rsp+80h] [rbp+18h] BYREF
+
+  if ( a3 > 0x11800 )
+    return 3221225713LL;
+  CurrentThread = KeGetCurrentThread();
+  CurrentStackPointer = KeGetCurrentStackPointer();
+  StackLimit = (unsigned __int64)CurrentThread->StackLimit;
+  v12 = CurrentStackPointer;
+  v13 = *((_QWORD *)CurrentThread->InitialStack + 1) & 0xFFFFFFFFFFFFFFFEuLL;
+  CurrentIrql = KeGetCurrentIrql();
+  if ( CurrentIrql == 2 )
+  {
+    if ( (a4 & 2) != 0 )
+      return 3221225714LL;
+    if ( !KeQueryCurrentStackInformation(&v18, &v16, &v17) )
+      __fastfail(4u);
+    if ( v18 == 1 )
+    {
+      StackLimit = v16;
+      v13 = v16;
+    }
+  }
+  else
+  {
+    if ( CurrentIrql > 2u )
+      KeBugCheckEx(0xAu, 2uLL, CurrentIrql, 0LL, 0LL);
+    if ( a3 == (unsigned int)KeKernelStackSize || a3 == 24576 && (unsigned int)KeKernelStackSize >= 0x6000 )
+      a4 |= 5u;
+  }
+  if ( v12 - v13 < a3 || (a4 & 1) != 0 || v12 - StackLimit < a3 && (int)MmGrowKernelStackEx(v12, a3) < 0 )
+    return KiExpandKernelStackAndCalloutOnStackSegment(a1, a2, a3, a4, a5);
+  else
+    return 3221226635LL;
+}

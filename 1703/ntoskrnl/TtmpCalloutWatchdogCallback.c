@@ -1,0 +1,45 @@
+/*
+ * XREFs of TtmpCalloutWatchdogCallback @ 0x14041DB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140181890 (KeBugCheckEx.c)
+ *     TtmiLogCalloutWatchdogCrashSkipped @ 0x14041DC7C (TtmiLogCalloutWatchdogCrashSkipped.c)
+ *     NtPowerInformation @ 0x1404C2F2C (NtPowerInformation.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x1406829D0 (DbgkWerCaptureLiveKernelDump.c)
+ */
+
+__int64 __fastcall TtmpCalloutWatchdogCallback(
+        __int64 a1,
+        ULONG a2,
+        ULONG_PTR a3,
+        ULONG_PTR a4,
+        ULONG_PTR BugCheckParameter3,
+        ULONG_PTR BugCheckParameter4)
+{
+  int v9; // ecx
+  int v11; // [rsp+50h] [rbp-18h] BYREF
+  _DWORD v12[2]; // [rsp+58h] [rbp-10h] BYREF
+
+  v12[1] = 0;
+  v12[0] = 31;
+  if ( NtPowerInformation(SystemPowerStateLogging|0x40, v12, 8u, &v11, 4u) < 0 )
+  {
+    v9 = -1;
+  }
+  else
+  {
+    v9 = v11;
+    if ( TtmpDeviceCalloutCrashDumpEnabled && !v11 )
+      KeBugCheckEx(a2, a3, a4, BugCheckParameter3, BugCheckParameter4);
+  }
+  TtmiLogCalloutWatchdogCrashSkipped(v9, a2, a3, a4, BugCheckParameter3, BugCheckParameter4);
+  DbgkWerCaptureLiveKernelDump(
+    L"TTMDCallout",
+    BugCheckParameter3,
+    BugCheckParameter4,
+    0LL,
+    (__int64)xHalGetInterruptTranslator,
+    0);
+  return 0LL;
+}

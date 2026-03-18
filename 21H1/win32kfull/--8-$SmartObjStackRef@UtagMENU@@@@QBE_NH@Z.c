@@ -1,0 +1,57 @@
+/*
+ * XREFs of ??8?$SmartObjStackRef@UtagMENU@@@@QBE_NH@Z @ 0x2D4BC
+ * Callers:
+ *     _NtUserThunkedMenuItemInfo@24 @ 0x1D426 (_NtUserThunkedMenuItemInfo@24.c)
+ *     ?SetLPITEMInfoNoRedraw@@YGHABV?$SmartObjStackRef@UtagMENU@@@@PAUtagITEM@@PAUtagMENUITEMINFOW@@PAU_UNICODE_STRING@@PAH@Z @ 0x1E646 (-SetLPITEMInfoNoRedraw@@YGHABV-$SmartObjStackRef@UtagMENU@@@@PAUtagITEM@@PAUtagMENUITEMINFOW@@PA.c)
+ *     _xxxCreateWindowEx@68 @ 0x2D67C (_xxxCreateWindowEx@68.c)
+ *     _xxxMNCanClose@4 @ 0x31A3A (_xxxMNCanClose@4.c)
+ *     _xxxGetSysMenuPtr@4 @ 0x31E72 (_xxxGetSysMenuPtr@4.c)
+ *     _MNLookUpItem@16 @ 0x32010 (_MNLookUpItem@16.c)
+ *     _xxxSetWindowData@16 @ 0x3F3F0 (_xxxSetWindowData@16.c)
+ *     _NtUserCreateWindowEx@68 @ 0x4221A (_NtUserCreateWindowEx@68.c)
+ *     _xxxInsertMenuItem@20 @ 0x42D14 (_xxxInsertMenuItem@20.c)
+ *     _xxxGetSystemMenu@8 @ 0x8EF56 (_xxxGetSystemMenu@8.c)
+ *     ?LockWndMenuWorker@@YGPAXPAUtagWND@@_NABV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x9B2F2 (-LockWndMenuWorker@@YGPAXPAUtagWND@@_NABV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     _NtUserDeleteMenu@12 @ 0x9CA78 (_NtUserDeleteMenu@12.c)
+ *     ??9?$SmartObjStackRef@UtagMENU@@@@QBE_NH@Z @ 0xAEC26 (--9-$SmartObjStackRef@UtagMENU@@@@QBE_NH@Z.c)
+ *     _xxxPaintMenuBar@24 @ 0xB5BC0 (_xxxPaintMenuBar@24.c)
+ *     ?MNInitDrawItemStruct@@YGXPAUHDC__@@IABV?$SmartObjStackRef@UtagMENU@@@@PAUtagITEM@@HHPAUtagDRAWITEMSTRUCT@@@Z @ 0xB65B6 (-MNInitDrawItemStruct@@YGXPAUHDC__@@IABV-$SmartObjStackRef@UtagMENU@@@@PAUtagITEM@@HHPAUtagDRAWI.c)
+ *     _NtUserCheckMenuItem@12 @ 0xB9D04 (_NtUserCheckMenuItem@12.c)
+ *     _xxxGetSysMenu@8 @ 0xB9DDC (_xxxGetSysMenu@8.c)
+ *     _xxxSetSysMenu@4 @ 0xB9E58 (_xxxSetSysMenu@4.c)
+ *     _NtUserSetSystemMenu@8 @ 0xC0574 (_NtUserSetSystemMenu@8.c)
+ *     _NtUserSetMenu@12 @ 0xC097C (_NtUserSetMenu@12.c)
+ *     _NtUserThunkedMenuInfo@8 @ 0xC1340 (_NtUserThunkedMenuInfo@8.c)
+ *     ?xxxTA_AccelerateMenu@@YGIQAUtagWND@@ABV?$SmartObjStackRef@UtagMENU@@@@IQAPAUHMENU__@@@Z @ 0xC3566 (-xxxTA_AccelerateMenu@@YGIQAUtagWND@@ABV-$SmartObjStackRef@UtagMENU@@@@IQAPAUHMENU__@@@Z.c)
+ *     _xxxSetDialogSystemMenu@4 @ 0xC5750 (_xxxSetDialogSystemMenu@4.c)
+ *     _NtUserDestroyMenu@4 @ 0xCB582 (_NtUserDestroyMenu@4.c)
+ *     _xxxDrawMenuBarUnderlines@8 @ 0xCC2CA (_xxxDrawMenuBarUnderlines@8.c)
+ *     _xxxLoadSysDesktopMenu@8 @ 0xCC3A8 (_xxxLoadSysDesktopMenu@8.c)
+ *     _LockDesktopMenu@8 @ 0xCC438 (_LockDesktopMenu@8.c)
+ *     _NtUserRemoveMenu@12 @ 0xE70C0 (_NtUserRemoveMenu@12.c)
+ *     _NtUserSetMenuDefaultItem@12 @ 0xE9248 (_NtUserSetMenuDefaultItem@12.c)
+ *     _NtUserEnableMenuItem@12 @ 0x161379 (_NtUserEnableMenuItem@12.c)
+ *     _NtUserGetMenuItemRect@16 @ 0x1637F2 (_NtUserGetMenuItemRect@16.c)
+ *     _NtUserHiliteMenuItem@16 @ 0x165097 (_NtUserHiliteMenuItem@16.c)
+ *     _NtUserMenuItemFromPoint@16 @ 0x166E46 (_NtUserMenuItemFromPoint@16.c)
+ *     _NtUserSetMenuContextHelpId@8 @ 0x1698C1 (_NtUserSetMenuContextHelpId@8.c)
+ *     _NtUserSetMenuFlagRtoL@4 @ 0x169950 (_NtUserSetMenuFlagRtoL@4.c)
+ *     _NtUserTrackPopupMenuEx@24 @ 0x16AB4F (_NtUserTrackPopupMenuEx@24.c)
+ *     _xxxMNStartMenu@12 @ 0x1849EF (_xxxMNStartMenu@12.c)
+ *     ?UnlockPopupMenuWindow@@YGXABV?$SmartObjStackRef@UtagMENU@@@@PAUtagWND@@@Z @ 0x196A86 (-UnlockPopupMenuWindow@@YGXABV-$SmartObjStackRef@UtagMENU@@@@PAUtagWND@@@Z.c)
+ *     _LockPopupMenu@12 @ 0x197533 (_LockPopupMenu@12.c)
+ *     _xxxMNDoubleClick@12 @ 0x19860D (_xxxMNDoubleClick@12.c)
+ *     _xxxMNSetTop@8 @ 0x19A800 (_xxxMNSetTop@8.c)
+ *     ?xxxGetScrollMenu@@YGPAUtagMENU@@PAUtagWND@@H@Z @ 0x1A3018 (-xxxGetScrollMenu@@YGPAUtagMENU@@PAUtagWND@@H@Z.c)
+ *     _xxxDoScrollMenu@16 @ 0x1A370F (_xxxDoScrollMenu@16.c)
+ *     _xxxMNInvertItem@20 @ 0x1A9C22 (_xxxMNInvertItem@20.c)
+ *     _xxxMenuBarDraw@16 @ 0x1AA275 (_xxxMenuBarDraw@16.c)
+ *     _xxxSendMenuSelect@20 @ 0x1AD617 (_xxxSendMenuSelect@20.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __thiscall SmartObjStackRef<tagMENU>::operator==(_DWORD *this, int a2)
+{
+  return !this[2] && *(_DWORD *)*this == 0;
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of PostEvent @ 0x1C01ABB88
+ * Callers:
+ *     ?SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActivationObject@@@Z @ 0x1C012CD7C (-SetForeground@CActivationObjectManager@@AEAAJ_NW4ACTIVATIONOBJECTSTATECHANGE_REASON@@PEAVCActiv.c)
+ *     NtMITPostWindowEventMessage @ 0x1C01301E0 (NtMITPostWindowEventMessage.c)
+ * Callees:
+ *     EditionPostInputEvent @ 0x1C00535F4 (EditionPostInputEvent.c)
+ *     ??1UserAtomicCheck@@QEAA@XZ @ 0x1C007477C (--1UserAtomicCheck@@QEAA@XZ.c)
+ *     ??0UserAtomicCheck@@QEAA@XZ @ 0x1C0074948 (--0UserAtomicCheck@@QEAA@XZ.c)
+ */
+
+char PostEvent(__int64 a1, __int64 a2, unsigned int a3, __int64 a4, __int64 a5, ...)
+{
+  va_list va; // [rsp+78h] [rbp+30h] BYREF
+
+  va_start(va, a5);
+  UserAtomicCheck::UserAtomicCheck((UserAtomicCheck *)va);
+  LOBYTE(a4) = (unsigned int)EditionPostInputEvent(30LL, a1, a2, a3, a4, a5) != 0;
+  UserAtomicCheck::~UserAtomicCheck((UserAtomicCheck *)va);
+  return a4;
+}

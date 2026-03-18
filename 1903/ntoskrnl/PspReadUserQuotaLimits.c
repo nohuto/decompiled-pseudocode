@@ -1,0 +1,128 @@
+/*
+ * XREFs of PspReadUserQuotaLimits @ 0x140667554
+ * Callers:
+ *     PspAssignProcessQuotaBlock @ 0x140667248 (PspAssignProcessQuotaBlock.c)
+ * Callees:
+ *     __security_check_cookie @ 0x14019E700 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401C02B0 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401C0310 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401C03B0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1401C0470 (ZwCreateKey.c)
+ *     memset @ 0x1401D6BC0 (memset.c)
+ *     RtlFreeAnsiString @ 0x14060B740 (RtlFreeAnsiString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1406677F0 (RtlConvertSidToUnicodeString.c)
+ *     PspSanitizeResourceLimits @ 0x14077D940 (PspSanitizeResourceLimits.c)
+ */
+
+__int64 __fastcall PspReadUserQuotaLimits(PSID Sid, _DWORD *a2, _DWORD *a3)
+{
+  HANDLE v6; // rbx
+  NTSTATUS v7; // ebx
+  NTSTATUS v9; // eax
+  signed __int64 v10; // rcx
+  unsigned int v11; // r15d
+  int v12; // r14d
+  _DWORD *v13; // rdi
+  int v14; // eax
+  HANDLE Handle; // [rsp+40h] [rbp-59h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-51h] BYREF
+  UNICODE_STRING UnicodeString; // [rsp+50h] [rbp-49h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-39h] BYREF
+  ULONG ResultLength; // [rsp+90h] [rbp-9h] BYREF
+  _DWORD *v20; // [rsp+98h] [rbp-1h]
+  __int128 KeyValueInformation; // [rsp+A0h] [rbp+7h] BYREF
+  int v22; // [rsp+B0h] [rbp+17h]
+
+  v20 = a2;
+  KeyValueInformation = 0uLL;
+  v22 = 0;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  *(_QWORD *)&UnicodeString.Length = 0LL;
+  UnicodeString.Buffer = 0LL;
+  *a2 = 1;
+  v6 = (HANDLE)PspQuotaDatabaseKey;
+  Handle = (HANDLE)PspQuotaDatabaseKey;
+  if ( !PspQuotaDatabaseKey )
+  {
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.Attributes = 704;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&PspQuotaKeyNames;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v9 = ZwCreateKey(&Handle, 9u, &ObjectAttributes, 0, 0LL, 0, 0LL);
+    v10 = (signed __int64)Handle;
+    if ( v9 < 0 )
+      v10 = 1LL;
+    Handle = (HANDLE)v10;
+    v6 = (HANDLE)_InterlockedCompareExchange64(&PspQuotaDatabaseKey, v10, 0LL);
+    if ( v6 )
+    {
+      if ( Handle != (HANDLE)1 )
+        ZwClose(Handle);
+      Handle = v6;
+    }
+    else
+    {
+      v6 = Handle;
+    }
+  }
+  if ( v6 == (HANDLE)1 )
+    return 0;
+  v7 = RtlConvertSidToUnicodeString(&UnicodeString, Sid, 1u);
+  if ( v7 >= 0 )
+  {
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &UnicodeString;
+    ObjectAttributes.Attributes = 704;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v7 = ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes);
+    RtlFreeAnsiString(&UnicodeString);
+    if ( v7 >= 0 )
+    {
+      v11 = 0;
+      v12 = 0;
+      v13 = a3;
+      do
+      {
+        v7 = ZwQueryValueKey(
+               KeyHandle,
+               (PUNICODE_STRING)&PspDefaultResourceNames[8 * v12],
+               KeyValuePartialInformation,
+               &KeyValueInformation,
+               0x14u,
+               &ResultLength);
+        if ( (int)(v7 + 0x80000000) >= 0 && v7 != -1073741772 )
+        {
+          ZwClose(KeyHandle);
+          return (unsigned int)v7;
+        }
+        if ( v7 == -1073741772 || *(_QWORD *)((char *)&KeyValueInformation + 4) != 0x400000004LL )
+        {
+          v14 = *(_DWORD *)((char *)v13 + (char *)PspDefaultResourceLimits - (char *)a3);
+          ++v11;
+        }
+        else
+        {
+          v14 = HIDWORD(KeyValueInformation);
+        }
+        *v13 = v14;
+        ++v12;
+        ++v13;
+      }
+      while ( v12 < 4 );
+      ZwClose(KeyHandle);
+      if ( v11 < 4 )
+      {
+        v7 = PspSanitizeResourceLimits(a3, 0LL);
+        if ( v7 < 0 )
+          return (unsigned int)v7;
+        *v20 = 0;
+      }
+      return 0;
+    }
+    if ( v7 == -1073741772 )
+      return 0;
+  }
+  return (unsigned int)v7;
+}

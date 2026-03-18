@@ -1,0 +1,103 @@
+/*
+ * XREFs of PiUEventBroadcastEventWorker @ 0x140469170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseGuardedMutex @ 0x140010A20 (KeReleaseGuardedMutex.c)
+ *     MmGetSessionById @ 0x140094460 (MmGetSessionById.c)
+ *     ObfDereferenceObject @ 0x1400EE970 (ObfDereferenceObject.c)
+ *     ExAcquireFastMutex @ 0x1400F0060 (ExAcquireFastMutex.c)
+ *     ZwUpdateWnfStateData @ 0x140181740 (ZwUpdateWnfStateData.c)
+ *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x14069642C (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x1406964B8 (PiUEventBroadcastPortsChangedEvent.c)
+ */
+
+void __fastcall PiUEventBroadcastEventWorker(void *a1)
+{
+  char v2; // si
+  _DWORD *v3; // rdi
+  char v4; // bl
+  int v5; // ecx
+  int v6; // ecx
+  void *v7; // rcx
+  __int64 v8; // rcx
+  int v9; // ecx
+  int v10; // ecx
+  void *SessionById; // rbx
+  void *v12; // rcx
+  int v13; // ecx
+
+  v2 = 0;
+  do
+  {
+    ExAcquireFastMutex(&PiUEventBroadcastEventQueueLock);
+    v3 = PiUEventBroadcastEventQueue;
+    v4 = *((_BYTE *)PiUEventBroadcastEventQueue + 16);
+    KeReleaseGuardedMutex(&PiUEventBroadcastEventQueueLock);
+    if ( v4 )
+    {
+      v5 = v3[5];
+      if ( !v5 )
+      {
+        v6 = v3[6];
+        if ( v6 == -1 )
+        {
+          v7 = &WNF_PNPA_DEVNODES_CHANGED;
+LABEL_6:
+          ZwUpdateWnfStateData((__int64)v7, 0LL, 0LL);
+          goto LABEL_7;
+        }
+        SessionById = (void *)MmGetSessionById(v6);
+        if ( !SessionById )
+          goto LABEL_7;
+        v12 = &WNF_PNPA_DEVNODES_CHANGED_SESSION;
+        goto LABEL_18;
+      }
+      v9 = v5 - 1;
+      if ( !v9 )
+      {
+        v10 = v3[6];
+        if ( v10 == -1 )
+        {
+          v7 = &WNF_PNPA_VOLUMES_CHANGED;
+          goto LABEL_6;
+        }
+        SessionById = (void *)MmGetSessionById(v10);
+        if ( !SessionById )
+          goto LABEL_7;
+        v12 = &WNF_PNPA_VOLUMES_CHANGED_SESSION;
+LABEL_18:
+        ZwUpdateWnfStateData((__int64)v12, 0LL, 0LL);
+        ObfDereferenceObject(SessionById);
+        goto LABEL_7;
+      }
+      v13 = v9 - 1;
+      if ( v13 )
+      {
+        if ( v13 == 1 )
+          PiUEventBroadcastPortsChangedEvent((unsigned int)v3[6], v3 + 7, v3 + 11);
+      }
+      else
+      {
+        PiUEventBroadcastHardwareProfilesChangedEvent((unsigned int)v3[6], v3 + 7);
+      }
+    }
+LABEL_7:
+    ExAcquireFastMutex(&PiUEventBroadcastEventQueueLock);
+    v8 = *(_QWORD *)PiUEventBroadcastEventQueue;
+    if ( *((PVOID **)PiUEventBroadcastEventQueue + 1) != &PiUEventBroadcastEventQueue
+      || *(PVOID *)(v8 + 8) != PiUEventBroadcastEventQueue )
+    {
+      __fastfail(3u);
+    }
+    PiUEventBroadcastEventQueue = *(PVOID *)PiUEventBroadcastEventQueue;
+    *(_QWORD *)(v8 + 8) = &PiUEventBroadcastEventQueue;
+    if ( PiUEventBroadcastEventQueue == &PiUEventBroadcastEventQueue )
+      v2 = 1;
+    KeReleaseGuardedMutex(&PiUEventBroadcastEventQueueLock);
+    ExFreePoolWithTag(v3, 0x59706E50u);
+  }
+  while ( !v2 );
+  ExFreePoolWithTag(a1, 0x59706E50u);
+}

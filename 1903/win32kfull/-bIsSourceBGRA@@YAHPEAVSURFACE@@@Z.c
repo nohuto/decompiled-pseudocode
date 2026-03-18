@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C005B1EC
+ * Callers:
+ *     EngHTBlt @ 0x1C0036378 (EngHTBlt.c)
+ *     ?psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK@Z @ 0x1C005BCE8 (-psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK.c)
+ *     ?bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU_RECTL@@@Z @ 0x1C0161E34 (-bSpUpdateShape@@YAHPEAVSPRITE@@KPEAUHDC__@@1KPEAU_BLENDFUNCTION@@PEAU_POINTL@@PEAUtagSIZE@@PEAU.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall bIsSourceBGRA(struct SURFACE *a1)
+{
+  unsigned int v1; // edx
+  __int64 v2; // rax
+  int v3; // ecx
+  _DWORD *v5; // rcx
+
+  v1 = 0;
+  if ( *((_DWORD *)a1 + 24) == 6 )
+  {
+    v2 = *((_QWORD *)a1 + 16);
+    if ( v2 )
+    {
+      v3 = *(_DWORD *)(v2 + 24);
+      if ( (v3 & 8) != 0 )
+        return 1;
+      if ( (v3 & 2) != 0 )
+      {
+        v5 = *(_DWORD **)(v2 + 112);
+        if ( *v5 == 16711680 && v5[1] == 65280 && v5[2] == 255 )
+          return 1;
+      }
+    }
+  }
+  return v1;
+}

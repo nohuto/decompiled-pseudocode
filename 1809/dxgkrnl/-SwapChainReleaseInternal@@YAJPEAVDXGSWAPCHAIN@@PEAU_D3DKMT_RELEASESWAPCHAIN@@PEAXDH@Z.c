@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDH@Z @ 0x1C0252404
+ * Callers:
+ *     _lambda_16712371fc597dbb63c062fbcd9d104b_::_lambda_invoker_cdecl_ @ 0x1C02458D0 (_lambda_16712371fc597dbb63c062fbcd9d104b_--_lambda_invoker_cdecl_.c)
+ *     DxgkReleaseSwapChain @ 0x1C0254260 (DxgkReleaseSwapChain.c)
+ * Callees:
+ *     ??0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z @ 0x1C024F67C (--0DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@PEAVDXGSWAPCHAIN@@_ND@Z.c)
+ *     ??1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ @ 0x1C024F6E8 (--1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ.c)
+ *     ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C024F71C (-Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C0251A30 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ */
+
+__int64 __fastcall SwapChainReleaseInternal(
+        struct DXGSWAPCHAIN *this,
+        struct _D3DKMT_RELEASESWAPCHAIN *a2,
+        void *a3,
+        char a4)
+{
+  __int64 v8; // rax
+  int v9; // edi
+  _BYTE v11[96]; // [rsp+20h] [rbp-78h] BYREF
+  struct DXGDEVICE *v12; // [rsp+A8h] [rbp+10h] BYREF
+
+  if ( a2->pMetaData )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(this);
+    *(_QWORD *)(v8 + 24) = 1412LL;
+    WdLogEvent5_WdAssertion(v8);
+  }
+  a2->pMetaData = 0LL;
+  DXGSWAPCHAINLOCKWITHDEVICE::DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v11, this, a2->bProducer, a4);
+  v9 = DXGSWAPCHAINLOCKWITHDEVICE::Acquire((DXGSWAPCHAINLOCKWITHDEVICE *)v11, &v12, 1);
+  if ( v9 >= 0 )
+    v9 = DXGSWAPCHAIN::ReleaseBuffer(this, a2, a3, a4);
+  DXGSWAPCHAINLOCKWITHDEVICE::~DXGSWAPCHAINLOCKWITHDEVICE((DXGSWAPCHAINLOCKWITHDEVICE *)v11);
+  return (unsigned int)v9;
+}

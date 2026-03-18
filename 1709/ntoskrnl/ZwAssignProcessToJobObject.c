@@ -1,0 +1,16 @@
+/*
+ * XREFs of ZwAssignProcessToJobObject @ 0x14017EA40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall ZwAssignProcessToJobObject(HANDLE JobHandle, HANDLE ProcessHandle)
+{
+  __int64 v2; // r8
+
+  _disable();
+  __readeflags();
+  return KiServiceInternal(JobHandle, ProcessHandle, v2);
+}

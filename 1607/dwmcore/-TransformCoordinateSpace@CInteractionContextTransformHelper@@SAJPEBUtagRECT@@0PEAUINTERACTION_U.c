@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?TransformCoordinateSpace@CInteractionContextTransformHelper@@SAJPEBUtagRECT@@0PEAUINTERACTION_UPDATE@@1@Z @ 0x18018B8F8
+ * Callers:
+ *     ?HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@PEAUINTERACTION_VELOCITY@@1121@Z @ 0x18018B7DC (-HimetricToScreen@CInteractionContextTransformHelper@@SAXAEBUtagRECT@@0PEAUINTERACTION_UPDATE@@P.c)
+ * Callees:
+ *     TransformPoint @ 0x18018C0B8 (TransformPoint.c)
+ */
+
+__int64 __fastcall CInteractionContextTransformHelper::TransformCoordinateSpace(
+        const struct tagRECT *a1,
+        const struct tagRECT *a2,
+        struct INTERACTION_UPDATE *a3,
+        struct INTERACTION_UPDATE *a4)
+{
+  float v4; // xmm2_4
+  unsigned int v5; // r11d
+  _DWORD *v6; // rdx
+  _DWORD *v7; // r10
+  __int64 v8; // r8
+  __int64 v9; // r9
+
+  if ( a1->left == a1->right || a1->top == a1->bottom || a2->left == a2->right || a2->top == a2->bottom )
+  {
+    return (unsigned int)-2147024809;
+  }
+  else
+  {
+    if ( a3 != a4 )
+    {
+      *(_OWORD *)a4 = *(_OWORD *)a3;
+      *((_OWORD *)a4 + 1) = *((_OWORD *)a3 + 1);
+    }
+    v4 = *((float *)a3 + 1);
+    *(float *)a4 = (float)((float)(a2->right - a2->left) * *(float *)a3) / (float)(a1->right - a1->left);
+    *((float *)a4 + 1) = (float)((float)(a2->bottom - a2->top) * v4) / (float)(a1->bottom - a1->top);
+    TransformPoint((_DWORD)a1, (_DWORD)a2, (_DWORD)a3, (_DWORD)a4, (__int64)a4 + 16, (__int64)a4 + 20);
+    *(float *)(v9 + 28) = (float)((float)((float)((float)(v6[3] - v6[1]) * *(float *)(v8 + 28)) / (float)(v7[3] - v7[1]))
+                                + (float)((float)((float)(v6[2] - *v6) * *(float *)(v8 + 28)) / (float)(v7[2] - *v7)))
+                        * 0.5;
+  }
+  return v5;
+}

@@ -1,0 +1,38 @@
+/*
+ * XREFs of NtOpenDirectoryObject @ 0x140463F18
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x140464694 (ObOpenObjectByName.c)
+ */
+
+NTSTATUS __stdcall NtOpenDirectoryObject(
+        PHANDLE FileHandle,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
+{
+  int v3; // r10d
+  __int64 v6; // rdx
+  NTSTATUS result; // eax
+  void *v8; // [rsp+40h] [rbp-18h] BYREF
+
+  v3 = (int)ObjectAttributes;
+  LOBYTE(ObjectAttributes) = KeGetCurrentThread()->PreviousMode;
+  if ( (_BYTE)ObjectAttributes )
+  {
+    v6 = (__int64)FileHandle;
+    if ( (unsigned __int64)FileHandle >= 0x7FFFFFFF0000LL )
+      v6 = 0x7FFFFFFF0000LL;
+    *(_QWORD *)v6 = *(_QWORD *)v6;
+  }
+  result = ObOpenObjectByName(
+             v3,
+             (_DWORD)ObpDirectoryObjectType,
+             (_DWORD)ObjectAttributes,
+             0,
+             DesiredAccess,
+             0LL,
+             (__int64)&v8);
+  *FileHandle = v8;
+  return result;
+}

@@ -1,0 +1,105 @@
+/*
+ * XREFs of ExpAllocateHandleTableEntrySlow @ 0x1407B0D50
+ * Callers:
+ *     ObpCreateHandle @ 0x1406E45C0 (ObpCreateHandle.c)
+ *     ObDuplicateObject @ 0x1406FB9A0 (ObDuplicateObject.c)
+ *     ExpAllocateHandleTableEntry @ 0x140740A48 (ExpAllocateHandleTableEntry.c)
+ *     ExDupHandleTable @ 0x1407B068C (ExDupHandleTable.c)
+ * Callees:
+ *     ExpFreeTablePagedPool @ 0x14068AD30 (ExpFreeTablePagedPool.c)
+ *     ExpAllocateMidLevelTable @ 0x1407B0618 (ExpAllocateMidLevelTable.c)
+ *     ExpInsertLowLevelTableIntoFreeList @ 0x1407B0E1C (ExpInsertLowLevelTableIntoFreeList.c)
+ *     ExpAllocateLowLevelTable @ 0x1407B0F40 (ExpAllocateLowLevelTable.c)
+ *     ExpAllocateTablePagedPool @ 0x1407B1018 (ExpAllocateTablePagedPool.c)
+ */
+
+char __fastcall ExpAllocateHandleTableEntrySlow(unsigned int *a1, __int64 a2)
+{
+  __int64 v2; // r14
+  unsigned __int64 v5; // rbx
+  char v6; // al
+  unsigned __int64 v7; // r14
+  int v8; // eax
+  __int64 v9; // rsi
+  __int64 LowLevelTable; // rax
+  __int64 v11; // r9
+  __int64 *v13; // rax
+  __int64 TablePagedPool; // rsi
+  __int64 *v15; // rax
+  __int64 v16; // rax
+  __int64 v17; // r15
+  __int64 v18; // rsi
+  __int64 *v19; // rax
+  __int64 v20; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = *((_QWORD *)a1 + 1);
+  v20 = 0LL;
+  v5 = *a1;
+  v6 = v2;
+  v7 = v2 & 0xFFFFFFFFFFFFFFFCuLL;
+  v8 = v6 & 3;
+  if ( !v8 )
+  {
+    v13 = ExpAllocateMidLevelTable((__int64)a1, &v20, *a1);
+    if ( !v13 )
+      return 0;
+    v13[1] = *v13;
+    *v13 = v7;
+    _InterlockedExchange64((volatile __int64 *)a1 + 1, (unsigned __int64)v13 | 1);
+    goto LABEL_9;
+  }
+  if ( v8 != 1 )
+  {
+    v16 = (unsigned int)v5 >> 19;
+    if ( (unsigned int)v16 >= 0x80 )
+      return 0;
+    v17 = *(_QWORD *)(v7 + 8 * v16);
+    v18 = (unsigned int)v16;
+    if ( v17 )
+    {
+      LowLevelTable = ExpAllocateLowLevelTable(a1, *a1);
+      v20 = LowLevelTable;
+      if ( LowLevelTable )
+      {
+        *(_QWORD *)(v17 + 8 * ((v5 >> 10) & 0x1FF)) = LowLevelTable;
+        goto LABEL_6;
+      }
+      return 0;
+    }
+    v19 = ExpAllocateMidLevelTable((__int64)a1, &v20, *a1);
+    if ( !v19 )
+      return 0;
+    *(_QWORD *)(v7 + 8 * v18) = v19;
+LABEL_9:
+    LowLevelTable = v20;
+    goto LABEL_6;
+  }
+  v9 = (unsigned int)v5 >> 10;
+  if ( (unsigned int)v9 >= 0x200 )
+  {
+    TablePagedPool = ExpAllocateTablePagedPool(*((_QWORD *)a1 + 2), 1024LL);
+    if ( !TablePagedPool )
+      return 0;
+    v15 = ExpAllocateMidLevelTable((__int64)a1, &v20, v5);
+    if ( !v15 )
+    {
+      ExpFreeTablePagedPool(*((struct _KPROCESS **)a1 + 2), (void *)TablePagedPool, 1024LL);
+      return 0;
+    }
+    *(_QWORD *)TablePagedPool = v7;
+    *(_QWORD *)(TablePagedPool + 8) = v15;
+    _InterlockedExchange64((volatile __int64 *)a1 + 1, TablePagedPool | 2);
+    goto LABEL_9;
+  }
+  LowLevelTable = ExpAllocateLowLevelTable(a1, (unsigned int)v5);
+  v20 = LowLevelTable;
+  if ( LowLevelTable )
+  {
+    *(_QWORD *)(v7 + 8 * v9) = LowLevelTable;
+LABEL_6:
+    LOBYTE(v11) = a2 != 0;
+    ExpInsertLowLevelTableIntoFreeList(a1, LowLevelTable, a2, v11);
+    return 1;
+  }
+  return 0;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_ECGDIBitmapRealization@@WBCA@EAAPEAXI@Z @ 0x1800F0010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+CGDIBitmapRealization *__fastcall CGDIBitmapRealization::`vector deleting destructor'(__int64 a1, char a2)
+{
+  return CGDIBitmapRealization::`vector deleting destructor'((CGDIBitmapRealization *)(a1 - 288), a2);
+}

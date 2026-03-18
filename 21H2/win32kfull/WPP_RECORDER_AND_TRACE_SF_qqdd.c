@@ -1,0 +1,74 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqDD @ 0x1C0078F78
+ * Callers:
+ *     UnmapDesktop @ 0x1C0078E40 (UnmapDesktop.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0160250 (_guard_dispatch_icall_nop.c)
+ */
+
+_UNKNOWN **WPP_RECORDER_AND_TRACE_SF_qqDD(
+        __int64 a1,
+        char a2,
+        char a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 a8,
+        ...)
+{
+  _UNKNOWN **result; // rax
+  int v11; // [rsp+20h] [rbp-58h]
+  _UNKNOWN *retaddr; // [rsp+78h] [rbp+0h] BYREF
+  __int64 v13; // [rsp+C0h] [rbp+48h] BYREF
+  va_list va; // [rsp+C0h] [rbp+48h]
+  __int64 v15; // [rsp+C8h] [rbp+50h] BYREF
+  va_list va1; // [rsp+C8h] [rbp+50h]
+  __int64 v17; // [rsp+D0h] [rbp+58h] BYREF
+  va_list va2; // [rsp+D0h] [rbp+58h]
+  va_list va3; // [rsp+D8h] [rbp+60h] BYREF
+
+  va_start(va3, a8);
+  va_start(va2, a8);
+  va_start(va1, a8);
+  va_start(va, a8);
+  v13 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v15 = va_arg(va2, _QWORD);
+  va_copy(va3, va2);
+  v17 = va_arg(va3, _QWORD);
+  result = &retaddr;
+  if ( a2 )
+    result = (_UNKNOWN **)((__int64 (__fastcall *)(__int64, __int64, void *, __int64, __int64 *, __int64, __int64 *, __int64, __int64 *, __int64, char *, __int64, _QWORD))pfnWppTraceMessage)(
+                            a1,
+                            43LL,
+                            &WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
+                            25LL,
+                            (__int64 *)va,
+                            8LL,
+                            (__int64 *)va1,
+                            8LL,
+                            (__int64 *)va2,
+                            4LL,
+                            va3,
+                            4LL,
+                            0LL);
+  if ( a3 )
+  {
+    LOWORD(v11) = 25;
+    return (_UNKNOWN **)WppAutoLogTrace(
+                          a4,
+                          4LL,
+                          6LL,
+                          &WPP_d78c2f93cefb39adad771009d44421f9_Traceguids,
+                          v11,
+                          (__int64 *)va,
+                          8LL,
+                          (__int64 *)va1,
+                          8LL,
+                          (__int64 *)va2,
+                          4LL,
+                          va3);
+  }
+  return result;
+}

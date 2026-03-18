@@ -1,0 +1,38 @@
+/*
+ * XREFs of VidSchiIsMmIoFlipPending @ 0x1C00052AC
+ * Callers:
+ *     VidSchiIsFlipQueueBusy @ 0x1C00052A4 (VidSchiIsFlipQueueBusy.c)
+ *     VidSchWaitForEvents @ 0x1C001D6E0 (VidSchWaitForEvents.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C007791C (VidSchiWaitForDrainFlipQueue.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall VidSchiIsMmIoFlipPending(__int64 a1)
+{
+  char v2; // bl
+  unsigned int v3; // r8d
+  unsigned int v4; // edx
+  __int64 v5; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = 0;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 1872), &LockHandle);
+  v3 = *(_DWORD *)(a1 + 40);
+  v4 = 0;
+  if ( v3 )
+  {
+    v5 = a1 + 2640;
+    while ( !*(_QWORD *)v5 || !*(_DWORD *)(*(_QWORD *)v5 + 2332LL) )
+    {
+      ++v4;
+      v5 += 8LL;
+      if ( v4 >= v3 )
+        goto LABEL_6;
+    }
+    v2 = 1;
+  }
+LABEL_6:
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  return v2;
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C003F1E4
+ * Callers:
+ *     ?CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C022E2A8 (-CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
+ *     ?DestroyOverlay@DXGDEVICE@@QEAAXPEAVDXGOVERLAY@@@Z @ 0x1C022E4F4 (-DestroyOverlay@DXGDEVICE@@QEAAXPEAVDXGOVERLAY@@@Z.c)
+ * Callees:
+ *     ??1DXGOVERLAY@@QEAA@XZ @ 0x1C02539A8 (--1DXGOVERLAY@@QEAA@XZ.c)
+ */
+
+DXGOVERLAY *__fastcall DXGOVERLAY::`scalar deleting destructor'(DXGOVERLAY *P)
+{
+  DXGOVERLAY::~DXGOVERLAY(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

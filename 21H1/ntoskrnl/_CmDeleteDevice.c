@@ -1,0 +1,62 @@
+/*
+ * XREFs of _CmDeleteDevice @ 0x140717C2C
+ * Callers:
+ *     _PnpDispatchDevice @ 0x1406ABEB0 (_PnpDispatchDevice.c)
+ *     PiCMDeleteDevice @ 0x1407179FC (PiCMDeleteDevice.c)
+ *     PpDevCfgProcessDevices @ 0x14078A78C (PpDevCfgProcessDevices.c)
+ *     IoReportRootDevice @ 0x1407B2200 (IoReportRootDevice.c)
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x1408A2678 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PiCMGenerateDeviceInstance @ 0x1408AC170 (PiCMGenerateDeviceInstance.c)
+ *     PipResetDevice @ 0x140A8E4D0 (PipResetDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     memset @ 0x140408F80 (memset.c)
+ *     _CmDeleteDeviceWorker @ 0x140718E18 (_CmDeleteDeviceWorker.c)
+ */
+
+__int64 __fastcall CmDeleteDevice(__int64 a1, __int64 a2, int a3)
+{
+  __int64 (__fastcall *v6)(__int64, __int64, __int64); // rdi
+  int v7; // eax
+  unsigned int v8; // eax
+  unsigned int v9; // ebx
+  int v10; // eax
+  int v11; // ecx
+  unsigned int v12; // eax
+  _DWORD v14[22]; // [rsp+40h] [rbp-88h] BYREF
+
+  memset(v14, 0, sizeof(v14));
+  v6 = *(__int64 (__fastcall **)(__int64, __int64, __int64))(a1 + 504);
+  v14[4] = a3;
+  if ( v6 )
+  {
+    v7 = v6(a1, a2, 1LL);
+    if ( v7 == -1073741822 )
+    {
+      v6 = 0LL;
+    }
+    else
+    {
+      if ( v7 == -1073741536 )
+        return v14[0];
+      if ( v7 )
+        return (unsigned int)-1073741595;
+    }
+  }
+  v8 = CmDeleteDeviceWorker(a1, a2, v14[4]);
+  v9 = v8;
+  if ( !v6 )
+    return v9;
+  v14[0] = v8;
+  v10 = v6(a1, a2, 1LL);
+  v11 = v10;
+  if ( v10 == -1073741822 )
+    return v9;
+  if ( v10 == -1073741536 )
+    return v14[0];
+  v12 = v9;
+  if ( v11 )
+    return (unsigned int)-1073741595;
+  return v12;
+}

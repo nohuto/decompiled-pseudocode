@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GDXGDODPRESENT@@QEAAPEAXI@Z @ 0x1C00196A8
+ * Callers:
+ *     ?DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z @ 0x1C00E4D24 (-DxgkpCreateDodPresent@@YAPEAVDXGDODPRESENT@@PEAVADAPTER_DISPLAY@@E@Z.c)
+ *     ?Destroy@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C01290DC (-Destroy@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0065F88 (--3@YAXPEAX@Z.c)
+ *     ??1DXGDODPRESENT@@QEAA@XZ @ 0x1C015D8B8 (--1DXGDODPRESENT@@QEAA@XZ.c)
+ */
+
+DXGDODPRESENT *__fastcall DXGDODPRESENT::`scalar deleting destructor'(DXGDODPRESENT *this)
+{
+  DXGDODPRESENT::~DXGDODPRESENT(this);
+  operator delete(this);
+  return this;
+}

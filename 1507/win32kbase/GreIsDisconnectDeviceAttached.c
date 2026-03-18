@@ -1,0 +1,24 @@
+/*
+ * XREFs of GreIsDisconnectDeviceAttached @ 0x1C001E5A8
+ * Callers:
+ *     NtUserGetDisplayConfigBufferSizes @ 0x1C001E670 (NtUserGetDisplayConfigBufferSizes.c)
+ * Callees:
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001E608 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ??1SEMOBJSHARED@@QEAA@XZ @ 0x1C001E63C (--1SEMOBJSHARED@@QEAA@XZ.c)
+ */
+
+__int64 GreIsDisconnectDeviceAttached()
+{
+  unsigned int v0; // ebx
+  char v2; // [rsp+30h] [rbp+8h] BYREF
+
+  SEMOBJSHARED::SEMOBJSHARED((SEMOBJSHARED *)&v2, (HSEMAPHORE)ghsemDynamicModeChange);
+  v0 = 1;
+  if ( (!gpLocalDiscGraphicsDevice || (*((_DWORD *)gpLocalDiscGraphicsDevice + 40) & 1) == 0)
+    && (!gpRemoteDiscGraphicsDevice || (*((_DWORD *)gpRemoteDiscGraphicsDevice + 40) & 1) == 0) )
+  {
+    v0 = 0;
+  }
+  SEMOBJSHARED::~SEMOBJSHARED((SEMOBJSHARED *)&v2);
+  return v0;
+}

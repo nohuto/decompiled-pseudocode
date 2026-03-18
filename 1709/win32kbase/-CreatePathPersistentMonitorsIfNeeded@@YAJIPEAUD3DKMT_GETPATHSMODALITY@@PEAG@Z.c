@@ -1,0 +1,88 @@
+/*
+ * XREFs of ?CreatePathPersistentMonitorsIfNeeded@@YAJIPEAUD3DKMT_GETPATHSMODALITY@@PEAG@Z @ 0x1C00642BC
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C00662E0 (DrvSetDisplayConfig.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00AB7F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CreatePathPersistentMonitorsIfNeeded(
+        __int64 a1,
+        struct D3DKMT_GETPATHSMODALITY *a2,
+        unsigned __int16 *a3)
+{
+  __int64 v5; // rbp
+  unsigned int i; // r14d
+  __int64 v7; // rsi
+  __int64 v8; // rcx
+  _QWORD *v10; // rax
+  _QWORD *v11; // rax
+  int v12; // eax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  _QWORD *v15; // rax
+  _QWORD *v16; // rax
+
+  LODWORD(v5) = 0;
+  if ( a3 )
+    *a3 = 0;
+  for ( i = 0; i < *((unsigned __int16 *)a2 + 10); ++i )
+  {
+    v7 = 264LL * i;
+    v8 = *(_QWORD *)((char *)a2 + v7 + 48);
+    if ( (v8 & 0x1100000000000000LL) != 0x100000000000000LL )
+    {
+      if ( (v8 & 0x200000000000000LL) != 0 )
+      {
+        v12 = ((__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, __int64))qword_1C0190678)(
+                *(_QWORD *)((char *)a2 + v7 + 64),
+                *(unsigned int *)((char *)a2 + v7 + 76),
+                0LL,
+                2LL);
+        v5 = v12;
+        if ( v12 < 0 )
+        {
+          v16 = (_QWORD *)WdLogNewEntry5_WdEvent(v14, v13);
+          v16[3] = *((int *)a2 + 66 * i + 17);
+          v16[4] = *((unsigned int *)a2 + 66 * i + 16);
+          v16[5] = *((unsigned int *)a2 + 66 * i + 19);
+          v16[6] = v5;
+          WdLogEvent5_WdEvent(v16);
+          return (unsigned int)v5;
+        }
+        if ( (*(_QWORD *)((_BYTE *)a2 + v7 + 48) & 0x1000000000000000LL) != 0 )
+        {
+          v11 = (_QWORD *)WdLogNewEntry5_WdTrace(v14);
+          v11[3] = *(int *)((char *)a2 + v7 + 68);
+          v11[4] = *(unsigned int *)((char *)a2 + v7 + 64);
+          v11[5] = *(unsigned int *)((char *)a2 + v7 + 76);
+          WdLogEvent5_WdTrace(v11);
+        }
+        else if ( a3 )
+        {
+          ++*a3;
+        }
+      }
+      else
+      {
+        if ( (v8 & 0x1000000000000000LL) == 0 )
+        {
+          v15 = (_QWORD *)WdLogNewEntry5_WdEvent(v8, 0x100000000000000LL);
+          v15[3] = *((unsigned int *)a2 + 66 * i + 19);
+          v15[4] = *((int *)a2 + 66 * i + 17);
+          v15[5] = *((unsigned int *)a2 + 66 * i + 16);
+          WdLogEvent5_WdEvent(v15);
+          LODWORD(v5) = -1073741811;
+          return (unsigned int)v5;
+        }
+        v10 = (_QWORD *)WdLogNewEntry5_WdEvent(v8, 0x100000000000000LL);
+        v10[3] = *(unsigned int *)((char *)a2 + v7 + 76);
+        v10[4] = *(int *)((char *)a2 + v7 + 68);
+        v10[5] = *(unsigned int *)((char *)a2 + v7 + 64);
+        v10[6] = 1LL;
+        WdLogEvent5_WdEvent(v10);
+      }
+    }
+  }
+  return (unsigned int)v5;
+}

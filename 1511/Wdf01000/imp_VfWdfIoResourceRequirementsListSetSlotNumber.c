@@ -1,0 +1,15 @@
+/*
+ * XREFs of imp_VfWdfIoResourceRequirementsListSetSlotNumber @ 0x1C00B5AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall imp_VfWdfIoResourceRequirementsListSetSlotNumber(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFIORESREQLIST__ *RequirementsList,
+        __int64 SlotNumber)
+{
+  WdfVersion.Functions.pfnWdfIoResourceRequirementsListSetSlotNumber(DriverGlobals, RequirementsList, SlotNumber);
+}

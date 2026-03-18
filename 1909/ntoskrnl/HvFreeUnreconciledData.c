@@ -1,0 +1,38 @@
+/*
+ * XREFs of HvFreeUnreconciledData @ 0x1406E4D50
+ * Callers:
+ *     CmpFlushHive @ 0x14063725C (CmpFlushHive.c)
+ *     HvFoldBackUnreconciledData @ 0x14083373C (HvFoldBackUnreconciledData.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall HvFreeUnreconciledData(__int64 a1)
+{
+  void *v2; // rcx
+  __int64 i; // rdi
+  void *v4; // rcx
+
+  v2 = *(void **)(a1 + 1768);
+  if ( v2 )
+  {
+    ExFreePoolWithTag(v2, 0);
+    *(_QWORD *)(a1 + 1768) = 0LL;
+    *(_BYTE *)(a1 + 1724) = 0;
+  }
+  if ( *(_QWORD *)(a1 + 1736) )
+  {
+    for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 1760); i = (unsigned int)(i + 1) )
+    {
+      v4 = *(void **)(*(_QWORD *)(a1 + 1752) + 24 * i + 8);
+      if ( v4 )
+        ExFreePoolWithTag(v4, 0);
+    }
+    ExFreePoolWithTag(*(PVOID *)(a1 + 1752), 0);
+    ExFreePoolWithTag(*(PVOID *)(a1 + 1736), 0);
+    *(_QWORD *)(a1 + 1752) = 0LL;
+    *(_DWORD *)(a1 + 1760) = 0;
+    *(_DWORD *)(a1 + 1728) = 0;
+    *(_QWORD *)(a1 + 1736) = 0LL;
+  }
+}

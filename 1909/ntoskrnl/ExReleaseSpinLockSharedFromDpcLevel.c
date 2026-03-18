@@ -1,0 +1,145 @@
+/*
+ * XREFs of ExReleaseSpinLockSharedFromDpcLevel @ 0x140061AC0
+ * Callers:
+ *     KeQueryAffinityProcess @ 0x1400065E0 (KeQueryAffinityProcess.c)
+ *     MiReferenceControlAreaFile @ 0x140009BF0 (MiReferenceControlAreaFile.c)
+ *     PsGetWorkOnBehalfThread @ 0x14000D5BC (PsGetWorkOnBehalfThread.c)
+ *     KeQueryBasePriorityThread @ 0x140013AAC (KeQueryBasePriorityThread.c)
+ *     MmIsSessionExecutionValid @ 0x140017710 (MmIsSessionExecutionValid.c)
+ *     MiEmptyPageAccessLog @ 0x14001CD20 (MiEmptyPageAccessLog.c)
+ *     ExReferenceCallBackBlock @ 0x14001D290 (ExReferenceCallBackBlock.c)
+ *     RtlpHpLfhContextCompact @ 0x14001D970 (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x14001DA54 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x14001E510 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     ExpAddTagForBigPages @ 0x140036F80 (ExpAddTagForBigPages.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140038E80 (RtlpHpLfhSlotAllocate.c)
+ *     MiWalkPageTablesRecursively @ 0x140049540 (MiWalkPageTablesRecursively.c)
+ *     MiLockLowestValidPageTable @ 0x14004AE30 (MiLockLowestValidPageTable.c)
+ *     MiLogPageAccess @ 0x14004DAE0 (MiLogPageAccess.c)
+ *     MiMakeHyperRangeAccessible @ 0x140052580 (MiMakeHyperRangeAccessible.c)
+ *     MiLockPagableImageSection @ 0x14005F1C0 (MiLockPagableImageSection.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x140060C30 (KiAbEntryGetLockedHeadEntry.c)
+ *     KiAbEntryRemoveFromTree @ 0x140061200 (KiAbEntryRemoveFromTree.c)
+ *     ExFreeHeapPool @ 0x140064E50 (ExFreeHeapPool.c)
+ *     CcMapAndCopyInToCache @ 0x14006DAE0 (CcMapAndCopyInToCache.c)
+ *     MiGetControlAreaPtes @ 0x140072780 (MiGetControlAreaPtes.c)
+ *     MiLocateSubsectionNode @ 0x140073710 (MiLocateSubsectionNode.c)
+ *     MiSystemFault @ 0x140075390 (MiSystemFault.c)
+ *     KiRundownMutants @ 0x140080F0C (KiRundownMutants.c)
+ *     SepGetSingletonEntryFromIndexNumber @ 0x140085B3C (SepGetSingletonEntryFromIndexNumber.c)
+ *     MiFindLastSubsection @ 0x140088FD8 (MiFindLastSubsection.c)
+ *     InsertEventEntryInLookUpTable @ 0x14008BBAC (InsertEventEntryInLookUpTable.c)
+ *     IopReferenceIoAttributionFromProcess @ 0x140090E88 (IopReferenceIoAttributionFromProcess.c)
+ *     MmIsFileObjectAPagingFile @ 0x140094E58 (MmIsFileObjectAPagingFile.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x140095080 (IoSetDiskIoAttributionFromThread.c)
+ *     MiAbortCombineScan @ 0x140098898 (MiAbortCombineScan.c)
+ *     MiQueryAddressState @ 0x1400A6250 (MiQueryAddressState.c)
+ *     MmAccessFault @ 0x1400AA630 (MmAccessFault.c)
+ *     MiUserFault @ 0x1400AAC70 (MiUserFault.c)
+ *     MiAddWorkingSetEntries @ 0x1400AEC00 (MiAddWorkingSetEntries.c)
+ *     MiCompleteProtoPteFault @ 0x1400B0350 (MiCompleteProtoPteFault.c)
+ *     MiOffsetToProtos @ 0x1400B5C30 (MiOffsetToProtos.c)
+ *     MiMakeSystemCacheRangeValid @ 0x1400B8110 (MiMakeSystemCacheRangeValid.c)
+ *     MiStartingOffsetNeedLock @ 0x1400B8B88 (MiStartingOffsetNeedLock.c)
+ *     MiTrimSection @ 0x1400C0BB0 (MiTrimSection.c)
+ *     MiPageToNode @ 0x1400C53C4 (MiPageToNode.c)
+ *     MiProbeAndLockPages @ 0x1400CBF90 (MiProbeAndLockPages.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x1400CF360 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     PfSnGetFileInformation @ 0x1400D20B0 (PfSnGetFileInformation.c)
+ *     PopPepReleaseActivityLink @ 0x1400E2104 (PopPepReleaseActivityLink.c)
+ *     PopPepLockActivityLink @ 0x1400E2458 (PopPepLockActivityLink.c)
+ *     IopFindDiskIoAttribution @ 0x1400EC260 (IopFindDiskIoAttribution.c)
+ *     ExProtectPoolEx @ 0x1400ECB9C (ExProtectPoolEx.c)
+ *     MiIsProbeActive @ 0x1400F4D24 (MiIsProbeActive.c)
+ *     ExRemovePoolTag @ 0x1400F59A8 (ExRemovePoolTag.c)
+ *     MiLookupIoPageNode @ 0x1400F7460 (MiLookupIoPageNode.c)
+ *     MmUnlockLoadedModuleListShared @ 0x1400FB460 (MmUnlockLoadedModuleListShared.c)
+ *     KeSetLegacyAffinityThread @ 0x1400FB6D0 (KeSetLegacyAffinityThread.c)
+ *     MiUnlockPageTableInternal @ 0x1401000D0 (MiUnlockPageTableInternal.c)
+ *     DbgEnumerateCallback @ 0x1401049C0 (DbgEnumerateCallback.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x14010CAE8 (KiActivateWaiterQueueWithNoLocks.c)
+ *     RtlpHpVaMgrCtxAlloc @ 0x14010E8A8 (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpCSparseBitmapUnlock @ 0x14010F18C (RtlpCSparseBitmapUnlock.c)
+ *     RtlpHpLfhSubsegmentCreate @ 0x140110F30 (RtlpHpLfhSubsegmentCreate.c)
+ *     MiSystemImageHasPrivateFixups @ 0x14011A96C (MiSystemImageHasPrivateFixups.c)
+ *     PsGetNextPartitionUnsafe @ 0x14012336C (PsGetNextPartitionUnsafe.c)
+ *     vDbgPrintExWithPrefixInternal @ 0x140126BD0 (vDbgPrintExWithPrefixInternal.c)
+ *     MiGetPrototypePteRanges @ 0x140128B0C (MiGetPrototypePteRanges.c)
+ *     MiReferencePfBackedSection @ 0x14012F47C (MiReferencePfBackedSection.c)
+ *     MiAllocateCombineProto @ 0x14013EFD0 (MiAllocateCombineProto.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x140154DA8 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     PopPepGetDevicePlatformStateDependents @ 0x14015AC7C (PopPepGetDevicePlatformStateDependents.c)
+ *     MiGetSharedProtosAtDpcLevel @ 0x14015CCD4 (MiGetSharedProtosAtDpcLevel.c)
+ *     MiKernelStackVaToStackNode @ 0x140164454 (MiKernelStackVaToStackNode.c)
+ *     PopFxLockDevice @ 0x140174320 (PopFxLockDevice.c)
+ *     MiRestrictRangeToNode @ 0x140189354 (MiRestrictRangeToNode.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x140198D30 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeQueryCpuSetsProcess @ 0x1402ACAFC (KeQueryCpuSetsProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x1402ACFE0 (KeSetSelectedCpuSetsThread.c)
+ *     KiSelectCandidateProcessor @ 0x1402B5B38 (KiSelectCandidateProcessor.c)
+ *     MmUnmapReservedMapping @ 0x1402C0E60 (MmUnmapReservedMapping.c)
+ *     MmReadProcessPageTables @ 0x1402D1D88 (MmReadProcessPageTables.c)
+ *     MiGenerateAccessViolation @ 0x1402D25BC (MiGenerateAccessViolation.c)
+ *     MiDecommitHardwareEnclavePages @ 0x1402D3880 (MiDecommitHardwareEnclavePages.c)
+ *     MiCheckSlabPage @ 0x1402DB4CC (MiCheckSlabPage.c)
+ *     MiFreePageToSlabAllocator @ 0x1402DB6C0 (MiFreePageToSlabAllocator.c)
+ *     MiGetPageFromSlabAllocator @ 0x1402DBD8C (MiGetPageFromSlabAllocator.c)
+ *     MiGetSlabStandbyListWorker @ 0x1402DC2F0 (MiGetSlabStandbyListWorker.c)
+ *     MiPurgeSlabEntries @ 0x1402DC7F4 (MiPurgeSlabEntries.c)
+ *     MiGetPrototypePteBoundaries @ 0x1402E1648 (MiGetPrototypePteBoundaries.c)
+ *     MiTransientCombineAddress @ 0x1402E64A0 (MiTransientCombineAddress.c)
+ *     MiTransientPageListWriter @ 0x1402E7814 (MiTransientPageListWriter.c)
+ *     PopPepGetComponentVetoMasks @ 0x1402F8F20 (PopPepGetComponentVetoMasks.c)
+ *     PopPepGetDeviceVetoMasks @ 0x1402F8FFC (PopPepGetDeviceVetoMasks.c)
+ *     PopPepGetMinimumComponentIdleState @ 0x1402F90B8 (PopPepGetMinimumComponentIdleState.c)
+ *     PopPepGetMinimumDevicePowerState @ 0x1402F91B0 (PopPepGetMinimumDevicePowerState.c)
+ *     PopPepPlatformStateRegistered @ 0x1402F9D4C (PopPepPlatformStateRegistered.c)
+ *     PopPepRegisterComponentPerfStates @ 0x1402FA638 (PopPepRegisterComponentPerfStates.c)
+ *     PsGetJobLastThrottledIoTime @ 0x140307600 (PsGetJobLastThrottledIoTime.c)
+ *     PspJobIoRateVolumeEntryReference @ 0x140307A14 (PspJobIoRateVolumeEntryReference.c)
+ *     DbgpRemoveDebugPrintCallback @ 0x14030ADEC (DbgpRemoveDebugPrintCallback.c)
+ *     RtlpHpLargeAllocSetExtraPresent @ 0x14031B9A0 (RtlpHpLargeAllocSetExtraPresent.c)
+ *     RtlpHpLargeAllocSize @ 0x14031BAD8 (RtlpHpLargeAllocSize.c)
+ *     SepValidateAndCopyGlobalEntry @ 0x14031E3FC (SepValidateAndCopyGlobalEntry.c)
+ *     ViIrpDatabaseReleaseLockShared @ 0x140328DCC (ViIrpDatabaseReleaseLockShared.c)
+ *     VmColdPagesHint @ 0x140328EB0 (VmColdPagesHint.c)
+ *     VmpAccessFaultBatch @ 0x1403291A8 (VmpAccessFaultBatch.c)
+ *     VmpInvalidateOutstandingFaults @ 0x14032A0B8 (VmpInvalidateOutstandingFaults.c)
+ *     VmpPrefetchVirtualAddresses @ 0x14032A450 (VmpPrefetchVirtualAddresses.c)
+ *     VmpQueryAccessedState @ 0x14032AA2C (VmpQueryAccessedState.c)
+ *     VmpSplitMemoryRange @ 0x14032AF18 (VmpSplitMemoryRange.c)
+ *     ExpRemoveTagForBigPages @ 0x14033918C (ExpRemoveTagForBigPages.c)
+ *     ExpCheckForResource @ 0x14033A5C4 (ExpCheckForResource.c)
+ *     ExQuerySystemLockInformation @ 0x1405AE4B4 (ExQuerySystemLockInformation.c)
+ *     ViDeadlockDetectionUnlock @ 0x14097C630 (ViDeadlockDetectionUnlock.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x14033ACA4 (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
+void __stdcall ExReleaseSpinLockSharedFromDpcLevel(PEX_SPIN_LOCK SpinLock)
+{
+  struct _KPRCB *CurrentPrcb; // rcx
+  _DWORD *SchedulerAssist; // rdx
+  int v3; // eax
+  void *retaddr; // [rsp+28h] [rbp+0h]
+
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
+  {
+    ExpReleaseSpinLockSharedFromDpcLevelInstrumented(SpinLock, retaddr);
+  }
+  else
+  {
+    _InterlockedAnd(SpinLock, 0xBFFFFFFF);
+    _InterlockedDecrement(SpinLock);
+  }
+  CurrentPrcb = KeGetCurrentPrcb();
+  SchedulerAssist = CurrentPrcb->SchedulerAssist;
+  if ( SchedulerAssist && CurrentPrcb->NestingLevel <= 1u )
+  {
+    v3 = SchedulerAssist[5] - 1;
+    SchedulerAssist[5] = v3;
+    if ( !v3 )
+      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+  }
+}

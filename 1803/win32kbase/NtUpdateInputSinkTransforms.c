@@ -1,0 +1,57 @@
+/*
+ * XREFs of NtUpdateInputSinkTransforms @ 0x1C00028E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateTransform@CompositionInputObject@@QEAAJAEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0002BB0 (-UpdateTransform@CompositionInputObject@@QEAAJAEBUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C000FC20 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     UserIsCurrentProcessDwm @ 0x1C003C070 (UserIsCurrentProcessDwm.c)
+ *     memset @ 0x1C0079EC0 (memset.c)
+ */
+
+__int64 __fastcall NtUpdateInputSinkTransforms(__int64 a1, unsigned int a2)
+{
+  int v4; // ebx
+  __int64 i; // rdi
+  ULONG64 v6; // rdx
+  __int128 v7; // xmm3
+  __int128 v8; // xmm4
+  __int128 v9; // xmm1
+  void *v10; // xmm0_8
+  void *v12[15]; // [rsp+20h] [rbp-78h] BYREF
+  PVOID Object; // [rsp+B8h] [rbp+20h] BYREF
+
+  if ( (unsigned int)UserIsCurrentProcessDwm() )
+  {
+    v4 = 0;
+    for ( i = 0LL; v4 >= 0 && (unsigned int)i < a2; i = (unsigned int)(i + 1) )
+    {
+      memset(v12, 0, 0x48uLL);
+      v6 = a1 + 72 * i;
+      if ( v6 + 72 < v6 || v6 + 72 > MmUserProbeAddress )
+        v6 = MmUserProbeAddress;
+      v7 = *(_OWORD *)(v6 + 16);
+      v8 = *(_OWORD *)(v6 + 32);
+      v9 = *(_OWORD *)(v6 + 48);
+      v10 = *(void **)(v6 + 64);
+      *(_OWORD *)v12 = *(_OWORD *)v6;
+      *(_OWORD *)&v12[2] = v7;
+      *(_OWORD *)&v12[4] = v8;
+      *(_OWORD *)&v12[6] = v9;
+      v12[8] = v10;
+      v4 = CompositionInputObject::ResolveHandle(v12[0], 2u, 1, (struct CompositionInputObject **)&Object);
+      if ( v4 >= 0 )
+      {
+        CompositionInputObject::UpdateTransform(
+          (CompositionInputObject *)Object,
+          (const struct tagINPUT_TRANSFORM *)&v12[1]);
+        ObfDereferenceObject(Object);
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741790;
+  }
+  return (unsigned int)v4;
+}

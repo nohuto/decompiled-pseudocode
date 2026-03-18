@@ -1,0 +1,72 @@
+/*
+ * XREFs of UsbhResetNotificationIrpCompletion @ 0x1C004B980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDispatch_HardResetEvent @ 0x1C0009330 (UsbhDispatch_HardResetEvent.c)
+ *     FdoExt @ 0x1C0014F60 (FdoExt.c)
+ *     WPP_RECORDER_SF_q @ 0x1C003C2E0 (WPP_RECORDER_SF_q.c)
+ *     UsbhResetNotifyDownstreamHub @ 0x1C004BB18 (UsbhResetNotifyDownstreamHub.c)
+ *     UsbhException @ 0x1C004F144 (UsbhException.c)
+ */
+
+__int64 __fastcall UsbhResetNotificationIrpCompletion(
+        PDEVICE_OBJECT DeviceObject,
+        PIRP Irp,
+        struct _DEVICE_OBJECT *Context)
+{
+  __int64 v5; // rdx
+  _DWORD *v6; // rsi
+  __int64 v7; // r14
+  _DWORD *v8; // rax
+  IRP *v9; // rbx
+  _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  int v12; // [rsp+48h] [rbp-10h]
+
+  v6 = FdoExt((__int64)Context);
+  v7 = *(_QWORD *)(*((_QWORD *)v6 + 659) + 184LL);
+  if ( LODWORD(Irp->IoStatus.Information) == 1 )
+  {
+    UsbhResetNotifyDownstreamHub(Context);
+  }
+  else
+  {
+    if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_q(
+        (__int64)WPP_GLOBAL_Control->DeviceExtension,
+        v5,
+        3u,
+        0x17u,
+        (__int64)&WPP_6271d31ce3fc35b37f87279b5c49118e_Traceguids,
+        Context);
+    if ( v6[702] == 2 )
+    {
+      if ( KeGetCurrentIrql() )
+      {
+        LOBYTE(v12) = 1;
+        UsbhException((int)Context, 0, 62, 0, 0, -1073741823, -1073704960, usbfile_pnp_c, 3719, v12);
+      }
+      else
+      {
+        v8 = FdoExt((__int64)Context);
+        UsbhDispatch_HardResetEvent((__int64)Context, (__int64)(v8 + 566), 3);
+      }
+    }
+  }
+  IoReuseIrp(*((PIRP *)v6 + 659), 0);
+  *(_BYTE *)(v7 - 72) = 15;
+  *(_DWORD *)(v7 - 48) = 2232235;
+  *(_DWORD *)(v7 - 56) = 0;
+  *(_DWORD *)(v7 - 64) = 0;
+  *(_QWORD *)(*((_QWORD *)v6 + 659) + 56LL) = 0LL;
+  v9 = (IRP *)*((_QWORD *)v6 + 659);
+  if ( IoSetCompletionRoutineEx(Context, v9, UsbhResetNotificationIrpCompletion, Context, 1u, 1u, 1u) < 0 )
+  {
+    CurrentStackLocation = v9->Tail.Overlay.CurrentStackLocation;
+    CurrentStackLocation[-1].CompletionRoutine = (int (__fastcall *)(_DEVICE_OBJECT *, _IRP *, void *))UsbhResetNotificationIrpCompletion;
+    CurrentStackLocation[-1].Context = Context;
+    CurrentStackLocation[-1].Control = -32;
+  }
+  IofCallDriver(*((PDEVICE_OBJECT *)v6 + 151), *((PIRP *)v6 + 659));
+  return 3221225494LL;
+}

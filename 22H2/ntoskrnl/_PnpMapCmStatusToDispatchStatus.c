@@ -1,0 +1,33 @@
+/*
+ * XREFs of _PnpMapCmStatusToDispatchStatus @ 0x14022B204
+ * Callers:
+ *     _PnpDispatchInstallerClass @ 0x14069AE50 (_PnpDispatchInstallerClass.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406CCF40 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDevice @ 0x1406CD0C0 (_PnpDispatchDevice.c)
+ *     _PnpDispatchInterfaceClass @ 0x1407C6330 (_PnpDispatchInterfaceClass.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PnpMapCmStatusToDispatchStatus(unsigned int a1)
+{
+  __int64 result; // rax
+
+  switch ( a1 )
+  {
+    case 0xC000000E:
+      return 3221225524LL;
+    case 0xC0000039:
+      return 3221225523LL;
+    case 0xC000003A:
+      return 3221225524LL;
+    case 0xC00000BB:
+      return 3221226021LL;
+    case 0xC00000C0:
+      return 3221225524LL;
+  }
+  result = 3221225524LL;
+  if ( a1 != -1073741127 )
+    return a1;
+  return result;
+}

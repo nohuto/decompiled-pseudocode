@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?TerminateAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_MULTI_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C00AEAF8
+ * Callers:
+ *     VidMmTerminateAllocation @ 0x1C0015440 (VidMmTerminateAllocation.c)
+ * Callees:
+ *     ?TerminateOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAVDXGTERMINATIONTRACKER@@@Z @ 0x1C00AEB20 (-TerminateOneAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@IU_D3DDDICB_DESTROYALLOCATION2FLAGS@.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::TerminateAllocation(
+        VIDMM_GLOBAL *this,
+        struct _VIDMM_MULTI_ALLOC *a2,
+        unsigned int a3,
+        struct _D3DDDICB_DESTROYALLOCATION2FLAGS a4,
+        struct DXGTERMINATIONTRACKER *a5)
+{
+  VIDMM_GLOBAL::TerminateOneAllocation(this, a2, a3, a4, a5);
+}

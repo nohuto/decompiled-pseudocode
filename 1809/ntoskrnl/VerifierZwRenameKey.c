@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierZwRenameKey @ 0x140933530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierZwRenameKey()
+{
+  return ((__int64 (*)(void))pXdvZwRenameKey)();
+}

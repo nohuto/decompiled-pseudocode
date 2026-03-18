@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??_GUSB4_POWERON_WORK_CONTEXT@@QEAAPEAXI@Z @ 0x1C006CA5C
+ * Callers:
+ *     ?QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03CA7A8 (-QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CON.c)
+ *     ?_HandlePowerOn@USB4_POWERON_WORK_QUEUE@@CAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C03CAD10 (-_HandlePowerOn@USB4_POWERON_WORK_QUEUE@@CAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall USB4_POWERON_WORK_CONTEXT::`scalar deleting destructor'(_QWORD *P)
+{
+  void *v2; // rcx
+
+  v2 = (void *)P[12];
+  P[12] = 0LL;
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

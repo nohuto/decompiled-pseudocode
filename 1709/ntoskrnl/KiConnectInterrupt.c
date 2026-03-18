@@ -1,0 +1,117 @@
+/*
+ * XREFs of KiConnectInterrupt @ 0x1400B3034
+ * Callers:
+ *     KeConnectInterrupt @ 0x1400B2EEC (KeConnectInterrupt.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1400AAD30 (KeRevertToUserGroupAffinityThread.c)
+ *     KiAcquireInterruptConnectLock @ 0x1400B3240 (KiAcquireInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x14015D720 (__security_check_cookie.c)
+ *     KiInsertInterruptObjectOrdered @ 0x14020AD98 (KiInsertInterruptObjectOrdered.c)
+ */
+
+__int64 __fastcall KiConnectInterrupt(__int64 a1)
+{
+  __int64 v1; // rsi
+  char v2; // bp
+  unsigned __int8 v3; // dl
+  char v4; // r14
+  unsigned int v5; // r9d
+  unsigned __int8 v7; // al
+  _KIDTENTRY64 *v8; // rcx
+  bool v9; // zf
+  __int64 (__fastcall *v10)(); // rcx
+  char *v11; // r10
+  __int64 (__fastcall *v12)(); // rax
+  __int64 v13; // r11
+  __int64 v14; // r10
+  _BYTE v16[8]; // [rsp+20h] [rbp-48h] BYREF
+  __int64 (__fastcall *v17)(); // [rsp+28h] [rbp-40h]
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-38h] BYREF
+
+  v1 = *(unsigned int *)(a1 + 88);
+  v2 = 0;
+  v3 = *(_BYTE *)(a1 + 92);
+  v4 = 0;
+  v5 = *(_DWORD *)(a1 + 96);
+  if ( (unsigned int)v1 > 0xFF || v3 > 0xFu || v3 != (unsigned int)v1 >> 4 && v3 )
+    return 3221225711LL;
+  if ( v5 >= (unsigned int)KeNumberProcessors_0 )
+    return 3221225711LL;
+  v7 = *(_BYTE *)(a1 + 93);
+  if ( v7 < v3 )
+  {
+    if ( v7 )
+      return 3221225711LL;
+  }
+  KiAcquireInterruptConnectLock(v5, v16, &PreviousAffinity);
+  v8 = &KeGetPcr()->IdtBase[v1];
+  v9 = *(_BYTE *)(a1 + 95) == 0;
+  LOWORD(v17) = v8->OffsetLow;
+  WORD1(v17) = v8->OffsetMiddle;
+  HIDWORD(v17) = v8->OffsetHigh;
+  if ( v9 )
+  {
+    v10 = KiIsrThunkShadow;
+    if ( !KiKvaShadow )
+      v10 = KxUnexpectedInterrupt0;
+    if ( v17 == (__int64 (__fastcall *)())((char *)v10 + 8 * v1) )
+    {
+      v11 = (char *)KeGetCurrentPrcb()->InterruptObject[v1];
+      if ( !v11 )
+      {
+        if ( !*(_BYTE *)(a1 + 93) )
+        {
+          *(_QWORD *)(a1 + 16) = a1 + 8;
+          *(_QWORD *)(a1 + 8) = a1 + 8;
+          *(_QWORD *)(a1 + 80) = KiChainedDispatch;
+        }
+        v4 = 1;
+        *(_BYTE *)(a1 + 95) = 1;
+        goto LABEL_28;
+      }
+      if ( (unsigned int)v1 >= 0x30 )
+      {
+        v2 = 1;
+        if ( *(_DWORD *)(a1 + 108) == *((_DWORD *)v11 + 27) )
+        {
+          if ( *(_BYTE *)(a1 + 100) )
+          {
+            if ( v11[100] )
+            {
+              if ( *(__int64 (__fastcall **)())(a1 + 80) == KiInterruptDispatch )
+              {
+                v12 = (__int64 (__fastcall *)())*((_QWORD *)v11 + 10);
+                if ( v12 == KiInterruptDispatch || v12 == KiChainedDispatch )
+                {
+                  v4 = 1;
+                  *(_BYTE *)(a1 + 95) = 1;
+                  if ( *((__int64 (__fastcall **)())v11 + 10) != KiChainedDispatch )
+                  {
+                    *((_QWORD *)v11 + 2) = v11 + 8;
+                    *((_QWORD *)v11 + 1) = v11 + 8;
+                    *((_QWORD *)v11 + 10) = KiChainedDispatch;
+                  }
+                  KiInsertInterruptObjectOrdered(v11, a1);
+                  if ( !*(_BYTE *)(v14 + 93) )
+                  {
+                    if ( *(_BYTE *)(a1 + 93) )
+                    {
+                      *(_QWORD *)(a1 + 80) = v13;
+LABEL_28:
+                      KeGetCurrentPrcb()->InterruptObject[v1] = (void *)a1;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  __writecr8(v16[0]);
+  KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+  if ( v4 )
+    return v2 != 0 ? 0x127 : 0;
+  return 3221225711LL;
+}

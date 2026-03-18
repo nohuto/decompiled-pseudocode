@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?EnsureMoveTime@MouseMoveTimes@CMouseProcessor@@QEAAXXZ @ 0x1C0062C24
+ * Callers:
+ *     ?PostMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@PEBU_InputDeviceHandle@@AEBUtagLOGICALPOINT@@W4PostMouseMoveOptions@@PEAU_mouseCursorEvent@@@Z @ 0x1C0062854 (-PostMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCInputDest@@PEBU_InputDeviceHandle@@AEBUtagL.c)
+ *     ?PostMouseMoveToQ@CMouseProcessor@@AEAAXPEAUtagQ@@AEBUtagLOGICALPOINT@@@Z @ 0x1C0062E68 (-PostMouseMoveToQ@CMouseProcessor@@AEAAXPEAUtagQ@@AEBUtagLOGICALPOINT@@@Z.c)
+ * Callees:
+ *     ?Now@EventTime@CMouseProcessor@@SA?AU12@XZ @ 0x1C0062D10 (-Now@EventTime@CMouseProcessor@@SA-AU12@XZ.c)
+ */
+
+void __fastcall CMouseProcessor::MouseMoveTimes::EnsureMoveTime(CMouseProcessor::MouseMoveTimes *this)
+{
+  __int64 v2; // rax
+  _BYTE v3[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  if ( !*((_QWORD *)this + 1) )
+  {
+    *(_QWORD *)this = 0LL;
+LABEL_3:
+    v2 = CMouseProcessor::EventTime::Now(v3);
+    *(_OWORD *)this = *(_OWORD *)v2;
+    *((_QWORD *)this + 2) = *(_QWORD *)(v2 + 16);
+    return;
+  }
+  if ( !*(_QWORD *)this )
+    goto LABEL_3;
+}

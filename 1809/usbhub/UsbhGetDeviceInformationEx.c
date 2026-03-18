@@ -1,0 +1,65 @@
+/*
+ * XREFs of UsbhGetDeviceInformationEx @ 0x1C004BB4C
+ * Callers:
+ *     UsbhGetNodeConnectionInfoForPdo @ 0x1C004BCAC (UsbhGetNodeConnectionInfoForPdo.c)
+ *     UsbhGetDeviceNodeInfo @ 0x1C005269C (UsbhGetDeviceNodeInfo.c)
+ *     UsbhGetHubNodeInfo @ 0x1C0052938 (UsbhGetHubNodeInfo.c)
+ * Callees:
+ *     Log @ 0x1C0012D10 (Log.c)
+ *     memset @ 0x1C002B800 (memset.c)
+ *     Usbh_HubQueryDeviceInformation @ 0x1C003FF08 (Usbh_HubQueryDeviceInformation.c)
+ *     WPP_RECORDER_SF_ @ 0x1C003FFA4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0040078 (WPP_RECORDER_SF_d.c)
+ */
+
+_DWORD *__fastcall UsbhGetDeviceInformationEx(__int64 a1, _DWORD *a2, __int64 a3)
+{
+  unsigned int v6; // ebp
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v8; // rbx
+  int DeviceInformation; // eax
+  __int64 v10; // rdi
+  char v12; // [rsp+78h] [rbp+20h] BYREF
+
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      2u,
+      0x28u,
+      (__int64)&WPP_7ad9addfb16e3a21e00c7c964b02e18a_Traceguids);
+  v6 = 64;
+  do
+  {
+    PoolWithTag = ExAllocatePoolWithTag(PagedPool, v6, 0x42554855u);
+    v8 = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      *a2 = -1073741670;
+      return 0LL;
+    }
+    memset(PoolWithTag, 0, v6);
+    *v8 = 0;
+    DeviceInformation = Usbh_HubQueryDeviceInformation(a1, a3, (__int64)v8, v6, (__int64)&v12);
+    v10 = DeviceInformation;
+    if ( (DeviceInformation & 0xC0000000) == 0xC0000000 )
+    {
+      if ( DeviceInformation == -1073741789 )
+        v6 = v8[1];
+      ExFreePoolWithTag(v8, 0);
+      v8 = 0LL;
+    }
+  }
+  while ( (_DWORD)v10 == -1073741789 );
+  Log(a1, 32, 1734633848, a3, v10);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      2u,
+      0x29u,
+      (__int64)&WPP_7ad9addfb16e3a21e00c7c964b02e18a_Traceguids,
+      v10);
+  *a2 = v10;
+  return v8;
+}

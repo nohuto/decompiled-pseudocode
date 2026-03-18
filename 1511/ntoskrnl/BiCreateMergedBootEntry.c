@@ -1,0 +1,186 @@
+/*
+ * XREFs of BiCreateMergedBootEntry @ 0x14068FCFC
+ * Callers:
+ *     BiUpdateEfiEntry @ 0x1406914FC (BiUpdateEfiEntry.c)
+ * Callees:
+ *     memmove @ 0x140166980 (memmove.c)
+ *     memset @ 0x140166CC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x140238380 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
+ *     BiGetDeviceFromEfiPath @ 0x1406906E0 (BiGetDeviceFromEfiPath.c)
+ *     BiGetFilePathFromEfiPath @ 0x140690870 (BiGetFilePathFromEfiPath.c)
+ *     BiTranslateFilePath @ 0x140691130 (BiTranslateFilePath.c)
+ */
+
+__int64 __fastcall BiCreateMergedBootEntry(_DWORD *a1, _WORD *a2, _DWORD *a3, _WORD *a4, _QWORD *a5)
+{
+  __int64 v5; // r12
+  _WORD *v6; // rax
+  _WORD *v7; // rbx
+  _DWORD *v9; // rdi
+  _WORD *v10; // r15
+  struct _FILE_PATH *v11; // r14
+  int DeviceFromEfiPath; // ebx
+  int FilePathFromEfiPath; // eax
+  __int64 v15; // rax
+  unsigned int v16; // ecx
+  __int64 v17; // rax
+  unsigned int v18; // eax
+  unsigned int v19; // ebx
+  struct _FILE_PATH *PoolWithTag; // rax
+  void *v21; // rdx
+  int v22; // eax
+  unsigned int v23; // edx
+  int v24; // r8d
+  int v25; // r9d
+  unsigned int v26; // r12d
+  PVOID v27; // rax
+  _DWORD *v28; // rax
+  __int64 v29; // rcx
+  size_t v30; // r8
+  _DWORD *v31; // r12
+  char v32; // [rsp+20h] [rbp-30h]
+  _DWORD Size[3]; // [rsp+24h] [rbp-2Ch] BYREF
+  size_t v34; // [rsp+30h] [rbp-20h] BYREF
+  _DWORD *v35; // [rsp+38h] [rbp-18h]
+  void *Src; // [rsp+40h] [rbp-10h]
+  _WORD *v37; // [rsp+48h] [rbp-8h]
+  char v38; // [rsp+A0h] [rbp+50h]
+
+  v37 = a2;
+  v5 = -1LL;
+  Src = 0LL;
+  v35 = 0LL;
+  v6 = a4;
+  v38 = 0;
+  v7 = a2;
+  *(_QWORD *)&Size[1] = 0LL;
+  v32 = 0;
+  v9 = 0LL;
+  v10 = 0LL;
+  v11 = 0LL;
+  if ( a3 )
+  {
+    if ( *a3 != 2 )
+      return 3221225485LL;
+    Src = a3 + 5;
+  }
+  else
+  {
+    v9 = (_DWORD *)((char *)a1 + (unsigned int)a1[5]);
+    if ( !a4 )
+      goto LABEL_22;
+    v35 = (_DWORD *)((char *)a1 + (unsigned int)a1[5]);
+    DeviceFromEfiPath = BiGetDeviceFromEfiPath(v9 + 3);
+    if ( DeviceFromEfiPath < 0 )
+      goto LABEL_30;
+    Src = (char *)Src + 20;
+    v6 = a4;
+  }
+  if ( v6 )
+  {
+    v10 = v6;
+    goto LABEL_12;
+  }
+  v9 = (_DWORD *)((char *)a1 + (unsigned int)a1[5]);
+  v35 = v9;
+  FilePathFromEfiPath = BiGetFilePathFromEfiPath(v9 + 3, &Size[1], &v34);
+  v10 = *(_WORD **)&Size[1];
+  DeviceFromEfiPath = FilePathFromEfiPath;
+  if ( FilePathFromEfiPath >= 0 )
+  {
+    v32 = 1;
+LABEL_12:
+    v15 = -1LL;
+    do
+      ++v15;
+    while ( *((_WORD *)Src + v15) );
+    v16 = 2 * v15 + 2;
+    v17 = -1LL;
+    Size[0] = v16;
+    do
+      ++v17;
+    while ( v10[v17] );
+    Size[1] = 2 * v17 + 2;
+    v18 = v16 + Size[1];
+    if ( v16 + Size[1] < v16 )
+      goto LABEL_29;
+    v19 = v18 + 12;
+    if ( v18 + 12 < v18 )
+      goto LABEL_29;
+    PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, v19, 0x4B444342u);
+    v11 = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+LABEL_19:
+      DeviceFromEfiPath = -1073741670;
+      goto LABEL_30;
+    }
+    v21 = Src;
+    PoolWithTag->Length = v19;
+    PoolWithTag->Version = 1;
+    PoolWithTag->Type = 3;
+    memmove(PoolWithTag->FilePath, v21, Size[0]);
+    memmove(&v11->FilePath[Size[0]], v10, Size[1]);
+    v22 = BiTranslateFilePath(v11, 4u);
+    v9 = v35;
+    DeviceFromEfiPath = v22;
+    if ( v22 < 0 )
+      goto LABEL_30;
+    v7 = v37;
+    v38 = 1;
+LABEL_22:
+    if ( !v7 )
+      v7 = (_WORD *)((char *)a1 + (unsigned int)a1[4]);
+    do
+      ++v5;
+    while ( v7[v5] );
+    v23 = a1[6];
+    v24 = 2 * v5 + 2;
+    LODWORD(v34) = v24;
+    if ( v23 + v24 >= v23 )
+    {
+      v25 = v9[1];
+      if ( v25 + v23 + v24 + 36 >= v23 + v24 )
+      {
+        Size[1] = (v23 + 31) & 0xFFFFFFFC;
+        Size[0] = (v24 + Size[1] + 3) & 0xFFFFFFFC;
+        v26 = v25 + Size[0];
+        v27 = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v25 + Size[0]), 0x4B444342u);
+        Src = v27;
+        if ( v27 )
+        {
+          memset(v27, 0, v26);
+          v28 = Src;
+          v29 = Size[1];
+          v30 = (unsigned int)v34;
+          *((_DWORD *)Src + 1) = v26;
+          v31 = Src;
+          *v28 = 1;
+          v31[2] = a1[2];
+          v31[3] = a1[3];
+          v31[4] = v29;
+          v31[5] = Size[0];
+          v31[6] = a1[6];
+          memmove((char *)v31 + v29, v7, v30);
+          memmove((char *)v31 + Size[0], v9, (unsigned int)v9[1]);
+          memmove(v31 + 7, a1 + 7, (unsigned int)a1[6]);
+          DeviceFromEfiPath = 0;
+          *a5 = v31;
+          goto LABEL_30;
+        }
+        goto LABEL_19;
+      }
+    }
+LABEL_29:
+    DeviceFromEfiPath = -1073741675;
+  }
+LABEL_30:
+  if ( v38 )
+    ExFreePoolWithTag(v9, 0);
+  if ( v32 )
+    ExFreePoolWithTag(v10, 0);
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
+  return (unsigned int)DeviceFromEfiPath;
+}

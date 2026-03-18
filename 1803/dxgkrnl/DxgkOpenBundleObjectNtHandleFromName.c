@@ -1,0 +1,48 @@
+/*
+ * XREFs of DxgkOpenBundleObjectNtHandleFromName @ 0x1C01AB7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DXGETWPROFILER_BASE_PushProfilerEntry @ 0x1C0009520 (DXGETWPROFILER_BASE_PushProfilerEntry.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0015110 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     McTemplateK0q @ 0x1C001B314 (McTemplateK0q.c)
+ */
+
+__int64 __fastcall DxgkOpenBundleObjectNtHandleFromName(ULONG64 a1, __int64 a2, __int64 a3)
+{
+  __int64 v4; // r8
+  ULONG64 v5; // rax
+  int v6; // ebx
+  _QWORD *v7; // r8
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  int v11; // [rsp+40h] [rbp-38h] BYREF
+  __int64 v12; // [rsp+48h] [rbp-30h]
+  __int128 v13; // [rsp+50h] [rbp-28h]
+  __int64 v14; // [rsp+60h] [rbp-18h]
+  __int64 v15; // [rsp+88h] [rbp+10h] BYREF
+
+  v12 = 0LL;
+  v11 = 2205;
+  if ( (qword_1C0079010 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q(a1, &EventProfilerEnter, a3, 2205);
+  DXGETWPROFILER_BASE_PushProfilerEntry((__int64)&v11, 2205);
+  v5 = a1;
+  if ( a1 >= MmUserProbeAddress )
+    v5 = MmUserProbeAddress;
+  v13 = *(_OWORD *)v5;
+  v14 = *(_QWORD *)(v5 + 16);
+  LOBYTE(v4) = 1;
+  v6 = ObOpenObjectByName(*((_QWORD *)&v13 + 1), g_pDxgkSharedBundleObjectType, v4, 0LL, v13, 0LL, &v15);
+  if ( v6 >= 0 )
+  {
+    v7 = (_QWORD *)(a1 + 16);
+    if ( a1 + 16 >= MmUserProbeAddress )
+      v7 = (_QWORD *)MmUserProbeAddress;
+    *v7 = v15;
+  }
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v11);
+  if ( (qword_1C0079010 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q(v8, &EventProfilerExit, v9, v11);
+  return (unsigned int)v6;
+}

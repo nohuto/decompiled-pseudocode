@@ -1,0 +1,50 @@
+/*
+ * XREFs of CmpAllocateTransientPoolWithTag @ 0x140009020
+ * Callers:
+ *     CmpDoFileWrite @ 0x14049BEC0 (CmpDoFileWrite.c)
+ *     CmpStartKcbStack @ 0x1404A5CCC (CmpStartKcbStack.c)
+ *     CmpGetNameControlBlock @ 0x1404AB750 (CmpGetNameControlBlock.c)
+ *     CmpAllocateKeyControlBlock @ 0x1404ABAC0 (CmpAllocateKeyControlBlock.c)
+ *     CmpConstructNameWithStatus @ 0x1404ABC50 (CmpConstructNameWithStatus.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1404ABDD0 (CmpConstructNameFromKeyNodes.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1404E1604 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x14054F244 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightCreateSetValueData @ 0x14054F81C (CmpLightWeightCreateSetValueData.c)
+ *     CmpAddToHiveFileList @ 0x140581F48 (CmpAddToHiveFileList.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x140583DF4 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpParseKey @ 0x14059EF70 (CmpParseKey.c)
+ *     CmQueryValueKey @ 0x1405A0B80 (CmQueryValueKey.c)
+ *     CmpDoParseKey @ 0x1405A7800 (CmpDoParseKey.c)
+ *     CmpCreateRegistryProcessToken @ 0x14062C9C4 (CmpCreateRegistryProcessToken.c)
+ *     CmpCreateGlobalKeyLockEntry @ 0x140646070 (CmpCreateGlobalKeyLockEntry.c)
+ *     CmpCreateSiloKeyLockEntry @ 0x1406460E8 (CmpCreateSiloKeyLockEntry.c)
+ *     CmpSaveBootControlSet @ 0x1406EB510 (CmpSaveBootControlSet.c)
+ *     CmAllocateExtraParameter @ 0x1406EEDC0 (CmAllocateExtraParameter.c)
+ *     CmpPromoteKey @ 0x1406EF198 (CmpPromoteKey.c)
+ *     CmpReadBuildLab @ 0x1406F06A0 (CmpReadBuildLab.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x1406F34B4 (CmpConstructNameFromKcbNameBlocks.c)
+ *     CmpBuildAdminInformation @ 0x1406F46D0 (CmpBuildAdminInformation.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x1406F62BC (CmpDoAccessCheckOnSubtree.c)
+ *     CmpSnapshotKcbStackSecurity @ 0x1406F6844 (CmpSnapshotKcbStackSecurity.c)
+ *     HvpPerformLogFileRecovery @ 0x1406F86F4 (HvpPerformLogFileRecovery.c)
+ *     HvpRecoverDataReadRoutine @ 0x1406F8D10 (HvpRecoverDataReadRoutine.c)
+ *     CmpReserveRollbackPacketSpace @ 0x1406F9B40 (CmpReserveRollbackPacketSpace.c)
+ *     CmpDoReadTxRBigLogRecord @ 0x1406F9EA8 (CmpDoReadTxRBigLogRecord.c)
+ *     CmpStartKeyNodeStack @ 0x1406FB418 (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackCreateResumeContext @ 0x1406FF780 (CmpKeyEnumStackCreateResumeContext.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x1406FFED4 (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ *     CmpGetValueForAudit @ 0x140700954 (CmpGetValueForAudit.c)
+ *     CmpSortedValueEnumStackEntryStart @ 0x140700CA4 (CmpSortedValueEnumStackEntryStart.c)
+ *     CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140700E78 (CmpSortedValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpLightWeightCreateModificationData @ 0x1407047C0 (CmpLightWeightCreateModificationData.c)
+ *     CmpLightWeightPrepareDeleteKeyUoW @ 0x140704BCC (CmpLightWeightPrepareDeleteKeyUoW.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140704D74 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     VerifierExAllocatePoolEx @ 0x140813180 (VerifierExAllocatePoolEx.c)
+ * Callees:
+ *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
+ */
+
+PVOID __fastcall CmpAllocateTransientPoolWithTag(POOL_TYPE a1, SIZE_T a2, ULONG a3)
+{
+  return ExAllocatePoolWithTag(a1, a2, a3);
+}

@@ -1,0 +1,61 @@
+/*
+ * XREFs of xxxTouchTargetWindow @ 0x1C0207040
+ * Callers:
+ *     xxxDCompSpeedHitTest @ 0x1C0026864 (xxxDCompSpeedHitTest.c)
+ *     ?TopLevelTouchTarget@@YAPEAUtagWND@@PEAU1@PEAUtagTOUCHTARGETINGCONTACT@@PEAUtagPOINT@@2H@Z @ 0x1C0204048 (-TopLevelTouchTarget@@YAPEAUtagWND@@PEAU1@PEAUtagTOUCHTARGETINGCONTACT@@PEAUtagPOINT@@2H@Z.c)
+ * Callees:
+ *     _GetProp @ 0x1C00C7C1C (_GetProp.c)
+ *     GetWindowCloakState @ 0x1C00C8BCC (GetWindowCloakState.c)
+ *     ?ApplyWindowTransform@@YAXPEBU_D3DMATRIX@@PEAUtagPOINT@@PEAUtagTOUCHTARGETINGCONTACT@@H@Z @ 0x1C0203568 (-ApplyWindowTransform@@YAXPEBU_D3DMATRIX@@PEAUtagPOINT@@PEAUtagTOUCHTARGETINGCONTACT@@H@Z.c)
+ *     ?BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUtagRECT@@W4tagTARGETING_PROPERTY@@HKH@Z @ 0x1C020363C (-BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUt.c)
+ *     ?ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z @ 0x1C0203A24 (-ClipContact@@YAXPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@HPEBUtagRECT@@@Z.c)
+ */
+
+_BOOL8 __fastcall xxxTouchTargetWindow(
+        struct tagWND *a1,
+        struct tagRECT *a2,
+        struct tagPOINT *a3,
+        int *a4,
+        unsigned __int16 *a5,
+        __int64 a6,
+        unsigned int a7)
+{
+  _BYTE *v9; // rcx
+  unsigned int v12; // edi
+  const struct _D3DMATRIX *v13; // rcx
+  int Prop; // eax
+  unsigned __int64 v15; // r8
+  BOOL v16; // r14d
+  const struct _D3DMATRIX *v17; // rcx
+
+  v9 = (_BYTE *)*((_QWORD *)a1 + 5);
+  if ( (v9[31] & 0x10) == 0 || (v9[26] & 8) != 0 && (v9[24] & 0x20) != 0 )
+    return 0LL;
+  v12 = 1;
+  if ( a7 )
+  {
+    if ( !(unsigned int)GetWindowCloakState(a1) )
+    {
+      v13 = (const struct _D3DMATRIX *)*((_QWORD *)a1 + 27);
+      if ( v13 )
+        ApplyWindowTransform(v13, a3, a2, 1);
+      goto LABEL_8;
+    }
+    return 0LL;
+  }
+LABEL_8:
+  Prop = GetProp((__int64)a1, (unsigned __int16)gatomPtrTargetFlags, 1LL);
+  v15 = (unsigned __int64)*a3;
+  *a4 = Prop;
+  v16 = BasicTargetingHitTest((__int64)a1, (__int64)a2, v15, a5, a6, a7, 0LL, 4, 1, Prop, 0);
+  if ( !v16 || *a5 )
+    v12 = 0;
+  ClipContact(a1, (struct tagTOUCHTARGETINGCONTACT *)a2, v12, 0LL);
+  if ( a7 )
+  {
+    v17 = (const struct _D3DMATRIX *)*((_QWORD *)a1 + 27);
+    if ( v17 )
+      ApplyWindowTransform(v17, 0LL, a2, 0);
+  }
+  return v16;
+}

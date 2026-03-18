@@ -1,0 +1,21 @@
+/*
+ * XREFs of EtwTraceBeginAppMessageProcessing @ 0x1C00741B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0036CBC (W32GetThreadWin32Thread.c)
+ *     Template_cdqq @ 0x1C00B6644 (Template_cdqq.c)
+ */
+
+void __fastcall EtwTraceBeginAppMessageProcessing(char a1, char a2, __int64 a3)
+{
+  int v6; // r9d
+  int v7; // edx
+  int v8; // ecx
+
+  if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
+  {
+    LOBYTE(v6) = *(_BYTE *)(W32GetThreadWin32Thread((__int64)KeGetCurrentThread()) + 1108);
+    Template_cdqq(v8, v7, *(_DWORD *)(a3 + 8), v6, a1, a2, *(_DWORD *)(a3 + 8));
+  }
+}

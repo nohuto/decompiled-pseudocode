@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??1?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$03@@QEAA@XZ @ 0x1C019DC24
+ * Callers:
+ *     ?PrepareIndependentFlipToken@DXGCONTEXT@@AEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00BA040 (-PrepareIndependentFlipToken@DXGCONTEXT@@AEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_.c)
+ * Callees:
+ *     ??_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z @ 0x1C0025734 (--_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z.c)
+ */
+
+void __fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,4>::~PagedPoolArray<DXGALLOCATIONREFERENCE,4>(
+        DXGALLOCATIONREFERENCE **a1)
+{
+  char *v1; // rbx
+  DXGALLOCATIONREFERENCE *v2; // rcx
+
+  v1 = (char *)(a1 + 1);
+  v2 = *a1;
+  if ( v2 != (DXGALLOCATIONREFERENCE *)v1 && v2 )
+    DXGALLOCATIONREFERENCE::`vector deleting destructor'(v2);
+  `vector destructor iterator'(
+    v1,
+    8LL,
+    4LL,
+    (void (__fastcall *)(char *))DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE);
+}

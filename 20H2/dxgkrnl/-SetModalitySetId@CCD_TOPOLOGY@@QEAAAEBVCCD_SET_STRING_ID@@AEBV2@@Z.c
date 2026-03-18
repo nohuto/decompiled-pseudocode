@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?SetModalitySetId@CCD_TOPOLOGY@@QEAAAEBVCCD_SET_STRING_ID@@AEBV2@@Z @ 0x1C012BA94
+ * Callers:
+ *     ?LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z @ 0x1C0141828 (-LoadTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEAVCCD_TOPOLOGY@@@Z.c)
+ *     ?_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@PEAX@Z @ 0x1C015A690 (-_FindTopologySetIdDescriptorCallback@CCD_RECENT_TOPOLOGY_RETRIEVER@@CAJPEAVTOPOLOGY_SET_DESCRIP.c)
+ * Callees:
+ *     ??_V@YAXPEAX@Z @ 0x1C0002C80 (--_V@YAXPEAX@Z.c)
+ *     ??4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z @ 0x1C012E424 (--4CCD_SET_STRING_ID@@QEAAAEAV0@AEBV0@@Z.c)
+ */
+
+void **__fastcall CCD_TOPOLOGY::SetModalitySetId(void **this, const struct CCD_SET_STRING_ID *a2)
+{
+  operator delete[](this[7]);
+  this[7] = 0LL;
+  CCD_SET_STRING_ID::operator=((CCD_SET_STRING_ID *)this);
+  return this;
+}

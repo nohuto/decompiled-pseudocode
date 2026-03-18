@@ -1,0 +1,42 @@
+/*
+ * XREFs of SepCheckCreateLowBox @ 0x1406EC154
+ * Callers:
+ *     NtCreateLowBoxToken @ 0x14069CB70 (NtCreateLowBoxToken.c)
+ * Callees:
+ *     memset @ 0x1401D77C0 (memset.c)
+ *     SeCaptureSubjectContext @ 0x1405DE350 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1405F3AE0 (SeReleaseSubjectContext.c)
+ *     RtlIsParentOfChildAppContainer @ 0x14069CA5C (RtlIsParentOfChildAppContainer.c)
+ */
+
+__int64 __fastcall SepCheckCreateLowBox(PSID a1)
+{
+  int IsParentOfChildAppContainer; // ebx
+  char v3; // di
+  PACCESS_TOKEN ClientToken; // rcx
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+20h] [rbp-28h] BYREF
+
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  IsParentOfChildAppContainer = 0;
+  v3 = 1;
+  SeCaptureSubjectContext(&SubjectContext);
+  ClientToken = SubjectContext.ClientToken;
+  if ( SubjectContext.ClientToken )
+  {
+    if ( SubjectContext.ImpersonationLevel < SecurityImpersonation )
+    {
+      v3 = 0;
+      goto LABEL_4;
+    }
+  }
+  else
+  {
+    ClientToken = SubjectContext.PrimaryToken;
+  }
+  IsParentOfChildAppContainer = *((_DWORD *)ClientToken + 50) & 0x2000;
+LABEL_4:
+  if ( !IsParentOfChildAppContainer && v3 && (*((_DWORD *)ClientToken + 50) & 0x4000) != 0 )
+    IsParentOfChildAppContainer = (unsigned __int8)RtlIsParentOfChildAppContainer(*((PSID *)ClientToken + 98), a1);
+  SeReleaseSubjectContext(&SubjectContext);
+  return IsParentOfChildAppContainer == 0 ? 0xC0000022 : 0;
+}

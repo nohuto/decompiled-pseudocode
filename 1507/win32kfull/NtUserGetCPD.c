@@ -1,0 +1,24 @@
+/*
+ * XREFs of NtUserGetCPD @ 0x1C00FA8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetCPD @ 0x1C00FA93C (GetCPD.c)
+ */
+
+__int64 __fastcall NtUserGetCPD(__int64 a1, unsigned int a2, __int64 a3)
+{
+  __int64 v6; // rax
+  __int64 v7; // rdx
+  __int64 CPD; // rbx
+  __int64 v9; // rcx
+
+  EnterCrit(1LL);
+  v6 = ValidateHwnd(a1);
+  CPD = 0LL;
+  v9 = v6;
+  if ( v6 && ((a2 & 0xFFFFFFFC) == 0x20 || (a2 & 0xFFFFFFFC) == 0x40 || (a2 & 0xFFFFFFFC) == 0x80) )
+    CPD = GetCPD(v6, a2, a3);
+  UserSessionSwitchLeaveCrit(v9, v7);
+  return CPD;
+}

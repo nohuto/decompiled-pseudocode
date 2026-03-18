@@ -1,0 +1,20 @@
+/*
+ * XREFs of UserGetHDevFromMonitor @ 0x1C003E0D4
+ * Callers:
+ *     DrvGetCurrentDpiInfo @ 0x1C003DE94 (DrvGetCurrentDpiInfo.c)
+ *     NtHWCursorUpdatePointer @ 0x1C014E260 (NtHWCursorUpdatePointer.c)
+ * Callees:
+ *     HMValidateSharedHandle @ 0x1C0078CE8 (HMValidateSharedHandle.c)
+ */
+
+__int64 __fastcall UserGetHDevFromMonitor(__int64 a1)
+{
+  __int64 v1; // rcx
+  __int64 result; // rax
+
+  v1 = HMValidateSharedHandle(a1);
+  result = 0LL;
+  if ( v1 )
+    return *(_QWORD *)(v1 + 232);
+  return result;
+}

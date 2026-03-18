@@ -1,0 +1,19 @@
+/*
+ * XREFs of PspJobHasChildren @ 0x140889DD8
+ * Callers:
+ *     PsInsertPermanentSiloContextEx @ 0x140730A28 (PsInsertPermanentSiloContextEx.c)
+ *     PspConvertSiloToServerSilo @ 0x140886E24 (PspConvertSiloToServerSilo.c)
+ *     PspCreateSilo @ 0x140886FC0 (PspCreateSilo.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall PspJobHasChildren(__int64 a1)
+{
+  char v1; // dl
+
+  v1 = 0;
+  if ( *(_DWORD *)(a1 + 212) || *(_QWORD *)(a1 + 1056) != a1 + 1056 )
+    return 1;
+  return v1;
+}

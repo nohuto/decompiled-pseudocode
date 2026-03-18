@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??2?$DXGQUOTAALLOCATOR@$0BAA@$0HDHCEDEG@@@SAPEAX_K@Z @ 0x1C007F548
+ * Callers:
+ *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C007F5C4 (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
+ *     ?Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z @ 0x1C0081124 (-Create@CContentResource@@SAJ_KPEAVCFlipPropertySet@@PEAPEAVCContentResourceState@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DXGQUOTAALLOCATOR<256,1936868166>::operator new(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  return ExAllocatePool2(257LL, 72LL, 1936868166LL, a4);
+}

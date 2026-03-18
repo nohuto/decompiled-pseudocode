@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?bUnMapTrgSurfaceView@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00F5FCC
+ * Callers:
+ *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C00A0FA0 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x1C00A0FEC (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     ?vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z @ 0x1C00F6024 (-vFlushSpriteUpdates@DEVLOCKOBJ@@QEAAXH@Z.c)
+ *     ?bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C029A64C (-bUnHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bUnHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C029CF84 (-bUnHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ */
+
+__int64 __fastcall DEVLOCKOBJ::bUnMapTrgSurfaceView(DEVLOCKOBJ *this)
+{
+  struct XDCOBJ *v1; // rdi
+  int v3; // eax
+
+  v1 = (DEVLOCKOBJ *)((char *)this + 32);
+  if ( *((_QWORD *)this + 4) && *((_BYTE *)this + 49) )
+  {
+    v3 = *((_DWORD *)this + 6);
+    if ( (v3 & 0x400) != 0 )
+    {
+      bUnHookRedir((DEVLOCKOBJ *)((char *)this + 32));
+      *((_DWORD *)this + 6) &= ~0x400u;
+      v3 = *((_DWORD *)this + 6);
+    }
+    if ( (v3 & 0x2000) != 0 )
+    {
+      bUnHookBmpDrv(v1);
+      *((_DWORD *)this + 6) &= ~0x2000u;
+    }
+    DEVLOCKOBJ::vFlushSpriteUpdates(this, 1);
+  }
+  return 1LL;
+}

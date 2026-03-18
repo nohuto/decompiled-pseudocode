@@ -1,0 +1,227 @@
+/*
+ * XREFs of CmpInitializeMachineDependentConfiguration @ 0x1409C1D98
+ * Callers:
+ *     CmInitSystem1 @ 0x1409C3050 (CmInitSystem1.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1401B8510 (ZwCreateKey.c)
+ *     ZwOpenSection @ 0x1401B8850 (ZwOpenSection.c)
+ *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     __report_rangecheckfailure @ 0x140268CCC (__report_rangecheckfailure.c)
+ *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     CmpAddProcessorConfigurationEntry @ 0x140731E00 (CmpAddProcessorConfigurationEntry.c)
+ *     CmpSetVideoBiosInformation @ 0x1409C2418 (CmpSetVideoBiosInformation.c)
+ *     CmpSetSystemBiosInformation @ 0x1409C25D4 (CmpSetSystemBiosInformation.c)
+ *     CmpInitializeSystemBiosInformation @ 0x1409F3A28 (CmpInitializeSystemBiosInformation.c)
+ */
+
+NTSTATUS __fastcall CmpInitializeMachineDependentConfiguration(__int64 a1)
+{
+  __int64 v1; // rsi
+  unsigned int v2; // r14d
+  unsigned int v3; // ecx
+  unsigned __int64 v4; // rax
+  NTSTATUS result; // eax
+  int v6; // edi
+  __int64 v7; // rbx
+  unsigned int v8; // ecx
+  KPCR *Pcr; // rax
+  unsigned int SecondLevelCacheSize; // r9d
+  unsigned __int8 *v11; // rax
+  int v12; // edx
+  int v13; // ecx
+  bool v14; // zf
+  int v15; // ebx
+  __int64 Table; // rax
+  unsigned __int8 v17; // cl
+  bool v18; // cf
+  bool v19; // zf
+  char v20; // cl
+  bool v21; // al
+  HANDLE Handle; // [rsp+40h] [rbp-E8h] BYREF
+  HANDLE KeyHandle; // [rsp+48h] [rbp-E0h] BYREF
+  int Data; // [rsp+50h] [rbp-D8h] BYREF
+  ULONG Disposition; // [rsp+54h] [rbp-D4h] BYREF
+  HANDLE SectionHandle; // [rsp+58h] [rbp-D0h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+60h] [rbp-C8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+70h] [rbp-B8h] BYREF
+  struct _GROUP_AFFINITY Affinity; // [rsp+A0h] [rbp-88h] BYREF
+  __int64 v30; // [rsp+B0h] [rbp-78h]
+  UNICODE_STRING v31; // [rsp+B8h] [rbp-70h] BYREF
+  UNICODE_STRING v32; // [rsp+C8h] [rbp-60h] BYREF
+  __int64 v33; // [rsp+D8h] [rbp-50h] BYREF
+  int v34; // [rsp+E0h] [rbp-48h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+E8h] [rbp-40h] BYREF
+
+  v30 = a1;
+  v1 = a1;
+  v2 = 0;
+  v3 = 0;
+  v4 = 0LL;
+  do
+  {
+    if ( v4 >= 0x54 )
+      _report_rangecheckfailure();
+    *(_WORD *)((char *)&CmpDeviceIndexTable + v4) = 0;
+    ++v3;
+    v4 += 2LL;
+  }
+  while ( v3 < 0x2A );
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  ObjectAttributes.ObjectName = &CmRegistryMachineSystemCurrentControlSetControlSessionManagerMemoryManagement;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  if ( ZwOpenKey(&KeyHandle, 0x2001Fu, &ObjectAttributes) >= 0 )
+  {
+    Data = 1;
+    RtlInitUnicodeString(&DestinationString, L"PhysicalAddressExtension");
+    ZwSetValueKey(KeyHandle, &DestinationString, 0, 4u, &Data, 4u);
+    ZwClose(KeyHandle);
+  }
+  ObjectAttributes.ObjectName = &CmRegistryMachineHardwareDescriptionSystemName;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.RootDirectory = 0LL;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ObjectAttributes.Attributes = 576;
+  result = ZwCreateKey(&Handle, 0x20019u, &ObjectAttributes, 0, 0LL, 0, 0LL);
+  if ( result >= 0 )
+  {
+    RtlInitUnicodeString(&v31, L"CentralProcessor");
+    ObjectAttributes.RootDirectory = Handle;
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &v31;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    ZwCreateKey(&KeyHandle, 0x2001Fu, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+    ZwClose(KeyHandle);
+    if ( Disposition == 1 )
+    {
+      CmpConfigurationData = ExAllocatePoolWithTag(PagedPool, (unsigned int)CmpConfigurationAreaSize, 0x20204D43u);
+      v6 = 0;
+      if ( (_DWORD)KeNumberProcessors_0 )
+      {
+        while ( 1 )
+        {
+          v7 = KiProcessorBlock[v6];
+          v8 = KiProcessorIndexToNumberMappingTable[*(unsigned int *)(v7 + 36)];
+          Affinity.Reserved[1] = 0;
+          Affinity.Reserved[2] = 0;
+          *(_DWORD *)&Affinity.Group = (unsigned __int16)(v8 >> 6);
+          Affinity.Mask = 1LL << (v8 & 0x3F);
+          KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+          CmpAddProcessorConfigurationEntry(v7, v6, (int)Handle);
+          Pcr = KeGetPcr();
+          if ( v6 )
+          {
+            SecondLevelCacheSize = Pcr->SecondLevelCacheSize;
+            if ( *(_BYTE *)(v7 + 65) )
+            {
+              v11 = (unsigned __int8 *)(v7 + 25232);
+              do
+              {
+                v12 = v11[KiProcessorBlock[0] - v7];
+                v13 = *v11 - v12;
+                if ( v13 )
+                  break;
+                ++v11;
+              }
+              while ( v12 );
+              if ( v13 )
+                CmProcessorMismatch |= 1u;
+              if ( SecondLevelCacheSize != v2 )
+                CmProcessorMismatch |= 4u;
+              if ( *(_BYTE *)(v7 + 64) != *(_BYTE *)(KiProcessorBlock[0] + 64) )
+              {
+LABEL_42:
+                CmProcessorMismatch |= 2u;
+                goto LABEL_21;
+              }
+              v14 = *(_WORD *)(v7 + 66) == *(_WORD *)(KiProcessorBlock[0] + 66);
+            }
+            else
+            {
+              v14 = *(_BYTE *)(KiProcessorBlock[0] + 65) == 0;
+            }
+            if ( !v14 )
+              goto LABEL_42;
+          }
+          else
+          {
+            v2 = Pcr->SecondLevelCacheSize;
+          }
+LABEL_21:
+          KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+          if ( ++v6 >= (unsigned int)KeNumberProcessors_0 )
+          {
+            v1 = v30;
+            break;
+          }
+        }
+      }
+      if ( CmpConfigurationData )
+      {
+        ExFreePoolWithTag(CmpConfigurationData, 0);
+        CmpConfigurationData = 0LL;
+      }
+    }
+    RtlInitUnicodeString(&v32, L"\\Device\\PhysicalMemory");
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = &v32;
+    ObjectAttributes.RootDirectory = 0LL;
+    ObjectAttributes.Attributes = 576;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenSection(&SectionHandle, 0xF001Fu, &ObjectAttributes) >= 0 )
+    {
+      v15 = dword_140409DD0;
+      if ( dword_140409DD0 == 1 )
+        CmpSetSystemBiosInformation(v1, SectionHandle, Handle);
+      else
+        CmpInitializeSystemBiosInformation(v1);
+      v33 = 0LL;
+      v34 = 0;
+      Table = HalAcpiGetTableEx(v1, 1346584902LL, 0LL, 0LL);
+      if ( Table )
+      {
+        v17 = *(_BYTE *)(Table + 8);
+        v18 = v17 == 0;
+        v19 = v17 == 1;
+        if ( v17 > 1u )
+        {
+          LODWORD(v33) = *(unsigned __int16 *)(Table + 109);
+          v34 = *(_DWORD *)(Table + 112);
+          HIDWORD(v33) = *(unsigned __int8 *)(Table + 45);
+          v20 = *(_BYTE *)(Table + 8);
+          v18 = v20 == 0;
+          v19 = v20 == 1;
+        }
+        v21 = !v18 && !v19;
+      }
+      else
+      {
+        v21 = 0;
+      }
+      if ( v21 )
+      {
+        RtlInitUnicodeString(&DestinationString, L"BootArchitecture");
+        ZwSetValueKey(Handle, &DestinationString, 0, 4u, &v33, 4u);
+        RtlInitUnicodeString(&DestinationString, L"PreferredProfile");
+        ZwSetValueKey(Handle, &DestinationString, 0, 4u, (char *)&v33 + 4, 4u);
+        RtlInitUnicodeString(&DestinationString, L"Capabilities");
+        ZwSetValueKey(Handle, &DestinationString, 0, 4u, &v34, 4u);
+      }
+      if ( v15 == 1 )
+        CmpSetVideoBiosInformation(SectionHandle, Handle);
+      ZwClose(SectionHandle);
+    }
+    ZwClose(Handle);
+    return 0;
+  }
+  return result;
+}

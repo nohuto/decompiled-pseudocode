@@ -1,0 +1,65 @@
+/*
+ * XREFs of _CmValidateDeviceName @ 0x1405C3710
+ * Callers:
+ *     _CmGetDeviceRegKeyPath @ 0x1405C3584 (_CmGetDeviceRegKeyPath.c)
+ *     _PnpDispatchDevice @ 0x140627FC0 (_PnpDispatchDevice.c)
+ *     _CmGetDeviceInterfaceName @ 0x140715260 (_CmGetDeviceInterfaceName.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x1407198C8 (PiCMGetRelatedDeviceInstance.c)
+ *     _CmEnumSubkeyCallback @ 0x14076D080 (_CmEnumSubkeyCallback.c)
+ *     PiCMCreateDevice @ 0x140870890 (PiCMCreateDevice.c)
+ *     PiCMDeleteDevice @ 0x1408712B4 (PiCMDeleteDevice.c)
+ *     PiCMDeviceAction @ 0x140871B20 (PiCMDeviceAction.c)
+ *     PiCMGenerateDeviceInstance @ 0x140872074 (PiCMGenerateDeviceInstance.c)
+ *     PiCMGetDeviceDepth @ 0x1408723C0 (PiCMGetDeviceDepth.c)
+ *     PiCMQueryRemove @ 0x140872914 (PiCMQueryRemove.c)
+ *     PiCMRegisterDeviceInterface @ 0x140872D30 (PiCMRegisterDeviceInterface.c)
+ *     PiCMSetDeviceProblem @ 0x140872FDC (PiCMSetDeviceProblem.c)
+ * Callees:
+ *     RtlUnalignedStringCchLengthW @ 0x140002B5C (RtlUnalignedStringCchLengthW.c)
+ */
+
+__int64 __fastcall CmValidateDeviceName(__int64 a1, const wchar_t *a2)
+{
+  int v2; // ebx
+  int v3; // edi
+  NTSTATUS v4; // r8d
+  __int16 *v5; // r11
+  __int16 v6; // ax
+  size_t pcchLength; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = 0;
+  v3 = 1;
+  if ( !a2 )
+    return 3221225485LL;
+  v4 = RtlUnalignedStringCchLengthW(a2, 0xC8uLL, &pcchLength);
+  if ( v4 >= 0 )
+  {
+    v6 = *v5;
+    if ( *v5 )
+    {
+      while ( (unsigned __int16)(v6 - 33) <= 0x5Eu && v6 != 44 )
+      {
+        if ( v6 == 92 )
+        {
+          if ( !v2 )
+            return 3221225523LL;
+          v2 = 0;
+          ++v3;
+        }
+        else
+        {
+          ++v2;
+        }
+        v6 = v5[1];
+        ++v5;
+        if ( !v6 )
+        {
+          if ( v2 && v3 == 3 )
+            return (unsigned int)v4;
+          return 3221225523LL;
+        }
+      }
+    }
+  }
+  return 3221225523LL;
+}

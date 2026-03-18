@@ -1,0 +1,22 @@
+/*
+ * XREFs of IoGetFsTrackOffsetState @ 0x1400D13AC
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopIrpHasExtensionType @ 0x1400D13D8 (IopIrpHasExtensionType.c)
+ */
+
+__int64 __fastcall IoGetFsTrackOffsetState(__int64 a1)
+{
+  __int64 v1; // r9
+  _QWORD *v2; // r10
+  _QWORD *v3; // r11
+  __int64 v5; // rcx
+
+  if ( !(unsigned __int8)IopIrpHasExtensionType(a1, 5LL) )
+    return 3221226021LL;
+  v5 = *(_QWORD *)(v1 + 200);
+  *v3 = *(_QWORD *)(v5 + 40);
+  *v2 = *(_QWORD *)(v5 + 48);
+  return 0LL;
+}

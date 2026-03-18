@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_GCD2DBitmapCacheSourceRealization@@UEAAPEAXI@Z @ 0x1800D5D70
+ * Callers:
+ *     ??_ECD2DBitmapCacheSourceRealization@@WFI@EAAPEAXI@Z @ 0x1800F1550 (--_ECD2DBitmapCacheSourceRealization@@WFI@EAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18002F520 (--3@YAXPEAX_K@Z.c)
+ *     ??1CBitmapRealization@@MEAA@XZ @ 0x18004F8C0 (--1CBitmapRealization@@MEAA@XZ.c)
+ */
+
+CD2DBitmapCacheSourceRealization *__fastcall CD2DBitmapCacheSourceRealization::`scalar deleting destructor'(
+        CD2DBitmapCacheSourceRealization *this,
+        char a2)
+{
+  CBitmapRealization::~CBitmapRealization(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

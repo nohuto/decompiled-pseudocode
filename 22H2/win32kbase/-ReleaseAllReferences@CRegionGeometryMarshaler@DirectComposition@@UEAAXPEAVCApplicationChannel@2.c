@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CRegionGeometryMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00ADA80
+ * Callers:
+ *     ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCRegionGeometryMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C020E410 (-ReleaseAllReferences@-$CSharedResourceMarshaler@VCRegionGeometryMarshaler@DirectComposition@@$0.c)
+ * Callees:
+ *     ?Clear@CMarshaledArrayBase@DirectComposition@@IEAAXXZ @ 0x1C009E150 (-Clear@CMarshaledArrayBase@DirectComposition@@IEAAXXZ.c)
+ *     ?ReleaseAllReferences@CGeometryMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00ADAC0 (-ReleaseAllReferences@CGeometryMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z.c)
+ */
+
+void __fastcall DirectComposition::CRegionGeometryMarshaler::ReleaseAllReferences(
+        DirectComposition::CRegionGeometryMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2)
+{
+  DirectComposition::CMarshaledArrayBase::Clear((DirectComposition::CRegionGeometryMarshaler *)((char *)this + 96));
+  DirectComposition::CGeometryMarshaler::ReleaseAllReferences(this, a2);
+}

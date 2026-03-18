@@ -1,0 +1,222 @@
+/*
+ * XREFs of CmpMoveBiosAliasTable @ 0x1407FC020
+ * Callers:
+ *     CmSetAcpiHwProfile @ 0x140730EF0 (CmSetAcpiHwProfile.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x1400B9A70 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     swprintf_s @ 0x14019A340 (swprintf_s.c)
+ *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401B83B0 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1401B8430 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1401B8450 (ZwQueryValueKey.c)
+ *     ZwEnumerateKey @ 0x1401B87B0 (ZwEnumerateKey.c)
+ *     ZwSetValueKey @ 0x1401B8D70 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x1401B9B30 (ZwDeleteKey.c)
+ *     CmpOpenDevicesControlSet @ 0x140731CD4 (CmpOpenDevicesControlSet.c)
+ *     CmDeleteKeyRecursive @ 0x1407FB224 (CmDeleteKeyRecursive.c)
+ */
+
+__int64 __fastcall CmpMoveBiosAliasTable(
+        void *a1,
+        void *a2,
+        unsigned int a3,
+        int a4,
+        wchar_t *Dst,
+        __int64 a6,
+        unsigned __int16 *KeyValueInformation)
+{
+  ULONG v10; // esi
+  int v11; // r12d
+  NTSTATUS v12; // ebx
+  __int64 v13; // rcx
+  NTSTATUS v14; // ebx
+  ULONG Length; // [rsp+20h] [rbp-C1h]
+  HANDLE Handle; // [rsp+30h] [rbp-B1h] BYREF
+  ULONG ResultLength; // [rsp+38h] [rbp-A9h] BYREF
+  HANDLE v19; // [rsp+40h] [rbp-A1h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-99h] BYREF
+  HANDLE KeyHandle; // [rsp+58h] [rbp-89h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-81h] BYREF
+  int v23; // [rsp+90h] [rbp-51h]
+  int Data; // [rsp+98h] [rbp-49h] BYREF
+  _BYTE KeyInformation[20]; // [rsp+A0h] [rbp-41h] BYREF
+  ULONG v26; // [rsp+B4h] [rbp-2Dh]
+
+  KeyHandle = 0LL;
+  Handle = 0LL;
+  v19 = 0LL;
+  Data = a4;
+  RtlInitUnicodeString(&DestinationString, L"SerialNumber");
+  v10 = 0;
+  if ( ZwQueryValueKey(a2, &DestinationString, KeyValueFullInformation, KeyValueInformation, 0x100u, &ResultLength) >= 0
+    && *((_DWORD *)KeyValueInformation + 1) == 4
+    && (v23 = *(_DWORD *)((char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2)),
+        RtlInitUnicodeString(&DestinationString, L"DockID"),
+        ZwQueryValueKey(a2, &DestinationString, KeyValueFullInformation, KeyValueInformation, 0x100u, &ResultLength) >= 0)
+    && *((_DWORD *)KeyValueInformation + 1) == 4 )
+  {
+    v11 = *(_DWORD *)((char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2));
+    RtlInitUnicodeString(&DestinationString, L"Alias");
+    ObjectAttributes.RootDirectory = a1;
+    ObjectAttributes.ObjectName = &DestinationString;
+    ObjectAttributes.Attributes = 576;
+    ObjectAttributes.Length = 48;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    if ( ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes) < 0 )
+    {
+      v12 = 0;
+      KeyHandle = 0LL;
+      goto LABEL_36;
+    }
+    v12 = ZwQueryKey(KeyHandle, KeyFullInformation, KeyInformation, 0x30u, &ResultLength);
+    if ( v12 >= 0 && v26 )
+    {
+      do
+      {
+        v12 = ZwEnumerateKey(KeyHandle, v10, KeyBasicInformation, KeyValueInformation, 0xFEu, &ResultLength);
+        if ( v12 < 0 )
+          break;
+        KeyValueInformation[((unsigned __int64)*((unsigned int *)KeyValueInformation + 3) >> 1) + 8] = 0;
+        DestinationString.Length = KeyValueInformation[6];
+        DestinationString.MaximumLength = DestinationString.Length + 2;
+        DestinationString.Buffer = KeyValueInformation + 8;
+        ObjectAttributes.RootDirectory = KeyHandle;
+        ObjectAttributes.ObjectName = &DestinationString;
+        ObjectAttributes.Length = 48;
+        ObjectAttributes.Attributes = 576;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        v12 = ZwOpenKey(&Handle, 0x2001Fu, &ObjectAttributes);
+        if ( v12 < 0 )
+          break;
+        RtlInitUnicodeString(&DestinationString, L"ProfileNumber");
+        v12 = ZwQueryValueKey(
+                Handle,
+                &DestinationString,
+                KeyValueFullInformation,
+                KeyValueInformation,
+                0x100u,
+                &ResultLength);
+        if ( v12 < 0 || *((_DWORD *)KeyValueInformation + 1) != 4 )
+          goto LABEL_33;
+        if ( a3 != *(_DWORD *)((char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2)) )
+          goto LABEL_14;
+        RtlInitUnicodeString(&DestinationString, L"DockID");
+        v12 = ZwQueryValueKey(
+                Handle,
+                &DestinationString,
+                KeyValueFullInformation,
+                KeyValueInformation,
+                0x100u,
+                &ResultLength);
+        if ( v12 < 0 || *((_DWORD *)KeyValueInformation + 1) != 4 )
+          goto LABEL_33;
+        if ( v11 != *(_DWORD *)((char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2)) )
+          goto LABEL_14;
+        RtlInitUnicodeString(&DestinationString, L"SerialNumber");
+        v12 = ZwQueryValueKey(
+                Handle,
+                &DestinationString,
+                KeyValueFullInformation,
+                KeyValueInformation,
+                0x100u,
+                &ResultLength);
+        if ( v12 < 0 || *((_DWORD *)KeyValueInformation + 1) != 4 )
+          goto LABEL_33;
+        if ( v23 == *(_DWORD *)((char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2)) )
+        {
+          RtlInitUnicodeString(&DestinationString, L"ProfileNumber");
+          ZwSetValueKey(Handle, &DestinationString, 0, 4u, &Data, 4u);
+          ZwClose(Handle);
+          Handle = 0LL;
+          RtlInitUnicodeString(&DestinationString, L"Hardware Profiles");
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = &DestinationString;
+          ObjectAttributes.RootDirectory = a1;
+          ObjectAttributes.Attributes = 576;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          if ( ZwOpenKey(&v19, 0x2001Fu, &ObjectAttributes) < 0 )
+            goto LABEL_32;
+          swprintf_s(Dst, 0x80uLL, L"%04d", a3);
+          RtlInitUnicodeString(&DestinationString, Dst);
+          ObjectAttributes.RootDirectory = v19;
+          ObjectAttributes.Length = 48;
+          ObjectAttributes.ObjectName = &DestinationString;
+          ObjectAttributes.Attributes = 576;
+          *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+          if ( ZwOpenKey(&Handle, 0xF003Fu, &ObjectAttributes) < 0 )
+          {
+            Handle = 0LL;
+            goto LABEL_33;
+          }
+          RtlInitUnicodeString(&DestinationString, L"Cloned");
+          v12 = ZwQueryValueKey(
+                  Handle,
+                  &DestinationString,
+                  KeyValueFullInformation,
+                  KeyValueInformation,
+                  0x100u,
+                  &ResultLength);
+          if ( v12 < 0 || *((_DWORD *)KeyValueInformation + 1) != 4 )
+            goto LABEL_33;
+          if ( *(_DWORD *)((char *)KeyValueInformation + *((unsigned int *)KeyValueInformation + 2)) )
+          {
+            ZwDeleteKey(Handle);
+            ZwClose(Handle);
+            ZwClose(v19);
+            v19 = 0LL;
+            Handle = 0LL;
+            if ( (int)CmpOpenDevicesControlSet(v13, &Handle, 0LL) < 0 )
+              goto LABEL_32;
+            ObjectAttributes.RootDirectory = Handle;
+            ObjectAttributes.Length = 48;
+            ObjectAttributes.ObjectName = (PUNICODE_STRING)L"\"$";
+            ObjectAttributes.Attributes = 576;
+            *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+            v14 = ZwOpenKey(&v19, 0x2001Fu, &ObjectAttributes);
+            ZwClose(Handle);
+            Handle = 0LL;
+            if ( v14 < 0 )
+            {
+LABEL_32:
+              v19 = 0LL;
+              goto LABEL_33;
+            }
+            swprintf_s(Dst, 0x80uLL, L"%04d", a3);
+            v12 = CmDeleteKeyRecursive(v19, Dst, (__int64)KeyValueInformation, 256, Length);
+            ZwClose(v19);
+            v19 = 0LL;
+          }
+          else
+          {
+            ZwClose(Handle);
+            ZwClose(v19);
+            v19 = 0LL;
+            Handle = 0LL;
+          }
+        }
+        else
+        {
+LABEL_14:
+          ZwClose(Handle);
+          Handle = 0LL;
+        }
+        ++v10;
+      }
+      while ( v10 < v26 );
+    }
+  }
+  else
+  {
+LABEL_33:
+    v12 = -1073741492;
+  }
+  if ( KeyHandle )
+    ZwClose(KeyHandle);
+LABEL_36:
+  if ( Handle )
+    ZwClose(Handle);
+  if ( v19 )
+    ZwClose(v19);
+  return (unsigned int)v12;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?IsYUVAllocation@@YAHPEAXPEAVADAPTER_RENDER@@@Z @ 0x1C019D7CC
+ * Callers:
+ *     ?PrepareIndependentFlipToken@DXGCONTEXT@@QEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00CBE30 (-PrepareIndependentFlipToken@DXGCONTEXT@@QEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_.c)
+ *     ?LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXIPEAPEAU_D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_WITH_SOURCE@@PEAVADAPTER_RENDER@@@Z @ 0x1C019D830 (-LogCheckMutiplaneOverlaySupport@@YAXJHIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXI.c)
+ * Callees:
+ *     memset @ 0x1C0016A80 (memset.c)
+ *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C00833BC (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
+ */
+
+__int64 __fastcall IsYUVAllocation(void *a1, struct ADAPTER_RENDER *a2)
+{
+  unsigned int v4; // esi
+  __int64 v5; // r8
+  struct _DXGKARG_DESCRIBEALLOCATION v7; // [rsp+20h] [rbp-38h] BYREF
+
+  v4 = 0;
+  memset(&v7.Width, 0, 0x28uLL);
+  v7.hAllocation = a1;
+  if ( (int)ADAPTER_RENDER::DdiDescribeAllocation(a2, &v7, v5) >= 0 )
+    return v7.Format >= 0xFFFFFF;
+  return v4;
+}

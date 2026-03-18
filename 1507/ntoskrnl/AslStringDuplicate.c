@@ -1,0 +1,57 @@
+/*
+ * XREFs of AslStringDuplicate @ 0x1407050E0
+ * Callers:
+ *     AslPathToSystemPath @ 0x140705B6C (AslPathToSystemPath.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140008670 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x14011BAF4 (RtlStringCchCopyW.c)
+ *     AslFree @ 0x1405783C4 (AslFree.c)
+ *     AslAlloc @ 0x1405783E4 (AslAlloc.c)
+ *     AslLogCallPrintf @ 0x1405AB1C4 (AslLogCallPrintf.c)
+ */
+
+__int64 __fastcall AslStringDuplicate(wchar_t **a1, const wchar_t *a2)
+{
+  wchar_t *v2; // rdi
+  NTSTATUS v5; // ebx
+  __int64 v6; // rcx
+  unsigned __int64 v7; // rbx
+  wchar_t *v8; // rax
+  size_t pcchLength; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = 0LL;
+  *a1 = 0LL;
+  if ( !a2 )
+    goto LABEL_2;
+  v5 = RtlStringCchLengthW(a2, 0x7FFFFFFFuLL, &pcchLength);
+  if ( v5 < 0 )
+    goto LABEL_11;
+  v7 = pcchLength + 1;
+  if ( pcchLength + 1 < pcchLength || !is_mul_ok(v7, 2uLL) )
+  {
+    v5 = -1073741675;
+    goto LABEL_11;
+  }
+  v8 = (wchar_t *)AslAlloc(v6, 2 * v7);
+  v2 = v8;
+  if ( !v8 )
+  {
+    v5 = -1073741801;
+    AslLogCallPrintf(1LL);
+    goto LABEL_12;
+  }
+  v5 = RtlStringCchCopyW(v8, v7, a2);
+  if ( v5 < 0 )
+  {
+LABEL_11:
+    AslLogCallPrintf(1LL);
+    goto LABEL_12;
+  }
+  *a1 = v2;
+  v2 = 0LL;
+LABEL_2:
+  v5 = 0;
+LABEL_12:
+  AslFree((__int64)a1, v2);
+  return (unsigned int)v5;
+}

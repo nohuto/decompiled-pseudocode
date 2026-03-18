@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?NotifyProcessFreeze@ADAPTER_RENDER@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0163CB4
+ * Callers:
+ *     ?NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ @ 0x1C0164528 (-NotifyProcessFreeze@DXGPROCESS@@QEAAXXZ.c)
+ * Callees:
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C000964C (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x1C000A924 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3A0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C000F3FC (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C000F480 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C000F718 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     __security_check_cookie @ 0x1C002B170 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     ?PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z @ 0x1C01E9A2C (-PurgeSegments@ADAPTER_RENDER@@AEAAXU_VIDMM_PURGE_FLAGS@@PEAVDXGPROCESS@@@Z.c)
+ */
+
+void __fastcall ADAPTER_RENDER::NotifyProcessFreeze(struct DXGADAPTER **this, struct DXGPROCESS *a2)
+{
+  struct DXGADAPTER *v4; // rcx
+  _BYTE v5[8]; // [rsp+20h] [rbp-C8h] BYREF
+  struct DXGADAPTER *v6; // [rsp+28h] [rbp-C0h]
+  char v7; // [rsp+30h] [rbp-B8h]
+  _BYTE v8[144]; // [rsp+40h] [rbp-A8h] BYREF
+
+  if ( !DXGADAPTER::IsDxgmms2(this[2]) )
+  {
+    COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v8, v4, 0LL);
+    if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v8, 0LL) < 0 )
+    {
+      COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v8);
+      return;
+    }
+    ADAPTER_RENDER::PurgeSegments(this, 25LL, a2);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v8);
+    v4 = this[2];
+  }
+  v6 = v4;
+  v7 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v5);
+  if ( *((_DWORD *)this[2] + 50) == 1 )
+    (*(void (__fastcall **)(struct DXGADAPTER *))(*((_QWORD *)this[81] + 1) + 1104LL))(this[82]);
+  if ( v7 )
+    DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGADAPTERSTOPRESETLOCKSHARED *)v5);
+}

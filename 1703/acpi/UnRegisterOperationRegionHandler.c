@@ -1,0 +1,114 @@
+/*
+ * XREFs of UnRegisterOperationRegionHandler @ 0x1C00A0E14
+ * Callers:
+ *     ACPIIoctlUnRegisterOpRegionHandler @ 0x1C0051030 (ACPIIoctlUnRegisterOpRegionHandler.c)
+ *     ACPIEcRemoveOpRegionHandler @ 0x1C009E264 (ACPIEcRemoveOpRegionHandler.c)
+ *     DeRegisterOpRegionHandler @ 0x1C00A0D70 (DeRegisterOpRegionHandler.c)
+ * Callees:
+ *     AMLIEvalNameSpaceObject @ 0x1C0002820 (AMLIEvalNameSpaceObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C00142C0 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00178D0 (AMLIGetNameSpaceObject.c)
+ *     AMLIRegEventHandler @ 0x1C0026FB4 (AMLIRegEventHandler.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C0027294 (EnableDisableDeviceTreeRegionSpace.c)
+ *     memset @ 0x1C002CB80 (memset.c)
+ */
+
+__int64 __fastcall UnRegisterOperationRegionHandler(__int64 a1, __int64 *a2)
+{
+  __int64 *v4; // rax
+  unsigned int v5; // ebx
+  __int64 v6; // rcx
+  char v7; // di
+  unsigned int v8; // ecx
+  unsigned int v9; // edx
+  __int64 v10; // rax
+  __int64 v11; // rdx
+  unsigned int v12; // edi
+  __int64 v13; // r8
+  __int64 **v14; // rdx
+  _QWORD v16[10]; // [rsp+20h] [rbp-68h] BYREF
+  __int64 *v17; // [rsp+98h] [rbp+10h] BYREF
+
+  v17 = 0LL;
+  ExAcquireFastMutex(&AcpiOpRegionLock);
+  v4 = (__int64 *)AcpiOpRegionHandlerList;
+  if ( (__int64 *)AcpiOpRegionHandlerList == &AcpiOpRegionHandlerList )
+    goto LABEL_27;
+  do
+  {
+    if ( v4 == a2 )
+      break;
+    v4 = (__int64 *)*v4;
+  }
+  while ( v4 != &AcpiOpRegionHandlerList );
+  if ( v4 == &AcpiOpRegionHandlerList )
+  {
+LABEL_27:
+    v5 = -1073741584;
+    goto LABEL_28;
+  }
+  if ( *((_BYTE *)a2 + 40) )
+  {
+    v5 = -1073741738;
+LABEL_28:
+    ExReleaseFastMutex(&AcpiOpRegionLock);
+    return v5;
+  }
+  v6 = a2[1];
+  v7 = 0;
+  *((_BYTE *)a2 + 40) = 1;
+  if ( ((__int64 *)v6 == &AcpiOpRegionHandlerList || *(_DWORD *)(v6 + 36) != *((_DWORD *)a2 + 9))
+    && ((__int64 *)*a2 == &AcpiOpRegionHandlerList || *(_DWORD *)(*a2 + 36) != *((_DWORD *)a2 + 9)) )
+  {
+    v8 = *((_DWORD *)a2 + 9);
+    if ( v8 < 0x1F )
+    {
+      AcpiRegisteredOpRegionMask &= ~(1 << v8);
+    }
+    else if ( (__int64 *)AcpiOpRegionHandlerList == &AcpiOpRegionHandlerList
+           || *(_DWORD *)(qword_1C0076A48 + 36) < 0x1Fu )
+    {
+      AcpiRegisteredOpRegionMask &= ~0x80000000;
+    }
+  }
+  else
+  {
+    v7 = 1;
+  }
+  ExReleaseFastMutex(&AcpiOpRegionLock);
+  if ( !v7 )
+  {
+    v9 = *((_DWORD *)a2 + 9);
+    if ( v9 - 8 > 1 )
+    {
+      if ( a1 && (int)AMLIGetNameSpaceObject("_REG", a1, &v17) >= 0 )
+      {
+        memset(v16, 0, sizeof(v16));
+        v10 = *((unsigned int *)a2 + 9);
+        v16[7] = 0LL;
+        WORD1(v16[0]) = 1;
+        v16[2] = v10;
+        WORD1(v16[5]) = 1;
+        AMLIEvalNameSpaceObject(v17, 0LL, 2u, v16);
+        AMLIDereferenceHandleEx((volatile signed __int32 *)v17, v11);
+      }
+    }
+    else
+    {
+      EnableDisableDeviceTreeRegionSpace(RootDeviceExtension, v9, 0LL);
+    }
+  }
+  v12 = (unsigned int)AMLIRegEventHandler(*((_DWORD *)a2 + 8), *((_DWORD *)a2 + 9), 0LL, 0LL) != 0 ? 0xC0000001 : 0;
+  ExAcquireFastMutex(&AcpiOpRegionLock);
+  v13 = *a2;
+  v14 = (__int64 **)a2[1];
+  if ( *(__int64 **)(*a2 + 8) != a2 || *v14 != a2 )
+    __fastfail(3u);
+  *v14 = (__int64 *)v13;
+  *(_QWORD *)(v13 + 8) = v14;
+  a2[1] = (__int64)a2;
+  *a2 = (__int64)a2;
+  ExReleaseFastMutex(&AcpiOpRegionLock);
+  ExFreePoolWithTag(a2, 0);
+  return v12;
+}

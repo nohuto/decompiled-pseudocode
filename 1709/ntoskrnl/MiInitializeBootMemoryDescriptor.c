@@ -1,0 +1,37 @@
+/*
+ * XREFs of MiInitializeBootMemoryDescriptor @ 0x14082BA70
+ * Callers:
+ *     MxInitializeFreeNodeDescriptors @ 0x14082B05C (MxInitializeFreeNodeDescriptors.c)
+ *     MxSwitchDescriptors @ 0x14086C2D0 (MxSwitchDescriptors.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int64 __fastcall MiInitializeBootMemoryDescriptor(
+        unsigned __int64 *a1,
+        unsigned __int64 a2,
+        unsigned __int64 a3,
+        unsigned __int64 a4)
+{
+  unsigned __int64 v4; // r10
+  unsigned __int64 v5; // r10
+  unsigned __int64 result; // rax
+
+  *a1 = a3;
+  v4 = a3 + a4 - 1;
+  a1[1] = a4;
+  a1[2] = v4;
+  v5 = v4 & 0xFFFFFFFFFFFFFE00uLL;
+  a1[3] = v5;
+  a1[4] = a2;
+  if ( v5 < a3 || (result = v5 - a3, v5 - a3 < 0x200) )
+  {
+    a1[3] = -1LL;
+  }
+  else
+  {
+    result = v5 - 512;
+    a1[3] = v5 - 512;
+  }
+  return result;
+}

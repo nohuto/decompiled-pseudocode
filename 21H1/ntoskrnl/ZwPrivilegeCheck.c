@@ -1,0 +1,14 @@
+/*
+ * XREFs of ZwPrivilegeCheck @ 0x1403F4A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwPrivilegeCheck(__int64 a1, __int64 a2)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(a1, a2);
+}

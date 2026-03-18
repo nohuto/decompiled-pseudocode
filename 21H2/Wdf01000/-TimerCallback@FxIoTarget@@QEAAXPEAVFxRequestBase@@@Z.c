@@ -1,0 +1,108 @@
+/*
+ * XREFs of ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0074894
+ * Callers:
+ *     ?_TimerDPC@FxRequestBase@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C0069BA0 (-_TimerDPC@FxRequestBase@@KAXPEAU_KDPC@@PEAX11@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0002928 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0004590 (-CompleteSubmitted@FxRequestBase@@QEAAXXZ.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0004FD4 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0005028 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?DecrementIoCount@FxIoTarget@@IEAAXXZ @ 0x1C000505C (-DecrementIoCount@FxIoTarget@@IEAAXXZ.c)
+ *     ?RemoveCompletedRequestLocked@FxIoTarget@@IEAAEPEAVFxRequestBase@@@Z @ 0x1C0005090 (-RemoveCompletedRequestLocked@FxIoTarget@@IEAAEPEAVFxRequestBase@@@Z.c)
+ *     ?Cancel@FxRequestBase@@QEAAEXZ @ 0x1C000EA30 (-Cancel@FxRequestBase@@QEAAEXZ.c)
+ *     WPP_IFR_SF_qq @ 0x1C00134A8 (WPP_IFR_SF_qq.c)
+ *     WPP_IFR_SF_q @ 0x1C00198E8 (WPP_IFR_SF_q.c)
+ */
+
+void __fastcall FxIoTarget::TimerCallback(FxIoTarget *this, FxRequestBase *Request, unsigned __int8 a3)
+{
+  unsigned __int8 v5; // bp
+  const void *_a1; // rax
+  const void *_a2; // rdx
+  _FX_DRIVER_GLOBALS *v8; // r10
+  unsigned __int8 v9; // r8
+  char v10; // si
+  unsigned __int8 m_TargetFlags; // al
+  unsigned __int64 ObjectHandleUnchecked; // rax
+  _FX_DRIVER_GLOBALS *v13; // r10
+  FxRequestBase *v14; // r8
+  const void *v15; // rax
+  signed __int32 m_IrpCompletionReferenceCount; // eax
+  signed __int32 v17; // edx
+  unsigned __int8 v18; // r8
+  unsigned __int8 v19; // al
+  _IRP *m_Irp; // rcx
+  unsigned __int8 irql; // [rsp+60h] [rbp+8h] BYREF
+
+  irql = 0;
+  v5 = 0;
+  if ( this->m_Globals->FxVerboseOn )
+  {
+    FxObject::GetObjectHandleUnchecked(Request);
+    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+    WPP_IFR_SF_qq(v8, 5u, 0xEu, 0x29u, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, _a1, _a2);
+  }
+  FxNonPagedObject::Lock(this, &irql, a3);
+  Request->m_TargetFlags &= ~4u;
+  v10 = 1;
+  m_TargetFlags = Request->m_TargetFlags;
+  if ( (m_TargetFlags & 1) == 0 )
+  {
+    Request->m_TargetFlags = m_TargetFlags | 8;
+    m_IrpCompletionReferenceCount = Request->m_IrpCompletionReferenceCount;
+    do
+    {
+      if ( m_IrpCompletionReferenceCount <= 0 )
+        break;
+      v17 = m_IrpCompletionReferenceCount;
+      m_IrpCompletionReferenceCount = _InterlockedCompareExchange(
+                                        &Request->m_IrpCompletionReferenceCount,
+                                        m_IrpCompletionReferenceCount + 1,
+                                        m_IrpCompletionReferenceCount);
+    }
+    while ( v17 != m_IrpCompletionReferenceCount );
+    FxNonPagedObject::Unlock(this, irql, v9);
+    FxRequestBase::Cancel(Request);
+    FxNonPagedObject::Lock(this, &irql, v18);
+  }
+  if ( _InterlockedExchangeAdd(&Request->m_IrpCompletionReferenceCount, 0xFFFFFFFF) == 1 )
+  {
+    v19 = FxIoTarget::RemoveCompletedRequestLocked(this, Request, v9);
+    m_Irp = Request->m_Irp.m_Irp;
+    v5 = v19;
+    if ( m_Irp->IoStatus.Status == -1073741536 )
+      m_Irp->IoStatus.Status = -1073741643;
+  }
+  else
+  {
+    v10 = 0;
+  }
+  FxNonPagedObject::Unlock(this, irql, v9);
+  if ( v10 )
+  {
+    if ( this->m_Globals->FxVerboseOn )
+    {
+      ObjectHandleUnchecked = FxObject::GetObjectHandleUnchecked(Request);
+      v14 = Request;
+      if ( ObjectHandleUnchecked )
+        v14 = (FxRequestBase *)ObjectHandleUnchecked;
+      WPP_IFR_SF_q(v13, 5u, 0xEu, 0x2Au, (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids, v14);
+    }
+    FxRequestBase::CompleteSubmitted(Request);
+  }
+  if ( v5 )
+  {
+    v15 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+    WPP_IFR_SF_qq(
+      this->m_Globals,
+      4u,
+      0xEu,
+      0x2Bu,
+      (const _GUID *)&WPP_FxIoTarget_cpp_Traceguids,
+      v15,
+      &this->m_SentIoEvent);
+    KeSetEvent(&this->m_SentIoEvent.m_Event.m_Event, 0, 0);
+  }
+  if ( v10 )
+    FxIoTarget::DecrementIoCount(this);
+}

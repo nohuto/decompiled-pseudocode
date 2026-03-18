@@ -1,0 +1,54 @@
+/*
+ * XREFs of PopDiagTraceSessionDisplayStateChange @ 0x14016A9A0
+ * Callers:
+ *     NtPowerInformation @ 0x140699980 (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x14069B7B4 (PopPowerInformationInternal.c)
+ * Callees:
+ *     EtwWriteEx @ 0x1400366F0 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1400476B0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ */
+
+char __fastcall PopDiagTraceSessionDisplayStateChange(char a1, int a2, int a3, int a4)
+{
+  const EVENT_DESCRIPTOR *v4; // rax
+  const EVENT_DESCRIPTOR *v5; // rbx
+  REGHANDLE v6; // rdi
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
+  int *v9; // [rsp+50h] [rbp-30h]
+  int v10; // [rsp+58h] [rbp-28h]
+  int v11; // [rsp+5Ch] [rbp-24h]
+  int *v12; // [rsp+60h] [rbp-20h]
+  int v13; // [rsp+68h] [rbp-18h]
+  int v14; // [rsp+6Ch] [rbp-14h]
+  int v15; // [rsp+A8h] [rbp+28h] BYREF
+  int v16; // [rsp+B0h] [rbp+30h] BYREF
+  int v17; // [rsp+B8h] [rbp+38h] BYREF
+
+  v17 = a4;
+  v16 = a3;
+  v15 = a2;
+  v4 = &POP_ETW_EVENT_SESSION_DISPLAY_ON;
+  v5 = (const EVENT_DESCRIPTOR *)&POP_ETW_EVENT_SESSION_DISPLAY_OFF;
+  if ( !a1 )
+    v5 = &POP_ETW_EVENT_SESSION_DISPLAY_ON;
+  if ( PopDiagHandleRegistered )
+  {
+    v6 = PopDiagHandle;
+    LOBYTE(v4) = EtwEventEnabled(PopDiagHandle, v5);
+    if ( (_BYTE)v4 )
+    {
+      UserData.Reserved = 0;
+      v11 = 0;
+      v14 = 0;
+      UserData.Ptr = (ULONGLONG)&v15;
+      UserData.Size = 4;
+      v9 = &v16;
+      v10 = 4;
+      v12 = &v17;
+      v13 = 4;
+      LOBYTE(v4) = EtwWriteEx(v6, v5, 0LL, 0, 0LL, 0LL, 3u, &UserData);
+    }
+  }
+  return (char)v4;
+}

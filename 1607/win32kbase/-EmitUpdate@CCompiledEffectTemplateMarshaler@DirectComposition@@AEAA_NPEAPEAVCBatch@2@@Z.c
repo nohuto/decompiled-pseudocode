@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?EmitUpdate@CCompiledEffectTemplateMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00E7B88
+ * Callers:
+ *     ?EmitUpdateCommands@CCompiledEffectTemplateMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00E7C10 (-EmitUpdateCommands@CCompiledEffectTemplateMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0044720 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
+char __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::EmitUpdate(
+        DirectComposition::CCompiledEffectTemplateMarshaler *this,
+        struct DirectComposition::CBatch **a2)
+{
+  char v3; // al
+  int v4; // edx
+  char *v5; // rcx
+  __int64 v6; // rax
+  void *v8; // [rsp+30h] [rbp+8h] BYREF
+
+  if ( (*((_DWORD *)this + 4) & 0x40) != 0 )
+    return 1;
+  v3 = DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x18uLL, &v8);
+  v4 = 0;
+  if ( v3 )
+  {
+    v5 = (char *)v8;
+    *(_DWORD *)v8 = 24;
+    *(_QWORD *)(v5 + 4) = 0LL;
+    *(_QWORD *)(v5 + 12) = 0LL;
+    *((_DWORD *)v5 + 5) = 0;
+    *((_DWORD *)v5 + 1) = 250;
+    *((_DWORD *)v5 + 2) = *((_DWORD *)this + 6);
+    v6 = *((_QWORD *)this + 6);
+    if ( v6 )
+      v4 = *(_DWORD *)(v6 + 24);
+    *((_DWORD *)v5 + 3) = v4;
+    *((_DWORD *)v5 + 4) = *((_DWORD *)this + 14);
+    *((_DWORD *)v5 + 5) = *((_DWORD *)this + 15);
+    *((_DWORD *)this + 4) |= 0x40u;
+    return 1;
+  }
+  return 0;
+}

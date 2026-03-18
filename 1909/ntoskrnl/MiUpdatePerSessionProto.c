@@ -1,0 +1,63 @@
+/*
+ * XREFs of MiUpdatePerSessionProto @ 0x140138DD8
+ * Callers:
+ *     MiDereferenceSubsectionProtos @ 0x1406E9BB8 (MiDereferenceSubsectionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x1406E9C20 (MiCreatePerSessionProtos.c)
+ * Callees:
+ *     RtlAvlRemoveNode @ 0x140029C60 (RtlAvlRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140060B00 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x140060B40 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140072EB0 (RtlAvlInsertNodeEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall MiUpdatePerSessionProto(__int64 a1, __int64 a2, __int64 a3, int a4)
+{
+  volatile LONG *v4; // r14
+  KIRQL v8; // si
+  unsigned __int64 v9; // rdx
+  bool v10; // r8
+  unsigned __int64 v11; // rax
+  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // rcx
+
+  v4 = (volatile LONG *)(a1 + 72);
+  v8 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
+  if ( !a4 )
+  {
+    RtlAvlRemoveNode((unsigned __int64 *)(a2 + 24), (unsigned __int64 *)a3);
+    goto LABEL_8;
+  }
+  v9 = *(_QWORD *)(a2 + 24);
+  v10 = 0;
+  if ( !v9 )
+    goto LABEL_7;
+  while ( *(_DWORD *)(a3 + 64) < *(_DWORD *)(v9 + 64) )
+  {
+    v11 = *(_QWORD *)v9;
+    if ( !*(_QWORD *)v9 )
+    {
+      v10 = 0;
+      goto LABEL_7;
+    }
+LABEL_5:
+    v9 = v11;
+  }
+  v11 = *(_QWORD *)(v9 + 8);
+  if ( v11 )
+    goto LABEL_5;
+  v10 = 1;
+LABEL_7:
+  RtlAvlInsertNodeEx((unsigned __int64 *)(a2 + 24), v9, v10, (_QWORD *)a3);
+LABEL_8:
+  ExReleaseSpinLockExclusiveFromDpcLevel(v4);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v8 < 2u )
+  {
+    CurrentPrcb = KeGetCurrentPrcb();
+    _InterlockedAnd((volatile signed __int32 *)CurrentPrcb->SchedulerAssist, 0xFFFEFFFF);
+    KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+  }
+  result = v8;
+  __writecr8(v8);
+  return result;
+}

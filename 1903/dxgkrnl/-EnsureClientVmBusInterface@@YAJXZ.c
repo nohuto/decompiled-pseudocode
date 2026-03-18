@@ -1,0 +1,113 @@
+/*
+ * XREFs of ?EnsureClientVmBusInterface@@YAJXZ @ 0x1C0218F34
+ * Callers:
+ *     ?CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHANNEL_STATE_CHANGE_CALLBACKS@@P6AXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@0II@ZP6AX5I@ZPEAPEAU5@@Z @ 0x1C0217214 (-CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHA.c)
+ *     ?Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z @ 0x1C028E4DC (-Initialize@DXGVMBUSCHANNEL@@IEAAJPEAXAEBU_GUID@@1PEBU_UNICODE_STRING@@E@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0008834 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000C320 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0024FA0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0025300 (memset.c)
+ */
+
+__int64 __fastcall EnsureClientVmBusInterface(__int64 a1, __int64 a2)
+{
+  struct DXGGLOBAL *Global; // rax
+  unsigned int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGGLOBAL *v6; // rax
+  NTSTATUS DeviceObjectPointer; // eax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r14
+  __int64 v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  PIRP v15; // rax
+  __int64 v16; // rcx
+  __int64 v17; // r8
+  IRP *v18; // rdx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  NTSTATUS Status; // edi
+  __int64 v21; // r8
+  struct DXGGLOBAL *v22; // rax
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-40h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+50h] [rbp-30h] BYREF
+  struct _KEVENT Event; // [rsp+60h] [rbp-20h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+A0h] [rbp+20h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+A8h] [rbp+28h] BYREF
+
+  Global = DXGGLOBAL::GetGlobal(a1, a2);
+  DXGPUSHLOCK::AcquireExclusive((struct DXGGLOBAL *)((char *)Global + 552));
+  v3 = 0;
+  if ( !g_VgpuVmBusInterfaceRefCount )
+  {
+    memset(&g_VgpuVmBusInterface, 0, 0x318uLL);
+    *(_QWORD *)&DestinationString.Length = 0LL;
+    DestinationString.Buffer = 0LL;
+    RtlInitUnicodeString(&DestinationString, L"\\Device\\VMBus\\kmcl_interface");
+    DeviceObjectPointer = IoGetDeviceObjectPointer(&DestinationString, 0x1F01FFu, &FileObject, &DeviceObject);
+    v11 = DeviceObjectPointer;
+    if ( DeviceObjectPointer >= 0 )
+    {
+      IoStatusBlock.Pointer = 0LL;
+      IoStatusBlock.Information = 0LL;
+      KeInitializeEvent(&Event, SynchronizationEvent, 0);
+      v15 = IoBuildSynchronousFsdRequest(0x1Bu, DeviceObject, 0LL, 0, 0LL, &Event, &IoStatusBlock);
+      v18 = v15;
+      if ( v15 )
+      {
+        CurrentStackLocation = v15->Tail.Overlay.CurrentStackLocation;
+        CurrentStackLocation[-1].MinorFunction = 8;
+        CurrentStackLocation[-1].Parameters.WMI.ProviderId = (ULONG_PTR)&KMCL_CLIENT_INTERFACE_TYPE;
+        CurrentStackLocation[-1].Parameters.Create.Options = 65896;
+        CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = (LONGLONG)&g_VgpuVmBusInterface;
+        CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = 0LL;
+        v18->IoStatus.Status = -1073741637;
+        Status = IofCallDriver(DeviceObject, v18);
+        if ( Status == 259 )
+        {
+          Status = KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+          if ( !Status )
+            Status = IoStatusBlock.Status;
+        }
+        if ( Status >= 0 )
+        {
+          g_VgpuVmBusInterfaceRefCount = 1;
+          goto LABEL_14;
+        }
+        v12 = WdLogNewEntry5_WdError(v14, v13, v21);
+        *(_QWORD *)(v12 + 24) = Status;
+        *(_QWORD *)(v12 + 32) = 10749LL;
+      }
+      else
+      {
+        v12 = WdLogNewEntry5_WdError(v16, 0LL, v17);
+        *(_QWORD *)(v12 + 24) = -1073741670LL;
+        *(_QWORD *)(v12 + 32) = 10721LL;
+      }
+    }
+    else
+    {
+      v12 = WdLogNewEntry5_WdError(v9, v8, v10);
+      *(_QWORD *)(v12 + 24) = v11;
+    }
+    WdLogEvent5_WdError(v12);
+LABEL_14:
+    v22 = DXGGLOBAL::GetGlobal(v14, v13);
+    *((_QWORD *)v22 + 70) = 0LL;
+    ExReleasePushLockExclusiveEx((char *)v22 + 552, 0LL);
+    v3 = v11;
+    goto LABEL_15;
+  }
+  ((void (__fastcall *)(__int64))qword_1C00A3BD0)(qword_1C00A3BC8);
+  ++g_VgpuVmBusInterfaceRefCount;
+  v6 = DXGGLOBAL::GetGlobal(v5, v4);
+  *((_QWORD *)v6 + 70) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)v6 + 552, 0LL);
+LABEL_15:
+  KeLeaveCriticalRegion();
+  return v3;
+}

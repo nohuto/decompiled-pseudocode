@@ -1,0 +1,133 @@
+/*
+ * XREFs of ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C029CA80
+ * Callers:
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C029CA80 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0163A80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C01680F0 (_guard_dispatch_icall_nop.c)
+ *     ?MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C029CA80 (-MulSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x1C029FB70 (-ulSimulateSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ */
+
+unsigned __int64 __fastcall MulSaveScreenBits(struct _SURFOBJ *a1, unsigned int a2, _QWORD *a3, struct _RECTL *a4)
+{
+  unsigned __int64 v4; // rsi
+  unsigned __int64 (*v5)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *); // r12
+  DHPDEV dhpdev; // rax
+  unsigned int v7; // r13d
+  __int64 *v8; // rdi
+  unsigned int v9; // r14d
+  PVOID v10; // rax
+  _DWORD *v11; // r13
+  __int64 v12; // rbx
+  __int64 v14; // rbx
+  _DWORD *v15; // r12
+  unsigned __int64 (*v16)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *); // rax
+  __int64 v17; // rax
+  struct _RECTL *v18; // [rsp+30h] [rbp-48h]
+  int v20; // [rsp+38h] [rbp-40h]
+  _QWORD *v21; // [rsp+40h] [rbp-38h]
+  __int64 v22; // [rsp+48h] [rbp-30h]
+  struct _RECTL v23; // [rsp+50h] [rbp-28h] BYREF
+
+  v18 = a4;
+  *(_QWORD *)&v23.left = 0LL;
+  v4 = 0LL;
+  *(_QWORD *)&v23.right = 0LL;
+  v5 = 0LL;
+  dhpdev = a1->dhpdev;
+  v7 = a2;
+  v21 = a3;
+  v8 = *(__int64 **)dhpdev;
+  v9 = *((_DWORD *)dhpdev + 4);
+  if ( a2 )
+  {
+    v4 = 1LL;
+    do
+    {
+      v22 = a3[2 * *((unsigned int *)v8 + 4) + 1];
+      v20 = a3[2 * *((unsigned int *)v8 + 4)];
+      if ( v22 )
+      {
+        v14 = v8[6];
+        v15 = (_DWORD *)v8 + 7;
+        if ( bIntersect(a4, (const struct _RECTL *)((char *)v8 + 28), &v23) )
+        {
+          v23.left -= *v15;
+          v23.right -= *v15;
+          v23.top -= *((_DWORD *)v8 + 8);
+          v23.bottom -= *((_DWORD *)v8 + 8);
+        }
+        else
+        {
+          v23 = grclEmpty;
+        }
+        if ( v20 != 2
+          || (v16 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v14 + 3008)) == 0LL )
+        {
+          v16 = ulSimulateSaveScreenBits;
+        }
+        v17 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, struct _RECTL *))v16)(v8[8], v7, v22, &v23);
+        a3 = v21;
+        if ( v17 || v7 != 1 )
+        {
+          a4 = v18;
+        }
+        else
+        {
+          a4 = &grclEmpty;
+          v4 = 0LL;
+          v18 = &grclEmpty;
+          v7 = 2;
+        }
+      }
+      v8 = (__int64 *)*v8;
+      --v9;
+    }
+    while ( v9 );
+    EngFreeMem(a3);
+    return v4;
+  }
+  if ( v9 <= 0xFFFFFFF )
+  {
+    v10 = EngAllocMem(1u, 16 * v9, 0x736D5647u);
+    a4 = v18;
+    v4 = (unsigned __int64)v10;
+  }
+  if ( !v4 )
+    return v4;
+  while ( 1 )
+  {
+    v11 = (_DWORD *)v8 + 7;
+    v12 = 0LL;
+    if ( bIntersect(a4, (const struct _RECTL *)((char *)v8 + 28), &v23) )
+    {
+      v23.left -= *v11;
+      v5 = ulSimulateSaveScreenBits;
+      v23.right -= *v11;
+      v23.top -= *((_DWORD *)v8 + 8);
+      v23.bottom -= *((_DWORD *)v8 + 8);
+      if ( *(_QWORD *)(v8[6] + 3008) )
+        v5 = *(unsigned __int64 (**)(struct _SURFOBJ *, unsigned int, unsigned __int64, struct _RECTL *))(v8[6] + 3008);
+      v12 = ((__int64 (__fastcall *)(__int64, _QWORD, _QWORD, struct _RECTL *))v5)(v8[8], 0LL, 0LL, &v23);
+      if ( !v12 )
+      {
+        if ( v5 == ulSimulateSaveScreenBits )
+          break;
+        v5 = ulSimulateSaveScreenBits;
+        v12 = ulSimulateSaveScreenBits((struct _SURFOBJ *)v8[8], 0, 0LL, &v23);
+        if ( !v12 )
+          break;
+      }
+    }
+    *(_QWORD *)(v4 + 16LL * *((unsigned int *)v8 + 4) + 8) = v12;
+    if ( v12 )
+      *(_DWORD *)(v4 + 16LL * *((unsigned int *)v8 + 4)) = (v5 != ulSimulateSaveScreenBits) + 1;
+    v8 = (__int64 *)*v8;
+    if ( !--v9 )
+      return v4;
+    a4 = v18;
+  }
+  MulSaveScreenBits(a1, 2u, v4, &grclEmpty);
+  return 0LL;
+}

@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?dumpLeaks@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00C4624
+ * Callers:
+ *     RIMUnInitialize @ 0x1C00C4580 (RIMUnInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C0033A6C (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00E6154 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ */
+
+__int64 __fastcall dumpLeaks(struct _LIST_ENTRY *a1, char *a2)
+{
+  struct _LIST_ENTRY *Flink; // rbx
+  bool v5; // dl
+  bool v6; // dl
+
+  Flink = a1->Flink;
+  if ( a1->Flink == a1 )
+    return 0LL;
+  v5 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
+    && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
+  if ( v5 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_AND_TRACE_SF_s(
+      WPP_GLOBAL_Control->AttachedDevice,
+      v5,
+      WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+      (_DWORD)gRimLog);
+  do
+  {
+    v6 = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+      && (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0
+      && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
+    if ( v6 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_AND_TRACE_SF_q(
+        WPP_GLOBAL_Control->AttachedDevice,
+        v6,
+        WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED,
+        (_DWORD)gRimLog,
+        4,
+        1,
+        11,
+        (__int64)&WPP_3978f76f04ea382a78ff91c50763c259_Traceguids,
+        (_BYTE)Flink - 16);
+    Flink = Flink->Flink;
+  }
+  while ( Flink != a1 );
+  return 1LL;
+}

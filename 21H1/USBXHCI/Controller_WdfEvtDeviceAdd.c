@@ -1,0 +1,239 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceAdd @ 0x1C006F7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000E688 (WPP_RECORDER_SF_d.c)
+ *     Device_IsSecureDevice @ 0x1C0014234 (Device_IsSecureDevice.c)
+ *     Controller_AddControllerToGlobalControllerList @ 0x1C00167C0 (Controller_AddControllerToGlobalControllerList.c)
+ *     Controller_QueryControllerCapabilitiesFromACPI @ 0x1C0016944 (Controller_QueryControllerCapabilitiesFromACPI.c)
+ *     Etw_ControllerCreate @ 0x1C0016994 (Etw_ControllerCreate.c)
+ *     __security_check_cookie @ 0x1C0018DB0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00191C0 (_guard_dispatch_icall_nop.c)
+ *     Controller_CreateWdfDevice @ 0x1C006B2A0 (Controller_CreateWdfDevice.c)
+ *     Register_Create @ 0x1C006BF5C (Register_Create.c)
+ *     IoControl_Create @ 0x1C006C080 (IoControl_Create.c)
+ *     Controller_ExecuteDSM @ 0x1C006CDA8 (Controller_ExecuteDSM.c)
+ *     Controller_Create @ 0x1C006D970 (Controller_Create.c)
+ *     DeviceSlot_Create @ 0x1C006F4D0 (DeviceSlot_Create.c)
+ *     RootHub_Create @ 0x1C006F5FC (RootHub_Create.c)
+ *     Controller_ConfigureSxWakeSettings @ 0x1C006FB2C (Controller_ConfigureSxWakeSettings.c)
+ *     Controller_ConfigureS0IdleSettings @ 0x1C006FBB4 (Controller_ConfigureS0IdleSettings.c)
+ *     Wmi_Create @ 0x1C006FD5C (Wmi_Create.c)
+ *     Command_Create @ 0x1C006FE9C (Command_Create.c)
+ *     Interrupter_Create @ 0x1C00700CC (Interrupter_Create.c)
+ *     IntelPptFilter_Create @ 0x1C0076AE4 (IntelPptFilter_Create.c)
+ *     SecureChannel_Create @ 0x1C0077358 (SecureChannel_Create.c)
+ */
+
+__int64 __fastcall Controller_WdfEvtDeviceAdd(__int64 a1, __int64 a2)
+{
+  int v3; // edx
+  int v4; // ebx
+  __int64 v5; // rdi
+  __int64 v6; // rcx
+  __int64 *v7; // rax
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 *v10; // rcx
+  __int64 *v11; // rax
+  __int64 v12; // rcx
+  int v14; // r9d
+  __int64 *v15; // [rsp+38h] [rbp-9h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-1h] BYREF
+  __int64 v17; // [rsp+48h] [rbp+7h] BYREF
+  int v18; // [rsp+50h] [rbp+Fh] BYREF
+  _QWORD v19[4]; // [rsp+58h] [rbp+17h] BYREF
+  __int128 v20; // [rsp+78h] [rbp+37h]
+
+  v19[0] = 48LL;
+  v20 = 0LL;
+  LOBYTE(v20) = 0;
+  v19[2] = 0LL;
+  v19[3] = 0x1000000000LL;
+  v19[1] = 0xC800000400LL;
+  v17 = 0LL;
+  v16 = 0LL;
+  v18 = 0;
+  v15 = 0LL;
+  imp_WppRecorderLogCreate(WPP_GLOBAL_Control, v19, &v16);
+  v4 = ((__int64 (__fastcall *)(__int64, __int64))qword_1C0061748)(UcxDriverGlobals, a2);
+  if ( v4 < 0 )
+  {
+    if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      goto LABEL_17;
+    v14 = 10;
+    goto LABEL_21;
+  }
+  v4 = Controller_CreateWdfDevice(a2, v16, &v17, (unsigned int *)&v18);
+  if ( v4 >= 0 )
+  {
+    v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01023 + 1616))(
+           WdfDriverGlobals,
+           v17,
+           off_1C00603D8);
+    if ( Device_IsSecureDevice(v5) && (v4 = SecureChannel_Create(v6, v5 + 96), v4 < 0) )
+    {
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v14 = 11;
+LABEL_21:
+        LOBYTE(v3) = 2;
+        WPP_RECORDER_SF_d(v16, v3, 4, v14, (__int64)&WPP_2a10b20b34c83bd3dea18079565cd6d6_Traceguids, v4);
+      }
+    }
+    else
+    {
+      v4 = Controller_Create(v17, v16, v18, (__int64 *)&v15);
+      if ( v4 < 0 )
+      {
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+        {
+          v14 = 12;
+          goto LABEL_21;
+        }
+      }
+      else
+      {
+        v7 = v15;
+        *(_OWORD *)((char *)v15 + 180) = *(_OWORD *)(v5 + 24);
+        *(_OWORD *)((char *)v7 + 196) = *(_OWORD *)(v5 + 40);
+        *(_OWORD *)((char *)v7 + 212) = *(_OWORD *)(v5 + 56);
+        *(_OWORD *)((char *)v7 + 228) = *(_OWORD *)(v5 + 72);
+        *(_QWORD *)(v5 + 8) = v15;
+        (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, __int64 (__fastcall *)(), __int64, const char *))(WdfFunctions_01023 + 1640))(
+          WdfDriverGlobals,
+          v15[1],
+          Controller_WdfEvtDeviceAdd,
+          331LL,
+          "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\controller.c");
+        v4 = IoControl_Create(v17, (__int64)v15, v15 + 10);
+        if ( v4 < 0 )
+        {
+          if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          {
+            v14 = 13;
+            goto LABEL_21;
+          }
+        }
+        else
+        {
+          v4 = Register_Create((__int64)v15, v15 + 11);
+          if ( v4 < 0 )
+          {
+            if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+            {
+              v14 = 14;
+              goto LABEL_21;
+            }
+          }
+          else
+          {
+            v4 = Interrupter_Create(v17, v15, v15 + 16);
+            if ( v4 < 0 )
+            {
+              if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+              {
+                v14 = 15;
+                goto LABEL_21;
+              }
+            }
+            else
+            {
+              v4 = DeviceSlot_Create(v8, (__int64)v15, v15 + 17);
+              if ( v4 < 0 )
+              {
+                if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                {
+                  v14 = 16;
+                  goto LABEL_21;
+                }
+              }
+              else
+              {
+                v4 = Command_Create(v9, v15, v15 + 18);
+                if ( v4 < 0 )
+                {
+                  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                  {
+                    v14 = 17;
+                    goto LABEL_21;
+                  }
+                }
+                else
+                {
+                  v3 = (int)v15;
+                  v10 = v15 + 21;
+                  if ( (v15[42] & 0x800000) != 0 )
+                  {
+                    v4 = IntelPptFilter_Create(v17, v15, v15 + 21);
+                  }
+                  else
+                  {
+                    *v10 = 0LL;
+                    v4 = 0;
+                  }
+                  if ( v4 < 0 )
+                  {
+                    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                    {
+                      v14 = 18;
+                      goto LABEL_21;
+                    }
+                  }
+                  else
+                  {
+                    v4 = RootHub_Create((__int64)v10, (__int64)v15, v15 + 19);
+                    if ( v4 < 0 )
+                    {
+                      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                      {
+                        v14 = 19;
+                        goto LABEL_21;
+                      }
+                    }
+                    else
+                    {
+                      v4 = Wmi_Create(v17, v15, v15 + 20);
+                      if ( v4 < 0 )
+                      {
+                        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+                        {
+                          v14 = 20;
+                          goto LABEL_21;
+                        }
+                      }
+                      else
+                      {
+                        *(_QWORD *)v5 = g_UsbXhciTriageInfo;
+                        Controller_ConfigureS0IdleSettings(v15);
+                        Controller_ConfigureSxWakeSettings(v15);
+                        KeInitializeSpinLock((PKSPIN_LOCK)v15 + 5);
+                        v11 = v15 + 6;
+                        v15[7] = (__int64)(v15 + 6);
+                        *v11 = (__int64)v11;
+                        *((_DWORD *)v15 + 16) = 0;
+                        *((_DWORD *)v15 + 98) = 5;
+                        Controller_AddControllerToGlobalControllerList((__int64)v15);
+                        Etw_ControllerCreate(v12, (__int64)v15);
+                        Controller_QueryControllerCapabilitiesFromACPI((__int64)v15);
+                        if ( (_mm_srli_si128(*((__m128i *)v15 + 21), 8).m128i_u8[0] & 1) != 0 )
+                          Controller_ExecuteDSM(v15, &GUID_DSM_ENABLE_KBL_WORKAROUNDS, 1, 1, 0LL, 0);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+LABEL_17:
+    if ( v4 >= 0 )
+      return (unsigned int)v4;
+  }
+  if ( v15 )
+    (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01023 + 1664))(WdfDriverGlobals, v15[1]);
+  return (unsigned int)v4;
+}

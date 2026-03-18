@@ -1,0 +1,384 @@
+/*
+ * XREFs of Usbh_PCE_wDone_Action @ 0x1C00164A0
+ * Callers:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C00157C0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ * Callees:
+ *     FdoExt @ 0x1C0008370 (FdoExt.c)
+ *     Log @ 0x1C0009F20 (Log.c)
+ *     UsbhFlushPortChangeQueue @ 0x1C001D610 (UsbhFlushPortChangeQueue.c)
+ *     UsbhHubQueueProcessChangeWorker @ 0x1C001F098 (UsbhHubQueueProcessChangeWorker.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002D6A8 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002DBEC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002DFC0 (WPP_RECORDER_SF_dq.c)
+ *     UsbhSetPcqEventStatus @ 0x1C00348C0 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0034A70 (UsbhUnlockPcqWithTag.c)
+ */
+
+void __fastcall Usbh_PCE_wDone_Action(__int64 a1, __int64 a2, char a3)
+{
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  __int64 v8; // rcx
+  KIRQL v9; // al
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  KIRQL v12; // r14
+  unsigned __int16 v13; // r9
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v21; // rcx
+  __int64 v22; // r8
+  unsigned __int16 v23; // r9
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // r8
+  __int64 v27; // rdx
+  __int64 v28; // rcx
+  __int64 v29; // rax
+  __int64 v30; // r8
+  __int64 v31; // r9
+  int v32; // ecx
+  __int64 v33; // rdx
+  __int64 v34; // rcx
+  __int64 v35; // rax
+  __int64 v36; // r8
+  __int64 v37; // rdx
+  __int64 v38; // rcx
+  __int64 v39; // rax
+  int v40; // r8d
+  __int64 v41; // rax
+  KSPIN_LOCK *v42; // rsi
+  KIRQL v43; // r15
+  int v44; // eax
+  __int64 v45; // rdx
+  int v46; // r8d
+  int v47; // r8d
+  int v48; // r8d
+  __int64 v49; // rax
+  __int64 v50; // rax
+  __int64 v51; // r9
+  __int64 v52; // rax
+  __int64 v53; // rax
+  __int64 v54; // rax
+  __int64 v55; // rcx
+  __int64 v56; // [rsp+20h] [rbp-48h]
+
+  if ( !a1 )
+    UsbhTrapFatal_Dbg(0LL, 0LL);
+  v6 = *(_QWORD *)(a1 + 64);
+  if ( !v6 )
+    UsbhTrapFatal_Dbg(a1, 0LL);
+  if ( *(_DWORD *)v6 != 541218120 )
+    UsbhTrapFatal_Dbg(a1, v6);
+  v7 = *(unsigned __int16 *)(a2 + 4);
+  if ( (UsbhLogMask & 0x200) != 0 )
+  {
+    v8 = *(_QWORD *)(v6 + 888)
+       + 32LL * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v6 + 880)) & *(_DWORD *)(v6 + 884));
+    *(_DWORD *)v8 = 812660319;
+    *(_QWORD *)(v8 + 8) = 0LL;
+    *(_QWORD *)(v8 + 16) = a2;
+    *(_QWORD *)(v8 + 24) = v7;
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_dq(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v6,
+      v7,
+      36,
+      (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+      *(_WORD *)(a2 + 4),
+      a3);
+  v9 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a2 + 440));
+  v11 = *(unsigned __int16 *)(a2 + 4);
+  v12 = v9;
+  *(_DWORD *)(a2 + 448) = 1;
+  v13 = v11;
+  if ( (UsbhLogMask & 0x10) != 0 )
+  {
+    v10 = *(_QWORD *)(a1 + 64);
+    if ( v10 )
+    {
+      v14 = *(_QWORD *)(v10 + 888)
+          + 32LL
+          * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v10 + 880)) & *(_DWORD *)(v10 + 884));
+      *(_DWORD *)v14 = 724267376;
+      *(_QWORD *)(v14 + 8) = 0LL;
+      *(_QWORD *)(v14 + 16) = 6LL;
+      *(_QWORD *)(v14 + 24) = v11;
+      v13 = *(_WORD *)(a2 + 4);
+    }
+  }
+  v15 = *(int *)(a2 + 12);
+  if ( (UsbhLogMask & 0x10) != 0 )
+  {
+    v10 = *(_QWORD *)(a1 + 64);
+    if ( v10 )
+    {
+      v16 = *(_QWORD *)(v10 + 888)
+          + 32LL
+          * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v10 + 880)) & *(_DWORD *)(v10 + 884));
+      *(_DWORD *)v16 = 724267376;
+      *(_QWORD *)(v16 + 24) = v13;
+      *(_QWORD *)(v16 + 8) = 0LL;
+      *(_QWORD *)(v16 + 16) = v15;
+    }
+  }
+  v17 = ((unsigned __int8)*(_DWORD *)(a2 + 2400) + 1) & 0x1F;
+  *(_DWORD *)(a2 + 2400) = v17;
+  v18 = a2 + 32 * (v17 + 43);
+  *(_DWORD *)v18 = 6;
+  *(_DWORD *)(v18 + 4) = *(_DWORD *)(a2 + 12);
+  *(_DWORD *)(v18 + 8) = -1;
+  *(_QWORD *)(v18 + 12) = 0LL;
+  *(_QWORD *)(v18 + 20) = 0LL;
+  *(_DWORD *)(v18 + 28) = 0;
+  v19 = *(int *)(a2 + 12);
+  v20 = *(unsigned __int16 *)(a2 + 4);
+  if ( (UsbhLogMask & 0x200) != 0 )
+  {
+    v10 = *(_QWORD *)(a1 + 64);
+    if ( v10 )
+    {
+      v21 = *(_QWORD *)(v10 + 888)
+          + 32LL
+          * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v10 + 880)) & *(_DWORD *)(v10 + 884));
+      *(_DWORD *)v21 = 829437535;
+      *(_QWORD *)(v21 + 8) = 0LL;
+      *(_QWORD *)(v21 + 16) = v19;
+      *(_QWORD *)(v21 + 24) = v20;
+    }
+  }
+  if ( (_DWORD)v19 == 12 )
+  {
+    v22 = *(unsigned __int16 *)(a2 + 4);
+    v23 = *(_WORD *)(a2 + 4);
+    if ( (UsbhLogMask & 0x200) != 0 )
+    {
+      v24 = *(_QWORD *)(a1 + 64);
+      if ( v24 )
+      {
+        v25 = *(_QWORD *)(v24 + 888)
+            + 32LL
+            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v24 + 880)) & *(_DWORD *)(v24 + 884));
+        *(_DWORD *)v25 = 862991967;
+        *(_QWORD *)(v25 + 8) = 0LL;
+        *(_QWORD *)(v25 + 16) = 0LL;
+        *(_QWORD *)(v25 + 24) = v22;
+        v23 = *(_WORD *)(a2 + 4);
+      }
+    }
+    v26 = *(int *)(a2 + 12);
+    if ( (UsbhLogMask & 0x10) != 0 )
+    {
+      v27 = *(_QWORD *)(a1 + 64);
+      if ( v27 )
+      {
+        v28 = *(_QWORD *)(v27 + 888)
+            + 32LL
+            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v27 + 880)) & *(_DWORD *)(v27 + 884));
+        *(_DWORD *)v28 = 1986359664;
+        *(_QWORD *)(v28 + 24) = v23;
+        *(_QWORD *)(v28 + 8) = 0LL;
+        *(_QWORD *)(v28 + 16) = v26;
+      }
+    }
+    *(_DWORD *)(32 * (*(unsigned int *)(a2 + 2400) + 43LL) + a2 + 24) = 30;
+    KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
+    v29 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_QWORD *)(a2 + 384) = 0LL;
+    *(_DWORD *)(a2 + 12) = 6;
+    *(_DWORD *)(v29 + a2 + 1384) = 6;
+LABEL_26:
+    v30 = *(int *)(a2 + 12);
+    v31 = *(unsigned __int16 *)(a2 + 4);
+    v32 = *(_DWORD *)(a2 + 12);
+    if ( (UsbhLogMask & 0x10) != 0 )
+    {
+      v33 = *(_QWORD *)(a1 + 64);
+      if ( v33 )
+      {
+        v34 = *(_QWORD *)(v33 + 888)
+            + 32LL
+            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v33 + 880)) & *(_DWORD *)(v33 + 884));
+        *(_DWORD *)v34 = 757952880;
+        *(_QWORD *)(v34 + 8) = 0LL;
+        *(_QWORD *)(v34 + 16) = v30;
+        *(_QWORD *)(v34 + 24) = v31;
+        v32 = *(_DWORD *)(a2 + 12);
+      }
+    }
+    v35 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_DWORD *)(a2 + 448) = 0;
+    *(_DWORD *)(v35 + a2 + 1384) = v32;
+LABEL_30:
+    KeReleaseSpinLock((PKSPIN_LOCK)(a2 + 440), v12);
+    return;
+  }
+  if ( (_DWORD)v19 == 3 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_dq(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v10,
+        3,
+        38,
+        (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+        *(_WORD *)(a2 + 4),
+        a2);
+    v36 = *(unsigned __int16 *)(a2 + 4);
+    if ( (UsbhLogMask & 0x200) != 0 )
+    {
+      v37 = *(_QWORD *)(a1 + 64);
+      if ( v37 )
+      {
+        v38 = *(_QWORD *)(v37 + 888)
+            + 32LL
+            * ((unsigned int)_InterlockedDecrement((volatile signed __int32 *)(v37 + 880)) & *(_DWORD *)(v37 + 884));
+        *(_DWORD *)v38 = 879769183;
+        *(_QWORD *)(v38 + 8) = 0LL;
+        *(_QWORD *)(v38 + 16) = 0LL;
+        *(_QWORD *)(v38 + 24) = v36;
+      }
+    }
+    v39 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_DWORD *)(a2 + 12) = 2;
+    *(_DWORD *)(v39 + a2 + 1384) = 2;
+    *(_QWORD *)(a2 + 384) = 0LL;
+    goto LABEL_26;
+  }
+  v40 = v19 - 8;
+  if ( !v40 )
+  {
+    Log(a1, 512, 1597403190, a2, *(unsigned __int16 *)(a2 + 4));
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_d(
+        WPP_GLOBAL_Control->DeviceExtension,
+        0,
+        1,
+        40,
+        (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+        *(_WORD *)(a2 + 4));
+    Log(a1, 16, 1886479734, *(int *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
+    *(_DWORD *)(32 * (*(unsigned int *)(a2 + 2400) + 43LL) + a2 + 24) = 30;
+    KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
+    v41 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_QWORD *)(a2 + 384) = 0LL;
+    *(_DWORD *)(a2 + 12) = 7;
+    *(_DWORD *)(v41 + a2 + 1384) = 7;
+    v42 = (KSPIN_LOCK *)(FdoExt(a1) + 1236);
+    v43 = KeAcquireSpinLockRaiseToDpc(v42);
+    Log(a1, 16, 1936282453, 0LL, *(unsigned __int16 *)(a2 + 4));
+    if ( *(_DWORD *)(a2 + 696) == 2 )
+    {
+      *(_DWORD *)(a2 + 696) = 0;
+      KeSetEvent((PRKEVENT)(a2 + 744), 0, 0);
+      KeReleaseSpinLock(v42, v43);
+      Log(a1, 16, 1886479734, *(int *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
+      *(_DWORD *)(32 * (*(unsigned int *)(a2 + 2400) + 43LL) + a2 + 16) = 30;
+    }
+    else
+    {
+      KeReleaseSpinLock(v42, v43);
+    }
+    Log(a1, 16, 1886465325, *(int *)(a2 + 12), *(unsigned __int16 *)(a2 + 4));
+    v44 = *(_DWORD *)(a2 + 12);
+    v45 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_DWORD *)(a2 + 448) = 0;
+    *(_DWORD *)(v45 + a2 + 1384) = v44;
+    goto LABEL_30;
+  }
+  v46 = v40 - 2;
+  if ( v46 )
+  {
+    v47 = v46 - 3;
+    if ( !v47 )
+    {
+      Log(a1, 512, 1597403186, a2, *(unsigned __int16 *)(a2 + 4));
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+        WPP_RECORDER_SF_d(
+          WPP_GLOBAL_Control->DeviceExtension,
+          0,
+          1,
+          37,
+          (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+          *(_WORD *)(a2 + 4));
+      UsbhSetPcqEventStatus(a1, a2, 2LL);
+      KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
+      v53 = 32LL * *(unsigned int *)(a2 + 2400);
+      *(_DWORD *)(a2 + 12) = 6;
+      *(_DWORD *)(v53 + a2 + 1384) = 6;
+      goto LABEL_66;
+    }
+    v48 = v47 - 1;
+    if ( v48 )
+    {
+      v56 = *(unsigned __int16 *)(a2 + 4);
+      if ( v48 != 3 )
+      {
+        Log(a1, 512, 1597403224, a2, v56);
+        v49 = 32LL * *(unsigned int *)(a2 + 2400);
+        *(_DWORD *)(a2 + 12) = 19;
+        *(_DWORD *)(v49 + a2 + 1384) = 19;
+LABEL_67:
+        UsbhUnlockPcqWithTag(a1, a2, v12, 0LL);
+        return;
+      }
+      Log(a1, 512, 1597403186, a2, v56);
+      if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+        WPP_RECORDER_SF_d(
+          WPP_GLOBAL_Control->DeviceExtension,
+          0,
+          1,
+          42,
+          (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+          *(_WORD *)(a2 + 4));
+      UsbhSetPcqEventStatus(a1, a2, 2LL);
+      KeSetEvent((PRKEVENT)(a2 + 472), 0, 0);
+      v50 = 32LL * *(unsigned int *)(a2 + 2400);
+      *(_DWORD *)(a2 + 12) = 15;
+      *(_DWORD *)(v50 + a2 + 1384) = 15;
+LABEL_66:
+      UsbhFlushPortChangeQueue(a1, a2);
+      *(_QWORD *)(a2 + 384) = 0LL;
+      goto LABEL_67;
+    }
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_dq(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v10,
+        0,
+        39,
+        (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+        *(_WORD *)(a2 + 4),
+        a2);
+    Log(a1, 512, 1597403189, 0LL, *(unsigned __int16 *)(a2 + 4));
+    v52 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_DWORD *)(a2 + 12) = 4;
+    *(_DWORD *)(v52 + a2 + 1384) = 4;
+  }
+  else
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+      WPP_RECORDER_SF_dq(
+        WPP_GLOBAL_Control->DeviceExtension,
+        v10,
+        0,
+        41,
+        (__int64)&WPP_ccf2d5d86ecd3ff97d61dec65be5cc3f_Traceguids,
+        *(_WORD *)(a2 + 4),
+        a2);
+    Log(a1, 512, 1597403191, 0LL, *(unsigned __int16 *)(a2 + 4));
+    v54 = 32LL * *(unsigned int *)(a2 + 2400);
+    *(_DWORD *)(a2 + 12) = 9;
+    *(_DWORD *)(v54 + a2 + 1384) = 9;
+  }
+  *(_QWORD *)(a2 + 384) = 0LL;
+  UsbhUnlockPcqWithTag(a1, a2, v12, v51);
+  UsbhHubQueueProcessChangeWorker(v55, a2);
+}

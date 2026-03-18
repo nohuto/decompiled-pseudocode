@@ -1,0 +1,21 @@
+/*
+ * XREFs of AlpcpCreatePort @ 0x140649E44
+ * Callers:
+ *     AlpcpAcceptConnectPort @ 0x140648258 (AlpcpAcceptConnectPort.c)
+ *     AlpcpCreateClientPort @ 0x140648EB8 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateConnectionPort @ 0x1406D6E78 (AlpcpCreateConnectionPort.c)
+ * Callees:
+ *     memset @ 0x140408F80 (memset.c)
+ *     ObCreateObjectEx @ 0x140601F10 (ObCreateObjectEx.c)
+ */
+
+__int64 __fastcall AlpcpCreatePort(char a1, __int64 a2, void **a3)
+{
+  int Object; // ebx
+  __int64 v6; // [rsp+20h] [rbp-38h]
+
+  Object = ObCreateObjectEx(a1, AlpcPortObjectType, a2, a1, v6, 472, 0, 0, a3, 0LL);
+  if ( Object >= 0 )
+    memset(*a3, 0, 0x1D8uLL);
+  return (unsigned int)Object;
+}

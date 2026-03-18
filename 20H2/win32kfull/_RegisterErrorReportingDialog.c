@@ -1,0 +1,33 @@
+/*
+ * XREFs of _RegisterErrorReportingDialog @ 0x1C0209D30
+ * Callers:
+ *     NtUserRegisterErrorReportingDialog @ 0x1C02008A0 (NtUserRegisterErrorReportingDialog.c)
+ * Callees:
+ *     ?SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z @ 0x1C0003950 (-SendAsyncSGHOSTINFO@@YAHQEAU_GHOSTINFO@@@Z.c)
+ *     IsWindowBeingDestroyed @ 0x1C00C65B8 (IsWindowBeingDestroyed.c)
+ */
+
+__int64 __fastcall RegisterErrorReportingDialog(__int64 a1)
+{
+  __int64 *v1; // rcx
+  __int64 v2; // r8
+  int v3; // r9d
+  int v5; // [rsp+20h] [rbp-38h] BYREF
+  __int64 v6; // [rsp+24h] [rbp-34h]
+  int v7; // [rsp+2Ch] [rbp-2Ch]
+  int v8; // [rsp+30h] [rbp-28h]
+  __int64 v9; // [rsp+34h] [rbp-24h]
+  __int64 v10; // [rsp+3Ch] [rbp-1Ch]
+
+  if ( !(unsigned int)IsWindowBeingDestroyed(a1) )
+  {
+    v9 = *v1;
+    v6 = v2;
+    v8 = v2;
+    v10 = v2;
+    v5 = 4;
+    v7 = v3;
+    LODWORD(v2) = SendAsyncSGHOSTINFO((struct _GHOSTINFO *const)&v5);
+  }
+  return (unsigned int)v2;
+}

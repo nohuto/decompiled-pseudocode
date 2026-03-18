@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?RecordVaPagingHistoryEvictCommitAlloc@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C00877E8
+ * Callers:
+ *     ?EvictResource@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00868C0 (-EvictResource@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@.c)
+ *     ?CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0086F90 (-CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?TransferToSegment@VIDMM_MEMORY_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_MDL@@_N@Z @ 0x1C00FA504 (-TransferToSegment@VIDMM_MEMORY_SEGMENT@@QEAAJPEAU_VIDMM_GLOBAL_ALLOC@@PEAU_MDL@@_N@Z.c)
+ *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C00FAFC8 (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_.c)
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0001DD0 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
+ *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0005300 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017C04 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F19F4 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::RecordVaPagingHistoryEvictCommitAlloc(
+        VIDMM_GLOBAL *this,
+        struct _VIDMM_GLOBAL_ALLOC *a2,
+        char a3)
+{
+  __int64 v3; // rbx
+  _QWORD *VaPagingHistoryEntry; // rax
+  _QWORD *v8; // rcx
+  int v9; // eax
+  _BYTE v10[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  v3 = 0LL;
+  if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled || *((_QWORD *)this + 5123) )
+  {
+    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
+      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v10,
+      (VIDMM_GLOBAL *)((char *)this + 41000));
+    if ( VIDMM_GLOBAL::GpuVaPagingHistoryFreEnabled )
+      VaPagingHistoryEntry = operator new(32, (VIDMM_GLOBAL *)((char *)this + 41024), 0xDu, 0);
+    else
+      VaPagingHistoryEntry = (_QWORD *)VIDMM_GLOBAL::AllocateVaPagingHistoryEntry(this, 13LL, 32LL);
+    v8 = VaPagingHistoryEntry;
+    if ( VaPagingHistoryEntry )
+    {
+      VaPagingHistoryEntry[1] = a2;
+      if ( a2 )
+        v3 = *(_QWORD *)(*((_QWORD *)a2 + 67) + 40LL);
+      VaPagingHistoryEntry[2] = v3;
+      v9 = *((_DWORD *)a2 + 17) & 0x3F;
+      *((_BYTE *)v8 + 24) = a3;
+      *(_DWORD *)v8 = v9;
+    }
+    DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v10);
+  }
+}

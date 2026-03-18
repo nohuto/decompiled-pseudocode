@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?HaveEquivalentMonitorFrequencyRequirements@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@0E@Z @ 0x1C0004FCC
+ * Callers:
+ *     ?FindBestMatch@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@AEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C0002164 (-FindBestMatch@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@AEBU_D3DKMDT_VIDEO_SIGNAL_INFO.c)
+ *     ?_IsModeSupportedByMonitorMode@DXGMONITOR@@AEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_ALGORITHM@@EPEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C00B21F8 (-_IsModeSupportedByMonitorMode@DXGMONITOR@@AEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUN.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C00C46E8 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
+ * Callees:
+ *     ?IsFreqWithinToleranceRange@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DDDI_RATIONAL@@0I@Z @ 0x1C0004C98 (-IsFreqWithinToleranceRange@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DDDI_RATIONAL@@0I@Z.c)
+ */
+
+bool __fastcall DMMVIDEOSIGNALMODE::HaveEquivalentMonitorFrequencyRequirements(
+        const struct _D3DKMDT_VIDEO_SIGNAL_INFO *a1,
+        const struct _D3DKMDT_VIDEO_SIGNAL_INFO *a2,
+        char a3)
+{
+  return a1->ActiveSize.cx == a2->ActiveSize.cx
+      && a1->ActiveSize.cy == a2->ActiveSize.cy
+      && (((unsigned __int8)*(_DWORD *)&a2->AdditionalSignalInfo ^ *(_BYTE *)&a1->AdditionalSignalInfo) & 7) == 0
+      && (a3 || DMMVIDEOSIGNALMODE::IsFreqWithinToleranceRange(&a1->VSyncFreq, &a2->VSyncFreq, 300));
+}

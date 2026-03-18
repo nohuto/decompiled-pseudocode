@@ -1,0 +1,22 @@
+/*
+ * XREFs of NtQueryIntervalProfile @ 0x1405C4140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryIntervalProfile @ 0x1405C41A4 (KeQueryIntervalProfile.c)
+ */
+
+NTSTATUS __stdcall NtQueryIntervalProfile(KPROFILE_SOURCE ProfileSource, PULONG Interval)
+{
+  __int64 v2; // r8
+
+  if ( KeGetCurrentThread()->PreviousMode )
+  {
+    v2 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)Interval < 0x7FFFFFFF0000LL )
+      v2 = (__int64)Interval;
+    *(_DWORD *)v2 = *(_DWORD *)v2;
+  }
+  *Interval = KeQueryIntervalProfile(ProfileSource);
+  return 0;
+}

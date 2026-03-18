@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GDXGSESSIONDATA@@QEAAPEAXI@Z @ 0x1C001A220
+ * Callers:
+ *     ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C0141680 (-DestroySession@DXGSESSIONMGR@@QEAAXXZ.c)
+ *     ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C0276750 (--1DXGSESSIONMGR@@QEAA@XZ.c)
+ * Callees:
+ *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C01417BC (--1DXGSESSIONDATA@@QEAA@XZ.c)
+ */
+
+DXGSESSIONDATA *__fastcall DXGSESSIONDATA::`scalar deleting destructor'(DXGSESSIONDATA *P)
+{
+  DXGSESSIONDATA::~DXGSESSIONDATA(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

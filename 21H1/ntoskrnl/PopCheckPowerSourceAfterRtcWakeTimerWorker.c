@@ -1,0 +1,33 @@
+/*
+ * XREFs of PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x1409AE840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14024A230 (KeSetEvent.c)
+ *     PopOkayToQueueNextWorkItem @ 0x1403217D4 (PopOkayToQueueNextWorkItem.c)
+ *     NtInitiatePowerAction @ 0x140761120 (NtInitiatePowerAction.c)
+ *     PopQueryPowerSettingUlong @ 0x1407651C4 (PopQueryPowerSettingUlong.c)
+ *     PopCurrentPowerStatePrecise @ 0x140779C64 (PopCurrentPowerStatePrecise.c)
+ */
+
+LONG PopCheckPowerSourceAfterRtcWakeTimerWorker()
+{
+  __int128 v1; // [rsp+20h] [rbp-28h] BYREF
+  int v2; // [rsp+58h] [rbp+10h] BYREF
+  int v3; // [rsp+60h] [rbp+18h] BYREF
+
+  v1 = 0LL;
+  if ( PopSleepStats )
+  {
+    PopCurrentPowerStatePrecise(&v1, 0LL);
+    if ( !(_BYTE)v1 )
+    {
+      v2 = 0;
+      PopQueryPowerSettingUlong(&GUID_ALLOW_RTC_WAKE, &v3, &v2);
+      if ( !v2 )
+        NtInitiatePowerAction(dword_140C23B50, dword_140C23B54, 0x80000000, 1);
+    }
+  }
+  PopOkayToQueueNextWorkItem((__int64)&unk_140C211A8);
+  return KeSetEvent(&PopCheckPowerSourceAfterRtcWakeCompleted, 0, 0);
+}

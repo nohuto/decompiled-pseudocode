@@ -1,0 +1,38 @@
+/*
+ * XREFs of PspRundownProcess @ 0x140719308
+ * Callers:
+ *     PspProcessClose @ 0x14056E780 (PspProcessClose.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x140024260 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x1400613A0 (ExQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x140082F70 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireRundownProtectionEx @ 0x1400FA410 (ExAcquireRundownProtectionEx.c)
+ */
+
+void __fastcall PspRundownProcess(signed __int64 Object)
+{
+  struct _WORK_QUEUE_ITEM *v2; // rcx
+
+  if ( ExAcquireRundownProtectionEx((PEX_RUNDOWN_REF)(Object + 760), 0) )
+  {
+    ObfReferenceObjectWithTag((PVOID)Object, 0x77537350u);
+    if ( !_InterlockedCompareExchange64(&PspRundownProcessCache, Object, 0LL) )
+    {
+      if ( _InterlockedIncrement(&PspRundownNeededCountCache) != 1 )
+        return;
+      v2 = &PspProcessRundownCacheWorkItem;
+      goto LABEL_9;
+    }
+    if ( _interlockedbittestandset((volatile signed __int32 *)(Object + 768), 8u) )
+    {
+      ObfDereferenceObjectWithTag((PVOID)Object, 0x77537350u);
+      return;
+    }
+    if ( _InterlockedIncrement(&PspRundownNeededCount) == 1 )
+    {
+      v2 = (struct _WORK_QUEUE_ITEM *)&PspProcessRundownWorkItem;
+LABEL_9:
+      ExQueueWorkItem(v2, NormalWorkQueue);
+    }
+  }
+}

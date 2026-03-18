@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801DF414
+ * Callers:
+ *     ?UpdateMPOCaps@COverlayContext@@QEAAJXZ @ 0x18001DFD8 (-UpdateMPOCaps@COverlayContext@@QEAAJXZ.c)
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801DEEC8 (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CDirectFlipInfo::DisableIndependentFlip(CDirectFlipInfo *this)
+{
+  unsigned int v2; // edi
+  int v3; // eax
+  __int64 v4; // rcx
+  __int64 result; // rax
+
+  v2 = 0;
+  if ( (*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)this + 2) + 312LL))(*((_QWORD *)this + 2)) )
+  {
+    v3 = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(**((_QWORD **)this + 2) + 360LL))(
+           *((_QWORD *)this + 2),
+           *((_QWORD *)this + 3));
+    v2 = v3;
+    if ( v3 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v4, 0LL, 0LL, v3, 0x233u);
+  }
+  *((_DWORD *)this + 14) = 0;
+  result = v2;
+  *((_DWORD *)this + 17) = 0;
+  return result;
+}

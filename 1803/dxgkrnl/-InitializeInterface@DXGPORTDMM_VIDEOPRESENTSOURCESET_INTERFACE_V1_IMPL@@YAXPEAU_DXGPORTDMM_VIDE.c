@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?InitializeInterface@DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE@@@Z @ 0x1C02240F8
+ * Callers:
+ *     ?_InitializeDxgPortDmmInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0217AB8 (-_InitializeDxgPortDmmInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::InitializeInterface(
+        DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL *this,
+        struct _DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE *a2)
+{
+  __int64 v3; // rax
+
+  if ( !this )
+  {
+    v3 = WdLogNewEntry5_WdAssertion(0LL);
+    WdLogEvent5_WdAssertion(v3);
+  }
+  *(_QWORD *)this = DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::CreateNewSourceInfo;
+  *((_QWORD *)this + 1) = DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::AddSource;
+  *((_QWORD *)this + 2) = DXGPORTDMM_VIDEOPRESENTSOURCESET_INTERFACE_V1_IMPL::ReleaseSourceInfo;
+}

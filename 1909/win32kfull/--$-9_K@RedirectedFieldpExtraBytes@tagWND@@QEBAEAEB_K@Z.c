@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??$?9_K@RedirectedFieldpExtraBytes@tagWND@@QEBAEAEB_K@Z @ 0x1C01D6618
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C0061510 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall tagWND::RedirectedFieldpExtraBytes::operator!=<unsigned __int64>(__int64 a1, _QWORD *a2)
+{
+  return *(_QWORD *)(*(_QWORD *)(a1 - 280) + 296LL) != *a2;
+}

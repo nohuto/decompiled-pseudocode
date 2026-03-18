@@ -1,0 +1,58 @@
+/*
+ * XREFs of HalpUpdateCoolingPacket @ 0x1404D7A60
+ * Callers:
+ *     HalpStartPccCommand @ 0x1408635F8 (HalpStartPccCommand.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140212700 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusive @ 0x1402CF510 (ExAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403EDAA4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+char __fastcall HalpUpdateCoolingPacket(__int64 a1)
+{
+  KIRQL v2; // al
+  char v3; // si
+  unsigned __int64 v4; // rdi
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // rax
+  _DWORD *SchedulerAssist; // r9
+  int v8; // edx
+  bool v9; // zf
+
+  v2 = ExAcquireSpinLockExclusive(&HalpMemoryCoolingPacketLock);
+  v3 = HalpAcquiredInterface;
+  v4 = v2;
+  if ( a1 && !HalpAcquiredInterface )
+  {
+    HalpMemoryCoolingPacket = *(_OWORD *)a1;
+    HalpAcquiredInterface = 1;
+    xmmword_140C48A70 = *(_OWORD *)(a1 + 16);
+    xmmword_140C48A80 = *(_OWORD *)(a1 + 32);
+    xmmword_140C48A90 = *(_OWORD *)(a1 + 48);
+    xmmword_140C48AA0 = *(_OWORD *)(a1 + 64);
+    xmmword_140C48AB0 = *(_OWORD *)(a1 + 80);
+    xmmword_140C48AC0 = *(_OWORD *)(a1 + 96);
+    xmmword_140C48AD0 = *(_OWORD *)(a1 + 112);
+    qword_140C48AE0 = *(_QWORD *)(a1 + 72);
+  }
+  ExReleaseSpinLockExclusiveFromDpcLevel(&HalpMemoryCoolingPacketLock);
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && (unsigned __int8)v4 <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v8 = ~(unsigned __int16)(-1LL << ((unsigned __int8)v4 + 1));
+        v9 = (v8 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v8;
+        if ( v9 )
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(v4);
+  return v3;
+}

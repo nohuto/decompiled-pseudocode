@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?vPopThreadGuardedObject@RGNMEMOBJ@@QEAAXXZ @ 0x1C003BF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall RGNMEMOBJ::vPopThreadGuardedObject(RGNMEMOBJ *this)
+{
+  _QWORD *v1; // rbx
+  __int64 v2; // rcx
+  _QWORD *v3; // rax
+
+  if ( *(_QWORD *)this )
+  {
+    v1 = (_QWORD *)(*(_QWORD *)this + 48LL);
+    if ( *(_QWORD *)this != -48LL )
+    {
+      KeEnterCriticalRegion();
+      v2 = *v1;
+      v3 = (_QWORD *)v1[1];
+      if ( *(_QWORD **)(*v1 + 8LL) != v1 || (_QWORD *)*v3 != v1 )
+        __fastfail(3u);
+      *v3 = v2;
+      *(_QWORD *)(v2 + 8) = v3;
+      v1[1] = v1;
+      *v1 = v1;
+      KeLeaveCriticalRegion();
+    }
+  }
+}

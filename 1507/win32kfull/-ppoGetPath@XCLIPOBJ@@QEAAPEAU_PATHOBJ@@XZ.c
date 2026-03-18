@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C025B200
+ * Callers:
+ *     CLIPOBJ_ppoGetPath @ 0x1C025B3F0 (CLIPOBJ_ppoGetPath.c)
+ *     ?GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z @ 0x1C028621C (-GetCLIPOBJPath@UMPDOBJ@@QEAAPEAU_PATHOBJ@@PEAU_CLIPOBJ@@@Z.c)
+ *     VerifierCLIPOBJ_ppoGetPath @ 0x1C02908F0 (VerifierCLIPOBJ_ppoGetPath.c)
+ * Callees:
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C0005FE0 (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     PALLOCMEM2 @ 0x1C0033FC4 (PALLOCMEM2.c)
+ *     __security_check_cookie @ 0x1C015BB90 (__security_check_cookie.c)
+ *     ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02B8E5C (-bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z.c)
+ */
+
+struct _PATHOBJ *__fastcall XCLIPOBJ::ppoGetPath(XCLIPOBJ *this)
+{
+  struct _PATHOBJ *result; // rax
+  struct _PATHOBJ *v3; // rbx
+  struct _PATHOBJ *v4; // rdi
+  _BYTE v5[8]; // [rsp+28h] [rbp-E0h] BYREF
+  _OWORD v6[5]; // [rsp+38h] [rbp-D0h] BYREF
+  struct _PATHOBJ v7; // [rsp+88h] [rbp-80h]
+  _BYTE v8[8]; // [rsp+B8h] [rbp-50h] BYREF
+  __int64 v9; // [rsp+C0h] [rbp-48h]
+
+  result = (struct _PATHOBJ *)PALLOCMEM2(0x58uLL, 1869639751LL, 0);
+  v3 = 0LL;
+  v4 = result;
+  if ( result )
+  {
+    PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v6);
+    if ( *((_QWORD *)&v6[0] + 1) )
+    {
+      EXFORMOBJ::EXFORMOBJ((EXFORMOBJ *)v5, 1u, 8u);
+      PATHMEMOBJ::PATHMEMOBJ((PATHMEMOBJ *)v8);
+      if ( v9
+        && RGNOBJ::bCreate((XCLIPOBJ *)((char *)this + 56), (struct EPATHOBJ *)v8, (struct EXFORMOBJ *)v5)
+        && (unsigned int)RTP_PATHMEMOBJ::bDiagonalizePath((RTP_PATHMEMOBJ *)v8, (struct EPATHOBJ *)v6) )
+      {
+        PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v8);
+        *(_OWORD *)&v4->fl = v6[0];
+        *(_OWORD *)&v4[2].fl = v6[1];
+        *(_OWORD *)&v4[4].fl = v6[2];
+        *(_OWORD *)&v4[6].fl = v6[3];
+        *(_OWORD *)&v4[8].fl = v6[4];
+        v4[10] = v7;
+        EPATHOBJ::vLock((EPATHOBJ *)v4, **((struct HPATH__ ***)&v6[0] + 1));
+        v3 = v4;
+        *v4 = *(struct _PATHOBJ *)&v6[0];
+      }
+      else
+      {
+        Win32FreePool(v4);
+        PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v8);
+      }
+    }
+    else
+    {
+      Win32FreePool(v4);
+    }
+    PATHMEMOBJ::~PATHMEMOBJ((PATHMEMOBJ *)v6);
+    return v3;
+  }
+  return result;
+}

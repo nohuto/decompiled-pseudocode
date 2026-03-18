@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??1CCompositionSkyBoxBrush@@UEAA@XZ @ 0x1801854E0
+ * Callers:
+ *     ??_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z @ 0x180185540 (--_GCCompositionSkyBoxBrush@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800357C4 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800515A0 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
+void __fastcall CCompositionSkyBoxBrush::~CCompositionSkyBoxBrush(CCompositionSkyBoxBrush *this)
+{
+  struct CResource *v1; // rdx
+  struct CResource *v3; // rdx
+
+  v1 = (struct CResource *)*((_QWORD *)this + 9);
+  *(_QWORD *)this = &CCompositionSkyBoxBrush::`vftable'{for `CContent'};
+  *((_QWORD *)this + 7) = &CProjectedShadow::`vftable'{for `IVisualListenerInfoProvider'};
+  if ( v1 )
+  {
+    CResource::UnRegisterNotifierInternal(this, v1);
+    *((_QWORD *)this + 9) = 0LL;
+  }
+  v3 = (struct CResource *)*((_QWORD *)this + 10);
+  if ( v3 )
+  {
+    CResource::UnRegisterNotifierInternal(this, v3);
+    *((_QWORD *)this + 10) = 0LL;
+  }
+  Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease((__int64 *)this + 8);
+  CResource::~CResource(this);
+}

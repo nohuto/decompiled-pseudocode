@@ -1,0 +1,30 @@
+/*
+ * XREFs of bIsCompatible @ 0x1C003E1F0
+ * Callers:
+ *     hbmSelectBitmapInternal @ 0x1C0076C90 (hbmSelectBitmapInternal.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall bIsCompatible(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
+{
+  unsigned int v5; // r10d
+
+  v5 = 1;
+  if ( (*(_WORD *)(a3 + 100) || *(_QWORD *)(a3 + 24)) && *(_QWORD *)(a3 + 48) != a4 )
+    return 0;
+  if ( a2 )
+  {
+    *a1 = a2;
+  }
+  else
+  {
+    if ( a5 && *(_DWORD *)(a3 + 96) != *(_DWORD *)(a4 + 2100) )
+      return 0;
+    if ( (*(_DWORD *)(a4 + 2164) & 0x100) != 0 )
+      *a1 = 0LL;
+    else
+      *a1 = *(_QWORD *)(a4 + 1800);
+  }
+  return v5;
+}

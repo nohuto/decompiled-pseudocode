@@ -1,0 +1,134 @@
+/*
+ * XREFs of ?LockAllocationRange@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1EPEAEPEAPEAU_MDL@@@Z @ 0x1C0063AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0013750 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0014AE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0014B00 (memmove.c)
+ *     memset @ 0x1C0014E40 (memset.c)
+ *     ?ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2W4_LOCK_OPERATION@@PEAVVIDMM_SEGMENT@@E@Z @ 0x1C004C4E4 (-ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_LOCAL_ALLOC@@PEAU_VIDMM_GLOBAL_ALLOC@@_K2W.c)
+ *     ?WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C004FC60 (-WaitForAllPagingEngines@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?VidMmUnmapViewOfAllocation@@YAXPEAU_VIDMM_LOCAL_ALLOC@@PEAX@Z @ 0x1C0066B4C (-VidMmUnmapViewOfAllocation@@YAXPEAU_VIDMM_LOCAL_ALLOC@@PEAX@Z.c)
+ *     ?VidMmMapViewOfAllocation@@YAPEAXPEAU_VIDMM_LOCAL_ALLOC@@_K1PEAPEAXH@Z @ 0x1C0066C38 (-VidMmMapViewOfAllocation@@YAPEAXPEAU_VIDMM_LOCAL_ALLOC@@_K1PEAPEAXH@Z.c)
+ */
+
+__int64 __fastcall VIDMM_SYSMEM_SEGMENT::LockAllocationRange(
+        VIDMM_SYSMEM_SEGMENT *this,
+        struct _VIDMM_GLOBAL_ALLOC *a2,
+        unsigned __int64 a3,
+        size_t a4,
+        char a5,
+        unsigned __int8 *a6,
+        struct _MDL **a7)
+{
+  unsigned __int8 *v11; // rcx
+  int v12; // r12d
+  __int64 v13; // r13
+  _QWORD *v14; // rax
+  VIDMM_GLOBAL *v15; // rcx
+  __int64 v16; // rcx
+  int v17; // r14d
+  const void *v19; // rax
+  __int64 v20; // rax
+  _QWORD *v21; // rax
+  enum _LOCK_OPERATION v22; // [rsp+28h] [rbp-D0h]
+  char v23; // [rsp+40h] [rbp-B8h]
+  void *v24; // [rsp+48h] [rbp-B0h] BYREF
+  struct _MDL **v25; // [rsp+50h] [rbp-A8h]
+  size_t Size; // [rsp+58h] [rbp-A0h]
+  VIDMM_SYSMEM_SEGMENT *v27; // [rsp+60h] [rbp-98h]
+  __int64 v28; // [rsp+68h] [rbp-90h]
+  struct _VIDMM_GLOBAL_ALLOC *v29; // [rsp+70h] [rbp-88h]
+  unsigned __int64 v30; // [rsp+78h] [rbp-80h]
+  struct _KAPC_STATE ApcState; // [rsp+80h] [rbp-78h] BYREF
+
+  v27 = this;
+  v29 = a2;
+  v30 = a3;
+  Size = a4;
+  v11 = a6;
+  v24 = a6;
+  v25 = a7;
+  v12 = 0;
+  v23 = 0;
+  *a7 = 0LL;
+  v13 = *((_QWORD *)a2 + 13);
+  v28 = v13;
+  if ( g_IsInternalReleaseOrDbg )
+  {
+    v14 = (_QWORD *)WdLogNewEntry5_WdTrace(a6, a2, a3, a4);
+    v14[3] = a2;
+    v14[4] = a3;
+    v14[5] = a4;
+    v11 = (unsigned __int8 *)v24;
+  }
+  *v11 = 0;
+  if ( *((_BYTE *)a2 + 289) )
+  {
+    if ( a3 == *((_QWORD *)a2 + 34) && a4 == *((_QWORD *)a2 + 35) )
+    {
+      *v11 = 1;
+      return 0LL;
+    }
+    VIDMM_GLOBAL::WaitForAllPagingEngines(*((VIDMM_GLOBAL **)this + 1), a2);
+    _guard_dispatch_icall_fptr();
+  }
+  if ( (**((_DWORD **)a2 + 63) & 8) == 0 && v13 )
+  {
+    KeStackAttachProcess(**(PRKPROCESS **)(v13 + 8), &ApcState);
+    v12 = 1;
+  }
+  if ( a5 )
+  {
+    v23 = 1;
+    v19 = VidMmMapViewOfAllocation((struct _VIDMM_LOCAL_ALLOC *)v13, a3, a4, &v24, 0);
+    if ( v19 )
+    {
+      memmove(*((void **)this + 31), v19, a4);
+      VidMmUnmapViewOfAllocation((struct _VIDMM_LOCAL_ALLOC *)v13, v24);
+    }
+    else
+    {
+      memset(*((void **)this + 31), 0, a4);
+      *((_DWORD *)a2 + 19) |= 0x100000u;
+    }
+    *v25 = *(struct _MDL **)(*((_QWORD *)this + 32) + 8LL);
+    goto LABEL_10;
+  }
+  v15 = (VIDMM_GLOBAL *)*(unsigned int *)(*((_QWORD *)this + 1) + 6464LL);
+  if ( ((unsigned __int8)v15 & 4) != 0 )
+  {
+    _InterlockedIncrement(&dword_1C0035554);
+    v20 = WdLogNewEntry5_WdLowResource(v15);
+    *(_QWORD *)(v20 + 24) = 1100LL;
+    WdLogEvent5_WdLowResource(v20);
+    if ( v12 )
+      KeUnstackDetachProcess(&ApcState);
+    return 3223191809LL;
+  }
+  else
+  {
+    v17 = VIDMM_GLOBAL::ProbeAndLockAllocation(v15, (struct _VIDMM_LOCAL_ALLOC *)v13, a2, a3, a4, v22, this, 1u);
+    if ( v17 >= 0 )
+    {
+LABEL_10:
+      *((_QWORD *)a2 + 35) = a4;
+      *((_QWORD *)a2 + 34) = a3;
+      *((_BYTE *)a2 + 288) = v23;
+      *((_BYTE *)a2 + 289) = 1;
+      if ( v12 )
+        KeUnstackDetachProcess(&ApcState);
+      return 0LL;
+    }
+    _InterlockedIncrement(&dword_1C0035554);
+    v21 = (_QWORD *)WdLogNewEntry5_WdLowResource(v16);
+    v21[3] = a2;
+    v21[4] = a3;
+    v21[5] = a4;
+    WdLogEvent5_WdLowResource(v21);
+    if ( v12 )
+      KeUnstackDetachProcess(&ApcState);
+    return (unsigned int)v17;
+  }
+}

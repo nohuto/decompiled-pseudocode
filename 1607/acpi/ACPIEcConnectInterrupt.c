@@ -1,0 +1,15 @@
+/*
+ * XREFs of ACPIEcConnectInterrupt @ 0x1C009AD98
+ * Callers:
+ *     ACPIEcStartDeviceWorker @ 0x1C004CE80 (ACPIEcStartDeviceWorker.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __fastcall ACPIEcConnectInterrupt(__int64 a1)
+{
+  if ( *(_BYTE *)(a1 + 805) )
+    return ACPIEcConnectGpioInterrupt((char *)a1);
+  else
+    return ACPIEcConnectGpeVector(a1);
+}

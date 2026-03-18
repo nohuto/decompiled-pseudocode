@@ -1,0 +1,132 @@
+/*
+ * XREFs of SeReportSecurityEventWithSubCategory @ 0x1400E42B0
+ * Callers:
+ *     SeReportSecurityEvent @ 0x14031D6F0 (SeReportSecurityEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x14082E130 (CmpReportAuditVirtualizationEvent.c)
+ * Callees:
+ *     SepAuditingForSubCategory @ 0x1400E4520 (SepAuditingForSubCategory.c)
+ *     SepAdtLogAuditRecord @ 0x14012D67C (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ *     memmove @ 0x1401D7480 (memmove.c)
+ *     memset @ 0x1401D77C0 (memset.c)
+ *     SeCaptureSubjectContext @ 0x1405DE350 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1405F3AE0 (SeReleaseSubjectContext.c)
+ *     SepAdtAuditThisEventWithContext @ 0x1406235B0 (SepAdtAuditThisEventWithContext.c)
+ */
+
+NTSTATUS __stdcall SeReportSecurityEventWithSubCategory(
+        ULONG Flags,
+        PUNICODE_STRING SourceName,
+        PSID UserSid,
+        PSE_ADT_PARAMETER_ARRAY AuditParameters,
+        ULONG AuditSubcategoryId)
+{
+  unsigned __int8 *v9; // rdi
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  USHORT Type; // bx
+  PACCESS_TOKEN PrimaryToken; // rcx
+  struct _SECURITY_SUBJECT_CONTEXT *p_SubjectContext; // r9
+  ULONG AuditId; // edx
+  int v17; // eax
+  __int64 v18; // rcx
+  int v19; // eax
+  ULONG ParameterCount; // ebx
+  int Length; // eax
+  unsigned __int8 CurrentIrql; // [rsp+28h] [rbp-E0h]
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-D8h] BYREF
+  _QWORD Src[132]; // [rsp+58h] [rbp-B0h] BYREF
+
+  v9 = 0LL;
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  if ( Flags )
+    return -1073741811;
+  if ( !SourceName )
+    return -1073741811;
+  if ( !SourceName->Buffer )
+    return -1073741811;
+  if ( !SourceName->Length )
+    return -1073741811;
+  if ( !AuditParameters )
+    return -1073741811;
+  if ( AuditSubcategoryId - 100 > 0x3A )
+    return -1073741811;
+  if ( AuditParameters->ParameterCount > 0x1C )
+    return -1073741811;
+  Type = AuditParameters->Type;
+  if ( (Type & 0x18) == 0 )
+    return -1073741811;
+  CurrentIrql = KeGetCurrentIrql();
+  if ( CurrentIrql < 2u )
+  {
+    if ( UserSid )
+    {
+      v9 = (unsigned __int8 *)UserSid;
+    }
+    else
+    {
+      SeCaptureSubjectContext(&SubjectContext);
+      PrimaryToken = SubjectContext.PrimaryToken;
+      Type = AuditParameters->Type;
+      if ( SubjectContext.ClientToken )
+        PrimaryToken = SubjectContext.ClientToken;
+      v9 = (unsigned __int8 *)**((_QWORD **)PrimaryToken + 19);
+    }
+    p_SubjectContext = &SubjectContext;
+    if ( v9 == UserSid )
+      p_SubjectContext = 0LL;
+    LOBYTE(v11) = Type == 16;
+    LOBYTE(v10) = Type == 8;
+    if ( !(unsigned __int8)SepAdtAuditThisEventWithContext(AuditSubcategoryId, v10, v11, p_SubjectContext) )
+      goto LABEL_11;
+    Type = AuditParameters->Type;
+    goto LABEL_21;
+  }
+  LOBYTE(v10) = Type == 8;
+  if ( (unsigned __int8)SepAuditingForSubCategory(AuditSubcategoryId, v10) )
+  {
+    v9 = (unsigned __int8 *)UserSid;
+    if ( !UserSid )
+      v9 = (unsigned __int8 *)SeLocalSystemSid;
+LABEL_21:
+    memset(Src, 0, 0x418uLL);
+    AuditId = AuditParameters->AuditId;
+    LODWORD(Src[0]) = AuditParameters->CategoryId;
+    v17 = v9[1];
+    HIDWORD(Src[0]) = AuditId;
+    LOWORD(Src[2]) = AuditSubcategoryId;
+    WORD1(Src[2]) = Type;
+    LODWORD(Src[3]) = 4;
+    HIDWORD(Src[3]) = 4 * v17 + 8;
+    Src[10] = &SeSubsystemName;
+    Src[6] = v9;
+    Src[7] = 0x2000000001LL;
+    LODWORD(Src[1]) = 2;
+    if ( AuditSubcategoryId == 122 )
+    {
+      HIDWORD(Src[2]) |= 6u;
+      Length = SourceName->Length;
+      LODWORD(Src[11]) = 1;
+      v18 = 3LL;
+      HIDWORD(Src[11]) = Length + 16;
+      Src[14] = SourceName;
+      LODWORD(Src[1]) = 3;
+    }
+    else
+    {
+      v18 = 2LL;
+      v19 = HIDWORD(Src[2]) | 8;
+      HIDWORD(Src[2]) |= 8u;
+      if ( AuditId < 0x5FF )
+        HIDWORD(Src[2]) = v19 | 2;
+    }
+    ParameterCount = AuditParameters->ParameterCount;
+    memmove(&Src[4 * v18 + 3], AuditParameters->Parameters, 32LL * ParameterCount);
+    LODWORD(Src[1]) += ParameterCount;
+    SepAdtLogAuditRecord(Src);
+  }
+LABEL_11:
+  if ( CurrentIrql < 2u && v9 && v9 != UserSid )
+    SeReleaseSubjectContext(&SubjectContext);
+  return 0;
+}

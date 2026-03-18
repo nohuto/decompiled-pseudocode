@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?FlushTransitions@VIDMM_RECYCLE_HEAP_MGR@@UEAAJXZ @ 0x1C00B4230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0005888 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0005C1C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0005CA4 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?ProcessDebounceList@VIDMM_RECYCLE_HEAP_MGR@@QEAAX_N0@Z @ 0x1C00A40A0 (-ProcessDebounceList@VIDMM_RECYCLE_HEAP_MGR@@QEAAX_N0@Z.c)
+ */
+
+__int64 __fastcall VIDMM_RECYCLE_HEAP_MGR::FlushTransitions(VIDMM_RECYCLE_HEAP_MGR *this)
+{
+  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v3, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v3);
+  VIDMM_RECYCLE_HEAP_MGR::ProcessDebounceList(this, 0, 0);
+  if ( v3[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v3);
+  return 0LL;
+}

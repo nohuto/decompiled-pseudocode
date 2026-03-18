@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DC42C
+ * Callers:
+ *     ?vConvertAndSaveBGRATo4@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E4940 (-vConvertAndSaveBGRATo4@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z.c)
+ *     ?vConvertAndSaveBGRATo8@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E4A40 (-vConvertAndSaveBGRATo8@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z.c)
+ *     ?vSrcCopyS16D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02EAA10 (-vSrcCopyS16D8@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS24D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02EB170 (-vSrcCopyS24D8@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vSrcCopyS32D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02EB410 (-vSrcCopyS32D8@@YAXPEAUBLTINFO@@@Z.c)
+ *     ?vFillGRectDIB1@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F7550 (-vFillGRectDIB1@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z.c)
+ *     ?vFillGRectDIB4@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F8530 (-vFillGRectDIB4@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z.c)
+ *     ?vFillGRectDIB8@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F88B0 (-vFillGRectDIB8@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z.c)
+ *     ?vGradientFill1@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02F9390 (-vGradientFill1@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z.c)
+ *     ?vGradientFill4@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02F9FE0 (-vGradientFill4@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z.c)
+ *     ?vGradientFill8@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02FA2D0 (-vGradientFill8@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z.c)
+ * Callees:
+ *     ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C02D890C (-pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ.c)
+ */
+
+unsigned __int8 *__fastcall XLATEOBJ_pGetXlate555(struct _XLATEOBJ *a1)
+{
+  __int64 v1; // rdx
+  __int64 v2; // rax
+  __int64 v4; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = 0LL;
+  if ( a1 && (a1->flXlate & 7) == 0 )
+  {
+    if ( (a1[3].flXlate & 0x800) != 0 )
+    {
+      v2 = *(_QWORD *)&a1[2].iSrcType;
+    }
+    else
+    {
+      v2 = *(_QWORD *)&a1[2].iUniq;
+      if ( !v2 )
+        return (unsigned __int8 *)v1;
+    }
+    v4 = v2;
+    return XEPALOBJ::pGetRGBXlate((XEPALOBJ *)&v4);
+  }
+  return 0LL;
+}

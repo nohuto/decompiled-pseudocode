@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetType@CD2DLayer@@UEBA?AW4LayerType@CLayer@@XZ @ 0x1800FA7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 CD2DLayer::GetType()
+{
+  return 1LL;
+}

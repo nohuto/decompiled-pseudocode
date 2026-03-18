@@ -1,0 +1,194 @@
+/*
+ * XREFs of ?VmBusSendSyncMessage@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAXPEAIPEAU_MDL@@@Z @ 0x1C0198920
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00894C0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ??1DXGPAGINGQUEUE@@IEAA@XZ @ 0x1C0091DF0 (--1DXGPAGINGQUEUE@@IEAA@XZ.c)
+ *     ?DestroyDevice@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C0093D2C (-DestroyDevice@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00C0544 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DxgkNotifyProcessFreezeCallout@@YAXPEAU_EPROCESS@@@Z @ 0x1C00F7360 (-DxgkNotifyProcessFreezeCallout@@YAXPEAU_EPROCESS@@@Z.c)
+ *     ?DxgkNotifyProcessThawCallout@@YAXPEAU_EPROCESS@@@Z @ 0x1C00F7400 (-DxgkNotifyProcessThawCallout@@YAXPEAU_EPROCESS@@@Z.c)
+ *     ?DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z @ 0x1C00F9970 (-DxgkSharedSyncObjectObDeleteProcedure@@YAXPEAX@Z.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C0170FCC (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusSendCreateAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIPEBU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAPEAXPEBX3EEPEAPEAE@Z @ 0x1C019544C (-VmBusSendCreateAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIPEBU_D3DKMT_CREATEALLOCATION@@PEA.c)
+ *     ?VmBusSendCreateContextVirtual@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIIIIIU_D3DDDI_CREATECONTEXTFLAGS@@W4_D3DKMT_CLIENTHINT@@IPEAX@Z @ 0x1C01959DC (-VmBusSendCreateContextVirtual@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIIIIIU_D3DDDI_CREATECONTEXTFLAGS@.c)
+ *     ?VmBusSendCreateDevice@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIIU_D3DKMT_CREATEDEVICEFLAGS@@E@Z @ 0x1C0195B74 (-VmBusSendCreateDevice@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAIIU_D3DKMT_CREATEDEVICEFLAGS@@E@Z.c)
+ *     ?VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@@Z @ 0x1C0195C00 (-VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@.c)
+ *     ?VmBusSendCreatePagingQueue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEBU_D3DKMT_CREATEPAGINGQUEUE@@PEAUDXGKVMB_COMMAND_CREATEPAGINGQUEUE_RETURN@@@Z @ 0x1C0195CB0 (-VmBusSendCreatePagingQueue@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEBU_D3DKMT_CREATEPAGINGQUEUE@@PE.c)
+ *     ?VmBusSendCreateProcess@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@PEAD@Z @ 0x1C0195D38 (-VmBusSendCreateProcess@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@PEAD@Z.c)
+ *     ?VmBusSendCreateSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEBU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@PEAUDXGKVMB_COMMAND_CREATESYNCOBJECT_RETURN@@@Z @ 0x1C0195E5C (-VmBusSendCreateSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEBU_D3DKMT_CREATESYNCHRONIZATIONO.c)
+ *     ?VmBusSendDdiGetNodeMetadata@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z @ 0x1C0195F50 (-VmBusSendDdiGetNodeMetadata@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEAU_DXGK_NODEMETADATA@@@Z.c)
+ *     ?VmBusSendDdiGetStandardAllocationDriverData@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_DXGKARG_GETSTANDARDALLOCATIONDRIVERDATA@@@Z @ 0x1C0196044 (-VmBusSendDdiGetStandardAllocationDriverData@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PE.c)
+ *     ?VmBusSendDdiQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C0196270 (-VmBusSendDdiQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEBU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     ?VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C0196344 (-VmBusSendDestroyAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAXIIIIPEAPEAVDXGALLOCATION@@U_D3DDDIC.c)
+ *     ?VmBusSendDestroySyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAXII@Z @ 0x1C0196474 (-VmBusSendDestroySyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAXII@Z.c)
+ *     ?VmBusSendEscape@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIIW4_D3DKMT_ESCAPETYPE@@U_D3DDDI_ESCAPEFLAGS@@IPEAE@Z @ 0x1C01964B8 (-VmBusSendEscape@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIIW4_D3DKMT_ESCAPETYPE@@U_D3DDDI_ESCAPEFLAGS.c)
+ *     ?VmBusSendEvict@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIUD3DDDI_EVICT_FLAGS@@IPEBVDXGALLOCATIONREFERENCE@@PEA_K@Z @ 0x1C0196654 (-VmBusSendEvict@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIUD3DDDI_EVICT_FLAGS@@IPEBVDXGALLOCATIONREFERE.c)
+ *     ?VmBusSendGetDeviceState@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_GETDEVICESTATE@@@Z @ 0x1C01968F8 (-VmBusSendGetDeviceState@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3.c)
+ *     ?VmBusSendLock2@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_LOCK2@@EII@Z @ 0x1C0196A80 (-VmBusSendLock2@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_LOCK.c)
+ *     ?VmBusSendMakeResident@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIUD3DDDI_MAKERESIDENT_FLAGS@@IPEBVDXGALLOCATIONREFERENCE@@PEA_K2@Z @ 0x1C0196EA4 (-VmBusSendMakeResident@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIUD3DDDI_MAKERESIDENT_FLAGS@@IPEBVDXGA.c)
+ *     ?VmBusSendMapGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEBVDXGDEVICE@@IIPEAUD3DDDI_MAPGPUVIRTUALADDRESS@@@Z @ 0x1C019706C (-VmBusSendMapGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIPEBVDXGDEVICE@@IIPEAUD3DDDI_MAP.c)
+ *     ?VmBusSendOpenResource@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IIIPEAI2@Z @ 0x1C0197208 (-VmBusSendOpenResource@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IIIPEAI2@.c)
+ *     ?VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@IIU_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@@Z @ 0x1C0197364 (-VmBusSendOpenSyncObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@IPEAVDXGSYN.c)
+ *     ?VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADAPTERINFO@@I@Z @ 0x1C01974A4 (-VmBusSendQueryAdapterInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYADA.c)
+ *     ?VmBusSendQueryAllocationResidency@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@EPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@@Z @ 0x1C01975B8 (-VmBusSendQueryAllocationResidency@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVIC.c)
+ *     ?VmBusSendQueryEtwSession@DXG_GUEST_GLOBAL_VMBUS@@QEAA?AU_GUID@@XZ @ 0x1C01979D4 (-VmBusSendQueryEtwSession@DXG_GUEST_GLOBAL_VMBUS@@QEAA-AU_GUID@@XZ.c)
+ *     ?VmBusSendQueryVideoMemoryInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAU_D3DKMT_QUERYVIDEOMEMORYINFO@@@Z @ 0x1C0197A6C (-VmBusSendQueryVideoMemoryInfo@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAU_D3DKMT_QUERYVIDEOMEMORYIN.c)
+ *     ?VmBusSendReserveGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAUD3DDDI_RESERVEGPUVIRTUALADDRESS@@@Z @ 0x1C0197B2C (-VmBusSendReserveGpuVirtualAddress@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIPEAUD3DDDI_RESERVEGPUVIRTU.c)
+ *     ?VmBusSendSetQueuedLimit@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_SETQUEUEDLIMIT@@@Z @ 0x1C0197C6C (-VmBusSendSetQueuedLimit@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3.c)
+ *     ?VmBusSendSyncMessageStatusReturn@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z @ 0x1C0198BC8 (-VmBusSendSyncMessageStatusReturn@@YAJPEAUVMBCHANNEL__@@PEAUDXGKVMB_COMMAND_BASE@@IPEAU_MDL@@@Z.c)
+ * Callees:
+ *     McTemplateK0q @ 0x1C00152E0 (McTemplateK0q.c)
+ *     memmove @ 0x1C0016740 (memmove.c)
+ *     McTemplateK0ppq @ 0x1C0032B64 (McTemplateK0ppq.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C00CECE8 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ */
+
+__int64 __fastcall VmBusSendSyncMessage(
+        struct VMBCHANNEL__ *a1,
+        struct DXGKVMB_COMMAND_BASE *a2,
+        __int64 a3,
+        void *a4,
+        unsigned int *a5)
+{
+  unsigned int v6; // r13d
+  __int64 v9; // rax
+  unsigned int *v10; // r15
+  unsigned int v11; // ebp
+  char v12; // dl
+  PVOID v13; // r14
+  unsigned int v14; // ebx
+  __int64 v15; // rdi
+  unsigned int v16; // eax
+  __int64 v18; // rcx
+  bool v19; // zf
+  const EVENT_DESCRIPTOR *v20; // rdx
+  const EVENT_DESCRIPTOR *v21; // rdx
+  __int64 v22; // rax
+  size_t v23; // r8
+  __int64 v24; // [rsp+28h] [rbp-50h]
+  unsigned int v25; // [rsp+80h] [rbp+8h] BYREF
+  char v26; // [rsp+90h] [rbp+18h]
+  void *v27; // [rsp+98h] [rbp+20h]
+
+  v27 = a4;
+  v6 = a3;
+  if ( (qword_1C005F010 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q((__int64)a1, &EventProfilerEnter, a3, 2136);
+  if ( v6 < 0x18 )
+  {
+    v9 = WdLogNewEntry5_WdAssertion(a1);
+    *(_QWORD *)(v9 + 24) = 7055LL;
+    WdLogEvent5_WdAssertion(v9);
+  }
+  v10 = a5;
+  if ( a5 )
+    v11 = *a5;
+  else
+    v11 = 0;
+  v12 = 0;
+  v13 = a4;
+  v26 = 0;
+  v14 = v11;
+  v25 = v11;
+  LODWORD(v15) = -1073741823;
+  if ( !a1 )
+  {
+    LODWORD(v15) = -1073741130;
+    goto LABEL_27;
+  }
+  if ( v6 - 24 <= 0x1FFE7 && v11 < 0x20000 )
+  {
+    if ( (v11 & 7) != 0 )
+    {
+      v14 = (v11 + 7) & 0xFFFFFFF8;
+      v25 = v14;
+      if ( v14 < v11 )
+      {
+        LODWORD(v15) = -1073741811;
+        goto LABEL_20;
+      }
+      v13 = operator new[](v14, 0x4B677844u, (POOL_TYPE)512);
+      if ( !v13 )
+      {
+        LODWORD(v15) = -1073741801;
+        goto LABEL_18;
+      }
+      v26 = 1;
+    }
+    v18 = _InterlockedIncrement64(&qword_1C0061D48);
+    v19 = bTracingEnabled == 0;
+    *(_QWORD *)a2 = v18;
+    if ( !v19 )
+    {
+      if ( *((_DWORD *)a2 + 3) == 1 )
+      {
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) == 0 )
+          goto LABEL_39;
+        v20 = (const EVENT_DESCRIPTOR *)&EventVmBusSendCommandGlobalBegin;
+      }
+      else
+      {
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) == 0 )
+          goto LABEL_39;
+        v20 = (const EVENT_DESCRIPTOR *)&EventVmBusSendCommandBegin;
+      }
+      McTemplateK0ppq(v18, v20, a3, a1, v18, *((_DWORD *)a2 + 4));
+    }
+LABEL_39:
+    v15 = (int)VmbChannelSendSynchronousRequest(a1, a2, v6, 0LL, 1, v13, &v25, 0LL);
+    if ( bTracingEnabled )
+    {
+      if ( *((_DWORD *)a2 + 3) == 1 )
+      {
+        if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) != 0 )
+        {
+          v21 = (const EVENT_DESCRIPTOR *)&EventVmBusSendCommandGlobalEnd;
+LABEL_45:
+          LODWORD(v24) = *((_DWORD *)a2 + 4);
+          McTemplateK0ppq((__int64)a1, v21, a3, a1, *(_QWORD *)a2, v24);
+        }
+      }
+      else if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x400000) != 0 )
+      {
+        v21 = (const EVENT_DESCRIPTOR *)&EventVmBusSendCommandEnd;
+        goto LABEL_45;
+      }
+    }
+    if ( (int)v15 >= 0 )
+    {
+      v12 = v26;
+      if ( v26 )
+      {
+        v14 = v25;
+        v23 = v25;
+        if ( v11 < v25 )
+          v23 = v11;
+        memmove(v27, v13, v23);
+        v12 = v26;
+        goto LABEL_20;
+      }
+      goto LABEL_19;
+    }
+    v22 = WdLogNewEntry5_WdError(a1);
+    *(_QWORD *)(v22 + 24) = v15;
+    WdLogEvent5_WdError(v22);
+LABEL_18:
+    v12 = v26;
+LABEL_19:
+    v14 = v25;
+  }
+LABEL_20:
+  if ( v10 )
+  {
+    v16 = 0;
+    if ( (int)v15 >= 0 )
+      v16 = v14;
+    *v10 = v16;
+  }
+  if ( v12 && v13 )
+    ExFreePoolWithTag(v13, 0);
+LABEL_27:
+  if ( (qword_1C005F010 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x2000) != 0 )
+    McTemplateK0q((__int64)a1, &EventProfilerExit, a3, 2136);
+  return (unsigned int)v15;
+}

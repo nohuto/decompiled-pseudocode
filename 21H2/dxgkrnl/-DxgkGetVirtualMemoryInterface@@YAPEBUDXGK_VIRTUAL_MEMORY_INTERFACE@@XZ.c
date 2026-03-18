@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C0009C20
+ * Callers:
+ *     ??1DXGCONTEXT@@QEAA@XZ @ 0x1C016AB70 (--1DXGCONTEXT@@QEAA@XZ.c)
+ *     ?Initialize@DXGCONTEXT@@QEAAJPEAXI@Z @ 0x1C016AE0C (-Initialize@DXGCONTEXT@@QEAAJPEAXI@Z.c)
+ *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1C02D7560 (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
+ *     ?ResizeUserModeBuffers@DXGCONTEXT@@QEAAJPEAVVIDMM_DMA_POOL@@_KII@Z @ 0x1C02E2508 (-ResizeUserModeBuffers@DXGCONTEXT@@QEAAJPEAVVIDMM_DMA_POOL@@_KII@Z.c)
+ *     ??1DXGHWQUEUE@@IEAA@XZ @ 0x1C030D8E0 (--1DXGHWQUEUE@@IEAA@XZ.c)
+ *     ?MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z @ 0x1C03650E0 (-MapGuestFenceCpuVaToHost@@YAJ_KPEAPEAXPEA_KPEAI@Z.c)
+ *     ?UnmapCpuVaForParavirtualization@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C036641C (-UnmapCpuVaForParavirtualization@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ *     ?VmBusSendCreateAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIPEBU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAPEAXPEBX3EEPEAPEAE@Z @ 0x1C03746FC (-VmBusSendCreateAllocation@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJIIIPEBU_D3DKMT_CREATEALLOCATION@@PEA.c)
+ *     ?VmBusSendLock2@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_LOCK2@@EII@Z @ 0x1C0379004 (-VmBusSendLock2@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAU_D3DKMT_LOCK.c)
+ *     ?Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C03BD184 (-Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVIC.c)
+ *     ?SysMmCreateVirtualMemoryPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KKKW4_MEMORY_CACHING_TYPE@@QEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@@Z @ 0x1C03C0D00 (-SysMmCreateVirtualMemoryPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KKKW4_MEMORY_CACHING_TYPE@@QEAXW.c)
+ * Callees:
+ *     <none>
+ */
+
+const struct DXGK_VIRTUAL_MEMORY_INTERFACE *DxgkGetVirtualMemoryInterface(void)
+{
+  __int64 CurrentProcess; // rax
+  __int64 ProcessDxgProcess; // rax
+  int v2; // eax
+  const struct DXGK_VIRTUAL_MEMORY_INTERFACE *result; // rax
+  bool v4; // cf
+
+  CurrentProcess = PsGetCurrentProcess();
+  ProcessDxgProcess = PsGetProcessDxgProcess(CurrentProcess);
+  if ( !ProcessDxgProcess )
+    return (const struct DXGK_VIRTUAL_MEMORY_INTERFACE *)&g_WindowsSubsystem;
+  v2 = *(_DWORD *)(ProcessDxgProcess + 424);
+  if ( (v2 & 0x10) == 0 )
+    return (const struct DXGK_VIRTUAL_MEMORY_INTERFACE *)&g_WindowsSubsystem;
+  v4 = (v2 & 0x100) != 0;
+  result = (const struct DXGK_VIRTUAL_MEMORY_INTERFACE *)&g_WslSubsystem;
+  if ( v4 )
+    return (const struct DXGK_VIRTUAL_MEMORY_INTERFACE *)&g_WindowsSubsystem;
+  return result;
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of ApiSetEditionInitGlobalCursorSizes @ 0x1C0062B60
+ * Callers:
+ *     InitUserScreen @ 0x1C00625FC (InitUserScreen.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002D584 (WPP_RECORDER_SF_.c)
+ */
+
+__int64 ApiSetEditionInitGlobalCursorSizes()
+{
+  unsigned int inited; // ebx
+
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      268,
+      (__int64)&WPP_a5ebb53a70223fffc2665dca357d30fc_Traceguids);
+  inited = 1;
+  if ( (int)IsEditionInitGlobalCursorSizesSupported() >= 0 )
+    inited = EditionInitGlobalCursorSizes();
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      269,
+      (__int64)&WPP_a5ebb53a70223fffc2665dca357d30fc_Traceguids);
+  return inited;
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of AuthzBasepAllocateSecurityAttributeValue @ 0x140338A6C
+ * Callers:
+ *     AuthzBasepAddSecurityAttributeValues @ 0x140338378 (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x140338570 (AuthzBasepDuplicateSecurityAttributes.c)
+ * Callees:
+ *     memset @ 0x140408F80 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
+ */
+
+PVOID __fastcall AuthzBasepAllocateSecurityAttributeValue(unsigned int a1)
+{
+  PVOID PoolWithTag; // rax
+  PVOID v2; // rbx
+
+  PoolWithTag = ExAllocatePoolWithTag(
+                  (POOL_TYPE)(KeGetCurrentIrql() < 2u ? PagedPool : NonPagedPoolNx),
+                  a1 + 64LL,
+                  0x74416553u);
+  v2 = PoolWithTag;
+  if ( PoolWithTag )
+    memset(PoolWithTag, 0, 0x40uLL);
+  return v2;
+}

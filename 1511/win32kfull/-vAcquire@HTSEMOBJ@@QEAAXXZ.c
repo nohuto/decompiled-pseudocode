@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?vAcquire@HTSEMOBJ@@QEAAXXZ @ 0x1C00BCBD4
+ * Callers:
+ *     EngHTBlt @ 0x1C00BAC98 (EngHTBlt.c)
+ *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C00BB4A0 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00E7048 (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall HTSEMOBJ::vAcquire(HTSEMOBJ *this)
+{
+  if ( *(_DWORD *)this )
+    GreAcquireSemaphore(ghsemHT);
+}

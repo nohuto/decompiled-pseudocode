@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1WorkloadInstancePair@DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C004D200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DestroySynchObject@MonitoredFenceHelper@@AEAAXXZ @ 0x1C02BC20C (-DestroySynchObject@MonitoredFenceHelper@@AEAAXXZ.c)
+ */
+
+void __fastcall DXGTRACKEDWORKLOAD::WorkloadInstancePair::~WorkloadInstancePair(
+        DXGTRACKEDWORKLOAD::WorkloadInstancePair *this)
+{
+  MonitoredFenceHelper::DestroySynchObject((DXGTRACKEDWORKLOAD::WorkloadInstancePair *)((char *)this + 56));
+}

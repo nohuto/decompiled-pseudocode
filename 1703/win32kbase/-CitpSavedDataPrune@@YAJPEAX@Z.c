@@ -1,0 +1,218 @@
+/*
+ * XREFs of ?CitpSavedDataPrune@@YAJPEAX@Z @ 0x1C0155CF0
+ * Callers:
+ *     ?CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@IHPEAX@Z @ 0x1C0087604 (-CitpContextFlush@@YAJPEAU_CIT_IMPACT_CONTEXT@@IHPEAX@Z.c)
+ * Callees:
+ *     Win32AllocPool @ 0x1C003F850 (Win32AllocPool.c)
+ *     Win32FreePool @ 0x1C0040090 (Win32FreePool.c)
+ *     ?CitAllocZero@@YAPEAX_K@Z @ 0x1C0053F28 (-CitAllocZero@@YAPEAX_K@Z.c)
+ *     ?CitpBytesToString@@YAXPEBXIPEAG@Z @ 0x1C0085F48 (-CitpBytesToString@@YAXPEBXIPEAG@Z.c)
+ *     ?CitIsBufferSmallStatus@@YAEJ@Z @ 0x1C0086CD8 (-CitIsBufferSmallStatus@@YAEJ@Z.c)
+ *     __security_check_cookie @ 0x1C009D0D0 (__security_check_cookie.c)
+ *     memset @ 0x1C00A2500 (memset.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C0154590 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ *     ?CitpSaveKeyFromString@@YAXPEAU_CIT_SAVE_KEY@@PEAG@Z @ 0x1C01550C0 (-CitpSaveKeyFromString@@YAXPEAU_CIT_SAVE_KEY@@PEAG@Z.c)
+ */
+
+__int64 __fastcall CitpSavedDataPrune(HANDLE KeyHandle)
+{
+  unsigned int v2; // r12d
+  unsigned __int64 v3; // r13
+  NTSTATUS Key; // eax
+  int v5; // ebx
+  const char *v6; // rdx
+  __int64 v7; // rcx
+  int v8; // eax
+  ULONG v9; // ebx
+  __int64 v10; // rsi
+  const char *v11; // rdx
+  __int64 QuadPart; // r15
+  __int64 v13; // r14
+  unsigned __int8 *v14; // rdi
+  HANDLE v15; // rdi
+  NTSTATUS v16; // eax
+  __int64 v17; // rcx
+  __int128 v18; // xmm0
+  __int64 v19; // rdx
+  _QWORD *v20; // rax
+  __int64 *v21; // rax
+  __int64 *v22; // rcx
+  int v23; // r8d
+  int v24; // r14d
+  _QWORD *v25; // rax
+  NTSTATUS v26; // eax
+  const char *v27; // rdx
+  NTSTATUS v28; // r15d
+  __int64 v29; // rax
+  _QWORD *v31; // [rsp+38h] [rbp-D0h] BYREF
+  __int64 *v32; // [rsp+40h] [rbp-C8h]
+  union _LARGE_INTEGER SystemTime; // [rsp+48h] [rbp-C0h] BYREF
+  ULONG ResultLength[2]; // [rsp+50h] [rbp-B8h] BYREF
+  union _LARGE_INTEGER LocalTime; // [rsp+58h] [rbp-B0h] BYREF
+  HANDLE KeyHandlea; // [rsp+60h] [rbp-A8h]
+  struct _UNICODE_STRING ValueName; // [rsp+68h] [rbp-A0h] BYREF
+  unsigned __int64 v38; // [rsp+78h] [rbp-90h]
+  unsigned __int64 v39; // [rsp+80h] [rbp-88h]
+  struct _UNICODE_STRING DestinationString; // [rsp+88h] [rbp-80h] BYREF
+  _DWORD KeyInformation[12]; // [rsp+98h] [rbp-70h] BYREF
+  __int128 v42; // [rsp+C8h] [rbp-40h] BYREF
+  WCHAR SourceString[40]; // [rsp+D8h] [rbp-30h] BYREF
+
+  v39 = (__int64)dword_1C018E88C << 10;
+  v2 = 0;
+  KeyHandlea = KeyHandle;
+  v3 = 0LL;
+  SystemTime.QuadPart = MEMORY[0xFFFFF78000000014];
+  ExSystemTimeToLocalTime(&SystemTime, &LocalTime);
+  v38 = LocalTime.QuadPart - 10000000LL * (unsigned int)dword_1C018E888;
+  memset(KeyInformation, 0, sizeof(KeyInformation));
+  Key = ZwQueryKey(KeyHandle, KeyFullInformation, KeyInformation, 0x30u, ResultLength);
+  v5 = Key;
+  if ( Key >= 0 || CitIsBufferSmallStatus(Key) )
+  {
+    if ( KeyInformation[8] )
+    {
+      v8 = 64;
+      if ( KeyInformation[9] > 0x40u )
+        v8 = KeyInformation[9];
+      v9 = v8 + 24;
+      ResultLength[1] = v8 + 24;
+      v10 = Win32AllocPool((unsigned int)(v8 + 24), 0x49637355u);
+      SystemTime.QuadPart = (LONGLONG)CitAllocZero(40LL * KeyInformation[8]);
+      QuadPart = SystemTime.QuadPart;
+      if ( SystemTime.QuadPart && v10 )
+      {
+        v13 = 0LL;
+        v14 = (unsigned __int8 *)&v31;
+        v32 = (__int64 *)&v31;
+        v31 = &v31;
+        if ( KeyInformation[8] )
+        {
+          v15 = KeyHandlea;
+          while ( 1 )
+          {
+            v16 = ZwEnumerateValueKey(v15, v13, KeyValueFullInformation, (PVOID)v10, v9, ResultLength);
+            v5 = v16;
+            if ( v16 < 0 && !CitIsBufferSmallStatus(v16) )
+            {
+              v23 = 5293;
+              goto LABEL_49;
+            }
+            if ( *(_DWORD *)(v10 + 16) <= KeyInformation[9] )
+            {
+              ValueName.Length = *(_WORD *)(v10 + 16);
+              ValueName.MaximumLength = ValueName.Length;
+              ValueName.Buffer = (PWSTR)(v10 + 20);
+              if ( (ValueName.Length & 0xFFFE) == 0x40
+                && (CitpSaveKeyFromString((struct _CIT_SAVE_KEY *)&v42, (unsigned __int16 *)(v10 + 20)),
+                    *((_QWORD *)&v42 + 1) >= v38)
+                && *((_QWORD *)&v42 + 1) <= LocalTime.QuadPart )
+              {
+                v18 = v42;
+                v19 = QuadPart + 40 * v13;
+                *(_QWORD *)(v19 + 8) = v19;
+                *(_QWORD *)v19 = v19;
+                *(_OWORD *)(v19 + 16) = v18;
+                *(_DWORD *)(v19 + 32) = *(_DWORD *)(v10 + 12);
+                v20 = v31;
+                if ( v31 == &v31 )
+                {
+LABEL_21:
+                  v21 = v32;
+                  if ( (_QWORD **)*v32 != &v31 )
+                    __fastfail(3u);
+                  *(_QWORD *)(v19 + 8) = v32;
+                  *(_QWORD *)v19 = &v31;
+                  *v21 = v19;
+                  v32 = (__int64 *)(QuadPart + 40 * v13);
+                }
+                else
+                {
+                  while ( *(_QWORD *)(v19 + 24) >= v20[3] )
+                  {
+                    v20 = (_QWORD *)*v20;
+                    if ( v20 == &v31 )
+                      goto LABEL_21;
+                  }
+                  v22 = (__int64 *)v20[1];
+                  if ( (_QWORD *)*v22 != v20 )
+                    __fastfail(3u);
+                  *(_QWORD *)v19 = v20;
+                  *(_QWORD *)(v19 + 8) = v22;
+                  *v22 = v19;
+                  v20[1] = v19;
+                }
+                v3 += *(unsigned int *)(v19 + 32);
+                ++v2;
+              }
+              else
+              {
+                ZwDeleteValueKey(v15, &ValueName);
+              }
+            }
+            v13 = (unsigned int)(v13 + 1);
+            if ( (unsigned int)v13 >= KeyInformation[8] )
+              break;
+            v9 = ResultLength[1];
+          }
+          v14 = (unsigned __int8 *)v31;
+        }
+        v5 = 0;
+        v24 = 0;
+        while ( v14 != (unsigned __int8 *)&v31 && (v2 > dword_1C018E884 || v3 > v39) )
+        {
+          v25 = *(_QWORD **)v14;
+          if ( *((_QWORD ***)v14 + 1) != &v31 || (unsigned __int8 *)v25[1] != v14 )
+            __fastfail(3u);
+          v31 = *(_QWORD **)v14;
+          v25[1] = &v31;
+          CitpBytesToString(v14 + 16, 0x10u, SourceString);
+          RtlInitUnicodeString(&DestinationString, SourceString);
+          v26 = ZwDeleteValueKey(KeyHandlea, &DestinationString);
+          v28 = v26;
+          if ( v26 < 0 )
+          {
+            CitpLogFailureWorker((unsigned int)v26, v27, 5395);
+            ++v24;
+            v5 = v28;
+          }
+          v29 = *((unsigned int *)v14 + 8);
+          --v2;
+          v14 = (unsigned __int8 *)v31;
+          v3 -= v29;
+        }
+        QuadPart = SystemTime.QuadPart;
+        if ( v24 )
+        {
+          if ( v5 >= 0 )
+            v5 = -1073741823;
+        }
+        else
+        {
+          v5 = 0;
+        }
+      }
+      else
+      {
+        v5 = -1073741670;
+        v23 = 5280;
+        v17 = 3221225626LL;
+LABEL_49:
+        CitpLogFailureWorker(v17, v11, v23);
+      }
+      if ( v10 )
+        Win32FreePool(v10);
+      if ( QuadPart )
+        Win32FreePool(QuadPart);
+    }
+    else
+    {
+      return 0;
+    }
+  }
+  else
+  {
+    CitpLogFailureWorker(v7, v6, 5260);
+  }
+  return (unsigned int)v5;
+}

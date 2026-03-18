@@ -1,0 +1,37 @@
+/*
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand_MILCMD_COMPONENTTRANSFORM3D_SETTRANSFORMMATRIX__lambda_952b6b000c999d04aa5713e06a78ee9c___ @ 0x1C00206C4
+ * Callers:
+ *     ?EmitUpdateCommands@CComponentTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C001E8D0 (-EmitUpdateCommands@CComponentTransform3DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C001E274 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memset @ 0x1C00A2500 (memset.c)
+ */
+
+char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand_MILCMD_COMPONENTTRANSFORM3D_SETTRANSFORMMATRIX__lambda_952b6b000c999d04aa5713e06a78ee9c___(
+        struct DirectComposition::CBatch **a1,
+        __int64 *a2)
+{
+  char *v3; // rax
+  char *v4; // rbx
+  __int64 v5; // rax
+  __int128 v6; // xmm1
+  char result; // al
+  void *v8; // [rsp+40h] [rbp+18h] BYREF
+
+  if ( !DirectComposition::CBatch::EnsureBatchBuffer(a1, 0x4CuLL, &v8) )
+    return 0;
+  v3 = (char *)v8;
+  *(_DWORD *)v8 = 76;
+  v4 = v3 + 4;
+  memset(v3 + 4, 0, 0x48uLL);
+  *(_DWORD *)v4 = 306;
+  *((_DWORD *)v4 + 1) = *(_DWORD *)(*a2 + 24);
+  v5 = *a2;
+  *(_OWORD *)(v4 + 8) = *(_OWORD *)(*a2 + 120);
+  *(_OWORD *)(v4 + 24) = *(_OWORD *)(v5 + 136);
+  *(_OWORD *)(v4 + 40) = *(_OWORD *)(v5 + 152);
+  v6 = *(_OWORD *)(v5 + 168);
+  result = 1;
+  *(_OWORD *)(v4 + 56) = v6;
+  return result;
+}

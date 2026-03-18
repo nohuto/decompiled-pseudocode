@@ -1,0 +1,31 @@
+/*
+ * XREFs of RtlInterlockedSetClearBits @ 0x14008ABB8
+ * Callers:
+ *     PspAssociateCompletionPortCallback @ 0x14048BDA0 (PspAssociateCompletionPortCallback.c)
+ *     NtSetInformationProcess @ 0x1404E4550 (NtSetInformationProcess.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1405319B4 (PspApplyJobChainLimitsToProcess.c)
+ *     PspRundownSingleProcess @ 0x1405322EC (PspRundownSingleProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall RtlInterlockedSetClearBits(volatile signed __int32 *a1, int a2, int a3)
+{
+  unsigned __int32 v3; // r10d
+  int v4; // r8d
+  signed __int32 i; // r9d
+  signed __int32 v6; // r9d
+
+  v3 = *a1;
+  v4 = ~a3;
+  for ( i = *a1; ; v3 = i )
+  {
+    v6 = v4 & (a2 | i);
+    if ( v6 == v3 )
+      break;
+    i = _InterlockedCompareExchange(a1, v6, v3);
+    if ( v3 == i )
+      break;
+  }
+  return v3;
+}

@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??0CPrimitiveGroupMarshaler@DirectComposition@@QEAA@XZ @ 0x1C008FD1C
+ * Callers:
+ *     ?CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C0012B84 (-CreateInternalResource@CApplicationChannel@DirectComposition@@QEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
+DirectComposition::CPrimitiveGroupMarshaler *__fastcall DirectComposition::CPrimitiveGroupMarshaler::CPrimitiveGroupMarshaler(
+        DirectComposition::CPrimitiveGroupMarshaler *this)
+{
+  DirectComposition::CPrimitiveGroupMarshaler *result; // rax
+
+  *((_DWORD *)this + 6) = 0;
+  *((_QWORD *)this + 5) = 0LL;
+  *(_QWORD *)this = &DirectComposition::CPrimitiveGroupMarshaler::`vftable';
+  result = this;
+  *((_DWORD *)this + 5) = 1;
+  return result;
+}

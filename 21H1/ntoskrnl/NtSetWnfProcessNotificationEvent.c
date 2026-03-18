@@ -1,0 +1,53 @@
+/*
+ * XREFs of NtSetWnfProcessNotificationEvent @ 0x1406D4EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x1402486B0 (KeLeaveCriticalRegionThread.c)
+ *     HalPutDmaAdapter @ 0x140261190 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x14062B200 (ObReferenceObjectByHandle.c)
+ *     ExpWnfCreateProcessContext @ 0x1406D4F74 (ExpWnfCreateProcessContext.c)
+ */
+
+__int64 __fastcall NtSetWnfProcessNotificationEvent(HANDLE Handle)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  _KPROCESS *Process; // rcx
+  unsigned __int64 v4; // rdi
+  __int64 v5; // rdx
+  NTSTATUS v6; // ebx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  unsigned __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+  PVOID Object; // [rsp+50h] [rbp+18h] BYREF
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v10 = Process[1].EndPadding[7];
+  v4 = v10;
+  if ( !v10 )
+  {
+    v6 = ExpWnfCreateProcessContext(Process, &v10);
+    if ( v6 < 0 )
+      goto LABEL_5;
+    v4 = v10;
+  }
+  Object = 0LL;
+  v6 = ObReferenceObjectByHandle(Handle, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+  if ( v6 >= 0 )
+  {
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)(v4 + 128), (signed __int64)Object, 0LL) )
+    {
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+      v6 = -1073740008;
+    }
+    else
+    {
+      v6 = 0;
+    }
+  }
+LABEL_5:
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread(), v5, v7, v8);
+  return (unsigned int)v6;
+}

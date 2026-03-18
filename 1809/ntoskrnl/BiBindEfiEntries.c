@@ -1,0 +1,81 @@
+/*
+ * XREFs of BiBindEfiEntries @ 0x1408F21B4
+ * Callers:
+ *     BiBindEfiNamespaceObjects @ 0x1408F23EC (BiBindEfiNamespaceObjects.c)
+ * Callees:
+ *     BcdOpenObject @ 0x140712E44 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x1407140D4 (BiLogMessage.c)
+ *     BcdDeleteObject @ 0x1408F08A0 (BcdDeleteObject.c)
+ *     BiIsPortableWorkspaceBoot @ 0x1408F1464 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x1408F1EA4 (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiBindEfiEntryToBcdObject @ 0x1408F22F8 (BiBindEfiEntryToBcdObject.c)
+ *     BiCreateEfiEntry @ 0x1408F2DC0 (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x1408F3304 (BiDeleteBootEntry.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x1408F44B0 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     BiUpdateBcdObject @ 0x1408F4908 (BiUpdateBcdObject.c)
+ */
+
+__int64 __fastcall BiBindEfiEntries(__int64 a1, __int64 *a2)
+{
+  __int64 v2; // rbx
+  int updated; // edi
+  int v6; // eax
+  void *v8; // [rsp+38h] [rbp+10h] BYREF
+
+  v2 = *a2;
+  updated = 0;
+  if ( (__int64 *)*a2 != a2 )
+  {
+    while ( 1 )
+    {
+      v6 = *(_DWORD *)(v2 + 48);
+      if ( (v6 & 0x10) != 0 )
+        break;
+      if ( (v6 & 1) != 0 )
+      {
+        if ( (v6 & 0x24) == 0x20 )
+        {
+          if ( (int)BiDeleteBootEntry((PUNICODE_STRING)*(unsigned int *)(v2 + 32)) < 0 )
+            goto LABEL_20;
+          goto LABEL_6;
+        }
+        updated = BiBindEfiEntryToBcdObject(a1, v2);
+        if ( updated < 0 || (updated = BiUpdateBcdObject(a1, v2), updated < 0) )
+        {
+LABEL_22:
+          BiLogMessage(4LL, L"BiBindEfiEntries failed %x", (unsigned int)updated);
+          return (unsigned int)updated;
+        }
+      }
+      else if ( (v6 & 4) != 0 )
+      {
+        if ( (v6 & 8) != 0 )
+        {
+          updated = BcdOpenObject(a1, (unsigned int *)(v2 + 16), &v8);
+          if ( updated < 0 )
+            goto LABEL_22;
+          BcdDeleteObject(v8);
+          *(_DWORD *)(v2 + 48) &= 0xFFFFFFF9;
+        }
+        else if ( !BiIsPortableWorkspaceBoot() && (int)BiCreateEfiEntry(a1, v2) >= 0 )
+        {
+          BiAddBootEntryToNvramDisplayOrder(v2);
+        }
+      }
+LABEL_20:
+      v2 = *(_QWORD *)v2;
+      if ( (__int64 *)v2 == a2 )
+        return (unsigned int)updated;
+    }
+    if ( (v6 & 1) == 0 )
+      goto LABEL_20;
+    BiLogMessage(3LL, L"Boot entry exists for DontSync with ID 0x%x", *(unsigned int *)(v2 + 32));
+    if ( (int)BiDeleteBootEntry((PUNICODE_STRING)*(unsigned int *)(v2 + 32)) < 0 )
+      goto LABEL_20;
+    *(_DWORD *)(v2 + 48) &= ~1u;
+LABEL_6:
+    BiRemoveBootEntryFromNvramDisplayOrder(v2);
+    goto LABEL_20;
+  }
+  return (unsigned int)updated;
+}

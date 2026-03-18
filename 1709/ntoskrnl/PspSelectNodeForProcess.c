@@ -1,0 +1,30 @@
+/*
+ * XREFs of PspSelectNodeForProcess @ 0x14058A4FC
+ * Callers:
+ *     PspAllocateProcess @ 0x140489D0C (PspAllocateProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 PspSelectNodeForProcess()
+{
+  unsigned int v0; // r8d
+  signed __int32 v1; // edx
+
+  v0 = 0;
+  v1 = _InterlockedIncrement(&PspProcessNodeAssignment) % (unsigned __int16)KeNumberNodes;
+  if ( !*(_QWORD *)(KeNodeBlock[(unsigned __int16)v1] + 136) )
+  {
+    do
+    {
+      ++v0;
+      LOWORD(v1) = v1 + 1;
+      if ( (unsigned __int16)v1 >= (unsigned __int16)KeNumberNodes )
+        LOWORD(v1) = 0;
+    }
+    while ( !*(_QWORD *)(KeNodeBlock[(unsigned __int16)v1] + 136) );
+    if ( v0 )
+      _InterlockedExchangeAdd(&PspProcessNodeAssignment, v0);
+  }
+  return KeNodeBlock[(unsigned __int16)v1];
+}

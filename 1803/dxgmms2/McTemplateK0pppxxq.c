@@ -1,0 +1,71 @@
+/*
+ * XREFs of McTemplateK0pppxxq @ 0x1C0024190
+ * Callers:
+ *     ?DiscardAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00619A0 (-DiscardAllocation@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?InitContextAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@EPEA_NPEAPEAU2@@Z @ 0x1C0061B30 (-InitContextAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@EPEA_NPEAPEAU2@@Z.c)
+ *     ?FillAllocationInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C0061E6C (-FillAllocationInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_.c)
+ *     ?FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@@Z @ 0x1C0061F10 (-FillAllocationUsingGpuVa@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_KIPEAVVIDMM_SEGMENT@@PEA.c)
+ *     ?MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@1PEAU_MDL@@2131U_DXGK_TRANSFERFLAGS@@1@Z @ 0x1C006221C (-MemoryTransferUsingGpuVaWorker@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMEN.c)
+ *     ?MemoryTransferInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@PEAT_LARGE_INTEGER@@PEAU_MDL@@234U_DXGK_TRANSFERFLAGS@@@Z @ 0x1C00627D8 (-MemoryTransferInternal@VIDMM_GLOBAL@@IEAAXKPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAVVIDMM_SEGMENT@@PEAT_.c)
+ *     ?BuildInitContextAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_N@Z @ 0x1C009EDF0 (-BuildInitContextAllocation@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00161E0 (__security_check_cookie.c)
+ *     McGenEventWriteKM @ 0x1C0023E78 (McGenEventWriteKM.c)
+ */
+
+NTSTATUS McTemplateK0pppxxq(__int64 a1, __int64 a2, __int64 a3, ...)
+{
+  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-51h] BYREF
+  va_list v5; // [rsp+40h] [rbp-41h]
+  __int64 v6; // [rsp+48h] [rbp-39h]
+  va_list v7; // [rsp+50h] [rbp-31h]
+  __int64 v8; // [rsp+58h] [rbp-29h]
+  va_list v9; // [rsp+60h] [rbp-21h]
+  __int64 v10; // [rsp+68h] [rbp-19h]
+  va_list v11; // [rsp+70h] [rbp-11h]
+  __int64 v12; // [rsp+78h] [rbp-9h]
+  va_list v13; // [rsp+80h] [rbp-1h]
+  __int64 v14; // [rsp+88h] [rbp+7h]
+  va_list v15; // [rsp+90h] [rbp+Fh]
+  __int64 v16; // [rsp+98h] [rbp+17h]
+  __int64 v17; // [rsp+D8h] [rbp+57h] BYREF
+  va_list va; // [rsp+D8h] [rbp+57h]
+  __int64 v19; // [rsp+E0h] [rbp+5Fh] BYREF
+  va_list va1; // [rsp+E0h] [rbp+5Fh]
+  __int64 v21; // [rsp+E8h] [rbp+67h] BYREF
+  va_list va2; // [rsp+E8h] [rbp+67h]
+  __int64 v23; // [rsp+F0h] [rbp+6Fh] BYREF
+  va_list va3; // [rsp+F0h] [rbp+6Fh]
+  __int64 v25; // [rsp+F8h] [rbp+77h] BYREF
+  va_list va4; // [rsp+F8h] [rbp+77h]
+  va_list va5; // [rsp+100h] [rbp+7Fh] BYREF
+
+  va_start(va5, a3);
+  va_start(va4, a3);
+  va_start(va3, a3);
+  va_start(va2, a3);
+  va_start(va1, a3);
+  va_start(va, a3);
+  v17 = va_arg(va1, _QWORD);
+  va_copy(va2, va1);
+  v19 = va_arg(va2, _QWORD);
+  va_copy(va3, va2);
+  v21 = va_arg(va3, _QWORD);
+  va_copy(va4, va3);
+  v23 = va_arg(va4, _QWORD);
+  va_copy(va5, va4);
+  v25 = va_arg(va5, _QWORD);
+  v6 = 8LL;
+  va_copy(v5, va);
+  v8 = 8LL;
+  va_copy(v7, va1);
+  v10 = 8LL;
+  va_copy(v9, va2);
+  v12 = 8LL;
+  va_copy(v11, va3);
+  va_copy(v13, va4);
+  va_copy(v15, va5);
+  v14 = 8LL;
+  v16 = 4LL;
+  return McGenEventWriteKM(&DxgkControlGuid_Context, &EventMemoryTransfer, a3, 7u, &v4);
+}

@@ -1,0 +1,34 @@
+/*
+ * XREFs of NtCompareObjects @ 0x1406C21F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalPutDmaAdapter @ 0x1402211F0 (HalPutDmaAdapter.c)
+ *     ObReferenceObjectByHandle @ 0x1406118C0 (ObReferenceObjectByHandle.c)
+ */
+
+NTSTATUS __fastcall NtCompareObjects(void *a1, void *a2)
+{
+  KPROCESSOR_MODE PreviousMode; // bl
+  NTSTATUS result; // eax
+  NTSTATUS v5; // ebx
+  PADAPTER_OBJECT DmaAdapter; // [rsp+50h] [rbp+18h] BYREF
+  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
+
+  DmaAdapter = 0LL;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  result = ObReferenceObjectByHandle(a1, 0, 0LL, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  if ( result >= 0 )
+  {
+    Object = 0LL;
+    v5 = ObReferenceObjectByHandle(a2, 0, 0LL, PreviousMode, &Object, 0LL);
+    if ( v5 >= 0 )
+    {
+      v5 = Object != DmaAdapter ? 0xC00001AC : 0;
+      HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+    }
+    HalPutDmaAdapter(DmaAdapter);
+    return v5;
+  }
+  return result;
+}

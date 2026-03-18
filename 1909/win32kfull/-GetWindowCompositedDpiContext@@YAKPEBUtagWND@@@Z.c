@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?GetWindowCompositedDpiContext@@YAKPEBUtagWND@@@Z @ 0x1C0037EF4
+ * Callers:
+ *     GetMaxTrackSizeForWindow @ 0x1C00347DC (GetMaxTrackSizeForWindow.c)
+ *     GetMonitorRectForWindow @ 0x1C0036864 (GetMonitorRectForWindow.c)
+ *     GetMonitorWorkRectForWindow @ 0x1C0037DD8 (GetMonitorWorkRectForWindow.c)
+ *     GetMonitorMenuRectForWindow @ 0x1C0259674 (GetMonitorMenuRectForWindow.c)
+ *     GetScreenRectForWindow @ 0x1C02596B0 (GetScreenRectForWindow.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall GetWindowCompositedDpiContext(const struct tagWND *a1)
+{
+  unsigned int v1; // r8d
+  __int64 v2; // rax
+
+  v1 = 18;
+  v2 = *(_QWORD *)(*((_QWORD *)a1 + 2) + 448LL);
+  if ( v2 && (*(_DWORD *)(**(_QWORD **)(v2 + 8) + 64LL) & 1) != 0 )
+    return *(unsigned int *)(*((_QWORD *)a1 + 5) + 288LL);
+  return v1;
+}

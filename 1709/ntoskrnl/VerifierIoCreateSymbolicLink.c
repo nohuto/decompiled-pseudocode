@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierIoCreateSymbolicLink @ 0x1407B1CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140189900 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierIoCreateSymbolicLink()
+{
+  return ((__int64 (*)(void))pXdvIoCreateSymbolicLink)();
+}

@@ -1,0 +1,88 @@
+/*
+ * XREFs of NtAlpcImpersonateClientOfPort @ 0x1405E4B60
+ * Callers:
+ *     NtImpersonateClientOfPort @ 0x140884740 (NtImpersonateClientOfPort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x14003DFA0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14003F9B0 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpLookupMessage @ 0x1405E3E30 (AlpcpLookupMessage.c)
+ *     AlpcpImpersonateMessage @ 0x1405E4D40 (AlpcpImpersonateMessage.c)
+ *     AlpcpUnlockBlob @ 0x1405E4F60 (AlpcpUnlockBlob.c)
+ *     ObReferenceObjectByHandle @ 0x1405FB4B0 (ObReferenceObjectByHandle.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140885278 (AlpcpEnterStateChangeEventMessageLog.c)
+ *     ExRaiseDatatypeMisalignment @ 0x140913920 (ExRaiseDatatypeMisalignment.c)
+ */
+
+__int64 __fastcall NtAlpcImpersonateClientOfPort(HANDLE Handle, __int64 a2, unsigned __int64 a3)
+{
+  int v3; // r12d
+  struct _KTHREAD *CurrentThread; // rax
+  KPROCESSOR_MODE PreviousMode; // r11
+  __int64 v7; // rcx
+  unsigned int v8; // esi
+  int v9; // r15d
+  unsigned __int64 v10; // rbx
+  int v11; // edi
+  __int64 v12; // r9
+  __int64 v13; // rdx
+  PVOID v14; // rsi
+  BOOL v15; // r14d
+  ULONG_PTR v16; // rbx
+  int Object; // [rsp+20h] [rbp-38h]
+  ULONG_PTR BugCheckParameter2[4]; // [rsp+38h] [rbp-20h] BYREF
+  PVOID v20; // [rsp+78h] [rbp+20h] BYREF
+
+  v3 = a3;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
+  {
+    v7 = a2 & 3;
+    if ( (a2 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+  }
+  else
+  {
+    v7 = a2 & 3;
+  }
+  if ( (*(_WORD *)(a2 + 4) & 0x1000) != 0 )
+  {
+    v8 = *(_DWORD *)(a2 + 16);
+    v9 = *(_DWORD *)(a2 + 20);
+  }
+  else
+  {
+    if ( PreviousMode && v7 )
+      ExRaiseDatatypeMisalignment();
+    v8 = *(_DWORD *)(a2 + 24);
+    v9 = *(_DWORD *)(a2 + 32);
+  }
+  if ( v8 && (v10 = a3 >> 2, (unsigned int)(a3 >> 2) <= 3) )
+  {
+    v11 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, PreviousMode, &v20, 0LL);
+    if ( v11 >= 0 )
+    {
+      v13 = v8;
+      v14 = v20;
+      v11 = AlpcpLookupMessage((__int64)v20, v13, v9, v12, BugCheckParameter2);
+      if ( v11 >= 0 )
+      {
+        v15 = (((4 * (_DWORD)v10) | 2) & v3) != 0LL;
+        Object = v10;
+        v16 = BugCheckParameter2[0];
+        v11 = AlpcpImpersonateMessage((_DWORD)v14, BugCheckParameter2[0], v3 & 1, v15, Object);
+        if ( AlpcpMessageLogEnabled )
+          AlpcpEnterStateChangeEventMessageLog(v16);
+        AlpcpUnlockBlob(v16);
+      }
+      ObfDereferenceObject(v14);
+    }
+  }
+  else
+  {
+    v11 = -1073741811;
+  }
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  return (unsigned int)v11;
+}

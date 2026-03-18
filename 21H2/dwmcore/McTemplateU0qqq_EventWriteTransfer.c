@@ -1,0 +1,43 @@
+/*
+ * XREFs of McTemplateU0qqq_EventWriteTransfer @ 0x180111C8E
+ * Callers:
+ *     ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x18000EC4C (-EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z.c)
+ *     ?Present@CLegacySwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x18001BE80 (-Present@CLegacySwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std@@I@Z.c)
+ *     ?UpdateDXGIFactory@CDisplayManager@@AEAAJXZ @ 0x18003D168 (-UpdateDXGIFactory@CDisplayManager@@AEAAJXZ.c)
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x18007A584 (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
+ *     ?ProcessBatches@CComposition@@IEAAJXZ @ 0x18007D1EC (-ProcessBatches@CComposition@@IEAAJXZ.c)
+ *     ?Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SWITCHREMOTINGMODE@@@Z @ 0x1800F59B4 (-Partition_SwitchRemotingMode@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUta.c)
+ *     ?CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ @ 0x1801DF2B4 (-CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ.c)
+ *     ?Present@CLegacyStereoSwapChain@@UEAAJIIAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I@Z @ 0x180290A6C (-Present@CLegacyStereoSwapChain@@UEAAJIIAEBV-$vector@UtagRECT@@V-$allocator@UtagRECT@@@std@@@std.c)
+ * Callees:
+ *     McGenEventWrite_EventWriteTransfer @ 0x180014C58 (McGenEventWrite_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x180100650 (__security_check_cookie.c)
+ */
+
+ULONG __fastcall McTemplateU0qqq_EventWriteTransfer(
+        __int64 a1,
+        const EVENT_DESCRIPTOR *a2,
+        __int64 a3,
+        int a4,
+        char a5)
+{
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-50h] BYREF
+  int *v7; // [rsp+40h] [rbp-40h]
+  __int64 v8; // [rsp+48h] [rbp-38h]
+  int *v9; // [rsp+50h] [rbp-30h]
+  __int64 v10; // [rsp+58h] [rbp-28h]
+  char *v11; // [rsp+60h] [rbp-20h]
+  __int64 v12; // [rsp+68h] [rbp-18h]
+  int v13; // [rsp+A0h] [rbp+20h] BYREF
+  int v14; // [rsp+A8h] [rbp+28h] BYREF
+
+  v14 = a4;
+  v13 = a3;
+  v7 = &v13;
+  v8 = 4LL;
+  v9 = &v14;
+  v11 = &a5;
+  v10 = 4LL;
+  v12 = 4LL;
+  return McGenEventWrite_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 4u, &v6);
+}

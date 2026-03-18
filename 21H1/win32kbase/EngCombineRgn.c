@@ -1,0 +1,30 @@
+/*
+ * XREFs of EngCombineRgn @ 0x1C0155280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetObjectOwner @ 0x1C000EF40 (GreGetObjectOwner.c)
+ *     GreCombineRgn @ 0x1C007DB50 (GreCombineRgn.c)
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C00CFFEC (--0EngModeState@@QEAA@XZ.c)
+ */
+
+INT __stdcall EngCombineRgn(HANDLE hrgnTrg, HANDLE hrgnSrc1, HANDLE hrgnSrc2, INT iMode)
+{
+  INT v8; // ecx
+  _QWORD v10[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  EngModeState::EngModeState((EngModeState *)v10);
+  if ( (unsigned int)GreGetObjectOwner((unsigned int)hrgnTrg, 4)
+    || (unsigned int)GreGetObjectOwner((unsigned int)hrgnSrc1, 4)
+    || (unsigned int)GreGetObjectOwner((unsigned int)hrgnSrc2, 4) )
+  {
+    v8 = 0;
+  }
+  else
+  {
+    v8 = GreCombineRgn((HRGN)hrgnTrg, (HRGN)hrgnSrc1, (HRGN)hrgnSrc2, iMode);
+  }
+  if ( v10[0] )
+    *(_DWORD *)(v10[0] + 328LL) &= ~0x20u;
+  return v8;
+}

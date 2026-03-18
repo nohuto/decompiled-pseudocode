@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??1VIDMM_SYSMEM_SEGMENT@@UEAA@XZ @ 0x1C00F70EC
+ * Callers:
+ *     ??_GVIDMM_SYSMEM_SEGMENT@@UEAAPEAXI@Z @ 0x1C0032330 (--_GVIDMM_SYSMEM_SEGMENT@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00FBF80 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
+ */
+
+void __fastcall VIDMM_SYSMEM_SEGMENT::~VIDMM_SYSMEM_SEGMENT(VIDMM_SYSMEM_SEGMENT *this)
+{
+  *(_QWORD *)this = &VIDMM_SYSMEM_SEGMENT::`vftable';
+  if ( g_IsInternalReleaseOrDbg )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = this;
+  VIDMM_SEGMENT::~VIDMM_SEGMENT(this);
+}

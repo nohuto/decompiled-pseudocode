@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0147720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ca6b3924c0259221643c43c19a4b9033___ @ 0x1C0147540 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_ca6b3924c0259221643c43c19a4b903.c)
+ *     ?EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01475F8 (-EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
+char __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitUpdateCommands(
+        DirectComposition::CCompositionCubeMapMarshaler *this,
+        struct DirectComposition::CBatch **a2)
+{
+  int v2; // eax
+  char v3; // di
+  DirectComposition::CCompositionCubeMapMarshaler *v7; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = *((_DWORD *)this + 4);
+  v3 = 0;
+  v7 = this;
+  if ( (v2 & 0x20) != 0 )
+  {
+    if ( !DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_ca6b3924c0259221643c43c19a4b9033___(
+            (__int64)this,
+            a2,
+            (__int64)&v7) )
+      return v3;
+    *((_DWORD *)this + 4) &= ~0x20u;
+  }
+  if ( DirectComposition::CCompositionCubeMapMarshaler::EmitSurfaces(this, (struct DirectComposition::CBatch ***)a2) )
+    return 1;
+  return v3;
+}

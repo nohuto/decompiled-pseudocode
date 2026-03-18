@@ -1,0 +1,63 @@
+/*
+ * XREFs of imp_WdfRegistryAssignString @ 0x1C005DB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0004440 (-_VerifyStateSeparationRegistryPolicy@FxRegKey@@SAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C000A094 (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C000BE90 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C000CF7C (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0059244 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
+__int64 __fastcall imp_WdfRegistryAssignString(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFKEY__ *Key,
+        _UNICODE_STRING *ValueName,
+        WDFSTRING__ *String)
+{
+  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  __int64 result; // rax
+  NTSTATUS _a2; // eax
+  unsigned int v10; // edi
+  ULONG_PTR retaddr; // [rsp+58h] [rbp+0h]
+  FxRegKey *pKey; // [rsp+60h] [rbp+8h] BYREF
+  FxString *pString; // [rsp+70h] [rbp+18h] BYREF
+
+  pString = 0LL;
+  pKey = 0LL;
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)DriverGlobals[-8].DriverName,
+    (unsigned __int64)Key,
+    0x1006u,
+    (void **)&pKey);
+  m_Globals = pKey->m_Globals;
+  if ( !ValueName )
+    FxVerifierNullBugCheck(m_Globals, retaddr);
+  if ( !String )
+    FxVerifierNullBugCheck(m_Globals, retaddr);
+  result = FxVerifierCheckIrqlLevel(m_Globals, 0);
+  if ( (int)result >= 0 )
+  {
+    result = FxValidateUnicodeString(m_Globals, ValueName);
+    if ( (int)result >= 0 )
+    {
+      FxObjectHandleGetPtr(m_Globals, (unsigned __int64)String, 0x1007u, (void **)&pString);
+      _a2 = ZwSetValueKey(
+              pKey->m_Key,
+              ValueName,
+              0,
+              1u,
+              pString->m_UnicodeString.Buffer,
+              (unsigned __int16)(pString->m_UnicodeString.Length + 2));
+      v10 = _a2;
+      if ( _a2 < 0 )
+        WPP_IFR_SF_qL(m_Globals, 2u, 2u, 0x27u, WPP_FxRegistryAPI_cpp_Traceguids, Key, _a2);
+      else
+        FxRegKey::_VerifyStateSeparationRegistryPolicy(pKey->m_Globals, pKey->m_Key);
+      return v10;
+    }
+  }
+  return result;
+}

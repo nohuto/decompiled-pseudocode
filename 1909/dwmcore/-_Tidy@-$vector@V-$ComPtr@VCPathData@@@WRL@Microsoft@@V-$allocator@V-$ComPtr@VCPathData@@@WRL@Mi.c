@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?_Tidy@?$vector@V?$ComPtr@VCPathData@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCPathData@@@WRL@Microsoft@@@std@@@std@@AEAAXXZ @ 0x1800D3A68
+ * Callers:
+ *     ??1CKeyframeAnimation@@UEAA@XZ @ 0x1800A23BC (--1CKeyframeAnimation@@UEAA@XZ.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800C3EC4 (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F0230 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall std::vector<Microsoft::WRL::ComPtr<CPathData>>::_Tidy(__int64 a1)
+{
+  __int64 *v1; // rbx
+  __int64 *v3; // rsi
+  __int64 v4; // rcx
+
+  v1 = *(__int64 **)a1;
+  if ( *(_QWORD *)a1 )
+  {
+    v3 = *(__int64 **)(a1 + 8);
+    if ( v1 != v3 )
+    {
+      do
+      {
+        v4 = *v1;
+        if ( *v1 )
+        {
+          *v1 = 0LL;
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 16LL))(v4);
+        }
+        ++v1;
+      }
+      while ( v1 != v3 );
+      v1 = *(__int64 **)a1;
+    }
+    std::_Deallocate<16,0>(v1, (*(_QWORD *)(a1 + 16) - (_QWORD)v1) & 0xFFFFFFFFFFFFFFF8uLL);
+    *(_QWORD *)a1 = 0LL;
+    *(_QWORD *)(a1 + 8) = 0LL;
+    *(_QWORD *)(a1 + 16) = 0LL;
+  }
+}

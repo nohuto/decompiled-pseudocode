@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?Initialize@CAnimationMarshaler@DirectComposition@@MEAAJXZ @ 0x1C007C810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureTimeListEntry@CAnimationMarshaler@DirectComposition@@IEAAJXZ @ 0x1C007CD30 (-EnsureTimeListEntry@CAnimationMarshaler@DirectComposition@@IEAAJXZ.c)
+ */
+
+__int64 __fastcall DirectComposition::CAnimationMarshaler::Initialize(DirectComposition::CAnimationMarshaler *this)
+{
+  __int64 result; // rax
+
+  result = DirectComposition::CAnimationMarshaler::EnsureTimeListEntry((DirectComposition::CAnimationMarshaler *)((char *)this - 16));
+  if ( (int)result >= 0 )
+    *(_DWORD *)(*((_QWORD *)this + 7) + 24LL) |= 4u;
+  return result;
+}

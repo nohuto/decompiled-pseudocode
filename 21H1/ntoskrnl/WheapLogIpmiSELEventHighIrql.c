@@ -1,0 +1,20 @@
+/*
+ * XREFs of WheapLogIpmiSELEventHighIrql @ 0x1405B7908
+ * Callers:
+ *     WheapLogIpmiSELEvent @ 0x1405B7868 (WheapLogIpmiSELEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x1405B7840 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ */
+
+void WheapLogIpmiSELEventHighIrql()
+{
+  if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DeviceRoutine) && WheapHighIrqlLogSelEventHandlerAcquireLock(0) )
+  {
+    if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DeviceRoutine) )
+      ((void (__fastcall *)(_QWORD, LIST_ENTRY *))WheapDispatchPtr.Queue.Wcb.DeviceContext)(
+        *(_QWORD *)&WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters,
+        &WheapDispatchPtr.DeviceQueue.DeviceListHead);
+    _InterlockedExchange((_DWORD *)&WheapDispatchPtr.Queue.Wcb.DeviceRoutine + 1, 0);
+  }
+}

@@ -1,0 +1,35 @@
+/*
+ * XREFs of WdmlibIoCreateDeviceSecure @ 0x1C00D7400
+ * Callers:
+ *     DpiPdoAddPdo @ 0x1C00C75F0 (DpiPdoAddPdo.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C00D6940 (DpiGdoCreateGdiObjects.c)
+ *     DriverEntry @ 0x1C0188018 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0010930 (_guard_dispatch_icall_nop.c)
+ *     WdmlibInit @ 0x1C00D74B8 (WdmlibInit.c)
+ */
+
+NTSTATUS __stdcall WdmlibIoCreateDeviceSecure(
+        PDRIVER_OBJECT DriverObject,
+        ULONG DeviceExtensionSize,
+        PUNICODE_STRING DeviceName,
+        ULONG DeviceType,
+        ULONG DeviceCharacteristics,
+        BOOLEAN Exclusive,
+        PCUNICODE_STRING DefaultSDDLString,
+        LPCGUID DeviceClassGuid,
+        PDEVICE_OBJECT *DeviceObject)
+{
+  if ( !WdmlibInitialized )
+    WdmlibInit();
+  return ((__int64 (__fastcall *)(PDRIVER_OBJECT, _QWORD, PUNICODE_STRING, _QWORD, ULONG, BOOLEAN, PCUNICODE_STRING, LPCGUID, PDEVICE_OBJECT *))PfnIoCreateDeviceSecure)(
+           DriverObject,
+           DeviceExtensionSize,
+           DeviceName,
+           DeviceType,
+           DeviceCharacteristics,
+           Exclusive,
+           DefaultSDDLString,
+           DeviceClassGuid,
+           DeviceObject);
+}

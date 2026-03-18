@@ -1,0 +1,165 @@
+/*
+ * XREFs of NtNotifyChangeSession @ 0x1406AD140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDelayExecutionThread @ 0x14003B180 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObject @ 0x14003E260 (ObfDereferenceObject.c)
+ *     KeWaitForSingleObject @ 0x14003FDD0 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItem @ 0x14005B100 (ExQueueWorkItem.c)
+ *     KeSetEvent @ 0x140067720 (KeSetEvent.c)
+ *     ExNotifyCallback @ 0x1400FA670 (ExNotifyCallback.c)
+ *     __security_check_cookie @ 0x14019E700 (__security_check_cookie.c)
+ *     memmove @ 0x1401D6880 (memmove.c)
+ *     memset @ 0x1401D6BC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14036E010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1405FA460 (ObReferenceObjectByHandle.c)
+ */
+
+NTSTATUS __fastcall NtNotifyChangeSession(
+        HANDLE Handle,
+        unsigned int a2,
+        __int64 a3,
+        unsigned int a4,
+        unsigned int a5,
+        int a6,
+        char *Src,
+        SIZE_T NumberOfBytes)
+{
+  SIZE_T v11; // r12
+  KPROCESSOR_MODE PreviousMode; // al
+  NTSTATUS result; // eax
+  _QWORD *v14; // r14
+  __int64 v15; // rcx
+  unsigned int v16; // eax
+  unsigned int v17; // eax
+  char *v18; // rbx
+  struct _WORK_QUEUE_ITEM *v19; // rax
+  char *PoolWithTag; // rax
+  unsigned __int16 v21; // r12
+  char *v22; // rax
+  char v23; // [rsp+30h] [rbp-1B8h]
+  char v24; // [rsp+31h] [rbp-1B7h]
+  KPROCESSOR_MODE v25; // [rsp+32h] [rbp-1B6h]
+  NTSTATUS v26; // [rsp+50h] [rbp-198h]
+  PVOID Object; // [rsp+58h] [rbp-190h] BYREF
+  LARGE_INTEGER Interval; // [rsp+60h] [rbp-188h] BYREF
+  _OWORD Argument1[4]; // [rsp+70h] [rbp-178h] BYREF
+  _BYTE v30[256]; // [rsp+B0h] [rbp-138h] BYREF
+
+  v11 = (unsigned int)NumberOfBytes;
+  v23 = 0;
+  memset(Argument1, 0, sizeof(Argument1));
+  v24 = 0;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v25 = PreviousMode;
+  if ( (unsigned int)NumberOfBytes > 0x100 )
+    return -1073741580;
+  result = ObReferenceObjectByHandle(Handle, 2u, MmSessionObjectType, PreviousMode, &Object, 0LL);
+  v26 = result;
+  if ( result < 0 )
+    return result;
+  v14 = Object;
+  KeWaitForSingleObject((PVOID)(*((_QWORD *)Object + 3) + 1304LL), Executive, 0, 0, 0LL);
+  v15 = v14[3];
+  v16 = *(_DWORD *)(v15 + 1300);
+  if ( v16 == a2 )
+  {
+    v17 = v16 + 1;
+LABEL_5:
+    *(_DWORD *)(v15 + 1300) = v17;
+    goto LABEL_6;
+  }
+  if ( v16 <= a2 || v16 - a2 >= 0xFFFFFFFD )
+  {
+    Interval.QuadPart = -1000000LL;
+    v21 = 0;
+    do
+    {
+      KeSetEvent((PRKEVENT)(v15 + 1304), 0, 0);
+      KeDelayExecutionThread(0, 0, &Interval);
+      KeWaitForSingleObject((PVOID)(v14[3] + 1304LL), Executive, 0, 0, 0LL);
+      ++v21;
+      v15 = v14[3];
+    }
+    while ( v21 <= 0xAu && *(_DWORD *)(v15 + 1300) != a2 );
+    v17 = a2 + 1;
+    v11 = (unsigned int)NumberOfBytes;
+    goto LABEL_5;
+  }
+LABEL_6:
+  if ( !a4 )
+  {
+    KeSetEvent((PRKEVENT)(v14[3] + 1304LL), 0, 0);
+    ObfDereferenceObject(v14);
+    return 0;
+  }
+  *(_DWORD *)(v14[3] + 1296LL) = a5;
+  v18 = 0LL;
+  if ( !(_DWORD)v11 )
+    goto LABEL_8;
+  if ( v25 == 1 )
+  {
+    if ( (unsigned __int64)&Src[v11] > 0x7FFFFFFF0000LL || &Src[v11] < Src )
+      MEMORY[0x7FFFFFFF0000] = 0;
+    PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v11, 0x6E536F49u);
+    v18 = PoolWithTag;
+    if ( PoolWithTag )
+    {
+      v23 = 1;
+      memmove(PoolWithTag, Src, v11);
+    }
+    else
+    {
+      v18 = v30;
+      memmove(v30, Src, v11);
+      v24 = 1;
+    }
+    LODWORD(v11) = NumberOfBytes;
+    goto LABEL_8;
+  }
+  if ( a4 - 1 > 1 )
+  {
+    v22 = (char *)ExAllocatePoolWithTag(PagedPool, (unsigned int)v11, 0x6E536F49u);
+    v18 = v22;
+    if ( v22 )
+    {
+      v23 = 1;
+      memmove(v22, Src, (unsigned int)v11);
+      goto LABEL_8;
+    }
+    v24 = 1;
+  }
+  v18 = Src;
+LABEL_8:
+  *(_QWORD *)&Argument1[2] = __PAIR64__(a5, a4);
+  DWORD2(Argument1[2]) = v11;
+  *(_QWORD *)&Argument1[3] = v18;
+  *((_QWORD *)&Argument1[3] + 1) = v14;
+  if ( !v24 && a4 - 1 > 1 )
+  {
+    v19 = (struct _WORK_QUEUE_ITEM *)ExAllocatePoolWithTag(NonPagedPoolNx, 0x40uLL, 0x6E536F49u);
+    if ( v19 )
+    {
+      v19->List = (_LIST_ENTRY)Argument1[0];
+      *(_OWORD *)&v19->WorkerRoutine = Argument1[1];
+      v19[1].List = (_LIST_ENTRY)Argument1[2];
+      *(_OWORD *)&v19[1].WorkerRoutine = Argument1[3];
+      v19->WorkerRoutine = (void (__fastcall *)(void *))IopSessionChangeWorker;
+      v19->Parameter = v19;
+      v19->List.Flink = 0LL;
+      ExQueueWorkItem(v19, DelayedWorkQueue);
+      return 0;
+    }
+  }
+  ExNotifyCallback(IopSessionCallbackObject, Argument1, 0LL);
+  KeSetEvent((PRKEVENT)(v14[3] + 1304LL), 0, 0);
+  ObfDereferenceObject(v14);
+  if ( v18 )
+  {
+    if ( v23 == 1 )
+      ExFreePoolWithTag(v18, 0);
+  }
+  return v26;
+}

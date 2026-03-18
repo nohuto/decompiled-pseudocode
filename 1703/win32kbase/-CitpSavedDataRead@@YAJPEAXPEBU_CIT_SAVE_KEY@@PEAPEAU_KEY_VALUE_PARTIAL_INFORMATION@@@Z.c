@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?CitpSavedDataRead@@YAJPEAXPEBU_CIT_SAVE_KEY@@PEAPEAU_KEY_VALUE_PARTIAL_INFORMATION@@@Z @ 0x1C01560D0
+ * Callers:
+ *     ?CitpSavedDataLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEAXPEBU_CIT_SAVE_KEY@@@Z @ 0x1C01554E4 (-CitpSavedDataLoad@@YAJPEAU_CIT_IMPACT_CONTEXT@@PEAXPEBU_CIT_SAVE_KEY@@@Z.c)
+ * Callees:
+ *     Win32FreePool @ 0x1C0040090 (Win32FreePool.c)
+ *     ?CitpBytesToString@@YAXPEBXIPEAG@Z @ 0x1C0085F48 (-CitpBytesToString@@YAXPEBXIPEAG@Z.c)
+ *     ?CitpEnsureDataKey@@YAJPEAPEAX@Z @ 0x1C0085FB8 (-CitpEnsureDataKey@@YAJPEAPEAX@Z.c)
+ *     ?CitpRegistryGetValue@@YAJPEAXPEBGPEAPEAU_KEY_VALUE_PARTIAL_INFORMATION@@@Z @ 0x1C0086C00 (-CitpRegistryGetValue@@YAJPEAXPEBGPEAPEAU_KEY_VALUE_PARTIAL_INFORMATION@@@Z.c)
+ *     __security_check_cookie @ 0x1C009D0D0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall CitpSavedDataRead(
+        void *a1,
+        const struct _CIT_SAVE_KEY *a2,
+        struct _KEY_VALUE_PARTIAL_INFORMATION **a3)
+{
+  struct _KEY_VALUE_PARTIAL_INFORMATION *v3; // rbx
+  HANDLE v6; // rbp
+  int Value; // edi
+  HANDLE KeyHandle; // [rsp+20h] [rbp-88h] BYREF
+  struct _KEY_VALUE_PARTIAL_INFORMATION *v10; // [rsp+28h] [rbp-80h] BYREF
+  unsigned __int16 v11[40]; // [rsp+30h] [rbp-78h] BYREF
+
+  v3 = 0LL;
+  KeyHandle = 0LL;
+  v10 = 0LL;
+  v6 = 0LL;
+  Value = CitpEnsureDataKey(&KeyHandle);
+  if ( Value >= 0 )
+  {
+    v6 = KeyHandle;
+    CitpBytesToString((unsigned __int8 *)a2, 0x10u, v11);
+    Value = CitpRegistryGetValue(v6, v11, &v10);
+    if ( Value < 0 )
+    {
+      v3 = v10;
+    }
+    else
+    {
+      Value = 0;
+      *a3 = v10;
+    }
+  }
+  if ( KeyHandle )
+    ZwClose(v6);
+  if ( v3 )
+    Win32FreePool((__int64)v3);
+  return (unsigned int)Value;
+}

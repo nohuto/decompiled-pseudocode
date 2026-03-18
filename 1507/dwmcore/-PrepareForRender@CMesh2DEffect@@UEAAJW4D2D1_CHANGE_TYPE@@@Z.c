@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?PrepareForRender@CMesh2DEffect@@UEAAJW4D2D1_CHANGE_TYPE@@@Z @ 0x18015B610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ @ 0x180097F10 (-OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ.c)
+ */
+
+__int64 __fastcall CMesh2DEffect::PrepareForRender(CMesh2DEffect *this, enum D2D1_CHANGE_TYPE a2)
+{
+  return (*(__int64 (__fastcall **)(_QWORD, char *, __int64))(**((_QWORD **)this + 16) + 72LL))(
+           *((_QWORD *)this + 16),
+           (char *)this + 32,
+           96LL);
+}

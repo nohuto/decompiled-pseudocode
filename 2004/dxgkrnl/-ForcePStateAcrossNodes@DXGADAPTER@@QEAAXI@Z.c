@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?ForcePStateAcrossNodes@DXGADAPTER@@QEAAXI@Z @ 0x1C020D1E0
+ * Callers:
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C025F2C4 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ * Callees:
+ *     ?ForcePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z @ 0x1C0046AF0 (-ForcePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXI@Z.c)
+ */
+
+void __fastcall DXGADAPTER::ForcePStateAcrossNodes(DXGADAPTER *this, unsigned int a2)
+{
+  unsigned int i; // ebx
+
+  for ( i = 0; i < *((_DWORD *)this + 1002); ++i )
+    DXGPOWERSTATISTICSTRANSITIONENGINE::ForcePState((KSPIN_LOCK *)(248LL * i + *((_QWORD *)this + 500) + 136LL), a2);
+}

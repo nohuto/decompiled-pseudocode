@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?ResetVirtualFunction@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z @ 0x1C018F520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C0001DD0 (--1COREACCESS@@QEAA@XZ.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C00081C8 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJXZ @ 0x1C000820C (-AcquireShared@COREADAPTERACCESS@@QEAAJXZ.c)
+ *     ?DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z @ 0x1C018C9F8 (-DdiResetVirtualFunction@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z.c)
+ */
+
+__int64 __fastcall DXGK_VIRTUAL_GPU_GPUP::ResetVirtualFunction(
+        DXGK_VIRTUAL_GPU_GPUP *this,
+        struct _DXGKARG_RESETVIRTUALFUNCTION *a2)
+{
+  __int64 v4; // r8
+  unsigned int v5; // ebx
+  _BYTE v7[8]; // [rsp+20h] [rbp-58h] BYREF
+  _BYTE v8[32]; // [rsp+28h] [rbp-50h] BYREF
+  _BYTE v9[48]; // [rsp+48h] [rbp-30h] BYREF
+
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v7, *((struct DXGADAPTER *const *)this + 2), 0LL);
+  if ( (int)COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v7) >= 0 )
+    v5 = ADAPTER_RENDER::DdiResetVirtualFunction(*((ADAPTER_RENDER **)this + 1), a2, v4);
+  else
+    v5 = -1073741130;
+  COREACCESS::~COREACCESS((COREACCESS *)v9);
+  COREACCESS::~COREACCESS((COREACCESS *)v8);
+  return v5;
+}

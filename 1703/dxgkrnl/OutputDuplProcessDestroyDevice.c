@@ -1,0 +1,24 @@
+/*
+ * XREFs of OutputDuplProcessDestroyDevice @ 0x1C009DAA0
+ * Callers:
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C00C8DFC (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1C0188E3C (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ * Callees:
+ *     ?FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ @ 0x1C009DAE0 (-FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ.c)
+ *     ?ProcessDestroyDevice@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00DE020 (-ProcessDestroyDevice@OUTPUTDUPL_MGR@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?IterateOutputDuplMgrsForRender@ADAPTER_DISPLAY@@QEAAJP6AJPEAVOUTPUTDUPL_MGR@@PEAX@Z1@Z @ 0x1C00E6A04 (-IterateOutputDuplMgrsForRender@ADAPTER_DISPLAY@@QEAAJP6AJPEAVOUTPUTDUPL_MGR@@PEAX@Z1@Z.c)
+ */
+
+void __fastcall OutputDuplProcessDestroyDevice(__int64 a1, void *a2)
+{
+  OUTPUTDUPL_MGR *RemoteOutputDuplMgr; // rax
+
+  if ( a1 )
+    ADAPTER_DISPLAY::IterateOutputDuplMgrsForRender(
+      *(ADAPTER_DISPLAY **)(a1 + 2280),
+      lambda_55055bd30a6c367c9479cf67f85e47ac_::_lambda_invoker_cdecl_,
+      a2);
+  RemoteOutputDuplMgr = FindRemoteOutputDuplMgr();
+  if ( RemoteOutputDuplMgr )
+    OUTPUTDUPL_MGR::ProcessDestroyDevice(RemoteOutputDuplMgr, (struct DXGDEVICE *)a2);
+}

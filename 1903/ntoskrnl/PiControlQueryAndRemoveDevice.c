@@ -1,0 +1,72 @@
+/*
+ * XREFs of PiControlQueryAndRemoveDevice @ 0x140876D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PiControlFreeUserModeCallersBuffer @ 0x140002850 (PiControlFreeUserModeCallersBuffer.c)
+ *     PiControlAllocateBufferForUserModeCaller @ 0x1400EE5E4 (PiControlAllocateBufferForUserModeCaller.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1405BD8EC (PiControlMakeUserModeCallersCopy.c)
+ *     PnpQueueQueryAndRemoveEvent @ 0x140877AF4 (PnpQueueQueryAndRemoveEvent.c)
+ */
+
+__int64 __fastcall PiControlQueryAndRemoveDevice(__int64 a1, __int16 *a2, __int64 a3, char a4)
+{
+  __int16 v4; // cx
+  int v7; // eax
+  __int64 v8; // r9
+  unsigned int v9; // edx
+  int UserModeCallersCopy; // edi
+  int v11; // eax
+  void *v13; // [rsp+30h] [rbp-20h] BYREF
+  _WORD v14[2]; // [rsp+38h] [rbp-18h] BYREF
+  int v15; // [rsp+3Ch] [rbp-14h]
+  void *v16; // [rsp+40h] [rbp-10h] BYREF
+  unsigned int v17; // [rsp+78h] [rbp+28h] BYREF
+
+  v4 = *a2;
+  v15 = 0;
+  v16 = 0LL;
+  v14[1] = v4;
+  v14[0] = v4;
+  if ( (unsigned __int16)(v4 - 1) > 0x18Fu || (v4 & 1) != 0 )
+    return 3221225485LL;
+  v13 = 0LL;
+  v16 = 0LL;
+  v7 = *((_DWORD *)a2 + 8);
+  v8 = *((_QWORD *)a2 + 3);
+  if ( v7 && v8 )
+  {
+    v9 = 2 * v7;
+  }
+  else
+  {
+    *((_DWORD *)a2 + 8) = 0;
+    v9 = 0;
+  }
+  v17 = v9;
+  UserModeCallersCopy = PiControlAllocateBufferForUserModeCaller(&v13, v9, a4, v8);
+  if ( UserModeCallersCopy >= 0 )
+  {
+    UserModeCallersCopy = PiControlMakeUserModeCallersCopy(&v16, *((void **)a2 + 1), v14[0], 2u, a4, 1);
+    if ( UserModeCallersCopy >= 0 )
+    {
+      UserModeCallersCopy = PnpQueueQueryAndRemoveEvent(
+                              (unsigned int)v14,
+                              (int)a2 + 20,
+                              (_DWORD)v13,
+                              (unsigned int)&v17,
+                              *((_DWORD *)a2 + 4),
+                              0);
+      if ( v13 )
+      {
+        v11 = PiControlMakeUserModeCallersCopy((void **)a2 + 3, v13, 2 * *((_DWORD *)a2 + 8), 2u, a4, 0);
+        if ( v11 < 0 )
+          UserModeCallersCopy = v11;
+      }
+      *((_DWORD *)a2 + 8) = v17 >> 1;
+    }
+  }
+  PiControlFreeUserModeCallersBuffer(a4, v16);
+  PiControlFreeUserModeCallersBuffer(a4, v13);
+  return (unsigned int)UserModeCallersCopy;
+}

@@ -1,0 +1,195 @@
+/*
+ * XREFs of ?CalculateValue@CNaturalAnimation@@AEAAXPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801A83AC
+ * Callers:
+ *     ?CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1801A8740 (-CalculateValueWorker@CNaturalAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ * Callees:
+ *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x1800545C0 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
+ *     ?GetTracingCookie@CBaseExpression@@QEBAIXZ @ 0x1800669E4 (-GetTracingCookie@CBaseExpression@@QEBAIXZ.c)
+ *     _TlgKeywordOn @ 0x180083CAC (_TlgKeywordOn.c)
+ *     _TlgWrite @ 0x180083FFC (_TlgWrite.c)
+ *     __security_check_cookie @ 0x1800EB870 (__security_check_cookie.c)
+ *     ?CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ @ 0x1801A833C (-CalculateAnimationElapsedTimeInSeconds@CNaturalAnimation@@AEAAMXZ.c)
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1801A8A88 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?GetStopValue@CNaturalAnimation@@AEAA?ATInternalValue@1@XZ @ 0x1801A90E8 (-GetStopValue@CNaturalAnimation@@AEAA-ATInternalValue@1@XZ.c)
+ *     ?PeekStackValue@CNaturalAnimation@@AEAA?ATInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x1801A9760 (-PeekStackValue@CNaturalAnimation@@AEAA-ATInternalValue@1@PEAVCExpressionValueStack@@@Z.c)
+ *     ?PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z @ 0x1801A9BC8 (-PushValueToStack@CNaturalAnimation@@AEAAXTInternalValue@1@PEAVCExpressionValueStack@@@Z.c)
+ *     ?IsInMotion@CScalarForceEvaluator@@QEBA_NXZ @ 0x1801E79A0 (-IsInMotion@CScalarForceEvaluator@@QEBA_NXZ.c)
+ *     ?Update@CVector3Force@@QEAA?AUD2DVector3@@MPEAVCExpressionValueStack@@_K@Z @ 0x1801E7B34 (-Update@CVector3Force@@QEAA-AUD2DVector3@@MPEAVCExpressionValueStack@@_K@Z.c)
+ *     ?ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z @ 0x1801E7D10 (-ChangeBasis@CVector3ForceEvaluator@@QEAAXAEBUD2DMatrix@@@Z.c)
+ *     ?D3DXVec3TransformCoord@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z @ 0x18021A1EC (-D3DXVec3TransformCoord@@YAPEAUD2DVector3@@PEAU1@PEBU1@PEBUD2DMatrix@@@Z.c)
+ */
+
+void __fastcall CNaturalAnimation::CalculateValue(
+        CNaturalAnimation *this,
+        struct CExpressionValueStack *a2,
+        __int64 a3,
+        bool *a4)
+{
+  int v7; // eax
+  int v8; // eax
+  __int64 v9; // rdx
+  float v10; // xmm0_4
+  __int64 v11; // rcx
+  __int64 v12; // rdx
+  __int64 v13; // rdx
+  bool v14; // al
+  int v15; // eax
+  int v16; // eax
+  __int64 v17; // xmm0_8
+  int v18; // eax
+  __int64 StopValue; // rax
+  __int64 v20; // xmm0_8
+  char v21; // al
+  int TracingCookie; // eax
+  __int64 v23; // r10
+  __int64 v24; // [rsp+30h] [rbp-D0h] BYREF
+  int v25; // [rsp+38h] [rbp-C8h]
+  int v26; // [rsp+40h] [rbp-C0h] BYREF
+  float v27; // [rsp+44h] [rbp-BCh] BYREF
+  __int64 v28; // [rsp+50h] [rbp-B0h] BYREF
+  int v29; // [rsp+58h] [rbp-A8h] BYREF
+  _BYTE v30[16]; // [rsp+60h] [rbp-A0h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+70h] [rbp-90h] BYREF
+  int *v32; // [rsp+90h] [rbp-70h]
+  int v33; // [rsp+98h] [rbp-68h]
+  int v34; // [rsp+9Ch] [rbp-64h]
+  float *v35; // [rsp+A0h] [rbp-60h]
+  int v36; // [rsp+A8h] [rbp-58h]
+  int v37; // [rsp+ACh] [rbp-54h]
+  __int64 *v38; // [rsp+B0h] [rbp-50h]
+  int v39; // [rsp+B8h] [rbp-48h]
+  int v40; // [rsp+BCh] [rbp-44h]
+  char *v41; // [rsp+C0h] [rbp-40h]
+  int v42; // [rsp+C8h] [rbp-38h]
+  int v43; // [rsp+CCh] [rbp-34h]
+  int *v44; // [rsp+D0h] [rbp-30h]
+  int v45; // [rsp+D8h] [rbp-28h]
+  int v46; // [rsp+DCh] [rbp-24h]
+  __int64 v47; // [rsp+E0h] [rbp-20h]
+  int v48; // [rsp+E8h] [rbp-18h]
+  int v49; // [rsp+ECh] [rbp-14h]
+  __int64 v50; // [rsp+F0h] [rbp-10h]
+  int v51; // [rsp+F8h] [rbp-8h]
+  int v52; // [rsp+FCh] [rbp-4h]
+  __int64 v53; // [rsp+100h] [rbp+0h]
+  int v54; // [rsp+108h] [rbp+8h]
+  int v55; // [rsp+10Ch] [rbp+Ch]
+  bool *v56; // [rsp+110h] [rbp+10h]
+  int v57; // [rsp+118h] [rbp+18h]
+  int v58; // [rsp+11Ch] [rbp+1Ch]
+
+  *a4 = 0;
+  if ( a3 == *((_QWORD *)this + 48) )
+  {
+    *a4 = (*((_BYTE *)this + 540) & 0x40) != 0;
+    v7 = *((_DWORD *)this + 77);
+    v28 = *(_QWORD *)((char *)this + 300);
+    v29 = v7;
+    CNaturalAnimation::PushValueToStack(this, &v28, a2);
+  }
+  else
+  {
+    v8 = *((_DWORD *)this + 36);
+    if ( v8 == 18 || v8 == 35 || v8 == 52 )
+    {
+      if ( CScalarForceEvaluator::IsInMotion((CScalarForceEvaluator *)(*((_QWORD *)this + 49) + 16LL))
+        || CScalarForceEvaluator::IsInMotion((CScalarForceEvaluator *)(v9 + 84)) )
+      {
+        *((_BYTE *)this + 540) |= 4u;
+      }
+      if ( CNaturalAnimation::GenerateVector3Basis(this) )
+        CVector3ForceEvaluator::ChangeBasis(
+          (CVector3ForceEvaluator *)(*((_QWORD *)this + 49) + 16LL),
+          (CNaturalAnimation *)((char *)this + 412));
+      v10 = CNaturalAnimation::CalculateAnimationElapsedTimeInSeconds(this);
+      v11 = *((_QWORD *)this + 49);
+      v27 = v10;
+      CVector3Force::Update(v11, &v28);
+      if ( CScalarForceEvaluator::IsInMotion((CScalarForceEvaluator *)(*((_QWORD *)this + 49) + 16LL))
+        || CScalarForceEvaluator::IsInMotion((CScalarForceEvaluator *)(v12 + 84))
+        || (v14 = CScalarForceEvaluator::IsInMotion((CScalarForceEvaluator *)(v13 + 152))) )
+      {
+        v14 = 1;
+      }
+      *a4 = v14;
+      if ( !v14 || (*((_BYTE *)this + 540) & 8) != 0 )
+      {
+        v17 = *((_QWORD *)this + 39);
+        v18 = *((_DWORD *)this + 80);
+        *((_BYTE *)this + 540) |= 8u;
+        *(_QWORD *)((char *)this + 300) = v17;
+        *((_DWORD *)this + 77) = v18;
+        StopValue = CNaturalAnimation::GetStopValue(this, v30);
+        v20 = *(_QWORD *)StopValue;
+        LODWORD(StopValue) = *(_DWORD *)(StopValue + 8);
+        v24 = v20;
+        v25 = StopValue;
+        CNaturalAnimation::PushValueToStack(this, &v24, a2);
+        v21 = *((_BYTE *)this + 208);
+        if ( (v21 & 2) != 0 )
+        {
+          CBaseExpression::NotifyAnimationCompleted(this);
+          v21 = *((_BYTE *)this + 208);
+        }
+        *((_BYTE *)this + 208) = v21 & 0xFE;
+      }
+      else
+      {
+        D3DXVec3TransformCoord(
+          (struct D2DVector3 *)&v24,
+          (const struct D2DVector3 *)&v28,
+          (CNaturalAnimation *)((char *)this + 476));
+        v15 = v25;
+        *(_QWORD *)((char *)this + 300) = v24;
+        *((_DWORD *)this + 77) = v15;
+        *((float *)this + 75) = *((float *)this + 78) + *((float *)this + 75);
+        *((float *)this + 76) = *((float *)this + 79) + *((float *)this + 76);
+        *((float *)this + 77) = *((float *)this + 80) + *((float *)this + 77);
+        v16 = *((_DWORD *)this + 77);
+        v24 = *(_QWORD *)((char *)this + 300);
+        v25 = v16;
+        CNaturalAnimation::PushValueToStack(this, &v24, a2);
+      }
+      if ( *(int *)(*((_QWORD *)this + 35) + 4LL) < 0 )
+      {
+        CNaturalAnimation::PeekStackValue(this, v30, a2);
+        if ( dword_180305E40 > 4u )
+        {
+          if ( TlgKeywordOn((TraceLoggingHProvider)&dword_180305E40, 4uLL) )
+          {
+            TracingCookie = CBaseExpression::GetTracingCookie(this);
+            v34 = 0;
+            v37 = 0;
+            v40 = 0;
+            v43 = 0;
+            v46 = 0;
+            v49 = 0;
+            v52 = 0;
+            v55 = 0;
+            v58 = 0;
+            v26 = TracingCookie;
+            v32 = &v26;
+            v35 = &v27;
+            v38 = &v28;
+            v41 = (char *)&v28 + 4;
+            v44 = &v29;
+            v50 = v23 + 4;
+            v53 = v23 + 8;
+            v33 = 4;
+            v36 = 4;
+            v39 = 4;
+            v42 = 4;
+            v45 = 4;
+            v47 = v23;
+            v48 = 4;
+            v51 = 4;
+            v54 = 4;
+            v56 = a4;
+            v57 = 1;
+            TlgWrite((TraceLoggingHProvider)&dword_180305E40, &unk_1802B5488, 0LL, 0LL, 0xBu, &pData);
+          }
+        }
+      }
+    }
+  }
+}

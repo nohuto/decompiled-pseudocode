@@ -1,0 +1,12 @@
+/*
+ * XREFs of ViGenericWrite @ 0x1406CEA38
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ViGenericWrite(__int64 a1, __int64 a2)
+{
+  return ViGenericDispatchHandler(a1, a2, (__int64 (*)(void))pXdvIRP_MJ_WRITE, 4u);
+}

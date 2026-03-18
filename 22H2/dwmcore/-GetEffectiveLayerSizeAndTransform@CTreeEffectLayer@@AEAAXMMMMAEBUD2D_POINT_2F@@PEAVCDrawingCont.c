@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?GetEffectiveLayerSizeAndTransform@CTreeEffectLayer@@AEAAXMMMMAEBUD2D_POINT_2F@@PEAVCDrawingContext@@PEAVCMILMatrix@@PEAUD2D_SIZE_F@@@Z @ 0x180011B10
+ * Callers:
+ *     ?RenderLayer@CTreeEffectLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x18000E8C0 (-RenderLayer@CTreeEffectLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ?Multiply@CMILMatrix@@QEAAXAEBV1@@Z @ 0x180071B00 (-Multiply@CMILMatrix@@QEAAXAEBV1@@Z.c)
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DBE0 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090E80 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ?Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z @ 0x1800B26B8 (-Top@CMatrixStack@@QEBAXPEAVCMILMatrix@@@Z.c)
+ *     ?GetMaskForLayerVisualNoRef@CDropShadow@@QEAAPEAVCBrush@@XZ @ 0x1800C5BBC (-GetMaskForLayerVisualNoRef@CDropShadow@@QEAAPEAVCBrush@@XZ.c)
+ *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x1800DB9D8 (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
+ */
+
+void __fastcall CTreeEffectLayer::GetEffectiveLayerSizeAndTransform(
+        CTreeEffectLayer *this,
+        float a2,
+        float a3,
+        float a4,
+        float a5,
+        const struct D2D_POINT_2F *a6,
+        struct CDrawingContext *a7,
+        struct CMILMatrix *a8,
+        struct D2D_SIZE_F *a9)
+{
+  CMILMatrix *v10; // rcx
+  __int64 v11; // rcx
+  struct D2D_SIZE_F *v12; // rax
+  float v13; // xmm1_4
+  CDropShadow *v14; // rcx
+  const struct CMILMatrix *v15; // rdx
+  _BYTE v16[80]; // [rsp+20h] [rbp-78h] BYREF
+
+  CMILMatrix::SetToIdentity(a8);
+  CMILMatrix::Scale(v10, 1.0 / a4, 1.0 / a5, 1.0);
+  v11 = *((_QWORD *)this + 32);
+  if ( *(_BYTE *)(v11 + 728) )
+  {
+    if ( *(_BYTE *)(v11 + 729) )
+    {
+      v14 = *(CDropShadow **)(v11 + 704);
+      if ( !v14 || CDropShadow::GetMaskForLayerVisualNoRef(v14) )
+      {
+        CMILMatrix::Translate(a8, (float)*((int *)this + 4), (float)*((int *)this + 5));
+        v15 = (CTreeEffectLayer *)((char *)this + 128);
+      }
+      else
+      {
+        CMILMatrix::SetToIdentity((CMILMatrix *)v16);
+        CMatrixStack::Top((struct CDrawingContext *)((char *)a7 + 400), (struct CMILMatrix *)v16);
+        v15 = (const struct CMILMatrix *)v16;
+      }
+      CMILMatrix::Multiply(a8, v15);
+    }
+    else
+    {
+      CMILMatrix::Translate(a8, *((float *)this + 57) - a6->x, *((float *)this + 58) - a6->y);
+    }
+    v12 = a9;
+    a9->width = *((float *)this + 59) * *((float *)this + 70);
+    v13 = *((float *)this + 60) * *((float *)this + 70);
+  }
+  else
+  {
+    CMILMatrix::Translate(a8, a2, a3);
+    v12 = a9;
+    a9->width = *((float *)this + 51) - *((float *)this + 49);
+    v13 = *((float *)this + 52) - *((float *)this + 50);
+  }
+  v12->height = v13;
+}

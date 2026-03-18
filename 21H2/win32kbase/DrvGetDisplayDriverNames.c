@@ -1,0 +1,71 @@
+/*
+ * XREFs of DrvGetDisplayDriverNames @ 0x1C007A970
+ * Callers:
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C0073714 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ *     DrvBuildDevmodeList @ 0x1C0079EE0 (DrvBuildDevmodeList.c)
+ *     DrvEscapeRemoteDrivers @ 0x1C00D4750 (DrvEscapeRemoteDrivers.c)
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C002FC74 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     memmove @ 0x1C00DE8C0 (memmove.c)
+ */
+
+unsigned int *__fastcall DrvGetDisplayDriverNames(__int64 a1)
+{
+  _WORD *v1; // rax
+  unsigned int *v3; // rbx
+  int v4; // esi
+  unsigned int v5; // r14d
+  unsigned int v6; // ecx
+  unsigned int *v7; // r15
+  unsigned int *v8; // rdi
+
+  v1 = *(_WORD **)(a1 + 200);
+  v3 = 0LL;
+  v4 = 0;
+  if ( v1 )
+  {
+    v5 = 0;
+    while ( *v1 )
+    {
+      ++v5;
+      do
+      {
+        ++v1;
+        v4 += 2;
+      }
+      while ( *v1 );
+      ++v1;
+      v4 += 2;
+    }
+    v6 = v4 + 24 * v5 + 26;
+    if ( v6 )
+    {
+      v7 = (unsigned int *)NSInstrumentation::CLeakTrackingAllocator::Allocate(
+                             (NSInstrumentation::CLeakTrackingAllocator *)gpLeakTrackingAllocator,
+                             260LL,
+                             v6,
+                             1936876615);
+      v3 = v7;
+      if ( v7 )
+      {
+        v8 = &v7[6 * v5 + 6];
+        memmove(v8, *(const void **)(a1 + 200), (unsigned int)(v4 + 2));
+        *v7 = 0;
+        while ( *(_WORD *)v8 )
+        {
+          *(_QWORD *)&v7[4 * *v7 + 4] = v8;
+          if ( *v7 >= v5 )
+          {
+            WdLogSingleEntry0(1LL);
+            return v3;
+          }
+          *(_QWORD *)&v7[4 * (*v7)++ + 2] = *(_QWORD *)(a1 + 136);
+          while ( *(_WORD *)v8 )
+            v8 = (unsigned int *)((char *)v8 + 2);
+          v8 = (unsigned int *)((char *)v8 + 2);
+        }
+      }
+    }
+  }
+  return v3;
+}

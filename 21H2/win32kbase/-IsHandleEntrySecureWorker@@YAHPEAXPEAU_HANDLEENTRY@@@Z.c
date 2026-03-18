@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?IsHandleEntrySecureWorker@@YAHPEAXPEAU_HANDLEENTRY@@@Z @ 0x1C014141C
+ * Callers:
+ *     HMIsHandleEntrySecure @ 0x1C00E4C84 (HMIsHandleEntrySecure.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall IsHandleEntrySecureWorker(void *a1, struct _HANDLEENTRY *a2)
+{
+  _QWORD *v2; // rdi
+  __int64 v5; // rbx
+  __int64 CurrentProcessWin32Process; // rax
+  unsigned int v7; // r8d
+  __int16 v8; // cx
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  void **v12; // rax
+  unsigned int v13; // ecx
+
+  v2 = gpKernelHandleTable;
+  v5 = 3LL * (unsigned int)((a2 - qword_1C0294B68) >> 5);
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(a1);
+  v7 = 0;
+  if ( CurrentProcessWin32Process )
+  {
+    v8 = *((_WORD *)&unk_1C024AF4C + 12 * *((unsigned __int8 *)a2 + 24));
+    if ( (v8 & 2) != 0 )
+    {
+      v9 = v2[v5 + 1];
+    }
+    else
+    {
+      if ( (v8 & 1) == 0 )
+        return 0LL;
+      v10 = v2[v5 + 1];
+      if ( !v10 )
+        return 0LL;
+      v9 = *(_QWORD *)(v10 + 424);
+    }
+    if ( !v9 )
+      return 0LL;
+    if ( *(PVOID *)v9 != gpepCSRSS )
+    {
+      v11 = *(_QWORD *)(CurrentProcessWin32Process + 768);
+      if ( *(_QWORD *)(v9 + 768) != v11 )
+      {
+        v12 = *(void ***)(v11 + 56);
+        if ( v12 )
+        {
+          v13 = *(_DWORD *)(v11 + 48);
+          if ( v13 )
+          {
+            while ( *v12 != a1 )
+            {
+              ++v7;
+              ++v12;
+              if ( v7 >= v13 )
+                return 0LL;
+            }
+            return 1LL;
+          }
+        }
+        return 0LL;
+      }
+    }
+  }
+  return 1LL;
+}

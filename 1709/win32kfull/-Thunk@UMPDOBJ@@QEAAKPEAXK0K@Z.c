@@ -1,0 +1,160 @@
+/*
+ * XREFs of ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C00B9504
+ * Callers:
+ *     ?UMPDDrvBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1C00B6D20 (-UMPDDrvBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_B.c)
+ *     ?UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1C00B7CF0 (-UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRU.c)
+ *     ?UMPDDrvStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1C00B8810 (-UMPDDrvStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU.c)
+ *     ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1C00BB360 (-UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?UMPDDrvDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C0100C10 (-UMPDDrvDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z @ 0x1C010C5C0 (-UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z.c)
+ *     ?UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z @ 0x1C010C860 (-UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?UMPDDrvDriverFn@@YAHPEAXPEAH@Z @ 0x1C010D44C (-UMPDDrvDriverFn@@YAHPEAXPEAH@Z.c)
+ *     ?UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z @ 0x1C010D504 (-UMPDDrvEnableDriver@@YAHPEAGPEAPEAX@Z.c)
+ *     ?UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1C010D8B0 (-UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvStartBanding@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1C010DA00 (-UMPDDrvStartBanding@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1C010F060 (-UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z.c)
+ *     ?UMPDDrvGetGlyphMode@@YAKPEAUDHPDEV__@@PEAU_FONTOBJ@@@Z @ 0x1C0112A80 (-UMPDDrvGetGlyphMode@@YAKPEAUDHPDEV__@@PEAU_FONTOBJ@@@Z.c)
+ *     ?UMPDDrvEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C0113460 (-UMPDDrvEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@.c)
+ *     ?UMPDDrvCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z @ 0x1C011BFC0 (-UMPDDrvCompletePDEV@@YAXPEAUDHPDEV__@@PEAUHDEV__@@@Z.c)
+ *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C0121930 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     ?UMPDDrvEndDoc@@YAHPEAU_SURFOBJ@@K@Z @ 0x1C0123B30 (-UMPDDrvEndDoc@@YAHPEAU_SURFOBJ@@K@Z.c)
+ *     ?UMPDDrvDisableSurface@@YAXPEAUDHPDEV__@@@Z @ 0x1C0124B70 (-UMPDDrvDisableSurface@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?UMPDDrvStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAU_BRUSHOBJ@@K@Z @ 0x1C0137600 (-UMPDDrvStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@P.c)
+ *     ?UMPDDrvCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C013ADB0 (-UMPDDrvCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvResetPDEV@@YAHPEAUDHPDEV__@@0@Z @ 0x1C013D190 (-UMPDDrvResetPDEV@@YAHPEAUDHPDEV__@@0@Z.c)
+ *     ?UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z @ 0x1C0284980 (-UMPDAllocUserMem@UMPDOBJ@@QEAAPEAXK@Z.c)
+ *     ?UMPDDrvAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x1C0284A60 (-UMPDDrvAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@.c)
+ *     ?UMPDDrvDestroyFont@@YAXPEAU_FONTOBJ@@@Z @ 0x1C0284D80 (-UMPDDrvDestroyFont@@YAXPEAU_FONTOBJ@@@Z.c)
+ *     ?UMPDDrvDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z @ 0x1C0284E60 (-UMPDDrvDitherColor@@YAKPEAUDHPDEV__@@KKPEAK@Z.c)
+ *     ?UMPDDrvDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z @ 0x1C0285000 (-UMPDDrvDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z.c)
+ *     ?UMPDDrvFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C0285220 (-UMPDDrvFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x1C0285450 (-UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x1C02857C0 (-UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_R.c)
+ *     ?UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z @ 0x1C0285AF0 (-UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z.c)
+ *     ?UMPDDrvIcmCreateColorTransform@@YAPEAXPEAUDHPDEV__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2KK@Z @ 0x1C0285CD0 (-UMPDDrvIcmCreateColorTransform@@YAPEAXPEAUDHPDEV__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2KK@Z.c)
+ *     ?UMPDDrvIcmDeleteColorTransform@@YAHPEAUDHPDEV__@@PEAX@Z @ 0x1C0285E30 (-UMPDDrvIcmDeleteColorTransform@@YAHPEAUDHPDEV__@@PEAX@Z.c)
+ *     ?UMPDDrvLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x1C0285EF0 (-UMPDDrvLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?UMPDDrvPaint@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x1C0286110 (-UMPDDrvPaint@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?UMPDDrvPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_POINTFIX@@PEAU_RECTL@@4K@Z @ 0x1C0286300 (-UMPDDrvPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
+ *     ?UMPDDrvQueryAdvanceWidths@@YAHPEAUDHPDEV__@@PEAU_FONTOBJ@@KPEAKPEAXK@Z @ 0x1C02866F0 (-UMPDDrvQueryAdvanceWidths@@YAHPEAUDHPDEV__@@PEAU_FONTOBJ@@KPEAKPEAXK@Z.c)
+ *     ?UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z @ 0x1C02868C0 (-UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z.c)
+ *     ?UMPDDrvQueryFont@@YAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEAK@Z @ 0x1C0286CA0 (-UMPDDrvQueryFont@@YAPEAU_IFIMETRICS@@PEAUDHPDEV__@@_KKPEAK@Z.c)
+ *     ?UMPDDrvQueryFontData@@YAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0286E50 (-UMPDDrvQueryFontData@@YAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C0287050 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
+ *     ?UMPDDrvRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C0287280 (-UMPDDrvRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     ?UMPDDrvSendPage@@YAHPEAU_SURFOBJ@@@Z @ 0x1C0287590 (-UMPDDrvSendPage@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?UMPDDrvStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C0287710 (-UMPDDrvStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUS.c)
+ *     ?UMPDDrvStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C02879F0 (-UMPDDrvStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@P.c)
+ *     ?UMPDDrvTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KI@Z @ 0x1C0287C90 (-UMPDDrvTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KI@Z.c)
+ *     ?UMPDMyDrvFree@@YAXPEAVUMPDOBJ@@PEAUDHPDEV__@@PEAXK@Z @ 0x1C0287F8C (-UMPDMyDrvFree@@YAXPEAVUMPDOBJ@@PEAUDHPDEV__@@PEAXK@Z.c)
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z @ 0x1C0288020 (-bDeleteLargeBitmaps@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@00@Z.c)
+ *     ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02881A0 (-bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z.c)
+ *     UMPDDrvDeleteDeviceBitmap @ 0x1C02884F0 (UMPDDrvDeleteDeviceBitmap.c)
+ *     UMPDEngFreeUserMem @ 0x1C02885B0 (UMPDEngFreeUserMem.c)
+ * Callees:
+ *     ?bTryAcquireExclussiveAccess@UMPDOBJ@@QEAA_NXZ @ 0x1C00B942C (-bTryAcquireExclussiveAccess@UMPDOBJ@@QEAA_NXZ.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C00B9754 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C00B98AC (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ *     ClientPrinterThunk @ 0x1C00BA648 (ClientPrinterThunk.c)
+ *     ?SendRequest@PROXYPORT@@QEAAJPEAXK0K@Z @ 0x1C00BAA10 (-SendRequest@PROXYPORT@@QEAAJPEAXK0K@Z.c)
+ *     IsThreadCrossSessionAttached @ 0x1C0143CAC (IsThreadCrossSessionAttached.c)
+ *     memmove @ 0x1C01456C0 (memmove.c)
+ *     ?ulGetMaxSize@UMPDOBJ@@QEAAKXZ @ 0x1C02884C4 (-ulGetMaxSize@UMPDOBJ@@QEAAKXZ.c)
+ */
+
+__int64 __fastcall UMPDOBJ::Thunk(UMPDOBJ *this, _DWORD *a2, __int64 a3, void *a4, size_t Size)
+{
+  struct _KTHREAD *CurrentThread; // r14
+  size_t v7; // rsi
+  __int64 v10; // rbp
+  __int64 *ThreadWin32Thread; // rax
+  char v12; // al
+  char *v13; // r15
+  void *KernelPtr; // r14
+  void *v15; // rax
+  int v16; // ebp
+  unsigned int MaxSize; // eax
+  int v18; // edi
+  __int64 v19; // r9
+  __int64 v20; // rdx
+  unsigned __int64 v21; // rcx
+  __int64 v22; // rax
+  unsigned __int64 v23; // rcx
+  __int64 v25; // [rsp+30h] [rbp-38h] BYREF
+  void *Src; // [rsp+38h] [rbp-30h]
+  void *v27; // [rsp+70h] [rbp+8h]
+
+  CurrentThread = KeGetCurrentThread();
+  v7 = (unsigned int)a3;
+  v10 = 0LL;
+  if ( !(unsigned int)IsThreadCrossSessionAttached(this, a2, a3, a4) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v10 = *ThreadWin32Thread;
+  }
+  if ( *((_DWORD *)this + 109) )
+  {
+    v12 = *((_BYTE *)this + 32);
+    if ( (v12 & 1) == 0 )
+    {
+      *((_BYTE *)this + 32) = v12 | 1;
+      v27 = UMPDOBJ::_AllocUserMem(this, v7, 0);
+      v13 = (char *)UMPDOBJ::_AllocUserMem(this, Size, 0);
+      KernelPtr = UMPDOBJ::GetKernelPtr(this, v27);
+      v15 = UMPDOBJ::GetKernelPtr(this, v13);
+      v16 = a2[1];
+      Src = v15;
+      if ( v27 )
+      {
+        if ( v13 && ((unsigned int)(v16 - 26) > 1 || (unsigned int)v7 >= 0x48) )
+        {
+          memmove(KernelPtr, a2, v7);
+          if ( v16 == 26 && a2[10] || v16 == 27 && (a2[11] & 3) != 0 )
+          {
+            MaxSize = UMPDOBJ::ulGetMaxSize(this);
+            *((_DWORD *)KernelPtr + 14) = MaxSize;
+            a2[14] = MaxSize;
+            *((_QWORD *)KernelPtr + 8) = &v13[(unsigned int)Size];
+            *((_QWORD *)a2 + 8) = &v13[(unsigned int)Size];
+          }
+          v25 = *((_QWORD *)this + 49);
+          _InterlockedExchange64((volatile __int64 *)this + 3, 0LL);
+          v18 = PROXYPORT::SendRequest((PROXYPORT *)&v25, v27, v7, v13, Size);
+          memmove(a4, Src, (unsigned int)Size);
+          v20 = *((_QWORD *)this + 18);
+          if ( v20 )
+          {
+            v21 = *(_QWORD *)(v20 + 8);
+            if ( v21 )
+            {
+              if ( v21 < (unsigned __int64)MmSystemRangeStart )
+                *(_QWORD *)(v20 + 8) = 0LL;
+            }
+          }
+          v22 = *((_QWORD *)this + 20);
+          if ( v22 )
+          {
+            v23 = *(_QWORD *)(v22 + 8);
+            if ( v23 )
+            {
+              if ( v23 < (unsigned __int64)MmSystemRangeStart )
+                *(_QWORD *)(v22 + 8) = 0LL;
+            }
+          }
+          if ( UMPDOBJ::bTryAcquireExclussiveAccess(this, v20, (__int64)MmSystemRangeStart, v19)
+            || (*((_BYTE *)this + 32) & 2) != 0 )
+          {
+            *((_BYTE *)this + 32) &= 0xFCu;
+            return (unsigned int)-(v18 != 0);
+          }
+        }
+      }
+    }
+  }
+  else if ( *(UMPDOBJ **)(v10 + 40) == (UMPDOBJ *)((char *)this + 40) )
+  {
+    return ClientPrinterThunk(a2, v7, a4, Size);
+  }
+  return 0xFFFFFFFFLL;
+}

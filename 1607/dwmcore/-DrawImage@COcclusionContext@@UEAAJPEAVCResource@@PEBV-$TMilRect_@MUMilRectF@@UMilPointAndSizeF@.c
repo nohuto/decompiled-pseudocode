@@ -1,0 +1,74 @@
+/*
+ * XREFs of ?DrawImage@COcclusionContext@@UEAAJPEAVCResource@@PEBV?$TMilRect_@MUMilRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$TValueResource@UMilRectF@@UMILCMD_RECTRESOURCE@@$0DC@@@@Z @ 0x18005CC70
+ * Callers:
+ *     ?Draw@CRenderData@@QEAAJPEAUIDrawingContext@@@Z @ 0x18004DC00 (-Draw@CRenderData@@QEAAJPEAUIDrawingContext@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x180047444 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ?DrawImage@COcclusionContext@@QEAAJPEAVCResource@@PEBV?$TMilRect_@MUMilRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@U?$TMILFlagsEnum@W4FlagsEnum@MilSourceModification@@@@@Z @ 0x18005C884 (-DrawImage@COcclusionContext@@QEAAJPEAVCResource@@PEBV-$TMilRect_@MUMilRectF@@UMilPointAndSizeF@.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x18009A984 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     ?IsOfType@CBitmapResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800AE890 (-IsOfType@CBitmapResource@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     __security_check_cookie @ 0x1800BD3F0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1800BF6F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall COcclusionContext::DrawImage(
+        __int64 a1,
+        int (__fastcall ***a2)(_QWORD, GUID *, CGdiSpriteBitmap **),
+        float *a3,
+        __int64 a4)
+{
+  unsigned int v4; // ebx
+  int (__fastcall *v9)(_QWORD, GUID *, CGdiSpriteBitmap **); // rax
+  char v10; // al
+  int v11; // eax
+  __int64 v13; // rax
+  unsigned int v14; // edx
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int128 v18; // [rsp+30h] [rbp-58h] BYREF
+  __int128 v19; // [rsp+40h] [rbp-48h]
+  __int64 v20; // [rsp+50h] [rbp-38h]
+
+  v4 = 0;
+  v9 = (*a2)[6];
+  if ( (char *)v9 == (char *)CBitmapResource::IsOfType )
+    v10 = CBitmapResource::IsOfType(a2, 57LL);
+  else
+    v10 = ((__int64 (__fastcall *)(int (__fastcall ***)(_QWORD, GUID *, CGdiSpriteBitmap **), __int64))v9)(a2, 57LL);
+  if ( v10 )
+  {
+    *(_QWORD *)&v18 = *(_QWORD *)(a1 + 656);
+    v13 = *(unsigned int *)(a1 + 984);
+    *((_QWORD *)&v18 + 1) = a2 - 2;
+    LOBYTE(v19) = 1;
+    v14 = v13 + 1;
+    if ( (int)v13 + 1 < (unsigned int)v13 )
+    {
+      MilInstrumentationCheckHR(0x14u, 0LL, 0, -2147024362, 0xB5u);
+    }
+    else if ( v14 <= *(_DWORD *)(a1 + 980) )
+    {
+      v16 = 5 * v13;
+      v17 = *(_QWORD *)(a1 + 960);
+      *(_OWORD *)(v17 + 8 * v16) = v18;
+      *(_OWORD *)(v17 + 8 * v16 + 16) = v19;
+      *(_QWORD *)(v17 + 8 * v16 + 32) = v20;
+      *(_DWORD *)(a1 + 984) = v14;
+    }
+    else
+    {
+      v15 = DynArrayImpl<0>::AddMultipleAndSet(a1 + 960, 40LL, 1LL, &v18);
+      if ( v15 < 0 )
+        MilInstrumentationCheckHR(0x14u, 0LL, 0, v15, 0xC0u);
+    }
+  }
+  if ( !a4 )
+  {
+    v11 = COcclusionContext::DrawImage(a1 - 8, a2, a3, 0);
+    v4 = v11;
+    if ( v11 < 0 )
+      MilInstrumentationCheckHR(0x14u, 0LL, 0, v11, 0x499u);
+  }
+  return v4;
+}

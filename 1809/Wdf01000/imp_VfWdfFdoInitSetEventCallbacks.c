@@ -1,0 +1,15 @@
+/*
+ * XREFs of imp_VfWdfFdoInitSetEventCallbacks @ 0x1C00BCA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall imp_VfWdfFdoInitSetEventCallbacks(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFDEVICE_INIT *DeviceInit,
+        _WDF_FDO_EVENT_CALLBACKS *FdoEventCallbacks)
+{
+  WdfVersion.Functions.pfnWdfFdoInitSetEventCallbacks(DriverGlobals, DeviceInit, FdoEventCallbacks);
+}

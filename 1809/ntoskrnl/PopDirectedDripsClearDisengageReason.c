@@ -1,0 +1,34 @@
+/*
+ * XREFs of PopDirectedDripsClearDisengageReason @ 0x140867AE8
+ * Callers:
+ *     PopDirectedDripsNotify @ 0x14071E768 (PopDirectedDripsNotify.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x14086E010 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogResetInternalState @ 0x14086E768 (PopDripsWatchdogResetInternalState.c)
+ * Callees:
+ *     PopQueueDirectedDripsWork @ 0x1402D6A68 (PopQueueDirectedDripsWork.c)
+ */
+
+signed __int32 __fastcall PopDirectedDripsClearDisengageReason(char a1)
+{
+  signed __int32 result; // eax
+  signed __int32 v2; // ett
+  int v3; // edx
+
+  _m_prefetchw(&PopDirectedDripsState);
+  result = PopDirectedDripsState;
+  do
+  {
+    v2 = result;
+    result = _InterlockedCompareExchange(&PopDirectedDripsState, result, result);
+  }
+  while ( v2 != result );
+  if ( (result & 1) != 0 )
+  {
+    v3 = 1 << a1;
+    _m_prefetchw(&dword_1404191F4);
+    result = _InterlockedAnd(&dword_1404191F4, ~(1 << a1));
+    if ( (result & v3) != 0 )
+      return PopQueueDirectedDripsWork((struct _KEVENT *)&PopDirectedDripsState, 2uLL);
+  }
+  return result;
+}

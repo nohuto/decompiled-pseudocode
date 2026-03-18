@@ -1,0 +1,44 @@
+/*
+ * XREFs of HvlQueryNumaDistance @ 0x140285010
+ * Callers:
+ *     KiComputeNumaCosts @ 0x1409FE9FC (KiComputeNumaCosts.c)
+ * Callees:
+ *     HvcallpNoHypervisorPresent @ 0x14013EC10 (HvcallpNoHypervisorPresent.c)
+ *     memset @ 0x1401D77C0 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x14028558C (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1402861B8 (HvlpReleaseHypercallPage.c)
+ */
+
+__int64 __fastcall HvlQueryNumaDistance(unsigned __int16 a1, unsigned __int16 a2, __int64 *a3)
+{
+  __int64 v4; // rsi
+  __int64 v5; // rdi
+  _DWORD *v6; // rbx
+  __int64 *v7; // r14
+  __int64 v8; // rcx
+  __int16 v9; // ax
+  __int64 v10; // rcx
+  unsigned int v11; // ebx
+  _QWORD v13[4]; // [rsp+20h] [rbp-48h] BYREF
+  _QWORD v14[4]; // [rsp+40h] [rbp-28h] BYREF
+
+  v4 = a2;
+  v5 = a1;
+  memset(v14, 0, sizeof(v14));
+  memset(v13, 0, sizeof(v13));
+  v6 = (_DWORD *)HvlpAcquireHypercallPage(v14, 1LL, 0LL, 8LL);
+  v7 = (__int64 *)HvlpAcquireHypercallPage(v13, 2LL, 0LL, 8LL);
+  v8 = KeNodeBlock[v4];
+  *v6 = *(_DWORD *)(KeNodeBlock[*(unsigned __int16 *)(KeNodeBlock[v5] + 148)] + 168);
+  v6[1] = *(_DWORD *)(KeNodeBlock[*(unsigned __int16 *)(v8 + 148)] + 168);
+  v9 = HvcallCodeVa();
+  if ( v9 )
+    v10 = -1LL;
+  else
+    v10 = *v7;
+  *a3 = v10;
+  v11 = v9 != 0 ? 0xC0000001 : 0;
+  HvlpReleaseHypercallPage(v13);
+  HvlpReleaseHypercallPage(v14);
+  return v11;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of ProcessKeyboardInput_0 @ 0x1C0001AD8
+ * Callers:
+ *     ?ProcessKeyboardInputApiExt@@YAXPEAUDEVICEINFO@@@Z @ 0x1C00A46E0 (-ProcessKeyboardInputApiExt@@YAXPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 ProcessKeyboardInput_0()
+{
+  return ProcessKeyboardInput();
+}

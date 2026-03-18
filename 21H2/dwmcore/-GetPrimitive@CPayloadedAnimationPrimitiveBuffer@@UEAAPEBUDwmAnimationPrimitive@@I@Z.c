@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetPrimitive@CPayloadedAnimationPrimitiveBuffer@@UEAAPEBUDwmAnimationPrimitive@@I@Z @ 0x1802538B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+const struct DwmAnimationPrimitive *__fastcall CPayloadedAnimationPrimitiveBuffer::GetPrimitive(
+        CPayloadedAnimationPrimitiveBuffer *this,
+        unsigned int a2)
+{
+  return (const struct DwmAnimationPrimitive *)(*((_QWORD *)this + 2) + 32LL * a2);
+}

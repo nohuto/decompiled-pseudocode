@@ -1,0 +1,48 @@
+/*
+ * XREFs of SiBootEntryGetNtFilePath @ 0x1407E6144
+ * Callers:
+ *     SiGetEspFromFirmware @ 0x1407E6630 (SiGetEspFromFirmware.c)
+ * Callees:
+ *     ZwTranslateFilePath @ 0x1401AAC40 (ZwTranslateFilePath.c)
+ *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
+ */
+
+__int64 __fastcall SiBootEntryGetNtFilePath(__int64 a1, struct _FILE_PATH **a2)
+{
+  __int64 v2; // rax
+  struct _FILE_PATH *v3; // rbx
+  NTSTATUS v5; // edi
+  struct _FILE_PATH *v6; // rsi
+  struct _FILE_PATH *PoolWithTag; // rax
+  ULONG OutputFilePathLength; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = *(unsigned int *)(a1 + 20);
+  v3 = 0LL;
+  if ( (_DWORD)v2 )
+  {
+    OutputFilePathLength = 0;
+    v6 = (struct _FILE_PATH *)(a1 + v2);
+    v5 = ZwTranslateFilePath((PFILE_PATH)(a1 + v2), 3u, 0LL, (ULONG)&OutputFilePathLength);
+    if ( v5 == -1073741789 )
+    {
+      PoolWithTag = (struct _FILE_PATH *)ExAllocatePoolWithTag(PagedPool, OutputFilePathLength, 0x4B505953u);
+      v3 = PoolWithTag;
+      if ( !PoolWithTag )
+        return (unsigned int)-1073741801;
+      v5 = ZwTranslateFilePath(v6, 3u, PoolWithTag, (ULONG)&OutputFilePathLength);
+    }
+    if ( v5 >= 0 )
+    {
+      *a2 = v3;
+      v3 = 0LL;
+    }
+    if ( v3 )
+      ExFreePoolWithTag(v3, 0);
+  }
+  else
+  {
+    return (unsigned int)-1073741275;
+  }
+  return (unsigned int)v5;
+}

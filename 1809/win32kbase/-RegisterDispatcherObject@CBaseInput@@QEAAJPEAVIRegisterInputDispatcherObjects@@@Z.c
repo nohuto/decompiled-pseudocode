@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?RegisterDispatcherObject@CBaseInput@@QEAAJPEAVIRegisterInputDispatcherObjects@@@Z @ 0x1C0086C40
+ * Callers:
+ *     ?InitializeInputSensors@@YAJXZ @ 0x1C0152C48 (-InitializeInputSensors@@YAJXZ.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C0028C60 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C0029F00 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ?IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ @ 0x1C0031D3C (-IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ.c)
+ *     RIMOnPnpNotification @ 0x1C004FE90 (RIMOnPnpNotification.c)
+ *     ?IsDispatcherObjectValid@CRIMBase@@IEBA_NI@Z @ 0x1C0086D48 (-IsDispatcherObjectValid@CRIMBase@@IEBA_NI@Z.c)
+ *     ?GetDispatcherObjectByIndex@CRIMBase@@IEBAPEAXI@Z @ 0x1C0086D8C (-GetDispatcherObjectByIndex@CRIMBase@@IEBAPEAXI@Z.c)
+ *     __security_check_cookie @ 0x1C00A63D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00AF730 (_guard_dispatch_icall_nop.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C0186088 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
+__int64 __fastcall CBaseInput::RegisterDispatcherObject(CBaseInput *this, struct IRegisterInputDispatcherObjects *a2)
+{
+  __int64 v2; // rdi
+  CRIMBase::SensorDispatcherObject *v3; // rsi
+  unsigned int i; // ebx
+  __int64 v7; // r14
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // ebx
+  _DWORD v13[4]; // [rsp+30h] [rbp-648h] BYREF
+  _QWORD v14[192]; // [rsp+40h] [rbp-638h] BYREF
+
+  v2 = 0LL;
+  v3 = (CBaseInput *)((char *)this + 152);
+  for ( i = 0; i < 0xE; ++i )
+  {
+    if ( CRIMBase::IsDispatcherObjectValid(this, i) )
+    {
+      v7 = 3 * v2;
+      v14[3 * v2] = CRIMBase::GetDispatcherObjectByIndex(this, i);
+      v14[3 * v2 + 2] = CBaseInput::_OnDispatcherObjectSignaled;
+      if ( !CRIMBase::SensorDispatcherObject::IsValid(v3) )
+        MicrosoftTelemetryAssertTriggeredNoArgsKM(v9, v8, v10);
+      v2 = (unsigned int)(v2 + 1);
+      v14[v7 + 1] = *((_QWORD *)v3 + 5);
+    }
+    v3 = (CRIMBase::SensorDispatcherObject *)((char *)v3 + 64);
+  }
+  v11 = 0;
+  if ( (_DWORD)v2 )
+  {
+    v11 = (**(__int64 (__fastcall ***)(struct IRegisterInputDispatcherObjects *, CBaseInput *, _QWORD, _QWORD *))a2)(
+            a2,
+            this,
+            (unsigned int)v2,
+            v14);
+    if ( v11 >= 0 )
+    {
+      ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)v13);
+      RIMOnPnpNotification(*((_QWORD *)this + 1));
+      if ( !v13[0] )
+        UserSessionSwitchLeaveCrit();
+    }
+  }
+  return (unsigned int)v11;
+}

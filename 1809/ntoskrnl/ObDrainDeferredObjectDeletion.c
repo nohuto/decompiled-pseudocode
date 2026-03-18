@@ -1,0 +1,24 @@
+/*
+ * XREFs of ObDrainDeferredObjectDeletion @ 0x14086132C
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x140010994 (CmpLoadKeyCommon.c)
+ *     CmLoadKey @ 0x1406C8B98 (CmLoadKey.c)
+ * Callees:
+ *     ExBlockOnAddressPushLock @ 0x1401119F0 (ExBlockOnAddressPushLock.c)
+ */
+
+__int64 ObDrainDeferredObjectDeletion()
+{
+  __int64 result; // rax
+  __int64 v1; // [rsp+40h] [rbp+8h] BYREF
+
+  while ( 1 )
+  {
+    result = ObpRemoveObjectList;
+    v1 = ObpRemoveObjectList;
+    if ( !ObpRemoveObjectList )
+      break;
+    ExBlockOnAddressPushLock((__int64)&ObpRemoveObjectWait, &ObpRemoveObjectList, &v1, 8uLL, 0LL);
+  }
+  return result;
+}

@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?LockUnlock@VIDMM_MDL_RANGE@@QEAAJPEAX_K1@Z @ 0x1C00876E0
+ * Callers:
+ *     ?UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z @ 0x1C00782EC (-UnlockRange@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAJ_K0@Z.c)
+ * Callees:
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C0024E00 (McTemplateK0q_EtwWriteTransfer.c)
+ */
+
+__int64 __fastcall VIDMM_MDL_RANGE::LockUnlock(PMDL *this, void *a2, struct _MDL *a3, struct _MDL *a4)
+{
+  struct _MDL *Mdl; // rax
+  __int64 v8; // rcx
+  struct _MDL *v9; // rbx
+  __int64 v11; // rax
+
+  Mdl = IoAllocateMdl(a2, (int)a4 - (int)a3, 0, 0, 0LL);
+  v9 = Mdl;
+  if ( Mdl )
+  {
+    MmProbeAndLockPages(Mdl, 0, IoModifyAccess);
+    MmUnlockPages(*this);
+    IoFreeMdl(*this);
+    *this = v9;
+    this[1] = a3;
+    this[2] = a4;
+    return 0LL;
+  }
+  else
+  {
+    _InterlockedIncrement((volatile signed __int32 *)&gVidMmLowResourceAccumulated);
+    v11 = WdLogNewEntry5_WdLowResource(v8);
+    *(_QWORD *)(v11 + 24) = 5975LL;
+    WdLogEvent5_WdLowResource(v11);
+    return 3223191809LL;
+  }
+}

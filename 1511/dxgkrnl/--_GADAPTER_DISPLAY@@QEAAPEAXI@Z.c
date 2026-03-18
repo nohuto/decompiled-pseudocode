@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GADAPTER_DISPLAY@@QEAAPEAXI@Z @ 0x1C0019618
+ * Callers:
+ *     ?CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z @ 0x1C00DA798 (-CreateDisplayCore@ADAPTER_DISPLAY@@SAJPEAVDXGADAPTER@@PEAPEAV1@@Z.c)
+ *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C0124E68 (--1DXGADAPTER@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0065F88 (--3@YAXPEAX@Z.c)
+ *     ??1ADAPTER_DISPLAY@@QEAA@XZ @ 0x1C0124C28 (--1ADAPTER_DISPLAY@@QEAA@XZ.c)
+ */
+
+ADAPTER_DISPLAY *__fastcall ADAPTER_DISPLAY::`scalar deleting destructor'(ADAPTER_DISPLAY *this)
+{
+  ADAPTER_DISPLAY::~ADAPTER_DISPLAY(this);
+  operator delete(this);
+  return this;
+}

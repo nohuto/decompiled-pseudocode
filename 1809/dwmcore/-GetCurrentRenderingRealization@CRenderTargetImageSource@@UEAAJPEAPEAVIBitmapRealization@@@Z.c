@@ -1,0 +1,102 @@
+/*
+ * XREFs of ?GetCurrentRenderingRealization@CRenderTargetImageSource@@UEAAJPEAPEAVIBitmapRealization@@@Z @ 0x180066A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x1801E8C7C (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
+__int64 __fastcall CRenderTargetImageSource::GetCurrentRenderingRealization(
+        CRenderTargetImageSource *this,
+        struct IBitmapRealization **a2)
+{
+  struct IBitmapRealization *v3; // rax
+  int v5; // eax
+  int v6; // edi
+  BOOL v7; // eax
+  char v8; // cl
+  HANDLE CurrentProcess; // rax
+  HANDLE CurrentThread; // rax
+  __int16 Response; // [rsp+90h] [rbp+8h] BYREF
+
+  if ( this )
+    v3 = (CRenderTargetImageSource *)((char *)this + 152);
+  else
+    v3 = 0LL;
+  *a2 = v3;
+  if ( *((int *)this + 4) < 0 )
+  {
+    while ( 1 )
+    {
+      v5 = IsKernelDebuggerPresent();
+      Response = 63;
+      v6 = v5;
+      if ( !v5 )
+      {
+        v7 = IsDebuggerPresent();
+        v8 = Response;
+        if ( v7 )
+          v8 = 103;
+        LOBYTE(Response) = v8;
+      }
+      DbgPrintEx(
+        0x65u,
+        0,
+        "\n*** Assertion failed: %ls%ls%ls\n***   %s%ls%sSource: `%ls:%ld`\n\n",
+        L"Tried to AddRef an object which has previously been freed (refcount went to 0).",
+        word_180276388,
+        word_180276388,
+        "Function: ",
+        L"CMILCOMBase::InternalAddRef",
+        ", ",
+        L"onecoreuap\\windows\\dwm\\common\\shared\\milcom.cpp",
+        31);
+      if ( !v6 )
+      {
+        DbgPrintEx(
+          0x65u,
+          0,
+          "(No kernel debugger is present.) Respond with:\n"
+          "  g                    -- Go (continue)\n"
+          "  eb 0x%p 'p';g  -- terminate Process\n"
+          "  eb 0x%p 't';g  -- terminate Thread\n"
+          " or regular debugging.\n",
+          &Response,
+          &Response);
+        JUMPOUT(0x180112AE3LL);
+      }
+      DbgPrompt("Break, Go (continue), terminate Process, or terminate Thread (bgpt)? ", (PCH)&Response, 2u);
+      switch ( (char)Response )
+      {
+        case 'B':
+        case 'b':
+          __debugbreak();
+          goto LABEL_4;
+        case 'G':
+        case 'g':
+          goto LABEL_4;
+        case 'I':
+        case 'i':
+          DbgPrintEx(0x65u, 0, "'i' is only supported with debug builds.\n");
+          continue;
+        case 'P':
+        case 'p':
+          CurrentProcess = GetCurrentProcess();
+          TerminateProcess(CurrentProcess, 0xC0000001);
+          goto LABEL_17;
+        case 'T':
+        case 't':
+          CurrentThread = GetCurrentThread();
+          TerminateThread(CurrentThread, 0xC0000001);
+          goto LABEL_17;
+        default:
+LABEL_17:
+          DbgPrintEx(0x65u, 0, "Unrecognized response.\n");
+          break;
+      }
+    }
+  }
+LABEL_4:
+  _InterlockedIncrement((volatile signed __int32 *)this + 4);
+  return 0LL;
+}

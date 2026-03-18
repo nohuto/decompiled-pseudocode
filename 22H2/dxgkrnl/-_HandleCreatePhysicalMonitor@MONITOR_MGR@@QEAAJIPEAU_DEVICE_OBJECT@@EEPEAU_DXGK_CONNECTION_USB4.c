@@ -1,0 +1,205 @@
+/*
+ * XREFs of ?_HandleCreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAU_DXGK_CONNECTION_USB4_INFO@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0209E7C
+ * Callers:
+ *     MonitorCreatePhysicalMonitor @ 0x1C0209A70 (MonitorCreatePhysicalMonitor.c)
+ * Callees:
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?_EnterMonitorPendingState@MONITOR_MGR@@QEAAXXZ @ 0x1C006BEA4 (-_EnterMonitorPendingState@MONITOR_MGR@@QEAAXXZ.c)
+ *     ?UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ @ 0x1C0172110 (-UsingSetTimingsFromVidPn@DXGADAPTER@@QEBAEXZ.c)
+ *     ?DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z @ 0x1C019D5FC (-DmmGetSourceConnectedToTargetInClientVidPn@@YAJQEAXIPEAI@Z.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z @ 0x1C01AC420 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_IssueMonitorEvent@MONITOR_MGR@@UEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01F6110 (-_IssueMonitorEvent@MONITOR_MGR@@UEAAJIW4MONITOR_EVENT@@_KW4_DMM_VIDPN_MONITOR_TYPE@@PEAU_DXGK_D.c)
+ *     ?_HandleCreateMonitorStep2@MONITOR_MGR@@QEAAJIPEAVDXGMONITOR@@0PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0209C44 (-_HandleCreateMonitorStep2@MONITOR_MGR@@QEAAJIPEAVDXGMONITOR@@0PEAU_DXGK_DISPLAY_SCENARIO_CONTEX.c)
+ *     ?_GetEmergencySimulatedMonitor@MONITOR_MGR@@QEAAJPEAPEAVDXGMONITOR@@@Z @ 0x1C0209FEC (-_GetEmergencySimulatedMonitor@MONITOR_MGR@@QEAAJPEAPEAVDXGMONITOR@@@Z.c)
+ *     ?_CreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAPEAVDXGMONITOR@@PEAU_DXGK_CONNECTION_USB4_INFO@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020A8B0 (-_CreatePhysicalMonitor@MONITOR_MGR@@QEAAJIPEAU_DEVICE_OBJECT@@EEPEAPEAVDXGMONITOR@@PEAU_DXGK_CO.c)
+ *     ?_RemoveMonitorFromList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z @ 0x1C020AEB0 (-_RemoveMonitorFromList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z.c)
+ *     ?_InsertMonitorToList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z @ 0x1C020B048 (-_InsertMonitorToList@MONITOR_MGR@@QEAAJPEAVDXGMONITOR@@@Z.c)
+ *     ?RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C02BF624 (-RequestAsyncDisplaySwitchCallout@ADAPTER_DISPLAY@@QEAAJPEAU_DXGK_WIN32K_PARAM_DATA@@PEAU_DXGK_D.c)
+ *     ?_ChangeLIDStatus@DXGMONITOR@@QEAAX_N@Z @ 0x1C03C9194 (-_ChangeLIDStatus@DXGMONITOR@@QEAAX_N@Z.c)
+ *     ?_SetAttachedPhysicalMonitor@DXGMONITOR@@QEAAXPEAV1@@Z @ 0x1C03C9CD4 (-_SetAttachedPhysicalMonitor@DXGMONITOR@@QEAAXPEAV1@@Z.c)
+ *     ?DestroyPowerConnectionWithUsb4Stack@MonitorUsb4State@DxgMonitor@@AEAAX_N@Z @ 0x1C03CA640 (-DestroyPowerConnectionWithUsb4Stack@MonitorUsb4State@DxgMonitor@@AEAAX_N@Z.c)
+ *     ?UnregisterPnPTargetDeviceNotification@MonitorPnpState@DxgMonitor@@QEAAJXZ @ 0x1C03CB9C0 (-UnregisterPnPTargetDeviceNotification@MonitorPnpState@DxgMonitor@@QEAAJXZ.c)
+ */
+
+__int64 __fastcall MONITOR_MGR::_HandleCreatePhysicalMonitor(
+        MONITOR_MGR *this,
+        unsigned int a2,
+        struct _DEVICE_OBJECT *a3,
+        unsigned __int8 a4,
+        char a5,
+        struct _DXGK_CONNECTION_USB4_INFO *a6,
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a7)
+{
+  __int64 v7; // r15
+  struct _DXGK_DISPLAY_SCENARIO_CONTEXT *v9; // r13
+  int EmergencySimulatedMonitor; // eax
+  struct DXGMONITOR *v11; // rdi
+  struct DXGMONITOR *v12; // r12
+  int MonitorInstance; // eax
+  __int64 v14; // rdx
+  __int64 v15; // r8
+  __int64 v16; // r9
+  DXGMONITOR *v17; // rbx
+  int v18; // r14d
+  __int64 v19; // rcx
+  __int64 v20; // r8
+  int v21; // r14d
+  DXGMONITOR *v22; // r14
+  DXGMONITOR *v24; // r14
+  __int64 v25; // rax
+  __int64 v26; // rax
+  _QWORD *v27; // r9
+  int SourceConnectedToTargetInClientVidPn; // eax
+  struct DXGMONITOR *v29; // rdx
+  DxgMonitor::MonitorUsb4State *v30; // rcx
+  char v31; // cl
+  char v32; // al
+  DXGMONITOR *v33; // [rsp+90h] [rbp+48h] BYREF
+  unsigned int v34; // [rsp+98h] [rbp+50h] BYREF
+  struct _DEVICE_OBJECT *v35; // [rsp+A0h] [rbp+58h]
+  unsigned __int8 v36; // [rsp+A8h] [rbp+60h]
+
+  v36 = a4;
+  v35 = a3;
+  v7 = a2;
+  if ( a2 == -1 )
+    WdLogSingleEntry0(1LL);
+  if ( *((_BYTE *)this + 21) && (Microsoft_Windows_DxgKrnlEnableBits & 4) != 0 )
+    McTemplateK0q_EtwWriteTransfer(
+      (__int64)this,
+      &Dxgk_PerfTrack_DMM_Hotplug_Monitor_Set_VideoMode_Start,
+      (__int64)a3,
+      v7);
+  v9 = a7;
+  MONITOR_MGR::_IssueMonitorEvent((_QWORD *)this + 1, v7, 0, 0LL, 1, (__int64)a7);
+  v33 = 0LL;
+  EmergencySimulatedMonitor = MONITOR_MGR::_GetEmergencySimulatedMonitor(this, &v33);
+  if ( EmergencySimulatedMonitor >= 0 )
+  {
+    v11 = v33;
+    if ( !v33 )
+      WdLogSingleEntry0(1LL);
+    MONITOR_MGR::_RemoveMonitorFromList(this, v11);
+  }
+  else
+  {
+    if ( EmergencySimulatedMonitor != -1073741275 )
+      WdLogSingleEntry0(1LL);
+    v11 = v33;
+    if ( v33 )
+      WdLogSingleEntry0(1LL);
+  }
+  v33 = 0LL;
+  v12 = 0LL;
+  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(this, v7, 0, &v33);
+  v17 = v33;
+  v18 = MonitorInstance;
+  if ( MonitorInstance >= 0 )
+  {
+    if ( !v33 )
+      WdLogSingleEntry0(1LL);
+    if ( v11 )
+      WdLogSingleEntry0(1LL);
+    if ( *((_DWORD *)v17 + 78) == 1 )
+    {
+      if ( *(struct _DEVICE_OBJECT **)(*((_QWORD *)v17 + 25) + 8LL) == v35 )
+      {
+        if ( *(_BYTE *)(*((_QWORD *)v17 + 33) + 8LL) )
+        {
+          v25 = WdLogNewEntry5_WdTrace(v35, v14, v15, v16);
+          *(_QWORD *)(v25 + 24) = v17;
+          *(_QWORD *)(v25 + 32) = v7;
+          return 0LL;
+        }
+        if ( v36 )
+        {
+          DXGMONITOR::_ChangeLIDStatus(v17, 1);
+          v26 = *((_QWORD *)this + 3);
+          if ( *(_DWORD *)(*(_QWORD *)(v26 + 16) + 412LL) == 32902 )
+          {
+            if ( DXGADAPTER::UsingSetTimingsFromVidPn(*(DXGADAPTER **)(v26 + 16)) )
+            {
+              SourceConnectedToTargetInClientVidPn = DmmGetSourceConnectedToTargetInClientVidPn(v27, v7, &v34);
+              if ( SourceConnectedToTargetInClientVidPn == -1071774884
+                || SourceConnectedToTargetInClientVidPn == -1071774912 )
+              {
+                ADAPTER_DISPLAY::RequestAsyncDisplaySwitchCallout(*((ADAPTER_DISPLAY **)this + 3), 0LL, v9);
+              }
+            }
+          }
+          return 0LL;
+        }
+      }
+      v24 = v17;
+      v29 = v17;
+      v17 = 0LL;
+      MONITOR_MGR::_RemoveMonitorFromList(this, v29);
+    }
+    else
+    {
+      v24 = (DXGMONITOR *)*((_QWORD *)v17 + 40);
+      DXGMONITOR::_SetAttachedPhysicalMonitor(v17, 0LL);
+    }
+    v12 = v24;
+    if ( v24 )
+    {
+      if ( ((*((unsigned __int8 *)v24 + 176) >> 1) & 1) != (v36 != 0) )
+        WdLogSingleEntry0(1LL);
+      DxgMonitor::MonitorPnpState::UnregisterPnPTargetDeviceNotification(*((DxgMonitor::MonitorPnpState **)v24 + 25));
+      v30 = (DxgMonitor::MonitorUsb4State *)*((_QWORD *)v24 + 33);
+      if ( *((_BYTE *)v30 + 8) )
+        DxgMonitor::MonitorUsb4State::DestroyPowerConnectionWithUsb4Stack(v30, 0);
+    }
+  }
+  else
+  {
+    if ( v33 )
+      WdLogSingleEntry0(1LL);
+    if ( v18 != -1073741275 )
+      WdLogSingleEntry0(1LL);
+  }
+  v33 = 0LL;
+  v21 = MONITOR_MGR::_CreatePhysicalMonitor(this, v7, v35, v36, a5, &v33, a6, v9);
+  if ( v21 >= 0 )
+  {
+    v22 = v33;
+    if ( !v33 )
+      WdLogSingleEntry0(1LL);
+    if ( v17 )
+    {
+      v31 = *((_BYTE *)v17 + 176) ^ (*((_BYTE *)v22 + 176) ^ *((_BYTE *)v17 + 176)) & 2;
+      *((_BYTE *)v17 + 176) = v31;
+      v32 = v31 ^ (*((_BYTE *)v22 + 176) ^ v31) & 4;
+      *((_BYTE *)v17 + 176) = v32;
+      *((_BYTE *)v22 + 176) ^= (*((_BYTE *)v22 + 176) ^ v32) & 0x20;
+      DXGMONITOR::_SetAttachedPhysicalMonitor(v17, v22);
+    }
+    else
+    {
+      MONITOR_MGR::_InsertMonitorToList(this, v22);
+    }
+    if ( !MONITOR_MGR::_DelayNotifyClient )
+    {
+      if ( v12 )
+        v11 = v12;
+      return MONITOR_MGR::_HandleCreateMonitorStep2(this, v7, v11, v22, v9);
+    }
+    if ( *((_QWORD *)v22 + 47) )
+      WdLogSingleEntry0(1LL);
+    *((_BYTE *)v22 + 368) = 1;
+    if ( v12 )
+      v11 = v12;
+    *((_QWORD *)v22 + 47) = v11;
+    MONITOR_MGR::_EnterMonitorPendingState(this);
+    return 0LL;
+  }
+  if ( v33 )
+    WdLogSingleEntry0(1LL);
+  if ( v12 )
+    MONITOR_MGR::_HandleCreateMonitorStep2(this, v7, v12, 0LL, v9);
+  if ( v11 )
+    MONITOR_MGR::_InsertMonitorToList(this, v11);
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 4) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v19, &Dxgk_PerfTrack_DMM_Hotplug_Monitor_Set_VideoMode_Cancel, v20, v7);
+  return (unsigned int)v21;
+}

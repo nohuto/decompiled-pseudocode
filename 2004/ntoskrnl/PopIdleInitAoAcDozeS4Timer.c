@@ -1,0 +1,31 @@
+/*
+ * XREFs of PopIdleInitAoAcDozeS4Timer @ 0x140782EC0
+ * Callers:
+ *     PoInitSystem @ 0x140A3BD5C (PoInitSystem.c)
+ * Callees:
+ *     KeInitializeIRTimer @ 0x14037F150 (KeInitializeIRTimer.c)
+ *     PoRegisterPowerSettingCallback @ 0x140711A90 (PoRegisterPowerSettingCallback.c)
+ */
+
+NTSTATUS PopIdleInitAoAcDozeS4Timer()
+{
+  int v1; // [rsp+40h] [rbp+8h] BYREF
+
+  PopIdleAoAcDozeS4Lock = 0LL;
+  v1 = 131080;
+  KeInitializeIRTimer(
+    (__int64)&PopIdleAoAcDozeS4Timer,
+    (__int64)PopIdleAoAcDozeS4TimerCallback,
+    0LL,
+    (unsigned __int8 *)&v1,
+    2);
+  PopIdleAoAcDozeS4WorkItem.Parameter = 0LL;
+  PopIdleAoAcDozeS4WorkItem.List.Flink = 0LL;
+  PopIdleAoAcDozeS4WorkItem.WorkerRoutine = (void (__fastcall *)(void *))PopIdleAoAcDozeToS4;
+  return PoRegisterPowerSettingCallback(
+           0LL,
+           &GUID_GLOBAL_USER_PRESENCE,
+           (PPOWER_SETTING_CALLBACK)PopIdleGlobalUserPresenceCallback,
+           0LL,
+           0LL);
+}

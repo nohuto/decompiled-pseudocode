@@ -1,0 +1,59 @@
+/*
+ * XREFs of MonitorIsMonitorAndDriverWCGCapable @ 0x1C00C2C0C
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C00C0CF0 (DxgkDisplayConfigDeviceInfo.c)
+ *     ?BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDMMVIDPN@@@Z @ 0x1C00D5E14 (-BmlPickColorSpaceAndWireFormat@@YAJPEBUBML_VIDPN_PATH_ORDER@@W4DXGK_DIAG_CCD_BML_ORIGIN@@PEAVDM.c)
+ *     ?_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0297AA0 (-_MonitorTelemetry@DXGMONITOR@@QEAAXW4_TELEMETRY_MONITOR_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SC.c)
+ * Callees:
+ *     ?_GetDisplayCoreFromMonitor@MONITOR_MGR@@SAPEAVADAPTER_DISPLAY@@PEAUHDXGMONITOR__@@@Z @ 0x1C0001C40 (-_GetDisplayCoreFromMonitor@MONITOR_MGR@@SAPEAVADAPTER_DISPLAY@@PEAUHDXGMONITOR__@@@Z.c)
+ *     ?_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z @ 0x1C0004D9C (-_GetMonitorFromHandle@MONITOR_MGR@@SAJPEAUHDXGMONITOR__@@PEAPEAVDXGMONITOR@@@Z.c)
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToService@@YAXPEATwil_details_FeaturePropertyCache@@IPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C000FAAC (-wil_details_FeaturePropertyCache_ReportUsageToService@@YAXPEATwil_details_FeaturePropertyCache@.c)
+ */
+
+__int64 __fastcall MonitorIsMonitorAndDriverWCGCapable(struct HDXGMONITOR__ *a1, char *a2)
+{
+  __int64 result; // rax
+  __int64 v5; // rcx
+  struct DXGMONITOR *v6; // rbx
+  char v7; // di
+  __int64 v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  int v11; // [rsp+20h] [rbp-28h]
+  struct DXGMONITOR *v12; // [rsp+50h] [rbp+8h] BYREF
+
+  if ( !a1 )
+    return 3221225485LL;
+  v12 = 0LL;
+  result = MONITOR_MGR::_GetMonitorFromHandle(a1, &v12);
+  if ( (int)result >= 0 )
+  {
+    v6 = v12;
+    if ( !v12 )
+    {
+      v8 = WdLogNewEntry5_WdAssertion(v5);
+      WdLogEvent5_WdAssertion(v8);
+      v10 = WdLogNewEntry5_WdAssertion(v9);
+      WdLogEvent5_WdAssertion(v10);
+    }
+    KeEnterCriticalRegion();
+    v7 = 1;
+    ExAcquireResourceSharedLite((PERESOURCE)((char *)v6 + 296), 1u);
+    if ( !*((_BYTE *)v6 + 697)
+      || (wil_details_FeaturePropertyCache_ReportUsageToService(
+            (__int64)&Feature_WCGTestMode__private_propertyCache,
+            12077848LL,
+            (const struct FEATURE_LOGGED_TRAITS *)&unk_1C00658A8,
+            0,
+            v11),
+          (*(_DWORD *)(*((_QWORD *)MONITOR_MGR::_GetDisplayCoreFromMonitor(a1) + 2) + 1872LL) & 8) == 0) )
+    {
+      v7 = 0;
+    }
+    *a2 = v7;
+    ExReleaseResourceLite((PERESOURCE)((char *)v6 + 296));
+    KeLeaveCriticalRegion();
+    return 0LL;
+  }
+  return result;
+}

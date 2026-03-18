@@ -1,0 +1,41 @@
+/*
+ * XREFs of SmpSystemStoreCreate @ 0x14085C174
+ * Callers:
+ *     SmProcessConfigRequest @ 0x14085C000 (SmProcessConfigRequest.c)
+ *     SmInitSystem @ 0x140B54430 (SmInitSystem.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140231460 (KeLeaveCriticalRegion.c)
+ *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     SmpDirtyStoreCreate @ 0x1407B7B24 (SmpDirtyStoreCreate.c)
+ */
+
+__int64 __fastcall SmpSystemStoreCreate(__int64 a1)
+{
+  volatile signed __int64 *v1; // rdi
+  struct _KTHREAD *CurrentThread; // rax
+  int v4; // ebp
+  int v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v6 = 0;
+  v1 = (volatile signed __int64 *)(a1 + 2120);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx(a1 + 2120, 0LL);
+  if ( *(_DWORD *)(a1 + 2112) == -1 )
+  {
+    v4 = SmpDirtyStoreCreate(a1, (unsigned int)(*(_QWORD *)(*(_QWORD *)qword_140C674C8 + 17040LL) >> 8) >> 1, 0, &v6);
+    if ( v4 >= 0 )
+      *(_DWORD *)(a1 + 2112) = v6;
+  }
+  else
+  {
+    v4 = -1073740008;
+  }
+  if ( (_InterlockedExchangeAdd64(v1, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v1);
+  KeAbPostRelease((ULONG_PTR)v1);
+  KeLeaveCriticalRegion();
+  return (unsigned int)v4;
+}

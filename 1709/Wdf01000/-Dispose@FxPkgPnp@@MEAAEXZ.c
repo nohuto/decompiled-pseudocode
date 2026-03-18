@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?Dispose@FxPkgPnp@@MEAAEXZ @ 0x1C009D0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C002F930 (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     memset @ 0x1C003D9C0 (memset.c)
+ *     ??_GFxQueryInterface@@QEAAPEAXI@Z @ 0x1C00732C4 (--_GFxQueryInterface@@QEAAPEAXI@Z.c)
+ */
+
+unsigned __int8 __fastcall FxPkgPnp::Dispose(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)
+{
+  FxWaitLockInternal *p_m_QueryInterfaceLock; // rbx
+  _SINGLE_LIST_ENTRY *Next; // rdi
+  FxQueryInterface *v5; // rcx
+  void (__fastcall *InterfaceDereference)(void *); // rax
+
+  p_m_QueryInterfaceLock = &this->m_QueryInterfaceLock;
+  this->m_InterruptListHead.Blink = &this->m_InterruptListHead;
+  this->m_InterruptListHead.Flink = &this->m_InterruptListHead;
+  FxWaitLockInternal::AcquireLock(&this->m_QueryInterfaceLock, a2, 0LL);
+  Next = this->m_QueryInterfaceHead.Next;
+  this->m_QueryInterfaceHead.Next = 0LL;
+  p_m_QueryInterfaceLock->m_OwningThread = 0LL;
+  KeSetEvent(&p_m_QueryInterfaceLock->m_Event.m_Event, 0, 0);
+  KeLeaveCriticalRegion();
+  while ( Next )
+  {
+    v5 = (FxQueryInterface *)&Next[-5];
+    Next = Next->Next;
+    v5->m_Entry.Next = 0LL;
+    if ( !v5->m_EmbeddedInterface )
+      FxQueryInterface::`scalar deleting destructor'(v5);
+  }
+  InterfaceDereference = this->m_D3ColdInterface.InterfaceDereference;
+  if ( InterfaceDereference )
+    InterfaceDereference(this->m_D3ColdInterface.Context);
+  memset(&this->m_D3ColdInterface, 0, sizeof(this->m_D3ColdInterface));
+  return 1;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ??1CCompositionBuffer@@UEAA@XZ @ 0x1C0012ED0
+ * Callers:
+ *     ??1CFlipExBuffer@@MEAA@XZ @ 0x1C00103C4 (--1CFlipExBuffer@@MEAA@XZ.c)
+ *     ??_GCCompositionBuffer@@UEAAPEAXI@Z @ 0x1C005C8E0 (--_GCCompositionBuffer@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00250D0 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall CCompositionBuffer::~CCompositionBuffer(CCompositionBuffer *this)
+{
+  bool v1; // zf
+  char *v3; // rbx
+  char **v4; // rax
+  char **v5; // rcx
+  void (__fastcall ***v6)(_QWORD); // rcx
+
+  v1 = *((_DWORD *)this + 60) == 0;
+  *(_QWORD *)this = &CCompositionBuffer::`vftable';
+  if ( !v1 )
+  {
+    v3 = (char *)this + 224;
+    while ( 1 )
+    {
+      v4 = (char **)*((_QWORD *)v3 + 1);
+      if ( *v4 != v3 || (v5 = (char **)v4[1], *v5 != (char *)v4) )
+        __fastfail(3u);
+      *((_QWORD *)v3 + 1) = v5;
+      *v5 = v3;
+      if ( v4 == (char **)v3 )
+        break;
+      if ( v4 != (char **)8 )
+        (*(void (__fastcall **)(char **, __int64))*(v4 - 1))(v4 - 1, 1LL);
+    }
+    *((_DWORD *)this + 60) = 0;
+  }
+  v6 = (void (__fastcall ***)(_QWORD))*((_QWORD *)this + 31);
+  if ( v6 )
+    (**v6)(v6);
+}

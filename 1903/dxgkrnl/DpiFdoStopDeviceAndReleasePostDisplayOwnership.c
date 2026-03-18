@@ -1,0 +1,75 @@
+/*
+ * XREFs of DpiFdoStopDeviceAndReleasePostDisplayOwnership @ 0x1C02A2FB0
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C015F448 (DpiFdoStartAdapter.c)
+ *     DpiFdoStopAdapter @ 0x1C02A2680 (DpiFdoStopAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0025300 (memset.c)
+ *     DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership @ 0x1C02AF1C4 (DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership.c)
+ */
+
+__int64 __fastcall DpiFdoStopDeviceAndReleasePostDisplayOwnership(__int64 a1)
+{
+  __int64 v1; // rdi
+  __int64 v2; // rbx
+  char v3; // al
+  __int64 v4; // rsi
+  int v5; // eax
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 result; // rax
+
+  v1 = *(_QWORD *)(a1 + 64);
+  LODWORD(v2) = -1073741637;
+  v3 = *(_BYTE *)(v1 + 3904);
+  v4 = *(_QWORD *)(v1 + 40);
+  if ( (v3 & 4) == 0 )
+    goto LABEL_11;
+  *(_BYTE *)(v1 + 3904) = v3 & 0xFB;
+  if ( *(_DWORD *)(v4 + 136) < 0x3003u || !*(_QWORD *)(v4 + 736) )
+    goto LABEL_11;
+  dword_1C00A2A04 = 0;
+  v5 = DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership(
+         v4,
+         *(_QWORD *)(v1 + 48),
+         (unsigned int)dword_1C00A2A8C,
+         &dword_1C00A29E8);
+  v2 = v5;
+  if ( v5 >= 0 )
+  {
+    if ( dword_1C00A29E8 )
+    {
+      if ( !*(_BYTE *)(v1 + 1155) )
+        dword_1C00A2AD4 = 2;
+    }
+    else
+    {
+      v10 = WdLogNewEntry5_WdEvent(v7);
+      *(_QWORD *)(v10 + 24) = v4;
+      WdLogEvent5_WdEvent(v10);
+      dword_1C00A2AD4 = 0;
+      dword_1C00A2A00 = -3;
+    }
+  }
+  else
+  {
+    v9 = WdLogNewEntry5_WdError(v7, v6, v8);
+    *(_QWORD *)(v9 + 24) = v2;
+    WdLogEvent5_WdError(v9);
+  }
+  if ( (int)v2 < 0 )
+  {
+LABEL_11:
+    memset(&dword_1C00A29E8, 0, 0x20uLL);
+    dword_1C00A2A00 = -1;
+    memset(&xmmword_1C00A2A08, 0, 0x80uLL);
+    if ( !*(_BYTE *)(v1 + 1155) )
+      dword_1C00A2AD4 = 0;
+  }
+  result = (unsigned int)v2;
+  dword_1C00A2A88 = 2;
+  return result;
+}

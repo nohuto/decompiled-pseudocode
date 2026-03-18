@@ -1,0 +1,35 @@
+/*
+ * XREFs of ??0CSnapshot@@IEAA@PEAVCComposition@@@Z @ 0x18016CC40
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x1800A51E8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800A2234 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
+CSnapshot *__fastcall CSnapshot::CSnapshot(CSnapshot *this, struct CComposition *a2)
+{
+  __int64 v2; // r9
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rcx
+  CSnapshot *result; // rax
+
+  *((_QWORD *)this + 7) = &CSnapshot::`vbtable'{for `CContent'};
+  *((_QWORD *)this + 15) = &CInk::`vbtable'{for `IContent'};
+  *((_QWORD *)this + 14) = &IContent::`vftable'{for `IContent'};
+  *(_QWORD *)((char *)this + *(int *)(*((_QWORD *)this + 15) + 4LL) + 120) = &ILegacySwapChain::`vftable'{for `IUnknown'};
+  CContent::CContent(this, a2);
+  v3 = *(_QWORD *)(v2 + 56);
+  *(_QWORD *)v2 = &CSnapshot::`vftable';
+  *(_QWORD *)(*(int *)(v3 + 4) + v2 + 56) = &CD2DPrimitiveProperties::`vftable'{for `IUnknown'};
+  *(_QWORD *)(*(int *)(*(_QWORD *)(v2 + 56) + 8LL) + v2 + 56) = &CSnapshot::`vftable'{for `IContent'};
+  v4 = *(int *)(*(_QWORD *)(v2 + 56) + 4LL);
+  *(_DWORD *)(v4 + v2 + 52) = v4 - 40;
+  v5 = *(int *)(*(_QWORD *)(v2 + 56) + 8LL);
+  *(_DWORD *)(v5 + v2 + 52) = v5 - 56;
+  *(_QWORD *)(v2 + 64) = 0LL;
+  *(_QWORD *)(v2 + 72) = 0LL;
+  result = (CSnapshot *)v2;
+  *(_WORD *)(v2 + 80) = 0;
+  return result;
+}

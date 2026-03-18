@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??1DXGPROCESSDEVICECREATIONLOCK@@QEAA@XZ @ 0x1C003ADF4
+ * Callers:
+ *     ?VmBusCreateDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C023E140 (-VmBusCreateDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGPROCESSDEVICECREATIONLOCK::~DXGPROCESSDEVICECREATIONLOCK(DXGPROCESSDEVICECREATIONLOCK *this)
+{
+  __int64 v1; // rcx
+
+  v1 = *(_QWORD *)this + 176LL;
+  *(_QWORD *)(v1 + 8) = 0LL;
+  ExReleasePushLockExclusiveEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+}

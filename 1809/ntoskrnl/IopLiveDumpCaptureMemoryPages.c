@@ -1,0 +1,52 @@
+/*
+ * XREFs of IopLiveDumpCaptureMemoryPages @ 0x140578508
+ * Callers:
+ *     IoCaptureLiveDump @ 0x14081EFA4 (IoCaptureLiveDump.c)
+ * Callees:
+ *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
+ *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
+ *     VslIsSecureKernelRunning @ 0x14013BB2C (VslIsSecureKernelRunning.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     memset @ 0x1401D1780 (memset.c)
+ *     VslFinalizeLiveDumpInSk @ 0x14027AE28 (VslFinalizeLiveDumpInSk.c)
+ *     MmDuplicateMemory @ 0x14056C274 (MmDuplicateMemory.c)
+ *     IopLiveDumpUncorralProcessors @ 0x140579628 (IopLiveDumpUncorralProcessors.c)
+ */
+
+__int64 __fastcall IopLiveDumpCaptureMemoryPages(__int64 a1)
+{
+  __int64 v2; // r14
+  int v3; // esi
+  unsigned __int64 v5; // [rsp+30h] [rbp-29h] BYREF
+  _QWORD v6[5]; // [rsp+38h] [rbp-21h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+60h] [rbp+7h] BYREF
+  unsigned __int64 *v8; // [rsp+80h] [rbp+27h]
+  int v9; // [rsp+88h] [rbp+2Fh]
+  int v10; // [rsp+8Ch] [rbp+33h]
+
+  memset(v6, 0, sizeof(v6));
+  v2 = MEMORY[0xFFFFF78000000008];
+  v6[0] = IopLiveDumpStartMirroringCallback;
+  v6[1] = IopLiveDumpEndMirroringCallback;
+  v6[2] = IopLiveDumpMirrorPhysicalMemoryCallback;
+  LODWORD(v6[4]) = 17;
+  v3 = MmDuplicateMemory((__int64)v6);
+  if ( v3 < 0 )
+  {
+    if ( (*(_DWORD *)(a1 + 248) & 1) != 0 )
+      IopLiveDumpUncorralProcessors(a1 + 240);
+  }
+  else if ( *(_QWORD *)(a1 + 504) && VslIsSecureKernelRunning() )
+  {
+    VslFinalizeLiveDumpInSk((_QWORD *)(a1 + 176), a1 + 128);
+  }
+  if ( stru_140400A78.LevelPlus1 > 5 && TlgKeywordOn(&stru_140400A78, 0x200000000000uLL) )
+  {
+    v9 = 8;
+    v10 = 0;
+    v5 = (MEMORY[0xFFFFF78000000008] - v2) / 0x2710uLL;
+    v8 = &v5;
+    TlgWrite(&stru_140400A78, &unk_14036CF0F, (LPCGUID)(a1 + 624), (LPCGUID)(a1 + 608), 3u, &pData);
+  }
+  return (unsigned int)v3;
+}

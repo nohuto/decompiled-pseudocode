@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?DpiDdiWriteVirtualFunctionConfigBlock@@YAJPEAXGK0K@Z @ 0x1C0065C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005F2C8 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005F440 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     ?DpiGetVirtualGpuType@@YA?AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z @ 0x1C0065D24 (-DpiGetVirtualGpuType@@YA-AW4DXG_VIRTUAL_GPU_TYPE@@PEAXPEAPEAU_DEVICE_OBJECT@@@Z.c)
+ *     DxgkDdiWriteVirtualFunctionConfigBlock @ 0x1C035A6E8 (DxgkDdiWriteVirtualFunctionConfigBlock.c)
+ */
+
+__int64 __fastcall DpiDdiWriteVirtualFunctionConfigBlock(void *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
+{
+  unsigned int v6; // ebx
+  void *v8; // [rsp+30h] [rbp-28h] BYREF
+  _BYTE v9[8]; // [rsp+38h] [rbp-20h] BYREF
+  __int64 v10; // [rsp+40h] [rbp-18h]
+  int v11; // [rsp+48h] [rbp-10h]
+
+  v8 = 0LL;
+  DpiGetVirtualGpuType(a1, &v8);
+  CInterfaceCallContext::CInterfaceCallContext((CInterfaceCallContext *)v9, v8, 0LL, 1, 0);
+  v6 = v11;
+  if ( v11 >= 0 )
+  {
+    v6 = DxgkDdiWriteVirtualFunctionConfigBlock(*(void **)(v10 + 3896), a4, a5);
+    v11 = v6;
+  }
+  CInterfaceCallContext::~CInterfaceCallContext((CInterfaceCallContext *)v9);
+  return v6;
+}

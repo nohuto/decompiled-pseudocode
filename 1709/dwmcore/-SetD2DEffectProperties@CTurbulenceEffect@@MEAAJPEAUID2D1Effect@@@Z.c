@@ -1,0 +1,113 @@
+/*
+ * XREFs of ?SetD2DEffectProperties@CTurbulenceEffect@@MEAAJPEAUID2D1Effect@@@Z @ 0x1801830D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x180076954 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800C5DD0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CTurbulenceEffect::SetD2DEffectProperties(CTurbulenceEffect *this, struct ID2D1Effect *a2)
+{
+  signed int v4; // eax
+  unsigned int v5; // ebx
+  __int64 (__fastcall *v6)(struct ID2D1Effect *, __int64, _QWORD, unsigned __int64 *, int); // rax
+  signed int v7; // eax
+  __int64 (__fastcall *v8)(struct ID2D1Effect *, __int64, _QWORD, unsigned __int64 *, int); // rax
+  signed int v9; // eax
+  signed int v10; // eax
+  signed int v11; // eax
+  signed int v12; // eax
+  signed int v13; // eax
+  unsigned __int64 v15; // [rsp+40h] [rbp+8h] BYREF
+
+  v15 = _mm_unpacklo_ps((__m128)*((unsigned int *)this + 44), (__m128)*((unsigned int *)this + 45)).m128_u64[0];
+  v4 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, _QWORD, _QWORD, unsigned __int64 *, int))(*(_QWORD *)a2 + 72LL))(
+         a2,
+         0LL,
+         0LL,
+         &v15,
+         8);
+  v5 = v4;
+  if ( v4 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v4, 0x2Fu);
+  }
+  else
+  {
+    v6 = *(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, unsigned __int64 *, int))(*(_QWORD *)a2 + 72LL);
+    v15 = _mm_unpacklo_ps((__m128)*((unsigned int *)this + 46), (__m128)*((unsigned int *)this + 47)).m128_u64[0];
+    v7 = v6(a2, 2LL, 0LL, &v15, 8);
+    v5 = v7;
+    if ( v7 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v7, 0x34u);
+    }
+    else
+    {
+      v8 = *(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, unsigned __int64 *, int))(*(_QWORD *)a2 + 72LL);
+      v15 = _mm_unpacklo_ps((__m128)*((unsigned int *)this + 48), (__m128)*((unsigned int *)this + 49)).m128_u64[0];
+      v9 = v8(a2, 1LL, 0LL, &v15, 8);
+      v5 = v9;
+      if ( v9 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v9, 0x39u);
+      }
+      else
+      {
+        v10 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, char *, int))(*(_QWORD *)a2 + 72LL))(
+                a2,
+                3LL,
+                0LL,
+                (char *)this + 200,
+                4);
+        v5 = v10;
+        if ( v10 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v10, 0x3Eu);
+        }
+        else
+        {
+          v11 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, char *, int))(*(_QWORD *)a2 + 72LL))(
+                  a2,
+                  4LL,
+                  0LL,
+                  (char *)this + 204,
+                  4);
+          v5 = v11;
+          if ( v11 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v11, 0x43u);
+          }
+          else
+          {
+            v12 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, char *, int))(*(_QWORD *)a2 + 72LL))(
+                    a2,
+                    5LL,
+                    0LL,
+                    (char *)this + 208,
+                    4);
+            v5 = v12;
+            if ( v12 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v12, 0x48u);
+            }
+            else
+            {
+              v13 = (*(__int64 (__fastcall **)(struct ID2D1Effect *, __int64, _QWORD, char *, int))(*(_QWORD *)a2 + 72LL))(
+                      a2,
+                      6LL,
+                      0LL,
+                      (char *)this + 212,
+                      4);
+              v5 = v13;
+              if ( v13 < 0 )
+                MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v13, 0x4Du);
+            }
+          }
+        }
+      }
+    }
+  }
+  return v5;
+}

@@ -1,0 +1,60 @@
+/*
+ * XREFs of sub_1C018B0CC @ 0x1C018B0CC
+ * Callers:
+ *     ?_IsModeInActiveSizeRange@DXGMONITOR@@AEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_ALGORITHM@@PEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C018B26C (-_IsModeInActiveSizeRange@DXGMONITOR@@AEAAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_A.c)
+ * Callees:
+ *     ??$?OU_D3DDDI_RATIONAL@@@@YA_NAEBU_D3DDDI_RATIONAL@@0@Z @ 0x1C000C4A0 (--$-OU_D3DDDI_RATIONAL@@@@YA_NAEBU_D3DDDI_RATIONAL@@0@Z.c)
+ */
+
+char __fastcall sub_1C018B0CC(_DWORD *a1, unsigned int *a2, int a3)
+{
+  __int64 v6; // rax
+  __int64 v7; // rax
+  unsigned int v9; // eax
+  unsigned int v10; // ecx
+  unsigned int v11; // ecx
+  int v12; // eax
+  unsigned int v13; // r8d
+
+  if ( (unsigned int)(a3 - 1) > 1 )
+  {
+    v6 = WdLogNewEntry5_WdAssertion(a1);
+    WdLogEvent5_WdAssertion(v6);
+  }
+  if ( a2[9] != 1 )
+  {
+    v7 = WdLogNewEntry5_WdAssertion(a1);
+    WdLogEvent5_WdAssertion(v7);
+  }
+  if ( a3 == 2 )
+  {
+    if ( a1[3] != a2[10]
+      || a1[4] != a2[11]
+      || (unsigned int)a1[5] * (unsigned __int64)a2[2] < a2[1] * (unsigned __int64)(unsigned int)a1[6]
+      || operator><_D3DDDI_RATIONAL>(a1 + 5, a2 + 3)
+      || (unsigned int)a1[7] * (unsigned __int64)a2[6] < a2[5] * (unsigned __int64)(unsigned int)a1[8]
+      || operator><_D3DDDI_RATIONAL>(a1 + 7, a2 + 7) )
+    {
+      return 0;
+    }
+  }
+  else
+  {
+    v9 = a1[3];
+    v10 = a2[10];
+    if ( v9 > v10 || v9 == v10 && a1[4] > a2[11] )
+      return 0;
+    v11 = a1[4];
+    v12 = 105;
+    if ( v11 > 0x258 )
+      v12 = 107;
+    if ( (int)(a1[5] / a1[6] - a2[1] / a2[2]) < 0 || (int)(a1[5] / a1[6] - a2[3] / a2[4]) > 0 && a1[5] / a1[6] - 61 > 0 )
+      return 0;
+    v13 = (unsigned int)*(_QWORD *)(a1 + 5) * v12 * v11 / 0x64 / (unsigned int)HIDWORD(*(_QWORD *)(a1 + 5));
+    if ( (int)(v13 - a2[5] / a2[6]) < 0 && a1[5] / a1[6] - 60 < 0 )
+      return 0;
+    if ( (int)(v13 - a2[7] / a2[8]) > 0 && a1[5] / a1[6] - 61 > 0 )
+      return 0;
+  }
+  return 1;
+}

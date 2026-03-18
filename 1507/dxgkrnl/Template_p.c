@@ -1,0 +1,26 @@
+/*
+ * XREFs of Template_p @ 0x1C001F9FC
+ * Callers:
+ *     DpiProcessMiracastNotifyDpc @ 0x1C0009000 (DpiProcessMiracastNotifyDpc.c)
+ *     ?SubmitCommand@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITCOMMAND@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C006B16C (-SubmitCommand@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITCOMMAND@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEA.c)
+ *     ?Render@DXGCONTEXT@@QEAAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@@Z @ 0x1C0074DF0 (-Render@DXGCONTEXT@@QEAAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION.c)
+ *     ?RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@@Z @ 0x1C014A904 (-RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCAT.c)
+ *     ??1OUTPUTDUPL_CONTEXT@@QEAA@XZ @ 0x1C0156CFC (--1OUTPUTDUPL_CONTEXT@@QEAA@XZ.c)
+ *     ?SwapChainObCloseProcedure@@YAXPEAU_EPROCESS@@PEAX_K2@Z @ 0x1C0162F10 (-SwapChainObCloseProcedure@@YAXPEAU_EPROCESS@@PEAX_K2@Z.c)
+ *     ?SwapChainObDeleteProcedure@@YAXPEAX@Z @ 0x1C0162F50 (-SwapChainObDeleteProcedure@@YAXPEAX@Z.c)
+ *     DpiCleanup @ 0x1C016CDF4 (DpiCleanup.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C000FC20 (__security_check_cookie.c)
+ */
+
+NTSTATUS Template_p(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
+{
+  struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-28h] BYREF
+  va_list va; // [rsp+78h] [rbp+20h] BYREF
+
+  va_start(va, a3);
+  va_copy((va_list)v4.Ptr, va);
+  v4.Reserved = 0;
+  v4.Size = 8;
+  return EtwWrite(Microsoft_Windows_DxgKrnlHandle, a2, 0LL, 1u, &v4);
+}

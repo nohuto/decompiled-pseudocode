@@ -1,0 +1,248 @@
+/*
+ * XREFs of ExAllocatePoolWithQuotaTag @ 0x1400B7650
+ * Callers:
+ *     PiControlAllocateBufferForUserModeCaller @ 0x140001D7C (PiControlAllocateBufferForUserModeCaller.c)
+ *     PopCaptureReasonContext @ 0x140002318 (PopCaptureReasonContext.c)
+ *     CmpAllocateTransientPoolWithQuotaTag @ 0x140013018 (CmpAllocateTransientPoolWithQuotaTag.c)
+ *     NtGetWriteWatch @ 0x140086AD0 (NtGetWriteWatch.c)
+ *     IopVerifierExAllocatePoolWithQuota @ 0x14008C8C0 (IopVerifierExAllocatePoolWithQuota.c)
+ *     IopAllocateIrpPrivate @ 0x1400B92F0 (IopAllocateIrpPrivate.c)
+ *     IopVerifierExAllocatePoolWithQuota_0 @ 0x140101D18 (IopVerifierExAllocatePoolWithQuota_0.c)
+ *     RtlInsertDynamicFunctionTable @ 0x140113D30 (RtlInsertDynamicFunctionTable.c)
+ *     RtlIsUntrustedObject @ 0x140131B80 (RtlIsUntrustedObject.c)
+ *     IopVerifierExAllocatePoolWithQuota_1 @ 0x140135658 (IopVerifierExAllocatePoolWithQuota_1.c)
+ *     IopVerifierExAllocatePoolWithQuota_2 @ 0x14013FC1C (IopVerifierExAllocatePoolWithQuota_2.c)
+ *     FsRtlAllocatePoolWithQuota @ 0x14026F5A0 (FsRtlAllocatePoolWithQuota.c)
+ *     FsRtlAllocatePoolWithQuotaTag @ 0x14026F5D0 (FsRtlAllocatePoolWithQuotaTag.c)
+ *     IopVerifierExAllocatePoolWithQuota_3 @ 0x14028429C (IopVerifierExAllocatePoolWithQuota_3.c)
+ *     IopVerifierExAllocatePoolWithQuota_4 @ 0x1402859E0 (IopVerifierExAllocatePoolWithQuota_4.c)
+ *     PsSetCpuQuotaInformation @ 0x1402E9658 (PsSetCpuQuotaInformation.c)
+ *     ExAllocatePoolWithQuota @ 0x14031A360 (ExAllocatePoolWithQuota.c)
+ *     ExGetWakeTimerList @ 0x14031C530 (ExGetWakeTimerList.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x140597F3C (PiControlMakeUserModeCallersCopy.c)
+ *     CmpNameFromAttributes @ 0x1405B7860 (CmpNameFromAttributes.c)
+ *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x1405C81E0 (FsRtlAllocateExtraCreateParameter.c)
+ *     CmpAllocatePostBlock @ 0x1405CEF38 (CmpAllocatePostBlock.c)
+ *     CmpNotifyChangeKey @ 0x1405CF040 (CmpNotifyChangeKey.c)
+ *     IopXxxControlFile @ 0x1405E8BD0 (IopXxxControlFile.c)
+ *     NtSetInformationJobObject @ 0x140600B10 (NtSetInformationJobObject.c)
+ *     PspCaptureUserProcessParameters @ 0x140606D50 (PspCaptureUserProcessParameters.c)
+ *     IopCreateFile @ 0x14060BAC0 (IopCreateFile.c)
+ *     FsRtlAllocateExtraCreateParameterList @ 0x14060D4D0 (FsRtlAllocateExtraCreateParameterList.c)
+ *     ExpWnfCreateNameInstance @ 0x14060E058 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14061034C (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfWriteStateData @ 0x140610CD0 (ExpWnfWriteStateData.c)
+ *     PspBuildCreateProcessContext @ 0x140622378 (PspBuildCreateProcessContext.c)
+ *     ExpQuerySystemInformation @ 0x140626390 (ExpQuerySystemInformation.c)
+ *     NtQueryInformationFile @ 0x14063AA10 (NtQueryInformationFile.c)
+ *     NtSetSystemInformation @ 0x140663E10 (NtSetSystemInformation.c)
+ *     NtSetInformationProcess @ 0x140671C60 (NtSetInformationProcess.c)
+ *     NtQueueApcThreadEx @ 0x1406776B0 (NtQueueApcThreadEx.c)
+ *     NtCreateWorkerFactory @ 0x14068A210 (NtCreateWorkerFactory.c)
+ *     IopAllocateMiniCompletionPacket @ 0x14068A8DC (IopAllocateMiniCompletionPacket.c)
+ *     NtQueryDirectoryObject @ 0x14068DCF0 (NtQueryDirectoryObject.c)
+ *     ExLockUserBuffer @ 0x14069E938 (ExLockUserBuffer.c)
+ *     RtlpProcessIFEOKeyFilter @ 0x1406B1AE4 (RtlpProcessIFEOKeyFilter.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x1406B8020 (ExpGetSystemFirmwareTableInformation.c)
+ *     RtlAcquirePrivilege @ 0x1406BABEC (RtlAcquirePrivilege.c)
+ *     PspReadIFEONodeOptions @ 0x1406BB050 (PspReadIFEONodeOptions.c)
+ *     PspReadIFEOPerfOptions @ 0x1406BB1D0 (PspReadIFEOPerfOptions.c)
+ *     RtlQueryImageFileKeyOption @ 0x1406BB3C0 (RtlQueryImageFileKeyOption.c)
+ *     NtRegisterThreadTerminatePort @ 0x1406CAC90 (NtRegisterThreadTerminatePort.c)
+ *     DbgkRegisterErrorPort @ 0x1407024C0 (DbgkRegisterErrorPort.c)
+ *     RtlQueryModuleInformation @ 0x140716390 (RtlQueryModuleInformation.c)
+ *     PspIsDfssEnabled @ 0x140733E00 (PspIsDfssEnabled.c)
+ *     CmpSaveKeyByFileCopy @ 0x1408032B0 (CmpSaveKeyByFileCopy.c)
+ *     VrpHandleIoctlLoadDifferencingHiveForHost @ 0x1408093BC (VrpHandleIoctlLoadDifferencingHiveForHost.c)
+ *     DbgkpQueueMessage @ 0x14080F424 (DbgkpQueueMessage.c)
+ *     KeEnableProfiling @ 0x1408443E8 (KeEnableProfiling.c)
+ *     PsCreateVsmEnclave @ 0x14088DBBC (PsCreateVsmEnclave.c)
+ *     PsInitializeVsmEnclave @ 0x14088E1FC (PsInitializeVsmEnclave.c)
+ *     PspPrepareEnclaveThreadWait @ 0x14088E62C (PspPrepareEnclaveThreadWait.c)
+ *     PspVsmEnclaveHashAllocator @ 0x14088E98C (PspVsmEnclaveHashAllocator.c)
+ *     RtlAddResourceAttributeAce @ 0x140892A50 (RtlAddResourceAttributeAce.c)
+ *     RtlAllocateAndInitializeSidEx @ 0x14089384C (RtlAllocateAndInitializeSidEx.c)
+ *     RtlGetAppContainerParent @ 0x140893D80 (RtlGetAppContainerParent.c)
+ *     RtlpGetPolicyValueForSystemCapability @ 0x140894BB0 (RtlpGetPolicyValueForSystemCapability.c)
+ *     NtQuerySecurityPolicy @ 0x14089AF60 (NtQuerySecurityPolicy.c)
+ *     ExpGetDeviceDataInformation @ 0x1408CB580 (ExpGetDeviceDataInformation.c)
+ *     ExpQueryElamCertInfo @ 0x1408CBF30 (ExpQueryElamCertInfo.c)
+ *     ExpQueryPortableWorkspaceEfiLauncherInformation @ 0x1408CC624 (ExpQueryPortableWorkspaceEfiLauncherInformation.c)
+ *     ExpStringCapture @ 0x1408CCC8C (ExpStringCapture.c)
+ *     VerifierExAllocatePoolWithQuotaTag @ 0x140925500 (VerifierExAllocatePoolWithQuotaTag.c)
+ *     VerifierPortExAllocatePoolWithQuotaTag @ 0x140942500 (VerifierPortExAllocatePoolWithQuotaTag.c)
+ * Callees:
+ *     ExIsSpecialPoolAddress @ 0x14000E140 (ExIsSpecialPoolAddress.c)
+ *     RtlRaiseStatus @ 0x140128E70 (RtlRaiseStatus.c)
+ *     PspExpandQuota @ 0x14012A8E8 (PspExpandQuota.c)
+ *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x1402D2F68 (ObpPushStackInfo.c)
+ *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ */
+
+PVOID __stdcall ExAllocatePoolWithQuotaTag(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
+{
+  unsigned __int32 v3; // r9d
+  __int32 v4; // r13d
+  PEPROCESS Process; // rdi
+  POOL_TYPE v6; // ebp
+  ULONG_PTR PoolWithTag; // rax
+  char *v8; // r15
+  __int16 v9; // cx
+  char *v10; // rbx
+  __int64 v11; // rdx
+  char *v12; // r8
+  __int64 v13; // rsi
+  unsigned __int64 v14; // rsi
+  __int64 v15; // rbp
+  unsigned __int64 *v16; // r14
+  char v17; // r8
+  unsigned __int64 v18; // r12
+  unsigned __int64 v19; // rax
+  unsigned __int64 v20; // rdx
+  bool v21; // zf
+  signed __int64 v22; // rax
+  unsigned __int64 v23; // rax
+  unsigned __int64 v24; // rdx
+  unsigned __int64 v25; // rax
+  __int64 v26; // rcx
+  signed __int64 BugCheckParameter4; // rbx
+  unsigned __int64 v29; // rcx
+  unsigned __int64 v30; // rcx
+  unsigned __int64 v31; // rcx
+  NTSTATUS v32; // esi
+  signed __int32 v33[8]; // [rsp+0h] [rbp-78h] BYREF
+  unsigned __int64 v34; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v35; // [rsp+38h] [rbp-40h]
+  char v36; // [rsp+80h] [rbp+8h]
+  char *v38; // [rsp+98h] [rbp+20h]
+
+  v3 = PoolType & 0xFFFFFFF7;
+  v4 = PoolType & 8;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  if ( (PoolType & 8) == 0 )
+    v3 = PoolType;
+  v6 = v3 + 8;
+  if ( Process == PsInitialSystemProcess )
+    v6 = v3;
+  PoolWithTag = (ULONG_PTR)ExAllocatePoolWithTag(v6, NumberOfBytes, Tag);
+  v8 = (char *)PoolWithTag;
+  if ( (PoolWithTag & 0xFFF) == 0 )
+  {
+    if ( !PoolWithTag && !v4 )
+      RtlRaiseStatus(-1073741670);
+    return v8;
+  }
+  if ( ExpSpecialAllocations && (unsigned int)ExIsSpecialPoolAddress(PoolWithTag) || (v6 & 8) == 0 )
+    return v8;
+  v9 = *((_WORD *)v8 - 7);
+  v10 = v8 - 16;
+  v11 = ExpPoolQuotaCookie;
+  v12 = 0LL;
+  v13 = (unsigned __int8)v9;
+  v38 = 0LL;
+  *((_QWORD *)v8 - 1) = (unsigned __int64)(v8 - 16) ^ ExpPoolQuotaCookie;
+  if ( (v9 & 0x400) != 0 )
+  {
+    v12 = &v10[-16 * (unsigned __int8)*(_WORD *)v10];
+    v38 = v12;
+    v13 = (unsigned __int8)*((_WORD *)v12 + 1);
+    *((_QWORD *)v12 + 1) = (unsigned __int64)v12 ^ v11;
+  }
+  v14 = 16 * v13;
+  if ( Process == PsInitialSystemProcess )
+  {
+LABEL_21:
+    v26 = ExpPoolQuotaCookie;
+    *((_QWORD *)v10 + 1) = (unsigned __int64)Process ^ (unsigned __int64)v10 ^ ExpPoolQuotaCookie;
+    if ( v12 )
+      *((_QWORD *)v12 + 1) = (unsigned __int64)Process ^ (unsigned __int64)v12 ^ v26;
+    if ( ObpTraceFlags )
+      ObpPushStackInfo((_DWORD)Process - 48);
+    BugCheckParameter4 = _InterlockedIncrement64((volatile signed __int64 *)&Process[-1].Spare2[39]);
+    if ( BugCheckParameter4 <= 1 )
+      KeBugCheckEx(0x18u, 0LL, (ULONG_PTR)Process, 0x10uLL, BugCheckParameter4);
+    return v8;
+  }
+  v15 = v6 & 1;
+  v16 = (unsigned __int64 *)(Process[1].ActiveProcessors.Bitmap[4] + ((unsigned __int64)(unsigned int)v15 << 7));
+  v17 = PspResourceFlags[8 * v15];
+  v36 = v17;
+  v35 = 8 * v15;
+  _m_prefetchw(v16);
+  v18 = *v16;
+  _InterlockedOr(v33, 0);
+LABEL_12:
+  v19 = v16[8];
+LABEL_13:
+  v34 = v19;
+  while ( 1 )
+  {
+    v20 = v18 + v14;
+    if ( v18 + v14 < v18 )
+      break;
+    if ( v20 <= v19 )
+    {
+      v22 = _InterlockedCompareExchange64((volatile signed __int64 *)v16, v20, v18);
+      v21 = v18 == v22;
+      v18 = v22;
+      if ( !v21 )
+        goto LABEL_12;
+      _m_prefetchw(v16 + 1);
+      v23 = v16[1];
+      if ( v20 > v23 )
+      {
+        do
+        {
+          v30 = v23;
+          v23 = _InterlockedCompareExchange64((volatile signed __int64 *)v16 + 1, v20, v23);
+        }
+        while ( v23 != v30 && v20 > v23 );
+      }
+      if ( (v17 & 4) != 0 )
+      {
+        v24 = v14 + _InterlockedExchangeAdd64((volatile signed __int64 *)&Process[1].ThreadListHead.Blink + v15, v14);
+        _m_prefetchw(&Process[1].DeepFreezeStartTime + v15);
+        v25 = *(&Process[1].DeepFreezeStartTime + v15);
+        if ( v24 > v25 )
+        {
+          do
+          {
+            v29 = v25;
+            v25 = _InterlockedCompareExchange64(
+                    (volatile signed __int64 *)&Process[1].DeepFreezeStartTime + v15,
+                    v24,
+                    v25);
+          }
+          while ( v25 != v29 && v24 > v25 );
+        }
+      }
+      goto LABEL_20;
+    }
+    if ( (v17 & 1) == 0 || !v16[10] )
+      break;
+    v31 = _InterlockedExchange64((volatile __int64 *)v16 + 9, 0LL);
+    if ( v31 )
+    {
+      v19 = v31 + _InterlockedExchangeAdd64((volatile signed __int64 *)v16 + 8, v31);
+      goto LABEL_13;
+    }
+    if ( !(unsigned __int8)PspExpandQuota(v15, (_DWORD)v16, v18, v14, (__int64)&v34) )
+      break;
+    v19 = v34;
+    v17 = v36;
+  }
+  v32 = *(_DWORD *)&PspResourceFlags[v35 + 4];
+  if ( v32 >= 0 )
+  {
+LABEL_20:
+    v12 = v38;
+    goto LABEL_21;
+  }
+  ExFreePoolWithTag(v8, Tag);
+  if ( !v4 )
+    RtlRaiseStatus(v32);
+  return 0LL;
+}

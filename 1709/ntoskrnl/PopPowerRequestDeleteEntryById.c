@@ -1,0 +1,21 @@
+/*
+ * XREFs of PopPowerRequestDeleteEntryById @ 0x1404E6F04
+ * Callers:
+ *     PopPowerRequestCleanUp @ 0x1400AFDC8 (PopPowerRequestCleanUp.c)
+ * Callees:
+ *     RtlLookupElementGenericTableAvl @ 0x1400DF250 (RtlLookupElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvl @ 0x1400DFA50 (RtlDeleteElementGenericTableAvl.c)
+ */
+
+char __fastcall PopPowerRequestDeleteEntryById(int a1)
+{
+  PVOID v1; // rax
+  _BYTE Buffer[8]; // [rsp+20h] [rbp-18h] BYREF
+  int v4; // [rsp+28h] [rbp-10h]
+
+  v4 = a1;
+  v1 = RtlLookupElementGenericTableAvl(&PopPowerRequestTable, Buffer);
+  if ( v1 )
+    LOBYTE(v1) = RtlDeleteElementGenericTableAvl(&PopPowerRequestTable, v1);
+  return (char)v1;
+}

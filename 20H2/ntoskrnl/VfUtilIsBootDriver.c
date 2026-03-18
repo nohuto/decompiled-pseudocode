@@ -1,0 +1,17 @@
+/*
+ * XREFs of VfUtilIsBootDriver @ 0x1409C97D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfTargetDriversGetVerifierData @ 0x1409D9E50 (VfTargetDriversGetVerifierData.c)
+ */
+
+__int64 VfUtilIsBootDriver()
+{
+  __int64 result; // rax
+
+  result = VfTargetDriversGetVerifierData();
+  if ( result )
+    return (*(_DWORD *)(result + 32) >> 1) & 1;
+  return result;
+}
