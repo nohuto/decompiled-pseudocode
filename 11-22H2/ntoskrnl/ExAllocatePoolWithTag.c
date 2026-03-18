@@ -1,0 +1,81 @@
+/*
+ * XREFs of ExAllocatePoolWithTag @ 0x140AAFC80
+ * Callers:
+ *     CcAllocateInitializeBcb @ 0x140207370 (CcAllocateInitializeBcb.c)
+ *     CcInitializeCacheMapInternal @ 0x14025E7B0 (CcInitializeCacheMapInternal.c)
+ *     CcSetDirtyInMask @ 0x1402C8FC0 (CcSetDirtyInMask.c)
+ *     CcExtendVacbArray @ 0x1402F2A44 (CcExtendVacbArray.c)
+ *     ExAllocatePool @ 0x14031C5C0 (ExAllocatePool.c)
+ *     ExAllocatePoolZero @ 0x14031C5E0 (ExAllocatePoolZero.c)
+ *     CcInitializeVolumeCacheMap @ 0x14032EE94 (CcInitializeVolumeCacheMap.c)
+ *     FsRtlTruncateBaseMcb @ 0x140339E10 (FsRtlTruncateBaseMcb.c)
+ *     FsRtlAddEntry @ 0x14033A8B4 (FsRtlAddEntry.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x140341514 (CcCreatePrivateVolumeCacheMap.c)
+ *     CreateNewEventEntry @ 0x14034F194 (CreateNewEventEntry.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x14035BC08 (FsRtlpOplockSendModernAppTermination.c)
+ *     CcAllocateInitializeMbcb @ 0x14035C6E8 (CcAllocateInitializeMbcb.c)
+ *     SepAdtMarshallAuditRecord @ 0x14039B5E4 (SepAdtMarshallAuditRecord.c)
+ *     CcCreatePartition @ 0x14039FFF0 (CcCreatePartition.c)
+ *     CcInitializePartition @ 0x1403A00A0 (CcInitializePartition.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1403ADC94 (CcQueueAsyncGetDeviceGuid.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1403B1B4C (CcSetupWatchForRegistryChanges.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403C0448 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcAllocateInitializeVacbArray @ 0x1403C2F10 (CcAllocateInitializeVacbArray.c)
+ *     CcQueryRegKeyValue @ 0x1403C51E8 (CcQueryRegKeyValue.c)
+ *     CcPostVolumeTelemetry @ 0x1403D0A70 (CcPostVolumeTelemetry.c)
+ *     CcRegisterExternalCache @ 0x1403D6740 (CcRegisterExternalCache.c)
+ *     CcDeferWrite @ 0x140537530 (CcDeferWrite.c)
+ *     FsRtlAllocateAePushLock @ 0x14053CFD0 (FsRtlAllocateAePushLock.c)
+ *     FsRtlAllocatePool @ 0x14053DBF0 (FsRtlAllocatePool.c)
+ *     FsRtlAllocatePoolWithTag @ 0x14053DC80 (FsRtlAllocatePoolWithTag.c)
+ *     SddlpAlloc @ 0x14069DF28 (SddlpAlloc.c)
+ *     SeCaptureAcl @ 0x1406BA348 (SeCaptureAcl.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x1406BB054 (SeCaptureLuidAndAttributesArray.c)
+ *     SeCaptureSid @ 0x1406BB2CC (SeCaptureSid.c)
+ *     SeCaptureSidAndAttributesArray @ 0x1406BCC50 (SeCaptureSidAndAttributesArray.c)
+ *     RtlpSetSecurityObject @ 0x14072BDE0 (RtlpSetSecurityObject.c)
+ *     ObpAllocateObject @ 0x14072FBB0 (ObpAllocateObject.c)
+ *     SeCaptureSecurityDescriptor @ 0x140737050 (SeCaptureSecurityDescriptor.c)
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x14077A578 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     VrpAddNamespaceNodeToList @ 0x14077BA30 (VrpAddNamespaceNodeToList.c)
+ *     VrpDestroyNamespaceNode @ 0x14077BB14 (VrpDestroyNamespaceNode.c)
+ *     RawInitializeVcb @ 0x140792590 (RawInitializeVcb.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x140792770 (ExAllocateCacheAwareRundownProtection.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x14079F500 (FsRtlFindInTunnelCacheEx.c)
+ *     CcCreateVacbArray @ 0x1407BB6EC (CcCreateVacbArray.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x1407E7030 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     CreateTlgAggregateSession @ 0x140803550 (CreateTlgAggregateSession.c)
+ *     CcInitializeProcessor @ 0x1408215BC (CcInitializeProcessor.c)
+ *     ExRegisterHost @ 0x140823390 (ExRegisterHost.c)
+ *     CcAllocateObcb @ 0x140885F50 (CcAllocateObcb.c)
+ *     DbgkCaptureLiveDump @ 0x14093A918 (DbgkCaptureLiveDump.c)
+ *     DbgkpLkmdLaunchSnapApc @ 0x14093AF24 (DbgkpLkmdLaunchSnapApc.c)
+ *     DbgkpTriageDumpInitialize @ 0x14093C23C (DbgkpTriageDumpInitialize.c)
+ *     ?Allocate@SC_ENV@@SAPEAX_KKE@Z @ 0x1409403B0 (-Allocate@SC_ENV@@SAPEAX_KKE@Z.c)
+ *     IoReadPartitionTable @ 0x140940820 (IoReadPartitionTable.c)
+ *     IoWritePartitionTable @ 0x140940CF0 (IoWritePartitionTable.c)
+ *     RawQueryFileSystemInformation @ 0x1409B8924 (RawQueryFileSystemInformation.c)
+ *     SepCaptureAuditPolicy @ 0x1409CD770 (SepCaptureAuditPolicy.c)
+ *     SddlpReAlloc @ 0x1409D2A90 (SddlpReAlloc.c)
+ *     SddlpUuidToString @ 0x1409D2C08 (SddlpUuidToString.c)
+ *     AslPathWildcardFindFirst @ 0x140A555C4 (AslPathWildcardFindFirst.c)
+ *     AslPathWildcardFindNext @ 0x140A55B1C (AslPathWildcardFindNext.c)
+ *     LkmdTelCreateReport @ 0x140A76B94 (LkmdTelCreateReport.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140AC0FD0 (VerifierExAllocatePoolWithTag.c)
+ *     ViDeadlockKernelVerifierLookasideAllocate @ 0x140ADA590 (ViDeadlockKernelVerifierLookasideAllocate.c)
+ *     FsRtlInitSystem @ 0x140B693F0 (FsRtlInitSystem.c)
+ *     CcInitializeVacbs @ 0x140B76AD8 (CcInitializeVacbs.c)
+ * Callees:
+ *     ExpAllocatePoolWithTagFromNode @ 0x1402AD220 (ExpAllocatePoolWithTagFromNode.c)
+ */
+
+// local variable allocation has failed, the output may be wrong!
+PVOID __stdcall ExAllocatePoolWithTag(POOL_TYPE PoolType, SIZE_T NumberOfBytes, ULONG Tag)
+{
+  return (PVOID)ExpAllocatePoolWithTagFromNode(
+                  PoolType,
+                  NumberOfBytes,
+                  *(__int64 *)&Tag,
+                  KeGetCurrentPrcb()->SchedulerSubNode->Affinity.Reserved[0] | 0x80000000,
+                  0);
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?GetSurfaceUpdates@CGlobalSurfaceManager@@AEAAJPEAIPEAH@Z @ 0x1801B7098
+ * Callers:
+ *     ?ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ @ 0x18002E9C0 (-ProcessSurfaceUpdates@CGlobalSurfaceManager@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180042C70 (-GetCurrentFrameId@@YA_KXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18009DA0C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 __fastcall CGlobalSurfaceManager::GetSurfaceUpdates(CGlobalSurfaceManager *this, unsigned int *a2, int *a3)
+{
+  unsigned int v3; // ebx
+  __int64 v4; // rdx
+  __int64 v5; // r8
+  int FrameSurfaceUpdates; // eax
+  __int64 v7; // rcx
+  unsigned __int64 CurrentFrameId; // [rsp+58h] [rbp+20h] BYREF
+
+  v3 = 0;
+  CurrentFrameId = GetCurrentFrameId();
+  FrameSurfaceUpdates = NtDCompositionGetFrameSurfaceUpdates(&CurrentFrameId, v4, v5);
+  if ( FrameSurfaceUpdates < 0 )
+  {
+    v3 = FrameSurfaceUpdates | 0x10000000;
+    MilInstrumentationCheckHR_MaybeFailFast(v7, &dword_18033BE90, 3u, FrameSurfaceUpdates | 0x10000000, 0x7Fu, 0LL);
+  }
+  return v3;
+}

@@ -1,0 +1,132 @@
+/*
+ * XREFs of bCvtPts1 @ 0x1C0062918
+ * Callers:
+ *     GreGetClipBox @ 0x1C00197D0 (GreGetClipBox.c)
+ *     GreIntersectClipRect @ 0x1C0019B10 (GreIntersectClipRect.c)
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z @ 0x1C001A610 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C006312C (bFToL.c)
+ */
+
+__int64 __fastcall bCvtPts1(unsigned __int64 a1, _DWORD *a2, __int64 a3)
+{
+  __int64 v3; // rsi
+  _DWORD *v5; // rbp
+  int v6; // eax
+  int v7; // ecx
+  int v8; // eax
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  _DWORD *v12; // rbx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  _DWORD *v17; // rbx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  int v20; // [rsp+40h] [rbp+8h] BYREF
+  int v21; // [rsp+58h] [rbp+20h] BYREF
+
+  v3 = a3;
+  v5 = (_DWORD *)a1;
+  if ( (*(_DWORD *)(a1 + 32) & 0xB) != 0 )
+  {
+    switch ( *(_DWORD *)(a1 + 32) & 0xB )
+    {
+      case 1:
+        if ( a3 )
+        {
+          do
+          {
+            v12 = a2 + 1;
+            bFToL(a1, a2, 6LL);
+            bFToL(v13, a2 + 1, v14);
+            *a2 += v5[6];
+            a2 += 2;
+            *v12 += v5[7];
+            --v3;
+          }
+          while ( v3 );
+        }
+        break;
+      case 3:
+        if ( a3 )
+        {
+          do
+          {
+            *a2 += *(_DWORD *)(a1 + 24);
+            a2 += 2;
+            *(a2 - 1) += *(_DWORD *)(a1 + 28);
+            --v3;
+          }
+          while ( v3 );
+        }
+        break;
+      case 8:
+        if ( a3 )
+        {
+          do
+          {
+            bFToL(a1, &v20, 6LL);
+            bFToL(v15, &v21, v16);
+            a1 = (unsigned int)((((v5[6] + v20) >> 3) + 1) >> 1);
+            *a2 = a1;
+            a2[1] = (((v21 + v5[7]) >> 3) + 1) >> 1;
+            a2 += 2;
+            --v3;
+          }
+          while ( v3 );
+        }
+        break;
+      case 9:
+        if ( a3 )
+        {
+          do
+          {
+            bFToL(a1, &v20, 6LL);
+            bFToL(v10, &v21, v11);
+            a1 = (unsigned int)((((v5[6] + v20) >> 3) + 1) >> 1);
+            *a2 = a1;
+            a2 += 2;
+            *(a2 - 1) = (((v21 + v5[7]) >> 3) + 1) >> 1;
+            --v3;
+          }
+          while ( v3 );
+        }
+        break;
+      case 11:
+        v6 = *(_DWORD *)(a1 + 24);
+        v7 = ((*(int *)(a1 + 28) >> 3) + 1) >> 1;
+        v8 = ((v6 >> 3) + 1) >> 1;
+        if ( a3 )
+        {
+          do
+          {
+            *a2 += v8;
+            a2[1] += v7;
+            a2 += 2;
+            --v3;
+          }
+          while ( v3 );
+        }
+        break;
+    }
+  }
+  else if ( a3 )
+  {
+    do
+    {
+      v17 = a2 + 1;
+      bFToL(a1, a2, 6LL);
+      bFToL(v18, a2 + 1, v19);
+      *a2 += v5[6];
+      a2 += 2;
+      a1 = (unsigned int)v5[7];
+      *v17 += a1;
+      --v3;
+    }
+    while ( v3 );
+  }
+  return 1LL;
+}

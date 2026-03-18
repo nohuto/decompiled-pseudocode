@@ -1,0 +1,80 @@
+/*
+ * XREFs of ??0CVidSchSubmitData@@QEAA@PEAVADAPTER_RENDER@@_N@Z @ 0x14002B2E0
+ * Callers:
+ *     ?BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAVDXGHWQUEUE@@UtagRECT@@2IPEBU3@PEAVCOREDEVICEACCESS@@@Z @ 0x1401E544C (-BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAVDXGHWQUEUE@@UtagRECT@@2IPEBU3@PEAVCOREDEVICEACCESS@@.c)
+ *     ?PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEVICEACCESS@@PEAPEAV1@@Z @ 0x1402B351C (-PresentMultiPlaneOverlay3@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@PEAVCOREDEV.c)
+ *     DxgkPresentRedirected @ 0x140316770 (DxgkPresentRedirected.c)
+ *     ?SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@HPEAT_LARGE_INTEGER@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEBD@Z @ 0x140317D20 (-SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADA.c)
+ *     ?RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x14032DC44 (-RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCAT.c)
+ *     ?Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@Z @ 0x14034D5A0 (-Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1403886A4 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1403B4660 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1403CDEF0 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ *     DxgkSubmitPresentToHwQueue @ 0x140420F70 (DxgkSubmitPresentToHwQueue.c)
+ * Callees:
+ *     memset @ 0x14009FCC0 (memset.c)
+ */
+
+CVidSchSubmitData *__fastcall CVidSchSubmitData::CVidSchSubmitData(
+        CVidSchSubmitData *this,
+        struct ADAPTER_RENDER *a2,
+        char a3)
+{
+  PVOID v4; // rax
+  void *v5; // r9
+  int v6; // edi
+  __int64 v7; // rax
+  int v8; // edx
+  unsigned int v9; // eax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // r8d
+  unsigned int v13; // eax
+  CVidSchSubmitData *result; // rax
+
+  *(_QWORD *)this = 0LL;
+  *((_QWORD *)this + 1) = a2;
+  if ( !a3 )
+    return this;
+  v4 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)((char *)a2 + 1424));
+  *(_QWORD *)this = v4;
+  v5 = v4;
+  if ( !v4 )
+    return this;
+  v6 = 1;
+  v7 = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+  if ( *(int *)(v7 + 2736) >= 0x2000 )
+  {
+    v8 = *(_DWORD *)(v7 + 296);
+LABEL_5:
+    v9 = *(_DWORD *)(v7 + 2944) * ((v8 << 6) + ((8 * v8 + 231) & 0xFFFFFFF8)) + 8 * (v8 + 77);
+    goto LABEL_6;
+  }
+  v8 = 1;
+  if ( *(_BYTE *)(v7 + 3036) )
+    goto LABEL_5;
+  v9 = 1304;
+LABEL_6:
+  memset(v5, 0, v9);
+  v10 = *(_QWORD *)this;
+  v11 = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+  v12 = *(_DWORD *)(v11 + 2944);
+  if ( *(int *)(v11 + 2736) >= 0x2000 )
+  {
+    v6 = *(_DWORD *)(v11 + 296);
+LABEL_8:
+    *(_BYTE *)(v10 + 356) = 1;
+    *(_DWORD *)(v10 + 608) = v6;
+    *(_DWORD *)(v10 + 604) = v12;
+    *(_DWORD *)(v10 + 612) = v12 * ((v6 << 6) + ((8 * v6 + 231) & 0xFFFFFFF8)) + 16;
+    v13 = v12 * ((v6 << 6) + ((8 * v6 + 231) & 0xFFFFFFF8)) + 616;
+    *(_DWORD *)(v10 + 552) = v13;
+    *(_DWORD *)(v10 + 556) = 8 * v6 + v13;
+    return this;
+  }
+  if ( *(_BYTE *)(v11 + 3036) )
+    goto LABEL_8;
+  result = this;
+  *(_BYTE *)(v10 + 356) = 0;
+  return result;
+}

@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??0DXGPRESENTMUTEX@@QEAA@QEAVADAPTER_RENDER@@@Z @ 0x14004D844
+ * Callers:
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1402BBFE4 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x140326BC0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ * Callees:
+ *     ?IsOwner@DXGFASTMUTEX@@QEBAEXZ @ 0x14000D800 (-IsOwner@DXGFASTMUTEX@@QEBAEXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x14002BDA0 (DxgkLogInternalTriageEvent.c)
+ */
+
+DXGPRESENTMUTEX *__fastcall DXGPRESENTMUTEX::DXGPRESENTMUTEX(DXGPRESENTMUTEX *this, struct ADAPTER_RENDER *const a2)
+{
+  *((_QWORD *)this + 1) = a2;
+  *((_BYTE *)this + 16) = 0;
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 8022;
+    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_pRenderCore != NULL", 8022LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( DXGFASTMUTEX::IsOwner((DXGFASTMUTEX *)(*((_QWORD *)this + 1) + 776LL)) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 8027;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      -1,
+      (__int64)L"!m_pRenderCore->m_PresentMutex.IsOwner()",
+      8027LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  return this;
+}

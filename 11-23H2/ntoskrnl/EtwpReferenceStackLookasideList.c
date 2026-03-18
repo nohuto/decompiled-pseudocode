@@ -1,0 +1,27 @@
+/*
+ * XREFs of EtwpReferenceStackLookasideList @ 0x1409E8B5C
+ * Callers:
+ *     EtwpEnableGuid @ 0x14077FD00 (EtwpEnableGuid.c)
+ *     EtwpInitializeClassicStackTracing @ 0x1409E8AD4 (EtwpInitializeClassicStackTracing.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x140428EF0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
+ */
+
+struct _SLIST_ENTRY *EtwpReferenceStackLookasideList()
+{
+  int v0; // ebx
+  struct _SLIST_ENTRY *result; // rax
+
+  v0 = 2 * KeNumberProcessors_0 * _InterlockedIncrement(&dword_140C6B410);
+  do
+  {
+    result = (struct _SLIST_ENTRY *)ExAllocatePool2(64LL, 2080LL, 1819767877LL);
+    if ( !result )
+      break;
+    RtlpInterlockedPushEntrySList(&EtwpStackLookAsideList, result);
+    result = (struct _SLIST_ENTRY *)(unsigned int)_InterlockedIncrement(&dword_140C6B414);
+  }
+  while ( (int)result < v0 );
+  return result;
+}

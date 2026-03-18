@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?GetAttachedChannel@CComposition@@QEAAJIPEAPEAVCChannelContext@@@Z @ 0x180163170
+ * Callers:
+ *     ?ProcessInsertChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_INSERTCHILD@@@Z @ 0x180025D40 (-ProcessInsertChild@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_INSERTCHILD@@@Z.c)
+ *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x18016303C (-CloseChannel@CComposition@@IEAAJI@Z.c)
+ *     ?ProcessSetCallbackId@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETCALLBACKID@@@Z @ 0x180165080 (-ProcessSetCallbackId@CAnimation@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATION_SETCALLBACKID.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x180081990 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Log_Hr@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z @ 0x180204768 (-Log_Hr@in1diag3@details@wil@@YAJPEAXIPEBDJ@Z.c)
+ */
+
+__int64 __fastcall CComposition::GetAttachedChannel(CComposition *this, unsigned int a2, struct CChannelContext **a3)
+{
+  volatile signed __int32 *v4; // rbx
+  unsigned int v6; // [rsp+20h] [rbp-18h]
+  wil::details::in1diag3 *retaddr; // [rsp+38h] [rbp+0h]
+
+  if ( a2 < 0x10000
+    && a2 < *((_DWORD *)this + 214)
+    && (v4 = *(volatile signed __int32 **)(*((_QWORD *)this + 104) + 8LL * a2)) != 0LL )
+  {
+    if ( _InterlockedAdd(v4 + 2, 1u) <= 0 )
+      wil::details::in1diag3::Log_Hr(
+        retaddr,
+        (void *)0x18,
+        (unsigned int)"onecoreuap\\windows\\dwm\\common\\shared\\refcountbase.cpp",
+        (const char *)0x8007029CLL,
+        v6);
+    *a3 = (struct CChannelContext *)v4;
+    return 0LL;
+  }
+  else
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, -2147024809, 0x693u, 0LL);
+    return 2147942487LL;
+  }
+}

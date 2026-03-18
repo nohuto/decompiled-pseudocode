@@ -1,0 +1,101 @@
+/*
+ * XREFs of ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x140026568
+ * Callers:
+ *     ?VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z @ 0x140025FB4 (-VidSchiDecrementHwQueueReference@@YAXPEAUVIDSCH_HW_QUEUE@@_N@Z.c)
+ *     VidSchTerminateHwContext @ 0x140026780 (VidSchTerminateHwContext.c)
+ * Callees:
+ *     <none>
+ */
+
+// write access to const memory has been detected, the output may be wrong!
+void __fastcall VidSchiDecrementHwContextReference(unsigned int *P, int a2)
+{
+  __int64 v2; // rdi
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+  unsigned int **v7; // rcx
+  __int64 v8; // rdx
+  unsigned int **v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  _QWORD *v13; // rdx
+  void *v14; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
+  __int128 v16; // [rsp+48h] [rbp-20h]
+  __int64 v17; // [rsp+58h] [rbp-10h]
+
+  v2 = *((_QWORD *)P + 2);
+  v5 = *(_QWORD *)(v2 + 24);
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( !a2 )
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(v5 + 2016), &LockHandle);
+  if ( _InterlockedExchangeAdd((volatile signed __int32 *)P + 10, 0xFFFFFFFF) == 1 )
+  {
+    if ( *((unsigned int **)P + 37) != P + 74 || P[78] )
+    {
+      v11 = P[78];
+      g_DxgMmsBugcheckExportIndex = 1;
+      WdLogSingleEntry5(0LL, 281LL, 12288LL, P, v11, 0LL);
+      WdLogGlobalForLineNumber = 916;
+    }
+    else
+    {
+      v6 = *((_QWORD *)P + 33);
+      if ( *(unsigned int **)(v6 + 8) == P + 66 )
+      {
+        v7 = (unsigned int **)*((_QWORD *)P + 34);
+        if ( *v7 == P + 66 )
+        {
+          *v7 = (unsigned int *)v6;
+          *(_QWORD *)(v6 + 8) = v7;
+          v8 = *((_QWORD *)P + 35);
+          if ( *(unsigned int **)(v8 + 8) == P + 70 )
+          {
+            v9 = (unsigned int **)*((_QWORD *)P + 36);
+            if ( *v9 == P + 70 )
+            {
+              *v9 = (unsigned int *)v8;
+              *(_QWORD *)(v8 + 8) = v9;
+              if ( *((_BYTE *)P + 151) )
+              {
+                RtlAvlRemoveNode(v2 + 1752, P + 40);
+                RtlAvlRemoveNode(v2 + 1760, P + 46);
+                *((_BYTE *)P + 151) = 0;
+              }
+              v10 = *((_QWORD *)P + 1);
+              v17 = 0LL;
+              v16 = 0LL;
+              if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v10 + 32), 0xFFFFFFFFFFFFFFFFuLL) != 1 )
+                goto LABEL_16;
+              v12 = *(_QWORD *)(v10 + 112);
+              if ( *(_QWORD *)(v12 + 8) == v10 + 112 )
+              {
+                v13 = *(_QWORD **)(v10 + 120);
+                if ( *v13 == v10 + 112 )
+                {
+                  *v13 = v12;
+                  *(_QWORD *)(v12 + 8) = v13;
+                  ExFreePoolWithTag((PVOID)v10, 0);
+LABEL_16:
+                  if ( *((_BYTE *)P + 150) )
+                  {
+                    v14 = (void *)*((_QWORD *)P + 4);
+                    if ( v14 )
+                      ExFreePoolWithTag(v14, 0x4B677844u);
+                  }
+                  ExFreePoolWithTag(P, 0);
+                  goto LABEL_4;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    __fastfail(3u);
+  }
+LABEL_4:
+  if ( !a2 )
+    KeReleaseInStackQueuedSpinLock(&LockHandle);
+}

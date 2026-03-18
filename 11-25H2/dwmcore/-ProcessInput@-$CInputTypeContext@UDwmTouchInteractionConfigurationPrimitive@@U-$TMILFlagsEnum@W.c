@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?ProcessInput@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@AEBUtagPOINTER_INFO@@AEBUtagPOINTER_INFO_UNION@@PEAUTemporaryConfiguration@@@Z @ 0x1802630E0
+ * Callers:
+ *     ?ProcessInput@CInteractionProcessor@@QEAAJPEBVCInteraction@@AEBUtagPOINTER_INFO@@AEBUtagPOINTER_INFO_UNION@@IAEBVCMILMatrix@@PEAUIManipulationResource@@PEA_N@Z @ 0x180263290 (-ProcessInput@CInteractionProcessor@@QEAAJPEBVCInteraction@@AEBUtagPOINTER_INFO@@AEBUtagPOINTER_.c)
+ * Callees:
+ *     ?ConfigureInteractionContextIfNecessary@?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@QEAAJAEBUInteractionStateInfo@@PEAUTemporaryConfiguration@@@Z @ 0x1801F46D4 (-ConfigureInteractionContextIfNecessary@-$CInputTypeContext@UDwmTouchInteractionConfigurationPri.c)
+ *     __security_check_cookie @ 0x18025BF00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CInputTypeContext<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>::ProcessInput(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5)
+{
+  int v9; // edi
+  int v10; // r10d
+  __int64 v11; // rcx
+  int v12; // ecx
+  _BYTE v14[64]; // [rsp+30h] [rbp-78h] BYREF
+
+  if ( *a1 )
+  {
+    if ( (*(_BYTE *)(a3 + 12) & 4) == 0 && (*(_DWORD *)(a3 + 12) & 0x180000) == 0
+      || (v9 = CInputTypeContext<DwmTouchInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchPrimitiveType::FlagsEnum>::ConfigureInteractionContextIfNecessary(
+                 a1,
+                 a2,
+                 a5),
+          v9 >= 0) )
+    {
+      v10 = *(_DWORD *)(a2 + 8);
+      v11 = *a1;
+      *((_DWORD *)a1 + 36) = v10;
+      v9 = (*(__int64 (__fastcall **)(__int64, __int64, __int64, __int64, int))(*(_QWORD *)v11 + 24LL))(
+             v11,
+             a3,
+             a4,
+             a2 + 328,
+             v10);
+      if ( v9 >= 0 )
+      {
+        v12 = *(_DWORD *)((*(__int64 (__fastcall **)(_QWORD, _BYTE *))(*(_QWORD *)*a1 + 40LL))(*a1, v14) + 20);
+        if ( v12 )
+          *((_DWORD *)a1 + 38) = v12;
+        *((_BYTE *)a1 + 148) |= 8u;
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-2147019873;
+  }
+  return (unsigned int)v9;
+}

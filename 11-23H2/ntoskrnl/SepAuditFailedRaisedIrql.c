@@ -1,0 +1,26 @@
+/*
+ * XREFs of SepAuditFailedRaisedIrql @ 0x1405B96DC
+ * Callers:
+ *     SepAdtLogAuditRecord @ 0x14039B780 (SepAdtLogAuditRecord.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x1402B7C30 (ExQueueWorkItem.c)
+ *     SepAuditFailed @ 0x1409D1C40 (SepAuditFailed.c)
+ */
+
+void __fastcall SepAuditFailedRaisedIrql(__int64 a1)
+{
+  if ( SepCrashOnAuditFail )
+  {
+    if ( KeGetCurrentIrql() >= 2u )
+    {
+      SepAdtCrashOnAuditFailWorkItem.List.Flink = 0LL;
+      SepAdtCrashOnAuditFailWorkItem.WorkerRoutine = (void (__fastcall *)(void *))SepAuditFailed;
+      SepAdtCrashOnAuditFailWorkItem.Parameter = (void *)(int)a1;
+      ExQueueWorkItem(&SepAdtCrashOnAuditFailWorkItem, HyperCriticalWorkQueue);
+    }
+    else
+    {
+      SepAuditFailed(a1);
+    }
+  }
+}

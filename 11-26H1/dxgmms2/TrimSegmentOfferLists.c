@@ -1,0 +1,19 @@
+/*
+ * XREFs of TrimSegmentOfferLists @ 0x1400B292C
+ * Callers:
+ *     ?ProcessOfferLists@VIDMM_PHYSICAL_ADAPTER_LEGACY@@UEAA_NXZ @ 0x14010E300 (-ProcessOfferLists@VIDMM_PHYSICAL_ADAPTER_LEGACY@@UEAA_NXZ.c)
+ * Callees:
+ *     ?StartPreparation@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4VIDMM_OPERATION@@@Z @ 0x1400CF620 (-StartPreparation@VIDMM_GLOBAL@@QEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4VIDMM_OPERATION@@@Z.c)
+ *     ?EndPreparation@VIDMM_GLOBAL@@QEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1400D1528 (-EndPreparation@VIDMM_GLOBAL@@QEAAXIPEAU_KEVENT@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
+ *     ?TrimOfferLists@VIDMM_SEGMENT@@QEAAJU_VIDMM_TRIM_PROCESS_FLAGS@@_K1@Z @ 0x1400F9384 (-TrimOfferLists@VIDMM_SEGMENT@@QEAAJU_VIDMM_TRIM_PROCESS_FLAGS@@_K1@Z.c)
+ */
+
+void __fastcall TrimSegmentOfferLists(__int64 a1)
+{
+  unsigned __int16 i; // di
+
+  VIDMM_GLOBAL::StartPreparation(*(_QWORD *)(a1 + 56), 0xFFFFFFFFLL, 0LL, 0LL, 1003);
+  for ( i = 0; (unsigned int)i < *(_DWORD *)(a1 + 136); ++i )
+    VIDMM_SEGMENT::TrimOfferLists(*(_QWORD *)(*(_QWORD *)(a1 + 1752) + 8LL * i), 12LL, 0LL);
+  VIDMM_GLOBAL::EndPreparation(*(VIDMM_GLOBAL **)(a1 + 56), 0xFFFFFFFF, 0LL, 0, 0LL, 0LL);
+}

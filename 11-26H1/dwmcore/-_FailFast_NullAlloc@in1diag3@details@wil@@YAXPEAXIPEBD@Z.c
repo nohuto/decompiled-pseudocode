@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?_FailFast_NullAlloc@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180241290
+ * Callers:
+ *     ??0BaseBamoConnectionImpl@BamoImpl@Microsoft@@IEAA@PEAVBaseBamoConnection@Bamo@2@@Z @ 0x180161990 (--0BaseBamoConnectionImpl@BamoImpl@Microsoft@@IEAA@PEAVBaseBamoConnection@Bamo@2@@Z.c)
+ *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x180161C14 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ *     ?EnsureCursorState@CCursorManager@@AEAAJ_KPEAPEAVCCursorState@@@Z @ 0x18028F4BC (-EnsureCursorState@CCursorManager@@AEAAJ_KPEAPEAVCCursorState@@@Z.c)
+ * Callees:
+ *     ??$ReportFailure_Hr@$02@details@wil@@YAXPEAXIPEBD110JW4FailureFlags@1@@Z @ 0x180201508 (--$ReportFailure_Hr@$02@details@wil@@YAXPEAXIPEBD110JW4FailureFlags@1@@Z.c)
+ */
+
+void __fastcall __noreturn wil::details::in1diag3::_FailFast_NullAlloc(
+        wil::details::in1diag3 *this,
+        __int64 a2,
+        __int64 a3,
+        const char *a4)
+{
+  int v4; // [rsp+20h] [rbp-28h]
+  wil::details *v5; // [rsp+30h] [rbp-18h]
+  __int64 retaddr; // [rsp+48h] [rbp+0h]
+
+  LODWORD(v5) = -2147024882;
+  wil::details::ReportFailure_Hr<3>((__int64)this, a2, a3, (__int64)a4, v4, retaddr, v5);
+}

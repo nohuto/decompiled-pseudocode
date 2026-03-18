@@ -1,0 +1,96 @@
+/*
+ * XREFs of NtCreateTimer @ 0x1406AC2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiLeaveGuardedRegionUnsafe @ 0x140207EC0 (KiLeaveGuardedRegionUnsafe.c)
+ *     ExReleaseResourceLite @ 0x140208540 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140208CF0 (ExAcquireResourceExclusiveLite.c)
+ *     PsInsertVirtualizedTimer @ 0x1402E1FD4 (PsInsertVirtualizedTimer.c)
+ *     KeInitializeDpc @ 0x1402E3AC0 (KeInitializeDpc.c)
+ *     KeInitializeTimerEx @ 0x1402F9130 (KeInitializeTimerEx.c)
+ *     ObCreateObjectEx @ 0x140679FF0 (ObCreateObjectEx.c)
+ *     ObInsertObjectEx @ 0x14067A230 (ObInsertObjectEx.c)
+ */
+
+__int64 __fastcall NtCreateTimer(__int64 *a1, ACCESS_MASK a2, int a3, TIMER_TYPE a4)
+{
+  char PreviousMode; // si
+  __int64 v7; // rcx
+  int inserted; // ecx
+  char *v9; // rbx
+  __int64 v10; // r9
+  KSPIN_LOCK *v11; // r13
+  _KPROCESS *Process; // r15
+  unsigned __int64 v14; // rdi
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v16; // r12
+  __int64 v17; // [rsp+20h] [rbp-78h]
+  PVOID DeferredContext; // [rsp+50h] [rbp-48h] BYREF
+  __int64 v19; // [rsp+58h] [rbp-40h] BYREF
+  __int64 v20; // [rsp+60h] [rbp-38h]
+
+  DeferredContext = 0LL;
+  v19 = 0LL;
+  if ( (unsigned int)a4 > SynchronizationTimer )
+    return 3221225714LL;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
+  {
+    v7 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
+      v7 = (__int64)a1;
+    *(_QWORD *)v7 = *(_QWORD *)v7;
+  }
+  inserted = ObCreateObjectEx(PreviousMode, ExTimerObjectType, a3, PreviousMode, v17, 328, 0, 0, &DeferredContext, 0LL);
+  if ( inserted >= 0 )
+  {
+    v9 = (char *)DeferredContext;
+    KeInitializeDpc((PRKDPC)((char *)DeferredContext + 160), (PKDEFERRED_ROUTINE)ExpTimerDpcRoutine, DeferredContext);
+    KeInitializeTimerEx((PKTIMER)v9, a4);
+    v11 = (KSPIN_LOCK *)(v9 + 64);
+    *((_QWORD *)v9 + 8) = 0LL;
+    v9[304] = 0;
+    *((_QWORD *)v9 + 32) = 0LL;
+    *((_QWORD *)v9 + 33) = 0LL;
+    v20 = (__int64)(v9 + 280);
+    *((_QWORD *)v9 + 35) = 0LL;
+    if ( PreviousMode )
+    {
+      Process = KeGetCurrentThread()->ApcState.Process;
+      if ( (*(_DWORD *)&Process->0 & 0x10) != 0 )
+      {
+        v14 = Process[1].Affinity.Bitmap[16];
+        LOBYTE(v10) = 0;
+        if ( v14 )
+        {
+          CurrentThread = KeGetCurrentThread();
+          --CurrentThread->SpecialApcDisable;
+          v16 = v14 + 56;
+          ExAcquireResourceExclusiveLite((PERESOURCE)(v14 + 56), 1u);
+          LOBYTE(v10) = (*(_DWORD *)(v14 + 1320) & 0x40000) != 0 && *(_DWORD *)(v14 + 856);
+        }
+        else
+        {
+          v16 = 56LL;
+        }
+        v9 = (char *)DeferredContext;
+        PsInsertVirtualizedTimer((KSPIN_LOCK *)Process, (_QWORD *)DeferredContext + 36, v11, v10, (KSPIN_LOCK **)v20);
+        if ( v14 )
+        {
+          ExReleaseResourceLite((PERESOURCE)v16);
+          KiLeaveGuardedRegionUnsafe((__int64)KeGetCurrentThread());
+          v9 = (char *)DeferredContext;
+        }
+      }
+      else
+      {
+        v9 = (char *)DeferredContext;
+      }
+    }
+    inserted = ObInsertObjectEx((PADAPTER_OBJECT)v9, 0LL, a2, 0, 0, 0LL, (unsigned __int64 *)&v19);
+    if ( inserted >= 0 )
+      *a1 = v19;
+  }
+  return (unsigned int)inserted;
+}

@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?GdiPtInSprite@@YAHPEAUHDEV__@@PEAUHWND__@@HH@Z @ 0x1C026D518
+ * Callers:
+ *     GrePtInSprite @ 0x1C0012198 (GrePtInSprite.c)
+ * Callees:
+ *     ?bSpPtInSprite@@YAHPEAVSPRITE@@HH@Z @ 0x1C0270A68 (-bSpPtInSprite@@YAHPEAVSPRITE@@HH@Z.c)
+ *     ?pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0272F64 (-pSpGetMetaSprite@@YAPEAU_METASPRITE@@PEBU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ *     ?pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z @ 0x1C0272FBC (-pSpGetSprite@@YAPEAVSPRITE@@PEAU_SPRITESTATE@@PEAUHWND__@@PEAX@Z.c)
+ */
+
+__int64 __fastcall GdiPtInSprite(HDEV a1, HWND a2, int a3, int a4)
+{
+  unsigned int v7; // ebx
+  HDEV v8; // rsi
+  const struct _SPRITESTATE *v9; // rcx
+  struct _METASPRITE *MetaSprite; // rbp
+  int v11; // r10d
+  unsigned int v12; // edi
+  __int64 v13; // rax
+  struct SPRITE *Sprite; // rax
+  _BYTE v16[40]; // [rsp+20h] [rbp-28h] BYREF
+  HDEV v17; // [rsp+50h] [rbp+8h] BYREF
+
+  v17 = a1;
+  v7 = 0;
+  SPRITELOCK::SPRITELOCK((SPRITELOCK *)v16, (struct PDEVOBJ *)&v17);
+  v8 = v17;
+  v9 = (const struct _SPRITESTATE *)(v17 + 24);
+  if ( *((_DWORD *)v17 + 41) )
+  {
+    MetaSprite = pSpGetMetaSprite(v9, a2, 0LL);
+    if ( MetaSprite )
+    {
+      v12 = 0;
+      if ( v11 )
+      {
+        while ( 1 )
+        {
+          v13 = *(_QWORD *)(*((_QWORD *)v8 + 21) + 8LL * v12);
+          if ( (unsigned int)bSpPtInSprite(
+                               *((struct SPRITE **)MetaSprite + v12 + 4),
+                               a3 - *(_DWORD *)(v13 + 2608),
+                               a4 - *(_DWORD *)(v13 + 2612)) )
+            break;
+          if ( ++v12 >= *((_DWORD *)v8 + 41) )
+            goto LABEL_10;
+        }
+        v7 = 1;
+      }
+    }
+  }
+  else
+  {
+    Sprite = pSpGetSprite(v9, a2, 0LL);
+    if ( Sprite )
+      v7 = bSpPtInSprite(Sprite, a3, a4);
+  }
+LABEL_10:
+  SPRITELOCK::~SPRITELOCK((SPRITELOCK *)v16);
+  return v7;
+}

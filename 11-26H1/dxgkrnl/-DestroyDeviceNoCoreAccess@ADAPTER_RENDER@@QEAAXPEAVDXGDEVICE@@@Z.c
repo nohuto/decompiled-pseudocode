@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?DestroyDeviceNoCoreAccess@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1403A19D8
+ * Callers:
+ *     ?DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x140290178 (-DestroyDeviceNoLocks@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?CreateCddDevice@SESSION_ADAPTER@@AEAAJPEAVDXGADAPTER@@PEAPEAVDXGDEVICE@@PEAPEAVDXGCONTEXT@@PEAPEAVDXGHWQUEUE@@@Z @ 0x14036E800 (-CreateCddDevice@SESSION_ADAPTER@@AEAAJPEAVDXGADAPTER@@PEAPEAVDXGDEVICE@@PEAPEAVDXGCONTEXT@@PEAP.c)
+ * Callees:
+ *     ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x140017020 (--1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x140017110 (--1COREACCESS@@QEAA@XZ.c)
+ *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEBD@Z @ 0x1400171A4 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEBD@Z.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1400174D0 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x140017DC0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1400A59A0 (__security_check_cookie.c)
+ *     ?DestroyDevice@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1403A1ADC (-DestroyDevice@ADAPTER_RENDER@@QEAAXPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z.c)
+ */
+
+void __fastcall ADAPTER_RENDER::DestroyDeviceNoCoreAccess(ADAPTER_RENDER *this, struct DXGDEVICE *a2)
+{
+  struct DXGADAPTER *v4; // rdx
+  const char *v5; // rdx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  unsigned __int64 v8; // rdx
+  unsigned __int64 v9; // rdx
+  _BYTE v10[8]; // [rsp+20h] [rbp-79h] BYREF
+  __int64 v11; // [rsp+28h] [rbp-71h]
+  char v12; // [rsp+30h] [rbp-69h]
+  _BYTE v13[8]; // [rsp+40h] [rbp-59h] BYREF
+  _BYTE v14[64]; // [rsp+48h] [rbp-51h] BYREF
+  _BYTE v15[64]; // [rsp+88h] [rbp-11h] BYREF
+  struct DXGDEVICE *v16; // [rsp+C8h] [rbp+2Fh]
+  char v17; // [rsp+D0h] [rbp+37h]
+
+  v11 = *((_QWORD *)this + 2);
+  v12 = 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::Acquire((DXGADAPTERSTOPRESETLOCKSHARED *)v10);
+  COREACCESS::COREACCESS((COREACCESS *)v14, *(struct DXGADAPTER *const *)(*((_QWORD *)a2 + 2) + 16LL));
+  v4 = (struct DXGADAPTER *)*((_QWORD *)a2 + 237);
+  if ( !v4 )
+    v4 = *(struct DXGADAPTER **)(*((_QWORD *)a2 + 2) + 16LL);
+  COREACCESS::COREACCESS((COREACCESS *)v15, v4);
+  v6 = *((_QWORD *)a2 + 2);
+  v7 = *((_QWORD *)a2 + 237);
+  v16 = a2;
+  if ( v7 == *(_QWORD *)(v6 + 16) || (v17 = 1, !v7) )
+    v17 = 0;
+  COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)v13, v5);
+  if ( *(_DWORD *)(*(_QWORD *)(*((_QWORD *)a2 + 2) + 16LL) + 200LL) != 4 )
+    ADAPTER_RENDER::DestroyDevice(this, a2, (struct COREDEVICEACCESS *)v13);
+  COREACCESS::~COREACCESS((COREACCESS *)v15, v8);
+  COREACCESS::~COREACCESS((COREACCESS *)v14, v9);
+  DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v10);
+}

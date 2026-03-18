@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?vSpWriteToExMirror@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x14032F9C0
+ * Callers:
+ *     ?vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z @ 0x14032EA5C (-vSpRedrawAreaExMirror@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@@Z.c)
+ * Callees:
+ *     ?INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z @ 0x140008FB0 (-INVOKEOFFCOPYBITS@@YAHPEAU_POINTL@@PEAU_SURFOBJ@@01PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@0@Z.c)
+ *     ??0ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x14000AB70 (--0ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x14007A070 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ??1ECLIPOBJTMPIFNEEDED@@QEAA@XZ @ 0x14020F51C (--1ECLIPOBJTMPIFNEEDED@@QEAA@XZ.c)
+ *     ?bConcurrent@@YAHPEAU_SPRITESTATE@@@Z @ 0x14032ACB0 (-bConcurrent@@YAHPEAU_SPRITESTATE@@@Z.c)
+ *     ?vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z @ 0x14032CE3C (-vSetup@ECLIPOBJTMPIFNEEDED@@QEAAXHPEAVREGION@@AEAVERECTL@@H@Z.c)
+ *     __security_check_cookie @ 0x1403423B0 (__security_check_cookie.c)
+ */
+
+void __fastcall vSpWriteToExMirror(struct _SPRITESTATE *a1, struct _POINTL *a2, struct _SURFOBJ *a3, struct _RECTL *a4)
+{
+  __int64 v8; // rdx
+  struct REGION *v9; // rbp
+  struct _CLIPOBJ *v10; // rax
+  int v11; // eax
+  struct _POINTL v12; // [rsp+40h] [rbp-E8h] BYREF
+  _BYTE v13[4]; // [rsp+50h] [rbp-D8h] BYREF
+  _BYTE v14[156]; // [rsp+54h] [rbp-D4h] BYREF
+
+  ECLIPOBJTMPIFNEEDED::ECLIPOBJTMPIFNEEDED((ECLIPOBJTMPIFNEEDED *)v13);
+  v9 = (struct REGION *)*((_QWORD *)a1 + 130);
+  v10 = 0LL;
+  if ( !v9 )
+    goto LABEL_4;
+  v11 = bConcurrent(a1, v8);
+  ECLIPOBJTMPIFNEEDED::vSetup((ECLIPOBJTMPIFNEEDED *)v13, v11, v9, (struct ERECTL *)a4, 0);
+  if ( !ERECTL::bEmpty((ERECTL *)v14) )
+  {
+    v10 = (struct _CLIPOBJ *)v13;
+LABEL_4:
+    a3->iUniq = 0;
+    v12 = 0LL;
+    INVOKEOFFCOPYBITS(&v12, *((struct _SURFOBJ **)a1 + 167), a2, a3, v10, 0LL, a4, (struct _POINTL *)a4);
+  }
+  ECLIPOBJTMPIFNEEDED::~ECLIPOBJTMPIFNEEDED((ECLIPOBJTMPIFNEEDED *)v13);
+}

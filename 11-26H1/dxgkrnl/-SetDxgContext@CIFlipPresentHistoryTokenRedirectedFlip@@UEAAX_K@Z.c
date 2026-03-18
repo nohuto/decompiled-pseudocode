@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?SetDxgContext@CIFlipPresentHistoryTokenRedirectedFlip@@UEAAX_K@Z @ 0x14004EA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CIFlipPresentHistoryTokenRedirectedFlip::SetDxgContext(
+        CIFlipPresentHistoryTokenRedirectedFlip *this,
+        __int64 a2)
+{
+  *(_QWORD *)(*((_QWORD *)this + 1) + 16LL) = a2;
+}

@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?PinPathContentRotation@VIDPN_MGR@@QEBAJQEAVDMMVIDPNPRESENTPATH@@W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@_N@Z @ 0x1402542F4
+ * Callers:
+ *     ?RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z @ 0x140254678 (-RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z.c)
+ * Callees:
+ *     ?PinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z @ 0x14003B498 (-PinContentRotation@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@@Z.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ @ 0x14003B78C (-GetContainer@-$ContainedBy@VDMMVIDPN@@@@QEBAPEAVDMMVIDPN@@XZ.c)
+ *     ?GetContainer@?$ContainedBy@VDMMVIDPNTOPOLOGY@@@@QEBAPEAVDMMVIDPNTOPOLOGY@@XZ @ 0x14008DAF4 (-GetContainer@-$ContainedBy@VDMMVIDPNTOPOLOGY@@@@QEBAPEAVDMMVIDPNTOPOLOGY@@XZ.c)
+ *     ?FormalizeVidPnChange@VIDPN_MGR@@QEBAJPEAUD3DKMDT_HVIDPN__@@W4VIDPN_CHANGE@1@EQEBU_DXGK_ENUM_PIVOT@@@Z @ 0x1402A3F00 (-FormalizeVidPnChange@VIDPN_MGR@@QEBAJPEAUD3DKMDT_HVIDPN__@@W4VIDPN_CHANGE@1@EQEBU_DXGK_ENUM_PIV.c)
+ */
+
+__int64 __fastcall VIDPN_MGR::PinPathContentRotation(
+        VIDPN_MGR *this,
+        struct DMMVIDPNPRESENTPATH *const a2,
+        enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION a3)
+{
+  __int64 v3; // rdi
+  int v6; // eax
+  unsigned int v7; // esi
+  __int64 Container; // rax
+  __int64 v10; // rax
+  __int64 v11; // r9
+  __int64 v12; // rcx
+  int v13; // eax
+  int v14; // [rsp+48h] [rbp+10h] BYREF
+  int v15; // [rsp+4Ch] [rbp+14h]
+
+  v3 = a3;
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 3630;
+  }
+  if ( !(_DWORD)v3 || (unsigned int)(v3 - 254) <= 1 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 3633;
+  }
+  v6 = DMMVIDPNPRESENTPATH::PinContentRotation(a2, (enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION)v3);
+  v7 = v6;
+  if ( v6 < 0 )
+  {
+    WdLogSingleEntry3(2LL, v3, a2, v6);
+    WdLogGlobalForLineNumber = 3645;
+    return v7;
+  }
+  Container = ContainedBy<DMMVIDPNTOPOLOGY>::GetContainer((__int64)a2 + 40);
+  v10 = ContainedBy<DMMVIDPN>::GetContainer(Container + 160);
+  LOBYTE(v11) = 1;
+  v12 = *((_QWORD *)a2 + 12);
+  v14 = *(_DWORD *)(*((_QWORD *)a2 + 11) + 24LL);
+  v15 = *(_DWORD *)(v12 + 24);
+  v13 = VIDPN_MGR::FormalizeVidPnChange(this, v10 & -(__int64)(v10 != -88), 9LL, v11, &v14);
+  v7 = v13;
+  if ( v13 < 0 )
+  {
+    if ( v13 == -1071774970 )
+    {
+      WdLogSingleEntry2(3LL, v3, a2);
+      WdLogGlobalForLineNumber = 3674;
+    }
+    else
+    {
+      WdLogSingleEntry3(2LL, v3, a2, v13);
+      WdLogGlobalForLineNumber = 3681;
+    }
+    return v7;
+  }
+  return 0LL;
+}

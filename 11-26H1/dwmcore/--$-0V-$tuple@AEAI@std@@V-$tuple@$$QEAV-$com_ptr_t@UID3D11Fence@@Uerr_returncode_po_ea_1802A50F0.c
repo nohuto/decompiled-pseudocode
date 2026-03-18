@@ -1,0 +1,34 @@
+/*
+ * XREFs of ??$?0V?$tuple@AEAI@std@@V?$tuple@$$QEAV?$com_ptr_t@UID3D11Fence@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@2@@1@$0A@$$Z$0A@$00@?$pair@$$CBIVCFlipAwayFence@@@std@@AEAA@AEAV?$tuple@AEAI@1@AEAV?$tuple@$$QEAV?$com_ptr_t@UID3D11Fence@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@2@@1@U?$integer_sequence@_K$0A@@1@U?$integer_sequence@_K$0A@$00@1@@Z @ 0x1802A50F0
+ * Callers:
+ *     ??$?0AEBUpiecewise_construct_t@std@@V?$tuple@AEAI@1@V?$tuple@$$QEAV?$com_ptr_t@UID3D11Fence@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@2@@1@@?$_List_node_emplace_op2@V?$allocator@U?$_List_node@U?$pair@$$CBIVCFlipAwayFence@@@std@@PEAX@std@@@std@@@std@@QEAA@AEAV?$allocator@U?$_List_node@U?$pair@$$CBIVCFlipAwayFence@@@std@@PEAX@std@@@1@AEBUpiecewise_construct_t@1@$$QEAV?$tuple@AEAI@1@$$QEAV?$tuple@$$QEAV?$com_ptr_t@UID3D11Fence@@Uerr_returncode_policy@wil@@@wil@@$$QEAV?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@2@@1@@Z @ 0x1802A507C (--$-0AEBUpiecewise_construct_t@std@@V-$tuple@AEAI@1@V-$tuple@$$QEAV-$com_ptr_t@UID3_ea_1802A507C.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ____0V__tuple_AEAI_std__V__tuple___QEAV__com_ptr_t_UID3D11Fence__Uerr_returncode_policy_wil___wil____QEAV__unique_any_t_V__unique_storage_U__handle_null_resource_policy_P6AHPEAX_Z_1_CloseHandle__YAH0_Z_details_wil___details_wil___2__1__0A___Z_0A__00___pair___CBIVCFlipAwayFence___std__AEAA_AEAV__tuple_AEAI_1_AEAV__tuple___QEAV__com_ptr_t_UID3D11Fence__Uerr_returncode_policy_wil___wil____QEAV__unique_any_t_V__unique_storage_U__handle_null_resource_policy_P6AHPEAX_Z_1_CloseHandle__YAH0_Z_details_wil___details_wil___2__1_U__integer_sequence__K_0A__1_U__integer_sequence__K_0A__00_1__Z(
+        __int64 a1,
+        _DWORD **a2,
+        _QWORD **a3)
+{
+  unsigned __int64 v3; // rax
+  __int64 *v4; // rdx
+  _QWORD *v5; // r9
+  __int64 v6; // rax
+  __int64 result; // rax
+
+  v3 = CFlipAwayFence::s_nextUniqueId;
+  *(_DWORD *)a1 = **a2;
+  ++v3;
+  v4 = a3[1];
+  v5 = *a3;
+  *(_QWORD *)(a1 + 8) = v3;
+  CFlipAwayFence::s_nextUniqueId = v3;
+  v6 = *v4;
+  *v4 = 0LL;
+  *(_QWORD *)(a1 + 16) = v6;
+  *(_QWORD *)(a1 + 24) = *v5;
+  result = a1;
+  *v5 = 0LL;
+  return result;
+}

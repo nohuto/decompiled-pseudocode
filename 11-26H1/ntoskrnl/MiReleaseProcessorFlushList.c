@@ -1,0 +1,82 @@
+/*
+ * XREFs of MiReleaseProcessorFlushList @ 0x1403613C0
+ * Callers:
+ *     MmProtectPool @ 0x14024E084 (MmProtectPool.c)
+ *     MiLockCode @ 0x14029602C (MiLockCode.c)
+ *     MiCleanupLazyStampedPageTable @ 0x1402A000C (MiCleanupLazyStampedPageTable.c)
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1402A3488 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiWalkVaRange @ 0x1402D3560 (MiWalkVaRange.c)
+ *     MiConfirmFaultClusterDescriptor @ 0x1402ECD70 (MiConfirmFaultClusterDescriptor.c)
+ *     MiSectionProtectAllPtes @ 0x140303F00 (MiSectionProtectAllPtes.c)
+ *     MiLockVirtualMemoryGoodCitizen @ 0x140306B00 (MiLockVirtualMemoryGoodCitizen.c)
+ *     MiSharePagesYield @ 0x1403070E0 (MiSharePagesYield.c)
+ *     MiUnlockClonePageTable @ 0x14030B67C (MiUnlockClonePageTable.c)
+ *     MiSetPagingOfDriver @ 0x14030F6BC (MiSetPagingOfDriver.c)
+ *     MiProtectFlushPayload @ 0x140311488 (MiProtectFlushPayload.c)
+ *     MiProtectPrivateMemory @ 0x1403116B4 (MiProtectPrivateMemory.c)
+ *     MiReplaceRotateWithDemandZeroNoCopy @ 0x140312684 (MiReplaceRotateWithDemandZeroNoCopy.c)
+ *     MiWalkPtesForWriteWatchState @ 0x1403178F8 (MiWalkPtesForWriteWatchState.c)
+ *     NtLockVirtualMemory @ 0x140318600 (NtLockVirtualMemory.c)
+ *     MiMoveDirtyBitsToPfns @ 0x140319470 (MiMoveDirtyBitsToPfns.c)
+ *     MmUnmapViewInSystemCache @ 0x14031E380 (MmUnmapViewInSystemCache.c)
+ *     MiCreateSystemPageTable @ 0x140339800 (MiCreateSystemPageTable.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140340E34 (MiDecommitHardwareEnclavePages.c)
+ *     MiUnmapContiguousMemory @ 0x140343628 (MiUnmapContiguousMemory.c)
+ *     MiFlushValidPteFromTb @ 0x140343898 (MiFlushValidPteFromTb.c)
+ *     MiTrimUnlockedVirtualAddreses @ 0x14035CA40 (MiTrimUnlockedVirtualAddreses.c)
+ *     MiFillSystemPtes @ 0x14035F448 (MiFillSystemPtes.c)
+ *     MiFlushTbAsNeeded @ 0x14035FD40 (MiFlushTbAsNeeded.c)
+ *     MiReleaseTrimViewResources @ 0x140360084 (MiReleaseTrimViewResources.c)
+ *     MiDecommitPages @ 0x140360150 (MiDecommitPages.c)
+ *     MiDeleteVaTail @ 0x140361270 (MiDeleteVaTail.c)
+ *     MiDeleteNonPagedPoolTail @ 0x140362D10 (MiDeleteNonPagedPoolTail.c)
+ *     MiDeleteSystemPageTableTail @ 0x1403630D0 (MiDeleteSystemPageTableTail.c)
+ *     MiCreateSystemPageTableTail @ 0x140363190 (MiCreateSystemPageTableTail.c)
+ *     MiSetReadOnlyOnSectionView @ 0x14036BB54 (MiSetReadOnlyOnSectionView.c)
+ *     MiSetSystemCodeProtection @ 0x14038B984 (MiSetSystemCodeProtection.c)
+ *     MmSetAddressRangeModifiedEx @ 0x14039A698 (MmSetAddressRangeModifiedEx.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x140442198 (MiDeprioritizeVirtualAddresses.c)
+ *     MiDecommitPagesTail @ 0x14044B7AC (MiDecommitPagesTail.c)
+ *     MiFlushDirtyBitsToPfn @ 0x14045C544 (MiFlushDirtyBitsToPfn.c)
+ *     MiSectionProtectTrimValidPtes @ 0x1404AE9B8 (MiSectionProtectTrimValidPtes.c)
+ *     MiConvertAndFlushWsleVas @ 0x1404B2C40 (MiConvertAndFlushWsleVas.c)
+ *     MiProtectPagedPool @ 0x1404B84A4 (MiProtectPagedPool.c)
+ *     MiEmptyWorkingSetTail @ 0x1404BB470 (MiEmptyWorkingSetTail.c)
+ *     MiRevokeExecuteTail @ 0x1404C4970 (MiRevokeExecuteTail.c)
+ *     MiAdjustSecureDriverStateForIatCapture @ 0x1404DDD28 (MiAdjustSecureDriverStateForIatCapture.c)
+ *     MiClearPteAccessedBitRange @ 0x1404E8234 (MiClearPteAccessedBitRange.c)
+ *     MiSetPageProtection @ 0x1404EB458 (MiSetPageProtection.c)
+ *     MiUnmapKernelScp @ 0x1404F6C64 (MiUnmapKernelScp.c)
+ *     MiClearDriverTablePtes @ 0x140505FE8 (MiClearDriverTablePtes.c)
+ *     MiUnmapMdlCommon @ 0x14051D098 (MiUnmapMdlCommon.c)
+ *     MiFinishPteChangesInPageTable @ 0x140527D9C (MiFinishPteChangesInPageTable.c)
+ *     MiDecommitRemoveEnclaveReleaseLocks @ 0x14052E654 (MiDecommitRemoveEnclaveReleaseLocks.c)
+ *     MiPageBootRegistry @ 0x1406E3A98 (MiPageBootRegistry.c)
+ *     MiDiscardPte @ 0x1406EEED0 (MiDiscardPte.c)
+ *     MiDiscardVirtualMemoryTail @ 0x1406EF340 (MiDiscardVirtualMemoryTail.c)
+ *     MiClearSystemAccessBits @ 0x1406F2490 (MiClearSystemAccessBits.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x1406F259C (MiDemoteValidLargePageOneLevel.c)
+ *     MiTrimPoisonedPage @ 0x1406FFBBC (MiTrimPoisonedPage.c)
+ *     MiFlushEnclaveTb @ 0x1406FFFB4 (MiFlushEnclaveTb.c)
+ *     MiBuildPhysicalPageFreeChain @ 0x140700C48 (MiBuildPhysicalPageFreeChain.c)
+ *     MiProtectAweUnlock @ 0x140702224 (MiProtectAweUnlock.c)
+ *     MiZeroAndFlushAweLazyPtes @ 0x140702FEC (MiZeroAndFlushAweLazyPtes.c)
+ *     MiShareValidPage @ 0x140704A2C (MiShareValidPage.c)
+ *     MiScrubLargeMappedPage @ 0x14070C03C (MiScrubLargeMappedPage.c)
+ *     MiProtectLargeKernelHalRange @ 0x1408644C0 (MiProtectLargeKernelHalRange.c)
+ *     MiMarkBootKernelStack @ 0x140CFC7FC (MiMarkBootKernelStack.c)
+ *     MiFreeBootDriverPages @ 0x140D0AE50 (MiFreeBootDriverPages.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 *MiReleaseProcessorFlushList()
+{
+  __int64 *result; // rax
+
+  result = (__int64 *)KeGetCurrentPrcb()->MmInternal;
+  if ( !result )
+    result = MxTempPrcb;
+  result[2575 * (unsigned int)--*((_DWORD *)result + 85) + 3070] = 0LL;
+  return result;
+}

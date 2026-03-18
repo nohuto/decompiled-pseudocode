@@ -1,0 +1,23 @@
+/*
+ * XREFs of ZwQueryEaFile @ 0x14041D720
+ * Callers:
+ *     DifZwQueryEaFileWrapper @ 0x1405F4110 (DifZwQueryEaFileWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall ZwQueryEaFile(
+        HANDLE FileHandle,
+        PIO_STATUS_BLOCK IoStatusBlock,
+        PVOID Buffer,
+        ULONG Length,
+        BOOLEAN ReturnSingleEntry,
+        PVOID EaList,
+        ULONG EaListLength,
+        PULONG EaIndex,
+        BOOLEAN RestartScan)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(FileHandle, IoStatusBlock);
+}

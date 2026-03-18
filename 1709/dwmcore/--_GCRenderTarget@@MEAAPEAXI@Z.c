@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GCRenderTarget@@MEAAPEAXI@Z @ 0x18013A190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Free@ProcessHeapImpl@WPF@@SAXPEAX@Z @ 0x1800466F8 (-Free@ProcessHeapImpl@WPF@@SAXPEAX@Z.c)
+ *     ??1CRenderTarget@@MEAA@XZ @ 0x180079294 (--1CRenderTarget@@MEAA@XZ.c)
+ */
+
+CRenderTarget *__fastcall CRenderTarget::`scalar deleting destructor'(CRenderTarget *this, char a2)
+{
+  CRenderTarget::~CRenderTarget(this);
+  if ( (a2 & 1) != 0 )
+    WPF::ProcessHeapImpl::Free(this);
+  return this;
+}

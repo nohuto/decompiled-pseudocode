@@ -1,0 +1,19 @@
+/*
+ * XREFs of ViIrqlKeLeaveCriticalRegion_Entry @ 0x140AE8580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACD2B4 (VerifierBugCheckIfAppropriate.c)
+ *     ViIrqlLogCRStackTrace @ 0x140AE85C4 (ViIrqlLogCRStackTrace.c)
+ */
+
+struct _KTHREAD *ViIrqlKeLeaveCriticalRegion_Entry()
+{
+  struct _KTHREAD *result; // rax
+
+  ViIrqlLogCRStackTrace();
+  result = KeGetCurrentThread();
+  if ( result->KernelApcDisable > 0 )
+    return (struct _KTHREAD *)VerifierBugCheckIfAppropriate(0xC4u, 0x3EuLL, 0LL, 0LL, 0LL);
+  return result;
+}

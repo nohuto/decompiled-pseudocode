@@ -1,0 +1,77 @@
+/*
+ * XREFs of WheapInitializeErrorSourceTable @ 0x140CE8128
+ * Callers:
+ *     WheaInitialize @ 0x140CE7AB8 (WheaInitialize.c)
+ * Callees:
+ *     WheapAddErrorSource @ 0x1406D4BB8 (WheapAddErrorSource.c)
+ *     WheapInitializeErrorSource @ 0x140847684 (WheapInitializeErrorSource.c)
+ *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall WheapInitializeErrorSourceTable(unsigned int a1, unsigned int *a2)
+{
+  unsigned int i; // esi
+  ULONG_PTR Pool2; // rax
+  __int64 v6; // rbx
+  ULONG_PTR v7; // rcx
+  unsigned int *v8; // rdx
+  __int64 v9; // rax
+  __int128 v10; // xmm0
+  void **p_StackBase; // rcx
+  int v12; // ebp
+
+  for ( i = 0; i < a1; ++i )
+  {
+    if ( a2[2] <= 0x12 )
+    {
+      Pool2 = ExAllocatePool2(64LL, 0x430uLL, 0x61656857u);
+      v6 = Pool2;
+      if ( !Pool2 )
+        return 3221225626LL;
+      v7 = Pool2 + 96;
+      v8 = a2;
+      v9 = 7LL;
+      do
+      {
+        v10 = *(_OWORD *)v8;
+        v8 += 32;
+        *(_OWORD *)v7 = v10;
+        v7 += 128LL;
+        *(_OWORD *)(v7 - 112) = *((_OWORD *)v8 - 7);
+        *(_OWORD *)(v7 - 96) = *((_OWORD *)v8 - 6);
+        *(_OWORD *)(v7 - 80) = *((_OWORD *)v8 - 5);
+        *(_OWORD *)(v7 - 64) = *((_OWORD *)v8 - 4);
+        *(_OWORD *)(v7 - 48) = *((_OWORD *)v8 - 3);
+        *(_OWORD *)(v7 - 32) = *((_OWORD *)v8 - 2);
+        *(_OWORD *)(v7 - 16) = *((_OWORD *)v8 - 1);
+        --v9;
+      }
+      while ( v9 );
+      *(_OWORD *)v7 = *(_OWORD *)v8;
+      *(_OWORD *)(v7 + 16) = *((_OWORD *)v8 + 1);
+      *(_OWORD *)(v7 + 32) = *((_OWORD *)v8 + 2);
+      *(_OWORD *)(v7 + 48) = *((_OWORD *)v8 + 3);
+      *(_QWORD *)(v7 + 64) = *((_QWORD *)v8 + 8);
+      *(_DWORD *)(v7 + 72) = v8[18];
+      p_StackBase = &WheapInUsePageOfflineNotifyLock.StackBase;
+      if ( *((_BYTE *)&WheapInUsePageOfflineNotifyLock.StackBase + 64 * (__int64)(int)a2[2]) )
+      {
+        v12 = WheapInitializeErrorSource(v6);
+        if ( v12 < 0 )
+        {
+          ExFreePoolWithTag((PVOID)v6, 0x61656857u);
+          return (unsigned int)v12;
+        }
+      }
+      else
+      {
+        *(_DWORD *)(v6 + 40) = a2[2];
+        *(_BYTE *)(v6 + 88) = 1;
+      }
+      WheapAddErrorSource((__int64)p_StackBase, v6);
+      a2 = (unsigned int *)((char *)a2 + *a2);
+    }
+  }
+  return 0LL;
+}

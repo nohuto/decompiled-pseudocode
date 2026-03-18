@@ -1,0 +1,49 @@
+/*
+ * XREFs of MiRemoveNonIdealCachedStacks @ 0x1406800B0
+ * Callers:
+ *     MiAdjustCachedStackList @ 0x1402698A4 (MiAdjustCachedStackList.c)
+ * Callees:
+ *     MiDeleteCachedKernelShadowStack @ 0x140269224 (MiDeleteCachedKernelShadowStack.c)
+ *     MiKernelShadowStackIdealForCaching @ 0x140477930 (MiKernelShadowStackIdealForCaching.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1406B38D0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ */
+
+PSLIST_ENTRY __fastcall MiRemoveNonIdealCachedStacks(union _SLIST_HEADER *a1)
+{
+  PSLIST_ENTRY result; // rax
+  struct _SLIST_ENTRY *i; // rdi
+  struct _SLIST_ENTRY *v4; // rbx
+  struct _SLIST_ENTRY *v5; // rbp
+  union _SLIST_HEADER *v6; // rcx
+  unsigned __int64 Next; // rdx
+  __int64 v8; // rbx
+  int v9; // [rsp+40h] [rbp+8h] BYREF
+  __int64 v10; // [rsp+48h] [rbp+10h] BYREF
+
+  v10 = 0LL;
+  v9 = 0;
+  result = RtlpInterlockedFlushSList(a1);
+  for ( i = result; i; result = RtlpInterlockedPushEntrySList(v6, v5) )
+  {
+    v4 = i;
+    v5 = i;
+    i = i->Next;
+    if ( (unsigned int)MiKernelShadowStackIdealForCaching(
+                         (_QWORD *)((((unsigned __int64)v4[1].Next >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL),
+                         (((unsigned __int64)v4[1].Next >> 9) & 0x7FFFFFFFF8LL) - 0x97FFFFFFFF8LL,
+                         &v10,
+                         &v9) )
+    {
+      Next = (unsigned __int64)v4[1].Next;
+      v8 = v10;
+      MiDeleteCachedKernelShadowStack(v10, Next);
+      v6 = (union _SLIST_HEADER *)(v8 + 448);
+    }
+    else
+    {
+      v6 = a1;
+    }
+  }
+  return result;
+}

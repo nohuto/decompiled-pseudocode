@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?IsUsagePowerRelated@FxPkgPnp@@IEAAEW4_WDF_SPECIAL_FILE_TYPE@@@Z @ 0x1400A6C8C
+ * Callers:
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1400778E8 (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ *     ?SetUsageNotificationFlags@FxPkgPnp@@IEAAKW4_DEVICE_USAGE_NOTIFICATION_TYPE@@E@Z @ 0x14007830C (-SetUsageNotificationFlags@FxPkgPnp@@IEAAKW4_DEVICE_USAGE_NOTIFICATION_TYPE@@E@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall FxPkgPnp::IsUsagePowerRelated(FxPkgPnp *this, _WDF_SPECIAL_FILE_TYPE Type)
+{
+  int v2; // edx
+
+  v2 = Type - 1;
+  return !v2 || (unsigned int)(v2 - 1) < 2;
+}

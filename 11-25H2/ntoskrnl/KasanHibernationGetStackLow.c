@@ -1,0 +1,33 @@
+/*
+ * XREFs of KasanHibernationGetStackLow @ 0x1405A62A0
+ * Callers:
+ *     HalpSaveProcessorState @ 0x14069AC60 (HalpSaveProcessorState.c)
+ *     HalpSetupRealModeResume @ 0x14069ACF0 (HalpSetupRealModeResume.c)
+ *     PopSaveHiberContextWrapper @ 0x1406A83B0 (PopSaveHiberContextWrapper.c)
+ * Callees:
+ *     KeQueryCurrentStackInformationEx @ 0x1402571F0 (KeQueryCurrentStackInformationEx.c)
+ *     KeBugCheckEx @ 0x1404F9280 (KeBugCheckEx.c)
+ *     KeGetCurrentStackPointer @ 0x14069F0C0 (KeGetCurrentStackPointer.c)
+ */
+
+char *__fastcall KasanHibernationGetStackLow(__int64 a1, __int64 a2)
+{
+  unsigned __int64 CurrentStackPointer; // rax
+  bool v4; // al
+  int v5; // [rsp+40h] [rbp+8h] BYREF
+  char *v6; // [rsp+48h] [rbp+10h] BYREF
+  unsigned __int64 v7; // [rsp+50h] [rbp+18h] BYREF
+
+  v5 = 0;
+  v6 = 0LL;
+  v7 = 0LL;
+  if ( !byte_140FCDC68 )
+    return 0LL;
+  CurrentStackPointer = KeGetCurrentStackPointer(a1, a2);
+  v4 = KeQueryCurrentStackInformationEx(CurrentStackPointer, &v5, &v6, &v7);
+  if ( !v4 )
+    KeBugCheckEx(0x1F1u, 4uLL, 4uLL, 0LL, 0LL);
+  if ( !v5 || v5 == 5 || v5 == 7 || (unsigned int)(v5 - 8) < 2 )
+    KeBugCheckEx(0x1F1u, 4uLL, 4uLL, v4, v5);
+  return v6;
+}

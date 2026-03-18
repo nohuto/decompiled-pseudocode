@@ -1,0 +1,77 @@
+/*
+ * XREFs of ?Serialize@DMMVIDPNTARGETMODESET@@QEBAJQEAV?$AutoBuffer@U_DMM_VIDPNTARGETMODESET_SERIALIZATION@@@DMM@@@Z @ 0x140267B28
+ * Callers:
+ *     ?SerializeCofuncPathsModalityFromPinnedSource@DMMVIDPNTOPOLOGY@@QEBAJIQEAV?$AutoBuffer@U_DMM_COFUNCPATHSMODALITY_SERIALIZATION@@@DMM@@@Z @ 0x140265170 (-SerializeCofuncPathsModalityFromPinnedSource@DMMVIDPNTOPOLOGY@@QEBAJIQEAV-$AutoBuffer@U_DMM_COF.c)
+ * Callees:
+ *     ?Initialize@?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z @ 0x14000714C (-Initialize@-$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_P.c)
+ *     ?GetNextMode@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@QEBV2@@Z @ 0x14004B370 (-GetNextMode@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@QEBV2@@Z.c)
+ */
+
+__int64 __fastcall DMMVIDPNTARGETMODESET::Serialize(DMMVIDPNTARGETMODESET *this, _QWORD *a2)
+{
+  __int64 result; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rbp
+  int v7; // eax
+  unsigned int v8; // esi
+  const struct DMMVIDPNTARGETMODE *NextMode; // r9
+  unsigned __int8 v10; // si
+  DMMVIDPNTARGETMODESET *v11; // rcx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+
+  if ( a2 )
+  {
+    if ( a2[4] )
+    {
+      WdLogSingleEntry0(1LL);
+      WdLogGlobalForLineNumber = 467;
+    }
+    v5 = 1LL;
+    if ( *((_QWORD *)this + 8) > 1uLL )
+      v5 = *((_QWORD *)this + 8);
+    v6 = 88 * v5;
+    v7 = DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::Initialize(a2, 88 * v5);
+    v8 = v7;
+    if ( v7 >= 0 )
+    {
+      NextMode = 0LL;
+      v10 = 0;
+      *(_BYTE *)a2[4] = *((_BYTE *)this + 64);
+      v11 = (DMMVIDPNTARGETMODESET *)*((_QWORD *)this + 6);
+      if ( v11 != (DMMVIDPNTARGETMODESET *)((char *)this + 48) )
+        NextMode = (DMMVIDPNTARGETMODESET *)((char *)v11 - 8);
+      for ( ; NextMode; NextMode = DMMVIDPNTARGETMODESET::GetNextMode(this, NextMode) )
+      {
+        v12 = a2[4];
+        v13 = 10LL * v10;
+        *(_DWORD *)(v12 + 8 * v13 + 8) = *((_DWORD *)NextMode + 6);
+        *(_OWORD *)(v12 + 8 * v13 + 16) = *(_OWORD *)((char *)NextMode + 72);
+        *(_OWORD *)(v12 + 8 * v13 + 32) = *(_OWORD *)((char *)NextMode + 88);
+        *(_OWORD *)(v12 + 8 * v13 + 48) = *(_OWORD *)((char *)NextMode + 104);
+        *(_QWORD *)(v12 + 8 * v13 + 64) = *((_QWORD *)NextMode + 15);
+        *(_DWORD *)(v12 + 8 * v13 + 72) = *((_DWORD *)NextMode + 32);
+        ++v10;
+      }
+      if ( v10 != *(_BYTE *)a2[4] )
+      {
+        WdLogSingleEntry0(1LL);
+        WdLogGlobalForLineNumber = 505;
+      }
+      return 0LL;
+    }
+    else
+    {
+      WdLogSingleEntry3(2LL, v6, this, v7);
+      result = v8;
+      WdLogGlobalForLineNumber = 485;
+    }
+  }
+  else
+  {
+    WdLogSingleEntry1(2LL);
+    result = 3221225485LL;
+    WdLogGlobalForLineNumber = 461;
+  }
+  return result;
+}

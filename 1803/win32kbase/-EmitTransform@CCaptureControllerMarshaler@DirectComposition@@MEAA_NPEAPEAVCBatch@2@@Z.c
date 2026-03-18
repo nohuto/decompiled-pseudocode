@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?EmitTransform@CCaptureControllerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01596B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0019744 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
+char __fastcall DirectComposition::CCaptureControllerMarshaler::EmitTransform(
+        DirectComposition::CCaptureControllerMarshaler *this,
+        struct DirectComposition::CBatch ***a2)
+{
+  char *v3; // rcx
+  int v4; // eax
+  __int64 v5; // rax
+  void *v7; // [rsp+30h] [rbp+8h] BYREF
+
+  if ( (*((_DWORD *)this + 4) & 0x100) == 0 )
+    return 1;
+  if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v7) )
+  {
+    v3 = (char *)v7;
+    *(_DWORD *)v7 = 16;
+    *(_QWORD *)(v3 + 4) = 0LL;
+    *((_DWORD *)v3 + 3) = 0;
+    *((_DWORD *)v3 + 1) = 42;
+    v4 = *((_DWORD *)this + 6);
+    *((_DWORD *)v3 + 3) = 0;
+    *((_DWORD *)v3 + 2) = v4;
+    v5 = *((_QWORD *)this + 8);
+    if ( v5 )
+      *((_DWORD *)v3 + 3) = *(_DWORD *)(v5 + 24);
+    *((_DWORD *)this + 4) &= ~0x100u;
+    return 1;
+  }
+  return 0;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??_G?$CLinearHandleTable@IVCResourceMarshaler@DirectComposition@@$0HEHCEDEE@@DirectComposition@@UEAAPEAXI@Z @ 0x1C00D4E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CDCompDynamicArrayBase@DirectComposition@@MEAA@XZ @ 0x1C0028E14 (--1CDCompDynamicArrayBase@DirectComposition@@MEAA@XZ.c)
+ *     Win32FreePool @ 0x1C0033BB0 (Win32FreePool.c)
+ */
+
+DirectComposition::CDCompDynamicArrayBase *__fastcall DirectComposition::CLinearHandleTable<unsigned int,DirectComposition::CResourceMarshaler,1953645380>::`scalar deleting destructor'(
+        DirectComposition::CDCompDynamicArrayBase *a1,
+        char a2)
+{
+  *(_QWORD *)a1 = &DirectComposition::CDCompDynamicArray<unsigned __int64>::`vftable';
+  DirectComposition::CDCompDynamicArrayBase::~CDCompDynamicArrayBase(a1);
+  if ( (a2 & 1) != 0 )
+    Win32FreePool();
+  return a1;
+}

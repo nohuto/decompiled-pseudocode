@@ -1,0 +1,69 @@
+/*
+ * XREFs of PfSnNameRemove @ 0x14001292C
+ * Callers:
+ *     PfSnNameRemoveAll @ 0x140456814 (PfSnNameRemoveAll.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14001BD60 (ExAcquireSpinLockExclusive.c)
+ *     RtlRbRemoveNode @ 0x14005EF60 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140066560 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExFreePoolWithTag @ 0x1402B2440 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
+{
+  volatile LONG *v2; // rbp
+  unsigned int v5; // edi
+  KIRQL v6; // r14
+  unsigned __int64 v7; // rbx
+  unsigned __int64 v8; // rax
+  unsigned __int64 v9; // rax
+  _QWORD *v11; // rcx
+  unsigned __int64 v12; // rdx
+
+  v2 = (volatile LONG *)(a1 + 576);
+  v5 = 0;
+  v6 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 576));
+  v7 = *(_QWORD *)(a1 + 520);
+  while ( 1 )
+  {
+    if ( !v7 )
+    {
+      ExReleaseSpinLockExclusiveFromDpcLevel(v2);
+      __writecr8(v6);
+      return v5;
+    }
+    v8 = *(_QWORD *)(v7 + 24);
+    if ( v8 <= a2 )
+      break;
+    v9 = *(_QWORD *)v7;
+LABEL_6:
+    if ( (*(_BYTE *)(a1 + 528) & 1) != 0 && v9 )
+      v7 ^= v9;
+    else
+      v7 = v9;
+  }
+  if ( v8 < a2 )
+  {
+    v9 = *(_QWORD *)(v7 + 8);
+    goto LABEL_6;
+  }
+  RtlRbRemoveNode(a1 + 520, v7);
+  ExReleaseSpinLockExclusiveFromDpcLevel(v2);
+  __writecr8(v6);
+  v11 = (_QWORD *)(a1 + 488);
+  v12 = 0LL;
+  if ( (a1 + 520 >= (unsigned __int64)(a1 + 488) ? 4 : 0) != 0 )
+  {
+    do
+    {
+      if ( *v11 == a2 )
+        *v11 = 0LL;
+      ++v11;
+      ++v12;
+    }
+    while ( v12 < (a1 + 520 >= (unsigned __int64)(a1 + 488) ? 4 : 0) );
+  }
+  v5 = 1;
+  ExFreePoolWithTag((PVOID)v7, 0);
+  return v5;
+}

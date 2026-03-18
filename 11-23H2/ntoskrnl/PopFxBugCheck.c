@@ -1,0 +1,70 @@
+/*
+ * XREFs of PopFxBugCheck @ 0x140588BE0
+ * Callers:
+ *     PoFxActivateComponent @ 0x140287290 (PoFxActivateComponent.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x14028D050 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140310AE0 (PopFxCompleteDevicePowerRequired.c)
+ *     PopFxDispatchPluginWorkOnce @ 0x140311B84 (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxDisableWorkOrderWatchdog @ 0x140311DC8 (PopFxDisableWorkOrderWatchdog.c)
+ *     PopFxAddRefDevice @ 0x1403124A4 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x140312634 (PopFxProcessWork.c)
+ *     PopFxIdleComponent @ 0x140312FC0 (PopFxIdleComponent.c)
+ *     PopPluginDevicePower @ 0x140313270 (PopPluginDevicePower.c)
+ *     PopPluginComponentActive @ 0x14031378C (PopPluginComponentActive.c)
+ *     PopPepCompleteActivity @ 0x140314020 (PopPepCompleteActivity.c)
+ *     PopPepTriggerActivity @ 0x1403140FC (PopPepTriggerActivity.c)
+ *     PopPluginNotifyActive @ 0x140314894 (PopPluginNotifyActive.c)
+ *     PopPluginPrepareDevice @ 0x1403219A0 (PopPluginPrepareDevice.c)
+ *     PopFxActivateDevice @ 0x140322C60 (PopFxActivateDevice.c)
+ *     PoFxCompleteIdleCondition @ 0x140357300 (PoFxCompleteIdleCondition.c)
+ *     PopPluginComponentIdleState @ 0x14035C460 (PopPluginComponentIdleState.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x14035DFAC (PopPepUpdateIdleStateRefCount.c)
+ *     PopFxIdleTimeoutDpcRoutine @ 0x14036BF90 (PopFxIdleTimeoutDpcRoutine.c)
+ *     PoFxCompleteDevicePowerNotRequired @ 0x14036E7A0 (PoFxCompleteDevicePowerNotRequired.c)
+ *     PopPluginRegisterDevice @ 0x140397750 (PopPluginRegisterDevice.c)
+ *     PoFxRegisterDripsWatchdogCallback @ 0x1403B42F0 (PoFxRegisterDripsWatchdogCallback.c)
+ *     PoFxIssueComponentPerfStateChangeMultiple @ 0x140587F00 (PoFxIssueComponentPerfStateChangeMultiple.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x14058969C (PopFxCompleteDirectedPowerTransition.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x140589B78 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x14058ABB8 (PopFxIssueComponentPerfStateChanges.c)
+ *     PopFxIssueDirectedPowerTransition @ 0x14058ADF4 (PopFxIssueDirectedPowerTransition.c)
+ *     PopFxTransitionCriticalResource @ 0x14058C050 (PopFxTransitionCriticalResource.c)
+ *     PopFxWorkOrderWatchdog @ 0x14058C620 (PopFxWorkOrderWatchdog.c)
+ *     PopPluginAbandonDevice @ 0x14058C648 (PopPluginAbandonDevice.c)
+ *     PopPluginQueryComponentPerfSet @ 0x14058C6EC (PopPluginQueryComponentPerfSet.c)
+ *     PopPluginQueryComponentPerfSetName @ 0x14058C798 (PopPluginQueryComponentPerfSetName.c)
+ *     PopPluginQueryComponentPerfStates @ 0x14058C824 (PopPluginQueryComponentPerfStates.c)
+ *     PopPluginQueryCurrentComponentPerfState @ 0x14058C87C (PopPluginQueryCurrentComponentPerfState.c)
+ *     PopPluginRequestComponentPerfState @ 0x14058C9E8 (PopPluginRequestComponentPerfState.c)
+ *     PopPluginUnregisterDevice @ 0x14058CB7C (PopPluginUnregisterDevice.c)
+ *     PopTranslateDependencyArray @ 0x14058CF7C (PopTranslateDependencyArray.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x140599B40 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ *     PopPepInitializeDebuggerMasks @ 0x14059F1C0 (PopPepInitializeDebuggerMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x14059F2C4 (PopPepInitializeVetoMasks.c)
+ *     PopFxAcpiForwardPepAcpiNotifyRequest @ 0x1405A0C4C (PopFxAcpiForwardPepAcpiNotifyRequest.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x1405A0CE8 (PopFxAcpiForwardPepWorkRequest.c)
+ *     PopPluginAcpiNotificationStrict @ 0x1405A2C2C (PopPluginAcpiNotificationStrict.c)
+ *     PopFxRegisterDevice @ 0x14083651C (PopFxRegisterDevice.c)
+ *     PopFxRegisterDeviceWorker @ 0x1408366AC (PopFxRegisterDeviceWorker.c)
+ *     PoFxRegisterComponentPerfStates @ 0x140984810 (PoFxRegisterComponentPerfStates.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140984C30 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopFxLogSocSubsystemMetadata @ 0x1409851EC (PopFxLogSocSubsystemMetadata.c)
+ *     PopFxPepPerfInfoQuery @ 0x140985744 (PopFxPepPerfInfoQuery.c)
+ *     PopFxResetSocSubsystemAccounting @ 0x140985D5C (PopFxResetSocSubsystemAccounting.c)
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x140986348 (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x140986478 (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     PopPluginQuerySocSubsystemCount @ 0x140986554 (PopPluginQuerySocSubsystemCount.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1409865B4 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PopDripsWatchdogTakeAction @ 0x1409A11AC (PopDripsWatchdogTakeAction.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ */
+
+void __fastcall __noreturn PopFxBugCheck(
+        ULONG_PTR BugCheckParameter1,
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter3,
+        ULONG_PTR BugCheckParameter4)
+{
+  KeBugCheckEx(0xA0u, BugCheckParameter1, BugCheckParameter2, BugCheckParameter3, BugCheckParameter4);
+}

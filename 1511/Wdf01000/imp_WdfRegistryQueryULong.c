@@ -1,0 +1,67 @@
+/*
+ * XREFs of imp_WdfRegistryQueryULong @ 0x1C0001C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0001D70 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C0001DFC (-FxValidateUnicodeString@@YAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0001E40 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_qd @ 0x1C000BAC0 (WPP_IFR_SF_qd.c)
+ *     __security_check_cookie @ 0x1C0035B00 (__security_check_cookie.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C006E01C (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
+NTSTATUS __fastcall imp_WdfRegistryQueryULong(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFKEY__ *Key,
+        _UNICODE_STRING *ValueName,
+        unsigned int *Value)
+{
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  NTSTATUS result; // eax
+  NTSTATUS _a2; // ebx
+  unsigned int ResultLength; // [rsp+40h] [rbp-58h] BYREF
+  FxRegKey *pKey; // [rsp+48h] [rbp-50h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+50h] [rbp-48h] BYREF
+  int v13; // [rsp+54h] [rbp-44h]
+  unsigned int v14; // [rsp+5Ch] [rbp-3Ch]
+  void *retaddr; // [rsp+98h] [rbp+0h]
+
+  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8].DriverName[16], Key, 0x1006u, (void **)&pKey);
+  m_Globals = pKey->FxPagedObject::FxObject::m_Globals;
+  if ( !ValueName )
+    FxVerifierNullBugCheck(m_Globals, retaddr);
+  if ( !Value )
+    FxVerifierNullBugCheck(m_Globals, retaddr);
+  result = FxVerifierCheckIrqlLevel(m_Globals, 0);
+  if ( result >= 0 )
+  {
+    result = FxValidateUnicodeString(m_Globals, ValueName);
+    if ( result >= 0 )
+    {
+      ResultLength = 16;
+      _a2 = ZwQueryValueKey(
+              pKey->m_Key,
+              ValueName,
+              KeyValuePartialInformation,
+              KeyValueInformation,
+              0x10u,
+              &ResultLength);
+      if ( ((int)(_a2 + 0x80000000) < 0 || _a2 == -2147483643) && v13 != 4 )
+        _a2 = -1073741788;
+      if ( _a2 < 0 )
+        WPP_IFR_SF_qd(
+          m_Globals,
+          2u,
+          2u,
+          0x1Bu,
+          (const _GUID *)&FxObject::`vftable'.WdfVerifierAllocateFailCount,
+          Key,
+          _a2);
+      else
+        *Value = v14;
+      return _a2;
+    }
+  }
+  return result;
+}

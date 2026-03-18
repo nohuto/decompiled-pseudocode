@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?DelayLoadWin32k@DXGGLOBAL@@QEAAJPEAX@Z @ 0x1400270A4
+ * Callers:
+ *     DxgkInternalDeviceIoctl @ 0x1403AECB0 (DxgkInternalDeviceIoctl.c)
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1400196D0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x14001AFC0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140028800 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?CreateWin32kImportTable@@YAJPEAXPEAPEAVDXGKW32KIMPORTS@@@Z @ 0x140091CBC (-CreateWin32kImportTable@@YAJPEAXPEAPEAVDXGKW32KIMPORTS@@@Z.c)
+ */
+
+__int64 __fastcall DXGGLOBAL::DelayLoadWin32k(struct DXGKW32KIMPORTS **this, void *a2)
+{
+  unsigned int Win32kImportTable; // edi
+  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  Win32kImportTable = 0;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v6, (struct DXGFASTMUTEX *const)(this + 38110), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6);
+  if ( !this[38109] )
+    Win32kImportTable = CreateWin32kImportTable(a2, this + 38109);
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v6);
+  return Win32kImportTable;
+}

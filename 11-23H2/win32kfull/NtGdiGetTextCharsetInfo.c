@@ -1,0 +1,39 @@
+/*
+ * XREFs of NtGdiGetTextCharsetInfo @ 0x1C00D1720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GrepGetTextCharsetInfo@@YAHPEAUHDC__@@PEAUtagFONTSIGNATURE@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C00D17F4 (-GrepGetTextCharsetInfo@@YAHPEAUHDC__@@PEAUtagFONTSIGNATURE@@KW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F9818 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FB710 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     __security_check_cookie @ 0x1C01381F0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall NtGdiGetTextCharsetInfo(__int64 a1, ULONG64 a2)
+{
+  __int64 v4; // rax
+  __int64 v5; // r8
+  unsigned int TextCharsetInfo; // ebx
+  _BYTE v8[48]; // [rsp+20h] [rbp-58h] BYREF
+  __int128 v9; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+60h] [rbp-18h]
+
+  v9 = 0LL;
+  v10 = 0LL;
+  v4 = SGDGetSessionState(a1);
+  EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v8, *(struct Gre::Full::SESSION_GLOBALS **)(v4 + 32));
+  TextCharsetInfo = GrepGetTextCharsetInfo(
+                      a1,
+                      (unsigned __int64)&v9 & ((unsigned __int128)-(__int128)a2 >> 64),
+                      v5,
+                      14LL);
+  if ( TextCharsetInfo != -1 && a2 )
+  {
+    if ( a2 >= MmUserProbeAddress )
+      a2 = MmUserProbeAddress;
+    *(_OWORD *)a2 = v9;
+    *(_QWORD *)(a2 + 16) = v10;
+  }
+  EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v8);
+  return TextCharsetInfo;
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?vCleanupLCSPs@@YAXK@Z @ 0x1400153DC
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x140015750 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ * Callees:
+ *     HmgNextOwned @ 0x14001F530 (HmgNextOwned.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1401CEAD8 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ */
+
+void __fastcall vCleanupLCSPs(unsigned int a1)
+{
+  __int64 v2; // rdx
+  __int64 i; // rcx
+  unsigned int v4; // ebx
+  __int64 v5; // [rsp+38h] [rbp+10h] BYREF
+
+  v5 = 0LL;
+  v2 = a1;
+  for ( i = 0LL; ; i = v4 )
+  {
+    v4 = HmgNextOwned(i, v2, &v5);
+    if ( !v4 )
+      break;
+    if ( (BYTE2(v5) & 0x1F) == 9 )
+      bDeleteColorSpace(v5, 0LL);
+    v2 = a1;
+  }
+}

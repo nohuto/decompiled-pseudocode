@@ -1,0 +1,45 @@
+/*
+ * XREFs of KiUpdateTimer2Flags @ 0x1403AA610
+ * Callers:
+ *     KiTimer2Expiration @ 0x140336A40 (KiTimer2Expiration.c)
+ *     KiExpireTimer2 @ 0x140336F08 (KiExpireTimer2.c)
+ *     KiTraceSetTimer2 @ 0x1403A9A14 (KiTraceSetTimer2.c)
+ *     KeDisableTimer2 @ 0x1403AA104 (KeDisableTimer2.c)
+ *     KeCancelTimer2 @ 0x1403AA4E0 (KeCancelTimer2.c)
+ * Callees:
+ *     KiFinalizeTimer2Disablement @ 0x1403AA6A8 (KiFinalizeTimer2Disablement.c)
+ */
+
+char __fastcall KiUpdateTimer2Flags(volatile signed __int32 *a1, int a2, char a3)
+{
+  volatile signed __int32 v3; // r10d
+  unsigned int v6; // edx
+  int v7; // ebx
+  int v8; // edx
+  signed __int32 v9; // r9d
+  signed __int32 v10; // eax
+  signed __int32 v11; // ecx
+
+  v3 = *a1;
+  v6 = ((((a3 & 1) == 0) + 30) << 7) & 0xFFFFF0FF;
+  if ( (a3 & 2) == 0 )
+    v6 = (((a3 & 1) == 0) + 30) << 7;
+  v7 = a2 << 8;
+  v8 = ~v6;
+  v9 = v7 | v3 & v8;
+  v10 = _InterlockedCompareExchange(a1, v9, *a1);
+  if ( v3 != v10 )
+  {
+    do
+    {
+      v11 = v10;
+      v9 = v7 | v10 & v8;
+      v10 = _InterlockedCompareExchange(a1, v9, v10);
+    }
+    while ( v11 != v10 );
+  }
+  if ( (a3 & 4) == 0 || (v9 & 0x3F00) != 0x2000 )
+    return 0;
+  KiFinalizeTimer2Disablement(a1);
+  return 1;
+}

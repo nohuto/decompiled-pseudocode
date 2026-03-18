@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?ADAPTER_RENDER_DdiResumeContext@@YAJPEAVADAPTER_RENDER@@PEBU_DXGKARG_RESUMECONTEXT@@@Z @ 0x1C002A580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiResumeContext@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_RESUMECONTEXT@@@Z @ 0x1C02CA9A8 (-DdiResumeContext@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_RESUMECONTEXT@@@Z.c)
+ */
+
+__int64 __fastcall ADAPTER_RENDER_DdiResumeContext(struct ADAPTER_RENDER *a1, const struct _DXGKARG_RESUMECONTEXT *a2)
+{
+  return ADAPTER_RENDER::DdiResumeContext(a1, a2);
+}

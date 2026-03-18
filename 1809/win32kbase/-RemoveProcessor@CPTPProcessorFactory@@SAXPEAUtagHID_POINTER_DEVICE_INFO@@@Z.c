@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C014BB20
+ * Callers:
+ *     ?OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C0095780 (-OnRIMDeviceDestroyed@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C011DB0C (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     ??_GCPTPProcessor@@AEAAPEAXI@Z @ 0x1C014A3FC (--_GCPTPProcessor@@AEAAPEAXI@Z.c)
+ */
+
+void __fastcall CPTPProcessorFactory::RemoveProcessor(struct tagHID_POINTER_DEVICE_INFO *a1)
+{
+  CPTPProcessor *v2; // rcx
+
+  v2 = (CPTPProcessor *)*((_QWORD *)a1 + 124);
+  if ( v2 )
+  {
+    CPTPProcessor::`scalar deleting destructor'(v2);
+    *((_QWORD *)a1 + 124) = 0LL;
+  }
+}

@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?FreeResourceHandleAndWaitForZeroReferences@ADAPTER_RENDER@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1402EAA6C
+ * Callers:
+ *     ?DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1401BA2BC (-DestroyClientResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@@Z.c)
+ *     ?TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1402E9FEC (-TerminateAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@.c)
+ *     ?OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@EPEAU_EPROCESS@@PEAU_DXGSHAREDALLOCOBJECT@@PEAVDXGRESOURCEREFERENCE@@PEAEPEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVDXGAUTOMUTEX@@PEAVDXGAUTOPUSHLOCK@@@Z @ 0x140310614 (-OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@E.c)
+ *     ?DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1403A3850 (-DestroyResource@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCA.c)
+ * Callees:
+ *     ??0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z @ 0x140009220 (--0DXGHANDLETABLELOCKEXCLUSIVE@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x14000972C (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140009840 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEBD@Z @ 0x1400171A4 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEBD@Z.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1400319C0 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x140039DDC (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     ?FreeHandle@HMGRTABLE@@QEAAXI@Z @ 0x1402E98A0 (-FreeHandle@HMGRTABLE@@QEAAXI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1402EABB0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
+void __fastcall ADAPTER_RENDER::FreeResourceHandleAndWaitForZeroReferences(
+        ADAPTER_RENDER *this,
+        struct DXGRESOURCE *a2,
+        PERESOURCE **a3)
+{
+  struct DXGPROCESS *Current; // r15
+  _QWORD *v6; // r14
+  unsigned int v7; // ecx
+  __int64 v8; // rdx
+  int v9; // ecx
+  char v10; // di
+  const char *v11; // rdx
+  unsigned int v12; // ebx
+  _BYTE v13[56]; // [rsp+20h] [rbp-38h] BYREF
+
+  Current = DXGPROCESS::GetCurrent();
+  DXGHANDLETABLELOCKEXCLUSIVE::DXGHANDLETABLELOCKEXCLUSIVE((DXGHANDLETABLELOCKEXCLUSIVE *)v13, Current);
+  v6 = (_QWORD *)((char *)Current + 280);
+  v7 = (*((_DWORD *)a2 + 4) >> 6) & 0xFFFFFF;
+  if ( v7 < *((_DWORD *)Current + 74) )
+  {
+    v8 = 2LL * v7;
+    v9 = *(_DWORD *)(*v6 + 16LL * v7 + 8);
+    if ( ((*((_DWORD *)a2 + 4) >> 25) & 0x60) == (v9 & 0x60) && (v9 & 0x2000) == 0 && (v9 & 0x1F) != 0 )
+      *(_DWORD *)(*v6 + 8 * v8 + 8) = v9 | 0x2000;
+  }
+  ExReleaseRundownProtection((PEX_RUNDOWN_REF)a2 + 9);
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v13);
+  v10 = 0;
+  if ( a3 && !DXGADAPTER::IsCoreResourceExclusiveOwner(a3[3]) )
+  {
+    v10 = 1;
+    COREDEVICEACCESS::Release((COREDEVICEACCESS *)a3);
+  }
+  ExWaitForRundownProtectionRelease((PEX_RUNDOWN_REF)a2 + 9);
+  if ( v10 )
+    COREDEVICEACCESS::AcquireSharedUncheck((COREDEVICEACCESS *)a3, v11);
+  v12 = *((_DWORD *)a2 + 4);
+  DXGPUSHLOCK::AcquireExclusive((struct DXGPROCESS *)((char *)Current + 248));
+  HMGRTABLE::FreeHandle((struct DXGPROCESS *)((char *)Current + 280), v12);
+  *((_QWORD *)Current + 32) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)Current + 248, 0LL);
+  KeLeaveCriticalRegion();
+}

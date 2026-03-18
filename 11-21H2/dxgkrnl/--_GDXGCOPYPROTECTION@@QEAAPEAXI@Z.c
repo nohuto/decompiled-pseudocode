@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GDXGCOPYPROTECTION@@QEAAPEAXI@Z @ 0x1C0045684
+ * Callers:
+ *     ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C02BF554 (-CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z.c)
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02BFD18 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ * Callees:
+ *     ??1DXGCOPYPROTECTION@@QEAA@XZ @ 0x1C02E2C50 (--1DXGCOPYPROTECTION@@QEAA@XZ.c)
+ */
+
+DXGCOPYPROTECTION *__fastcall DXGCOPYPROTECTION::`scalar deleting destructor'(DXGCOPYPROTECTION *P)
+{
+  DXGCOPYPROTECTION::~DXGCOPYPROTECTION(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

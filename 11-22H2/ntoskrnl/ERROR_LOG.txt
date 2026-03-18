@@ -1,0 +1,249 @@
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AD9905E40>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AD990CEC0>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53FFE80>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF540>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC3C37E80>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF540>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC526BF40>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC318F140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AD98EBF40>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AD98EBF40>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EFE80>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AD98EBF40>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC3D37140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 
+[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
+[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x0000018AC53EF140>) 
+ 

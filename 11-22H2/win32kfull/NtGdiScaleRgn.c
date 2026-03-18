@@ -1,0 +1,12 @@
+/*
+ * XREFs of NtGdiScaleRgn @ 0x1C02C48A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreScaleRgn @ 0x1C02A8034 (GreScaleRgn.c)
+ */
+
+__int64 __fastcall NtGdiScaleRgn(HDC a1, HRGN a2)
+{
+  return GreScaleRgn(a1, a2);
+}

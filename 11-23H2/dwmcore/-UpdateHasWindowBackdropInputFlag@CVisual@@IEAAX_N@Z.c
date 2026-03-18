@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?UpdateHasWindowBackdropInputFlag@CVisual@@IEAAX_N@Z @ 0x180080DA4
+ * Callers:
+ *     ?UpdateBackdropBlurFlagForTreeEffect@CLayerVisual@@AEAAXXZ @ 0x180024BF0 (-UpdateBackdropBlurFlagForTreeEffect@CLayerVisual@@AEAAXXZ.c)
+ *     ?UpdateBackdropBlurFlag@CVisual@@AEAAXXZ @ 0x1800800D4 (-UpdateBackdropBlurFlag@CVisual@@AEAAXXZ.c)
+ * Callees:
+ *     ??0DbgString@DwmDbg@@QEAA@QEBDZZ @ 0x18004209C (--0DbgString@DwmDbg@@QEAA@QEBDZZ.c)
+ *     ?PropagateBackdropUpdates@CVisual@@AEAAXHH@Z @ 0x180081714 (-PropagateBackdropUpdates@CVisual@@AEAAXHH@Z.c)
+ *     ?LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z @ 0x180271E64 (-LogBrushEtwEvent@Backdrops@DwmDbg@@YAXVDbgString@2@PEBVCVisual@@0@Z.c)
+ */
+
+void __fastcall CVisual::UpdateHasWindowBackdropInputFlag(CVisual **this, unsigned __int8 a2)
+{
+  CVisual *v4; // rcx
+  DwmDbg::DbgString *v5; // rbx
+  DwmDbg::DbgString *v6; // rax
+  char *v7; // [rsp+30h] [rbp+8h] BYREF
+  char *v8; // [rsp+40h] [rbp+18h] BYREF
+
+  if ( a2 != (((_BYTE)this[34] & 4) != 0) )
+  {
+    if ( dword_1803E3760 )
+    {
+      v5 = DwmDbg::DbgString::DbgString(&v7, "m_fHasWindowBackdropInput=%d", a2);
+      v6 = DwmDbg::DbgString::DbgString(&v8, "Visual-HasWindowBackdropInputFlagChanged");
+      DwmDbg::Backdrops::LogBrushEtwEvent(v6, this, v5);
+    }
+    v4 = this[11];
+    if ( a2 )
+    {
+      if ( v4 )
+        CVisual::PropagateBackdropUpdates(v4, 0, 1);
+      *((_BYTE *)this + 272) |= 4u;
+    }
+    else
+    {
+      if ( v4 )
+        CVisual::PropagateBackdropUpdates(v4, 0, -1);
+      *((_BYTE *)this + 272) &= ~4u;
+    }
+  }
+}

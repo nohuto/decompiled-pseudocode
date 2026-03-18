@@ -1,0 +1,135 @@
+/*
+ * XREFs of KeIntSteerSnapPerf @ 0x14021EDD0
+ * Callers:
+ *     PpmParkSteerInterrupts @ 0x14021DC00 (PpmParkSteerInterrupts.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14021E3C0 (KxReleaseSpinLock.c)
+ *     RtlGetInterruptTimePrecise @ 0x14021F2E0 (RtlGetInterruptTimePrecise.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x1402D79F0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403EDAA4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall KeIntSteerSnapPerf(_DWORD *a1, __int64 *a2)
+{
+  __int64 InterruptTimePrecise; // rax
+  __int64 v5; // rbx
+  __int64 v6; // rsi
+  __int64 MHz; // rdi
+  __int64 result; // rax
+  __int64 v9; // r13
+  KIRQL v10; // al
+  ULONG_PTR *v11; // r11
+  KIRQL v12; // bp
+  ULONG_PTR *v13; // r10
+  ULONG_PTR v14; // rdi
+  ULONG_PTR *v15; // rbp
+  unsigned int v16; // ecx
+  ULONG_PTR v17; // rdx
+  ULONG_PTR v18; // r8
+  __int64 *v19; // rax
+  __int64 v20; // r9
+  __int64 v21; // rcx
+  __int64 v22; // rax
+  bool v23; // zf
+  ULONG_PTR v24; // rcx
+  __int64 v25; // rax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v29; // eax
+  __int64 v30; // [rsp+20h] [rbp-48h]
+  KIRQL v31; // [rsp+80h] [rbp+18h]
+  __int64 v32; // [rsp+88h] [rbp+20h] BYREF
+
+  v32 = 0LL;
+  InterruptTimePrecise = RtlGetInterruptTimePrecise(&v32);
+  v5 = InterruptTimePrecise - KiIntSteerPreviousPerfSnap;
+  v6 = InterruptTimePrecise;
+  MHz = KeGetCurrentPrcb()->MHz;
+  v30 = MHz;
+  if ( (unsigned __int64)(InterruptTimePrecise - KiIntSteerPreviousPerfSnap) >= 0x16E360 )
+  {
+    KiIntSteerPreviousPerfSnap = InterruptTimePrecise;
+    v9 = 0LL;
+    v10 = KeAcquireSpinLockRaiseToDpc(&KiIntTrackSpinlock);
+    v11 = (ULONG_PTR *)KiIntTrackRootList;
+    v31 = v10;
+    v12 = v10;
+    if ( (ULONG_PTR *)KiIntTrackRootList != &KiIntTrackRootList )
+    {
+      do
+      {
+        v13 = (ULONG_PTR *)v11[2];
+        v14 = 0LL;
+        if ( v13 != v11 + 2 )
+        {
+          do
+          {
+            v15 = (ULONG_PTR *)*v13;
+            if ( *(ULONG_PTR **)(*v13 + 8) != v13 || *(ULONG_PTR **)v13[1] != v13 )
+              __fastfail(3u);
+            v16 = *((_DWORD *)v13 + 6);
+            v17 = 0LL;
+            v18 = 0LL;
+            if ( v16 )
+            {
+              v19 = (__int64 *)v13[4];
+              v20 = v16;
+              do
+              {
+                v21 = *v19++;
+                v18 += *(_QWORD *)(v21 + 176);
+                v17 += *(_QWORD *)(v21 + 200);
+                --v20;
+              }
+              while ( v20 );
+            }
+            v22 = v18 - v13[5];
+            v23 = v18 == v13[5];
+            v13[5] = v18;
+            v24 = v22 + v14;
+            if ( v22 < 0 || v23 )
+              v24 = v14;
+            v25 = v17 - v13[6];
+            v13[6] = v17;
+            v13 = v15;
+            v14 = v24 + v25;
+            if ( v25 <= 0 )
+              v14 = v24;
+          }
+          while ( v15 != v11 + 2 );
+        }
+        v11[24] = v14;
+        v9 += v14;
+        v11 = (ULONG_PTR *)*v11;
+      }
+      while ( v11 != &KiIntTrackRootList );
+      MHz = v30;
+      v12 = v31;
+    }
+    KxReleaseSpinLock(&KiIntTrackSpinlock);
+    if ( KiIrqlFlags )
+    {
+      if ( (KiIrqlFlags & 1) != 0 )
+      {
+        CurrentIrql = KeGetCurrentIrql();
+        if ( CurrentIrql <= 0xFu && v12 <= 0xFu && CurrentIrql >= 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          SchedulerAssist = CurrentPrcb->SchedulerAssist;
+          v29 = ~(unsigned __int16)(-1LL << (v12 + 1));
+          v23 = (v29 & SchedulerAssist[5]) == 0;
+          SchedulerAssist[5] &= v29;
+          if ( v23 )
+            KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+        }
+      }
+    }
+    __writecr8(v12);
+    KiIntSteerLoadPercent = 10000 * v9 / (unsigned __int64)(v5 * MHz);
+  }
+  *a1 = KiIntSteerLoadPercent;
+  result = 0LL;
+  *a2 = v6;
+  return result;
+}

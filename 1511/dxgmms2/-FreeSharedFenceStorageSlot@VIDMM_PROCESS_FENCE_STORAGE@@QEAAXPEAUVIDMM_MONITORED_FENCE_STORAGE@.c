@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?FreeSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x1C001DD38
+ * Callers:
+ *     ?FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z @ 0x1C00102F8 (-FreeFenceStorageSlot@VIDMM_GLOBAL@@SAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N@Z.c)
+ * Callees:
+ *     ??_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z @ 0x1C001048C (--_GVIDMM_FENCE_STORAGE_PAGE@@QEAAPEAXI@Z.c)
+ */
+
+void __fastcall VIDMM_PROCESS_FENCE_STORAGE::FreeSharedFenceStorageSlot(
+        KSPIN_LOCK *this,
+        VIDMM_FENCE_STORAGE_PAGE **a2)
+{
+  VIDMM_FENCE_STORAGE_PAGE *v3; // rdi
+  VIDMM_FENCE_STORAGE_PAGE *v4; // rcx
+  VIDMM_FENCE_STORAGE_PAGE **v5; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  KeAcquireInStackQueuedSpinLock(this + 7, &LockHandle);
+  v3 = *a2;
+  *((_QWORD *)v3 + 8) = *((_QWORD *)*a2 + 8) & ~(1LL << ((unsigned __int64)*((unsigned int *)a2 + 4) >> 6));
+  v4 = *(VIDMM_FENCE_STORAGE_PAGE **)v3;
+  v5 = (VIDMM_FENCE_STORAGE_PAGE **)*((_QWORD *)v3 + 1);
+  if ( *(VIDMM_FENCE_STORAGE_PAGE **)(*(_QWORD *)v3 + 8LL) != v3 || *v5 != v3 )
+    __fastfail(3u);
+  *v5 = v4;
+  *((_QWORD *)v4 + 1) = v5;
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  VIDMM_FENCE_STORAGE_PAGE::`scalar deleting destructor'(v3);
+}

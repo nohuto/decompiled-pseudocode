@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?wil_details_RegisterFeatureStagingChangeNotification@@YAJPEA_K@Z @ 0x1C01F47F0
+ * Callers:
+ *     ?wil_InitializeFeatureStaging@@YAJXZ @ 0x1C03C7078 (-wil_InitializeFeatureStaging@@YAJXZ.c)
+ * Callees:
+ *     ?wil_details_FeatureDescriptors_SkipPadding@@YAPEBUwil_details_FeatureDescriptor@@_K@Z @ 0x1C0025ED4 (-wil_details_FeatureDescriptors_SkipPadding@@YAPEBUwil_details_FeatureDescriptor@@_K@Z.c)
+ */
+
+const struct wil_details_FeatureDescriptor *__fastcall wil_details_RegisterFeatureStagingChangeNotification(
+        unsigned __int64 *a1)
+{
+  const unsigned __int64 *i; // rcx
+  const struct wil_details_FeatureDescriptor *result; // rax
+  __int64 v3; // r8
+
+  for ( i = &wil_details_featureDescriptors_a; ; i = (const unsigned __int64 *)((char *)result + 48) )
+  {
+    result = wil_details_FeatureDescriptors_SkipPadding(i);
+    if ( !result )
+      break;
+    if ( !*((_BYTE *)result + 21) && !*((_BYTE *)result + 22) && !*((_BYTE *)result + 20) )
+    {
+      result = (const struct wil_details_FeatureDescriptor *)RtlRegisterFeatureConfigurationChangeNotification(
+                                                               wil_details_OnFeatureConfigurationChange,
+                                                               0LL,
+                                                               v3,
+                                                               &wil_details_featureChangeNotification);
+      if ( (_DWORD)result )
+        wil_details_featureChangeNotification = 0LL;
+      return result;
+    }
+  }
+  return result;
+}

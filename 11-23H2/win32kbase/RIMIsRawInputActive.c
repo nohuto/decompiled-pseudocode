@@ -1,0 +1,18 @@
+/*
+ * XREFs of RIMIsRawInputActive @ 0x1C01710C8
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C0076A78 (rimOnPnpArrived.c)
+ *     RIMDirectStartStopDeviceRead @ 0x1C0176DB0 (RIMDirectStartStopDeviceRead.c)
+ * Callees:
+ *     RIMHidTLCActive @ 0x1C01918F4 (RIMHidTLCActive.c)
+ */
+
+__int64 __fastcall RIMIsRawInputActive(__int64 a1)
+{
+  unsigned int v1; // ebx
+
+  v1 = 0;
+  if ( *(_BYTE *)(a1 + 48) == 2 && (*(_DWORD *)(a1 + 184) & 0x20000) != 0 )
+    return (unsigned int)RIMHidTLCActive(*(_QWORD *)(a1 + 464)) != 0;
+  return v1;
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of IopVerifierExAllocatePool_2 @ 0x14029AB98
+ * Callers:
+ *     NtQueryEaFile @ 0x1406CEC10 (NtQueryEaFile.c)
+ *     NtSetEaFile @ 0x140857820 (NtSetEaFile.c)
+ * Callees:
+ *     ExAllocatePoolWithTagPriority @ 0x140037BB0 (ExAllocatePoolWithTagPriority.c)
+ *     ExAllocatePoolWithTag @ 0x14036E010 (ExAllocatePoolWithTag.c)
+ */
+
+PVOID IopVerifierExAllocatePool_2()
+{
+  if ( ViVerifierDriverAddedThunkListHead )
+    return ExAllocatePoolWithTagPriority(
+             NonPagedPoolNx,
+             0x18uLL,
+             0x20206F49u,
+             (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+  else
+    return ExAllocatePoolWithTag(NonPagedPoolNx, 0x18uLL, 0x20206F49u);
+}

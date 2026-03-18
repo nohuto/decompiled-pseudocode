@@ -1,0 +1,57 @@
+/*
+ * XREFs of RtlStringCchCopyA @ 0x14048D1D8
+ * Callers:
+ *     EtwpCoverageAddToStringBuffer @ 0x14048D198 (EtwpCoverageAddToStringBuffer.c)
+ *     CarCopyRuleViolationDetails @ 0x140649670 (CarCopyRuleViolationDetails.c)
+ *     EtwpCoverageRecordAtHighIrql @ 0x1406C68DC (EtwpCoverageRecordAtHighIrql.c)
+ *     WheaHwErrorReportSetSectionNameDeviceDriver @ 0x1406D51A0 (WheaHwErrorReportSetSectionNameDeviceDriver.c)
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x1406D5350 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x1406D5470 (WheaReportHwErrorDeviceDriverEx.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x1406D5814 (WheapInitErrorReportDeviceDriver.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1406D68BC (WheapCreateRecordFromGenericErrorData.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x140847DC0 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     AslpFileQueryExportName @ 0x14088EF6C (AslpFileQueryExportName.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x140BEBDF4 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140BEC05C (HalpInitGenericErrorSourceEntryV2.c)
+ *     EmpParseStrings @ 0x140CB7308 (EmpParseStrings.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)
+{
+  size_t v3; // r9
+  signed __int64 v4; // r8
+  char v5; // al
+  NTSTRSAFE_PSTR v6; // rax
+  NTSTATUS result; // eax
+
+  if ( cchDest - 1 > 0x7FFFFFFE )
+  {
+    result = -1073741811;
+    if ( cchDest )
+      *pszDest = 0;
+  }
+  else
+  {
+    v3 = 2147483646 - cchDest;
+    v4 = pszSrc - pszDest;
+    do
+    {
+      if ( !(v3 + cchDest) )
+        break;
+      v5 = pszDest[v4];
+      if ( !v5 )
+        break;
+      *pszDest++ = v5;
+      --cchDest;
+    }
+    while ( cchDest );
+    v6 = pszDest - 1;
+    if ( cchDest )
+      v6 = pszDest;
+    *v6 = 0;
+    return cchDest == 0 ? 0x80000005 : 0;
+  }
+  return result;
+}

@@ -1,0 +1,55 @@
+/*
+ * XREFs of KsepStringDuplicate @ 0x14082AB14
+ * Callers:
+ *     KsepDbGetSdbString @ 0x140732560 (KsepDbGetSdbString.c)
+ *     KsepStringSplitMultiString @ 0x140734248 (KsepStringSplitMultiString.c)
+ *     KsepCacheDeviceInsertData @ 0x14073449C (KsepCacheDeviceInsertData.c)
+ *     KsepRegistryCreateKey @ 0x140734708 (KsepRegistryCreateKey.c)
+ *     KsepRegistryOpenKey @ 0x140829E68 (KsepRegistryOpenKey.c)
+ *     KsepDbCacheReadDevice @ 0x14082A190 (KsepDbCacheReadDevice.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14082A834 (KsepDbQueryRegistryDeviceData.c)
+ *     KsepStringTransform @ 0x14082A9D8 (KsepStringTransform.c)
+ *     KseAddHardwareId @ 0x14082C174 (KseAddHardwareId.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140A5054C (KsepEngineGetShimsFromRegistry.c)
+ * Callees:
+ *     KsepPoolAllocatePaged @ 0x1404A0CB0 (KsepPoolAllocatePaged.c)
+ *     RtlAssert @ 0x1405DD1F0 (RtlAssert.c)
+ *     memmove @ 0x1406B4940 (memmove.c)
+ */
+
+__int64 __fastcall KsepStringDuplicate(__int64 a1, _WORD *a2)
+{
+  __int64 v4; // rbx
+  size_t v5; // rbx
+  __int64 result; // rax
+  void *Paged; // rax
+  void *v8; // rsi
+  __int64 v9; // rax
+
+  if ( !a2 )
+  {
+    v9 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v9 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v9] = 197202;
+    if ( (KsepDebugFlag & 4) != 0 )
+      RtlAssert("SourceString != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x252u, 0LL);
+  }
+  v4 = -1LL;
+  *(_OWORD *)a1 = 0LL;
+  do
+    ++v4;
+  while ( a2[v4] );
+  v5 = 2 * v4 + 2;
+  if ( v5 > 0xFFFE )
+    return 3221225990LL;
+  Paged = KsepPoolAllocatePaged(v5);
+  v8 = Paged;
+  if ( !Paged )
+    return 3221225495LL;
+  memmove(Paged, a2, v5);
+  *(_QWORD *)(a1 + 8) = v8;
+  *(_WORD *)a1 = v5 - 2;
+  result = 0LL;
+  *(_WORD *)(a1 + 2) = v5;
+  return result;
+}

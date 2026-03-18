@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?VidSchCreateHwQueue@VIDSCH_EXPORT@@QEAAJPEAVDXGHWQUEUE@@PEAUVIDSCH_HW_CONTEXT@@PEAU_D3DKMT_CREATEHWQUEUE@@PEAPEAUVIDSCH_HW_QUEUE@@PEAU_D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION@@@Z @ 0x14005FC80
+ * Callers:
+ *     ?InitializeForUserModeSubmission@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION@@@Z @ 0x1401E2F50 (-InitializeForUserModeSubmission@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION.c)
+ *     ?Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x14034F800 (-Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
+ *     ?Initialize@DXGCONTEXT@@QEAAJPEAXI@Z @ 0x1403A4680 (-Initialize@DXGCONTEXT@@QEAAJPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400A5A80 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall VIDSCH_EXPORT::VidSchCreateHwQueue(
+        VIDSCH_EXPORT *this,
+        struct DXGHWQUEUE *a2,
+        struct VIDSCH_HW_CONTEXT *a3,
+        struct _D3DKMT_CREATEHWQUEUE *a4,
+        struct VIDSCH_HW_QUEUE **a5,
+        struct _D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION *a6)
+{
+  return (*(__int64 (__fastcall **)(struct DXGHWQUEUE *, struct VIDSCH_HW_CONTEXT *, struct _D3DKMT_CREATEHWQUEUE *, struct VIDSCH_HW_QUEUE **, struct _D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION *))(*((_QWORD *)this + 1) + 248LL))(
+           a2,
+           a3,
+           a4,
+           a5,
+           a6);
+}

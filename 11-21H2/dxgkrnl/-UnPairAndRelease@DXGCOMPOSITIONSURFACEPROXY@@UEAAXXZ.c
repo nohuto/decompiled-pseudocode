@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?UnPairAndRelease@DXGCOMPOSITIONSURFACEPROXY@@UEAAXXZ @ 0x1C02E1E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CloseSelfHandle@DXGCOMPOSITIONSURFACEPROXY@@IEAAJXZ @ 0x1C02DF010 (-CloseSelfHandle@DXGCOMPOSITIONSURFACEPROXY@@IEAAJXZ.c)
+ *     ?Release@DXGCOMPOSITIONSURFACEPROXY@@QEAAJXZ @ 0x1C02E1150 (-Release@DXGCOMPOSITIONSURFACEPROXY@@QEAAJXZ.c)
+ *     ?SendUnPairAndRelease@DXGCOMPOSITIONSURFACEPROXY@@IEAAJXZ @ 0x1C02E1ABC (-SendUnPairAndRelease@DXGCOMPOSITIONSURFACEPROXY@@IEAAJXZ.c)
+ */
+
+void __fastcall DXGCOMPOSITIONSURFACEPROXY::UnPairAndRelease(
+        DXGCOMPOSITIONSURFACEPROXY *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
+
+  DXGCOMPOSITIONSURFACEPROXY::SendUnPairAndRelease(this, a2, a3, a4);
+  DXGCOMPOSITIONSURFACEPROXY::CloseSelfHandle(this, v5, v6, v7);
+  DXGCOMPOSITIONSURFACEPROXY::Release(this);
+}

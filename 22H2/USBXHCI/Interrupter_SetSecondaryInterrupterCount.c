@@ -1,0 +1,14 @@
+/*
+ * XREFs of Interrupter_SetSecondaryInterrupterCount @ 0x1C0008258
+ * Callers:
+ *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006EB30 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
+ *     Interrupter_PrepareHardware @ 0x1C0072C68 (Interrupter_PrepareHardware.c)
+ *     Interrupter_DetermineSecondaryInterrupterCount @ 0x1C0079D1C (Interrupter_DetermineSecondaryInterrupterCount.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall Interrupter_SetSecondaryInterrupterCount(__int64 a1, int a2)
+{
+  *(_DWORD *)(a1 + 20) = a2;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of KeAddProcessorGroupAffinity @ 0x1405EC8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KeAddProcessorGroupAffinity(__int64 *a1, unsigned int a2)
+{
+  __int64 result; // rax
+
+  result = *a1;
+  _bittestandset64(
+    &result,
+    *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4LL * a2) & 0x3F);
+  *a1 = result;
+  return result;
+}

@@ -1,0 +1,197 @@
+/*
+ * XREFs of HeapAlloc @ 0x1C004EC58
+ * Callers:
+ *     Simulator_Copy_Arguments @ 0x1C00490A8 (Simulator_Copy_Arguments.c)
+ *     FindNSObj @ 0x1C004B0BC (FindNSObj.c)
+ *     NewObjData @ 0x1C004C1BC (NewObjData.c)
+ *     NewObjOwner @ 0x1C004C344 (NewObjOwner.c)
+ *     LoadFieldUnitDDB @ 0x1C004FB88 (LoadFieldUnitDDB.c)
+ *     NewNameSpaceObject @ 0x1C004FE10 (NewNameSpaceObject.c)
+ *     BankField @ 0x1C004FED0 (BankField.c)
+ *     CreateXField @ 0x1C0050394 (CreateXField.c)
+ *     Field @ 0x1C00505D0 (Field.c)
+ *     IndexField @ 0x1C0050760 (IndexField.c)
+ *     InitEvent @ 0x1C005095C (InitEvent.c)
+ *     InitMutex @ 0x1C0050A1C (InitMutex.c)
+ *     Method @ 0x1C0050B00 (Method.c)
+ *     OpRegion @ 0x1C0050D20 (OpRegion.c)
+ *     PowerRes @ 0x1C0050EA0 (PowerRes.c)
+ *     Processor @ 0x1C0051010 (Processor.c)
+ *     RawFieldAccess @ 0x1C0052780 (RawFieldAccess.c)
+ *     ReadField @ 0x1C0052B00 (ReadField.c)
+ *     PushCall @ 0x1C0053B18 (PushCall.c)
+ *     PushFrame @ 0x1C0053C54 (PushFrame.c)
+ *     PushTerm @ 0x1C0053E38 (PushTerm.c)
+ *     AcquireASLMutex @ 0x1C0054288 (AcquireASLMutex.c)
+ *     Buffer @ 0x1C0055E10 (Buffer.c)
+ *     Concat @ 0x1C0055F80 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C00562B0 (ConcatenateResTemplate.c)
+ *     Index @ 0x1C0056C20 (Index.c)
+ *     MidString @ 0x1C0057B60 (MidString.c)
+ *     Package @ 0x1C0058010 (Package.c)
+ *     ToDecStr @ 0x1C0058CE0 (ToDecStr.c)
+ *     ToHexStr @ 0x1C00590D0 (ToHexStr.c)
+ *     ConvertToBuffer @ 0x1C00598A4 (ConvertToBuffer.c)
+ *     ConvertToString @ 0x1C0059B40 (ConvertToString.c)
+ *     ParseField @ 0x1C005AB50 (ParseField.c)
+ *     ParseFieldConnection @ 0x1C005AF80 (ParseFieldConnection.c)
+ *     ParseObjName @ 0x1C005BC24 (ParseObjName.c)
+ *     ParseString @ 0x1C005C460 (ParseString.c)
+ *     AMLIInitialize @ 0x1C00AAAC0 (AMLIInitialize.c)
+ *     Simulator_NotifyTablesAreLoaded @ 0x1C00AB370 (Simulator_NotifyTablesAreLoaded.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     HeapInsertFreeList @ 0x1C004EEC4 (HeapInsertFreeList.c)
+ *     NewGlobalHeap @ 0x1C004EFC4 (NewGlobalHeap.c)
+ *     NewLocalHeap @ 0x1C004F07C (NewLocalHeap.c)
+ */
+
+__int64 __fastcall HeapAlloc(__int64 a1, int a2, unsigned int a3)
+{
+  __int64 *v3; // rbx
+  __int64 v4; // r15
+  int v7; // esi
+  unsigned int v8; // esi
+  KIRQL v9; // al
+  __int64 v10; // rdi
+  __int64 v11; // rcx
+  __int64 v12; // rax
+  __int64 *v13; // rcx
+  __int64 *i; // rax
+  __int64 *v15; // rdx
+  __int64 **v16; // rcx
+  __int64 v17; // r14
+  __int64 v18; // rdx
+  unsigned int v19; // eax
+  int v20; // eax
+  __int64 v22; // [rsp+78h] [rbp+20h] BYREF
+
+  v3 = 0LL;
+  v4 = 0LL;
+  if ( a3 + 16 < a3 )
+    return (unsigned __int64)(v3 + 2) & -(__int64)(v3 != 0LL);
+  if ( a3 + 16 >= 0x20 )
+  {
+    v7 = a3 + 23;
+    if ( a3 + 23 < a3 + 16 )
+      return (unsigned __int64)(v3 + 2) & -(__int64)(v3 != 0LL);
+  }
+  else
+  {
+    v7 = 39;
+  }
+  v8 = v7 & 0xFFFFFFF8;
+  v9 = KeAcquireSpinLockRaiseToDpc(&gmutHeap);
+  v22 = a1;
+  v10 = a1;
+  byte_1C00702F0 = v9;
+  if ( a1 )
+  {
+    v11 = a1;
+    v12 = a1;
+    while ( 2 )
+    {
+      v4 = v11;
+      v13 = (__int64 *)(v12 + 40);
+      for ( i = *(__int64 **)(v12 + 40); ; i = (__int64 *)*i )
+      {
+        v3 = i - 2;
+        if ( v13 == i )
+        {
+          v3 = 0LL;
+          goto LABEL_12;
+        }
+        if ( v8 <= *((_DWORD *)v3 + 1) )
+          break;
+      }
+      if ( i != (__int64 *)16 )
+      {
+        v15 = (__int64 *)*i;
+        if ( *(__int64 **)(*i + 8) != i || (v16 = (__int64 **)v3[3], *v16 != i) )
+          __fastfail(3u);
+        *v16 = v15;
+        v15[1] = (__int64)v16;
+        v17 = v8;
+        if ( *((unsigned int *)v3 + 1) >= (unsigned __int64)v8 + 32 )
+        {
+          v18 = (__int64)v3 + v8;
+          *(_DWORD *)v18 = 0;
+          v19 = *((_DWORD *)v3 + 1) - v8;
+          *(_QWORD *)(v18 + 8) = v10;
+          *(_DWORD *)(v18 + 4) = v19;
+          *((_DWORD *)v3 + 1) = v8;
+          HeapInsertFreeList(v10);
+        }
+        goto LABEL_36;
+      }
+LABEL_12:
+      if ( v8 <= *(_DWORD *)(v10 + 8) - *(_DWORD *)(v10 + 32) )
+      {
+        v3 = *(__int64 **)(v10 + 32);
+        v17 = v8;
+        *(_QWORD *)(v10 + 32) = (char *)v3 + v8;
+        *((_DWORD *)v3 + 1) = v8;
+        if ( v3 )
+          goto LABEL_36;
+      }
+      else
+      {
+        v10 = *(_QWORD *)(v10 + 24);
+        v22 = v10;
+        v12 = v10;
+        v11 = v10;
+        if ( v10 )
+          continue;
+      }
+      break;
+    }
+  }
+  if ( a1 != gpheapGlobal )
+  {
+    v20 = NewLocalHeap(&v22);
+    goto LABEL_31;
+  }
+  if ( v8 + 56 <= (unsigned int)gdwGlobalHeapBlkSize )
+  {
+LABEL_24:
+    v20 = NewGlobalHeap(&v22);
+LABEL_31:
+    v10 = v22;
+    goto LABEL_32;
+  }
+  if ( (unsigned int)gdwGlobalHeapBlkSize * (v8 / (unsigned int)gdwGlobalHeapBlkSize + 1) <= 0x800000 )
+  {
+    LODWORD(gdwGlobalHeapBlkSize) = gdwGlobalHeapBlkSize * (v8 / (unsigned int)gdwGlobalHeapBlkSize + 1);
+    goto LABEL_24;
+  }
+  if ( v8 <= 0x800000 )
+  {
+    LODWORD(gdwGlobalHeapBlkSize) = v8;
+    goto LABEL_24;
+  }
+  v10 = 0LL;
+  v20 = -1073741670;
+LABEL_32:
+  v17 = v8;
+  if ( v20 )
+  {
+    v10 = 0LL;
+  }
+  else
+  {
+    *(_QWORD *)(v10 + 16) = a1;
+    *(_QWORD *)(v4 + 24) = v10;
+    v3 = *(__int64 **)(v10 + 32);
+    *(_QWORD *)(v10 + 32) = (char *)v3 + v8;
+    *((_DWORD *)v3 + 1) = v8;
+  }
+  if ( v3 )
+  {
+LABEL_36:
+    *(_DWORD *)v3 = a2;
+    v3[1] = v10;
+    memset(v3 + 2, 0, v17 - 16);
+  }
+  KeReleaseSpinLock(&gmutHeap, byte_1C00702F0);
+  return (unsigned __int64)(v3 + 2) & -(__int64)(v3 != 0LL);
+}

@@ -1,0 +1,101 @@
+/*
+ * XREFs of EtwpFinalizeHeader @ 0x14069A41C
+ * Callers:
+ *     EtwpLogger @ 0x1405C1430 (EtwpLogger.c)
+ *     EtwpCreateLogFile @ 0x140699B1C (EtwpCreateLogFile.c)
+ *     EtwpBufferingModeFlush @ 0x1408BE038 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     EtwpQueryMaximumFileSize @ 0x140014A4C (EtwpQueryMaximumFileSize.c)
+ *     EtwpQueryUsedProcessorCount @ 0x14001557C (EtwpQueryUsedProcessorCount.c)
+ *     KeQuerySystemTimePrecise @ 0x14008A4F0 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1401B8230 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x1401B8270 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1401B8650 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x1401B8A90 (ZwQueryVolumeInformationFile.c)
+ *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwpIsWow64Logger @ 0x14069AB70 (EtwpIsWow64Logger.c)
+ *     EtwpAddDebugInfoEvents @ 0x1406FE120 (EtwpAddDebugInfoEvents.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1408BDEBC (EtwpAddBinaryInfoEvents.c)
+ */
+
+NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, void *a2, char a3)
+{
+  _QWORD *v3; // r14
+  ULONG Length; // esi
+  char v8; // r12
+  PVOID Buffer; // rdi
+  NTSTATUS v10; // ebp
+  int v11; // edx
+  unsigned int v12; // eax
+  NTSTATUS v13; // eax
+  NTSTATUS result; // eax
+  unsigned __int64 MaximumFileSize; // rax
+  unsigned __int64 v16; // r8
+  LARGE_INTEGER ByteOffset; // [rsp+50h] [rbp-88h] BYREF
+  unsigned __int64 FileInformation; // [rsp+58h] [rbp-80h] BYREF
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+60h] [rbp-78h] BYREF
+  struct _IO_STATUS_BLOCK v20; // [rsp+70h] [rbp-68h] BYREF
+  char FsInformation[20]; // [rsp+80h] [rbp-58h] BYREF
+  int v22; // [rsp+94h] [rbp-44h]
+
+  v3 = (_QWORD *)(a1 + 112);
+  if ( (_QWORD *)*v3 == v3 && *(_QWORD *)(a1 + 1024) == a1 + 1024 && !*(_DWORD *)(a1 + 136) )
+  {
+    v8 = 0;
+    result = ZwQueryVolumeInformationFile(a2, &IoStatusBlock, FsInformation, 0x18u, FileFsSizeInformation);
+    if ( result < 0 )
+      return result;
+    Length = -v22 & (v22 + 383);
+  }
+  else
+  {
+    Length = *(_DWORD *)(a1 + 4);
+    v8 = 1;
+  }
+  Buffer = ExAllocatePoolWithTag(PagedPool, (Length + 4095LL) & 0xFFFFFFFFFFFFF000uLL, 0x50777445u);
+  if ( !Buffer )
+    return -1073741801;
+  ByteOffset.QuadPart = 0LL;
+  v10 = ZwReadFile(a2, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
+  if ( v10 >= 0 )
+  {
+    if ( !a3 )
+    {
+      *((_DWORD *)Buffer + 35) = *(_DWORD *)(a1 + 264);
+      *((_DWORD *)Buffer + 29) = EtwpQueryUsedProcessorCount(a1);
+      *((_DWORD *)Buffer + 38) += *(_DWORD *)(a1 + 256);
+      KeQuerySystemTimePrecise((__int64 *)Buffer + 15);
+      if ( (unsigned __int8)EtwpIsWow64Logger(a1) )
+        *((_DWORD *)Buffer + 93) += v11;
+      else
+        *((_DWORD *)Buffer + 95) += v11;
+    }
+    if ( v8 )
+    {
+      v12 = *((_DWORD *)Buffer + 1);
+      if ( v12 < Length && v12 >= 0x178 )
+      {
+        *((_DWORD *)Buffer + 12) = v12;
+        if ( (_QWORD *)*v3 != v3 || *(_DWORD *)(a1 + 136) )
+          EtwpAddDebugInfoEvents(a1, (_DWORD)Buffer, Length, (_DWORD)Buffer + 88, 3);
+        if ( *(_QWORD *)(a1 + 1024) != a1 + 1024 )
+          EtwpAddBinaryInfoEvents(a1, Buffer, Length, 2LL);
+      }
+    }
+    v13 = ZwWriteFile(a2, 0LL, 0LL, 0LL, &IoStatusBlock, Buffer, Length, &ByteOffset, 0LL);
+    v10 = v13;
+    if ( !a3 && v13 >= 0 && (*(_DWORD *)(a1 + 12) & 0x20) != 0 )
+    {
+      MaximumFileSize = EtwpQueryMaximumFileSize(a1);
+      if ( v16 < MaximumFileSize )
+      {
+        FileInformation = v16;
+        v10 = ZwSetInformationFile(a2, &v20, &FileInformation, 8u, FileEndOfFileInformation);
+      }
+    }
+  }
+  ExFreePoolWithTag(Buffer, 0);
+  return v10;
+}

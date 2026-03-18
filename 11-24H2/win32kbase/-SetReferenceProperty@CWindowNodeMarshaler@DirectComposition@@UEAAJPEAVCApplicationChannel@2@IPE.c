@@ -1,0 +1,91 @@
+/*
+ * XREFs of ?SetReferenceProperty@CWindowNodeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x140072C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCResourceMarshaler@2@PEA_N@Z @ 0x1400725A0 (-SetReferenceProperty@CVisualMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAVCR.c)
+ *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x140072D60 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
+ *     ??$ReplaceResource@VCResourceMarshaler@DirectComposition@@@CApplicationChannel@DirectComposition@@QEAAJPEAPEAVCResourceMarshaler@1@PEAV21@1@Z @ 0x14007FF90 (--$ReplaceResource@VCResourceMarshaler@DirectComposition@@@CApplicationChannel@DirectComposition.c)
+ */
+
+__int64 __fastcall DirectComposition::CWindowNodeMarshaler::SetReferenceProperty(
+        DirectComposition::CWindowNodeMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        struct DirectComposition::CResourceMarshaler *a4,
+        bool *a5)
+{
+  struct DirectComposition::CResourceMarshaler *v5; // r10
+  int v8; // r8d
+  struct DirectComposition::CResourceMarshaler **v9; // r11
+  struct DirectComposition::CResourceMarshaler **v10; // r11
+  struct DirectComposition::CResourceMarshaler **v12; // r11
+
+  v5 = a4;
+  *a5 = 0;
+  if ( a3 != 58 )
+  {
+    if ( a3 == 66 )
+    {
+      v8 = 0;
+      v12 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 520);
+      if ( !a4
+        || (unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(
+                              *((unsigned int *)a4 + 9),
+                              65LL) )
+      {
+        if ( v5 == *v12
+          || (v8 = DirectComposition::CApplicationChannel::ReplaceResource<DirectComposition::CResourceMarshaler>(a2),
+              v8 >= 0) )
+        {
+          *((_DWORD *)this + 92) |= 0x4000u;
+          goto LABEL_14;
+        }
+        return (unsigned int)v8;
+      }
+    }
+    else
+    {
+      if ( a3 != 67 )
+        return (unsigned int)DirectComposition::CVisualMarshaler::SetReferenceProperty(
+                               (struct DirectComposition::CResourceMarshaler **)this,
+                               a2,
+                               a3,
+                               a4,
+                               a5);
+      v8 = 0;
+      v9 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 528);
+      if ( !a4
+        || (unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(
+                              *((unsigned int *)a4 + 9),
+                              130LL) )
+      {
+        if ( v5 == *v9
+          || (v8 = DirectComposition::CApplicationChannel::ReplaceResource<DirectComposition::CResourceMarshaler>(a2),
+              v8 >= 0) )
+        {
+          *((_DWORD *)this + 92) |= 0x8000u;
+LABEL_14:
+          *a5 = 1;
+          return (unsigned int)v8;
+        }
+        return (unsigned int)v8;
+      }
+    }
+    return (unsigned int)-1073741811;
+  }
+  v8 = 0;
+  v10 = (struct DirectComposition::CResourceMarshaler **)((char *)this + 456);
+  if ( a4
+    && !(unsigned __int8)DirectComposition::CResourceMarshaler::IsDerivedResourceType(*((unsigned int *)a4 + 9), 67LL) )
+  {
+    return (unsigned int)-1073741811;
+  }
+  if ( v5 == *v10
+    || (v8 = DirectComposition::CApplicationChannel::ReplaceResource<DirectComposition::CResourceMarshaler>(a2), v8 >= 0) )
+  {
+    *((_DWORD *)this + 92) |= 0x40u;
+    goto LABEL_14;
+  }
+  return (unsigned int)v8;
+}

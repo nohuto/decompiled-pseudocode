@@ -1,0 +1,34 @@
+/*
+ * XREFs of PopDeviceConstraintsEnforced @ 0x1403058F4
+ * Callers:
+ *     PopDripsWatchdogDfxCallback @ 0x1408AA5C0 (PopDripsWatchdogDfxCallback.c)
+ *     PopDripsWatchdogPs4Callback @ 0x1408AA980 (PopDripsWatchdogPs4Callback.c)
+ *     PopDripsWatchdogTakeAction @ 0x1408BA018 (PopDripsWatchdogTakeAction.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+bool PopDeviceConstraintsEnforced()
+{
+  bool v0; // di
+  unsigned __int8 CurrentIrql; // bl
+  _PPM_IDLE_STATES *IdleStates; // rcx
+  struct _KPRCB *CurrentPrcb; // rcx
+
+  v0 = 0;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql < 2u )
+    _InterlockedOr((volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist, 0x10000u);
+  IdleStates = KeGetCurrentPrcb()->PowerState.IdleStates;
+  if ( IdleStates && IdleStates->InterfaceVersion == 1 )
+    v0 = PpmPlatformStates != 0;
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && CurrentIrql < 2u )
+  {
+    CurrentPrcb = KeGetCurrentPrcb();
+    _InterlockedAnd((volatile signed __int32 *)CurrentPrcb->SchedulerAssist, 0xFFFEFFFF);
+    KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+  }
+  __writecr8(CurrentIrql);
+  return v0;
+}

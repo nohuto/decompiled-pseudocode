@@ -1,0 +1,26 @@
+/*
+ * XREFs of MiDereferenceControlAreaBySection @ 0x14036D708
+ * Callers:
+ *     MmGetImageFileSignatureInformation @ 0x1404B1AE0 (MmGetImageFileSignatureInformation.c)
+ *     MiApplyImageHotPatchRequest @ 0x14086E8A8 (MiApplyImageHotPatchRequest.c)
+ *     MiCreateImageOrDataSection @ 0x1409BAFEC (MiCreateImageOrDataSection.c)
+ *     MiSectionDelete @ 0x140A96C50 (MiSectionDelete.c)
+ *     MiDereferenceFailedControlArea @ 0x140B25454 (MiDereferenceFailedControlArea.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     MiCheckControlArea @ 0x14036DCC0 (MiCheckControlArea.c)
+ */
+
+__int64 __fastcall MiDereferenceControlAreaBySection(__int64 a1, unsigned int a2)
+{
+  __int64 v3; // rbx
+  KIRQL v4; // al
+  __int64 v5; // rdx
+
+  v3 = a2;
+  v4 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 72));
+  --*(_QWORD *)(a1 + 24);
+  LOBYTE(v5) = v4;
+  *(_QWORD *)(a1 + 48) -= v3;
+  return MiCheckControlArea(a1, v5);
+}

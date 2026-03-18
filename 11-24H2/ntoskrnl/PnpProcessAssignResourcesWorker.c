@@ -1,0 +1,43 @@
+/*
+ * XREFs of PnpProcessAssignResourcesWorker @ 0x14098E91C
+ * Callers:
+ *     PnpProcessAssignResources @ 0x14098E760 (PnpProcessAssignResources.c)
+ * Callees:
+ *     PipClearDevNodeProblem @ 0x1409C5678 (PipClearDevNodeProblem.c)
+ */
+
+__int64 __fastcall PnpProcessAssignResourcesWorker(__int64 *a1, _DWORD *a2)
+{
+  __int64 *i; // rbx
+  __int64 *v5; // rax
+  int v7; // eax
+
+  for ( i = a1; ; i = v5 )
+  {
+    if ( *a2 )
+    {
+      if ( (*((_DWORD *)i + 99) & 0x2000) != 0 )
+      {
+        v7 = *((_DWORD *)i + 101);
+        if ( v7 == 12 || v7 == 33 || v7 == 36 )
+          PipClearDevNodeProblem(i);
+      }
+    }
+    if ( (*((_DWORD *)i + 99) & 0x6000) == 0 && *((_DWORD *)i + 75) == 773 )
+      *(_QWORD *)&a2[2 * a2[1]++ + 2] = i[4];
+    v5 = (__int64 *)i[1];
+    if ( !v5 )
+      break;
+LABEL_9:
+    ;
+  }
+  while ( i != a1 )
+  {
+    v5 = (__int64 *)*i;
+    if ( *i )
+      goto LABEL_9;
+    if ( i[2] )
+      i = (__int64 *)i[2];
+  }
+  return 0LL;
+}

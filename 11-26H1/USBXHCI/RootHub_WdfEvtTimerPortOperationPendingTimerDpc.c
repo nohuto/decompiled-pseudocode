@@ -1,0 +1,39 @@
+/*
+ * XREFs of RootHub_WdfEvtTimerPortOperationPendingTimerDpc @ 0x14004B6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1400064B8 (WPP_RECORDER_SF_d.c)
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x140008BE4 (RootHub_DetectAndAcknowledgePortResume.c)
+ *     _guard_dispatch_icall @ 0x140059490 (_guard_dispatch_icall.c)
+ */
+
+char __fastcall RootHub_WdfEvtTimerPortOperationPendingTimerDpc(__int64 a1)
+{
+  _QWORD ***v1; // rax
+  int v2; // edx
+  _QWORD **v3; // rsi
+  _QWORD *v4; // rbx
+  unsigned int v5; // edi
+
+  v1 = (_QWORD ***)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01033 + 1616))(
+                     WdfDriverGlobals,
+                     a1,
+                     off_14006B268);
+  v3 = *v1;
+  v4 = **v1;
+  v5 = *((_DWORD *)*v1 + 2);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v2) = 4;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(v4[1] + 72LL),
+      v2,
+      11,
+      219,
+      (__int64)&WPP_ae3f3dc960bf3cde3d0f419b97453dd4_Traceguids,
+      v5);
+  }
+  *((_BYTE *)v3 + 18) = 0;
+  return RootHub_DetectAndAcknowledgePortResume(v4, v5, 0);
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?DxgkDelayedEvictionThread@@YAXPEAX@Z @ 0x14018CB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x14001BF80 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEBD@Z @ 0x14001EE2C (-AcquireExclusive@COREADAPTERACCESS@@QEAAJW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEBD@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x14002D968 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x14009F860 (__security_check_cookie.c)
+ */
+
+void __fastcall DxgkDelayedEvictionThread(struct DXGADAPTER *a1)
+{
+  unsigned int v2; // r8d
+  _BYTE v3[144]; // [rsp+20h] [rbp-A8h] BYREF
+
+  WdLogSingleEntry1(9LL, a1);
+  WdLogGlobalForLineNumber = 13216;
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v3, a1, 0LL);
+  COREADAPTERACCESS::AcquireExclusive((__int64)v3, v2 + 2, v2);
+  *((_BYTE *)a1 + 5024) = 1;
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v3);
+}

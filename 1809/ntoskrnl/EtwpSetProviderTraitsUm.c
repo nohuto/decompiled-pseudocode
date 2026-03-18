@@ -1,0 +1,94 @@
+/*
+ * XREFs of EtwpSetProviderTraitsUm @ 0x1405C4840
+ * Callers:
+ *     NtTraceControl @ 0x1405C2F40 (NtTraceControl.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x14004E150 (ObfDereferenceObject.c)
+ *     EtwEventEnabled @ 0x14005B2D0 (EtwEventEnabled.c)
+ *     memmove @ 0x1401D1440 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ *     EtwpSetProviderTraitsCommon @ 0x1405C4A10 (EtwpSetProviderTraitsCommon.c)
+ *     ObReferenceObjectByHandle @ 0x1405E8350 (ObReferenceObjectByHandle.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x1408BADD0 (EtwpEventWriteRegistrationStatus.c)
+ */
+
+__int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
+{
+  PVOID v6; // rsi
+  NTSTATUS v7; // ebx
+  __int16 v8; // ax
+  unsigned __int16 v9; // dx
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // r9
+  char *PoolWithTag; // rax
+  __int64 v13; // rbx
+  __int64 v14; // rdx
+  __int64 v15; // rcx
+  __int64 v16; // r8
+  PVOID Object; // [rsp+80h] [rbp+8h] BYREF
+  PVOID v19; // [rsp+98h] [rbp+20h]
+
+  v6 = 0LL;
+  if ( !*(_QWORD *)(a1 + 8) || !*(_WORD *)(a1 + 16) )
+    goto LABEL_15;
+  v7 = ObReferenceObjectByHandle(*(HANDLE *)a1, 0x800u, EtwpRegistrationObjectType, 1, &Object, 0LL);
+  v6 = Object;
+  v19 = Object;
+  if ( v7 < 0 )
+    goto LABEL_16;
+  v8 = *((_WORD *)Object + 49);
+  if ( (v8 & 8) == 0 && (v8 & 2) != 0 )
+  {
+    if ( *((_QWORD *)Object + 13) )
+    {
+      v7 = -1073741823;
+    }
+    else
+    {
+      v9 = *(_WORD *)(a1 + 16);
+      if ( v9 )
+      {
+        v10 = *(_QWORD *)(a1 + 8);
+        v11 = v10 + v9;
+        if ( v11 > 0x7FFFFFFF0000LL || v11 < v10 )
+        {
+          MEMORY[0x7FFFFFFF0000] = 0;
+          v9 = *(_WORD *)(a1 + 16);
+        }
+      }
+      PoolWithTag = (char *)ExAllocatePoolWithTag(PagedPool, v9 + 28LL, 0x54777445u);
+      v13 = (__int64)PoolWithTag;
+      if ( PoolWithTag )
+      {
+        memmove(PoolWithTag + 28, *(const void **)(a1 + 8), *(unsigned __int16 *)(a1 + 16));
+        v7 = EtwpSetProviderTraitsCommon(
+               a1,
+               a2,
+               a3,
+               (int)v6,
+               v13,
+               *(unsigned __int16 *)(a1 + 16),
+               &EtwpProviderTraitsUmMutex,
+               (__int64)&EtwpProviderTraitsUmTree);
+      }
+      else
+      {
+        v7 = -1073741670;
+      }
+    }
+  }
+  else
+  {
+LABEL_15:
+    v7 = -1073741811;
+  }
+LABEL_16:
+  if ( v6 )
+  {
+    if ( v7 && EtwEventEnabled(EtwpEventTracingProvRegHandle, &ETW_EVENT_SET_TRAITS_FAILED) )
+      EtwpEventWriteRegistrationStatus(v15, v14, v16, v6, v7);
+    ObfDereferenceObject(v6);
+  }
+  return (unsigned int)v7;
+}

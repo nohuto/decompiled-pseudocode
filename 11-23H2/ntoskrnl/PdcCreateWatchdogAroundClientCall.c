@@ -1,0 +1,55 @@
+/*
+ * XREFs of PdcCreateWatchdogAroundClientCall @ 0x140293450
+ * Callers:
+ *     SymCryptCpuFeaturesNeverPresent @ 0x14036868C (SymCryptCpuFeaturesNeverPresent.c)
+ *     _call_matherr @ 0x1403DD8E0 (_call_matherr.c)
+ *     SymCryptSaveXmm @ 0x14056D1EC (SymCryptSaveXmm.c)
+ *     VRegEnabledInJob @ 0x14068EB28 (VRegEnabledInJob.c)
+ *     MmUnloadSystemImage @ 0x140696020 (MmUnloadSystemImage.c)
+ *     NtQueryInformationJobObject @ 0x1406A1130 (NtQueryInformationJobObject.c)
+ *     MiMapViewOfImageSection @ 0x1406AEAC0 (MiMapViewOfImageSection.c)
+ *     MiPageHasRelocations @ 0x1406B130C (MiPageHasRelocations.c)
+ *     PspSelectMachineForProcess @ 0x1406B7B58 (PspSelectMachineForProcess.c)
+ *     PspEstimateNewProcessServerSilo @ 0x1406B9020 (PspEstimateNewProcessServerSilo.c)
+ *     ObpParseSymbolicLinkEx @ 0x1406C70C0 (ObpParseSymbolicLinkEx.c)
+ *     MiAllocateVirtualMemory @ 0x1406F7220 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1406F9770 (MmProtectVirtualMemory.c)
+ *     MmLoadSystemImageEx @ 0x140703DC0 (MmLoadSystemImageEx.c)
+ *     MiInitializePrivateFixupBitmap @ 0x140705530 (MiInitializePrivateFixupBitmap.c)
+ *     MiDeleteVadBitmap @ 0x140706BB4 (MiDeleteVadBitmap.c)
+ *     ExpWnfLookupPermanentName @ 0x14071096C (ExpWnfLookupPermanentName.c)
+ *     ExpWnfGenerateStateName @ 0x140711558 (ExpWnfGenerateStateName.c)
+ *     ExpWnfResolveScopeInstance @ 0x140713368 (ExpWnfResolveScopeInstance.c)
+ *     MiValidateVadMetadataFlags @ 0x140721F64 (MiValidateVadMetadataFlags.c)
+ *     MiRelocateImagePfn @ 0x1407442C0 (MiRelocateImagePfn.c)
+ *     MiReturnPageTablePageCommitment @ 0x140764990 (MiReturnPageTablePageCommitment.c)
+ *     PspExitThread @ 0x14076DA2C (PspExitThread.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407A3E5C (MiCommitInitialVadMetadataBits.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x1407C9A7C (ExpWnfEnumerateScopeInstances.c)
+ *     PopInvokeWin32Callout @ 0x1407D38BC (PopInvokeWin32Callout.c)
+ *     NtManageHotPatch @ 0x1407D3EF0 (NtManageHotPatch.c)
+ *     RtlGetHostNtSystemRoot @ 0x1407EACB0 (RtlGetHostNtSystemRoot.c)
+ *     CmpSetVersionData @ 0x14080BA88 (CmpSetVersionData.c)
+ *     HvlPhase0Initialize @ 0x14081FE98 (HvlPhase0Initialize.c)
+ *     RtlpInitCodePageTables @ 0x140821158 (RtlpInitCodePageTables.c)
+ *     SepRmCommandServerThread @ 0x14082B780 (SepRmCommandServerThread.c)
+ *     PsStartSiloMonitor @ 0x14084A100 (PsStartSiloMonitor.c)
+ *     PsBootPhaseComplete @ 0x1408543BC (PsBootPhaseComplete.c)
+ *     IopUnloadDriver @ 0x140857938 (IopUnloadDriver.c)
+ *     ObpSetSiloDeviceMap @ 0x1408588A4 (ObpSetSiloDeviceMap.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x14085B698 (EtwpUpdateFileInfoDriverRegistration.c)
+ *     CmpMountPreloadedHives @ 0x1408630AC (CmpMountPreloadedHives.c)
+ *     DbgkpRemoveErrorPort @ 0x140939F70 (DbgkpRemoveErrorPort.c)
+ *     ObShutdownSystem @ 0x14097AE00 (ObShutdownSystem.c)
+ *     PsUnregisterSiloMonitor @ 0x1409B4010 (PsUnregisterSiloMonitor.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C8A40 (Pdcv2pActivationClientCallback.c)
+ *     ObCreateSiloRootDirectory @ 0x140A73B00 (ObCreateSiloRootDirectory.c)
+ *     IovpUnloadDriver @ 0x140AC1EB8 (IovpUnloadDriver.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 PdcCreateWatchdogAroundClientCall()
+{
+  return 0LL;
+}

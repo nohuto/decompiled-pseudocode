@@ -1,0 +1,41 @@
+/*
+ * XREFs of IopInsertActiveConnectListLocked @ 0x1409A3380
+ * Callers:
+ *     IopInitializeActiveConnectBlock @ 0x1409A2FA8 (IopInitializeActiveConnectBlock.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 *__fastcall IopInsertActiveConnectListLocked(__int64 a1)
+{
+  __int64 i; // rdx
+  __int64 *result; // rax
+
+  for ( i = ActiveConnectList; ; i = *(_QWORD *)i )
+  {
+    if ( (__int64 *)i == &ActiveConnectList )
+    {
+      result = (__int64 *)qword_140F8B7A8;
+      if ( *(__int64 **)qword_140F8B7A8 == &ActiveConnectList )
+      {
+        *(_QWORD *)a1 = &ActiveConnectList;
+        *(_QWORD *)(a1 + 8) = result;
+        *result = a1;
+        qword_140F8B7A8 = a1;
+        return result;
+      }
+LABEL_4:
+      __fastfail(3u);
+    }
+    if ( *(_DWORD *)(i + 16) > *(_DWORD *)(a1 + 16) )
+      break;
+  }
+  result = *(__int64 **)(i + 8);
+  if ( *result != i )
+    goto LABEL_4;
+  *(_QWORD *)a1 = i;
+  *(_QWORD *)(a1 + 8) = result;
+  *result = a1;
+  *(_QWORD *)(i + 8) = a1;
+  return result;
+}

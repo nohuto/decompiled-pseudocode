@@ -1,0 +1,29 @@
+/*
+ * XREFs of MiLockDynamicMemoryNestedExclusive @ 0x1406E96A4
+ * Callers:
+ *     MiAcquireAddMemoryLocks @ 0x140864F14 (MiAcquireAddMemoryLocks.c)
+ *     MiNodeZeroConductor @ 0x140B27510 (MiNodeZeroConductor.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ */
+
+void __fastcall MiLockDynamicMemoryNestedExclusive(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+{
+  AutoBoost *v4; // rax
+  void *v5; // rdx
+  AutoBoost *v6; // rbx
+
+  v4 = (AutoBoost *)KeAbPreAcquire((__int64)&stru_140E37DC8, 0LL, 0LL, a4);
+  v6 = v4;
+  if ( _interlockedbittestandset64((volatile signed __int32 *)&stru_140E37DC8, 0LL) )
+    ExfAcquirePushLockExclusiveEx((unsigned __int64 *)&stru_140E37DC8, v4, (__int64)&stru_140E37DC8);
+  if ( v6 )
+  {
+    if ( (KiAbpGlobalState & 1) != 0 )
+      AutoBoost::KiAbpPostAcquire(v6, v5);
+    else
+      *((_BYTE *)v6 + 10) = 1;
+  }
+}

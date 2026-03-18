@@ -1,0 +1,272 @@
+/*
+ * XREFs of ExAcquireFastMutex @ 0x140278070
+ * Callers:
+ *     RawCompletionRoutine @ 0x1402576D0 (RawCompletionRoutine.c)
+ *     FsRtlLookupPerStreamContextInternal @ 0x1402C1230 (FsRtlLookupPerStreamContextInternal.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x1402C1BB8 (FsRtlPrivateInitializeFileLock.c)
+ *     CcZeroEndOfLastPage @ 0x1402C6408 (CcZeroEndOfLastPage.c)
+ *     CcUnpinFileDataEx @ 0x1402DF3C0 (CcUnpinFileDataEx.c)
+ *     CcPinFileData @ 0x1402DF720 (CcPinFileData.c)
+ *     CcAcquireBcbLockAndVacbLock @ 0x1402E0E50 (CcAcquireBcbLockAndVacbLock.c)
+ *     CcGetVacbMiss @ 0x1402E1EA0 (CcGetVacbMiss.c)
+ *     HalMatchAcpiOemTableId @ 0x140342810 (HalMatchAcpiOemTableId.c)
+ *     HalMatchAcpiOemId @ 0x140342910 (HalMatchAcpiOemId.c)
+ *     HalAcpiGetTableDispatch @ 0x140342A90 (HalAcpiGetTableDispatch.c)
+ *     HalpAcpiGetTable @ 0x140342AEC (HalpAcpiGetTable.c)
+ *     CcWriteBehindPreProcess @ 0x1403848C4 (CcWriteBehindPreProcess.c)
+ *     CcWriteBehindPostProcess @ 0x140384CD4 (CcWriteBehindPostProcess.c)
+ *     CcUnmapVacbArray @ 0x14039AEF0 (CcUnmapVacbArray.c)
+ *     CcGetDirtyPagesHelper @ 0x14039B880 (CcGetDirtyPagesHelper.c)
+ *     CcDeleteMbcb @ 0x14039C204 (CcDeleteMbcb.c)
+ *     CcSetDirtyPinnedData @ 0x14039D2A0 (CcSetDirtyPinnedData.c)
+ *     CcSetDirtyInMask @ 0x14039D5F0 (CcSetDirtyInMask.c)
+ *     CcGetFlushedValidData @ 0x14039E120 (CcGetFlushedValidData.c)
+ *     FsRtlAddLargeMcbEntry @ 0x1403B4910 (FsRtlAddLargeMcbEntry.c)
+ *     PopCreateDynamicIrpWorker @ 0x1403B64AC (PopCreateDynamicIrpWorker.c)
+ *     PopRunMaximumIrpWorkers @ 0x1403B7600 (PopRunMaximumIrpWorkers.c)
+ *     CcAcquireByteRangeForWrite @ 0x1403E2360 (CcAcquireByteRangeForWrite.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140414910 (CcUnmapInactiveViewsInternal.c)
+ *     FsRtlTruncateLargeMcb @ 0x14041CD20 (FsRtlTruncateLargeMcb.c)
+ *     FsRtlLookupLargeMcbEntry @ 0x14041D340 (FsRtlLookupLargeMcbEntry.c)
+ *     FsRtlGetNextLargeMcbEntry @ 0x14042F1F0 (FsRtlGetNextLargeMcbEntry.c)
+ *     PoRunDownDeviceObject @ 0x140437D0C (PoRunDownDeviceObject.c)
+ *     PopInitilizeAcDcSettings @ 0x140438218 (PopInitilizeAcDcSettings.c)
+ *     FsRtlRemovePerStreamContext @ 0x140449180 (FsRtlRemovePerStreamContext.c)
+ *     FsRtlInsertPerStreamContext @ 0x1404492B0 (FsRtlInsertPerStreamContext.c)
+ *     PnpUnregisterPlugPlayNotification @ 0x1404ABEF8 (PnpUnregisterPlugPlayNotification.c)
+ *     FsRtlNumberOfRunsInLargeMcb @ 0x1404AF6D0 (FsRtlNumberOfRunsInLargeMcb.c)
+ *     FsRtlLookupLastLargeMcbEntryAndIndex @ 0x1404B3CC0 (FsRtlLookupLastLargeMcbEntryAndIndex.c)
+ *     RawInitiateDeleteVolume @ 0x1404BD434 (RawInitiateDeleteVolume.c)
+ *     PopScanIdleList @ 0x1404C65A0 (PopScanIdleList.c)
+ *     CcPrepareMdlWrite @ 0x1404CDA40 (CcPrepareMdlWrite.c)
+ *     PopGetPowerSettingValue @ 0x1404CF78C (PopGetPowerSettingValue.c)
+ *     CcRepinBcb @ 0x1404D68C0 (CcRepinBcb.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x1404D7DB0 (FsRtlpCancelOplockRHIrp.c)
+ *     PpDevNodeRemoveFromTree @ 0x1404DACE8 (PpDevNodeRemoveFromTree.c)
+ *     FsRtlRemoveLargeMcbEntry @ 0x1404E8CA0 (FsRtlRemoveLargeMcbEntry.c)
+ *     FsRtlpWaitOnIrp @ 0x1404EC254 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpCancelWaitingIrp @ 0x1404EC858 (FsRtlpCancelWaitingIrp.c)
+ *     PnpAcquirePowerRelationsQueueLock @ 0x1404ED6E8 (PnpAcquirePowerRelationsQueueLock.c)
+ *     IoInvalidateBusRelationsWorker @ 0x1404EEEC0 (IoInvalidateBusRelationsWorker.c)
+ *     FsRtlResetLargeMcb @ 0x140500AF0 (FsRtlResetLargeMcb.c)
+ *     HalpAcpiGetAllTables @ 0x14050B4A0 (HalpAcpiGetAllTables.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x140510174 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     PopRunNormalIrpWorkers @ 0x140529074 (PopRunNormalIrpWorkers.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x14052A77C (FsRtlpCancelExclusiveIrp.c)
+ *     HalpAcpiGetFacsMapping @ 0x14057978C (HalpAcpiGetFacsMapping.c)
+ *     CcGetLsnForFileObject @ 0x1405B1B20 (CcGetLsnForFileObject.c)
+ *     FsRtlLookupLastLargeMcbEntry @ 0x1405B5480 (FsRtlLookupLastLargeMcbEntry.c)
+ *     FsRtlSplitLargeMcb @ 0x1405B5790 (FsRtlSplitLargeMcb.c)
+ *     PnpDisableUserModeNotifications @ 0x1405DADCC (PnpDisableUserModeNotifications.c)
+ *     KeConfigureDynamicMemory @ 0x1405EBDBC (KeConfigureDynamicMemory.c)
+ *     KeAllocateKernelHiberSwapShadowStacks @ 0x1405F061C (KeAllocateKernelHiberSwapShadowStacks.c)
+ *     KiOpPatchCode @ 0x1405F8128 (KiOpPatchCode.c)
+ *     PopIrpWorker @ 0x14060BD70 (PopIrpWorker.c)
+ *     PopIrpWorkerControl @ 0x14060C250 (PopIrpWorkerControl.c)
+ *     RawVerifyVolume @ 0x14061753C (RawVerifyVolume.c)
+ *     RtlpTraceDatabaseAcquireLock @ 0x14061FE08 (RtlpTraceDatabaseAcquireLock.c)
+ *     DifExAcquireFastMutexWrapper @ 0x14064E980 (DifExAcquireFastMutexWrapper.c)
+ *     DifKeAcquireGuardedMutexWrapper @ 0x14065F9C0 (DifKeAcquireGuardedMutexWrapper.c)
+ *     PopDeferDoze @ 0x1407718E0 (PopDeferDoze.c)
+ *     PiUpdateDeviceResourceLists @ 0x140771DA4 (PiUpdateDeviceResourceLists.c)
+ *     DbgkpMarkProcessPeb @ 0x140775AB4 (DbgkpMarkProcessPeb.c)
+ *     HalpIrtAllocateDeviceAperture @ 0x1407844C4 (HalpIrtAllocateDeviceAperture.c)
+ *     HalpIrtAllocateIndex @ 0x140784614 (HalpIrtAllocateIndex.c)
+ *     HalpIrtExtendApertureRange @ 0x140784880 (HalpIrtExtendApertureRange.c)
+ *     HalpIrtExtendRemappingRange @ 0x140784988 (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtFreeIndex @ 0x140784A78 (HalpIrtFreeIndex.c)
+ *     HalpIrtReleaseDeviceAperture @ 0x140784B3C (HalpIrtReleaseDeviceAperture.c)
+ *     NtSetInformationDebugObject @ 0x14078A7E0 (NtSetInformationDebugObject.c)
+ *     IopCleanupFileObjectIosbRange @ 0x1407944C0 (IopCleanupFileObjectIosbRange.c)
+ *     IopSetFileObjectIosbRange @ 0x140795690 (IopSetFileObjectIosbRange.c)
+ *     PnpProcessCompletedEject @ 0x1407A4D50 (PnpProcessCompletedEject.c)
+ *     IopReleaseResources @ 0x1407A5300 (IopReleaseResources.c)
+ *     PiDqObjectManagerMakeInconsistent @ 0x1407A8A74 (PiDqObjectManagerMakeInconsistent.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1407AD07C (PnpProfileUpdateHardwareProfile.c)
+ *     PpProfileCancelHardwareProfileTransition @ 0x1407AD270 (PpProfileCancelHardwareProfileTransition.c)
+ *     PpProfileCancelTransitioningDock @ 0x1407AD2F8 (PpProfileCancelTransitioningDock.c)
+ *     PpProfileCommitTransitioningDock @ 0x1407AD3A4 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x1407AD4F8 (PpProfileIncludeInHardwareProfileTransition.c)
+ *     PpProfileQueryHardwareProfileChange @ 0x1407AD5BC (PpProfileQueryHardwareProfileChange.c)
+ *     PnpRemoveEventFromQueue @ 0x1407AD8EC (PnpRemoveEventFromQueue.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x1407B2BE4 (PiRegisterKernelSoftRestartNotification.c)
+ *     PipKsrNotifyDrivers @ 0x1407B2EFC (PipKsrNotifyDrivers.c)
+ *     PnpBuildCmResourceLists @ 0x1407B30F8 (PnpBuildCmResourceLists.c)
+ *     KeRegisterProcessorChangeCallback @ 0x1407BA2D0 (KeRegisterProcessorChangeCallback.c)
+ *     PfTCleanup @ 0x1407C6254 (PfTCleanup.c)
+ *     PfTInitialize @ 0x1407C65A4 (PfTInitialize.c)
+ *     PfTStart @ 0x1407C67E4 (PfTStart.c)
+ *     PfSnTracingStateExWorkerRoutine @ 0x1407C7450 (PfSnTracingStateExWorkerRoutine.c)
+ *     PoDisableSleepStates @ 0x1407CC6C0 (PoDisableSleepStates.c)
+ *     PoReenableSleepStates @ 0x1407CC780 (PoReenableSleepStates.c)
+ *     PoQueueShutdownWorkItem @ 0x1407CF170 (PoQueueShutdownWorkItem.c)
+ *     WheaCrashDumpInitializationComplete @ 0x140849650 (WheaCrashDumpInitializationComplete.c)
+ *     WheapReportDeferredLiveDumps @ 0x1408496B4 (WheapReportDeferredLiveDumps.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x1408B7ECC (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpRemoveFromDelayedClose @ 0x1408C64F4 (CmpRemoveFromDelayedClose.c)
+ *     CmpDelayCloseWorker @ 0x1408CE720 (CmpDelayCloseWorker.c)
+ *     CmpGetMappingHiveForString @ 0x1408D11E4 (CmpGetMappingHiveForString.c)
+ *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
+ *     PnpDeferNotification @ 0x140909368 (PnpDeferNotification.c)
+ *     PnpInsertEventInQueue @ 0x14090965C (PnpInsertEventInQueue.c)
+ *     PnpProcessAssignResources @ 0x14090B6F8 (PnpProcessAssignResources.c)
+ *     IopDestroyDeviceNode @ 0x14090EAA8 (IopDestroyDeviceNode.c)
+ *     PiQueryResourceRequirements @ 0x140910EEC (PiQueryResourceRequirements.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x140912C40 (PnpCleanupDeviceRegistryValues.c)
+ *     ExpUpdateDebugInfo @ 0x14092C6E0 (ExpUpdateDebugInfo.c)
+ *     EtwpSetProviderTraitsCommon @ 0x14093D5E4 (EtwpSetProviderTraitsCommon.c)
+ *     PopLogDisabledSleepReason @ 0x14094512C (PopLogDisabledSleepReason.c)
+ *     DbgkpQueueMessage @ 0x140953A1C (DbgkpQueueMessage.c)
+ *     ExSwapinWorkerThreads @ 0x140956958 (ExSwapinWorkerThreads.c)
+ *     DbgkClearProcessDebugObject @ 0x140957E88 (DbgkClearProcessDebugObject.c)
+ *     ExpGetNextProcessThread @ 0x140968C70 (ExpGetNextProcessThread.c)
+ *     DbgkCopyProcessDebugPort @ 0x1409845B8 (DbgkCopyProcessDebugPort.c)
+ *     DbgkpSetProcessDebugObject @ 0x140985C5C (DbgkpSetProcessDebugObject.c)
+ *     DbgkOpenProcessDebugPort @ 0x140987150 (DbgkOpenProcessDebugPort.c)
+ *     NtDebugContinue @ 0x140987410 (NtDebugContinue.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x14098EA84 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqObjectManagerServiceActionQueue @ 0x14098F320 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x140990358 (PiDqObjectManagerUnregisterQuery.c)
+ *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
+ *     PiCMGetRelatedDeviceInstance @ 0x140998C60 (PiCMGetRelatedDeviceInstance.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x140999B20 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14099A54C (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyClient @ 0x14099A7E8 (PiUEventNotifyClient.c)
+ *     PiUEventReferenceEventEntry @ 0x14099C594 (PiUEventReferenceEventEntry.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x14099C5D0 (PiUEventNotifyClientPendingEvent.c)
+ *     PiControlGetSetDeviceStatus @ 0x1409A74C0 (PiControlGetSetDeviceStatus.c)
+ *     PiDqObjectManagerHandleObjectEvent @ 0x1409A86E8 (PiDqObjectManagerHandleObjectEvent.c)
+ *     PiGetRelatedDevice @ 0x1409A8A10 (PiGetRelatedDevice.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x1409D5AC8 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x1409D60E8 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     PiUEventHandleUnregisterClient @ 0x1409D61D8 (PiUEventHandleUnregisterClient.c)
+ *     PiUEventProcessEventWorker @ 0x1409D6560 (PiUEventProcessEventWorker.c)
+ *     PiUEventHandleGetEvent @ 0x1409D6A10 (PiUEventHandleGetEvent.c)
+ *     PiUEventDereferenceEventEntry @ 0x1409D712C (PiUEventDereferenceEventEntry.c)
+ *     PiUEventHandleRegistration @ 0x1409D71F0 (PiUEventHandleRegistration.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x1409D80BC (PiUEventFreeClientRegistrationContext.c)
+ *     PnpNotifyDeviceClassChange @ 0x1409DC660 (PnpNotifyDeviceClassChange.c)
+ *     PnpDeviceEventWorker @ 0x1409DCD90 (PnpDeviceEventWorker.c)
+ *     PnpProcessDeferredRegistrations @ 0x1409DD0E8 (PnpProcessDeferredRegistrations.c)
+ *     PnpNotifyTargetDeviceChange @ 0x1409DD2BC (PnpNotifyTargetDeviceChange.c)
+ *     PiUEventNotifyUserMode @ 0x1409DD808 (PiUEventNotifyUserMode.c)
+ *     FsRtlFindInTunnelCacheEx @ 0x1409E1060 (FsRtlFindInTunnelCacheEx.c)
+ *     FsRtlAddToTunnelCacheEx @ 0x1409E1210 (FsRtlAddToTunnelCacheEx.c)
+ *     RawDispatch @ 0x140A35180 (RawDispatch.c)
+ *     RawCleanup @ 0x140A35394 (RawCleanup.c)
+ *     RawClose @ 0x140A3552C (RawClose.c)
+ *     RawReadWriteDeviceControl @ 0x140A355B4 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x140A356CC (RawCreate.c)
+ *     RawMountVolume @ 0x140A35E6C (RawMountVolume.c)
+ *     RawScanDeletedList @ 0x140A36128 (RawScanDeletedList.c)
+ *     RawUserFsCtrl @ 0x140A367BC (RawUserFsCtrl.c)
+ *     FsRtlTeardownPerStreamContexts @ 0x140A36AA0 (FsRtlTeardownPerStreamContexts.c)
+ *     PopGetSettingNotificationName @ 0x140A3B2C4 (PopGetSettingNotificationName.c)
+ *     PopFreeSessionState @ 0x140A3BAAC (PopFreeSessionState.c)
+ *     PopDispatchNotificationsToList @ 0x140A3C908 (PopDispatchNotificationsToList.c)
+ *     PopGetSettingValue @ 0x140A3D02C (PopGetSettingValue.c)
+ *     PopSetPowerSettingValue @ 0x140A3E538 (PopSetPowerSettingValue.c)
+ *     PopDispatchPowerSettingCallbacks @ 0x140A401E0 (PopDispatchPowerSettingCallbacks.c)
+ *     PopCallPowerSettingCallback @ 0x140A4031C (PopCallPowerSettingCallback.c)
+ *     NtQueryInformationProcess @ 0x140A4A1F0 (NtQueryInformationProcess.c)
+ *     PfGetCompletedTrace @ 0x140A538E4 (PfGetCompletedTrace.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x140A851FC (EtwpReleaseProviderTraitsReference.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x140A885F0 (KeSynchronizeWithDynamicProcessors.c)
+ *     IopLegacyResourceAllocation @ 0x140A8B3B4 (IopLegacyResourceAllocation.c)
+ *     PfSnEndTrace @ 0x140AA3588 (PfSnEndTrace.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x140AA534C (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpFreeDeviceInstancePath @ 0x140AA7BC0 (PnpFreeDeviceInstancePath.c)
+ *     PnpBusTypeGuidGetIndex @ 0x140AA8700 (PnpBusTypeGuidGetIndex.c)
+ *     FsRtlDeleteKeyFromTunnelCache @ 0x140ABBF80 (FsRtlDeleteKeyFromTunnelCache.c)
+ *     PopRundownPowerSettings @ 0x140AC1020 (PopRundownPowerSettings.c)
+ *     NtWaitForDebugEvent @ 0x140AE94E0 (NtWaitForDebugEvent.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x140AEA684 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PopRequestShutdownWait @ 0x140AF1078 (PopRequestShutdownWait.c)
+ *     PfTTraceListAdd @ 0x140AF5F5C (PfTTraceListAdd.c)
+ *     PfSnGetCompletedTrace @ 0x140AF7C90 (PfSnGetCompletedTrace.c)
+ *     PiUEventBroadcastEventWorker @ 0x140AFC1A0 (PiUEventBroadcastEventWorker.c)
+ *     CmpAddStringToMapping @ 0x140AFD41C (CmpAddStringToMapping.c)
+ *     DbgkpCloseObject @ 0x140AFF4E0 (DbgkpCloseObject.c)
+ *     PiUEventQueueBroadcastEventEntry @ 0x140B03CCC (PiUEventQueueBroadcastEventEntry.c)
+ *     PoRegisterPowerSettingCallback @ 0x140B05F90 (PoRegisterPowerSettingCallback.c)
+ *     PnpBusTypeGuidGet @ 0x140B0DF0C (PnpBusTypeGuidGet.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140B19570 (PoUnregisterPowerSettingCallback.c)
+ *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ *     PiUEventHandleVetoEvent @ 0x140B24524 (PiUEventHandleVetoEvent.c)
+ *     PnpMapDeviceObjectToDeviceInstance @ 0x140B29A70 (PnpMapDeviceObjectToDeviceInstance.c)
+ *     PnpOrphanNotification @ 0x140B2E3C0 (PnpOrphanNotification.c)
+ *     PopQueryPowerSettingUlong @ 0x140B41710 (PopQueryPowerSettingUlong.c)
+ *     CmpDelayFreeRMWorker @ 0x140B43590 (CmpDelayFreeRMWorker.c)
+ *     CmpDelayFreeCmRm @ 0x140B48250 (CmpDelayFreeCmRm.c)
+ *     PoVolumeDevice @ 0x140B52CC8 (PoVolumeDevice.c)
+ *     PnpNotifyHwProfileChange @ 0x140B6A1EC (PnpNotifyHwProfileChange.c)
+ *     PopGracefulShutdown @ 0x140BF9180 (PopGracefulShutdown.c)
+ *     WheapCreateLiveDumpFromPreviousSession @ 0x140BFFFD0 (WheapCreateLiveDumpFromPreviousSession.c)
+ *     WheapSaveRecordForLiveDump @ 0x140C00070 (WheapSaveRecordForLiveDump.c)
+ *     PopFlushVolumes @ 0x140C06720 (PopFlushVolumes.c)
+ *     PopFlushVolumeWorker @ 0x140C06A60 (PopFlushVolumeWorker.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
+ *     KeAbPreWait @ 0x140278AE0 (KeAbPreWait.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+void __stdcall ExAcquireFastMutex(PKGUARDED_MUTEX Mutex)
+{
+  __int64 v2; // rdi
+  unsigned __int8 CurrentIrql; // bp
+  int v4; // r14d
+  LegacyAutoBoost *v5; // rsi
+  int i; // r15d
+  signed __int32 Count; // eax
+  signed __int32 v8; // ett
+  signed __int32 v9; // ett
+
+  v2 = KeAbPreAcquire((struct _KTHREAD *)Mutex, 0LL);
+  CurrentIrql = KeGetCurrentIrql();
+  v4 = 1;
+  if ( CurrentIrql != 1 )
+    __writecr8(1uLL);
+  if ( KiIrqlFlags )
+    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 1LL);
+  if ( !_interlockedbittestandreset(&Mutex->Count, 0) )
+  {
+    v5 = (LegacyAutoBoost *)v2;
+    ++Mutex->Contention;
+    for ( i = 4; ; i = 2 )
+    {
+      Count = Mutex->Count;
+      do
+      {
+        while ( (Count & 1) != 0 )
+        {
+          v9 = Count;
+          Count = _InterlockedCompareExchange(&Mutex->Count, v4 ^ Count, Count);
+          if ( v9 == Count )
+            goto LABEL_15;
+        }
+        v8 = Count;
+        Count = _InterlockedCompareExchange(&Mutex->Count, i + Count, Count);
+      }
+      while ( v8 != Count );
+      if ( v5 )
+        KeAbPreWait(v5);
+      KeWaitForSingleObject(&Mutex->Event, WrFastMutex, 0, 0, 0LL);
+      _m_prefetchw(Mutex);
+      v4 = 3;
+      if ( v5 )
+        v5 = (LegacyAutoBoost *)KeAbPreAcquire((struct _KTHREAD *)Mutex, v5);
+    }
+  }
+LABEL_15:
+  if ( v2 )
+  {
+    if ( (KiAbpGlobalState & 1) != 0 )
+      *(_BYTE *)(v2 + 33) |= 2u;
+    else
+      *(_BYTE *)(v2 + 10) = 1;
+  }
+  Mutex->Owner = KeGetCurrentThread();
+  Mutex->OldIrql = CurrentIrql;
+}

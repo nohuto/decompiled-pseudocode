@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?ConvertVideoSignalInfo@@YAJPEBU_VideoModeDescriptor@@PEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x14006D9D8
+ * Callers:
+ *     ?ParseDescriptorModes@MonitorModes@DxgMonitor@@AEAAJAEBUIMonitorDescriptor@2@@Z @ 0x1403F3EA8 (-ParseDescriptorModes@MonitorModes@DxgMonitor@@AEAAJAEBUIMonitorDescriptor@2@@Z.c)
+ *     ?_CreateDefaultMonitorProfileForWDDMv1_0@MonitorModes@DxgMonitor@@AEAAJXZ @ 0x140411D18 (-_CreateDefaultMonitorProfileForWDDMv1_0@MonitorModes@DxgMonitor@@AEAAJXZ.c)
+ * Callees:
+ *     ?_ValidateDdiVideoSignalModeInfo@DMMVIDEOSIGNALMODE@@SAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x140049E14 (-_ValidateDdiVideoSignalModeInfo@DMMVIDEOSIGNALMODE@@SAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z.c)
+ *     ConvertVideoStandardType @ 0x14006499C (ConvertVideoStandardType.c)
+ */
+
+__int64 __fastcall ConvertVideoSignalInfo(const struct _VideoModeDescriptor *a1, struct _D3DKMDT_VIDEO_SIGNAL_INFO *a2)
+{
+  struct _D3DKMDT_VIDEO_SIGNAL_INFO::$9963842E1DCCBF6730749724D5C7309E::$4FDCBBA05DCC0CCF44951C2FDAA549A2 AdditionalSignalInfo; // eax
+  unsigned int v5; // eax
+  __int64 result; // rax
+  int v7; // ebx
+
+  if ( !a1 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 582;
+  }
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 583;
+  }
+  *(_OWORD *)&a2->VideoStandard = 0LL;
+  *(_OWORD *)&a2->ActiveSize.cy = 0LL;
+  *(_OWORD *)&a2->HSyncFreq.Denominator = 0LL;
+  *(_QWORD *)&a2->AdditionalSignalInfo = 0LL;
+  a2->ActiveSize.cx = a1->HorizontalActivePixels;
+  a2->ActiveSize.cy = a1->VerticalActivePixels;
+  a2->HSyncFreq.Numerator = a1->HorizontalRefreshRateNumerator;
+  a2->HSyncFreq.Denominator = a1->HorizontalRefreshRateDenominator;
+  a2->VSyncFreq.Numerator = a1->VerticalRefreshRateNumerator;
+  a2->VSyncFreq.Denominator = a1->VerticalRefreshRateDenominator;
+  a2->PixelRate = a1->PixelClockRate;
+  a2->TotalSize.cx = a1->HorizontalActivePixels + a1->HorizontalBlankingPixels;
+  AdditionalSignalInfo = a2->AdditionalSignalInfo;
+  a2->TotalSize.cy = a1->VerticalActivePixels + a1->VerticalBlankingPixels;
+  if ( a1->IsInterlaced )
+    v5 = *(_DWORD *)&AdditionalSignalInfo & 0xFFFFFFF8 | 2;
+  else
+    v5 = *(_DWORD *)&AdditionalSignalInfo & 0xFFFFFFF8 | 1;
+  a2->AdditionalSignalInfo = (struct _D3DKMDT_VIDEO_SIGNAL_INFO::$9963842E1DCCBF6730749724D5C7309E::$4FDCBBA05DCC0CCF44951C2FDAA549A2)v5;
+  result = ConvertVideoStandardType(a1->VideoStandardType, a2);
+  if ( (int)result >= 0 )
+  {
+    v7 = DMMVIDEOSIGNALMODE::_ValidateDdiVideoSignalModeInfo(a2);
+    if ( v7 < 0 )
+    {
+      WdLogSingleEntry1(2LL);
+      WdLogGlobalForLineNumber = 638;
+    }
+    return (unsigned int)v7;
+  }
+  return result;
+}

@@ -1,0 +1,115 @@
+/*
+ * XREFs of ?Transfer@?$CVertexTransfer2@V?$CNonScale2DOperator@VCVertexXYWColorDUV2_XYZ_Tangent@@$01$00@@$01$00VCVertexXYWColorDUV2_XYZ_Tangent@@@@SAXPEBV?$CCommonTransferParameters@VCVertexXYWColorDUV2_XYZ_Tangent@@@@AEBVCMILMatrix@@PEBV3@2@Z @ 0x180196D58
+ * Callers:
+ *     ??$TransferVertices@VCVertexXYWColorDUV2_XYZ_Tangent@@@@YAXAEBVCDrawListPrimitive@@PEAVCVertexXYWColorDUV2_XYZ_Tangent@@AEBVCMILMatrix@@_NMPEBV2@@Z @ 0x180195AC4 (--$TransferVertices@VCVertexXYWColorDUV2_XYZ_Tangent@@@@YAXAEBVCDrawListPrimitive@@PEAVCVertexXY.c)
+ * Callees:
+ *     ?CalculateTBNFrame@@YA?AUD2DQuaternion@@PEBUD2D_POINT_2F@@PEBVCVertexXYWColorDUV2@@AEBVCMILMatrix@@2@Z @ 0x180136720 (-CalculateTBNFrame@@YA-AUD2DQuaternion@@PEBUD2D_POINT_2F@@PEBVCVertexXYWColorDUV2@@AEBVCMILMatri.c)
+ *     ?Transform@?$CNonScale2DOperator@VCVertexXYWColorDUV2_XYZ_Tangent@@$0A@$00@@QEAQXPEBT__m128@@0T2@1PEAT2@@Z @ 0x180198B94 (-Transform@-$CNonScale2DOperator@VCVertexXYWColorDUV2_XYZ_Tangent@@$0A@$00@@QEAQXPEBT__m128@@0T2.c)
+ */
+
+_UNKNOWN **__fastcall CVertexTransfer2<CNonScale2DOperator<CVertexXYWColorDUV2_XYZ_Tangent,2,1>,2,1,CVertexXYWColorDUV2_XYZ_Tangent>::Transfer(
+        __int64 a1,
+        unsigned int *a2,
+        unsigned int *a3,
+        CMILMatrix *a4)
+{
+  _UNKNOWN **result; // rax
+  struct D2D_POINT_2F *v5; // r15
+  const struct D2D_POINT_2F *v7; // r14
+  __int64 v9; // r12
+  __int64 v10; // rsi
+  __m128 v11; // xmm10
+  __m128 v12; // xmm12
+  __m128 v13; // xmm13
+  unsigned int v14; // ebp
+  __int128 v15; // xmm14
+  __m128 v16; // xmm2
+  __m128 v17; // xmm3
+  __m128 v18; // xmm2
+  int v19; // r9d
+  int v20; // r11d
+  unsigned int v21; // r9d
+  unsigned int v22; // r10d
+  int v23; // r11d
+  __m128 v24; // xmm3
+  __m128 v25; // xmm1
+  __m128 v26; // xmm2
+  __int64 v27; // rcx
+  int v28; // [rsp+20h] [rbp-F8h]
+  __int128 v29; // [rsp+30h] [rbp-E8h] BYREF
+  _OWORD v30[3]; // [rsp+40h] [rbp-D8h] BYREF
+  _UNKNOWN *retaddr; // [rsp+118h] [rbp+0h] BYREF
+
+  result = &retaddr;
+  v5 = *(struct D2D_POINT_2F **)(a1 + 16);
+  v7 = *(const struct D2D_POINT_2F **)a1;
+  v9 = *(_QWORD *)(a1 + 8);
+  v10 = *(_QWORD *)(a1 + 24);
+  v11 = (__m128)DirectX::g_XMZero;
+  v12 = (__m128)DirectX::g_XMZero;
+  v13 = (__m128)DirectX::g_XMZero;
+  if ( a3 )
+  {
+    v11 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)*a3, (__m128)a3[2]), _mm_unpacklo_ps((__m128)a3[1], (__m128)0LL));
+    v12 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)a3[4], (__m128)a3[6]), _mm_unpacklo_ps((__m128)a3[5], (__m128)0LL));
+    v13 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)a3[12], (__m128)a3[14]), _mm_unpacklo_ps((__m128)a3[13], (__m128)0LL));
+  }
+  v14 = *(_DWORD *)(a1 + 36);
+  v15 = _xmm;
+  if ( a3 )
+  {
+    result = (_UNKNOWN **)CalculateTBNFrame((__int64)&v29, v5, v7, (CMILMatrix *)a3, a4);
+    v15 = v29;
+  }
+  v16 = (__m128)a2[5];
+  v30[0] = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)*a2, (__m128)0LL), _mm_unpacklo_ps((__m128)a2[1], (__m128)0LL));
+  v17 = _mm_unpacklo_ps(_mm_unpacklo_ps((__m128)a2[4], (__m128)0LL), _mm_unpacklo_ps(v16, (__m128)0LL));
+  v18 = (__m128)a2[13];
+  v30[1] = v17;
+  v30[2] = _mm_unpacklo_ps(
+             _mm_unpacklo_ps((__m128)a2[12], (__m128)LODWORD(FLOAT_1_0)),
+             _mm_unpacklo_ps(v18, (__m128)0LL));
+  if ( v14 )
+  {
+    v19 = 6;
+    v20 = 0;
+    do
+    {
+      CNonScale2DOperator<CVertexXYWColorDUV2_XYZ_Tangent,0,1>::Transform(
+        (unsigned int)v30,
+        16 * v20 + (_DWORD)v7,
+        v9 + 16 * v20,
+        v19,
+        v28,
+        v10 + 16LL * (unsigned int)(v19 - 6));
+      v24 = *(__m128 *)&v5[2 * ((unsigned __int64)v22 >> 1)].x;
+      v25 = v24;
+      if ( a3 )
+      {
+        v25 = _mm_add_ps(
+                _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v24, v24, 85), v12), v13),
+                _mm_mul_ps(_mm_shuffle_ps(v24, v24, 0), v11));
+        v26 = _mm_shuffle_ps(
+                _mm_add_ps(
+                  _mm_add_ps(_mm_mul_ps(_mm_shuffle_ps(v24, v24, 255), v12), v13),
+                  _mm_mul_ps(_mm_shuffle_ps(v24, v24, 170), v11)),
+                DirectX::g_XMZero,
+                228);
+      }
+      else
+      {
+        v26 = _mm_shuffle_ps(v24, DirectX::g_XMZero, 238);
+      }
+      result = (_UNKNOWN **)(2LL * v21);
+      v20 = v23 + 4;
+      *(__m128 *)(v10 + 16LL * (v21 - 4)) = _mm_shuffle_ps(v25, DirectX::g_XMZero, 228);
+      *(__m128 *)(v10 + 16LL * v21) = v26;
+      *(_OWORD *)(v10 + 16LL * (v21 - 3)) = v15;
+      v27 = 2LL * (v21 + 1);
+      v19 = v21 + 8;
+      *(_OWORD *)(v10 + 8 * v27) = v15;
+    }
+    while ( v22 + 2 < v14 );
+  }
+  return result;
+}

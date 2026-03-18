@@ -1,0 +1,78 @@
+/*
+ * XREFs of DpiMiracastBroadcastDeviceStateChange @ 0x1C016D340
+ * Callers:
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0024CF0 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C0025250 (DpiMiracastTargetDeviceChange.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C00256C4 (DpiMiracastTearDownAssociation.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C0026540 (DxgkMiracastStartMiracastSession.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C016DE70 (DpiMiracastHandleStartSessionDone.c)
+ * Callees:
+ *     memset @ 0x1C0012400 (memset.c)
+ *     Template_xqq @ 0x1C0027BAC (Template_xqq.c)
+ */
+
+__int64 __fastcall DpiMiracastBroadcastDeviceStateChange(__int64 a1, __int64 a2, __int64 a3)
+{
+  _DWORD *PoolWithTag; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  _QWORD *v9; // rax
+  __int64 v10; // rbx
+  int updated; // eax
+  __int64 v12; // rcx
+  _QWORD *v13; // rax
+  int v15; // [rsp+20h] [rbp-38h]
+  int v16; // [rsp+28h] [rbp-30h]
+  struct _UNICODE_STRING DestinationString; // [rsp+40h] [rbp-18h] BYREF
+
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  DestinationString.Buffer = 0LL;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x200000) != 0 )
+  {
+    v16 = *(_DWORD *)(a1 + 296);
+    v15 = *(_DWORD *)(a1 + 288);
+    Template_xqq(a1, a2, a3, *(_QWORD *)(a1 + 96), v15, v16);
+  }
+  if ( !*(_QWORD *)(a1 + 480) )
+  {
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, 0x214uLL, 0x74727044u);
+    *(_QWORD *)(a1 + 480) = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      v9 = (_QWORD *)WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+      LODWORD(v10) = -1073741801;
+      v9[3] = DpiMiracastBroadcastDeviceStateChange;
+      v9[4] = ExAllocatePoolWithTag;
+      v9[5] = -1073741801LL;
+      WdLogEvent5_WdLowResource(v9);
+      return (unsigned int)v10;
+    }
+    *PoolWithTag = 1;
+    memset((void *)(*(_QWORD *)(a1 + 480) + 4LL), 0, 0x208uLL);
+    DestinationString.Buffer = (wchar_t *)(*(_QWORD *)(a1 + 480) + 4LL);
+    DestinationString.MaximumLength = 518;
+    RtlCopyUnicodeString(&DestinationString, (PCUNICODE_STRING)(a1 + 160));
+  }
+  *(_DWORD *)(*(_QWORD *)(a1 + 480) + 524LL) = *(_DWORD *)(a1 + 288);
+  *(_DWORD *)(*(_QWORD *)(a1 + 480) + 528LL) = *(_DWORD *)(a1 + 296);
+  updated = ZwUpdateWnfStateData(
+              &WNF_DX_NETWORK_DISPLAY_STATE_CHANGE_NOTIFICATION,
+              *(_QWORD *)(a1 + 480),
+              532LL,
+              0LL,
+              a1 + 300,
+              0,
+              0);
+  v10 = updated;
+  if ( updated < 0 )
+  {
+    v13 = (_QWORD *)WdLogNewEntry5_WdError(v12);
+    v13[3] = DpiMiracastBroadcastDeviceStateChange;
+    v13[4] = ZwUpdateWnfStateData;
+    v13[5] = v10;
+    WdLogEvent5_WdError(v13);
+  }
+  return (unsigned int)v10;
+}

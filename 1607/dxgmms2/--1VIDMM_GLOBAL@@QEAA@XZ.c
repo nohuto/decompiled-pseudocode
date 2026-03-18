@@ -1,0 +1,124 @@
+/*
+ * XREFs of ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C0087FC8
+ * Callers:
+ *     ??_GVIDMM_GLOBAL@@QEAAPEAXI@Z @ 0x1C001D19C (--_GVIDMM_GLOBAL@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_V@YAXPEAX@Z @ 0x1C0001ACC (--_V@YAXPEAX@Z.c)
+ *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C0001DC4 (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0002C7C (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C000F8B0 (--3@YAXPEAX@Z.c)
+ *     ??_GVIDMM_DMA_POOL@@QEAAPEAXI@Z @ 0x1C0012B58 (--_GVIDMM_DMA_POOL@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0014AE0 (_guard_dispatch_icall_nop.c)
+ *     ?RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z @ 0x1C004B7E4 (-RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z.c)
+ *     ?CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z @ 0x1C005D0EC (-CloseAdapter@VIDMM_PROCESS@@QEAAXPEAVVIDMM_GLOBAL@@@Z.c)
+ *     ?DoDeferredUnlock@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C006A29C (-DoDeferredUnlock@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C008891C (-DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ @ 0x1C0093354 (-DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::~VIDMM_GLOBAL(VIDMM_GLOBAL *this, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 i; // rbx
+  struct _VIDMM_DMA_BUFFER *v6; // rdx
+  VIDMM_DMA_POOL *v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rbx
+  __int64 j; // rbx
+  void (__fastcall ***v12)(_QWORD, __int64); // rcx
+  void *v13; // rcx
+  void *v14; // rcx
+  char *v15; // rcx
+  char *v16; // rbx
+  char *v17; // rcx
+  char *v18; // rbx
+  char *v19; // rcx
+
+  *((_BYTE *)this + 6496) = 1;
+  if ( g_IsInternalReleaseOrDbg )
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(this, a2, a3, a4) + 24) = this;
+  VIDMM_GLOBAL::DoDeferredUnlock(this, a2, a3);
+  VIDMM_GLOBAL::DestroyPagingFenceObjects(this);
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 1604); i = (unsigned int)(i + 1) )
+  {
+    v6 = (struct _VIDMM_DMA_BUFFER *)*((_QWORD *)this + i + 143);
+    if ( v6 )
+    {
+      VIDMM_DMA_POOL::ReleaseBuffer(*((VIDMM_DMA_POOL **)this + i + 79), v6, 1);
+      *((_QWORD *)this + i + 143) = 0LL;
+    }
+    v7 = (VIDMM_DMA_POOL *)*((_QWORD *)this + i + 79);
+    if ( v7 )
+      VIDMM_DMA_POOL::`scalar deleting destructor'(v7);
+  }
+  VIDMM_PAGING_PROCESS::DestroyPagingProcess((VIDMM_GLOBAL *)((char *)this + 40320));
+  if ( (*((_BYTE *)this + 40872) & 0x10) != 0 )
+    VIDMM_PROCESS::CloseAdapter(g_pVidMmSystemProcess, this, v8, v9);
+  *((_QWORD *)this + 5140) = 0LL;
+  v10 = *(_QWORD *)this;
+  if ( *(_QWORD *)this )
+  {
+    ObfReferenceObject(*(PVOID *)(v10 + 8));
+    VIDMM_WORKER_THREAD::RequestWorkerThreadStatus(v10, 2, 1);
+    KeWaitForSingleObject(*(PVOID *)(v10 + 8), Executive, 0, 0, 0LL);
+    ObfDereferenceObject(*(PVOID *)(v10 + 8));
+    operator delete[](*(void **)(v10 + 152));
+    *(_QWORD *)(v10 + 152) = 0LL;
+    if ( *(_QWORD *)this )
+      operator delete(*(void **)this);
+    *(_QWORD *)this = 0LL;
+  }
+  if ( *((_QWORD *)this + 464) )
+  {
+    for ( j = 0LL; (unsigned int)j < *((_DWORD *)this + 926); j = (unsigned int)(j + 1) )
+    {
+      v12 = *(void (__fastcall ****)(_QWORD, __int64))(*((_QWORD *)this + 464) + 8 * j);
+      if ( v12 )
+        (**v12)(v12, 1LL);
+    }
+    operator delete[](*((void **)this + 464));
+    *((_QWORD *)this + 464) = 0LL;
+  }
+  v13 = (void *)*((_QWORD *)this + 804);
+  if ( v13 )
+    ZwClose(v13);
+  operator delete[](*((void **)this + 803));
+  v14 = (void *)*((_QWORD *)this + 978);
+  if ( v14 )
+  {
+    operator delete[](v14);
+    *((_QWORD *)this + 977) = 0LL;
+    *((_QWORD *)this + 978) = 0LL;
+    *((_QWORD *)this + 979) = 0LL;
+  }
+  v15 = (char *)*((_QWORD *)this + 5115);
+  if ( v15 )
+  {
+    v16 = v15 - 8;
+    `vector destructor iterator'(
+      v15,
+      24LL,
+      *((_QWORD *)v15 - 1),
+      (void (__fastcall *)(char *))VIDMM_PAGING_HISTORY_ENTRY::~VIDMM_PAGING_HISTORY_ENTRY);
+    operator delete[](v16);
+  }
+  operator delete[](*((void **)this + 5119));
+  v17 = (char *)*((_QWORD *)this + 5017);
+  if ( v17 )
+  {
+    v18 = v17 - 8;
+    `vector destructor iterator'(
+      v17,
+      456LL,
+      *((_QWORD *)v17 - 1),
+      (void (__fastcall *)(char *))VidMmFreeDeferredDmaBufferMapping);
+    operator delete[](v18);
+  }
+  ExDeletePagedLookasideList((PPAGED_LOOKASIDE_LIST)this + 314);
+  v19 = (char *)*((_QWORD *)this + 5150);
+  if ( v19 != (char *)this + 41208 )
+  {
+    if ( v19 )
+      ExFreePoolWithTag(v19, 0);
+  }
+}

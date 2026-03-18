@@ -1,0 +1,53 @@
+/*
+ * XREFs of PnpSaveDeviceCapabilities @ 0x1404DE1F4
+ * Callers:
+ *     PnpQueryAndSaveDeviceNodeCapabilities @ 0x1404A6FC0 (PnpQueryAndSaveDeviceNodeCapabilities.c)
+ *     PiProcessNewDeviceNode @ 0x1404DC8A4 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     ZwClose @ 0x14017E120 (ZwClose.c)
+ *     _CmSetDeviceRegProp @ 0x1404DE39C (_CmSetDeviceRegProp.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x1404DE504 (PnpDeviceObjectToDeviceInstance.c)
+ */
+
+__int64 __fastcall PnpSaveDeviceCapabilities(__int64 a1, _DWORD *a2, char a3)
+{
+  __int64 v5; // rcx
+  int v6; // esi
+  int v7; // r14d
+  int v8; // r8d
+  bool v9; // cf
+  unsigned int *v10; // rax
+  bool v11; // cf
+  unsigned int *v12; // rax
+  HANDLE Handle; // [rsp+70h] [rbp+30h] BYREF
+  unsigned int v15; // [rsp+80h] [rbp+40h] BYREF
+
+  v5 = *(_QWORD *)(a1 + 32);
+  Handle = 0LL;
+  v6 = a3 != 0 ? 0x20000 : 0;
+  v7 = PnpDeviceObjectToDeviceInstance(v5, &Handle, 983103LL);
+  if ( v7 >= 0 )
+  {
+    if ( (*(_DWORD *)(a1 + 396) & 0x40) != 0 )
+      a2[1] &= ~0x200u;
+    v8 = (int)Handle;
+    *(_DWORD *)(a1 + 560) = a2[1];
+    v15 = (a2[1] & 0x3FC | (a2[1] >> 13) & 8 | ((a2[1] & 0xC000 | (a2[1] >> 4) & 0x10000u) >> 4)) >> 2;
+    CmSetDeviceRegProp(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), v8, 16, 4, (__int64)&v15, 4, v6);
+    v9 = a2[3] != -1;
+    v15 = a2[3];
+    v10 = &v15;
+    if ( v15 == -1 )
+      v10 = 0LL;
+    CmSetDeviceRegProp(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), (_DWORD)Handle, 17, 4, (__int64)v10, v9 ? 4 : 0, v6);
+    v11 = a2[2] != -1;
+    v15 = a2[2];
+    v12 = &v15;
+    if ( v15 == -1 )
+      v12 = 0LL;
+    CmSetDeviceRegProp(PiPnpRtlCtx, *(_QWORD *)(a1 + 48), (_DWORD)Handle, 29, 4, (__int64)v12, v11 ? 4 : 0, v6);
+  }
+  if ( Handle )
+    ZwClose(Handle);
+  return (unsigned int)v7;
+}

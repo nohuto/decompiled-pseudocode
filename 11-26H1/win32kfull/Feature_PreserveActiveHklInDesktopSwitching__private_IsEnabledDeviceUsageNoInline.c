@@ -1,0 +1,17 @@
+/*
+ * XREFs of Feature_PreserveActiveHklInDesktopSwitching__private_IsEnabledDeviceUsageNoInline @ 0x1402A50B4
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1401B29E0 (xxxSwitchDesktop.c)
+ * Callees:
+ *     Feature_PreserveActiveHklInDesktopSwitching__private_IsEnabledFallback @ 0x1402A50F0 (Feature_PreserveActiveHklInDesktopSwitching__private_IsEnabledFallback.c)
+ */
+
+__int64 Feature_PreserveActiveHklInDesktopSwitching__private_IsEnabledDeviceUsageNoInline()
+{
+  if ( (Feature_PreserveActiveHklInDesktopSwitching__private_featureState & 0x10) != 0 )
+    return Feature_PreserveActiveHklInDesktopSwitching__private_featureState & 1;
+  else
+    return Feature_PreserveActiveHklInDesktopSwitching__private_IsEnabledFallback(
+             (unsigned int)Feature_PreserveActiveHklInDesktopSwitching__private_featureState,
+             3LL);
+}

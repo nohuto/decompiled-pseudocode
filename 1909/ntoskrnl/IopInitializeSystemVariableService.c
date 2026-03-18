@@ -1,0 +1,60 @@
+/*
+ * XREFs of IopInitializeSystemVariableService @ 0x14019D880
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140A05968 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x140043CD0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ *     ZwClose @ 0x1401C0E30 (ZwClose.c)
+ *     ZwOpenKey @ 0x1401C0E90 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1401C0F30 (ZwQueryValueKey.c)
+ *     memset @ 0x1401D77C0 (memset.c)
+ *     TraceLoggingRegisterEx @ 0x140747E64 (TraceLoggingRegisterEx.c)
+ */
+
+int IopInitializeSystemVariableService()
+{
+  int result; // eax
+  HANDLE KeyHandle; // [rsp+30h] [rbp-19h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+38h] [rbp-11h] BYREF
+  ULONG ResultLength; // [rsp+48h] [rbp-1h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+50h] [rbp+7h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+80h] [rbp+37h] BYREF
+  int v6; // [rsp+84h] [rbp+3Bh]
+  int v7; // [rsp+88h] [rbp+3Fh]
+  int v8; // [rsp+8Ch] [rbp+43h]
+
+  *(_QWORD *)&DestinationString.Length = 0LL;
+  DestinationString.Buffer = 0LL;
+  memset(&ObjectAttributes, 0, sizeof(ObjectAttributes));
+  TraceLoggingRegisterEx(&stru_140426DB8, 0LL, 0LL);
+  KeyHandle = 0LL;
+  RtlInitUnicodeString(
+    &DestinationString,
+    L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\WindowsTrustedRT\\Parameters");
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = &DestinationString;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwOpenKey(&KeyHandle, 0x20019u, &ObjectAttributes);
+  if ( result >= 0 )
+  {
+    RtlInitUnicodeString(&DestinationString, L"Flags");
+    result = ZwQueryValueKey(
+               KeyHandle,
+               &DestinationString,
+               KeyValuePartialInformation,
+               KeyValueInformation,
+               0x10u,
+               &ResultLength);
+    if ( result >= 0 && v6 == 4 && v7 == 4 )
+    {
+      result = v8;
+      IopSysEnvOverrideFlags = v8;
+    }
+  }
+  if ( KeyHandle )
+    return ZwClose(KeyHandle);
+  return result;
+}

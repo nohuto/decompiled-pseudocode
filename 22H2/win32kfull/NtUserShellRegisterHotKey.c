@@ -1,0 +1,89 @@
+/*
+ * XREFs of NtUserShellRegisterHotKey @ 0x1C0041040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C0043264 (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C0066EB8 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     IsShellProcess @ 0x1C0066FBC (IsShellProcess.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C00E4884 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UserSetLastError @ 0x1C00F04CC (UserSetLastError.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C011BB80 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall NtUserShellRegisterHotKey(__int64 a1, int a2, int a3, unsigned int a4, HWND a5)
+{
+  __int64 v9; // rcx
+  __int64 CurrentProcessWin32Process; // rax
+  __int64 v11; // rdx
+  int v12; // edx
+  int v13; // r8d
+  struct tagWND *v14; // rdi
+  HWND v15; // rbx
+  int v16; // ebx
+  __int64 v17; // rdx
+  __int64 v18; // rcx
+  __int64 v19; // r8
+  __int64 v20; // r9
+  __int64 v22; // rcx
+  char v23; // [rsp+70h] [rbp+18h] BYREF
+
+  EnterCrit(0LL, 0LL);
+  AtomicExecutionCheck::AtomicExecutionCheck((AtomicExecutionCheck *)&v23);
+  if ( (a3 & 0xFFFF9FF0) != 0 )
+  {
+    UserSetLastError(1004LL);
+    goto LABEL_11;
+  }
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v9);
+  v11 = CurrentProcessWin32Process;
+  if ( CurrentProcessWin32Process )
+    v11 = -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL) & CurrentProcessWin32Process;
+  if ( !(unsigned int)IsShellProcess(v11) )
+  {
+    LOBYTE(v12) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+               && (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x80000) != 0
+               && BYTE1(WPP_GLOBAL_Control->Timer) >= 3u;
+    if ( (_BYTE)v12 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v13) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
+      WPP_RECORDER_AND_TRACE_SF_(
+        WPP_GLOBAL_Control->AttachedDevice,
+        v12,
+        v13,
+        64,
+        3,
+        20,
+        64,
+        (__int64)&WPP_154c990b78bb386e6b2cbfec85a60616_Traceguids);
+    }
+    v22 = 5LL;
+    goto LABEL_25;
+  }
+  if ( a1 )
+  {
+    v14 = (struct tagWND *)ValidateHwnd(a1);
+    if ( v14 )
+      goto LABEL_7;
+LABEL_11:
+    v16 = 0;
+    goto LABEL_9;
+  }
+  v14 = 0LL;
+LABEL_7:
+  v15 = a5;
+  if ( a5 && !ValidateHwnd(a5) )
+    goto LABEL_11;
+  v16 = _RegisterHotKey(v14, 0LL, a2, a3 | 0x80u, a4, v15);
+  if ( !v16 )
+  {
+    v22 = 5023LL;
+LABEL_25:
+    v16 = 0;
+    UserSetLastError(v22);
+  }
+LABEL_9:
+  AtomicExecutionCheck::Disarm((AtomicExecutionCheck *)&v23);
+  UserSessionSwitchLeaveCrit(v18, v17, v19, v20);
+  return v16;
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?GetPinnedPrimary@DXGDEVICE@@QEAAII@Z @ 0x1400130AC
+ * Callers:
+ *     ?UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x140312C30 (-UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z.c)
+ *     ?UnpinTransitionalPrimaryAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@I@Z @ 0x1403D359C (-UnpinTransitionalPrimaryAllocation@DXGDEVICE@@QEAAXPEAVDXGALLOCATION@@I@Z.c)
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1400136BC (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140013780 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall DXGDEVICE::GetPinnedPrimary(DXGDEVICE *this, unsigned int a2)
+{
+  __int64 v2; // rbx
+  _BYTE v5[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = a2;
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v5, (DXGDEVICE *)((char *)this + 336));
+  LODWORD(v2) = (*((_DWORD *)this + v2 + 310) >> 8) & 1;
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v5);
+  return (unsigned int)v2;
+}

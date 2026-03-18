@@ -1,0 +1,12 @@
+/*
+ * XREFs of HUBDSM_ReturningPortFailureOnResume @ 0x140024040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 HUBDSM_ReturningPortFailureOnResume()
+{
+  return 4046LL;
+}

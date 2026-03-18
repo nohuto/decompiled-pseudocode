@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??0_VIDMM_POOL_BLOCK@@QEAA@XZ @ 0x1400448B8
+ * Callers:
+ *     ?AllocateBlock@VIDMM_LINEAR_POOL@@IEAAPEAU_VIDMM_POOL_BLOCK@@XZ @ 0x1400FB248 (-AllocateBlock@VIDMM_LINEAR_POOL@@IEAAPEAU_VIDMM_POOL_BLOCK@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
+_VIDMM_POOL_BLOCK *__fastcall _VIDMM_POOL_BLOCK::_VIDMM_POOL_BLOCK(_VIDMM_POOL_BLOCK *this)
+{
+  return this;
+}

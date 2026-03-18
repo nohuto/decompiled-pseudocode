@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?RemoveRange@?$CMap@IW4InputType@@V?$CMapEqualHelper@IW4InputType@@@@@@QEAAHHH@Z @ 0x180194934
+ * Callers:
+ *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x180193100 (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
+ *     ?RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z @ 0x18022CC90 (-RevalidateMC@CManipulationContext@@AEAAXPEAUMCCollections@@PEAHHH@Z.c)
+ * Callees:
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180192730 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1802DF6E0 (memmove_0.c)
+ */
+
+__int64 __fastcall CMap<unsigned int,enum InputType,CMapEqualHelper<unsigned int,enum InputType>>::RemoveRange(
+        __int64 a1,
+        int a2)
+{
+  __int64 v2; // rsi
+  int v4; // ecx
+  void *v5; // rax
+  void *v6; // rax
+
+  v2 = a2;
+  if ( a2 < 0 )
+    return 0LL;
+  v4 = *(_DWORD *)(a1 + 16);
+  if ( a2 + 1 > v4 )
+    return 0LL;
+  if ( a2 + 1 != v4 )
+  {
+    memmove_0((void *)(*(_QWORD *)a1 + 4LL * a2), (const void *)(*(_QWORD *)a1 + 4 * (a2 + 1LL)), 4LL * (v4 - a2 - 1));
+    memmove_0(
+      (void *)(*(_QWORD *)(a1 + 8) + 4 * v2),
+      (const void *)(*(_QWORD *)(a1 + 8) + 4 * (v2 + 1)),
+      4LL * (*(_DWORD *)(a1 + 16) - (int)v2 - 1));
+  }
+  v5 = DefaultHeap::Realloc(*(void **)a1, 4LL * (*(_DWORD *)(a1 + 16) - 1));
+  if ( v5 )
+    *(_QWORD *)a1 = v5;
+  v6 = DefaultHeap::Realloc(*(void **)(a1 + 8), 4LL * (*(_DWORD *)(a1 + 16) - 1));
+  if ( v6 )
+    *(_QWORD *)(a1 + 8) = v6;
+  --*(_DWORD *)(a1 + 16);
+  return 1LL;
+}

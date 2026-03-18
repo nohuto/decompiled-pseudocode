@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?SetReferenceArrayProperty@CTransform3DGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x14022EA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Set@?$CResourceMarshalerArray@VCResourceMarshaler@DirectComposition@@$0KN@$0IA@$0CIA@$0CIB@@DirectComposition@@QEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_K@Z @ 0x14022DAF8 (-Set@-$CResourceMarshalerArray@VCResourceMarshaler@DirectComposition@@$0KN@$0IA@$0CIA@$0CIB@@Dir.c)
+ */
+
+__int64 __fastcall DirectComposition::CTransform3DGroupMarshaler::SetReferenceArrayProperty(
+        DirectComposition::CTransform3DGroupMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        struct DirectComposition::CResourceMarshaler **a4,
+        unsigned __int64 a5,
+        bool *a6)
+{
+  __int64 result; // rax
+
+  *a6 = 0;
+  if ( a3 != 1 )
+    return 3221225485LL;
+  result = DirectComposition::CResourceMarshalerArray<DirectComposition::CResourceMarshaler,173,128,640,641>::Set(
+             (DirectComposition::CTransform3DGroupMarshaler *)((char *)this + 72),
+             a2,
+             (__int64)a4,
+             a5);
+  if ( (int)result >= 0 )
+  {
+    *((_DWORD *)this + 4) |= 0x80u;
+    *a6 = 1;
+  }
+  return result;
+}

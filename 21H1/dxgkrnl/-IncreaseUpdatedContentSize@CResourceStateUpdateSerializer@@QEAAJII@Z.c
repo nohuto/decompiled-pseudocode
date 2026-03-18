@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C006A8A4
+ * Callers:
+ *     ?PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@PEA_N@Z @ 0x1C006A9B8 (-PrepareIncrementalUpdateForStateManager@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpd.c)
+ *     ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C006ACA8 (-PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CResourceStateUpdateSerializer::IncreaseUpdatedContentSize(
+        CResourceStateUpdateSerializer *this,
+        __int64 a2,
+        unsigned int a3)
+{
+  unsigned int v3; // eax
+  unsigned int v4; // r8d
+  unsigned int v5; // edx
+  int v6; // eax
+
+  v3 = a3 + 32;
+  if ( a3 >= 0xFFFFFFE0 )
+    return 3221225621LL;
+  v4 = *((_DWORD *)this + 18);
+  v5 = v4 + v3;
+  v6 = -1;
+  if ( v5 >= v4 )
+    v6 = v5;
+  *((_DWORD *)this + 18) = v6;
+  return v5 < v4 ? 0xC0000095 : 0;
+}

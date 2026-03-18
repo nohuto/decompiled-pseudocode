@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?TraceChildWindowDpiTelemetry@@YAXPEAUtagWND@@0W4_CHILD_WINDOW_DPI_TELEMETRY@@@Z @ 0x1C000F69C
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C0035320 (xxxCreateWindowEx.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C00CF14C (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     ?xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z @ 0x1C021F904 (-xxxForceUpdateProcessDpiAwarenessContext@@YAXPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     GetProcessImageFilename @ 0x1C000F798 (GetProcessImageFilename.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@4@Z @ 0x1C000F8F4 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ *     _tlgKeywordOn @ 0x1C0041D94 (_tlgKeywordOn.c)
+ */
+
+__int64 __fastcall TraceChildWindowDpiTelemetry(__int64 a1, __int64 a2, int a3)
+{
+  __int64 v3; // rax
+  const unsigned __int16 *v4; // rdi
+  __int64 v7; // rbx
+  __int64 v8; // r12
+  __int64 result; // rax
+  __int64 v10; // rdx
+  __int64 v11; // r8
+  const unsigned __int16 *v12; // r14
+  __int64 v13; // rsi
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  const unsigned __int16 *v16; // [rsp+80h] [rbp+40h] BYREF
+  const unsigned __int16 *v17; // [rsp+88h] [rbp+48h] BYREF
+  const unsigned __int16 *v18; // [rsp+98h] [rbp+58h]
+
+  v3 = *(_QWORD *)(a1 + 16);
+  v4 = &word_1C030D60C;
+  v16 = &word_1C030D60C;
+  v17 = &word_1C030D60C;
+  v7 = 0LL;
+  v8 = *(_QWORD *)(v3 + 424);
+  result = GetProcessImageFilename(v8, &v16);
+  v12 = v16;
+  v13 = result;
+  if ( a2 )
+  {
+    result = *(_QWORD *)(a2 + 16);
+    v14 = *(_QWORD *)(result + 424);
+    if ( v8 == v14 )
+    {
+      v4 = v16;
+    }
+    else
+    {
+      result = GetProcessImageFilename(v14, &v17);
+      v4 = v17;
+      v7 = result;
+    }
+  }
+  if ( (unsigned int)dword_1C0354098 > 5 )
+  {
+    result = tlgKeywordOn(&dword_1C0354098, 0x400000000000LL);
+    if ( (_BYTE)result )
+    {
+      v17 = v4;
+      v18 = v12;
+      LODWORD(v16) = a3;
+      result = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
+                 v15,
+                 &unk_1C031D426);
+    }
+  }
+  if ( v13 )
+    result = FreeTmpBuffer(v13, v10, v11);
+  if ( v7 )
+    return FreeTmpBuffer(v7, v10, v11);
+  return result;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?QueueWorkItemForIsr@FxInterrupt@@QEAAEXZ @ 0x1400715FC
+ * Callers:
+ *     imp_WdfInterruptQueueWorkItemForIsr @ 0x1400715C0 (imp_WdfInterruptQueueWorkItemForIsr.c)
+ * Callees:
+ *     ?EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z @ 0x140007938 (-EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z.c)
+ */
+
+BOOLEAN __fastcall FxInterrupt::QueueWorkItemForIsr(FxInterrupt *this)
+{
+  if ( KeGetCurrentIrql() <= 2u )
+    return FxSystemWorkItem::EnqueueWorker(
+             this->m_SystemWorkItem,
+             (void (__fastcall *)(void *))FxInterrupt::_InterruptWorkItemCallback,
+             this,
+             0);
+  else
+    return KeInsertQueueDpc(&this->m_Dpc, this, 0LL);
+}

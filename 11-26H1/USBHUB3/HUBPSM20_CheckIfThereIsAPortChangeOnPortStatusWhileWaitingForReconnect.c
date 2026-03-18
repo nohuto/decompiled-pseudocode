@@ -1,0 +1,12 @@
+/*
+ * XREFs of HUBPSM20_CheckIfThereIsAPortChangeOnPortStatusWhileWaitingForReconnect @ 0x140012510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBHTX_CheckAndSelectIfAny20PortChangeSet @ 0x140002B80 (HUBHTX_CheckAndSelectIfAny20PortChangeSet.c)
+ */
+
+__int64 __fastcall HUBPSM20_CheckIfThereIsAPortChangeOnPortStatusWhileWaitingForReconnect(__int64 a1)
+{
+  return HUBHTX_CheckAndSelectIfAny20PortChangeSet(*(_QWORD *)(a1 + 960));
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x14003E9AC
+ * Callers:
+ *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@AEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x1402545D4 (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@AEBU_D3DKMDT_VIDPN_SOURCE_MODE@@@.c)
+ *     ?Serialize@DMMVIDPNSOURCEMODESET@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPNSOURCEMODESET_SERIALIZATION@@@DMM@@@Z @ 0x14025FB98 (-Serialize@DMMVIDPNSOURCEMODESET@@QEBAJPEAV-$AutoBuffer@U_DMM_VIDPNSOURCEMODESET_SERIALIZATION@@.c)
+ *     ?IsHdrSourceModePinned@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z @ 0x1402629C8 (-IsHdrSourceModePinned@@YA_NPEBVDXGADAPTER@@PEBVDMMVIDPNSOURCEMODESET@@@Z.c)
+ *     BmlGetRecommendedContentSizeForPath @ 0x14039BF58 (BmlGetRecommendedContentSizeForPath.c)
+ * Callees:
+ *     <none>
+ */
+
+const struct DMMVIDPNSOURCEMODE *__fastcall DMMVIDPNSOURCEMODESET::GetNextMode(
+        DMMVIDPNSOURCEMODESET *this,
+        const struct DMMVIDPNSOURCEMODE *const a2)
+{
+  DMMVIDPNSOURCEMODESET *v4; // rdx
+  const struct DMMVIDPNSOURCEMODE *result; // rax
+
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 506;
+  }
+  v4 = (DMMVIDPNSOURCEMODESET *)*((_QWORD *)a2 + 1);
+  result = (DMMVIDPNSOURCEMODESET *)((char *)v4 - 8);
+  if ( v4 == (DMMVIDPNSOURCEMODESET *)((char *)this + 48) )
+    return 0LL;
+  return result;
+}

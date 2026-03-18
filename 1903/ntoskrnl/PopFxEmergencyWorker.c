@@ -1,0 +1,23 @@
+/*
+ * XREFs of PopFxEmergencyWorker @ 0x14019D8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetActualBasePriorityThread @ 0x140012650 (KeSetActualBasePriorityThread.c)
+ *     KeRemoveQueueEx @ 0x140044B60 (KeRemoveQueueEx.c)
+ *     _guard_dispatch_icall @ 0x1401CC5F0 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall __noreturn PopFxEmergencyWorker(PKQUEUE Queue)
+{
+  PLIST_ENTRY EntryArray; // [rsp+48h] [rbp+10h] BYREF
+
+  KeSetActualBasePriorityThread((__int64)KeGetCurrentThread(), 16LL);
+  while ( 1 )
+  {
+    do
+      KeRemoveQueueEx(Queue, 0, 0, 0LL, &EntryArray, 1u);
+    while ( EntryArray == (PLIST_ENTRY)128 );
+    ((void (__fastcall *)(struct _LIST_ENTRY *))EntryArray[1].Flink)(EntryArray[1].Blink);
+  }
+}

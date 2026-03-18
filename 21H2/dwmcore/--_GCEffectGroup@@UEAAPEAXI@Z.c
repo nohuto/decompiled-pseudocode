@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??_GCEffectGroup@@UEAAPEAXI@Z @ 0x1800E7E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Free@DefaultHeap@@SAXPEAX@Z @ 0x18008FCE4 (-Free@DefaultHeap@@SAXPEAX@Z.c)
+ *     ??1?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@MEAA@XZ @ 0x1800E7E74 (--1-$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1800F9294 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
+CEffectGroup *__fastcall CEffectGroup::`scalar deleting destructor'(CEffectGroup *this, char a2)
+{
+  CEffectGroupGeneratedT<CEffectGroup,CEffect>::~CEffectGroupGeneratedT<CEffectGroup,CEffect>(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      __global_delete(this, 0x60uLL);
+    else
+      DefaultHeap::Free(this);
+  }
+  return this;
+}

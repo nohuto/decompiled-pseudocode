@@ -1,0 +1,12 @@
+/*
+ * XREFs of nullsub_26 @ 0x1406BA712
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void nullsub_26()
+{
+  ;
+}

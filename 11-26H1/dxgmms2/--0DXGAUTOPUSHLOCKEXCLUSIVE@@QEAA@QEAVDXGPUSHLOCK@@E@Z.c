@@ -1,0 +1,30 @@
+/*
+ * XREFs of ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@E@Z @ 0x14002FE80
+ * Callers:
+ *     ?MakeOneVirtualAddressRangeResident@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@_K1PEAPEAU2@PEA_N@Z @ 0x14009FFB8 (-MakeOneVirtualAddressRangeResident@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@_K1PEAPEAU2@PEA_N@Z.c)
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAUVIDMM_LOCAL_ALLOC@@_NU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1400D4C18 (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAUVIDMM_LOCAL_ALLOC@@_NU_D3DDDICB_D.c)
+ *     ?TrimOfferList@VIDMM_SEGMENT@@QEAAJPEAU_LIST_ENTRY@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z @ 0x1400F9448 (-TrimOfferList@VIDMM_SEGMENT@@QEAAJPEAU_LIST_ENTRY@@U_VIDMM_TRIM_PROCESS_FLAGS@@_K2@Z.c)
+ * Callees:
+ *     ?LogEvent@DXGPUSHLOCK@@IEAAXXZ @ 0x140030174 (-LogEvent@DXGPUSHLOCK@@IEAAXXZ.c)
+ */
+
+DXGAUTOPUSHLOCKEXCLUSIVE *__fastcall DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+        DXGAUTOPUSHLOCKEXCLUSIVE *this,
+        struct DXGPUSHLOCK *const a2,
+        char a3)
+{
+  *((_QWORD *)this + 1) = a2;
+  *((_DWORD *)this + 4) = 0;
+  if ( a3 )
+  {
+    KeEnterCriticalRegion();
+    if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(a2, 0LL) )
+    {
+      DXGPUSHLOCK::LogEvent(a2);
+      ExAcquirePushLockExclusiveEx(a2, 0LL);
+    }
+    *((_QWORD *)a2 + 1) = KeGetCurrentThread();
+    *((_DWORD *)this + 4) = 2;
+  }
+  return this;
+}

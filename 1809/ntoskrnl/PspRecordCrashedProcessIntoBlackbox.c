@@ -1,0 +1,41 @@
+/*
+ * XREFs of PspRecordCrashedProcessIntoBlackbox @ 0x140888F80
+ * Callers:
+ *     PsSetProcessFaultInformation @ 0x1406E1DC0 (PsSetProcessFaultInformation.c)
+ * Callees:
+ *     ZwPowerInformation @ 0x1401B8D50 (ZwPowerInformation.c)
+ *     memmove @ 0x1401D1440 (memmove.c)
+ *     memset @ 0x1401D1780 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall PspRecordCrashedProcessIntoBlackbox(__int64 a1)
+{
+  unsigned __int16 *v1; // rbx
+  int v2; // edi
+  _DWORD *PoolWithTag; // rax
+  _DWORD *v4; // rsi
+  _QWORD InputBuffer[4]; // [rsp+30h] [rbp-38h] BYREF
+
+  v1 = *(unsigned __int16 **)(a1 + 1128);
+  memset(InputBuffer, 0, sizeof(InputBuffer));
+  v2 = 0;
+  if ( v1 && *((_QWORD *)v1 + 1) && *v1 )
+    v2 = *v1 + 2;
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, (unsigned int)(v2 + 8), 0x62427350u);
+  v4 = PoolWithTag;
+  if ( PoolWithTag )
+  {
+    memset(PoolWithTag, 0, (unsigned int)(v2 + 8));
+    *v4 = 1;
+    v4[1] = v2 + 8;
+    if ( v2 )
+      memmove(v4 + 2, *((const void **)v1 + 1), *v1);
+    LODWORD(InputBuffer[3]) = 13;
+    InputBuffer[0] = v4;
+    InputBuffer[1] = (unsigned int)(v2 + 8);
+    ZwPowerInformation(TraceApplicationPowerMessage|0x40, InputBuffer, 0x20u, 0LL, 0);
+    ExFreePoolWithTag(v4, 0x62427350u);
+  }
+}

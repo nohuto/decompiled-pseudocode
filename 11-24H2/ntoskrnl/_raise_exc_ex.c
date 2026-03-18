@@ -1,0 +1,169 @@
+/*
+ * XREFs of _raise_exc_ex @ 0x140502950
+ * Callers:
+ *     _raise_exc @ 0x140502910 (_raise_exc.c)
+ *     _raise_excf @ 0x140502C70 (_raise_excf.c)
+ * Callees:
+ *     _clrfp @ 0x140502CB0 (_clrfp.c)
+ *     _statfp @ 0x140502DA0 (_statfp.c)
+ *     RtlRaiseException @ 0x1405E88F0 (RtlRaiseException.c)
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall raise_exc_ex(ULONG_PTR a1, unsigned __int64 *a2, char a3, int a4, _DWORD *a5, _DWORD *a6, int a7)
+{
+  unsigned int v10; // ebp
+  int v11; // ecx
+  int v12; // eax
+  int v13; // edx
+  int v14; // ecx
+  char v15; // al
+  __int64 v16; // rax
+  __int64 result; // rax
+  ULONG_PTR v18[5]; // [rsp+20h] [rbp-D8h] BYREF
+  __int128 v19; // [rsp+48h] [rbp-B0h]
+  __int128 v20; // [rsp+58h] [rbp-A0h]
+  __int128 v21; // [rsp+68h] [rbp-90h]
+  __int128 v22; // [rsp+78h] [rbp-80h]
+  __int128 v23; // [rsp+88h] [rbp-70h]
+  __int128 v24; // [rsp+98h] [rbp-60h]
+  __int128 v25; // [rsp+A8h] [rbp-50h]
+
+  *(_QWORD *)(a1 + 4) = 0LL;
+  *(_DWORD *)(a1 + 12) = 0;
+  v10 = 0;
+  if ( (a3 & 0x10) != 0 )
+  {
+    *(_DWORD *)(a1 + 4) |= 1u;
+    v10 = -1073741681;
+  }
+  if ( (a3 & 2) != 0 )
+  {
+    *(_DWORD *)(a1 + 4) |= 2u;
+    v10 = -1073741677;
+  }
+  if ( (a3 & 1) != 0 )
+  {
+    *(_DWORD *)(a1 + 4) |= 4u;
+    v10 = -1073741679;
+  }
+  if ( (a3 & 4) != 0 )
+  {
+    *(_DWORD *)(a1 + 4) |= 8u;
+    v10 = -1073741682;
+  }
+  if ( (a3 & 8) != 0 )
+  {
+    *(_DWORD *)(a1 + 4) |= 0x10u;
+    v10 = -1073741680;
+  }
+  v11 = ~(16 * (unsigned __int8)(*a2 >> 7)) & 0x10;
+  *(_DWORD *)(a1 + 8) = v11;
+  v12 = v11 ^ ((unsigned __int8)v11 ^ (unsigned __int8)~(8 * (*a2 >> 9))) & 8;
+  *(_DWORD *)(a1 + 8) = v12;
+  v13 = v12 ^ ((unsigned __int8)v12 ^ (unsigned __int8)~(4 * (*a2 >> 10))) & 4;
+  *(_DWORD *)(a1 + 8) = v13;
+  v14 = v13 ^ ((unsigned __int8)v13 ^ (unsigned __int8)~(2 * (*a2 >> 11))) & 2;
+  *(_DWORD *)(a1 + 8) = v14;
+  *(_DWORD *)(a1 + 8) = v14 ^ ((unsigned __int8)v14 ^ (unsigned __int8)~(unsigned __int8)((unsigned __int64)*(unsigned int *)a2 >> 12)) & 1;
+  v15 = statfp();
+  if ( (v15 & 1) != 0 )
+    *(_DWORD *)(a1 + 12) |= 0x10u;
+  if ( (v15 & 4) != 0 )
+    *(_DWORD *)(a1 + 12) |= 8u;
+  if ( (v15 & 8) != 0 )
+    *(_DWORD *)(a1 + 12) |= 4u;
+  if ( (v15 & 0x10) != 0 )
+    *(_DWORD *)(a1 + 12) |= 2u;
+  if ( (v15 & 0x20) != 0 )
+    *(_DWORD *)(a1 + 12) |= 1u;
+  v16 = *(_DWORD *)a2 & 0x6000;
+  if ( (*(_DWORD *)a2 & 0x6000) != 0 )
+  {
+    switch ( v16 )
+    {
+      case 8192LL:
+        *(_DWORD *)a1 = *(_DWORD *)a1 & 0xFFFFFFFC | 1;
+        break;
+      case 16384LL:
+        *(_DWORD *)a1 = *(_DWORD *)a1 & 0xFFFFFFFC | 2;
+        break;
+      case 24576LL:
+        *(_DWORD *)a1 |= 3u;
+        break;
+    }
+  }
+  else
+  {
+    *(_DWORD *)a1 &= 0xFFFFFFFC;
+  }
+  *(_DWORD *)a1 ^= (*(_DWORD *)a1 ^ (32 * a4)) & 0x1FFE0;
+  if ( a7 )
+  {
+    *(_DWORD *)(a1 + 32) = *(_DWORD *)(a1 + 32) & 0xFFFFFFE0 | 1;
+    *(_DWORD *)(a1 + 16) = *a5;
+    *(_DWORD *)(a1 + 96) = *(_DWORD *)(a1 + 96) & 0xFFFFFFE0 | 1;
+    *(_DWORD *)(a1 + 80) = *a6;
+  }
+  else
+  {
+    *(_DWORD *)(a1 + 32) = *(_DWORD *)(a1 + 32) & 0xFFFFFFE0 | 3;
+    *(_QWORD *)(a1 + 16) = *(_QWORD *)a5;
+    *(_DWORD *)(a1 + 96) = *(_DWORD *)(a1 + 96) & 0xFFFFFFE0 | 3;
+    *(_QWORD *)(a1 + 80) = *(_QWORD *)a6;
+  }
+  clrfp();
+  v18[3] = 1LL;
+  v18[0] = v10;
+  v18[2] = (ULONG_PTR)RaiseException;
+  v19 = 0LL;
+  v20 = 0LL;
+  v18[1] = 0LL;
+  v21 = 0LL;
+  v18[4] = a1;
+  v22 = 0LL;
+  v23 = 0LL;
+  v24 = 0LL;
+  v25 = 0LL;
+  RtlRaiseException((ULONG_PTR)v18);
+  if ( (*(_DWORD *)(a1 + 8) & 0x10) != 0 )
+    *a2 &= ~0x80uLL;
+  if ( (*(_DWORD *)(a1 + 8) & 8) != 0 )
+    *a2 &= ~0x200uLL;
+  if ( (*(_DWORD *)(a1 + 8) & 4) != 0 )
+    *a2 &= ~0x400uLL;
+  if ( (*(_DWORD *)(a1 + 8) & 2) != 0 )
+    *a2 &= ~0x800uLL;
+  if ( (*(_DWORD *)(a1 + 8) & 1) != 0 )
+    *a2 &= ~0x1000uLL;
+  if ( (*(_DWORD *)a1 & 3) != 0 )
+  {
+    switch ( *(_DWORD *)a1 & 3 )
+    {
+      case 1:
+        *a2 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x2000;
+        break;
+      case 2:
+        *a2 = *a2 & 0xFFFFFFFFFFFF9FFFuLL | 0x4000;
+        break;
+      case 3:
+        *a2 |= 0x6000uLL;
+        break;
+    }
+  }
+  else
+  {
+    *a2 &= 0xFFFFFFFFFFFF9FFFuLL;
+  }
+  if ( a7 )
+  {
+    result = *(unsigned int *)(a1 + 80);
+    *a6 = result;
+  }
+  else
+  {
+    result = *(_QWORD *)(a1 + 80);
+    *(_QWORD *)a6 = result;
+  }
+  return result;
+}

@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?BackPropagateSmallBitmapBits@UMPDOBJ@@QEAAXPEAU_SURFOBJ@@PEAXH@Z @ 0x1C01402FC
+ * Callers:
+ *     ?UMPDDrvCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x1C02B8D90 (-UMPDDrvCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0141300 (memmove.c)
+ *     ?GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z @ 0x1C0298EE8 (-GetKernelPtr@UMPDOBJ@@QEAAPEAXPEAX@Z.c)
+ */
+
+void __fastcall UMPDOBJ::BackPropagateSmallBitmapBits(UMPDOBJ *this, struct _SURFOBJ *a2, void *a3, int a4)
+{
+  ULONG cjBits; // ebx
+  const void *KernelPtr; // rax
+
+  if ( a4 )
+  {
+    cjBits = a2->cjBits;
+    KernelPtr = UMPDOBJ::GetKernelPtr(this, a2->pvBits);
+    memmove(a3, KernelPtr, cjBits);
+  }
+}

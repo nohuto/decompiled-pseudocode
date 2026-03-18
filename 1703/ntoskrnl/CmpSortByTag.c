@@ -1,0 +1,55 @@
+/*
+ * XREFs of CmpSortByTag @ 0x14080DC9C
+ * Callers:
+ *     CmpDoSort @ 0x14080DB70 (CmpDoSort.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall CmpSortByTag(__int64 a1)
+{
+  _QWORD *v1; // r8
+  _QWORD *v3; // r9
+  _QWORD *v4; // rdx
+  __int64 v5; // rcx
+  _QWORD *v6; // rax
+  _QWORD *i; // rax
+  _QWORD *v8; // rcx
+
+  v1 = *(_QWORD **)a1;
+  v3 = *(_QWORD **)(a1 + 8);
+  v4 = **(_QWORD ***)a1;
+  while ( v1 != v3 )
+  {
+    if ( *((_DWORD *)v1 + 28) > *((_DWORD *)v4 + 28) )
+    {
+      v5 = *v4;
+      v6 = (_QWORD *)v4[1];
+      if ( v4 == v3 )
+        v3 = v1;
+      if ( *(_QWORD **)(v5 + 8) != v4 || (_QWORD *)*v6 != v4 )
+        __fastfail(3u);
+      *v6 = v5;
+      *(_QWORD *)(v5 + 8) = v6;
+      for ( i = *(_QWORD **)a1; i != v1; i = (_QWORD *)*i )
+      {
+        if ( *((_DWORD *)i + 28) >= *((_DWORD *)v4 + 28) )
+          break;
+      }
+      v8 = (_QWORD *)i[1];
+      if ( (_QWORD *)*v8 != i )
+        __fastfail(3u);
+      *v4 = i;
+      v4[1] = v8;
+      *v8 = v4;
+      i[1] = v4;
+      v4 = v1;
+    }
+    else
+    {
+      v1 = v4;
+    }
+    v4 = (_QWORD *)*v4;
+  }
+  return 1;
+}

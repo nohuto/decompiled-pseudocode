@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?AssignNull@DXGALLOCATIONREFERENCE@@QEAAXXZ @ 0x1403D3C54
+ * Callers:
+ *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1402830B8 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?Cleanup@BLTENTRY@@QEAAXE@Z @ 0x1403D3C10 (-Cleanup@BLTENTRY@@QEAAXE@Z.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x140446230 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?SetupPresentParameters@BLTENTRY@@QEAAJPEAVBLTQUEUE@@PEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@E@Z @ 0x140446E68 (-SetupPresentParameters@BLTENTRY@@QEAAJPEAVBLTQUEUE@@PEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_D.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGALLOCATIONREFERENCE::AssignNull(struct _EX_RUNDOWN_REF **this)
+{
+  struct _EX_RUNDOWN_REF *v2; // rcx
+
+  v2 = *this;
+  if ( v2 )
+    ExReleaseRundownProtection(v2 + 11);
+  *this = 0LL;
+}

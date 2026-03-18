@@ -1,0 +1,148 @@
+/*
+ * XREFs of DbgPrintEx @ 0x140397530
+ * Callers:
+ *     ExpWaitForResource @ 0x140205F8C (ExpWaitForResource.c)
+ *     HalpAcpiAccessSecureAddress @ 0x14024D0F0 (HalpAcpiAccessSecureAddress.c)
+ *     MmGetPhysicalAddress @ 0x14024D8F0 (MmGetPhysicalAddress.c)
+ *     ExpWaitForFastResource @ 0x140275FE0 (ExpWaitForFastResource.c)
+ *     ExpCheckForResource @ 0x140344B48 (ExpCheckForResource.c)
+ *     ExpCheckForLookasideList @ 0x1403452FC (ExpCheckForLookasideList.c)
+ *     CcCanIWrite @ 0x140383700 (CcCanIWrite.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x140384440 (CcDecrementVolumeUseCountWithDelete.c)
+ *     CcWriteBehindInternal @ 0x140384680 (CcWriteBehindInternal.c)
+ *     CcWriteBehindAsync @ 0x140385C44 (CcWriteBehindAsync.c)
+ *     CcReapPrivateVolumeCachemap @ 0x140389DE0 (CcReapPrivateVolumeCachemap.c)
+ *     CcFlushCachePriv @ 0x140398300 (CcFlushCachePriv.c)
+ *     CcDeleteSharedCacheMap @ 0x14039BBF0 (CcDeleteSharedCacheMap.c)
+ *     LdrLoadAlternateResourceModuleEx @ 0x1403DCBD0 (LdrLoadAlternateResourceModuleEx.c)
+ *     CcAcquireByteRangeForWrite @ 0x1403E2360 (CcAcquireByteRangeForWrite.c)
+ *     CcInitializePrivateVolumeCacheMap @ 0x1403E3550 (CcInitializePrivateVolumeCacheMap.c)
+ *     CcInsertPrivateVolumeCacheMap @ 0x1403E3C18 (CcInsertPrivateVolumeCacheMap.c)
+ *     CcDeletePrivateVolumeCacheMap @ 0x1403E3E90 (CcDeletePrivateVolumeCacheMap.c)
+ *     CcInitializeNumaNodeForVolume @ 0x1403E4224 (CcInitializeNumaNodeForVolume.c)
+ *     ExpWorkerThread @ 0x1403F5680 (ExpWorkerThread.c)
+ *     PsDispatchIumService @ 0x14040C830 (PsDispatchIumService.c)
+ *     ExHandleLogBadReference @ 0x14046C9F0 (ExHandleLogBadReference.c)
+ *     BgpTxtDisplayCharacter @ 0x1404AD084 (BgpTxtDisplayCharacter.c)
+ *     BgpRasPrintGlyph @ 0x1404AD338 (BgpRasPrintGlyph.c)
+ *     MmGetPhysicalAddressEx @ 0x1404AFF24 (MmGetPhysicalAddressEx.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1404BB630 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcUpdateDynamicRegistrySettings @ 0x1404DB1C0 (CcUpdateDynamicRegistrySettings.c)
+ *     CcRegistryChangeCallback @ 0x1404F4640 (CcRegistryChangeCallback.c)
+ *     ObpTraceAllocateMemory @ 0x14052F738 (ObpTraceAllocateMemory.c)
+ *     HalpInterruptSpuriousService @ 0x140594480 (HalpInterruptSpuriousService.c)
+ *     HalpInterruptStubService @ 0x1405944B0 (HalpInterruptStubService.c)
+ *     CcCheckContainerWaitForRestore @ 0x1405B0544 (CcCheckContainerWaitForRestore.c)
+ *     CcContainerRestoreCallBack @ 0x1405B0660 (CcContainerRestoreCallBack.c)
+ *     CcRegisterForContainerRestore @ 0x1405B0810 (CcRegisterForContainerRestore.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1405B1944 (CcSetupWatchForRegistryChanges.c)
+ *     CcCreatePartition @ 0x1405B2188 (CcCreatePartition.c)
+ *     CcDeletePartition @ 0x1405B2214 (CcDeletePartition.c)
+ *     CcExitPartition @ 0x1405B26C4 (CcExitPartition.c)
+ *     CcInitializePartition @ 0x1405B285C (CcInitializePartition.c)
+ *     CcInitPerVolumeParameters @ 0x1405B32BC (CcInitPerVolumeParameters.c)
+ *     CcInitializeNumaNode @ 0x1405B33B0 (CcInitializeNumaNode.c)
+ *     CcCompleteAsyncWriteBehind @ 0x1405B37E4 (CcCompleteAsyncWriteBehind.c)
+ *     CcWriteBehindAsyncPreProcess @ 0x1405B3B34 (CcWriteBehindAsyncPreProcess.c)
+ *     DbgkCaptureLiveKernelDump @ 0x1405B4278 (DbgkCaptureLiveKernelDump.c)
+ *     KeBugCheck2 @ 0x1405E5F10 (KeBugCheck2.c)
+ *     KiPassiveIsrWatchdog @ 0x1405F6240 (KiPassiveIsrWatchdog.c)
+ *     KiAttemptBugcheckRecovery @ 0x1405F9734 (KiAttemptBugcheckRecovery.c)
+ *     PopPowerButtonWorkCallback @ 0x14060CD70 (PopPowerButtonWorkCallback.c)
+ *     PopQueryPowerButtonConfiguration @ 0x14060D13C (PopQueryPowerButtonConfiguration.c)
+ *     RtlAssert @ 0x140619AB0 (RtlAssert.c)
+ *     EnterWheaIpmiContextNoLock @ 0x1406D4318 (EnterWheaIpmiContextNoLock.c)
+ *     MiNoPagesLastChance @ 0x140703B60 (MiNoPagesLastChance.c)
+ *     DbgkWerAddSecondaryData @ 0x14078BE10 (DbgkWerAddSecondaryData.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x14078BF90 (DbgkpWerCaptureLiveTriageDump.c)
+ *     DbgkpWerCleanupContext @ 0x14078C108 (DbgkpWerCleanupContext.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x14078C2F0 (DbgkpWerDeferredWriteRoutine.c)
+ *     DbgkpWerProcessPolicyResult @ 0x14078C420 (DbgkpWerProcessPolicyResult.c)
+ *     DbgkpWerStartDeferredLiveDump @ 0x14078C478 (DbgkpWerStartDeferredLiveDump.c)
+ *     DbgkpWerUpdateTriageDumpHeader @ 0x14078C510 (DbgkpWerUpdateTriageDumpHeader.c)
+ *     DbgkpWerWriteTriageDump @ 0x14078C718 (DbgkpWerWriteTriageDump.c)
+ *     ObpObjectRefInfoAddTrace @ 0x1407C4E94 (ObpObjectRefInfoAddTrace.c)
+ *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
+ *     PopPublishPowerButtonState @ 0x1407DAB74 (PopPublishPowerButtonState.c)
+ *     PspCatchCriticalBreak @ 0x1407FA818 (PspCatchCriticalBreak.c)
+ *     EtwWmitraceWorker @ 0x14082C2B8 (EtwWmitraceWorker.c)
+ *     ExpKdPullRemoteFileForUser @ 0x140845480 (ExpKdPullRemoteFileForUser.c)
+ *     LkmdTelCreateReport @ 0x1408AB660 (LkmdTelCreateReport.c)
+ *     LkmdTelSubmitReport @ 0x1408AB880 (LkmdTelSubmitReport.c)
+ *     LkmdTelpWriteDumpFile @ 0x1408AB97C (LkmdTelpWriteDumpFile.c)
+ *     PopBatteryUpdateCompositeInformation @ 0x140942F9C (PopBatteryUpdateCompositeInformation.c)
+ *     PopBatteryApplyCompositeState @ 0x140946EB0 (PopBatteryApplyCompositeState.c)
+ *     PopSpoilBatteryEstimate @ 0x140A3C3E0 (PopSpoilBatteryEstimate.c)
+ *     AlpcpCleanupProcessViews @ 0x140A41C68 (AlpcpCleanupProcessViews.c)
+ *     ObCreateObjectTypeEx @ 0x140A5A0C0 (ObCreateObjectTypeEx.c)
+ *     MiCaptureImageExceptionValues @ 0x140AA95F8 (MiCaptureImageExceptionValues.c)
+ *     ExpPoolMgrRebalanceWorker @ 0x140AC3610 (ExpPoolMgrRebalanceWorker.c)
+ *     ExpPoolMgrCompactPools @ 0x140AC36CC (ExpPoolMgrCompactPools.c)
+ *     MiCreateSectionForDriver @ 0x140AEBC54 (MiCreateSectionForDriver.c)
+ *     PopBatteryQueryStatus @ 0x140AFEBC0 (PopBatteryQueryStatus.c)
+ *     PopPepUnregisterDevice @ 0x140B06800 (PopPepUnregisterDevice.c)
+ *     PopBatteryInitialize @ 0x140B0831C (PopBatteryInitialize.c)
+ *     ExpSetPendingUILanguage @ 0x140B1E260 (ExpSetPendingUILanguage.c)
+ *     PopEstimateChargeTime @ 0x140B24738 (PopEstimateChargeTime.c)
+ *     PopBatteryEstimatesSpoiled @ 0x140B24920 (PopBatteryEstimatesSpoiled.c)
+ *     PopPepRegisterDevice @ 0x140B3B7A8 (PopPepRegisterDevice.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x140B3F37C (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerInvokeCallbacks @ 0x140B3F598 (DbgkpWerInvokeCallbacks.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x140B3F65C (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x140B41E80 (DbgkWerCaptureLiveKernelDump2.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x140B56830 (PopQueryPowerButtonBugcheckEnabled.c)
+ *     HalpMcaSetProcessorConfig @ 0x140BE91B8 (HalpMcaSetProcessorConfig.c)
+ *     HalpMceInitProcessor @ 0x140C0A268 (HalpMceInitProcessor.c)
+ *     HaliSetWakeAlarm @ 0x140C0A6E0 (HaliSetWakeAlarm.c)
+ *     KdpCreateFileCallback @ 0x140C135E0 (KdpCreateFileCallback.c)
+ *     KdpPullRemoteFile @ 0x140C138F8 (KdpPullRemoteFile.c)
+ *     KdpWriteFileCallback @ 0x140C13C80 (KdpWriteFileCallback.c)
+ *     ExpDebuggerWorker @ 0x140C16D60 (ExpDebuggerWorker.c)
+ *     ViHalPreprocessOptions @ 0x140C2731C (ViHalPreprocessOptions.c)
+ *     ViDeadlockPreprocessOptions @ 0x140C37DC0 (ViDeadlockPreprocessOptions.c)
+ *     VfPnpDumpIrpStack @ 0x140C3A610 (VfPnpDumpIrpStack.c)
+ *     VfDeadlockReleaseResource @ 0x140C4493C (VfDeadlockReleaseResource.c)
+ *     ViDeadlockCheckStackLimits @ 0x140C454D4 (ViDeadlockCheckStackLimits.c)
+ *     LogFwReport @ 0x140C4F030 (LogFwReport.c)
+ *     AnFwDisplayBackgroundUpdate @ 0x140C511F4 (AnFwDisplayBackgroundUpdate.c)
+ *     AnFwpBackgroundUpdateTimer @ 0x140C51580 (AnFwpBackgroundUpdateTimer.c)
+ *     BgpFwLibraryInitialize @ 0x140C545B8 (BgpFwLibraryInitialize.c)
+ *     HalpExtInitExtensions @ 0x140CAF098 (HalpExtInitExtensions.c)
+ *     PipResetDevice @ 0x140CC2E88 (PipResetDevice.c)
+ *     PipResetMatchingFilteredDevices @ 0x140CC3170 (PipResetMatchingFilteredDevices.c)
+ *     KiInitializeMTRR @ 0x140CCB400 (KiInitializeMTRR.c)
+ *     VfTriageSystem @ 0x140CDF730 (VfTriageSystem.c)
+ *     ViFindTriageRule @ 0x140CDFA98 (ViFindTriageRule.c)
+ *     ViMakeVerifierSettings @ 0x140CDFB38 (ViMakeVerifierSettings.c)
+ *     ViTriageSameDriversFromDump @ 0x140CDFC28 (ViTriageSameDriversFromDump.c)
+ *     ViValidateTriageRules @ 0x140CDFCE0 (ViValidateTriageRules.c)
+ *     IopInitializeBuiltinDriver @ 0x140D08E68 (IopInitializeBuiltinDriver.c)
+ * Callees:
+ *     vDbgPrintExWithPrefixInternalHelper @ 0x140397670 (vDbgPrintExWithPrefixInternalHelper.c)
+ */
+
+ULONG DbgPrintEx(ULONG ComponentId, ULONG Level, PCSTR Format, ...)
+{
+  unsigned int v3; // ebx
+  char v4; // cf
+  int v5; // edi
+  ULONG result; // eax
+  va_list va; // [rsp+98h] [rbp+20h] BYREF
+
+  va_start(va, Format);
+  v3 = 128;
+  v4 = 1;
+  v5 = (int)Format;
+  do
+  {
+    result = vDbgPrintExWithPrefixInternalHelper((int)&File, ComponentId, Level, v5, va, 1, v3, v4);
+    if ( result != -2147483643 )
+      break;
+    if ( v3 >= 0x200 )
+      break;
+    v3 += 128;
+    v4 = v3 < 0x200;
+  }
+  while ( v3 <= 0x200 );
+  return result;
+}

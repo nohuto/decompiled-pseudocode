@@ -1,0 +1,164 @@
+/*
+ * XREFs of ?xxxCreateDefaultImeWindow@@YAPEAUtagWND@@PEAU1@GPEAX@Z @ 0x14003EBCC
+ * Callers:
+ *     xxxCreateWindowEx @ 0x14004B6FC (xxxCreateWindowEx.c)
+ * Callees:
+ *     ??0?$Win32RawLockedNtObject@UtagDESKTOP@@@@QEAA@PEAUtagDESKTOP@@@Z @ 0x14003E060 (--0-$Win32RawLockedNtObject@UtagDESKTOP@@@@QEAA@PEAUtagDESKTOP@@@Z.c)
+ *     ??1?$Win32RawLockedNtObject@UtagDESKTOP@@@@QEAA@XZ @ 0x14003E628 (--1-$Win32RawLockedNtObject@UtagDESKTOP@@@@QEAA@XZ.c)
+ *     ??0?$Win32HMThreadLockBase@UtagWND@@$00$0A@@@QEAA@PEAUtagWND@@@Z @ 0x14003F108 (--0-$Win32HMThreadLockBase@UtagWND@@$00$0A@@@QEAA@PEAUtagWND@@@Z.c)
+ *     ??1?$Win32HMThreadLock@UtagCURSOR@@@@QEAA@XZ @ 0x140040874 (--1-$Win32HMThreadLock@UtagCURSOR@@@@QEAA@XZ.c)
+ *     ?PtiCurrent@@YAPEAUtagTHREADINFO@@XZ @ 0x140048610 (-PtiCurrent@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     xxxCreateWindowEx @ 0x14004B6FC (xxxCreateWindowEx.c)
+ *     ??1?$SmartObjStackRef@UtagMENU@@@@QEAA@XZ @ 0x14007261C (--1-$SmartObjStackRef@UtagMENU@@@@QEAA@XZ.c)
+ *     DesktopAlloc @ 0x140072EC0 (DesktopAlloc.c)
+ *     ??0?$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z @ 0x1400733C8 (--0-$SmartObjStackRef@UtagMENU@@@@QEAA@H@Z.c)
+ *     xxxDestroyWindow @ 0x14015EF90 (xxxDestroyWindow.c)
+ *     CreateInputContext @ 0x1401B0F80 (CreateInputContext.c)
+ *     unsafe_cast_fnid_or_class_to_PIMEWND @ 0x140282FC8 (unsafe_cast_fnid_or_class_to_PIMEWND.c)
+ */
+
+struct tagWND *__fastcall xxxCreateDefaultImeWindow(struct tagWND *a1, __int16 a2, __int64 a3)
+{
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  struct tagTHREADINFO *v8; // rsi
+  int v9; // r12d
+  __int64 v10; // rdx
+  PVOID *v11; // rbx
+  PVOID *v12; // r15
+  __int64 v13; // rax
+  _WORD *v14; // rdi
+  __int64 v15; // rax
+  __int64 v16; // rax
+  __int64 CurrentProcessWin32Process; // rax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  int v21; // ebx
+  __int64 v22; // rdx
+  __int64 UserSessionState; // rax
+  struct tagWND *Window; // rbx
+  _BYTE *v25; // rdx
+  HANDLE v27; // rbx
+  struct tagWND *v28; // [rsp+90h] [rbp-A8h]
+  ULONG64 *v29; // [rsp+98h] [rbp-A0h]
+  int v30; // [rsp+A0h] [rbp-98h] BYREF
+  int v31; // [rsp+A4h] [rbp-94h]
+  __int64 v32; // [rsp+A8h] [rbp-90h]
+  __int64 v33; // [rsp+B0h] [rbp-88h]
+  _QWORD *v34; // [rsp+B8h] [rbp-80h]
+  ULONG_PTR BugCheckParameter3[2]; // [rsp+C8h] [rbp-70h] BYREF
+  __int64 v36[3]; // [rsp+D8h] [rbp-60h] BYREF
+  _QWORD v37[4]; // [rsp+F0h] [rbp-48h] BYREF
+  ULONG64 v38; // [rsp+158h] [rbp+20h]
+
+  v31 = 0;
+  v8 = PtiCurrent();
+  if ( !*((_QWORD *)v8 + 104) )
+  {
+    v27 = *(HANDLE *)(W32GetUserSessionState(v7, v6) + 63584);
+    if ( PsGetThreadProcessId(*(PETHREAD *)v8) == v27 )
+      CreateInputContext(0LL);
+  }
+  if ( !*((_QWORD *)v8 + 104) )
+    return 0LL;
+  if ( a2 == *(_WORD *)(*(_QWORD *)(W32GetUserSessionState(v7, v6) + 19928) + 898LL) )
+    return 0LL;
+  v9 = 1;
+  if ( (*(_BYTE *)(*(_QWORD *)(*((_QWORD *)a1 + 17) + 8LL) + 10LL) & 1) != 0 )
+    return 0LL;
+  v10 = *((_QWORD *)a1 + 5);
+  if ( (*(_BYTE *)(v10 + 31) & 0xC0) == 0x40
+    && *(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 13) + 16LL) + 464LL) != *((_QWORD *)v8 + 58)
+    && (*(_DWORD *)(v10 + 28) & 0x10000000) == 0 )
+  {
+    return 0LL;
+  }
+  v11 = (PVOID *)*((_QWORD *)v8 + 62);
+  v12 = v11 + 17;
+  v34 = v11 + 17;
+  if ( !v11[17] )
+    return 0LL;
+  v13 = DesktopAlloc(v11, 24LL, 9LL);
+  v14 = (_WORD *)v13;
+  v33 = v13;
+  if ( !v13 )
+    return 0LL;
+  *(_OWORD *)v13 = xmmword_14034EF70;
+  *(_QWORD *)(v13 + 16) = 0x45004D0049LL;
+  v32 = v13;
+  v15 = -1LL;
+  do
+    ++v15;
+  while ( v14[v15] );
+  v30 = 2 * v15;
+  v31 = (2 * v15 + 2) & 0x7FFFFFFF;
+  Win32RawLockedNtObject<tagDESKTOP>::Win32RawLockedNtObject<tagDESKTOP>(v37, v11);
+  Win32HMThreadLockBase<tagWND,1,0>::Win32HMThreadLockBase<tagWND,1,0>(BugCheckParameter3, a1);
+  v16 = ((__int64 (*)(void))PsGetCurrentProcessWin32Process)();
+  if ( !v16 || (-(__int64)(*(_QWORD *)v16 != 0LL) & v16) == 0 )
+    goto LABEL_29;
+  CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(-*(_QWORD *)v16);
+  if ( CurrentProcessWin32Process )
+    CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
+  if ( !(unsigned int)IsImmersiveAppRestricted(CurrentProcessWin32Process) )
+LABEL_29:
+    v9 = 0;
+  SmartObjStackRef<tagMENU>::SmartObjStackRef<tagMENU>(v36, 0LL);
+  v20 = *(_QWORD *)(W32GetUserSessionState(v19, v18) + 19928);
+  v21 = *(unsigned __int16 *)(v20 + 898);
+  UserSessionState = W32GetUserSessionState(v20, v22);
+  Window = (struct tagWND *)xxxCreateWindowEx(
+                              0,
+                              *(unsigned __int16 *)(*(_QWORD *)(UserSessionState + 19928) + 898LL),
+                              v21,
+                              (int)&v30,
+                              -2013265920,
+                              0,
+                              0,
+                              0,
+                              0,
+                              a1,
+                              (__int64)v36,
+                              a3,
+                              0LL,
+                              0,
+                              1024,
+                              v9,
+                              0LL);
+  v28 = Window;
+  SmartObjStackRef<tagMENU>::~SmartObjStackRef<tagMENU>(v36);
+  if ( Window )
+  {
+    v29 = (ULONG64 *)unsafe_cast_fnid_or_class_to_PIMEWND(Window);
+    if ( v29 )
+      v38 = *v29;
+    else
+      v38 = 0LL;
+    if ( v38 )
+    {
+      v25 = (_BYTE *)v38;
+      if ( (v38 & 3) != 0 )
+        ExRaiseDatatypeMisalignment();
+      if ( v38 >= MmUserProbeAddress )
+        v25 = (_BYTE *)MmUserProbeAddress;
+      *v25 = *v25;
+      v25[55] = v25[55];
+      *(_DWORD *)(v38 + 44) |= 8u;
+      if ( (*(_BYTE *)(*((_QWORD *)a1 + 5) + 31LL) & 0xC0) == 0x40
+        && *(struct tagTHREADINFO **)(*((_QWORD *)a1 + 13) + 16LL) != v8 )
+      {
+        *(_DWORD *)(v38 + 44) |= 0x10u;
+      }
+    }
+    else
+    {
+      xxxDestroyWindow(Window);
+      v28 = 0LL;
+    }
+  }
+  Win32HMThreadLock<tagCURSOR>::~Win32HMThreadLock<tagCURSOR>((ULONG_PTR)BugCheckParameter3);
+  RtlFreeHeap(*v12, 0, v14);
+  Win32RawLockedNtObject<tagDESKTOP>::~Win32RawLockedNtObject<tagDESKTOP>((__int64)v37);
+  return v28;
+}

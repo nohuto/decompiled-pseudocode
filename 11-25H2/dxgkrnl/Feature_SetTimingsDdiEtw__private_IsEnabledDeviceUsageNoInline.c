@@ -1,0 +1,20 @@
+/*
+ * XREFs of Feature_SetTimingsDdiEtw__private_IsEnabledDeviceUsageNoInline @ 0x14006AAF8
+ * Callers:
+ *     ?HandleLinkTrainingTimeout@VIDPN_MGR@@QEAAXIEPEAE0@Z @ 0x140256E2C (-HandleLinkTrainingTimeout@VIDPN_MGR@@QEAAXIEPEAE0@Z.c)
+ *     ?UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x140257160 (-UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x14030CF78 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?DdiSetTimingsFromVidPn@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETTIMINGSFROMVIDPN@@@Z @ 0x14040EEB4 (-DdiSetTimingsFromVidPn@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETTIMINGSFROMVIDPN@@@Z.c)
+ * Callees:
+ *     Feature_SetTimingsDdiEtw__private_IsEnabledFallback @ 0x14006AB30 (Feature_SetTimingsDdiEtw__private_IsEnabledFallback.c)
+ */
+
+__int64 Feature_SetTimingsDdiEtw__private_IsEnabledDeviceUsageNoInline()
+{
+  if ( (Feature_SetTimingsDdiEtw__private_featureState & 0x10) != 0 )
+    return Feature_SetTimingsDdiEtw__private_featureState & 1;
+  else
+    return Feature_SetTimingsDdiEtw__private_IsEnabledFallback(
+             (unsigned int)Feature_SetTimingsDdiEtw__private_featureState,
+             3LL);
+}

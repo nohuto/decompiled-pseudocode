@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?RoundTripRequest@CChannel@@UEAAJI@Z @ 0x1800F1350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x1800BB27C (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x1800BD4F0 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ */
+
+__int64 __fastcall CChannel::RoundTripRequest(CDataStreamWriter **this, int a2)
+{
+  unsigned int v4; // ebx
+  int v6; // [rsp+30h] [rbp+8h] BYREF
+  int v7; // [rsp+34h] [rbp+Ch]
+  struct _RTL_CRITICAL_SECTION *v8; // [rsp+40h] [rbp+18h] BYREF
+
+  v8 = (struct _RTL_CRITICAL_SECTION *)(this + 21);
+  EnterCriticalSection((LPCRITICAL_SECTION)(this + 21));
+  v6 = 48;
+  v7 = a2;
+  v4 = CChannel::SendCommand(this, &v6, 8u);
+  CGuard<CCriticalSection>::~CGuard<CCriticalSection>(&v8);
+  return v4;
+}

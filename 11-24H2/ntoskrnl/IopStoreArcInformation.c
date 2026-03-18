@@ -1,0 +1,112 @@
+/*
+ * XREFs of IopStoreArcInformation @ 0x140C1D194
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140C1AA0C (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlStringCbCopyA @ 0x140459248 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x1404FE160 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall IopStoreArcInformation(__int64 a1)
+{
+  __int64 **v1; // r15
+  int v2; // ebp
+  unsigned int v3; // ebx
+  __int64 *i; // r14
+  PVOID *Pool2; // rdi
+  __int64 v6; // rsi
+  ULONG_PTR v7; // rsi
+  char *v8; // rax
+  char *v9; // r10
+  PVOID **v10; // rax
+  __int64 v11; // rax
+  __int64 j; // rax
+  int v13; // edx
+  __int64 k; // rcx
+  __int64 m; // rcx
+
+  v1 = *(__int64 ***)(a1 + 232);
+  v2 = dword_140EFEAF0;
+  v3 = 0;
+  qword_140FD8C48 = (__int64)&IoArcTableListHead;
+  IoArcTableListHead = (__int64)&IoArcTableListHead;
+  for ( i = *v1; ; i = (__int64 *)*i )
+  {
+    if ( i == (__int64 *)v1 )
+    {
+      for ( j = IoArcTableListHead; (__int64 *)j != &IoArcTableListHead; j = *(_QWORD *)j )
+      {
+        if ( !*(_BYTE *)(j + 36) && !*(_BYTE *)(j + 72) )
+        {
+          v13 = *(_DWORD *)(j + 32);
+          for ( k = *(_QWORD *)j; (__int64 *)k != &IoArcTableListHead; k = *(_QWORD *)k )
+          {
+            if ( !*(_BYTE *)(k + 36) && !*(_BYTE *)(k + 72) && v13 == *(_DWORD *)(k + 32) )
+            {
+              *(_BYTE *)(j + 72) = 1;
+              *(_BYTE *)(k + 72) = 1;
+            }
+          }
+        }
+      }
+      if ( v2 == 1 )
+      {
+        for ( m = IoArcTableListHead; (__int64 *)m != &IoArcTableListHead; m = *(_QWORD *)m )
+        {
+          if ( *(_BYTE *)(m + 76) && *(_BYTE *)(m + 72) )
+            IopAmbiguousSystemDisk = 1;
+        }
+      }
+      return v3;
+    }
+    Pool2 = (PVOID *)ExAllocatePool2(0x40uLL, 0x50uLL, 0x20206F49uLL);
+    if ( !Pool2 )
+    {
+      v3 = -1073741670;
+      goto LABEL_15;
+    }
+    v6 = -1LL;
+    do
+      ++v6;
+    while ( *(_BYTE *)(i[3] + v6) );
+    v7 = v6 + 1;
+    v8 = (char *)ExAllocatePool2(0x40uLL, v7, 0x344E6F49uLL);
+    if ( !v8 )
+      break;
+    *(_OWORD *)Pool2 = *(_OWORD *)i;
+    *((_OWORD *)Pool2 + 1) = *((_OWORD *)i + 1);
+    *((_OWORD *)Pool2 + 2) = *((_OWORD *)i + 2);
+    *((_OWORD *)Pool2 + 3) = *((_OWORD *)i + 3);
+    RtlStringCbCopyA(v8, v7, (NTSTRSAFE_PCSTR)i[3]);
+    Pool2[3] = v9;
+    if ( v2 == 1 && v7 >= 9 && !strnicmp(&v9[v7 - 9], "rdisk(0)", 8uLL) )
+      *((_BYTE *)Pool2 + 76) = 1;
+    v10 = (PVOID **)qword_140FD8C48;
+    if ( *(__int64 **)qword_140FD8C48 != &IoArcTableListHead )
+LABEL_20:
+      __fastfail(3u);
+    *Pool2 = &IoArcTableListHead;
+    Pool2[1] = v10;
+    *v10 = Pool2;
+    qword_140FD8C48 = (__int64)Pool2;
+  }
+  v3 = -1073741670;
+  while ( 1 )
+  {
+    ExFreePoolWithTag(Pool2, 0);
+LABEL_15:
+    Pool2 = (PVOID *)IoArcTableListHead;
+    if ( (__int64 *)IoArcTableListHead == &IoArcTableListHead )
+      return v3;
+    if ( *(__int64 **)(IoArcTableListHead + 8) != &IoArcTableListHead )
+      goto LABEL_20;
+    v11 = *(_QWORD *)IoArcTableListHead;
+    if ( *(_QWORD *)(*(_QWORD *)IoArcTableListHead + 8LL) != IoArcTableListHead )
+      goto LABEL_20;
+    IoArcTableListHead = *(_QWORD *)IoArcTableListHead;
+    *(_QWORD *)(v11 + 8) = &IoArcTableListHead;
+    ExFreePoolWithTag(Pool2[3], 0);
+  }
+}

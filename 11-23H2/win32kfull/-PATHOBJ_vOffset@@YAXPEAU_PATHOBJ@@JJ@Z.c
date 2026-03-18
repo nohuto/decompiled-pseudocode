@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?PATHOBJ_vOffset@@YAXPEAU_PATHOBJ@@JJ@Z @ 0x1C02E7978
+ * Callers:
+ *     ?SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1C027A890 (-SpFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1C027C1D0 (-SpStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@.c)
+ *     ?SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1C027C690 (-SpStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_P.c)
+ *     OffFillPath @ 0x1C02E7AE8 (OffFillPath.c)
+ *     OffStrokeAndFillPath @ 0x1C02E841C (OffStrokeAndFillPath.c)
+ *     OffStrokePath @ 0x1C02E85A0 (OffStrokePath.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall PATHOBJ_vOffset(struct _PATHOBJ *a1, int a2, int a3)
+{
+  int v3; // [rsp+48h] [rbp+20h] BYREF
+  int v4; // [rsp+4Ch] [rbp+24h]
+
+  if ( a2 || a3 )
+  {
+    v3 = a2;
+    v4 = a3;
+    EPATHOBJ::vOffset((EPATHOBJ *)a1, (struct EPOINTL *)&v3);
+  }
+}

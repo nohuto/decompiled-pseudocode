@@ -1,0 +1,86 @@
+/*
+ * XREFs of KeAbPostReleaseEx @ 0x1400043BC
+ * Callers:
+ *     MiWaitForCollidedFaultComplete @ 0x140003F00 (MiWaitForCollidedFaultComplete.c)
+ *     ExTryToAcquireFastMutex @ 0x140004150 (ExTryToAcquireFastMutex.c)
+ *     ExTryAcquirePushLockExclusiveEx @ 0x140004230 (ExTryAcquirePushLockExclusiveEx.c)
+ *     MiReferenceControlArea @ 0x14001C358 (MiReferenceControlArea.c)
+ *     MiLockAddressSpaceToo @ 0x140025794 (MiLockAddressSpaceToo.c)
+ *     MiInsertLargePageInFreeOrZeroList @ 0x140036320 (MiInsertLargePageInFreeOrZeroList.c)
+ *     MiCoalesceFreePages @ 0x1400390D0 (MiCoalesceFreePages.c)
+ *     MiDeleteVad @ 0x140065E10 (MiDeleteVad.c)
+ *     MiLockControlAreaSectionExtend @ 0x140092CE0 (MiLockControlAreaSectionExtend.c)
+ *     MiQueueLargeFreeZeroRebuild @ 0x14009D1D0 (MiQueueLargeFreeZeroRebuild.c)
+ *     PfLockSharedTryAcquire @ 0x1400E2098 (PfLockSharedTryAcquire.c)
+ *     ExTryAcquirePushLockSharedEx @ 0x140103A90 (ExTryAcquirePushLockSharedEx.c)
+ *     MiDeprioritizeVad @ 0x140136D9C (MiDeprioritizeVad.c)
+ *     ?StLockTryAcquireExclusive@@YAKPEAUVLOCK@@PEAK@Z @ 0x14014E934 (-StLockTryAcquireExclusive@@YAKPEAUVLOCK@@PEAK@Z.c)
+ *     ExpReleaseFastResourceShared @ 0x140164F80 (ExpReleaseFastResourceShared.c)
+ *     ExAcquireFastResourceExclusive @ 0x1401652B0 (ExAcquireFastResourceExclusive.c)
+ *     ExDisownFastResource @ 0x140165650 (ExDisownFastResource.c)
+ *     ExAcquireFastResourceSharedStarveExclusive @ 0x140165910 (ExAcquireFastResourceSharedStarveExclusive.c)
+ *     ExAcquireFastResourceShared @ 0x140165B40 (ExAcquireFastResourceShared.c)
+ *     ExpReleaseFastResourceExclusive @ 0x140166398 (ExpReleaseFastResourceExclusive.c)
+ *     ExTryAcquireAutoExpandPushLockShared @ 0x140166760 (ExTryAcquireAutoExpandPushLockShared.c)
+ *     ExTryAcquireAutoExpandPushLockExclusive @ 0x140169CF0 (ExTryAcquireAutoExpandPushLockExclusive.c)
+ *     IopProcessIoTracking @ 0x140285814 (IopProcessIoTracking.c)
+ *     MiChangingSubsectionProtos @ 0x1402B5330 (MiChangingSubsectionProtos.c)
+ *     MiProcessTransitionHeatBatch @ 0x1402CEE74 (MiProcessTransitionHeatBatch.c)
+ *     ExTryAcquireCacheAwarePushLockExclusiveEx @ 0x14031AD00 (ExTryAcquireCacheAwarePushLockExclusiveEx.c)
+ *     ExTryAcquireCacheAwarePushLockSharedEx @ 0x14031ADD0 (ExTryAcquireCacheAwarePushLockSharedEx.c)
+ *     CmpTryToLockKcbExclusive @ 0x1405D8B30 (CmpTryToLockKcbExclusive.c)
+ *     AlpcpReceiveMessagePort @ 0x140632980 (AlpcpReceiveMessagePort.c)
+ *     CmpTryToLockHashEntryExclusive @ 0x1406C4A6C (CmpTryToLockHashEntryExclusive.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1406C704C (AlpcpTryLockForCachedReferenceBlob.c)
+ *     ?TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1406D0CD0 (-TlgAggregateInternalProviderCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z.c)
+ *     TryLockShutdownShared @ 0x1407F9610 (TryLockShutdownShared.c)
+ *     VrpWaitForDiffHiveEntryTransitionOwnerToLeave @ 0x14080DEE8 (VrpWaitForDiffHiveEntryTransitionOwnerToLeave.c)
+ *     PfpPrefetchSharedConflictNotifyEnd @ 0x140864630 (PfpPrefetchSharedConflictNotifyEnd.c)
+ *     KiForceSymbolReferences @ 0x1409F6460 (KiForceSymbolReferences.c)
+ * Callees:
+ *     KeAbEntryFree @ 0x1400044D0 (KeAbEntryFree.c)
+ *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x14004F090 (KiLeaveGuardedRegionUnsafe.c)
+ *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ */
+
+__int64 __fastcall KeAbPostReleaseEx(ULONG_PTR BugCheckParameter2, _KLOCK_ENTRY *a2)
+{
+  _KLOCK_ENTRY *v2; // rsi
+  struct _KTHREAD *CurrentThread; // rdi
+  __int64 v5; // r8
+  unsigned __int8 v6; // bl
+  __int64 v7; // rdx
+  char v9; // [rsp+58h] [rbp+10h] BYREF
+
+  v2 = a2;
+  if ( ((unsigned __int8)a2 & 1) != 0 )
+  {
+    CurrentThread = KeGetCurrentThread();
+    v5 = (unsigned __int8)((unsigned __int64)a2 >> 1);
+    v2 = &CurrentThread->LockEntries[v5];
+    if ( (*(_QWORD *)&v2->LockState.0 & 0x7FFFFFFFFFFFFFFCLL | 0x8000000000000000uLL) != BugCheckParameter2 )
+      KeBugCheckEx(
+        0x162u,
+        (ULONG_PTR)CurrentThread,
+        BugCheckParameter2,
+        (ULONG_PTR)&CurrentThread->LockEntries[v5],
+        0LL);
+  }
+  else
+  {
+    CurrentThread = (struct _KTHREAD *)((char *)a2 - 16 * a2->EntryOffset);
+  }
+  --CurrentThread->SpecialApcDisable;
+  v6 = ++CurrentThread->AbAllocationRegionCount;
+  v2->AcquiredByte &= ~1u;
+  KeAbEntryFree(v2, a2, &v9);
+  v7 = ((char *)v2 - (char *)CurrentThread - 800) / 96;
+  if ( v6 == 1 )
+    CurrentThread->AbEntrySummary |= 1 << v7;
+  else
+    _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v7);
+  --CurrentThread->AbAllocationRegionCount;
+  KiAbThreadRemoveBoosts(CurrentThread, BugCheckParameter2, &v9);
+  return KiLeaveGuardedRegionUnsafe(CurrentThread);
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of _dynamic_initializer_for__CSurfaceBrush::sc_SuperDownSample__ @ 0x180003000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 dynamic_initializer_for__CSurfaceBrush::sc_SuperDownSample__()
+{
+  __int64 result; // rax
+  __int64 v1; // [rsp+10h] [rbp-18h]
+
+  result = 0LL;
+  LODWORD(v1) = 0;
+  xmmword_1803D2368 = (unsigned __int64)CDropShadow::SetAnimatedProperty;
+  qword_1803D2378 = v1;
+  return result;
+}

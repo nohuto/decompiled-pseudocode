@@ -1,0 +1,14 @@
+/*
+ * XREFs of DpiGetMdmStatus @ 0x1400151E4
+ * Callers:
+ *     ?DxgkLogDisplayMuxDiagPacketToDisplayRingbuffer@@YAJXZ @ 0x1401CE7BC (-DxgkLogDisplayMuxDiagPacketToDisplayRingbuffer@@YAJXZ.c)
+ *     DxgkDisplayConfigDeviceInfoNoAdapter @ 0x1402C9AB8 (DxgkDisplayConfigDeviceInfoNoAdapter.c)
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@JW4START_ADAPTER_FAILURE_REASON@@@Z @ 0x140358108 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ * Callees:
+ *     ?FillMdmStatus@DISPLAY_MUX_MGR@@QEAAXPEAU_DISPLAYCONFIG_DISPLAYMUX_STATUS@@@Z @ 0x140015204 (-FillMdmStatus@DISPLAY_MUX_MGR@@QEAAXPEAU_DISPLAYCONFIG_DISPLAYMUX_STATUS@@@Z.c)
+ */
+
+void __fastcall DpiGetMdmStatus(struct _DISPLAYCONFIG_DISPLAYMUX_STATUS *a1)
+{
+  DISPLAY_MUX_MGR::FillMdmStatus(qword_140169448, a1);
+}

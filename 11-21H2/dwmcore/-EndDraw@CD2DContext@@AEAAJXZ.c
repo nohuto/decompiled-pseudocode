@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?EndDraw@CD2DContext@@AEAAJXZ @ 0x180020984
+ * Callers:
+ *     ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x18007F150 (-PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z.c)
+ * Callees:
+ *     ?OnEndDraw@CDrawListBatchManager@@IEAAXXZ @ 0x180020A24 (-OnEndDraw@CDrawListBatchManager@@IEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801117F6 (McTemplateU0qq_EventWriteTransfer.c)
+ */
+
+__int64 __fastcall CD2DContext::EndDraw(CD2DContext *this)
+{
+  int v2; // eax
+  unsigned int v3; // ecx
+  int v4; // edi
+
+  if ( *((_BYTE *)this + 437) )
+  {
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      McTemplateU0qq_EventWriteTransfer(
+        Microsoft_Windows_Dwm_Core_Provider_Context,
+        &EVTDESC_ETWGUID_DRAWEVENT_Start,
+        17LL,
+        0LL);
+    v2 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(**((_QWORD **)this + 25) + 392LL))(
+           *((_QWORD *)this + 25),
+           0LL,
+           0LL);
+    v4 = v2;
+    if ( v2 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0x6F9u, 0LL);
+    *(_WORD *)((char *)this + 437) = 0;
+    CDrawListBatchManager::OnEndDraw((CD2DContext *)((char *)this + 8));
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      McTemplateU0qq_EventWriteTransfer(Microsoft_Windows_Dwm_Core_Provider_Context, "3", 17LL, 0LL);
+  }
+  else
+  {
+    v4 = *((_DWORD *)this + 268);
+    if ( v4 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast((unsigned int)this, 0LL, 0, v4, 0x706u, 0LL);
+  }
+  return CD3DDevice::TranslateDXGIorD3DErrorInContext((char *)this - 16, (unsigned int)v4, 0LL);
+}

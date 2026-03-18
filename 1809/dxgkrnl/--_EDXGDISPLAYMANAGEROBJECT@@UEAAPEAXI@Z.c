@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_EDXGDISPLAYMANAGEROBJECT@@UEAAPEAXI@Z @ 0x1C001D8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ @ 0x1C0140B78 (--1DXGDISPLAYMANAGEROBJECT@@UEAA@XZ.c)
+ */
+
+DXGDISPLAYMANAGEROBJECT *__fastcall DXGDISPLAYMANAGEROBJECT::`vector deleting destructor'(
+        DXGDISPLAYMANAGEROBJECT *P,
+        char a2)
+{
+  DXGDISPLAYMANAGEROBJECT::~DXGDISPLAYMANAGEROBJECT(P);
+  if ( (a2 & 1) != 0 && P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

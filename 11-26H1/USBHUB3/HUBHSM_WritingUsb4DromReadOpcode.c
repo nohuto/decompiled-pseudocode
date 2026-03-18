@@ -1,0 +1,21 @@
+/*
+ * XREFs of HUBHSM_WritingUsb4DromReadOpcode @ 0x14000A7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBSM_AddEvent @ 0x14000A81C (HUBSM_AddEvent.c)
+ *     FWUPDATE_SetMMIO @ 0x14004293C (FWUPDATE_SetMMIO.c)
+ */
+
+__int64 __fastcall HUBHSM_WritingUsb4DromReadOpcode(__int64 a1)
+{
+  __int64 v1; // rbx
+
+  v1 = *(_QWORD *)(a1 + 960);
+  *(_DWORD *)(v1 + 2720) = 0;
+  *(_DWORD *)(v1 + 2720) = 36;
+  *(_DWORD *)(v1 + 2720) |= 0x80000000;
+  if ( (int)FWUPDATE_SetMMIO(v1) < 0 )
+    HUBSM_AddEvent(v1 + 1280, 2004LL);
+  return 1000LL;
+}

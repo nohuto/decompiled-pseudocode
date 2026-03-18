@@ -1,0 +1,94 @@
+/*
+ * XREFs of FsRtlGetFileSize @ 0x1406AA1A0
+ * Callers:
+ *     FsRtlCreateSectionForDataScan @ 0x140305100 (FsRtlCreateSectionForDataScan.c)
+ *     MiCreateImageFileMap @ 0x1406A8928 (MiCreateImageFileMap.c)
+ *     MmExtendSection @ 0x140706504 (MmExtendSection.c)
+ *     MiShareExistingControlArea @ 0x140723CDC (MiShareExistingControlArea.c)
+ *     MiCreateDataFileMap @ 0x1407459E0 (MiCreateDataFileMap.c)
+ *     ExpQueryCodeIntegrityCertificateInfo @ 0x1409F6860 (ExpQueryCodeIntegrityCertificateInfo.c)
+ *     ExpQueryElamCertInfo @ 0x1409F6AA0 (ExpQueryElamCertInfo.c)
+ * Callees:
+ *     IoSetThreadHardErrorMode @ 0x140208890 (IoSetThreadHardErrorMode.c)
+ *     IofCallDriver @ 0x14022EEF0 (IofCallDriver.c)
+ *     IoGetRelatedDeviceObject @ 0x14022F510 (IoGetRelatedDeviceObject.c)
+ *     KeWaitForSingleObject @ 0x140243CE0 (KeWaitForSingleObject.c)
+ *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     IoAllocateIrpEx @ 0x140310FB0 (IoAllocateIrpEx.c)
+ *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ */
+
+NTSTATUS __stdcall FsRtlGetFileSize(PFILE_OBJECT FileObject, PLARGE_INTEGER FileSize)
+{
+  __int64 v4; // rdx
+  PDEVICE_OBJECT RelatedDeviceObject; // rdi
+  PFAST_IO_DISPATCH FastIoDispatch; // rax
+  unsigned __int8 (__fastcall *FastIoQueryStandardInfo)(PFILE_OBJECT, __int64, __int128 *, __int128 *, PDEVICE_OBJECT); // rax
+  NTSTATUS result; // eax
+  __int64 v9; // rdx
+  IRP *Irp; // rbx
+  BOOLEAN v11; // al
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rdx
+  BOOLEAN v13; // r14
+  NTSTATUS v14; // ecx
+  NTSTATUS v15; // eax
+  __int128 v16; // [rsp+30h] [rbp-50h] BYREF
+  struct _KEVENT Event; // [rsp+40h] [rbp-40h] BYREF
+  __int128 v18; // [rsp+58h] [rbp-28h] BYREF
+  __int64 v19; // [rsp+68h] [rbp-18h]
+
+  v16 = 0LL;
+  v19 = 0LL;
+  v18 = 0LL;
+  RelatedDeviceObject = IoGetRelatedDeviceObject(FileObject);
+  FastIoDispatch = RelatedDeviceObject->DriverObject->FastIoDispatch;
+  if ( !FastIoDispatch
+    || (FastIoQueryStandardInfo = (unsigned __int8 (__fastcall *)(PFILE_OBJECT, __int64, __int128 *, __int128 *, PDEVICE_OBJECT))FastIoDispatch->FastIoQueryStandardInfo) == 0LL
+    || (LOBYTE(v4) = 1, !FastIoQueryStandardInfo(FileObject, v4, &v18, &v16, RelatedDeviceObject)) )
+  {
+    memset(&Event, 0, sizeof(Event));
+    KeInitializeEvent(&Event, NotificationEvent, 0);
+    LOBYTE(v9) = RelatedDeviceObject->StackSize;
+    Irp = (IRP *)IoAllocateIrpEx((__int64)RelatedDeviceObject, v9, 0LL);
+    if ( !Irp )
+      return -1073741670;
+    v11 = IoSetThreadHardErrorMode(0);
+    CurrentStackLocation = Irp->Tail.Overlay.CurrentStackLocation;
+    v13 = v11;
+    Irp->Flags = 66;
+    Irp->UserIosb = (PIO_STATUS_BLOCK)&v16;
+    Irp->UserEvent = &Event;
+    Irp->RequestorMode = 0;
+    Irp->Tail.Overlay.OriginalFileObject = FileObject;
+    Irp->Tail.Overlay.Thread = KeGetCurrentThread();
+    Irp->AssociatedIrp.MasterIrp = (struct _IRP *)&v18;
+    CurrentStackLocation[-1].MajorFunction = 5;
+    CurrentStackLocation[-1].FileObject = FileObject;
+    CurrentStackLocation[-1].DeviceObject = RelatedDeviceObject;
+    CurrentStackLocation[-1].Parameters.Read.Length = 24;
+    CurrentStackLocation[-1].Parameters.Create.Options = 5;
+    v14 = IofCallDriver(RelatedDeviceObject, Irp);
+    if ( v14 == 259 )
+    {
+      KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+    }
+    else
+    {
+      v15 = v16;
+      if ( v14 < 0 )
+        v15 = v14;
+      LODWORD(v16) = v15;
+    }
+    IoSetThreadHardErrorMode(v13);
+  }
+  result = v16;
+  if ( (int)v16 >= 0 )
+  {
+    if ( BYTE5(v19) )
+      return -1073741638;
+    else
+      *FileSize = *(LARGE_INTEGER *)((char *)&v18 + 8);
+  }
+  return result;
+}

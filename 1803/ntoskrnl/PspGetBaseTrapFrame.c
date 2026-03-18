@@ -1,0 +1,19 @@
+/*
+ * XREFs of PspGetBaseTrapFrame @ 0x14012B834
+ * Callers:
+ *     RtlpWalkFrameChain @ 0x14012B860 (RtlpWalkFrameChain.c)
+ *     PsGetBaseTrapFrame @ 0x140284230 (PsGetBaseTrapFrame.c)
+ *     PspGetSetContextInternal @ 0x1405B7BD0 (PspGetSetContextInternal.c)
+ *     PspInitializeThunkContext @ 0x1405B9FE0 (PspInitializeThunkContext.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PspGetBaseTrapFrame(__int64 a1)
+{
+  __int64 i; // rdx
+
+  for ( i = *(_QWORD *)(a1 + 40); (*(_BYTE *)(i + 8) & 1) != 0; i = *(_QWORD *)(i + 40) )
+    ;
+  return i - 400;
+}

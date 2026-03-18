@@ -1,0 +1,39 @@
+/*
+ * XREFs of ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x14000D088
+ * Callers:
+ *     ??$_Allocate_at_least_helper@V?$allocator@E@std@@@std@@YAPEAEAEAV?$allocator@E@0@AEA_K@Z @ 0x14000D0EC (--$_Allocate_at_least_helper@V-$allocator@E@std@@@std@@YAPEAEAEAV-$allocator@E@0@AEA_K@Z.c)
+ *     ??$_Allocate_at_least_helper@V?$allocator@UDISPLAYCONFIG_MODE_INFO@@@std@@@std@@YAPEAUDISPLAYCONFIG_MODE_INFO@@AEAV?$allocator@UDISPLAYCONFIG_MODE_INFO@@@0@AEA_K@Z @ 0x14000D0FC (--$_Allocate_at_least_helper@V-$allocator@UDISPLAYCONFIG_MODE_INFO@@@std@@@std@@YAPEAUDISPLAYCON.c)
+ *     ??$_Allocate_at_least_helper@V?$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@YAPEAUDISPLAYCONFIG_PATH_INFO@@AEAV?$allocator@UDISPLAYCONFIG_PATH_INFO@@@0@AEA_K@Z @ 0x14000D12C (--$_Allocate_at_least_helper@V-$allocator@UDISPLAYCONFIG_PATH_INFO@@@std@@@std@@YAPEAUDISPLAYCON.c)
+ *     ??$_Construct@$00PEBG@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAXQEBG_K@Z @ 0x14000D160 (--$_Construct@$00PEBG@-$basic_string@GU-$char_traits@G@std@@V-$allocator@G@2@@std@@AEAAXQEBG_K@Z.c)
+ *     ??$_Reallocate_for@V_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@AEAAAEAV01@_KV_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@Z @ 0x14000D4A8 (--$_Reallocate_for@V_lambda_05cef1f6fdf474c9f3ed207deba0f73b_@@PEBG@-$basic_string@GU-$char_trai.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x14000545C (--2@YAPEAX_K@Z.c)
+ *     ?_Throw_bad_array_new_length@std@@YAXXZ @ 0x14000E708 (-_Throw_bad_array_new_length@std@@YAXXZ.c)
+ */
+
+_QWORD *__fastcall std::_Allocate<16,std::_Default_allocate_traits,0>(size_t a1)
+{
+  void *v1; // rax
+  void *v2; // rcx
+  _QWORD *result; // rax
+
+  if ( a1 >= 0x1000 )
+  {
+    if ( a1 + 39 < a1 )
+      std::_Throw_bad_array_new_length();
+    v1 = operator new(a1 + 39);
+    v2 = v1;
+    if ( v1 )
+    {
+      result = (_QWORD *)(((unsigned __int64)v1 + 39) & 0xFFFFFFFFFFFFFFE0uLL);
+      *(result - 1) = v2;
+      return result;
+    }
+    _o__invalid_parameter_noinfo_noreturn();
+    __debugbreak();
+  }
+  if ( a1 )
+    return operator new(a1);
+  else
+    return 0LL;
+}

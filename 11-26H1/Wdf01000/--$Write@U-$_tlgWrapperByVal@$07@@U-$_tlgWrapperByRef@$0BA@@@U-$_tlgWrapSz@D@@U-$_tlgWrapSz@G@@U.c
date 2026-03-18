@@ -1,0 +1,108 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByRef@$0BA@@@U?$_tlgWrapSz@D@@U?$_tlgWrapSz@G@@U4@U?$_tlgWrapperByVal@$03@@U5@U?$_tlgWrapperByVal@$00@@U6@U6@U5@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByRef@$0BA@@@AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapSz@G@@6AEBU?$_tlgWrapperByVal@$03@@7AEBU?$_tlgWrapperByVal@$00@@887@Z @ 0x140001008
+ * Callers:
+ *     imp_WdfDriverCreate @ 0x14006BE90 (imp_WdfDriverCreate.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x14000119C (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1400ACED0 (__security_check_cookie.c)
+ */
+
+int __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByRef<16>,_tlgWrapSz<char>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<1>,_tlgWrapperByVal<4>>(
+        const _tlgProvider_t *pEventMetadata,
+        const void *<wrappedArgs_0>,
+        const _GUID *<wrappedArgs_1>,
+        const _GUID *<wrappedArgs_2>,
+        const _tlgWrapperByVal<8> *<wrappedArgs_3>,
+        const _tlgWrapperByRef<16> *<wrappedArgs_4>,
+        const _tlgWrapSz<char> *<wrappedArgs_5>,
+        const _tlgWrapSz<unsigned short> *<wrappedArgs_6>,
+        const _tlgWrapSz<unsigned short> *<wrappedArgs_7>,
+        const _tlgWrapperByVal<4> *<wrappedArgs_8>,
+        const _tlgWrapperByVal<4> *<wrappedArgs_9>,
+        const _tlgWrapperByVal<1> *<wrappedArgs_10>,
+        const _tlgWrapperByVal<1> *hProvider,
+        const _tlgWrapperByVal<1> *pEventMetadata_0,
+        const _tlgWrapperByVal<4> *<writerArgs_0>)
+{
+  __int64 v16; // rcx
+  unsigned int v17; // r9d
+  unsigned int v18; // r8d
+  const wchar_t *Psz; // rdx
+  __int64 v20; // rax
+  unsigned int v21; // eax
+  const wchar_t *v22; // rdx
+  __int64 v23; // rax
+  const char *v24; // rdx
+  const void *Ptr; // rcx
+  _EVENT_DATA_DESCRIPTOR data[13]; // [rsp+30h] [rbp-D0h] BYREF
+
+  data[12].Ptr = (unsigned __int64)<writerArgs_0>;
+  v16 = -1LL;
+  data[11].Ptr = (unsigned __int64)pEventMetadata_0;
+  v17 = 1;
+  data[10].Ptr = (unsigned __int64)hProvider;
+  v18 = 2;
+  data[9].Ptr = (unsigned __int64)<wrappedArgs_10>;
+  data[8].Ptr = (unsigned __int64)<wrappedArgs_9>;
+  data[7].Ptr = (unsigned __int64)<wrappedArgs_8>;
+  *(_QWORD *)&data[12].Size = 4LL;
+  *(_QWORD *)&data[11].Size = 1LL;
+  *(_QWORD *)&data[10].Size = 1LL;
+  Psz = <wrappedArgs_7>->Psz;
+  *(_QWORD *)&data[9].Size = 1LL;
+  *(_QWORD *)&data[8].Size = 4LL;
+  *(_QWORD *)&data[7].Size = 4LL;
+  if ( Psz )
+  {
+    v20 = -1LL;
+    do
+      ++v20;
+    while ( Psz[v20] );
+    v21 = 2 * v20 + 2;
+  }
+  else
+  {
+    Psz = (const wchar_t *)&unk_1400B7000;
+    v21 = 2;
+  }
+  data[6].Size = v21;
+  data[6].Ptr = (unsigned __int64)Psz;
+  data[6].Reserved = 0;
+  v22 = <wrappedArgs_6>->Psz;
+  if ( <wrappedArgs_6>->Psz )
+  {
+    v23 = -1LL;
+    do
+      ++v23;
+    while ( v22[v23] );
+    v18 = 2 * v23 + 2;
+  }
+  else
+  {
+    v22 = (const wchar_t *)&unk_1400B7000;
+  }
+  data[5].Ptr = (unsigned __int64)v22;
+  data[5].Size = v18;
+  data[5].Reserved = 0;
+  v24 = <wrappedArgs_5>->Psz;
+  if ( <wrappedArgs_5>->Psz )
+  {
+    do
+      ++v16;
+    while ( v24[v16] );
+    v17 = v16 + 1;
+  }
+  else
+  {
+    v24 = a5;
+  }
+  data[4].Ptr = (unsigned __int64)v24;
+  data[4].Size = v17;
+  data[4].Reserved = 0;
+  Ptr = <wrappedArgs_4>->Ptr;
+  data[2].Ptr = (unsigned __int64)<wrappedArgs_3>;
+  data[3].Ptr = (unsigned __int64)Ptr;
+  *(_QWORD *)&data[3].Size = 16LL;
+  *(_QWORD *)&data[2].Size = 8LL;
+  return tlgWriteTransfer_EtwWriteTransfer(&Tlgg_TelemetryProviderProv, <wrappedArgs_0>, 0LL, 0LL, 0xDu, data);
+}

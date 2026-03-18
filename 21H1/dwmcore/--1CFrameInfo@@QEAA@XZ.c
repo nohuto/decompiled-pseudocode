@@ -1,0 +1,31 @@
+/*
+ * XREFs of ??1CFrameInfo@@QEAA@XZ @ 0x18015A8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GTouchUpdateInfo@CTelemetryTouchLatencyAnalysis@@QEAAPEAXI@Z @ 0x18001F6C8 (--_GTouchUpdateInfo@CTelemetryTouchLatencyAnalysis@@QEAAPEAXI@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180096BB0 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800B5618 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?ResetTokens@CScheduleFrameInfoVolatileData@@AEAAXXZ @ 0x1800D8448 (-ResetTokens@CScheduleFrameInfoVolatileData@@AEAAXXZ.c)
+ *     ?ReleaseResponses@CFrameInfo@@QEAAXXZ @ 0x1800D8488 (-ReleaseResponses@CFrameInfo@@QEAAXXZ.c)
+ */
+
+void __fastcall CFrameInfo::~CFrameInfo(CFrameInfo *this)
+{
+  __int64 i; // rbx
+  CTelemetryTouchLatencyAnalysis::TouchUpdateInfo *v3; // rcx
+
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 50); i = (unsigned int)(i + 1) )
+  {
+    v3 = *(CTelemetryTouchLatencyAnalysis::TouchUpdateInfo **)(*((_QWORD *)this + 22) + 8 * i);
+    if ( v3 )
+      CTelemetryTouchLatencyAnalysis::TouchUpdateInfo::`scalar deleting destructor'(v3);
+  }
+  *((_DWORD *)this + 50) = 0;
+  DynArrayImpl<0>::ShrinkToSize((__int64)this + 176, 8u);
+  CFrameInfo::ReleaseResponses(this);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 208);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 176);
+  CScheduleFrameInfoVolatileData::ResetTokens(this);
+  DynArrayImpl<0>::~DynArrayImpl<0>((__int64)this + 144);
+}

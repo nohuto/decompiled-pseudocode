@@ -1,0 +1,89 @@
+/*
+ * XREFs of imp_WdfUsbInterfaceSelectSetting @ 0x1C0086FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0001BF0 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C00023CC (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     WPP_IFR_SF_qd @ 0x1C0002600 (WPP_IFR_SF_qd.c)
+ *     ?FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z @ 0x1C000A070 (-FxValidateObjectAttributes@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_OBJECT_ATTRIBUTES@@K@Z.c)
+ *     WPP_IFR_SF_d @ 0x1C000A170 (WPP_IFR_SF_d.c)
+ *     WPP_IFR_SF_DDd @ 0x1C0064788 (WPP_IFR_SF_DDd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C007C724 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z @ 0x1C008D6B4 (-SelectSetting@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_URB@@@Z.c)
+ *     ?SelectSettingByDescriptor@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_USB_INTERFACE_DESCRIPTOR@@@Z @ 0x1C008DA1C (-SelectSettingByDescriptor@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_USB_INTERFACE_D.c)
+ *     ?SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z @ 0x1C008DB4C (-SelectSettingByIndex@FxUsbInterface@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@E@Z.c)
+ */
+
+__int64 __fastcall imp_WdfUsbInterfaceSelectSetting(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFUSBINTERFACE__ *UsbInterface,
+        _WDF_OBJECT_ATTRIBUTES *PipesAttributes,
+        _WDF_USB_INTERFACE_SELECT_SETTING_PARAMS *Params)
+{
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  __int64 result; // rax
+  unsigned __int8 v8; // dl
+  unsigned __int16 v9; // r9
+  unsigned int _a2; // ecx
+  unsigned int v11; // ebx
+  _USB_INTERFACE_DESCRIPTOR *v12; // rax
+  _USB_INTERFACE_DESCRIPTOR *InterfaceDescriptor; // r8
+  ULONG_PTR retaddr; // [rsp+48h] [rbp+0h]
+  FxUsbInterface *pUsbInterface; // [rsp+50h] [rbp+8h] BYREF
+
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8].DriverName[16],
+    (unsigned __int64)UsbInterface,
+    0x1204u,
+    (void **)&pUsbInterface);
+  m_Globals = pUsbInterface->m_Globals;
+  if ( !Params )
+    FxVerifierNullBugCheck(m_Globals, retaddr);
+  result = FxVerifierCheckIrqlLevel(m_Globals, 0);
+  if ( (int)result >= 0 )
+  {
+    _a2 = Params->Size;
+    if ( Params->Size != 16 )
+    {
+      v11 = -1073741820;
+      WPP_IFR_SF_DDd(m_Globals, v8, 0xEu, 0xAu, WPP_FxUsbInterfaceAPI_cpp_Traceguids, _a2, 16, -1073741820);
+      return v11;
+    }
+    result = FxValidateObjectAttributes(m_Globals, PipesAttributes, 1, v9);
+    if ( (int)result < 0 )
+      return result;
+    switch ( Params->Type )
+    {
+      case WdfUsbInterfaceSelectSettingTypeDescriptor:
+        InterfaceDescriptor = Params->Types.Descriptor.InterfaceDescriptor;
+        if ( !InterfaceDescriptor )
+        {
+          v11 = -1073741811;
+          WPP_IFR_SF_d(m_Globals, 2u, 0xEu, 0xBu, WPP_FxUsbInterfaceAPI_cpp_Traceguids, -1073741811);
+          return v11;
+        }
+        return (unsigned int)FxUsbInterface::SelectSettingByDescriptor(
+                               pUsbInterface,
+                               PipesAttributes,
+                               InterfaceDescriptor);
+      case WdfUsbInterfaceSelectSettingTypeSetting:
+        return (unsigned int)FxUsbInterface::SelectSettingByIndex(
+                               pUsbInterface,
+                               PipesAttributes,
+                               Params->Types.Interface.SettingIndex);
+      case WdfUsbInterfaceSelectSettingTypeUrb:
+        v12 = Params->Types.Descriptor.InterfaceDescriptor;
+        if ( !v12 || *(_WORD *)&v12->bInterfaceNumber != 1 || *(_WORD *)&v12->bLength < 0x38u )
+        {
+          v11 = -1073741811;
+          WPP_IFR_SF_qd(m_Globals, 2u, 0xEu, 0xCu, WPP_FxUsbInterfaceAPI_cpp_Traceguids, v12, -1073741811);
+          return v11;
+        }
+        return (unsigned int)FxUsbInterface::SelectSetting(pUsbInterface, PipesAttributes, Params->Types.Urb.Urb);
+      default:
+        return (unsigned int)-1073741811;
+    }
+  }
+  return result;
+}

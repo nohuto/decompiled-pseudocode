@@ -1,0 +1,42 @@
+/*
+ * XREFs of KiTpCompletion @ 0x140BB7010
+ * Callers:
+ *     KiTpHandleTrap @ 0x1404F7320 (KiTpHandleTrap.c)
+ * Callees:
+ *     RtlpIcEmulateInstruction @ 0x140BB7A08 (RtlpIcEmulateInstruction.c)
+ */
+
+__int64 __fastcall KiTpCompletion(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
+{
+  struct _KPRCB *CurrentPrcb; // rax
+  _KPRCB_TRACEPOINT_LOG *TracepointLog; // r8
+  unsigned int LogIndex; // ecx
+  _KPRCB_TRACEPOINT_LOG_ENTRY *v9; // rbx
+  __int64 result; // rax
+  _QWORD v11[5]; // [rsp+20h] [rbp-28h] BYREF
+
+  CurrentPrcb = KeGetCurrentPrcb();
+  TracepointLog = CurrentPrcb->TracepointLog;
+  if ( !TracepointLog || CurrentPrcb->IpiFrozen || (KiBugCheckActive & 3) != 0 )
+  {
+    v9 = 0LL;
+  }
+  else
+  {
+    LogIndex = TracepointLog->LogIndex;
+    v9 = &TracepointLog->Entries[(unsigned __int8)LogIndex];
+    TracepointLog->LogIndex = LogIndex + 1;
+    v9->OldPc = *(_QWORD *)(a3 + 248);
+    v9->OldSp = *(_QWORD *)(a3 + 152);
+  }
+  v11[0] = a2;
+  v11[1] = a3;
+  v11[2] = a4;
+  result = RtlpIcEmulateInstruction(a1, v11);
+  if ( v9 )
+  {
+    v9->NewPc = *(_QWORD *)(a3 + 248);
+    v9->NewSp = *(_QWORD *)(a3 + 152);
+  }
+  return result;
+}

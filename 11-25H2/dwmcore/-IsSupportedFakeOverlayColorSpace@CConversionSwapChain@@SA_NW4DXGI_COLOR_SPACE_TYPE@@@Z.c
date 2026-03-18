@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?IsSupportedFakeOverlayColorSpace@CConversionSwapChain@@SA_NW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1802D4940
+ * Callers:
+ *     ?CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDWM_CHECK_MULTIPLANE_OVERLAY_SUPPORT_PLANE_INFO@@IPEA_N@Z @ 0x1802D42B0 (-CheckMultiplaneOverlaySupport@CConversionSwapChain@@UEBA_NPEBUDWM_CHECK_MULTIPLANE_OVERLAY_SUPP.c)
+ *     ?Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@PEAPEAVCLegacySwapChain@@@Z @ 0x1802D4508 (-Create@CConversionSwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int8 __fastcall CConversionSwapChain::IsSupportedFakeOverlayColorSpace(unsigned int a1)
+{
+  unsigned __int8 result; // al
+  int v2; // edx
+
+  result = 0;
+  if ( a1 <= 0xE )
+  {
+    v2 = 20483;
+    return _bittest(&v2, a1);
+  }
+  return result;
+}

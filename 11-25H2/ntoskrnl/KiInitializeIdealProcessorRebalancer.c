@@ -1,0 +1,34 @@
+/*
+ * XREFs of KiInitializeIdealProcessorRebalancer @ 0x1405BC728
+ * Callers:
+ *     KeInitSystem @ 0x140C4FA10 (KeInitSystem.c)
+ * Callees:
+ *     KiInitializeTimer2 @ 0x14036F318 (KiInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x140370EF0 (KeSetTimer2.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ */
+
+__int64 KiInitializeIdealProcessorRebalancer()
+{
+  __int64 result; // rax
+  _QWORD v1[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  memset_0(&KiIdealProcessorRebalancerContext, 0, 0xB8uLL);
+  KiInitializeTimer2(
+    (unsigned __int64)&KiIdealProcessorRebalancerContext,
+    (__int64)KiIdealProcessorRebalancerTimerCallback,
+    0LL,
+    8);
+  stru_140E16D48.WorkerRoutine = KiIdealProcessorRebalancerWorker;
+  result = (unsigned int)KiCacheAwareScheduling;
+  stru_140E16D48.Parameter = 0LL;
+  stru_140E16D48.List.Flink = 0LL;
+  qword_140E16D68 = 0LL;
+  if ( (KiCacheAwareScheduling & 8) != 0 )
+  {
+    v1[1] = -1LL;
+    v1[0] = 0LL;
+    return KeSetTimer2((__int64)&KiIdealProcessorRebalancerContext, -10000000LL, 10000000LL, (__int64)v1);
+  }
+  return result;
+}

@@ -1,0 +1,41 @@
+/*
+ * XREFs of MiExceptionForMappedVa @ 0x14066C948
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x1402090B8 (MiWaitForInPageComplete.c)
+ * Callees:
+ *     MiLockWorkingSetShared @ 0x140212A90 (MiLockWorkingSetShared.c)
+ *     MiUnlockWorkingSetShared @ 0x1402B9D50 (MiUnlockWorkingSetShared.c)
+ *     MiGetAnyMultiplexedVm @ 0x1404423A0 (MiGetAnyMultiplexedVm.c)
+ */
+
+__int64 __fastcall MiExceptionForMappedVa(unsigned __int64 a1)
+{
+  unsigned int v2; // ebx
+  char *AnyMultiplexedVm; // rsi
+  unsigned __int8 v4; // al
+  _QWORD *v5; // rdx
+  unsigned __int64 v6; // r8
+
+  v2 = 0;
+  AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
+  v4 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
+  v5 = P;
+  while ( v5 )
+  {
+    v6 = v5[11] & 0xFFFFFFFFFFFFF000uLL;
+    if ( a1 < v6 + v5[4] )
+    {
+      if ( a1 >= v6 )
+        break;
+      v5 = (_QWORD *)*v5;
+    }
+    else
+    {
+      v5 = (_QWORD *)v5[1];
+    }
+  }
+  if ( v5 && (v5[7] & 2) != 0 )
+    v2 = 1;
+  MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v4);
+  return v2;
+}

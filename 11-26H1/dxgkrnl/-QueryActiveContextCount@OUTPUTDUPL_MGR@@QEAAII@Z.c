@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?QueryActiveContextCount@OUTPUTDUPL_MGR@@QEAAII@Z @ 0x1403D30FC
+ * Callers:
+ *     _lambda_d61da4d51b31b33ef5e605a1dd45d7b4_::_lambda_invoker_cdecl_ @ 0x14018E4B0 (_lambda_d61da4d51b31b33ef5e605a1dd45d7b4_--_lambda_invoker_cdecl_.c)
+ *     ?ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z @ 0x1401EED10 (-ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z.c)
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x14000D6A0 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x14000E0B0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x140016BA0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall OUTPUTDUPL_MGR::QueryActiveContextCount(OUTPUTDUPL_MGR *this, unsigned int a2)
+{
+  struct DXGFASTMUTEX *v2; // rbx
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  v2 = (struct DXGFASTMUTEX *)(*((_QWORD *)this + 2) + 72LL * a2);
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v4, v2, 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v4);
+  LODWORD(v2) = *((_DWORD *)v2 + 16);
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v4);
+  return (unsigned int)v2;
+}

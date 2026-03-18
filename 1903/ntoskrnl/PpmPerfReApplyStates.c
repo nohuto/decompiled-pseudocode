@@ -1,0 +1,21 @@
+/*
+ * XREFs of PpmPerfReApplyStates @ 0x140724558
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140596DBC (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PpmAcquireLock @ 0x1400EDD3C (PpmAcquireLock.c)
+ *     PpmCheckCustomRun @ 0x14015B030 (PpmCheckCustomRun.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x14015C9A8 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmUpdateProcessorPolicy @ 0x14074570C (PpmUpdateProcessorPolicy.c)
+ */
+
+__int64 PpmPerfReApplyStates()
+{
+  __int64 v0; // rdx
+  __int64 v1; // r8
+
+  PpmAcquireLock((struct _KTHREAD **)&PpmPerfPolicyLock);
+  PpmPerfSetAllDomainsToUpdate();
+  PpmUpdateProcessorPolicy(&PpmAllowedActions, 0LL);
+  return PpmCheckCustomRun(2u, v0, v1);
+}

@@ -1,0 +1,42 @@
+/*
+ * XREFs of EtwpTiQueryTokenIdentity @ 0x140B192EC
+ * Callers:
+ *     EtwTiLogImpersonateClient @ 0x1409294AC (EtwTiLogImpersonateClient.c)
+ * Callees:
+ *     SeQueryInformationToken @ 0x1408F4300 (SeQueryInformationToken.c)
+ *     EtwpTiSerializeTokenGroups @ 0x140B19394 (EtwpTiSerializeTokenGroups.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall EtwpTiQueryTokenIdentity(__int64 a1, void *a2)
+{
+  NTSTATUS v3; // ebx
+  __int64 v4; // rax
+  PVOID v5; // rcx
+  PVOID TokenInformation; // [rsp+30h] [rbp+8h] BYREF
+
+  TokenInformation = 0LL;
+  v3 = SeQueryInformationToken(a2, TokenUserClaimAttributes|TokenAuditPolicy, &TokenInformation);
+  if ( v3 < 0
+    || (v3 = EtwpTiSerializeTokenGroups(
+               *((_QWORD *)TokenInformation + 9),
+               *((unsigned int *)TokenInformation + 16),
+               a1 + 32,
+               a1 + 24),
+        v3 < 0) )
+  {
+    v5 = TokenInformation;
+  }
+  else
+  {
+    v4 = *((_QWORD *)TokenInformation + 7);
+    *(_QWORD *)(a1 + 8) = TokenInformation;
+    v5 = 0LL;
+    *(_QWORD *)(a1 + 16) = (unsigned int)v4 + ((__int64)SHIDWORD(v4) << 32);
+    TokenInformation = 0LL;
+  }
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  *(_DWORD *)a1 = v3;
+  return (unsigned int)v3;
+}

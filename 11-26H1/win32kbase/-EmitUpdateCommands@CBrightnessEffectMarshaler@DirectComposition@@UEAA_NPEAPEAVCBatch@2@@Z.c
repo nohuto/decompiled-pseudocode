@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CBrightnessEffectMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1402300E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1400ADE60 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?EmitSetBlackPointXCommand@CBrightnessEffectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x14022B970 (-EmitSetBlackPointXCommand@CBrightnessEffectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitSetBlackPointYCommand@CBrightnessEffectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x14022B9E8 (-EmitSetBlackPointYCommand@CBrightnessEffectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitSetWhitePointYCommand@CBrightnessEffectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x14022FB04 (-EmitSetWhitePointYCommand@CBrightnessEffectMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ *     ?EmitUpdateCommands@CFilterEffectMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x140230B00 (-EmitUpdateCommands@CFilterEffectMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
+char __fastcall DirectComposition::CBrightnessEffectMarshaler::EmitUpdateCommands(
+        DirectComposition::CBrightnessEffectMarshaler *this,
+        struct DirectComposition::CBatch ***a2)
+{
+  char v4; // bl
+  _QWORD *v5; // rcx
+  void *v7; // [rsp+40h] [rbp+18h] BYREF
+
+  v4 = 0;
+  if ( DirectComposition::CFilterEffectMarshaler::EmitUpdateCommands(this, (struct DirectComposition::CBatch **)a2) )
+  {
+    if ( (*((_DWORD *)this + 4) & 0x400) != 0 )
+    {
+      v7 = 0LL;
+      if ( !DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, &v7) )
+        return v4;
+      v5 = v7;
+      *(_DWORD *)v7 = 16;
+      v5[1] = 0LL;
+      *((_DWORD *)v5 + 1) = 373;
+      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v5 + 3) = *((_DWORD *)this + 64);
+      *((_DWORD *)this + 4) &= ~0x400u;
+    }
+    if ( DirectComposition::CBrightnessEffectMarshaler::EmitSetWhitePointYCommand(this, a2)
+      && DirectComposition::CBrightnessEffectMarshaler::EmitSetBlackPointXCommand(this, a2)
+      && DirectComposition::CBrightnessEffectMarshaler::EmitSetBlackPointYCommand(this, a2) )
+    {
+      return 1;
+    }
+  }
+  return v4;
+}

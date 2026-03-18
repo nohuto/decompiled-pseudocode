@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?InitializeInterface@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGDMM_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1402629E8
+ * Callers:
+ *     ?_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x14025C3F0 (-_InitializeDmmClientInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(
+        DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *this,
+        struct _DXGDMM_VIDPNTARGETMODESET_INTERFACE *a2)
+{
+  if ( !this )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 2082;
+  }
+  *(_QWORD *)this = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::GetNumModes;
+  *((_QWORD *)this + 1) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::AcquireFirstModeInfo;
+  *((_QWORD *)this + 2) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::AcquireNextModeInfo;
+  *((_QWORD *)this + 3) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::AcquirePinnedModeInfo;
+  *((_QWORD *)this + 4) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::ReleaseModeInfo;
+  *((_QWORD *)this + 5) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::CompareVideoSignalInfo;
+  *((_QWORD *)this + 6) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::PinMode;
+  *((_QWORD *)this + 7) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::UnpinMode;
+  *((_QWORD *)this + 8) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::IsSupportedByMonitor;
+  *((_QWORD *)this + 9) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::FindClosestTargetMode;
+  *((_QWORD *)this + 10) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::IsCompatibleWithMonitorMode;
+  *((_QWORD *)this + 11) = DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::VirtualRefreshRateSupport;
+}

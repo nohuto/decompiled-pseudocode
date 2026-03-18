@@ -1,0 +1,33 @@
+/*
+ * XREFs of CcUnpinDataForThread @ 0x1405DB67C
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcUnpinFileDataEx @ 0x14003A5E0 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceForThreadLite @ 0x1400E84D0 (ExReleaseResourceForThreadLite.c)
+ *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
+ *     CcUnpinData @ 0x1403F7D90 (CcUnpinData.c)
+ */
+
+void __stdcall CcUnpinDataForThread(PVOID Bcb, ERESOURCE_THREAD ResourceThreadId)
+{
+  void *v2; // rbx
+  PVOID *i; // rdi
+
+  v2 = Bcb;
+  if ( ((unsigned __int8)Bcb & 1) != 0 )
+  {
+    v2 = (void *)((unsigned __int64)Bcb & 0xFFFFFFFFFFFFFFFEuLL);
+LABEL_9:
+    CcUnpinFileDataEx((__int64)v2, 1, 0);
+    return;
+  }
+  if ( *(_WORD *)Bcb != 762 )
+  {
+    ExReleaseResourceForThreadLite((PERESOURCE)((char *)Bcb + 72), ResourceThreadId);
+    goto LABEL_9;
+  }
+  for ( i = (PVOID *)((char *)Bcb + 16); *i; ++i )
+    CcUnpinData(*i);
+  ExFreePoolWithTag(v2, 0);
+}

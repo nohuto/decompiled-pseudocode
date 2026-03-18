@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?MarkAbandoned@DXGSWAPCHAIN@@QEAAX_N@Z @ 0x1C0250ECC
+ * Callers:
+ *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C024FB44 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
+ *     ?DestroyLocal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C0250204 (-DestroyLocal@DXGSWAPCHAIN@@QEAAXXZ.c)
+ *     ?InsertGPUSignal@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z @ 0x1C0250C24 (-InsertGPUSignal@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z.c)
+ *     ?InsertGPUWait@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z @ 0x1C0250D70 (-InsertGPUWait@DXGSWAPCHAIN@@AEAAJPEAUSWAPCHAIN_CLIENT_INFO@1@PEAUSWAPCHAIN_SURF_INFO@1@I@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C0251A30 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ *     ?RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z @ 0x1C0251DE4 (-RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z.c)
+ *     ?SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@D@Z @ 0x1C0251F4C (-SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADA.c)
+ *     ?SwapChainAbandonInternal@@YAJPEAVDXGSWAPCHAIN@@_N@Z @ 0x1C02521CC (-SwapChainAbandonInternal@@YAJPEAVDXGSWAPCHAIN@@_N@Z.c)
+ *     ?UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z @ 0x1C0252510 (-UnOrderedPresent@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_UNORDEREDPRESENTSWAPCHAIN@@@Z.c)
+ * Callees:
+ *     McTemplateK0ppp @ 0x1C003C574 (McTemplateK0ppp.c)
+ */
+
+void __fastcall DXGSWAPCHAIN::MarkAbandoned(struct _KTHREAD **this, __int64 a2, const GUID *a3)
+{
+  __int64 v4; // rax
+  struct _KEVENT *v5; // rcx
+  struct _KEVENT *v6; // rcx
+
+  if ( this[1] != KeGetCurrentThread() )
+  {
+    v4 = WdLogNewEntry5_WdAssertion(this);
+    *(_QWORD *)(v4 + 24) = 3308LL;
+    WdLogEvent5_WdAssertion(v4);
+  }
+  if ( !*((_DWORD *)this + 10) || !*((_DWORD *)this + 11) )
+  {
+    v5 = (struct _KEVENT *)this[15];
+    *((_DWORD *)this + 10) = 1;
+    if ( v5 )
+      KeSetEvent(v5, 2, 0);
+    v6 = (struct _KEVENT *)this[21];
+    if ( v6 )
+      KeSetEvent(v6, 2, 0);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x4000000) != 0 )
+      McTemplateK0ppp((__int64)v6, &EventIndirectSwapChainMarkAbandoned, a3, this, this[21], this[15]);
+  }
+}

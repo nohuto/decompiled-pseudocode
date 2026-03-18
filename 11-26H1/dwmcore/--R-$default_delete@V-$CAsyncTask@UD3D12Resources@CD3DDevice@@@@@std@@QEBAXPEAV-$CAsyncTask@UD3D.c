@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??R?$default_delete@V?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@@std@@QEBAXPEAV?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@@Z @ 0x18029656C
+ * Callers:
+ *     ??1?$unique_ptr@V?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@U?$default_delete@V?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@@std@@@std@@QEAA@XZ @ 0x18021F1DC (--1-$unique_ptr@V-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@U-$default_delete@V-$CAsyncTask@UD3D.c)
+ *     ?ReleaseD3D12Resources@CDeviceManager@@QEAAXXZ @ 0x180295650 (-ReleaseD3D12Resources@CDeviceManager@@QEAAXXZ.c)
+ *     ??1?$out_param_t@V?$unique_ptr@V?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@U?$default_delete@V?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@@std@@@std@@@details@wil@@QEAA@XZ @ 0x180296468 (--1-$out_param_t@V-$unique_ptr@V-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@U-$default_delete@V-$.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x180220694 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAA@XZ @ 0x18029640C (--1-$CAsyncTask@UD3D12Resources@CD3DDevice@@@@QEAA@XZ.c)
+ */
+
+void __fastcall std::default_delete<CAsyncTask<CD3DDevice::D3D12Resources>>::operator()(__int64 a1, void *a2)
+{
+  if ( a2 )
+  {
+    CAsyncTask<CD3DDevice::D3D12Resources>::~CAsyncTask<CD3DDevice::D3D12Resources>((__int64)a2);
+    operator delete(a2);
+  }
+}

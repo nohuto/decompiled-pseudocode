@@ -1,0 +1,53 @@
+/*
+ * XREFs of FsRtlHeatInit @ 0x140790270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14079052C (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpQueryValueKey @ 0x14079076C (FsRtlpQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall FsRtlHeatInit(__int64 a1, __int64 a2, __int64 a3)
+{
+  PVOID v6; // rbx
+  unsigned int v7; // edi
+  int v8; // eax
+  _BYTE v10[4]; // [rsp+30h] [rbp-69h] BYREF
+  int v11; // [rsp+34h] [rbp-65h] BYREF
+  PVOID P; // [rsp+38h] [rbp-61h] BYREF
+  __int64 v13; // [rsp+40h] [rbp-59h] BYREF
+  const wchar_t *v14; // [rsp+48h] [rbp-51h]
+  _QWORD v15[2]; // [rsp+50h] [rbp-49h] BYREF
+  char v16; // [rsp+60h] [rbp-39h] BYREF
+
+  v15[0] = 8519808LL;
+  *(_QWORD *)a1 = 0LL;
+  v13 = 1048590LL;
+  P = &v16;
+  v10[0] = 0;
+  v15[1] = L"\\Registry\\Machine\\System\\CurrentControlSet\\Control\\TieredStorage";
+  v11 = 92;
+  v14 = L"Enabled";
+  if ( (int)FsRtlpQueryValueKey(v15, &v13, &v11, &P, v10) < 0
+    || (v6 = P, *(_DWORD *)((char *)P + *((unsigned int *)P + 2))) )
+  {
+    LODWORD(v13) = 2490404;
+    v14 = L"MeasuredOperations";
+    v8 = FsRtlpQueryValueKey(v15, &v13, &v11, &P, v10);
+    v6 = P;
+    if ( v8 < 0 )
+      *(_DWORD *)(a1 + 4) |= 7u;
+    else
+      *(_DWORD *)(a1 + 4) |= *(_DWORD *)((_BYTE *)P + *((unsigned int *)P + 2)) & 7;
+    v7 = FsRtlpHeatRegisterVolume(a2, a3, a1);
+  }
+  else
+  {
+    v7 = -1073741823;
+  }
+  if ( v10[0] )
+    ExFreePoolWithTag(v6, 0);
+  return v7;
+}

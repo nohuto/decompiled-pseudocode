@@ -1,0 +1,174 @@
+/*
+ * XREFs of ?AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z @ 0x180151674
+ * Callers:
+ *     ?Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800712E0 (-Insert@CDrawListEntryBuilder@@QEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc.c)
+ *     ?Copy@CEdgeFlagsMap@@QEAAXAEBV1@PEBUD2D_MATRIX_3X2_F@@@Z @ 0x180152BE8 (-Copy@CEdgeFlagsMap@@QEAAXAEBV1@PEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ?GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z @ 0x18016D520 (-GenerateDrawListPrimitive@CBrushDrawListGenerator@@AEBAJPEAUGenerateDrawListParameters@1@@Z.c)
+ * Callees:
+ *     ?TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@PEAU2@@Z @ 0x18000B270 (-TransformRect_AxisAlignedPreserving@D2DMatrixHelper@@YAXAEBUD2D_RECT_F@@AEBUD2D_MATRIX_3X2_F@@P.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180041DA0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180041E40 (--2@YAPEAX_K@Z.c)
+ *     ?_Reset@?$_Variant_base@Umonostate@std@@VCRectangleMapStrategy@CEdgeFlagsMap@@VCPolygonMapStrategy@4@@std@@QEAAXXZ @ 0x18015163C (-_Reset@-$_Variant_base@Umonostate@std@@VCRectangleMapStrategy@CEdgeFlagsMap@@VCPolygonMapStrate.c)
+ *     ?AddEdgeFlags@CPolygonMapStrategy@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z @ 0x180151948 (-AddEdgeFlags@CPolygonMapStrategy@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMat.c)
+ *     ?IsCompatibleTransform@CRectangleMapStrategy@CEdgeFlagsMap@@SA_NPEBVMatrix3x3@@@Z @ 0x180151CF8 (-IsCompatibleTransform@CRectangleMapStrategy@CEdgeFlagsMap@@SA_NPEBVMatrix3x3@@@Z.c)
+ *     ??1?$_Tree@V?$_Tmap_traits@_KPEAVCCursorState@@U?$less@_K@std@@V?$allocator@U?$pair@$$CB_KPEAVCCursorState@@@std@@@3@$0A@@std@@@std@@QEAA@XZ @ 0x180151D70 (--1-$_Tree@V-$_Tmap_traits@_KPEAVCCursorState@@U-$less@_K@std@@V-$allocator@U-$pair@$$CB_KPEAVCC.c)
+ *     ?ClipRectAndEdgeFlags@@YA?AW4D2D1_EDGE_FLAGS@@AEBUD2D_RECT_F@@W41@01PEAU2@PEAW41@@Z @ 0x180152340 (-ClipRectAndEdgeFlags@@YA-AW4D2D1_EDGE_FLAGS@@AEBUD2D_RECT_F@@W41@01PEAU2@PEAW41@@Z.c)
+ *     ?TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z @ 0x180152450 (-TransformEdgeFlags_AxisAlignedPreserving@D2DMatrixHelper@@YAIIAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     ??$_Emplace_valueless@$0A@$$V@?$variant@Umonostate@std@@VCRectangleMapStrategy@CEdgeFlagsMap@@VCPolygonMapStrategy@4@@std@@AEAAAEAUmonostate@1@XZ @ 0x180250554 (--$_Emplace_valueless@$0A@$$V@-$variant@Umonostate@std@@VCRectangleMapStrategy@CEdgeFlagsMap@@VC.c)
+ *     __security_check_cookie @ 0x1802508D0 (__security_check_cookie.c)
+ */
+
+char __fastcall CEdgeFlagsMap::AddEdgeFlags(__int64 a1, FLOAT *a2, unsigned int a3, FLOAT *a4, int a5)
+{
+  struct D2D_RECT_F *v6; // r9
+  char v10; // al
+  int v11; // eax
+  float v12; // xmm0_4
+  int v13; // ecx
+  __int128 v14; // xmm0
+  FLOAT v15; // xmm1_4
+  int v16; // xmm0_4
+  int v17; // xmm1_4
+  int v18; // xmm1_4
+  const struct D2D_MATRIX_3X2_F *v19; // r8
+  unsigned int v20; // eax
+  unsigned int *v21; // r11
+  _QWORD *v22; // rax
+  unsigned int v23; // ebx
+  __int64 v24; // rcx
+  __int64 v25; // rax
+  struct D2D_MATRIX_3X2_F v27; // [rsp+30h] [rbp-40h] BYREF
+  int v28; // [rsp+48h] [rbp-28h]
+  int v29; // [rsp+4Ch] [rbp-24h]
+  int v30; // [rsp+50h] [rbp-20h]
+  int v31; // [rsp+54h] [rbp-1Ch]
+
+  v6 = (struct D2D_RECT_F *)*(char *)(a1 + 24);
+  if ( (_BYTE)v6 )
+  {
+    if ( (_BYTE)v6 == 1
+      && a1
+      && !CEdgeFlagsMap::CRectangleMapStrategy::IsCompatibleTransform((const struct Matrix3x3 *)a4) )
+    {
+      v23 = *(_DWORD *)(a1 + 16);
+      *(_OWORD *)&v27.m11 = *(_OWORD *)a1;
+      std::_Variant_base<std::monostate,CEdgeFlagsMap::CRectangleMapStrategy,CEdgeFlagsMap::CPolygonMapStrategy>::_Reset(a1);
+      std::variant<std::monostate,CEdgeFlagsMap::CRectangleMapStrategy,CEdgeFlagsMap::CPolygonMapStrategy>::_Emplace_valueless<0,>(a1);
+      std::_Variant_base<std::monostate,CEdgeFlagsMap::CRectangleMapStrategy,CEdgeFlagsMap::CPolygonMapStrategy>::_Reset(v24);
+      *(_QWORD *)a1 = 0LL;
+      *(_QWORD *)(a1 + 8) = 0LL;
+      v25 = std::_Allocate<16,std::_Default_allocate_traits,0>(0x30uLL);
+      *(_QWORD *)v25 = v25;
+      *(_QWORD *)(v25 + 8) = v25;
+      *(_QWORD *)(v25 + 16) = v25;
+      *(_WORD *)(v25 + 24) = 257;
+      *(_QWORD *)a1 = v25;
+      *(_BYTE *)(a1 + 24) = 2;
+      CEdgeFlagsMap::CPolygonMapStrategy::AddEdgeFlags(a1, &v27, v23, 0LL, a5);
+    }
+  }
+  else
+  {
+    if ( CEdgeFlagsMap::CRectangleMapStrategy::IsCompatibleTransform((const struct Matrix3x3 *)a4) )
+    {
+      if ( v6 != (struct D2D_RECT_F *)-1LL && (unsigned __int64)v6 >= 2 )
+        std::_Tree<std::_Tmap_traits<unsigned __int64,CCursorState *,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const,CCursorState *>>,0>>::~_Tree<std::_Tmap_traits<unsigned __int64,CCursorState *,std::less<unsigned __int64>,std::allocator<std::pair<unsigned __int64 const,CCursorState *>>,0>>(a1);
+      *(_DWORD *)(a1 + 16) = 0;
+      *(_DWORD *)a1 = -8388609;
+      *(_DWORD *)(a1 + 4) = -8388609;
+      v10 = 1;
+      *(_DWORD *)(a1 + 8) = 2139095039;
+      *(_DWORD *)(a1 + 12) = 2139095039;
+    }
+    else
+    {
+      std::_Variant_base<std::monostate,CEdgeFlagsMap::CRectangleMapStrategy,CEdgeFlagsMap::CPolygonMapStrategy>::_Reset(a1);
+      *(_QWORD *)a1 = 0LL;
+      *(_QWORD *)(a1 + 8) = 0LL;
+      v22 = operator new(0x30uLL);
+      *v22 = v22;
+      v22[1] = v22;
+      v22[2] = v22;
+      *((_WORD *)v22 + 12) = 257;
+      *(_QWORD *)a1 = v22;
+      v10 = 2;
+    }
+    *(_BYTE *)(a1 + 24) = v10;
+  }
+  LOBYTE(v11) = *(_BYTE *)(a1 + 24);
+  if ( (_BYTE)v11 == 1 )
+  {
+    if ( a1 )
+    {
+      if ( a4 )
+      {
+        v15 = a4[1];
+        v27.dx = *a4;
+        v28 = *((_DWORD *)a4 + 3);
+        v16 = *((_DWORD *)a4 + 6);
+        v27.dy = v15;
+        v17 = *((_DWORD *)a4 + 4);
+        v30 = v16;
+        v29 = v17;
+        v18 = *((_DWORD *)a4 + 7);
+        *(_OWORD *)&v27.m11 = 0LL;
+        v31 = v18;
+        D2DMatrixHelper::TransformRect_AxisAlignedPreserving(
+          (D2DMatrixHelper *)a2,
+          (const struct D2D_RECT_F *)v27.m[2],
+          &v27,
+          v6);
+        v20 = D2DMatrixHelper::TransformEdgeFlags_AxisAlignedPreserving(
+                (D2DMatrixHelper *)a3,
+                (unsigned int)&v27.dx,
+                v19);
+        LOBYTE(v11) = ClipRectAndEdgeFlags(a1, *v21, &v27, v20, a1, v21);
+      }
+      else
+      {
+        v12 = *a2 - *(float *)a1;
+        if ( v12 > 0.0000011920929 )
+          v27.m11 = *a2;
+        else
+          v27.m11 = *(FLOAT *)a1;
+        v13 = v12 > 0.0000011920929 ? 0x3000000 : 0;
+        if ( (float)(a2[1] - *(float *)(a1 + 4)) <= 0.0000011920929 )
+        {
+          v27.m12 = *(FLOAT *)(a1 + 4);
+        }
+        else
+        {
+          v27.m12 = a2[1];
+          v13 |= 3u;
+        }
+        if ( (float)(*(float *)(a1 + 8) - a2[2]) <= 0.0000011920929 )
+        {
+          v27.m21 = *(FLOAT *)(a1 + 8);
+        }
+        else
+        {
+          v27.m21 = a2[2];
+          v13 |= 0x300u;
+        }
+        if ( (float)(*(float *)(a1 + 12) - a2[3]) <= 0.0000011920929 )
+        {
+          v27.m22 = *(FLOAT *)(a1 + 12);
+        }
+        else
+        {
+          v27.m22 = a2[3];
+          v13 |= 0x30000u;
+        }
+        v14 = *(_OWORD *)&v27.m11;
+        v11 = a3 & v13 | *(_DWORD *)(a1 + 16) & ~v13;
+        *(_DWORD *)(a1 + 16) = v11;
+        *(_OWORD *)a1 = v14;
+      }
+    }
+  }
+  else if ( (_BYTE)v11 == 2 && a1 )
+  {
+    LOBYTE(v11) = CEdgeFlagsMap::CPolygonMapStrategy::AddEdgeFlags(a1, a2, a3, a4, a5);
+  }
+  return v11;
+}

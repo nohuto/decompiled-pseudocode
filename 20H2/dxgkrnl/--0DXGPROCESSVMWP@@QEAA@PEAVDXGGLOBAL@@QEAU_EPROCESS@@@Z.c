@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??0DXGPROCESSVMWP@@QEAA@PEAVDXGGLOBAL@@QEAU_EPROCESS@@@Z @ 0x1C0047980
+ * Callers:
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z @ 0x1C0113D14 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@PEAX@Z.c)
+ * Callees:
+ *     ??0DXGPROCESS@@IEAA@PEAVDXGGLOBAL@@QEAU_EPROCESS@@@Z @ 0x1C01140E4 (--0DXGPROCESS@@IEAA@PEAVDXGGLOBAL@@QEAU_EPROCESS@@@Z.c)
+ */
+
+DXGPROCESSVMWP *__fastcall DXGPROCESSVMWP::DXGPROCESSVMWP(
+        DXGPROCESSVMWP *this,
+        struct DXGGLOBAL *a2,
+        struct _EPROCESS *const a3)
+{
+  DXGPROCESS::DXGPROCESS(this, a2, a3);
+  *(_QWORD *)this = &DXGPROCESSVMWP::`vftable';
+  *((_BYTE *)this + 347) |= 0x10u;
+  *((_QWORD *)this + 62) = 0LL;
+  *((_QWORD *)this + 63) = 0LL;
+  *((_QWORD *)this + 64) = 0LL;
+  *((_BYTE *)this + 520) = 0;
+  return this;
+}

@@ -1,0 +1,59 @@
+/*
+ * XREFs of SdbpMatchList @ 0x14073D418
+ * Callers:
+ *     SdbpCheckForMatch @ 0x14073D318 (SdbpCheckForMatch.c)
+ *     SdbpMatchOne @ 0x1409616C0 (SdbpMatchOne.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ *     SdbpFindMatcher @ 0x14073D514 (SdbpFindMatcher.c)
+ *     SdbFindFirstTag @ 0x140742C54 (SdbFindFirstTag.c)
+ *     SdbGetNextChild @ 0x140742CC8 (SdbGetNextChild.c)
+ *     SdbGetFirstChild @ 0x140742F40 (SdbGetFirstChild.c)
+ */
+
+__int64 __fastcall SdbpMatchList(int *a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, int a6, int a7)
+{
+  unsigned int FirstChild; // ebx
+  __int64 (__fastcall *Matcher)(int *, __int64, __int64, _QWORD, unsigned int, __int64, __int64); // rax
+  int v13; // eax
+  __int64 result; // rax
+  __int64 v15; // [rsp+40h] [rbp-28h] BYREF
+
+  v15 = 0LL;
+  a7 = 1;
+  FirstChild = SdbGetFirstChild(a3, a4);
+  if ( FirstChild )
+  {
+    while ( 1 )
+    {
+      Matcher = (__int64 (__fastcall *)(int *, __int64, __int64, _QWORD, unsigned int, __int64, __int64))SdbpFindMatcher(&v15, a2, a3, FirstChild);
+      if ( Matcher )
+      {
+        result = Matcher(&a7, a2, a3, a4, FirstChild, a5, v15);
+        if ( !(_DWORD)result )
+          return result;
+        if ( (unsigned int)SdbFindFirstTag(a3, FirstChild, 4099LL) )
+        {
+          v13 = a7 == 0;
+          a7 = v13;
+        }
+        else
+        {
+          v13 = a7;
+        }
+        if ( v13 == a6 )
+          break;
+      }
+      FirstChild = SdbGetNextChild(a3, a4, FirstChild);
+      if ( !FirstChild )
+        goto LABEL_4;
+    }
+  }
+  else
+  {
+LABEL_4:
+    v13 = a7;
+  }
+  *a1 = v13;
+  return 1LL;
+}

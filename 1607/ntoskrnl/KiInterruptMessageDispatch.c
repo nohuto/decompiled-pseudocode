@@ -1,0 +1,12 @@
+/*
+ * XREFs of KiInterruptMessageDispatch @ 0x14000C484
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KiInterruptMessageDispatch(__int64 a1, __int64 a2)
+{
+  return (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(a1 + 32))(a1, a2, *(unsigned int *)(a1 + 40));
+}

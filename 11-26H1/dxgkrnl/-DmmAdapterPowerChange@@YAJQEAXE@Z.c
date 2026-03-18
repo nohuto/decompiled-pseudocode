@@ -1,0 +1,69 @@
+/*
+ * XREFs of ?DmmAdapterPowerChange@@YAJQEAXE@Z @ 0x14030B880
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x14030C2C0 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x14000CEB0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x14002C340 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1400319C0 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??0?$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1400381A8 (--0-$EXCLUSIVEACCESS@VVIDPN_MGR@@@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ */
+
+__int64 __fastcall DmmAdapterPowerChange(PERESOURCE *a1, char a2)
+{
+  PERESOURCE v3; // rax
+  struct _LIST_ENTRY *Flink; // rdi
+  struct _LIST_ENTRY *Blink; // rcx
+  struct _LIST_ENTRY **p_Blink; // r8
+  struct _LIST_ENTRY *v7; // rdx
+  struct _LIST_ENTRY *v8; // rax
+  __int64 result; // rax
+  __int64 v10; // [rsp+40h] [rbp+18h] BYREF
+
+  if ( a2 != 1 )
+    return 0LL;
+  if ( a1 )
+  {
+    if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(a1) )
+    {
+      WdLogSingleEntry0(1LL);
+      WdLogGlobalForLineNumber = 7926;
+    }
+    v3 = a1[395];
+    if ( !v3 )
+      return 0LL;
+    Flink = v3[1].SystemResourcesList.Flink;
+    if ( Flink )
+    {
+      EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>(&v10, (__int64)v3[1].SystemResourcesList.Flink);
+      _InterlockedIncrement((volatile signed __int32 *)&Flink[7].Blink[4].Blink);
+      Blink = Flink[7].Blink;
+      p_Blink = 0LL;
+      v7 = Blink[1].Blink;
+      if ( v7 != (struct _LIST_ENTRY *)&Blink[1].Blink )
+        p_Blink = &v7[-1].Blink;
+      while ( p_Blink )
+      {
+        v8 = p_Blink[1];
+        *((_BYTE *)p_Blink + 396) = 0;
+        p_Blink = &v8[-1].Blink;
+        if ( v8 == (struct _LIST_ENTRY *)&Blink[1].Blink )
+          p_Blink = 0LL;
+      }
+      if ( Blink )
+        ReferenceCounted::Release((ReferenceCounted *)&Blink[4]);
+      DXGFASTMUTEX::Release((struct _KTHREAD **)(v10 + 40));
+      return 0LL;
+    }
+    WdLogSingleEntry1(2LL);
+    result = 3223192373LL;
+    WdLogGlobalForLineNumber = 7940;
+  }
+  else
+  {
+    WdLogSingleEntry1(2LL);
+    result = 3223191554LL;
+    WdLogGlobalForLineNumber = 7920;
+  }
+  return result;
+}

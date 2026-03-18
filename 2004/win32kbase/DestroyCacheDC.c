@@ -1,0 +1,140 @@
+/*
+ * XREFs of DestroyCacheDC @ 0x1C0030D30
+ * Callers:
+ *     DestroyMonitorDCs @ 0x1C0062B20 (DestroyMonitorDCs.c)
+ *     xxxUserProcessCallout @ 0x1C0072150 (xxxUserProcessCallout.c)
+ *     ReleaseCacheDC @ 0x1C008BB80 (ReleaseCacheDC.c)
+ *     _GetDCEx @ 0x1C008DE30 (_GetDCEx.c)
+ *     DestroyCacheDCEntries @ 0x1C00A5538 (DestroyCacheDCEntries.c)
+ *     DelayedDestroyCacheDC @ 0x1C00A5AA8 (DelayedDestroyCacheDC.c)
+ * Callees:
+ *     IsGreSelectRedirectionBitmapSupported @ 0x1C0030E50 (IsGreSelectRedirectionBitmapSupported.c)
+ *     HmgMarkDeletable @ 0x1C0032590 (HmgMarkDeletable.c)
+ *     GreDeleteObject @ 0x1C007EEA0 (GreDeleteObject.c)
+ *     GreUnlockVisRgn @ 0x1C00811B0 (GreUnlockVisRgn.c)
+ *     HmgShareLockEx @ 0x1C0087EB0 (HmgShareLockEx.c)
+ *     GreSetDCOwnerEx @ 0x1C0090550 (GreSetDCOwnerEx.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C009249C (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     bDeleteDCInternalEx @ 0x1C0093960 (bDeleteDCInternalEx.c)
+ *     Win32FreePool @ 0x1C0096F60 (Win32FreePool.c)
+ *     GreLockVisRgn @ 0x1C00A5B80 (GreLockVisRgn.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00D3820 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall DestroyCacheDC(__int64 *a1, __int64 a2)
+{
+  unsigned int v2; // ebp
+  int v3; // r14d
+  __int64 *v5; // rdi
+  __int64 v6; // rbx
+  unsigned __int64 v7; // rsi
+  HPALETTE v8; // rcx
+  HPALETTE v9; // rcx
+  __int64 v10; // rdx
+  __int64 *v12; // rax
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // r8
+  __int64 v19; // r9
+  __int64 CurrentProcessWin32Process; // rax
+  __int64 v21; // [rsp+20h] [rbp-28h] BYREF
+  int v22; // [rsp+28h] [rbp-20h]
+  int v23; // [rsp+2Ch] [rbp-1Ch]
+
+  v2 = 0;
+  v3 = 0;
+  v5 = a1;
+  if ( !a1 )
+  {
+    GreLockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+    v3 = 1;
+    v5 = (__int64 *)(gpDispInfo + 24);
+    v12 = *(__int64 **)(gpDispInfo + 24);
+    if ( !v12 )
+      goto LABEL_27;
+    do
+    {
+      if ( v12[1] == a2 )
+        break;
+      v5 = v12;
+      v12 = (__int64 *)*v12;
+    }
+    while ( v12 );
+    if ( !v12 || !v5 )
+    {
+LABEL_27:
+      GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+      return 0LL;
+    }
+  }
+  v6 = *v5;
+  *(_DWORD *)(v6 + 64) |= 0x400000u;
+  if ( (*(_DWORD *)(v6 + 64) & 0x40000) == 0 )
+  {
+    v7 = *(_QWORD *)(v6 + 40);
+    if ( v7 > 2 )
+    {
+      PsGetCurrentProcessId();
+      LOBYTE(v13) = 4;
+      HmgMarkDeletable(v7, v13);
+      if ( *(_QWORD *)(v6 + 40) > 2uLL )
+        GreDeleteObject(*(HPALETTE *)(v6 + 40));
+    }
+    *(_QWORD *)(v6 + 40) = 0LL;
+  }
+  v8 = *(HPALETTE *)(v6 + 48);
+  if ( v8 )
+  {
+    GreDeleteObject(v8);
+    *(_QWORD *)(v6 + 48) = 0LL;
+  }
+  v9 = *(HPALETTE *)(v6 + 56);
+  if ( v9 )
+  {
+    GreDeleteObject(v9);
+    *(_QWORD *)(v6 + 56) = 0LL;
+  }
+  if ( !(unsigned int)GreSetDCOwnerEx(*(_QWORD *)(v6 + 8), 2147483650LL, 1LL, 0LL) )
+    goto LABEL_31;
+  if ( (*(_DWORD *)(v6 + 64) & 0x4000) != 0 )
+  {
+    if ( (int)IsGreSelectRedirectionBitmapSupported() >= 0 && qword_1C02519A8 )
+      qword_1C02519A8(*(_QWORD *)(v6 + 8), 0LL);
+    *(_DWORD *)(v6 + 64) &= ~0x4000u;
+    *(_QWORD *)(v6 + 32) = 0LL;
+  }
+  if ( !(unsigned int)bDeleteDCInternalEx(*(HDC *)(v6 + 8)) )
+  {
+    GreSetDCOwnerEx(*(_QWORD *)(v6 + 8), 2147483666LL, 1LL, 0LL);
+LABEL_31:
+    v14 = *(_QWORD *)(v6 + 8);
+    *(_QWORD *)(v6 + 16) = 0LL;
+    LOBYTE(v10) = 1;
+    *(_QWORD *)(v6 + 24) = 0LL;
+    *(_QWORD *)(v6 + 32) = 0LL;
+    v22 = 0;
+    v23 = 0;
+    v15 = HmgShareLockEx(v14, v10);
+    v21 = v15;
+    if ( v15 )
+    {
+      *(_DWORD *)(v15 + 36) |= 0x80000u;
+      XDCOBJ::vAltUnlockFast((XDCOBJ *)&v21);
+    }
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v17, v16, v18, v19);
+    *(_DWORD *)(CurrentProcessWin32Process + 12) |= 0x200u;
+    goto LABEL_19;
+  }
+  if ( (*(_DWORD *)(v6 + 64) & 0x1002) == 2 )
+    --gnDCECount;
+  *v5 = *(_QWORD *)v6;
+  Win32FreePool(v6);
+  v2 = 1;
+LABEL_19:
+  if ( v3 )
+    GreUnlockVisRgn(*(_QWORD *)(gpDispInfo + 40));
+  return v2;
+}

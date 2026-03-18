@@ -1,0 +1,56 @@
+/*
+ * XREFs of KIsUnlockSettingEnabled @ 0x1406E2F48
+ * Callers:
+ *     ExQueryFastCacheDevLicense @ 0x1406E2EE0 (ExQueryFastCacheDevLicense.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x14031A8A0 (CmIsStateSeparationEnabled.c)
+ *     AppModelFreeUnicodeString @ 0x14031A8B4 (AppModelFreeUnicodeString.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x140680AC4 (KGetAppModelStateSeparatedRegKeyPath.c)
+ *     KGetUnlockSetting @ 0x1406E3058 (KGetUnlockSetting.c)
+ */
+
+__int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
+{
+  int v4; // ebx
+  _QWORD v6[2]; // [rsp+20h] [rbp-40h] BYREF
+  _QWORD v7[2]; // [rsp+30h] [rbp-30h] BYREF
+  UNICODE_STRING v8; // [rsp+40h] [rbp-20h] BYREF
+  UNICODE_STRING v9; // [rsp+50h] [rbp-10h] BYREF
+
+  v7[0] = 9830548LL;
+  v6[0] = 7733364LL;
+  v6[1] = L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx";
+  *a2 = 0xFFFF;
+  v7[1] = L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock";
+  v8 = 0LL;
+  v9 = 0LL;
+  v4 = KGetAppModelStateSeparatedRegKeyPath(
+         L"AppxPolicies",
+         (__int64)L"\\Registry\\Machine\\SOFTWARE\\Policies\\Microsoft\\Windows\\Appx",
+         &v9);
+  if ( v4 >= 0 )
+  {
+    v4 = KGetUnlockSetting(&v9, a1, a2);
+    if ( v4 >= 0 )
+    {
+      if ( CmIsStateSeparationEnabled() && *a2 == 0xFFFF )
+        v4 = KGetUnlockSetting(v6, a1, a2);
+      if ( v4 >= 0 && *a2 == 0xFFFF )
+      {
+        v4 = KGetAppModelStateSeparatedRegKeyPath(
+               L"AppModelUnlock",
+               (__int64)L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock",
+               &v8);
+        if ( v4 >= 0 )
+        {
+          v4 = KGetUnlockSetting(&v8, a1, a2);
+          if ( v4 >= 0 && CmIsStateSeparationEnabled() && *a2 == 0xFFFF )
+            v4 = KGetUnlockSetting(v7, a1, a2);
+        }
+      }
+    }
+  }
+  AppModelFreeUnicodeString((__int64)&v8);
+  AppModelFreeUnicodeString((__int64)&v9);
+  return (unsigned int)v4;
+}

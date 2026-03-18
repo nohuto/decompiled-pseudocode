@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?ReleaseTargetInfo@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x140267510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@@SAPEAVDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@@Z @ 0x14008FA38 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDEOPRESENTTARGETSET@@PEAUD3DKMDT_HVIDEOPRESENTTARGETSET_.c)
+ *     ?ReleaseDdiEnumerator@DMMVIDEOPRESENTTARGETSET@@QEAAJPEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x14025F684 (-ReleaseDdiEnumerator@DMMVIDEOPRESENTTARGETSET@@QEAAJPEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z.c)
+ */
+
+__int64 __fastcall DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL::ReleaseTargetInfo(
+        DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL *this,
+        const struct _D3DKMDT_VIDEO_PRESENT_TARGET *a2,
+        const struct _D3DKMDT_VIDEO_PRESENT_TARGET *a3,
+        __int64 a4)
+{
+  __int64 v6; // rax
+  __int64 result; // rax
+  DMMVIDEOPRESENTTARGETSET *v8; // rax
+
+  v6 = WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+  *(_QWORD *)(v6 + 24) = a2;
+  *(_QWORD *)(v6 + 32) = this;
+  WdLogGlobalForLineNumber = 531;
+  if ( a2 )
+  {
+    v8 = (DMMVIDEOPRESENTTARGETSET *)ExposedViaHandle<DMMVIDEOPRESENTTARGETSET,D3DKMDT_HVIDEOPRESENTTARGETSET__ *>::GetFromHandle((__int64)this);
+    if ( v8 )
+    {
+      return DMMVIDEOPRESENTTARGETSET::ReleaseDdiEnumerator(v8, a2);
+    }
+    else
+    {
+      WdLogSingleEntry1(2LL, this);
+      result = 3223192342LL;
+      WdLogGlobalForLineNumber = 551;
+    }
+  }
+  else
+  {
+    WdLogSingleEntry2(2LL, 0LL, this);
+    result = 3223192325LL;
+    WdLogGlobalForLineNumber = 537;
+  }
+  return result;
+}

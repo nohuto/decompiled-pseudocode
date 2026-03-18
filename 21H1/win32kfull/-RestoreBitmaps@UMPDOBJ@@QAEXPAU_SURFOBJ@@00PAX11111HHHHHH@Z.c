@@ -1,0 +1,53 @@
+/*
+ * XREFs of ?RestoreBitmaps@UMPDOBJ@@QAEXPAU_SURFOBJ@@00PAX11111HHHHHH@Z @ 0x20A8B4
+ * Callers:
+ *     ?UMPDDrvAlphaBlend@@YGHPAU_SURFOBJ@@0PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@3PAU_BLENDOBJ@@@Z @ 0x20AB7F (-UMPDDrvAlphaBlend@@YGHPAU_SURFOBJ@@0PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@3PAU_BLENDOBJ@@@Z.c)
+ *     ?UMPDDrvBitBlt@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@4PAU_BRUSHOBJ@@4K@Z @ 0x20AE11 (-UMPDDrvBitBlt@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@4PAU_BRUSHOB.c)
+ *     ?UMPDDrvCopyBits@@YGHPAU_SURFOBJ@@0PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@@Z @ 0x20B20B (-UMPDDrvCopyBits@@YGHPAU_SURFOBJ@@0PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@PAU_POINTL@@@Z.c)
+ *     ?UMPDDrvPlgBlt@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAUtagCOLORADJUSTMENT@@PAU_POINTL@@PAU_POINTFIX@@PAU_RECTL@@4K@Z @ 0x20D42F (-UMPDDrvPlgBlt@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAUtagCOLORADJUSTMENT@@PAU_POINTL@@.c)
+ *     ?UMPDDrvRealizeBrush@@YGHPAU_BRUSHOBJ@@PAU_SURFOBJ@@11PAU_XLATEOBJ@@K@Z @ 0x20E266 (-UMPDDrvRealizeBrush@@YGHPAU_BRUSHOBJ@@PAU_SURFOBJ@@11PAU_XLATEOBJ@@K@Z.c)
+ *     ?UMPDDrvStretchBlt@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAUtagCOLORADJUSTMENT@@PAU_POINTL@@PAU_RECTL@@54K@Z @ 0x20EAAC (-UMPDDrvStretchBlt@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAUtagCOLORADJUSTMENT@@PAU_POIN.c)
+ *     ?UMPDDrvStretchBltROP@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAUtagCOLORADJUSTMENT@@PAU_POINTL@@PAU_RECTL@@54KPAU_BRUSHOBJ@@K@Z @ 0x20EE29 (-UMPDDrvStretchBltROP@@YGHPAU_SURFOBJ@@00PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAUtagCOLORADJUSTMENT@@PAU_P.c)
+ *     ?UMPDDrvTransparentBlt@@YGHPAU_SURFOBJ@@0PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@3KI@Z @ 0x20F9CA (-UMPDDrvTransparentBlt@@YGHPAU_SURFOBJ@@0PAU_CLIPOBJ@@PAU_XLATEOBJ@@PAU_RECTL@@3KI@Z.c)
+ * Callees:
+ *     ?bDeleteLargeBitmaps@UMPDOBJ@@QAEHPAU_SURFOBJ@@00@Z @ 0x20FC76 (-bDeleteLargeBitmaps@UMPDOBJ@@QAEHPAU_SURFOBJ@@00@Z.c)
+ */
+
+void __thiscall UMPDOBJ::RestoreBitmaps(
+        UMPDOBJ *this,
+        struct _SURFOBJ *a2,
+        struct _SURFOBJ *a3,
+        struct _SURFOBJ *a4,
+        void *a5,
+        void *a6,
+        void *a7,
+        void *a8,
+        void *a9,
+        void *a10,
+        int a11,
+        int a12,
+        int a13,
+        int a14,
+        int a15,
+        int a16)
+{
+  if ( a11 || a13 || a15 )
+  {
+    UMPDOBJ::bDeleteLargeBitmaps(this, a12 != 0 ? a2 : 0, a14 != 0 ? a3 : 0, a16 != 0 ? a4 : 0);
+    if ( a11 )
+    {
+      a2->pvBits = a5;
+      a2->pvScan0 = a6;
+    }
+    if ( a13 )
+    {
+      a3->pvBits = a7;
+      a3->pvScan0 = a8;
+    }
+    if ( a15 )
+    {
+      a4->pvBits = a9;
+      a4->pvScan0 = a10;
+    }
+  }
+}

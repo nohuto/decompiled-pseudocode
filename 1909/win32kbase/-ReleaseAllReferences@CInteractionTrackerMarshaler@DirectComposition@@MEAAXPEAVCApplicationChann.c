@@ -1,0 +1,80 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CInteractionTrackerMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01AAC00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Win32FreePool @ 0x1C0012E40 (Win32FreePool.c)
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0014F10 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ *     ?ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z @ 0x1C007F170 (-ReleaseWeakReference@CApplicationChannel@DirectComposition@@QEAAXPEAVCWeakReferenceBase@2@@Z.c)
+ *     ?RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@I@Z @ 0x1C00BE2EC (-RemoveTrackerBindings@CInteractionTrackerBindingManagerMarshaler@DirectComposition@@QEAAXPEAVCA.c)
+ *     ?ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplicationChannel@2@@Z @ 0x1C01AAD08 (-ReleaseManipulationReferences@CInteractionTrackerMarshaler@DirectComposition@@AEAAXPEAVCApplica.c)
+ */
+
+void __fastcall DirectComposition::CInteractionTrackerMarshaler::ReleaseAllReferences(
+        DirectComposition::CInteractionTrackerMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2)
+{
+  struct DirectComposition::CWeakReferenceBase **v4; // rdi
+  __int64 v5; // rbp
+  __int64 *v6; // rdi
+  __int64 v7; // rbp
+  __int64 v8; // rcx
+  struct DirectComposition::CWeakReferenceBase *v9; // rdx
+  struct DirectComposition::CWeakReferenceBase *v10; // rdx
+  DirectComposition::CInteractionTrackerBindingManagerMarshaler *v11; // rcx
+
+  DirectComposition::CInteractionTrackerMarshaler::ReleaseManipulationReferences(this, a2);
+  v4 = (struct DirectComposition::CWeakReferenceBase **)((char *)this + 312);
+  v5 = 3LL;
+  do
+  {
+    if ( *v4 )
+    {
+      DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, *v4);
+      *v4 = 0LL;
+    }
+    ++v4;
+    --v5;
+  }
+  while ( v5 );
+  v6 = (__int64 *)((char *)this + 248);
+  v7 = 4LL;
+  do
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(
+      a2,
+      (struct DirectComposition::CResourceMarshaler *)*(v6 - 4));
+    v8 = *v6;
+    *(v6 - 4) = 0LL;
+    if ( v8 )
+    {
+      Win32FreePool(v8);
+      *v6 = 0LL;
+    }
+    v6[4] = 0LL;
+    ++v6;
+    --v7;
+  }
+  while ( v7 );
+  v9 = (struct DirectComposition::CWeakReferenceBase *)*((_QWORD *)this + 25);
+  if ( v9 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v9);
+    *((_QWORD *)this + 25) = 0LL;
+  }
+  v10 = (struct DirectComposition::CWeakReferenceBase *)*((_QWORD *)this + 26);
+  if ( v10 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseWeakReference(a2, v10);
+    *((_QWORD *)this + 26) = 0LL;
+  }
+  v11 = (DirectComposition::CInteractionTrackerBindingManagerMarshaler *)*((_QWORD *)this + 51);
+  if ( v11 )
+  {
+    DirectComposition::CInteractionTrackerBindingManagerMarshaler::RemoveTrackerBindings(v11, a2, *((_DWORD *)this + 6));
+    DirectComposition::CApplicationChannel::ReleaseResource(
+      a2,
+      *((struct DirectComposition::CResourceMarshaler **)this + 51));
+    *((_QWORD *)this + 51) = 0LL;
+  }
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of McTemplateK0qqx @ 0x1C0041538
+ * Callers:
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0063174 (SecureChannel_SendRequestSynchronously.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0002030 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x1C000252C (McGenEventWrite.c)
+ */
+
+ULONG __fastcall McTemplateK0qqx(struct _MCGEN_TRACE_CONTEXT *a1, __int64 a2, const GUID *a3, int a4, char a5, char a6)
+{
+  EVENT_DATA_DESCRIPTOR EventData; // [rsp+30h] [rbp-50h] BYREF
+  int *v8; // [rsp+40h] [rbp-40h]
+  __int64 v9; // [rsp+48h] [rbp-38h]
+  char *v10; // [rsp+50h] [rbp-30h]
+  __int64 v11; // [rsp+58h] [rbp-28h]
+  char *v12; // [rsp+60h] [rbp-20h]
+  __int64 v13; // [rsp+68h] [rbp-18h]
+  int v14; // [rsp+A8h] [rbp+28h] BYREF
+
+  v14 = a4;
+  v13 = 8LL;
+  v9 = 4LL;
+  v8 = &v14;
+  v11 = 4LL;
+  v10 = &a5;
+  v12 = &a6;
+  return McGenEventWrite(a1, &USBXHCI_ETW_EVENT_COMPLETED_TRUSTLET_REQUEST_V1, a3, 4u, &EventData);
+}

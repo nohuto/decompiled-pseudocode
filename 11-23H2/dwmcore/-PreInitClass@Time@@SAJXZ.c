@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?PreInitClass@Time@@SAJXZ @ 0x1800D2AEC
+ * Callers:
+ *     ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x1800D266C (-Create@CExpressionManager@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18009DA0C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 Time::PreInitClass(void)
+{
+  signed int v0; // ebx
+  signed int LastError; // eax
+  __int64 v3; // rcx
+  signed int v4; // eax
+  __int64 v5; // rcx
+
+  SetLastError(0);
+  if ( !QueryPerformanceFrequency(&Time::s_luFreq) )
+  {
+    LastError = GetLastError();
+    v0 = LastError;
+    if ( LastError > 0 )
+      v0 = (unsigned __int16)LastError | 0x80070000;
+    if ( v0 >= 0 )
+      v0 = -2003304445;
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v0, 0x22u, 0LL);
+    return (unsigned int)v0;
+  }
+  SetLastError(0);
+  if ( !QueryPerformanceCounter(&Time::s_luBegin) )
+  {
+    v4 = GetLastError();
+    v0 = v4;
+    if ( v4 > 0 )
+      v0 = (unsigned __int16)v4 | 0x80070000;
+    if ( v0 >= 0 )
+      v0 = -2003304445;
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v0, 0x23u, 0LL);
+    return (unsigned int)v0;
+  }
+  if ( 0xFFFFFFFFFFFFFFFFuLL / Time::s_luFreq.QuadPart >= 0x12C )
+    return 0;
+  return 2147549183LL;
+}

@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?SetReferenceArrayProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C00D8BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0088D70 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall DirectComposition::CKeyframeAnimationMarshaler::SetReferenceArrayProperty(
+        DirectComposition::CKeyframeAnimationMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        struct DirectComposition::CResourceMarshaler **a4,
+        unsigned __int64 a5,
+        bool *a6)
+{
+  unsigned int v6; // ebx
+  int v9; // esi
+  unsigned int v10; // ebp
+  __int64 v11; // rdx
+  __int64 v12; // r8
+
+  v6 = 0;
+  v9 = 0;
+  *a6 = 0;
+  if ( a3 != 12 || !a4 )
+    v9 = -1073741811;
+  v10 = 0;
+  if ( v9 >= 0 )
+  {
+    do
+    {
+      if ( v10 >= a5 )
+        break;
+      if ( !(*(unsigned __int8 (__fastcall **)(struct DirectComposition::CResourceMarshaler *, __int64))(*(_QWORD *)a4[v10] + 112LL))(
+              a4[v10],
+              97LL) )
+        v9 = -1073741811;
+      ++v10;
+    }
+    while ( v9 >= 0 );
+    if ( v9 >= 0 )
+    {
+      if ( *((_QWORD *)this + 14) || *((_DWORD *)this + 30) )
+        v9 = -1073741811;
+      if ( v9 >= 0 )
+      {
+        *((_DWORD *)this + 30) = a5;
+        *((_QWORD *)this + 14) = a4;
+        *a6 = 1;
+        *((_DWORD *)this + 4) &= ~0x400u;
+        if ( *((_DWORD *)this + 30) )
+        {
+          do
+          {
+            v11 = v6++;
+            v12 = *(_QWORD *)(*((_QWORD *)this + 14) + 8 * v11);
+            ++*(_DWORD *)(v12 + 20);
+          }
+          while ( v6 < *((_DWORD *)this + 30) );
+        }
+      }
+    }
+  }
+  return (unsigned int)v9;
+}

@@ -1,0 +1,72 @@
+/*
+ * XREFs of PspUmsUnInitThread @ 0x140641318
+ * Callers:
+ *     PspExitThread @ 0x1403F0588 (PspExitThread.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x140042920 (ObfDereferenceObject.c)
+ *     KiLeaveGuardedRegionUnsafe @ 0x1400430F0 (KiLeaveGuardedRegionUnsafe.c)
+ *     PsTerminateProcess @ 0x140452368 (PsTerminateProcess.c)
+ *     KeSetUmsThreadKernelLock @ 0x14061B314 (KeSetUmsThreadKernelLock.c)
+ *     KeUnInitializeUmsThread @ 0x14061B3D4 (KeUnInitializeUmsThread.c)
+ *     KeUpdateUmsThreadState @ 0x14061B43C (KeUpdateUmsThreadState.c)
+ *     PspDisassociateUmsThreadFromPrimary @ 0x140643914 (PspDisassociateUmsThreadFromPrimary.c)
+ *     PspRundownUmsThreadForApcDelivery @ 0x140643C78 (PspRundownUmsThreadForApcDelivery.c)
+ */
+
+__int64 __fastcall PspUmsUnInitThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v6; // rax
+  __int64 v7; // rbp
+  char v8; // di
+  char v9; // si
+  int v10; // eax
+  char v11; // si
+  signed int updated; // edi
+  void *v13; // rsi
+  int v15; // [rsp+30h] [rbp+8h] BYREF
+
+  v15 = 0;
+  CurrentThread = (struct _KTHREAD *)a1;
+  if ( !a1 )
+    CurrentThread = KeGetCurrentThread();
+  if ( (CurrentThread->Header.Reserved1 & 0x40) != 0 )
+  {
+    v6 = *(_QWORD *)(a1 + 496);
+    v7 = *(_QWORD *)v6;
+    if ( (*(_DWORD *)(v6 + 80) & 4) != 0 )
+    {
+      v8 = 1;
+      LOBYTE(a4) = 1;
+      v9 = 0;
+      v10 = PspRundownUmsThreadForApcDelivery(a1, &v15, v7, a4);
+      if ( (*(_DWORD *)(a1 + 1724) & 0x10000) != 0 )
+      {
+        v10 = 0;
+        v9 = 1;
+      }
+      if ( v10 < 0 || (v15 & 8) == 0 && (v15 & 1) == 0 )
+        v8 = 0;
+      v11 = v8 | v9;
+    }
+    else
+    {
+      KeSetUmsThreadKernelLock(v7, 0LL);
+      v11 = 1;
+    }
+    updated = KeUpdateUmsThreadState(v7, 2, v11);
+  }
+  else
+  {
+    --*(_WORD *)(a1 + 486);
+    updated = PspDisassociateUmsThreadFromPrimary(a1, 0LL, &v15);
+    KiLeaveGuardedRegionUnsafe(a1);
+  }
+  v13 = *(void **)(*(_QWORD *)(a1 + 496) + 16LL);
+  KeUnInitializeUmsThread(a1);
+  if ( v13 )
+    ObfDereferenceObject(v13);
+  if ( updated < 0 && (KeGetCurrentThread()->ApcState.Process[1].DirectoryTableBase & 0x4000000800000000LL) == 0 )
+    PsTerminateProcess((ULONG_PTR)KeGetCurrentThread()->ApcState.Process, updated);
+  return (unsigned int)updated;
+}

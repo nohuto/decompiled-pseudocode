@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01CB868
+ * Callers:
+ *     PrepareSentPointerMessageForClient @ 0x1C01BF194 (PrepareSentPointerMessageForClient.c)
+ *     TranslateSentPointerMessageForClient @ 0x1C01BF4DC (TranslateSentPointerMessageForClient.c)
+ * Callees:
+ *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01CB954 (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
+ *     ?PrepareMakePointerMessage@@YAPEBUtagPOINTER_INFO@@_KPEAUtagPOINT@@PEAH22@Z @ 0x1C01CBEA0 (-PrepareMakePointerMessage@@YAPEBUtagPOINTER_INFO@@_KPEAUtagPOINT@@PEAH22@Z.c)
+ */
+
+__int64 __fastcall MakePointerMessage(
+        unsigned __int64 a1,
+        unsigned int a2,
+        void *a3,
+        unsigned __int64 *a4,
+        __int64 *a5,
+        unsigned __int16 *a6,
+        unsigned int *a7,
+        int *a8,
+        HWND *a9)
+{
+  const struct tagPOINTER_INFO *PointerMessage; // rax
+  int v14; // [rsp+78h] [rbp+Fh] BYREF
+  int v15; // [rsp+7Ch] [rbp+13h] BYREF
+  int v16; // [rsp+80h] [rbp+17h] BYREF
+  struct tagPOINT v17; // [rsp+88h] [rbp+1Fh] BYREF
+
+  if ( (gdwMitConfig & 4) != 0 )
+    PointerMessage = CTouchProcessor::PrepareMakePointerMessage(gpTouchProcessor, a1, &v17, &v16, &v15, &v14);
+  else
+    PointerMessage = PrepareMakePointerMessage(a1, &v17, &v16, &v15, &v14);
+  return MakePointerMessageWorker(PointerMessage, v17, v16, v15, v14, a2, a3, a4, a5, a6, a7, a8, a9);
+}

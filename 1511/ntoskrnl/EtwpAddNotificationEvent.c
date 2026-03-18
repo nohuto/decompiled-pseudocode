@@ -1,0 +1,36 @@
+/*
+ * XREFs of EtwpAddNotificationEvent @ 0x1404B35AC
+ * Callers:
+ *     NtTraceControl @ 0x140436E10 (NtTraceControl.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x140042920 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14040B9B0 (ObReferenceObjectByHandle.c)
+ */
+
+NTSTATUS __fastcall EtwpAddNotificationEvent(void *a1)
+{
+  _KPROCESS *Process; // rbx
+  NTSTATUS result; // eax
+  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+
+  Process = KeGetCurrentThread()->ApcState.Process;
+  if ( Process[1].ActiveProcessors.Bitmap[9] )
+    return -1073741823;
+  result = ObReferenceObjectByHandle(a1, 2u, (POBJECT_TYPE)ExEventObjectType, 1, &Object, 0LL);
+  if ( result >= 0 )
+  {
+    if ( _InterlockedCompareExchange64(
+           (volatile signed __int64 *)&Process[1].ActiveProcessors.Bitmap[9],
+           (unsigned __int64)Object | 1,
+           0LL) )
+    {
+      ObfDereferenceObject(Object);
+      return -1073740008;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+  return result;
+}

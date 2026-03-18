@@ -1,0 +1,113 @@
+/*
+ * XREFs of NtGdiGetDCDword @ 0x1400B00C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0APIDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1400AFE30 (--0APIDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1APIDCOBJ@@QEAA@XZ @ 0x1400B0D34 (--1APIDCOBJ@@QEAA@XZ.c)
+ *     ?dwGetFontLanguageInfo@@YAKAEAVDCOBJ@@@Z @ 0x14010C768 (-dwGetFontLanguageInfo@@YAKAEAVDCOBJ@@@Z.c)
+ */
+
+__int64 __fastcall NtGdiGetDCDword(HDC a1, int a2, void *a3)
+{
+  unsigned int v5; // esi
+  int FontLanguageInfo; // ebx
+  int v7; // edi
+  int v8; // edi
+  int v9; // edi
+  int v10; // edi
+  int v11; // edi
+  int v12; // edi
+  int v13; // edi
+  _QWORD v15[14]; // [rsp+30h] [rbp-78h] BYREF
+  int v16; // [rsp+C8h] [rbp+20h] BYREF
+
+  v5 = 1;
+  FontLanguageInfo = 0;
+  APIDCOBJ::APIDCOBJ((APIDCOBJ *)v15, a1);
+  if ( v15[0] )
+  {
+    if ( a2 )
+    {
+      v7 = a2 - 1;
+      if ( v7 )
+      {
+        v8 = v7 - 1;
+        if ( v8 )
+        {
+          v9 = v8 - 1;
+          if ( v9 )
+          {
+            v10 = v9 - 1;
+            if ( v10 )
+            {
+              v11 = v10 - 1;
+              if ( v11 )
+              {
+                v12 = v11 - 1;
+                if ( v12 )
+                {
+                  v13 = v12 - 1;
+                  if ( v13 )
+                  {
+                    if ( v13 == 1 )
+                      FontLanguageInfo = *(_DWORD *)(*(_QWORD *)(v15[0] + 976LL) + 104LL);
+                    else
+                      v5 = 0;
+                  }
+                  else
+                  {
+                    LOBYTE(FontLanguageInfo) = *(_DWORD *)(v15[0] + 32LL) == 1;
+                  }
+                }
+                else
+                {
+                  FontLanguageInfo = dwGetFontLanguageInfo((struct DCOBJ *)v15);
+                }
+              }
+              else
+              {
+                FontLanguageInfo = *(_DWORD *)(v15[0] + 104LL);
+              }
+            }
+            else if ( (*(_DWORD *)(*(_QWORD *)(v15[0] + 976LL) + 108LL) & 1) != 0 )
+            {
+              FontLanguageInfo = 2 - ((*(_DWORD *)(v15[0] + 248LL) & 4) != 0);
+            }
+            else
+            {
+              FontLanguageInfo = ((*(_BYTE *)(v15[0] + 248LL) & 4) != 0) + 1;
+            }
+          }
+          else
+          {
+            FontLanguageInfo = *(_DWORD *)(*(_QWORD *)(v15[0] + 976LL) + 288LL);
+          }
+        }
+        else
+        {
+          FontLanguageInfo = *(_DWORD *)(*(_QWORD *)(v15[0] + 976LL) + 284LL);
+        }
+      }
+      else
+      {
+        FontLanguageInfo = *(_DWORD *)(*(_QWORD *)(v15[0] + 976LL) + 352LL);
+      }
+    }
+    else
+    {
+      FontLanguageInfo = ((*(_DWORD *)(v15[0] + 72LL) >> 13) & 1) == 0;
+    }
+    if ( v5 )
+    {
+      v16 = FontLanguageInfo;
+      GreProbeAndWriteToUntrustedVa(a3, 4uLL, &v16, 4uLL, 1uLL);
+    }
+  }
+  else
+  {
+    v5 = 0;
+  }
+  APIDCOBJ::~APIDCOBJ((APIDCOBJ *)v15);
+  return v5;
+}

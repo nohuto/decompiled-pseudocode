@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x180213848
+ * Callers:
+ *     ?ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18014D130 (-ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@.c)
+ * Callees:
+ *     ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x18021387C (-SetTopLevelWindow@CVisual@@QEAAX_K@Z.c)
+ */
+
+__int64 __fastcall CVisual::ProcessTopLevelNode(
+        CVisual *this,
+        struct CResourceTable *a2,
+        const struct tagMILCMD_VISUAL_TOPLEVELNODE *a3)
+{
+  char v3; // al
+  unsigned __int64 v4; // rdx
+
+  v3 = *((_BYTE *)this + 104);
+  v4 = 0LL;
+  if ( *((_BYTE *)a3 + 16) )
+  {
+    *((_BYTE *)this + 104) = v3 | 0x40;
+    v4 = *((_QWORD *)a3 + 1);
+  }
+  else
+  {
+    *((_BYTE *)this + 104) = v3 & 0xBF;
+  }
+  CVisual::SetTopLevelWindow(this, v4);
+  return 0LL;
+}

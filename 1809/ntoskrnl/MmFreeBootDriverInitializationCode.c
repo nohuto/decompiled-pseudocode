@@ -1,0 +1,30 @@
+/*
+ * XREFs of MmFreeBootDriverInitializationCode @ 0x14074B63C
+ * Callers:
+ *     Phase1Initialization @ 0x14074B5D0 (Phase1Initialization.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14004F590 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1400505F0 (ExAcquireResourceExclusiveLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x140051600 (KeLeaveCriticalRegionThread.c)
+ *     MmReleaseLoadLock @ 0x140651A40 (MmReleaseLoadLock.c)
+ *     MmAcquireLoadLock @ 0x140651A80 (MmAcquireLoadLock.c)
+ *     MiFreeDriverInitialization @ 0x1406C77AC (MiFreeDriverInitialization.c)
+ */
+
+_QWORD *MmFreeBootDriverInitializationCode()
+{
+  struct _KTHREAD *Lock; // rdi
+  PVOID *i; // rbx
+
+  Lock = MmAcquireLoadLock();
+  --Lock->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&PsLoadedModuleResource, 1u);
+  for ( i = (PVOID *)PsLoadedModuleList; i != &PsLoadedModuleList; i = (PVOID *)*i )
+  {
+    if ( ((_DWORD)i[13] & 0x40000000) == 0 )
+      MiFreeDriverInitialization((__int64)i);
+  }
+  ExReleaseResourceLite(&PsLoadedModuleResource);
+  KeLeaveCriticalRegionThread((__int64)Lock);
+  return MmReleaseLoadLock((__int64)Lock);
+}

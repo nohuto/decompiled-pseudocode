@@ -1,0 +1,34 @@
+/*
+ * XREFs of wil_details_FeatureReporting_ReportVariantUsageToService @ 0x1401ADC7C
+ * Callers:
+ *     Feature_HSHELL_IAM_Delivery__private_GetVariant @ 0x1401ADC30 (Feature_HSHELL_IAM_Delivery__private_GetVariant.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x1401ADE48 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     _guard_dispatch_icall @ 0x140342490 (_guard_dispatch_icall.c)
+ */
+
+__int64 (__fastcall *__fastcall wil_details_FeatureReporting_ReportVariantUsageToService(
+        __int64 a1,
+        __int64 a2))(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD)
+{
+  char v2; // di
+  char v3; // bl
+  __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD); // rax
+  int v5; // [rsp+70h] [rbp+18h] BYREF
+
+  v5 = 2;
+  v2 = ((unsigned int)a2 >> 12) & 0x3F;
+  v3 = a2;
+  result = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD))wil_details_FeatureReporting_ReportUsageToServiceDirect(
+                                                                                                     &Feature_HSHELL_IAM_Delivery__private_descriptor,
+                                                                                                     a2,
+                                                                                                     (((unsigned int)a2 >> 12) & 0x3F) + 320,
+                                                                                                     1LL);
+  if ( (_DWORD)result )
+  {
+    result = g_wil_details_pfnFeatureLoggingHook;
+    if ( g_wil_details_pfnFeatureLoggingHook )
+      return (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _QWORD, _DWORD, _QWORD))g_wil_details_pfnFeatureLoggingHook(39786106LL, &Feature_GE_EssentialsBundle_B_logged_traits, 0LL, v3 & 1, 0LL, &v5, v2, 1LL);
+  }
+  return result;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Dddd @ 0x140040068
+ * Callers:
+ *     HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x14003C298 (HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140046540 (_guard_dispatch_icall.c)
+ */
+
+__int64 WPP_RECORDER_SF_Dddd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
+{
+  int v7; // [rsp+20h] [rbp-68h]
+  int v8; // [rsp+70h] [rbp-18h] BYREF
+  int v9; // [rsp+78h] [rbp-10h] BYREF
+  __int64 v10; // [rsp+B8h] [rbp+30h] BYREF
+  va_list va; // [rsp+B8h] [rbp+30h]
+  va_list va1; // [rsp+C0h] [rbp+38h] BYREF
+
+  va_start(va1, a5);
+  va_start(va, a5);
+  v10 = va_arg(va1, _QWORD);
+  v8 = 0xFFFFFF;
+  v9 = 49153;
+  if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x10) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+    pfnWppTraceMessage(
+      WPP_GLOBAL_Control->AttachedDevice,
+      43LL,
+      &WPP_a44667569f5231a010562af7f2d218c1_Traceguids,
+      105LL,
+      (__int64 *)va,
+      4LL,
+      va1,
+      4LL,
+      &v9,
+      4LL,
+      &v8,
+      4LL,
+      0LL);
+  LOWORD(v7) = 105;
+  return WppAutoLogTrace(a1, 2LL, 5LL, &WPP_a44667569f5231a010562af7f2d218c1_Traceguids, v7, (__int64 *)va, 4LL, va1);
+}

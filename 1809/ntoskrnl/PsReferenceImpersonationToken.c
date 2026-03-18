@@ -1,0 +1,22 @@
+/*
+ * XREFs of PsReferenceImpersonationToken @ 0x1406A4880
+ * Callers:
+ *     CmpOpenHiveFile @ 0x1405B4330 (CmpOpenHiveFile.c)
+ * Callees:
+ *     PsReferenceImpersonationTokenEx @ 0x140631BA0 (PsReferenceImpersonationTokenEx.c)
+ */
+
+PACCESS_TOKEN __stdcall PsReferenceImpersonationToken(
+        PETHREAD Thread,
+        PBOOLEAN CopyOnOpen,
+        PBOOLEAN EffectiveOnly,
+        PSECURITY_IMPERSONATION_LEVEL ImpersonationLevel)
+{
+  return PsReferenceImpersonationTokenEx(
+           (__int64)Thread,
+           1,
+           CopyOnOpen,
+           (bool *)EffectiveOnly,
+           (int *)ImpersonationLevel,
+           0LL);
+}

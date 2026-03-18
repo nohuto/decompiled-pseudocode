@@ -1,0 +1,21 @@
+/*
+ * XREFs of WheaPrmTranslatePhysicalAddress @ 0x140652600
+ * Callers:
+ *     HalpAddPrmAddressTranslationToMemoryExtIntelSection @ 0x1405408D8 (HalpAddPrmAddressTranslationToMemoryExtIntelSection.c)
+ * Callees:
+ *     WheapPrmTranslatePhysicalAddressIntel @ 0x1406528C8 (WheapPrmTranslatePhysicalAddressIntel.c)
+ */
+
+__int64 WheaPrmTranslatePhysicalAddress()
+{
+  struct _KPRCB *CurrentPrcb; // r8
+  __int64 result; // rax
+
+  CurrentPrcb = KeGetCurrentPrcb();
+  result = 3221225659LL;
+  if ( !CurrentPrcb->CpuID )
+    return 3221225473LL;
+  if ( CurrentPrcb->CpuVendor == 2 )
+    return WheapPrmTranslatePhysicalAddressIntel();
+  return result;
+}

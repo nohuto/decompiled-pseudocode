@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?EmitSetRequestedDeltaPosition@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x140103CEC
+ * Callers:
+ *     ?EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1401033AC (-EmitSetRequestedInOrder@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x140023B74 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
+char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitSetRequestedDeltaPosition(
+        DirectComposition::CInteractionTrackerMarshaler *this,
+        struct DirectComposition::CBatch ***a2)
+{
+  char v3; // di
+  char *v5; // rcx
+  void *v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = 1;
+  if ( (*((_DWORD *)this + 4) & 0x100) == 0 )
+  {
+    v6 = 0LL;
+    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x20uLL, &v6) )
+    {
+      v5 = (char *)v6;
+      *(_DWORD *)v6 = 32;
+      *(_OWORD *)(v5 + 4) = 0LL;
+      *(_QWORD *)(v5 + 20) = 0LL;
+      *((_DWORD *)v5 + 7) = 0;
+      *((_DWORD *)v5 + 1) = 196;
+      *((_DWORD *)v5 + 2) = *((_DWORD *)this + 8);
+      *((_DWORD *)v5 + 3) = *((_DWORD *)this + 33);
+      *((_DWORD *)v5 + 4) = *((_DWORD *)this + 34);
+      *((_DWORD *)v5 + 5) = *((_DWORD *)this + 52);
+      *((_DWORD *)v5 + 7) = *((_DWORD *)this + 35);
+      *((_DWORD *)this + 4) |= 0x100u;
+      *((_DWORD *)this + 33) = 0;
+      *((_DWORD *)this + 34) = 0;
+      *((_DWORD *)this + 35) = 0;
+      *((_DWORD *)this + 52) = 0;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+  return v3;
+}

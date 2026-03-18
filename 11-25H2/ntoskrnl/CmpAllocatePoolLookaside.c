@@ -1,0 +1,18 @@
+/*
+ * XREFs of CmpAllocatePoolLookaside @ 0x140474770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall CmpAllocatePoolLookaside(
+        POOL_TYPE PoolType,
+        SIZE_T NumberOfBytes,
+        ULONG Tag,
+        PLOOKASIDE_LIST_EX Lookaside)
+{
+  if ( PoolType != PagedPool )
+    NT_ASSERT("PoolType == PagedPool");
+  return ExAllocatePool2(0x100uLL);
+}

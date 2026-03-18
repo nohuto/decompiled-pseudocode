@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??$FreeIsolatedType@V?$CTypeIsolation@$0DKAAA@$0DKA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1400B6C18
+ * Callers:
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAUHDEV__@@PEAVPFFOBJ@@H@Z @ 0x140200EE0 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAUHDEV__@@PEAVPFFOBJ@@H@Z.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHAEAVUDCOBJ@@PEAUHDEV__@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x14025A468 (-bRealizeFont@RFONTOBJ@@QEAAHAEAVUDCOBJ@@PEAUHDEV__@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_X.c)
+ *     ?vRestartbRealizeFont@@YAXPEAVRFONT@@@Z @ 0x14030E760 (-vRestartbRealizeFont@@YAXPEAVRFONT@@@Z.c)
+ * Callees:
+ *     ?Free@?$CTypeIsolation@$0DKAAA@$0DKA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1400B6C54 (-Free@-$CTypeIsolation@$0DKAAA@$0DKA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ */
+
+struct Gre::Base::SESSION_GLOBALS *__fastcall FreeIsolatedType<NSInstrumentation::CTypeIsolation<237568,928>>(
+        Gre::Base *a1)
+{
+  struct Gre::Base::SESSION_GLOBALS *result; // rax
+  __int64 v3; // rcx
+
+  result = Gre::Base::Globals(a1);
+  v3 = *(_QWORD *)(*((_QWORD *)result + 534) + 40LL);
+  if ( v3 )
+    return (struct Gre::Base::SESSION_GLOBALS *)NSInstrumentation::CTypeIsolation<237568,928>::Free(v3, a1);
+  return result;
+}

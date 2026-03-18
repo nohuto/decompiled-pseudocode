@@ -1,0 +1,375 @@
+/*
+ * XREFs of KdInitSystem @ 0x140B65E30
+ * Callers:
+ *     KdEnableDebuggerWithLock @ 0x1405AC0EC (KdEnableDebuggerWithLock.c)
+ *     KeEnterKernelDebugger @ 0x1405AEEA0 (KeEnterKernelDebugger.c)
+ *     KiSystemStartup @ 0x140B3B3A0 (KiSystemStartup.c)
+ *     KiSetFeatureBits @ 0x140B49BD0 (KiSetFeatureBits.c)
+ *     PopHiberCheckResume @ 0x140B56660 (PopHiberCheckResume.c)
+ *     Phase1InitializationDiscard @ 0x140BFB048 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KdPollBreakIn @ 0x1402743F0 (KdPollBreakIn.c)
+ *     KeQueryPerformanceCounter @ 0x14031B970 (KeQueryPerformanceCounter.c)
+ *     KeInitializeTimer @ 0x140454D20 (KeInitializeTimer.c)
+ *     KeInitializeDpc @ 0x140454E30 (KeInitializeDpc.c)
+ *     KeIsKernelCetEnabled @ 0x14045663C (KeIsKernelCetEnabled.c)
+ *     RtlInitAnsiString @ 0x14046B2E0 (RtlInitAnsiString.c)
+ *     DbgLoadImageSymbols @ 0x1404A5500 (DbgLoadImageSymbols.c)
+ *     __report_rangecheckfailure @ 0x1404F290C (__report_rangecheckfailure.c)
+ *     MmGetPagedPoolCommitPointer @ 0x1404F6F78 (MmGetPagedPoolCommitPointer.c)
+ *     _strupr @ 0x1404FAA90 (_strupr.c)
+ *     strstr @ 0x1404FB230 (strstr.c)
+ *     atol @ 0x1404FB480 (atol.c)
+ *     KdDisableDebuggerWithLock @ 0x1405ABF88 (KdDisableDebuggerWithLock.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ *     strncmp @ 0x1406B4820 (strncmp.c)
+ *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
+ *     KdRegisterDebuggerDataBlock @ 0x140B66578 (KdRegisterDebuggerDataBlock.c)
+ */
+
+char __fastcall KdInitSystem(int a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  char v5; // r12
+  char v6; // r15
+  char v7; // r14
+  __int64 v8; // rcx
+  struct _KPRCB *CurrentPrcb; // rcx
+  __int64 v10; // rcx
+  char *v11; // rsi
+  char v12; // bp
+  char *v13; // rax
+  unsigned int v14; // eax
+  const char *v15; // rdi
+  unsigned __int64 v16; // rax
+  char v17; // dl
+  const char *i; // rcx
+  const char *v19; // rdi
+  __int64 v20; // rdx
+  __int64 v21; // rax
+  __int64 v22; // rdi
+  __int64 v23; // rdx
+  __int64 v24; // rcx
+  __int64 v25; // r8
+  unsigned __int64 v26; // rax
+  unsigned int v27; // esi
+  __int64 *v28; // rdi
+  __int64 v29; // rdx
+  char *v30; // r9
+  unsigned int v31; // r8d
+  char v32; // al
+  __int64 v33; // rcx
+  unsigned int j; // edi
+  ULONG_PTR Pool2; // rax
+  signed __int32 v37[8]; // [rsp+0h] [rbp-178h] BYREF
+  STRING DestinationString; // [rsp+20h] [rbp-158h] BYREF
+  char SourceString[256]; // [rsp+30h] [rbp-148h] BYREF
+
+  v5 = 0;
+  v6 = 0;
+  if ( a1 == -1 )
+  {
+    if ( (*(_DWORD *)(*(_QWORD *)(a2 + 240) + 132LL) & 8) != 0 )
+      __debugbreak();
+    return 1;
+  }
+  if ( !a1 )
+  {
+    if ( (_BYTE)KdDebuggerEnabled )
+      goto LABEL_65;
+    KdpDebugRoutineSelect = 0;
+    KdBreakAfterSymbolLoad = 0;
+    if ( !KdPitchDebugger || (v7 = 1, !KdLocalDebugEnabled) )
+      v7 = 0;
+    if ( KdDebugDevice && *(_DWORD *)(KdDebugDevice + 236) == 3 )
+      KdTransportMaxPacketSize = 1152;
+    if ( !KdpDebuggerDataListHead )
+    {
+      *((_QWORD *)&KdpContext + 1) = KdDebugDevice;
+      qword_140E011B0 = (__int64)MmGetPagedPoolCommitPointer();
+      KdpPowerSpinLock = 0LL;
+      qword_140F54708 = (__int64)&KdpPowerListHead;
+      KdpPowerListHead = (__int64)&KdpPowerListHead;
+      qword_140F546F8 = (__int64)&KdpDebuggerDataListHead;
+      KdpDebuggerDataListHead = (__int64)&KdpDebuggerDataListHead;
+      KdRegisterDebuggerDataBlock(v8, &KdDebuggerDataBlock);
+      WORD1(KdVersionBlock) = NtBuildNumber;
+      LOWORD(KdVersionBlock) = (unsigned int)NtBuildNumber >> 28;
+      qword_140E0A880 = (__int64)&KdpDebuggerDataListHead;
+      WORD3(KdVersionBlock) |= 1u;
+      *((_QWORD *)&xmmword_140E0A870 + 1) = &PsLoadedModuleList;
+      *(_WORD *)((char *)&KdVersionBlock + 11) = 13059;
+    }
+    CurrentPrcb = KeGetCurrentPrcb();
+    if ( !CurrentPrcb->Context )
+    {
+      CurrentPrcb->ContextFlagsInit = 1048587;
+      CurrentPrcb->Context = &CurrentPrcb->ProcessorState.ContextFrame;
+    }
+    if ( a2 )
+    {
+      v10 = *(_QWORD *)(*(_QWORD *)(a2 + 16) + 48LL);
+      off_140E01318 = &KdpLoaderDebuggerBlock;
+      KdpLoaderDebuggerBlock = a2 + 16;
+      v11 = *(char **)(a2 + 216);
+      *(_QWORD *)&xmmword_140E0A870 = v10;
+      if ( v11 )
+      {
+        strupr(v11);
+        KdPrintBufferAllocateSize = 0;
+        v12 = 0;
+        v13 = strstr(v11, "DBGPRINT_LOG_SIZE=");
+        *(_QWORD *)&DestinationString.Length = v13;
+        if ( v13 )
+        {
+          v14 = (atol(v13 + 18) + 4095) & 0xFFFFF000;
+          KdPrintBufferAllocateSize = v14;
+          if ( v14 <= 0x1000000 )
+          {
+            if ( v14 <= 0x1000 )
+              KdPrintBufferAllocateSize = 0;
+          }
+          else
+          {
+            KdPrintBufferAllocateSize = 0x1000000;
+          }
+        }
+        *(_QWORD *)&DestinationString.Length = strstr(v11, "NODEBUG");
+        if ( *(_QWORD *)&DestinationString.Length )
+        {
+          KdPitchDebugger = 1;
+          KdPageDebuggerSection = 1;
+          KdpBootedNodebug = 1;
+        }
+        else
+        {
+          *(_QWORD *)&DestinationString.Length = strstr(v11, "DEBUGPORT=LOCAL");
+          if ( *(_QWORD *)&DestinationString.Length )
+          {
+            KdPitchDebugger = 1;
+            v7 = 1;
+            KdPageDebuggerSection = 1;
+            LOBYTE(KdDebuggerNotPresent) = 1;
+            KdLocalDebugEnabled = 1;
+            KdpBootedNodebug = 0;
+          }
+          else
+          {
+            v15 = v11;
+            do
+            {
+              v16 = (unsigned __int64)strstr(v15, " DEBUG=");
+              if ( !v16 )
+              {
+                v16 = (unsigned __int64)strstr(v15, " DEBUG");
+                if ( !v16 )
+                  break;
+              }
+              v17 = *(_BYTE *)(v16 + 6);
+              if ( v17 == 61 || (v17 & 0xDF) == 0 )
+              {
+                KdpBootedNodebug = 0;
+                v12 = 1;
+                if ( *(_BYTE *)(v16 + 6) == 61 )
+                {
+                  for ( i = (const char *)(v16 + 7); ; i = v19 + 1 )
+                  {
+                    LOBYTE(v16) = *i;
+                    v19 = i;
+                    while ( (_BYTE)v16 )
+                    {
+                      if ( (unsigned __int8)v16 <= 0x2Cu )
+                      {
+                        v20 = 0x100100000200LL;
+                        if ( _bittest64(&v20, v16) )
+                          break;
+                      }
+                      LOBYTE(v16) = *++v19;
+                    }
+                    v16 = (unsigned int)((_DWORD)v19 - (_DWORD)i);
+                    if ( (_DWORD)v19 == (_DWORD)i )
+                      break;
+                    switch ( (_DWORD)v16 )
+                    {
+                      case 0xA:
+                        LODWORD(v16) = strncmp(i, "AUTOENABLE", 0xAuLL);
+                        if ( !(_DWORD)v16 )
+                        {
+                          v5 = 1;
+                          KdAutoEnableOnEvent = 1;
+                          v6 = 0;
+                        }
+                        break;
+                      case 7:
+                        LODWORD(v16) = strncmp(i, "DISABLE", 7uLL);
+                        if ( !(_DWORD)v16 )
+                        {
+                          v5 = 1;
+                          KdAutoEnableOnEvent = 0;
+                          v6 = 1;
+                        }
+                        break;
+                      case 6:
+                        LODWORD(v16) = strncmp(i, "NOUMEX", 6uLL);
+                        if ( !(_DWORD)v16 )
+                          KdIgnoreUmExceptions = 1;
+                        break;
+                    }
+                    if ( *v19 != 44 )
+                      break;
+                  }
+                }
+                break;
+              }
+              v15 = (const char *)(v16 + 6);
+            }
+            while ( v16 != -6LL );
+          }
+        }
+        if ( strstr(v11, "NOEVENT") )
+        {
+          KdEventLoggingEnabled = 0;
+        }
+        else if ( strstr(v11, "EVENT") )
+        {
+          KdEventLoggingEnabled = 1;
+          v12 = 1;
+          KdPageDebuggerSection = 0;
+        }
+        if ( strstr(v11, "DISABLE_NOUMEX_FIX") )
+          KdDisableNoUmExBreakFix = 1;
+      }
+      else
+      {
+        KdPitchDebugger = 1;
+        v12 = 0;
+        KdPageDebuggerSection = 1;
+      }
+    }
+    else
+    {
+      v21 = *(_QWORD *)&KeNumberProcessorsGroup0[9];
+      v12 = 1;
+      *(_QWORD *)&xmmword_140E0A870 = v21;
+    }
+    qword_140E01058 = xmmword_140E0A870;
+    if ( !v7 )
+    {
+      if ( a2 && *(_DWORD *)(a2 + 12) < 2u || !v12 )
+      {
+        LOBYTE(KdDebuggerNotPresent) = 1;
+        goto LABEL_65;
+      }
+      if ( (int)KdInitialize(0LL, a2, &KdpContext, a4) < 0 )
+      {
+        KdPitchDebugger = 0;
+        v12 = 0;
+        LOBYTE(KdDebuggerNotPresent) = 1;
+        KdLocalDebugEnabled = 1;
+      }
+      else
+      {
+        KdpDebugRoutineSelect = 1;
+      }
+    }
+    if ( !KdpDebuggerStructuresInitialized )
+    {
+      BYTE4(KdpContext) = 0;
+      LODWORD(KdpContext) = 20;
+      KeInitializeDpc(&KdpTimeSlipDpc, KdpTimeSlipDpcRoutine, 0LL);
+      KeInitializeTimer(&KdpTimeSlipTimer);
+      KdpTimeSlipWorkItem.Parameter = 0LL;
+      KdpTimeSlipWorkItem.WorkerRoutine = (void (__fastcall *)(void *))KdpTimeSlipWork;
+      KdpTimeSlipWorkItem.List.Flink = 0LL;
+      KdpDebuggerStructuresInitialized = 1;
+    }
+    KdTimerStart = 0LL;
+    if ( KdEventLoggingEnabled && KdpBootedNodebug )
+    {
+      KdPitchDebugger = 1;
+      KdEventLoggingPresent = v12;
+      LOBYTE(KdDebuggerNotPresent) = 1;
+      KdLocalDebugEnabled = 0;
+    }
+    else
+    {
+      LOBYTE(KdDebuggerEnabled) = 1;
+      *(_BYTE *)(MmWriteableSharedUserData + 724) = 1;
+      if ( KdLocalDebugEnabled )
+        goto LABEL_65;
+    }
+    if ( !KdEventLoggingEnabled || (_BYTE)KdDebuggerEnabled )
+    {
+      KdPitchDebugger = 0;
+      if ( !v5 )
+      {
+        if ( !a2 )
+        {
+          DbgLoadImageSymbols(0LL, qword_140E01058, 0xFFFFFFFFLL);
+          return 1;
+        }
+        if ( KeIsKernelCetEnabled() && (_BYTE)KdDebuggerEnabled && !(_BYTE)KdDebuggerNotPresent )
+        {
+          LOBYTE(KeKernelCetWrssEnabledScenarios) = KeKernelCetWrssEnabledScenarios | 2;
+          v24 = 1698LL;
+          v26 = __readmsr(0x6A2u) | 2;
+          v23 = HIDWORD(v26);
+          __writemsr(0x6A2u, v26);
+        }
+        v27 = 0;
+        v28 = *(__int64 **)(a2 + 16);
+        while ( v28 != (__int64 *)(a2 + 16) && v27 < 3 )
+        {
+          DestinationString = 0LL;
+          LODWORD(v29) = 0;
+          v30 = (char *)v28[10];
+          v31 = *((unsigned __int16 *)v28 + 36) >> 1;
+          if ( v31 >= 0x100 )
+            v31 = 255;
+          do
+          {
+            v32 = *v30;
+            v30 += 2;
+            v33 = (unsigned int)v29;
+            v29 = (unsigned int)(v29 + 1);
+            SourceString[v33] = v32;
+          }
+          while ( (unsigned int)v29 < v31 );
+          if ( (unsigned int)v29 >= 0x100uLL )
+            _report_rangecheckfailure();
+          SourceString[v29] = 0;
+          RtlInitAnsiString(&DestinationString, SourceString);
+          DbgLoadImageSymbols((__int64)&DestinationString, v28[6], 0xFFFFFFFFLL);
+          v28 = (__int64 *)*v28;
+          ++v27;
+        }
+        KdBreakAfterSymbolLoad = KdPollBreakIn(v24, v23, v25);
+LABEL_66:
+        v22 = *(_QWORD *)(a2 + 240);
+        if ( v22 )
+          memset((void *)(v22 + 2464), 0, 0x20uLL);
+        return 1;
+      }
+      KdDisableDebuggerWithLock();
+      KdBlockEnable = v6;
+    }
+LABEL_65:
+    if ( !a2 )
+      return 1;
+    goto LABEL_66;
+  }
+  KeQueryPerformanceCounter(&KdPerformanceCounterRate);
+  if ( !KdPitchDebugger )
+  {
+    for ( j = 0; j < (unsigned int)KeNumberProcessors_0; ++j )
+    {
+      Pool2 = ExAllocatePool2(0x40uLL, 0x1000uLL, 0x6F49644BuLL);
+      if ( Pool2 )
+      {
+        _InterlockedOr(v37, 0);
+        KdLogBuffer[j] = Pool2;
+      }
+    }
+  }
+  KdpLoaderDebuggerBlock = 0LL;
+  return 1;
+}

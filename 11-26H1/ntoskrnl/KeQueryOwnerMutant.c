@@ -1,0 +1,39 @@
+/*
+ * XREFs of KeQueryOwnerMutant @ 0x1404D1618
+ * Callers:
+ *     NtQueryMutant @ 0x140B1D3A0 (NtQueryMutant.c)
+ * Callees:
+ *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiAcquireKobjectLockSafe @ 0x140277760 (KiAcquireKobjectLockSafe.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+void __stdcall KeQueryOwnerMutant(PKMUTANT Mutant, PCLIENT_ID ClientId)
+{
+  __int64 v2; // r8
+  PKMUTANT v4; // rdi
+  unsigned __int8 CurrentIrql; // bl
+  __int64 v6; // rdx
+  _KTHREAD *OwnerThread; // rax
+
+  ClientId->UniqueProcess = 0LL;
+  v4 = Mutant;
+  ClientId->UniqueThread = 0LL;
+  CurrentIrql = KeGetCurrentIrql();
+  v6 = 2LL;
+  if ( CurrentIrql != 2 )
+    __writecr8(2uLL);
+  if ( KiIrqlFlags )
+  {
+    LOBYTE(Mutant) = CurrentIrql;
+    KiRaiseIrqlProcessIrqlFlags(Mutant, 2LL);
+  }
+  KiAcquireKobjectLockSafe(&v4->Header.Lock, v6, v2);
+  OwnerThread = v4->OwnerThread;
+  if ( OwnerThread )
+    *ClientId = *(PCLIENT_ID)&OwnerThread[1].CycleTime;
+  _InterlockedAnd(&v4->Header.Lock, 0xFFFFFF7F);
+  if ( KiIrqlFlags )
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
+  __writecr8(CurrentIrql);
+}

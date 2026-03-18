@@ -1,0 +1,23 @@
+/*
+ * XREFs of ??$GreAcquireSemaphore@$0BB@$$V@@YAXAEAUGLOBALS@Font@Gre@@@Z @ 0x140107078
+ * Callers:
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x140106E8C (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1401A3238 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
+ *     ?GrepRemoveFontResource@@YAHPEBGKKKKPEAUtagDESIGNVECTOR@@K@Z @ 0x1401A3438 (-GrepRemoveFontResource@@YAHPEBGKKKKPEAUtagDESIGNVECTOR@@K@Z.c)
+ *     GrepAcquirePublicPFTSemaphoreEx @ 0x14021CB20 (GrepAcquirePublicPFTSemaphoreEx.c)
+ *     ?bAttemptReload@PFFOBJ@@QEAAHXZ @ 0x1402309A8 (-bAttemptReload@PFFOBJ@@QEAAHXZ.c)
+ *     HDEV_DeleteRfontsAndUnloadDeviceFonts @ 0x1402620D0 (HDEV_DeleteRfontsAndUnloadDeviceFonts.c)
+ *     PFF_bUnloadWorkhorseForDCOBJ @ 0x1403100B0 (PFF_bUnloadWorkhorseForDCOBJ.c)
+ *     ?bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z @ 0x140338AB8 (-bRemoveMergeFont@XDCOBJ@@QEAAHU_UNIVERSAL_FONT_ID@@@Z.c)
+ * Callees:
+ *     ??$GreAcquireSemaphoreCommon@$0BB@P6AXPEAUHSEMAPHORE__@@@Z@@YAXP6AXPEAUHSEMAPHORE__@@@Z0@Z @ 0x1401070BC (--$GreAcquireSemaphoreCommon@$0BB@P6AXPEAUHSEMAPHORE__@@@Z@@YAXP6AXPEAUHSEMAPHORE__@@@Z0@Z.c)
+ */
+
+__int64 __fastcall GreAcquireSemaphore<17,>(__int64 a1)
+{
+  __int64 v1; // rbx
+
+  v1 = *(_QWORD *)(a1 + 15472);
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"PublicPFT", v1, 0LL);
+  return GreAcquireSemaphoreCommon<17,void (*)(HSEMAPHORE__ *)>(GreAcquireSemaphoreInternal, v1);
+}

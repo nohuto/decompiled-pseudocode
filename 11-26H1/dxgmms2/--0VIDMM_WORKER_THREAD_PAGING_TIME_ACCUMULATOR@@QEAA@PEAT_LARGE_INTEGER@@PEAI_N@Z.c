@@ -1,0 +1,23 @@
+/*
+ * XREFs of ??0VIDMM_WORKER_THREAD_PAGING_TIME_ACCUMULATOR@@QEAA@PEAT_LARGE_INTEGER@@PEAI_N@Z @ 0x14010CDFC
+ * Callers:
+ *     ?ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_LOCAL_ALLOC@@PEAUVIDMM_GLOBAL_ALLOC@@_K2_N@Z @ 0x1400A2004 (-ProbeAndLockAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_LOCAL_ALLOC@@PEAUVIDMM_GLOBAL_ALLOC@@_K2_N@.c)
+ * Callees:
+ *     <none>
+ */
+
+VIDMM_WORKER_THREAD_PAGING_TIME_ACCUMULATOR *__fastcall VIDMM_WORKER_THREAD_PAGING_TIME_ACCUMULATOR::VIDMM_WORKER_THREAD_PAGING_TIME_ACCUMULATOR(
+        VIDMM_WORKER_THREAD_PAGING_TIME_ACCUMULATOR *this,
+        union _LARGE_INTEGER *a2,
+        unsigned int *a3,
+        char a4)
+{
+  *((_QWORD *)this + 1) = a2;
+  *((_BYTE *)this + 16) = a4;
+  if ( a4 )
+  {
+    *(LARGE_INTEGER *)this = KeQueryPerformanceCounter(0LL);
+    ++*a3;
+  }
+  return this;
+}

@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?VidMmDestroyAllocation@VIDMM_EXPORT@@QEAAXPEAVVIDMM_DEVICE@@PEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z @ 0x1C001179C
+ * Callers:
+ *     ?DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z @ 0x1C00F9388 (-DestroyCoreAllocations@DXGSHAREDRESOURCE@@QEAAXPEAPEAXI@Z.c)
+ *     ?CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@EPEAVCOREDEVICEACCESS@@@Z @ 0x1C0102860 (-CreateVidMmAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO.c)
+ *     ?DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z @ 0x1C01D8500 (-DestroyCoreAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@PEAVDXGALLOCATION@@@Z.c)
+ * Callees:
+ *     ??0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000FF18 (--0DXGPROCESSVIDMMLOCK@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0022E60 (_guard_dispatch_icall_nop.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0102F10 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
+void __fastcall VIDMM_EXPORT::VidMmDestroyAllocation(
+        VIDMM_EXPORT *this,
+        struct VIDMM_DEVICE *a2,
+        struct VIDMM_GLOBAL *a3,
+        struct _VIDMM_MULTI_GLOBAL_ALLOC *a4)
+{
+  struct _KTHREAD **Current; // rax
+  __int64 v9; // rcx
+  __int64 v10; // [rsp+30h] [rbp+8h] BYREF
+
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent();
+  DXGPROCESSVIDMMLOCK::DXGPROCESSVIDMMLOCK((DXGPROCESSVIDMMLOCK *)&v10, Current);
+  (*(void (__fastcall **)(struct VIDMM_DEVICE *, struct VIDMM_GLOBAL *, struct _VIDMM_MULTI_GLOBAL_ALLOC *))(*((_QWORD *)this + 1) + 128LL))(
+    a2,
+    a3,
+    a4);
+  if ( v10 )
+  {
+    v9 = v10 + 144;
+    *(_QWORD *)(v10 + 152) = 0LL;
+    ExReleasePushLockExclusiveEx(v9, 0LL);
+    KeLeaveCriticalRegion();
+  }
+}

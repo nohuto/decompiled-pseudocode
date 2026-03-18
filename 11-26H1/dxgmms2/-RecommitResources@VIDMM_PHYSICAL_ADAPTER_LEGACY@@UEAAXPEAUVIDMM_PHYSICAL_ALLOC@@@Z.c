@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?RecommitResources@VIDMM_PHYSICAL_ADAPTER_LEGACY@@UEAAXPEAUVIDMM_PHYSICAL_ALLOC@@@Z @ 0x1400F9630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReclaimResource@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x1400F964C (-ReclaimResource@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z.c)
+ */
+
+void __fastcall VIDMM_PHYSICAL_ADAPTER_LEGACY::RecommitResources(
+        VIDMM_PHYSICAL_ADAPTER_LEGACY *this,
+        VIDMM_SEGMENT **a2)
+{
+  VIDMM_SEGMENT::ReclaimResource(a2[8], (struct VIDMM_PHYSICAL_ALLOC_LEGACY *)a2);
+}

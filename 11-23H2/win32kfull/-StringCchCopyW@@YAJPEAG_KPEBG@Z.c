@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0115E6C
+ * Callers:
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00194B4 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C0019CC4 (-vLookupScript@@YAXKPEAGK@Z.c)
+ *     vProcessEntry @ 0x1C00804C8 (vProcessEntry.c)
+ *     cjIFIMetricsToOTMW @ 0x1C00CBEAC (cjIFIMetricsToOTMW.c)
+ *     bAddFlEntry @ 0x1C0112C30 (bAddFlEntry.c)
+ *     bUnloadEudcFont @ 0x1C0115BF4 (bUnloadEudcFont.c)
+ *     EngGetFilePath @ 0x1C0278F50 (EngGetFilePath.c)
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028A060 (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     FontAssocDefaultRoutine @ 0x1C029DD90 (FontAssocDefaultRoutine.c)
+ *     ?FindDefaultLinkedFontEntry@@YAHPEBG0@Z @ 0x1C029DF54 (-FindDefaultLinkedFontEntry@@YAHPEBG0@Z.c)
+ *     bDeleteFlEntry @ 0x1C029EF40 (bDeleteFlEntry.c)
+ *     InitializeDefaultFamilyFonts @ 0x1C03B3AEC (InitializeDefaultFamilyFonts.c)
+ *     DefaultFontQueryRoutine @ 0x1C03B48D0 (DefaultFontQueryRoutine.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall StringCchCopyW(char *a1, __int64 a2, char *a3)
+{
+  __int64 v3; // r9
+  signed __int64 v4; // r10
+  unsigned __int16 v5; // ax
+  unsigned __int16 *v6; // rax
+  __int64 result; // rax
+
+  if ( (unsigned __int64)(a2 - 1) > 0x7FFFFFFE )
+  {
+    result = 2147942487LL;
+    if ( a2 )
+      *(_WORD *)a1 = 0;
+  }
+  else
+  {
+    v3 = 2147483646 - a2;
+    v4 = a3 - a1;
+    do
+    {
+      if ( !(v3 + a2) )
+        break;
+      v5 = *(_WORD *)&a1[v4];
+      if ( !v5 )
+        break;
+      *(_WORD *)a1 = v5;
+      a1 += 2;
+      --a2;
+    }
+    while ( a2 );
+    v6 = (unsigned __int16 *)(a1 - 2);
+    if ( a2 )
+      v6 = (unsigned __int16 *)a1;
+    *v6 = 0;
+    return a2 == 0 ? 0x8007007A : 0;
+  }
+  return result;
+}

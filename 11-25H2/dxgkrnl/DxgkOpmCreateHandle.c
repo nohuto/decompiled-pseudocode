@@ -1,0 +1,79 @@
+/*
+ * XREFs of DxgkOpmCreateHandle @ 0x14019DD38
+ * Callers:
+ *     ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x14004ACB4 (-DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x140089740 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x140019E90 (DxgkLogInternalTriageEvent.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x14002B150 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z @ 0x140403380 (-OpmCreateHandle@ADAPTER_DISPLAY@@QEAAJPEAXPEAPEAX@Z.c)
+ */
+
+__int64 __fastcall DxgkOpmCreateHandle(ADAPTER_DISPLAY **this, void *a2, void **a3)
+{
+  ADAPTER_DISPLAY *v6; // rdx
+
+  if ( !this )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 967;
+    DxgkLogInternalTriageEvent(0LL, 262146, 0xFFFFFFFFLL, L"pDxgAdapter != NULL", 967LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( !a3 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 968;
+    DxgkLogInternalTriageEvent(0LL, 262146, 0xFFFFFFFFLL, L"phOpmAdapterHandle != NULL", 968LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner((DXGADAPTER *)this) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 969;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      0xFFFFFFFFLL,
+      L"pDxgAdapter->IsCoreResourceSharedOwner()",
+      969LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  v6 = this[390];
+  if ( v6 )
+  {
+    if ( *((struct _KTHREAD **)v6 + 49) != KeGetCurrentThread() )
+    {
+      WdLogSingleEntry0(1LL);
+      WdLogGlobalForLineNumber = 973;
+      DxgkLogInternalTriageEvent(
+        0LL,
+        262146,
+        0xFFFFFFFFLL,
+        L"pDxgAdapter->GetDisplayCore()->IsOpmI2CMutexOwner()",
+        973LL,
+        0LL,
+        0LL,
+        0LL,
+        0LL);
+    }
+    return ADAPTER_DISPLAY::OpmCreateHandle(this[390], a2, a3);
+  }
+  else
+  {
+    WdLogSingleEntry2(2LL, this, -1073741637LL);
+    WdLogGlobalForLineNumber = 981;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000,
+      0xFFFFFFFFLL,
+      L"Try to call DxgkOpmCreateHandle on a render only adapter 0x%I64x (Status = 0x%I64x)!",
+      (__int64)this,
+      -1073741637LL,
+      0LL,
+      0LL,
+      0LL);
+    return 3221225659LL;
+  }
+}

@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?Reset@CMergedDirtyRect@@UEAAXXZ @ 0x180106F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CMergedDirtyRect::Reset(CMergedDirtyRect *this)
+{
+  *((_QWORD *)this + 11) = 0LL;
+  *((_DWORD *)this + 18) = 0;
+  *((_DWORD *)this + 20) = 0;
+  *((_DWORD *)this + 19) = 1;
+}

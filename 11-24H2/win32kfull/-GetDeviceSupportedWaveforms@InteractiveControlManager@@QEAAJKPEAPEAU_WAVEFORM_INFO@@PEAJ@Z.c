@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?GetDeviceSupportedWaveforms@InteractiveControlManager@@QEAAJKPEAPEAU_WAVEFORM_INFO@@PEAJ@Z @ 0x1402DE7DC
+ * Callers:
+ *     NtUserGetInteractiveCtrlSupportedWaveforms @ 0x1402965B0 (NtUserGetInteractiveCtrlSupportedWaveforms.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x140005D0C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?GetSupportedWaveforms@InteractiveControlDevice@@QEAAPEAU_WAVEFORM_INFO@@XZ @ 0x1402EBEA0 (-GetSupportedWaveforms@InteractiveControlDevice@@QEAAPEAU_WAVEFORM_INFO@@XZ.c)
+ *     ?GetWaveformCount@InteractiveControlDevice@@QEAAIXZ @ 0x1402EBEBC (-GetWaveformCount@InteractiveControlDevice@@QEAAIXZ.c)
+ */
+
+__int64 __fastcall InteractiveControlManager::GetDeviceSupportedWaveforms(
+        InteractiveControlManager *this,
+        int a2,
+        struct _WAVEFORM_INFO **a3,
+        int *a4)
+{
+  int v4; // ebx
+  int WaveformCount; // ebp
+  struct _WAVEFORM_INFO *SupportedWaveforms; // r14
+  __int64 i; // rcx
+  __int64 v12; // rdx
+  InteractiveControlDevice *v13; // rcx
+  unsigned int v14; // ebx
+  const char *v16; // [rsp+78h] [rbp+20h] BYREF
+
+  v4 = 0;
+  WaveformCount = 0;
+  SupportedWaveforms = 0LL;
+  if ( (unsigned int)dword_140398C28 > 4 )
+  {
+    v16 = "InteractiveControlManager::GetDeviceSupportedWaveforms entry";
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
+      (__int64)&dword_140398C28,
+      (__int64)&unk_140369034,
+      (__int64)a3,
+      (__int64)a4,
+      &v16);
+  }
+  for ( i = 0LL; (unsigned int)i < 5; i = (unsigned int)(i + 1) )
+  {
+    v12 = *((_QWORD *)this + i + 5);
+    if ( v12 && a2 == *(_DWORD *)(v12 + 8) )
+    {
+      SupportedWaveforms = InteractiveControlDevice::GetSupportedWaveforms(*((InteractiveControlDevice **)this + i + 5));
+      WaveformCount = InteractiveControlDevice::GetWaveformCount(v13);
+      v4 = 1;
+      break;
+    }
+  }
+  v14 = v4 == 0 ? 0xC000009D : 0;
+  if ( a3 )
+    *a3 = SupportedWaveforms;
+  if ( a4 )
+    *a4 = WaveformCount;
+  if ( (unsigned int)dword_140398C28 > 4 )
+  {
+    v16 = "InteractiveControlManager::GetDeviceSupportedWaveforms exit";
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>>(
+      (__int64)&dword_140398C28,
+      (__int64)&unk_14036906E,
+      (__int64)a3,
+      (__int64)a4,
+      &v16);
+  }
+  return v14;
+}

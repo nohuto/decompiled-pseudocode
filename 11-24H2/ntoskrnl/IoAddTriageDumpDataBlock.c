@@ -1,0 +1,117 @@
+/*
+ * XREFs of IoAddTriageDumpDataBlock @ 0x1403F2880
+ * Callers:
+ *     IopCheckDeviceAndDriver @ 0x1402D4BF0 (IopCheckDeviceAndDriver.c)
+ *     IopIncrementVpbRefCount @ 0x1402D5430 (IopIncrementVpbRefCount.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x1403F1910 (IopDecrementDeviceObjectRefCount.c)
+ *     IopCheckVpbMounted @ 0x1403F1EF0 (IopCheckVpbMounted.c)
+ *     IopDecrementDeviceObjectRef @ 0x1403F2340 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14041A700 (IopIncrementDeviceObjectRefCount.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x14046B8F0 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     IoInvalidateDeviceState @ 0x14046C880 (IoInvalidateDeviceState.c)
+ *     IoInvalidateDeviceRelations @ 0x1404931D0 (IoInvalidateDeviceRelations.c)
+ *     IopQueueInvalidateBusRelationsRequest @ 0x1404932FC (IopQueueInvalidateBusRelationsRequest.c)
+ *     IoGetDeviceInstanceName @ 0x1404A117C (IoGetDeviceInstanceName.c)
+ *     KiMarkBugCheckRegions @ 0x1405084B8 (KiMarkBugCheckRegions.c)
+ *     sub_14051AA08 @ 0x14051AA08 (sub_14051AA08.c)
+ *     HvlpInitializeHvCrashdumpPhase2 @ 0x14058AD7C (HvlpInitializeHvCrashdumpPhase2.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x140592F50 (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopUpdateMinidumpContext @ 0x14059540C (IopUpdateMinidumpContext.c)
+ *     IopAddBugcheckDirectedTransitionTriageData @ 0x14059F4AC (IopAddBugcheckDirectedTransitionTriageData.c)
+ *     IopAddBugcheckPnpTriageData @ 0x14059F59C (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x14059F61C (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x14059F6DC (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageCompletionQueue @ 0x14059F76C (IopAddBugcheckTriageCompletionQueue.c)
+ *     IopAddBugcheckTriageDevice @ 0x14059F828 (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x14059F930 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageIrp @ 0x14059FA20 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriagePowerIrpWorkers @ 0x14059FB98 (IopAddBugcheckTriagePowerIrpWorkers.c)
+ *     IopAddBugcheckTriagePowerIrps @ 0x14059FC4C (IopAddBugcheckTriagePowerIrps.c)
+ *     IopAddBugcheckTriageThread @ 0x14059FD0C (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageUnicodeString @ 0x14059FE08 (IopAddBugcheckTriageUnicodeString.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x14059FE9C (IopAddBugcheckTriageWorkQueue.c)
+ *     IoRequestDeviceEjectEx @ 0x1405A49D0 (IoRequestDeviceEjectEx.c)
+ *     PiProcessDeviceResetAction @ 0x1405A4CD8 (PiProcessDeviceResetAction.c)
+ *     PnpSaveGlobalsToMinidump @ 0x1405A5440 (PnpSaveGlobalsToMinidump.c)
+ *     PnpWatchdogBugcheck @ 0x1405A5494 (PnpWatchdogBugcheck.c)
+ *     KeBugCheck2 @ 0x1405B1780 (KeBugCheck2.c)
+ *     KiCollectFullProcessName @ 0x1405B3360 (KiCollectFullProcessName.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405B33A8 (KiCollectTriageDumpDataBlocks.c)
+ *     KiSaveCurrentEtwTraceBuffer @ 0x1405B42A4 (KiSaveCurrentEtwTraceBuffer.c)
+ *     KiIntSteerCallbackRecordTriageCallback @ 0x1405C42A0 (KiIntSteerCallbackRecordTriageCallback.c)
+ *     KiRecordRecoveryFailure @ 0x1405C6518 (KiRecordRecoveryFailure.c)
+ *     PopInternalAddToDumpFile @ 0x1405CCEA0 (PopInternalAddToDumpFile.c)
+ *     PopInternalSaveStackToDumpFile @ 0x1405CCF5C (PopInternalSaveStackToDumpFile.c)
+ *     PopIrpWatchdogBugcheck @ 0x1405CD0D8 (PopIrpWatchdogBugcheck.c)
+ *     WheapAddToDumpFile @ 0x14065BCBC (WheapAddToDumpFile.c)
+ *     MiAddTriageDumpPtes @ 0x1406773F8 (MiAddTriageDumpPtes.c)
+ *     MmSnapTriageDumpInformation @ 0x140677F08 (MmSnapTriageDumpInformation.c)
+ *     IoAcquireKsrPersistentMemoryEx @ 0x14071AD20 (IoAcquireKsrPersistentMemoryEx.c)
+ *     IoMapKsrPersistentMemoryEx @ 0x14071B010 (IoMapKsrPersistentMemoryEx.c)
+ *     IoQueryKsrPersistentMemorySizeEx @ 0x14071B220 (IoQueryKsrPersistentMemorySizeEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x14071B440 (IoReserveKsrPersistentMemoryEx.c)
+ *     PipGetDeviceObjectLocation @ 0x14071BA24 (PipGetDeviceObjectLocation.c)
+ *     PipGetPersistentMemory @ 0x14071BE10 (PipGetPersistentMemory.c)
+ *     IoAssignResources @ 0x14071C650 (IoAssignResources.c)
+ *     IoSteerInterrupt @ 0x14071DC70 (IoSteerInterrupt.c)
+ *     IoGetDmaAdapter @ 0x14071FFD0 (IoGetDmaAdapter.c)
+ *     PiGetDmaAdapterFromBusInterface @ 0x1407202C4 (PiGetDmaAdapterFromBusInterface.c)
+ *     IoReportResourceForDetection @ 0x140720B40 (IoReportResourceForDetection.c)
+ *     IoReportResourceUsage @ 0x140720D30 (IoReportResourceUsage.c)
+ *     IoRequestDeviceRemovalForReset @ 0x1407212F0 (IoRequestDeviceRemovalForReset.c)
+ *     IopMarkDeviceToBeReset @ 0x140721520 (IopMarkDeviceToBeReset.c)
+ *     IopQueueDeviceResetEvent @ 0x140721694 (IopQueueDeviceResetEvent.c)
+ *     PnpReplacePartitionUnit @ 0x14072E220 (PnpReplacePartitionUnit.c)
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x14073179C (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ *     PipDmaGuardBlockAddDevice @ 0x140731A5C (PipDmaGuardBlockAddDevice.c)
+ *     PipDmgInitializeIommuExtension @ 0x140731D88 (PipDmgInitializeIommuExtension.c)
+ *     PipDmgRequestRestartOnBlockedDevice @ 0x140731EB0 (PipDmgRequestRestartOnBlockedDevice.c)
+ *     PipDmgRequestUpdateConsoleLockState @ 0x140732180 (PipDmgRequestUpdateConsoleLockState.c)
+ *     IoSetDevicePropertyData @ 0x1408B8210 (IoSetDevicePropertyData.c)
+ *     PipEnumerateCompleted @ 0x1408B9260 (PipEnumerateCompleted.c)
+ *     PiProcessRequeryDeviceState @ 0x1408BB67C (PiProcessRequeryDeviceState.c)
+ *     IoGetDeviceInterfaces @ 0x140966D40 (IoGetDeviceInterfaces.c)
+ *     PipProcessEnumeratedChildDevice @ 0x1409904C0 (PipProcessEnumeratedChildDevice.c)
+ *     PiIommuGetInterface @ 0x1409C45FC (PiIommuGetInterface.c)
+ *     PnpNotifyDriverCallback @ 0x1409EEDB0 (PnpNotifyDriverCallback.c)
+ *     PnpProcessRelation @ 0x140A0C664 (PnpProcessRelation.c)
+ *     IopDestroyDeviceNode @ 0x140A0F43C (IopDestroyDeviceNode.c)
+ *     PiDmaGuardProcessPreStart @ 0x140A0FFFC (PiDmaGuardProcessPreStart.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x140A109EC (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IoGetDevicePropertyData @ 0x140A11F10 (IoGetDevicePropertyData.c)
+ *     IoDisconnectInterrupt @ 0x140A121C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x140A12470 (IopConnectInterrupt.c)
+ *     IoReportTargetDeviceChange @ 0x140A50860 (IoReportTargetDeviceChange.c)
+ *     PiProcessNewDeviceNode @ 0x140A7C564 (PiProcessNewDeviceNode.c)
+ *     PiDmaGuardProcessPostRemove @ 0x140A8BD58 (PiDmaGuardProcessPostRemove.c)
+ *     PiQueryPowerRelations @ 0x140A8C2C8 (PiQueryPowerRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x140A9D8CC (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PopGracefulShutdown @ 0x140B5BA88 (PopGracefulShutdown.c)
+ *     PopRequestWrite @ 0x140B5E080 (PopRequestWrite.c)
+ *     PopWriteHiberPages @ 0x140B5EA28 (PopWriteHiberPages.c)
+ *     PopEndMirroring @ 0x140B64660 (PopEndMirroring.c)
+ *     ExpInitializeBootEnvironment @ 0x140C0A9AC (ExpInitializeBootEnvironment.c)
+ *     PoInitSystem @ 0x140C61990 (PoInitSystem.c)
+ * Callees:
+ *     IopAddTriageDumpDataBlock @ 0x1403F2E3C (IopAddTriageDumpDataBlock.c)
+ *     KeAddTriageDumpDataBlock @ 0x1405B1660 (KeAddTriageDumpDataBlock.c)
+ */
+
+char __fastcall IoAddTriageDumpDataBlock(ULONG MaxDataSize, PVOID Address)
+{
+  unsigned int v3; // edi
+  char v4; // bl
+  SIZE_T v5; // r9
+  _DWORD v7[2]; // [rsp+30h] [rbp-18h] BYREF
+  void *v8; // [rsp+38h] [rbp-10h]
+
+  v7[0] = IopNumTriageDumpDataBlocks;
+  v3 = (unsigned int)Address;
+  v7[1] = 256;
+  v8 = &IopTriageDumpDataBlocks;
+  v4 = IopAddTriageDumpDataBlock(1, (unsigned int)v7, (unsigned int)v7, MaxDataSize, (_DWORD)Address);
+  IopNumTriageDumpDataBlocks = v7[0];
+  if ( IopTriageDumpDataArray )
+    KeAddTriageDumpDataBlock(IopTriageDumpDataArray, MaxDataSize, (PVOID)v3, v5);
+  return v4;
+}

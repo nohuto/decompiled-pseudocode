@@ -1,0 +1,26 @@
+/*
+ * XREFs of xxxPlayEventSound @ 0x1C01044C0
+ * Callers:
+ *     xxxSysCommand @ 0x1C0112C2C (xxxSysCommand.c)
+ *     xxxSnapWindow @ 0x1C0138DA0 (xxxSnapWindow.c)
+ *     xxxMNCancel @ 0x1C0204628 (xxxMNCancel.c)
+ *     xxxMNOpenHierarchy @ 0x1C0206528 (xxxMNOpenHierarchy.c)
+ *     xxxMenuWindowProc @ 0x1C0207D70 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C0213DB0 (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     ?PlaySync@CUserPlaySound@@AEAAJK@Z @ 0x1C00DA5D4 (-PlaySync@CUserPlaySound@@AEAAJK@Z.c)
+ */
+
+__int64 __fastcall xxxPlayEventSound(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  RPC_BINDING_HANDLE *v4; // rbx
+
+  if ( (gdwPUDFlags & 0x1000000) != 0 && (*(_DWORD *)(gptiCurrent + 440LL) & 4) == 0 )
+  {
+    v4 = CUserPlaySound::s_pUserPlaySound;
+    UserSessionSwitchLeaveCrit(gptiCurrent, a2, a3, a4);
+    CUserPlaySound::PlaySync(v4);
+    EnterCrit(0LL, 1LL);
+  }
+  return 1LL;
+}

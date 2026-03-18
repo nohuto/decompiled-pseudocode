@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??1VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO@@QEAA@XZ @ 0x140037740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_EVIDMM_PROCESS_COMMITMENT_INFO@@QEAAPEAXI@Z @ 0x14003776C (--_EVIDMM_PROCESS_COMMITMENT_INFO@@QEAAPEAXI@Z.c)
+ */
+
+void __fastcall VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO::~VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO(
+        VIDMM_PROCESS_COMMITMENT_INFO **this,
+        unsigned int a2)
+{
+  VIDMM_PROCESS_COMMITMENT_INFO *v3; // rcx
+
+  v3 = *this;
+  if ( v3 )
+    VIDMM_PROCESS_COMMITMENT_INFO::`vector deleting destructor'(v3, a2);
+  *this = 0LL;
+}

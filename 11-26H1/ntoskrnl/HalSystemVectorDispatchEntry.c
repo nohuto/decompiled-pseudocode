@@ -1,0 +1,55 @@
+/*
+ * XREFs of HalSystemVectorDispatchEntry @ 0x1404BD660
+ * Callers:
+ *     SymCryptCpuFeaturesNeverPresent @ 0x1404C9AE8 (SymCryptCpuFeaturesNeverPresent.c)
+ *     _call_matherr @ 0x14053A450 (_call_matherr.c)
+ *     HvlPhase0Initialize @ 0x14079166C (HvlPhase0Initialize.c)
+ *     ObShutdownSystem @ 0x1407C25A0 (ObShutdownSystem.c)
+ *     ObpCreateDosDevicesDirectory @ 0x1407C2A4C (ObpCreateDosDevicesDirectory.c)
+ *     PsBootPhaseComplete @ 0x1407EDCC0 (PsBootPhaseComplete.c)
+ *     NtQueryInformationJobObject @ 0x1407F2FB0 (NtQueryInformationJobObject.c)
+ *     PsStartSiloMonitor @ 0x1407FBC40 (PsStartSiloMonitor.c)
+ *     PsUnregisterSiloMonitor @ 0x1407FBE80 (PsUnregisterSiloMonitor.c)
+ *     RtlpInitCodePageTables @ 0x140802074 (RtlpInitCodePageTables.c)
+ *     EtwpUpdateFileInfoDriverRegistration @ 0x140828208 (EtwpUpdateFileInfoDriverRegistration.c)
+ *     CmpMountPreloadedHives @ 0x14084C298 (CmpMountPreloadedHives.c)
+ *     CmpSetVersionData @ 0x1408566EC (CmpSetVersionData.c)
+ *     MiOpenHotPatchFile @ 0x140873028 (MiOpenHotPatchFile.c)
+ *     ObCreateSiloRootDirectory @ 0x1408A6F94 (ObCreateSiloRootDirectory.c)
+ *     ObpParseSymbolicLinkEx @ 0x140900300 (ObpParseSymbolicLinkEx.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x140947E0C (ExpWnfEnumerateScopeInstances.c)
+ *     ExpWnfResolveScopeInstance @ 0x14094B390 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfLookupPermanentName @ 0x14094D528 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfGenerateStateName @ 0x14094F730 (ExpWnfGenerateStateName.c)
+ *     PspExitThread @ 0x14095771C (PspExitThread.c)
+ *     MmProtectVirtualMemory @ 0x14095E5D8 (MmProtectVirtualMemory.c)
+ *     MiCommitInitialVadMetadataBits @ 0x140962EBC (MiCommitInitialVadMetadataBits.c)
+ *     VRegEnabledInJob @ 0x14097834C (VRegEnabledInJob.c)
+ *     MiSelectDataMapAddress @ 0x1409C4E10 (MiSelectDataMapAddress.c)
+ *     MiSelectUserAddress @ 0x1409C4FA0 (MiSelectUserAddress.c)
+ *     MiInitializeImageMapParameters @ 0x1409CD514 (MiInitializeImageMapParameters.c)
+ *     MiInitializePrivateFixupBitmap @ 0x1409CE834 (MiInitializePrivateFixupBitmap.c)
+ *     MiRelocateImagePfn @ 0x1409CEA4C (MiRelocateImagePfn.c)
+ *     MiPageHasRelocations @ 0x1409CF740 (MiPageHasRelocations.c)
+ *     MiValidateVadMetadataFlags @ 0x1409F3CF0 (MiValidateVadMetadataFlags.c)
+ *     MmLoadSystemImageEx @ 0x140A269D4 (MmLoadSystemImageEx.c)
+ *     PspSelectMachineForProcess @ 0x140A9174C (PspSelectMachineForProcess.c)
+ *     NtManageHotPatch @ 0x140A993D0 (NtManageHotPatch.c)
+ *     PopInvokeWin32Callout @ 0x140ABCA7C (PopInvokeWin32Callout.c)
+ *     MmUnloadSystemImage @ 0x140AC7670 (MmUnloadSystemImage.c)
+ *     PspEstimateNewProcessServerSilo @ 0x140AE25C4 (PspEstimateNewProcessServerSilo.c)
+ *     MiReturnVadBitmapCommit @ 0x140AE6210 (MiReturnVadBitmapCommit.c)
+ *     SepRmCommandServerThread @ 0x140AF0B10 (SepRmCommandServerThread.c)
+ *     MiDeleteVadBitmap @ 0x140AFAF24 (MiDeleteVadBitmap.c)
+ *     IopUnloadDriver @ 0x140B2ADF8 (IopUnloadDriver.c)
+ *     DbgkpRemoveErrorPort @ 0x140B3A9A0 (DbgkpRemoveErrorPort.c)
+ *     RtlGetHostNtSystemRoot @ 0x140B46F80 (RtlGetHostNtSystemRoot.c)
+ *     IovpUnloadDriver @ 0x140C2100C (IovpUnloadDriver.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 HalSystemVectorDispatchEntry()
+{
+  return 0LL;
+}

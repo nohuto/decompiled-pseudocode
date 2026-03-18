@@ -1,0 +1,51 @@
+/*
+ * XREFs of DrvDbGetDriverFileMappedPropertyKeys @ 0x14071B094
+ * Callers:
+ *     DrvDbDispatchDriverFile @ 0x14071D50C (DrvDbDispatchDriverFile.c)
+ * Callees:
+ *     ZwClose @ 0x14017F1D0 (ZwClose.c)
+ *     DrvDbOpenObjectRegKey @ 0x1404DDA8C (DrvDbOpenObjectRegKey.c)
+ *     DrvDbGetRegValueMappedPropertyKeys @ 0x14071BA64 (DrvDbGetRegValueMappedPropertyKeys.c)
+ */
+
+__int64 __fastcall DrvDbGetDriverFileMappedPropertyKeys(
+        __int64 **a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        int a5,
+        _DWORD *a6)
+{
+  __int64 v6; // rdi
+  int v8; // r10d
+  int RegValueMappedPropertyKeys; // ebx
+  int v11; // [rsp+20h] [rbp-28h]
+  char v12; // [rsp+28h] [rbp-20h]
+  HANDLE Handle; // [rsp+60h] [rbp+18h] BYREF
+
+  v6 = (__int64)a6;
+  Handle = 0LL;
+  v8 = a3;
+  *a6 = 0;
+  if ( !a3 )
+  {
+    v12 = 0;
+    v11 = 1;
+    RegValueMappedPropertyKeys = DrvDbOpenObjectRegKey(a1, 0LL, 4u, a2, v11, v12, &Handle, 0LL);
+    if ( RegValueMappedPropertyKeys < 0 )
+      goto LABEL_5;
+    v8 = (int)Handle;
+  }
+  RegValueMappedPropertyKeys = DrvDbGetRegValueMappedPropertyKeys(
+                                 (_DWORD)a1,
+                                 v8,
+                                 (unsigned int)&off_1402AE690,
+                                 2,
+                                 a4,
+                                 a5,
+                                 v6);
+LABEL_5:
+  if ( Handle )
+    ZwClose(Handle);
+  return (unsigned int)RegValueMappedPropertyKeys;
+}

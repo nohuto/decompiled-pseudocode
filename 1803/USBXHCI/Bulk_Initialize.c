@@ -1,0 +1,36 @@
+/*
+ * XREFs of Bulk_Initialize @ 0x1C005C470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Bulk_Initialize(__int64 a1)
+{
+  bool v1; // r8
+  int v2; // edx
+  __int64 v3; // r9
+  __int64 v4; // rax
+
+  v1 = 0;
+  *(_QWORD *)(a1 + 376) = a1 + 368;
+  v2 = 1;
+  *(_QWORD *)(a1 + 368) = a1 + 368;
+  *(_QWORD *)(a1 + 392) = a1 + 384;
+  *(_QWORD *)(a1 + 384) = a1 + 384;
+  *(_QWORD *)(a1 + 408) = a1 + 400;
+  *(_QWORD *)(a1 + 400) = a1 + 400;
+  if ( (*(_QWORD *)(*(_QWORD *)(a1 + 40) + 272LL) & 0x20000LL) == 0 )
+  {
+    v3 = *(_QWORD *)(a1 + 56);
+    if ( (*(_WORD *)(v3 + 100) & 0x7FFu) >= 8 )
+      v1 = *(_BYTE *)(v3 + 98) >= 0;
+  }
+  *(_BYTE *)(a1 + 320) = v1;
+  v4 = *(_QWORD *)(*(_QWORD *)(a1 + 40) + 272LL);
+  if ( (v4 & 0x8000000000LL) == 0 && (v4 & 8) == 0 )
+    v2 = 5;
+  *(_DWORD *)(a1 + 344) = v2;
+  return 0LL;
+}

@@ -1,0 +1,34 @@
+/*
+ * XREFs of EtwpSetPartitionContext @ 0x1406C77EC
+ * Callers:
+ *     EtwpStartLogger @ 0x140A6E1B4 (EtwpStartLogger.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140381940 (PsDereferencePartition.c)
+ *     PsReferencePartitionByHandle @ 0x140A53F9C (PsReferencePartitionByHandle.c)
+ */
+
+__int64 __fastcall EtwpSetPartitionContext(__int64 *a1, __int64 a2)
+{
+  __int64 v3; // rcx
+  int v4; // edi
+  struct _KTHREAD *CurrentThread; // r8
+  __int64 v8; // [rsp+40h] [rbp+8h] BYREF
+
+  v8 = 0LL;
+  v3 = *a1;
+  v4 = 0;
+  if ( v3 )
+  {
+    PsDereferencePartition(v3);
+    *a1 = 0LL;
+  }
+  if ( ((a2 + 2) & 0xFFFFFFFFFFFFFFFDuLL) != 0 )
+  {
+    CurrentThread = KeGetCurrentThread();
+    LOBYTE(CurrentThread) = CurrentThread->PreviousMode;
+    v4 = PsReferencePartitionByHandle(a2, 2LL, CurrentThread, 1870099525LL, &v8);
+    if ( v4 >= 0 )
+      *a1 = v8;
+  }
+  return (unsigned int)v4;
+}

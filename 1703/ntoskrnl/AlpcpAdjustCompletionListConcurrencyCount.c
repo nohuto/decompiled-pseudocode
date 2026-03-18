@@ -1,0 +1,48 @@
+/*
+ * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x14056C8CC
+ * Callers:
+ *     NtAlpcSetInformation @ 0x14055D284 (NtAlpcSetInformation.c)
+ * Callees:
+ *     AlpcpQueueIoCompletionPort @ 0x1400402CC (AlpcpQueueIoCompletionPort.c)
+ */
+
+__int64 __fastcall AlpcpAdjustCompletionListConcurrencyCount(__int64 a1, unsigned __int32 a2)
+{
+  __int64 result; // rax
+  __int64 v3; // rsi
+  signed __int32 v6; // edi
+  unsigned __int32 v7; // edx
+  __int64 v8; // r14
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
+
+  result = (__int64)&retaddr;
+  v3 = *(_QWORD *)(a1 + 360);
+  _m_prefetchw((const void *)(v3 + 144));
+  v6 = *(_DWORD *)(v3 + 144);
+  while ( v6 != a2 )
+  {
+    v7 = v6;
+    result = (unsigned int)_InterlockedCompareExchange((volatile signed __int32 *)(v3 + 144), a2, v6);
+    v6 = result;
+    if ( (_DWORD)result == v7 )
+    {
+      if ( !*(_QWORD *)(a1 + 32) )
+        return result;
+      if ( v7 < a2 )
+      {
+        v8 = a2 - v7;
+        do
+        {
+          result = AlpcpQueueIoCompletionPort(a1, 1, 0, 0);
+          --v8;
+        }
+        while ( v8 );
+      }
+    }
+    else if ( (unsigned int)result >= a2 )
+    {
+      return result;
+    }
+  }
+  return result;
+}

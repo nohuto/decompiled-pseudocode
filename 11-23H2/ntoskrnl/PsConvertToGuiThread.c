@@ -1,0 +1,82 @@
+/*
+ * XREFs of PsConvertToGuiThread @ 0x1407C6290
+ * Callers:
+ *     KiConvertToGuiThread @ 0x140424370 (KiConvertToGuiThread.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B4BA8 (PspEnsureGuiThreadAndBatchFlush.c)
+ * Callees:
+ *     SeCaptureAtomTableCallout @ 0x140356510 (SeCaptureAtomTableCallout.c)
+ *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     PsInvokeWin32Callout @ 0x1406AF850 (PsInvokeWin32Callout.c)
+ *     PsQuerySectionSignatureInformation @ 0x1407C63C0 (PsQuerySectionSignatureInformation.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409EA634 (EtwTimLogProhibitWin32kSystemCalls.c)
+ */
+
+__int64 PsConvertToGuiThread()
+{
+  struct _KTHREAD *CurrentThread; // rbx
+  _KPROCESS *Process; // r14
+  int Blink; // esi
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  char v5; // al
+  __int64 result; // rax
+  int v7; // esi
+  int v8; // edi
+  _KPROCESS *v9; // [rsp+20h] [rbp-20h] BYREF
+  int v10; // [rsp+28h] [rbp-18h]
+  int v11; // [rsp+2Ch] [rbp-14h]
+  struct _KTHREAD *v12; // [rsp+30h] [rbp-10h] BYREF
+  int v13; // [rsp+38h] [rbp-8h]
+  int v14; // [rsp+3Ch] [rbp-4h]
+  char v15; // [rsp+60h] [rbp+20h] BYREF
+
+  v11 = 0;
+  v14 = 0;
+  CurrentThread = KeGetCurrentThread();
+  v15 = 0;
+  if ( !CurrentThread->PreviousMode )
+    return 3221225485LL;
+  if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x80u) != 0 )
+    return 1073741851LL;
+  Process = CurrentThread->ApcState.Process;
+  Blink = (int)Process[2].ReadyListHead.Blink;
+  if ( (Blink & 0x1000) != 0 || ((__int64)Process[2].ReadyListHead.Blink & 0x2000) != 0 )
+  {
+    EtwTimLogProhibitWin32kSystemCalls((unsigned int)((Blink & 0x1000) != 0) + 1, CurrentThread->ApcState.Process);
+    if ( (Blink & 0x1000) != 0 )
+      return 3221225506LL;
+  }
+  v9 = Process;
+  v10 = 1;
+  if ( (int)PsQuerySectionSignatureInformation(Process, &v15) >= 0 )
+  {
+    v5 = (char)qword_140C379E0;
+    if ( qword_140C379E0 )
+    {
+      LOBYTE(v4) = v15;
+      LOBYTE(v3) = 12;
+      v5 = qword_140C379E0(v4, v3);
+    }
+    v10 ^= ((unsigned __int8)v10 ^ (unsigned __int8)(2 * v5)) & 2;
+  }
+  result = PsInvokeWin32Callout(0, (__int64)&v9, 0, 0LL);
+  if ( (int)result >= 0 )
+  {
+    _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 7u);
+    v7 = Blink & 0xC000;
+    if ( v7 )
+      _interlockedbittestandset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x15u);
+    v13 = 0;
+    v12 = CurrentThread;
+    v8 = PsInvokeWin32Callout(1, (__int64)&v12, 0, 0LL);
+    if ( v8 < 0 )
+    {
+      _interlockedbittestandreset((volatile signed __int32 *)&CurrentThread->116 + 1, 7u);
+      if ( v7 )
+        _interlockedbittestandreset((volatile signed __int32 *)&CurrentThread->116 + 1, 0x15u);
+    }
+    SeCaptureAtomTableCallout();
+    return (unsigned int)v8;
+  }
+  return result;
+}

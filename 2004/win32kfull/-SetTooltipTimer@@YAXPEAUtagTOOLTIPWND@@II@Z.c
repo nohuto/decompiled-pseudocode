@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?SetTooltipTimer@@YAXPEAUtagTOOLTIPWND@@II@Z @ 0x1C0056670
+ * Callers:
+ *     xxxTrackMouseMove @ 0x1C0057D90 (xxxTrackMouseMove.c)
+ *     xxxTooltipWndProc @ 0x1C00BB110 (xxxTooltipWndProc.c)
+ *     ?xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z @ 0x1C0243D10 (-xxxTooltipHandleTimer@@YAHPEAUtagTOOLTIPWND@@I@Z.c)
+ * Callees:
+ *     ?KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z @ 0x1C0057110 (-KillTooltipTimer@@YAXPEAUtagTOOLTIPWND@@@Z.c)
+ *     _SetSystemTimer @ 0x1C006024C (_SetSystemTimer.c)
+ */
+
+void __fastcall SetTooltipTimer(struct tagTOOLTIPWND *a1, int a2, int a3)
+{
+  __int64 v6; // rcx
+
+  KillTooltipTimer(a1);
+  v6 = *(_QWORD *)a1;
+  *((_DWORD *)a1 + 9) = a2;
+  SetSystemTimer(v6, a2, a3, 0, 1);
+}

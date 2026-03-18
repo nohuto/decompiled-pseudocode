@@ -1,0 +1,36 @@
+/*
+ * XREFs of ??0?$SEMOBJ@$0BB@@@QEAA@AEAUGLOBALS@Font@Gre@@@Z @ 0x1400C6908
+ * Callers:
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x140102C2C (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?GrepGetKerningPairs@@YAKAEAVDCOBJ@@KPEAUtagKERNINGPAIR@@@Z @ 0x1401DCE60 (-GrepGetKerningPairs@@YAKAEAVDCOBJ@@KPEAUtagKERNINGPAIR@@@Z.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAUFONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x14021C4D0 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAUFONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?OnHostReady@UmfdHostLifeTimeManager@@SAXXZ @ 0x1402916D4 (-OnHostReady@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     NtGdiAddEmbFontToDC @ 0x140312030 (NtGdiAddEmbFontToDC.c)
+ *     NtGdiAddRemoteMMInstanceToDC @ 0x140312150 (NtGdiAddRemoteMMInstanceToDC.c)
+ *     GreEudcLoadLinkW @ 0x14032453C (GreEudcLoadLinkW.c)
+ *     vLinkEudcPFEs @ 0x140324F0C (vLinkEudcPFEs.c)
+ *     vUnlinkEudcRFONTs @ 0x140325380 (vUnlinkEudcRFONTs.c)
+ *     vUnlinkEudcRFONTsAndPFEs @ 0x1403254C8 (vUnlinkEudcRFONTsAndPFEs.c)
+ *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x140326AC4 (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
+ *     ?GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ @ 0x140326C0C (-GetEmbedFonts@PUBLIC_PFTOBJ@@QEAAKXZ.c)
+ *     ?VerifyPFF@PUBLIC_PFTOBJ@@QEAAHPEAVPFF@@@Z @ 0x1403270F0 (-VerifyPFF@PUBLIC_PFTOBJ@@QEAAHPEAVPFF@@@Z.c)
+ *     ?bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAUHDEV__@@I@Z @ 0x140327194 (-bLoadFonts@DEVICE_PFTOBJ@@QEAAHPEAUHDEV__@@I@Z.c)
+ *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAUFONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x1403273E8 (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAUFONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEA.c)
+ *     ?CleanupPvtData@@YAXPEAVPFF@@@Z @ 0x140329890 (-CleanupPvtData@@YAXPEAVPFF@@@Z.c)
+ *     NtGdiGetUFIPathname @ 0x14032AFB0 (NtGdiGetUFIPathname.c)
+ *     ?vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x14033A374 (-vInitEUDCRemote@RFONTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x14034DAE0 (-TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z.c)
+ * Callees:
+ *     ??$GrepAcquireLockValidate@$0BB@@@YAXXZ @ 0x1400C693C (--$GrepAcquireLockValidate@$0BB@@@YAXXZ.c)
+ */
+
+HSEMAPHORE *__fastcall SEMOBJ<17>::SEMOBJ<17>(HSEMAPHORE *a1, __int64 a2)
+{
+  HSEMAPHORE v3; // rcx
+
+  v3 = *(HSEMAPHORE *)(a2 + 15456);
+  *a1 = v3;
+  GreAcquireSemaphoreInternal(v3);
+  GrepAcquireLockValidate<17>();
+  return a1;
+}

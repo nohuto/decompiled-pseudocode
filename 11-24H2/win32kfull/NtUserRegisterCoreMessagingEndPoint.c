@@ -1,0 +1,150 @@
+/*
+ * XREFs of NtUserRegisterCoreMessagingEndPoint @ 0x14029AFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x14005FE74 (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Dd @ 0x140092DD0 (WPP_RECORDER_AND_TRACE_SF_Dd.c)
+ *     SetLastNtError @ 0x1401067E0 (SetLastNtError.c)
+ *     UserSetLastStatus @ 0x14015E5E8 (UserSetLastStatus.c)
+ *     RtlCopyFromUser @ 0x14026E428 (RtlCopyFromUser.c)
+ *     Feature_Win32ProcessCapabilities__private_IsEnabledDeviceUsageNoInline @ 0x14026E514 (Feature_Win32ProcessCapabilities__private_IsEnabledDeviceUsageNoInline.c)
+ *     __security_check_cookie @ 0x140340250 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall NtUserRegisterCoreMessagingEndPoint(int a1, void *a2)
+{
+  __int64 v4; // rcx
+  int v5; // ebx
+  int v6; // ecx
+  char v7; // di
+  __int64 CurrentProcessWin32Process; // rax
+  CoreMessagingKPort *v9; // r14
+  __int64 v10; // rdx
+  bool v11; // r14
+  __int64 UserSessionState; // rax
+  int v13; // r8d
+  int v14; // edx
+  int v15; // r15d
+  char v16; // r14
+  bool v17; // r12
+  __int64 v18; // rax
+  int v19; // r8d
+  int v20; // edx
+  NTSTATUS v21; // ecx
+  int CoreMsgPort; // eax
+  __int128 v24; // [rsp+60h] [rbp-88h] BYREF
+  __int128 v25; // [rsp+70h] [rbp-78h]
+  __int64 v26; // [rsp+80h] [rbp-68h]
+  __int128 v27; // [rsp+90h] [rbp-58h] BYREF
+  __int128 v28; // [rsp+A0h] [rbp-48h]
+  __int64 v29; // [rsp+B0h] [rbp-38h]
+
+  v5 = 0;
+  if ( (unsigned int)Feature_Win32ProcessCapabilities__private_IsEnabledDeviceUsageNoInline() || a1 )
+  {
+    v7 = 1;
+    if ( a1 >= 1 )
+    {
+LABEL_6:
+      v6 = 87;
+      goto LABEL_4;
+    }
+    if ( !a1 && !(unsigned __int8)HasTcbPrivilege() )
+    {
+      v6 = 5;
+      goto LABEL_4;
+    }
+    CurrentProcessWin32Process = PsGetCurrentProcessWin32Process(v4);
+    if ( CurrentProcessWin32Process )
+      CurrentProcessWin32Process &= -(__int64)(*(_QWORD *)CurrentProcessWin32Process != 0LL);
+    v9 = *(CoreMessagingKPort **)(*(_QWORD *)(CurrentProcessWin32Process + 1216) + 72440LL);
+    v27 = 0LL;
+    v28 = 0LL;
+    v29 = 0LL;
+    if ( a2 )
+    {
+      v24 = 0LL;
+      v25 = 0LL;
+      v26 = 0LL;
+      RtlCopyFromUser(&v24, a2, 0x28uLL);
+      v27 = v24;
+      v28 = v25;
+      v29 = v26;
+      if ( DWORD1(v27) != (unsigned int)PsGetCurrentThreadId() )
+      {
+        if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+          || (*(_DWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL) & 0x80u) == 0
+          || *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 2u )
+        {
+          v7 = 0;
+        }
+        v11 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+        if ( v7 || *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+        {
+          UserSessionState = W32GetUserSessionState(&WPP_RECORDER_INITIALIZED, v10);
+          LOBYTE(v13) = v11;
+          LOBYTE(v14) = v7;
+          WPP_RECORDER_AND_TRACE_SF_Dd(
+            *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+            v14,
+            v13,
+            *(_QWORD *)(UserSessionState + 69416),
+            2,
+            8,
+            114,
+            (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids,
+            a1,
+            SBYTE4(v27));
+        }
+        goto LABEL_6;
+      }
+      v15 = CoreMessagingKPort::RegisterEndpoint(v9, (unsigned int)a1, &v27);
+      if ( v15 < 0 )
+      {
+        if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+          || (*(_DWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL) & 0x80u) == 0
+          || (v16 = 1, *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 2u) )
+        {
+          v16 = 0;
+        }
+        v17 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+        if ( v16 || *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+        {
+          v18 = W32GetUserSessionState(&WPP_RECORDER_INITIALIZED, *(_QWORD *)&WPP_GLOBAL_Control);
+          LOBYTE(v19) = v17;
+          LOBYTE(v20) = v16;
+          WPP_RECORDER_AND_TRACE_SF_Dd(
+            *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+            v20,
+            v19,
+            *(_QWORD *)(v18 + 69416),
+            2,
+            8,
+            115,
+            (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids,
+            a1,
+            v15);
+        }
+        v21 = v15;
+        goto LABEL_30;
+      }
+    }
+    else
+    {
+      CoreMsgPort = CoreMessagingKPort::CreateCoreMsgPort(v9);
+      if ( CoreMsgPort < 0 )
+      {
+        v21 = CoreMsgPort;
+LABEL_30:
+        UserSetLastStatus(v21, 1);
+        return v5;
+      }
+    }
+    return 1;
+  }
+  v6 = 5023;
+LABEL_4:
+  UserSetLastError(v6);
+  return v5;
+}

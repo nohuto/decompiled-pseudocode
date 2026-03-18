@@ -1,0 +1,35 @@
+/*
+ * XREFs of HvlpMarkHypervisorPagesForHibernation @ 0x1405864F8
+ * Callers:
+ *     HvlMarkHiberPhase @ 0x140585CEC (HvlMarkHiberPhase.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x140472260 (PoSetHiberRange.c)
+ *     HvlpGetPageList @ 0x140588D18 (HvlpGetPageList.c)
+ *     HvlpGetPageListIterator @ 0x140588DD0 (HvlpGetPageListIterator.c)
+ *     HvlpStartPageListIteration @ 0x140588F24 (HvlpStartPageListIteration.c)
+ */
+
+__int64 HvlpMarkHypervisorPagesForHibernation()
+{
+  int PageList; // ebx
+  __int64 result; // rax
+  ULONG_PTR Length; // [rsp+40h] [rbp+8h] BYREF
+  PVOID Address; // [rsp+48h] [rbp+10h] BYREF
+
+  Address = 0LL;
+  LODWORD(Length) = 0;
+  HvlpStartPageListIteration(0LL, 0LL);
+  do
+  {
+    PageList = HvlpGetPageList(0LL, &Address, &Length);
+    if ( (_DWORD)Length )
+      PoSetHiberRange(0LL, 0x14000u, Address, (unsigned int)Length, 0x686C7648u);
+  }
+  while ( PageList == 261 );
+  result = HvlpGetPageListIterator(0LL);
+  *(_QWORD *)(result + 8) = 0LL;
+  *(_WORD *)result = 0;
+  *(_WORD *)(result + 3) = 0;
+  *(_BYTE *)(result + 2) = 0;
+  return result;
+}

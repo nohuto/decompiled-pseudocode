@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@UEBA_NXZ @ 0x1802A6060
+ * Callers:
+ *     ?IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ @ 0x18010C7D0 (-IsPrimaryResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CDxHandleYUVBitmapRealization::IsPrimaryResource(CDxHandleYUVBitmapRealization *this)
+{
+  __int64 v1; // rdx
+  bool result; // al
+
+  v1 = *((_QWORD *)this - 14);
+  result = 0;
+  if ( v1 )
+    return *(_BYTE *)(v1 + 68) != 0;
+  return result;
+}

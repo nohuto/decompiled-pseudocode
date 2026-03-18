@@ -1,0 +1,38 @@
+/*
+ * XREFs of PnpPrepareDriverLoading @ 0x14072311C
+ * Callers:
+ *     IopLoadDriver @ 0x140725EF8 (IopLoadDriver.c)
+ *     IopInitializeBuiltinDriver @ 0x140A576AC (IopInitializeBuiltinDriver.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14027DAE0 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     PpCheckInDriverDatabase @ 0x1407231E0 (PpCheckInDriverDatabase.c)
+ *     IopGetRegistryValue @ 0x140728128 (IopGetRegistryValue.c)
+ *     PnpSetBlockedDriverEvent @ 0x1408A7A14 (PnpSetBlockedDriverEvent.c)
+ *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PnpPrepareDriverLoading(int a1, void *a2, __int64 a3, int a4, _DWORD *a5)
+{
+  int v7; // ebx
+  __int64 v9; // rax
+  unsigned int v10; // ebx
+  __int128 v12; // [rsp+38h] [rbp-40h] BYREF
+
+  v7 = a3;
+  *a5 = 0;
+  v9 = RtlImageNtHeader(a3);
+  if ( !v9 )
+    return 3221225473LL;
+  v12 = 0LL;
+  v10 = PpCheckInDriverDatabase(a1, (_DWORD)a2, v7, *(_DWORD *)(v9 + 80), a4, (__int64)&v12);
+  if ( v10 + 1073740949 <= 1 )
+    PnpSetBlockedDriverEvent(&v12);
+  if ( (int)IopGetRegistryValue(a2) >= 0 )
+  {
+    if ( MEMORY[4] == 4 && MEMORY[0xC] == 4 )
+      *a5 = *(_DWORD *)MEMORY[8];
+    ExFreePoolWithTag(0LL, 0);
+  }
+  return v10;
+}

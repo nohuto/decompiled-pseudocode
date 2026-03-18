@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1VIDMM_PAGING_QUEUE@@QEAA@XZ @ 0x1C00321E0
+ * Callers:
+ *     ??1VIDMM_DEVICE_PAGING_QUEUE@@QEAA@XZ @ 0x1C0003D20 (--1VIDMM_DEVICE_PAGING_QUEUE@@QEAA@XZ.c)
+ *     ??_GVIDMM_PAGING_QUEUE@@QEAAPEAXI@Z @ 0x1C00102F8 (--_GVIDMM_PAGING_QUEUE@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __fastcall VIDMM_PAGING_QUEUE::~VIDMM_PAGING_QUEUE(void **this)
+{
+  VIDMM_PAGING_QUEUE::Destroy(this);
+}

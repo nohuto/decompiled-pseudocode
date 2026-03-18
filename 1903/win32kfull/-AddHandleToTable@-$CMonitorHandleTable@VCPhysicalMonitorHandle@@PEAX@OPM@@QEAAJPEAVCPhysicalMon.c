@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?AddHandleToTable@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAPEAX@Z @ 0x1C026E214
+ * Callers:
+ *     ?CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z @ 0x1C026E320 (-CreatePhysicalMonitor@CMonitorAPI@@QEAAJAEAU_LUID@@KPEAPEAX@Z.c)
+ * Callees:
+ *     ?AddElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z @ 0x1C026E104 (-AddElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJPEAVCPhysicalMonitorHandle@@PEAK@Z.c)
+ */
+
+__int64 __fastcall OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::AddHandleToTable(
+        __int64 a1,
+        __int64 a2,
+        _QWORD *a3)
+{
+  int v5; // r9d
+  unsigned int v7; // [rsp+30h] [rbp+8h] BYREF
+
+  v5 = OPM::CList<CPhysicalMonitorHandle>::AddElement(a1, a2, &v7);
+  if ( v5 < 0 )
+    return (unsigned int)v5;
+  if ( OPM::INVALID_MONITOR_HANDLE == (void *)v7 )
+    v5 = -1073741823;
+  if ( v5 < 0 )
+  {
+    *(_QWORD *)(*(_QWORD *)a1 + 8LL * v7) = 0LL;
+    --*(_DWORD *)(a1 + 8);
+    return (unsigned int)v5;
+  }
+  *a3 = v7;
+  return 0LL;
+}

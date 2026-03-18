@@ -1,0 +1,14 @@
+/*
+ * XREFs of ZwCreateEnclave @ 0x1403F9690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwCreateEnclave(__int64 a1, __int64 a2)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(a1, a2);
+}

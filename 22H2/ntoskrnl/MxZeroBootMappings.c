@@ -1,0 +1,74 @@
+/*
+ * XREFs of MxZeroBootMappings @ 0x140B5BE78
+ * Callers:
+ *     MiZeroBootMappings @ 0x140B5AD24 (MiZeroBootMappings.c)
+ *     MxZeroBootMappings @ 0x140B5BE78 (MxZeroBootMappings.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402711D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x140271240 (MiPteInShadowRange.c)
+ *     MiWritePteShadow @ 0x140356D4C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140356DAC (MiPteHasShadow.c)
+ *     MxZeroBootMappings @ 0x140B5BE78 (MxZeroBootMappings.c)
+ *     MiFreeBootPageTable @ 0x140B5BF94 (MiFreeBootPageTable.c)
+ */
+
+void __fastcall MxZeroBootMappings(unsigned __int64 a1, unsigned __int64 a2, int a3)
+{
+  unsigned __int64 v5; // rdi
+  __int64 v6; // rax
+  unsigned __int64 v7; // rax
+  unsigned __int64 v8; // rbx
+  int v9; // esi
+  __int64 v10; // r8
+  bool v11; // zf
+  __int64 v12; // [rsp+40h] [rbp+8h] BYREF
+
+  if ( a1 < a2 )
+  {
+    v5 = a1;
+    while ( 1 )
+    {
+      v6 = MI_READ_PTE_LOCK_FREE(v5);
+      v12 = v6;
+      if ( v6 )
+        break;
+LABEL_4:
+      v5 += 8LL;
+      if ( v5 >= a2 )
+        return;
+    }
+    if ( (v6 & 1) != 0 && (v6 & 0x80u) == 0LL )
+    {
+      if ( a3 > 1 )
+        MxZeroBootMappings((__int64)(v5 << 25) >> 16, ((__int64)(v5 << 25) >> 16) + 4096);
+      v7 = MI_READ_PTE_LOCK_FREE((unsigned __int64)&v12);
+      MiFreeBootPageTable((v7 >> 12) & 0xFFFFFFFFFFLL);
+    }
+    v8 = ZeroPte;
+    v9 = 0;
+    if ( !MiPteInShadowRange(v5) )
+    {
+LABEL_12:
+      *(_QWORD *)v5 = v8;
+      if ( v9 )
+        MiWritePteShadow(v5, v8, v10);
+      goto LABEL_4;
+    }
+    if ( MiPteHasShadow() )
+    {
+      v9 = 1;
+      if ( HIBYTE(word_140C66DFC) )
+        goto LABEL_12;
+      v11 = (ZeroPte & 1) == 0;
+    }
+    else
+    {
+      if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
+        goto LABEL_12;
+      v11 = (ZeroPte & 1) == 0;
+    }
+    if ( !v11 )
+      v8 = ZeroPte | 0x8000000000000000uLL;
+    goto LABEL_12;
+  }
+}

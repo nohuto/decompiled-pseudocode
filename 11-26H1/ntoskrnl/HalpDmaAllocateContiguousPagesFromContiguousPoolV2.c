@@ -1,0 +1,73 @@
+/*
+ * XREFs of HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1403575A0
+ * Callers:
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x14035754C (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402B4730 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     HalpDmaLinkContiguousTranslations @ 0x1403570D8 (HalpDmaLinkContiguousTranslations.c)
+ *     RtlFindClearBitsAndSet @ 0x1403586A0 (RtlFindClearBitsAndSet.c)
+ */
+
+__int64 __fastcall HalpDmaAllocateContiguousPagesFromContiguousPoolV2(
+        __int64 a1,
+        __int64 a2,
+        ULONG a3,
+        char a4,
+        char a5,
+        ULONG *a6)
+{
+  __int64 v9; // rbp
+  ULONG ClearBitsAndSet; // edi
+  __int64 result; // rax
+  unsigned int v12; // ecx
+  unsigned int v13; // eax
+  ULONG v14; // eax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v9 = 0LL;
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a2 + 128), &LockHandle);
+  if ( a5 )
+  {
+    v12 = *(_DWORD *)(a2 + 212);
+    v9 = a2;
+    v13 = *(_DWORD *)(a2 + 208);
+    if ( v13 <= v12 )
+    {
+      KeReleaseInStackQueuedSpinLock(&LockHandle);
+LABEL_8:
+      *a6 = 0;
+      return 0LL;
+    }
+    v14 = v13 - v12;
+    if ( a3 > v14 )
+      a3 = v14;
+  }
+  ClearBitsAndSet = -1;
+  if ( a3 )
+  {
+    while ( 1 )
+    {
+      ClearBitsAndSet = RtlFindClearBitsAndSet(*(PRTL_BITMAP *)(a2 + 24), a3, 0);
+      if ( ClearBitsAndSet != -1 )
+        break;
+      if ( !a4 )
+      {
+        a3 >>= 1;
+        if ( a3 )
+          continue;
+      }
+      goto LABEL_7;
+    }
+    if ( a5 )
+      *(_DWORD *)(v9 + 208) -= a3;
+  }
+LABEL_7:
+  KeReleaseInStackQueuedSpinLock(&LockHandle);
+  if ( ClearBitsAndSet == -1 )
+    goto LABEL_8;
+  result = HalpDmaLinkContiguousTranslations(a2, ClearBitsAndSet, a3);
+  *a6 = a3;
+  return result;
+}

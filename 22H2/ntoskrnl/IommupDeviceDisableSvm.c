@@ -1,0 +1,56 @@
+/*
+ * XREFs of IommupDeviceDisableSvm @ 0x140933BEC
+ * Callers:
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140933B50 (IommupDeviceDisablePasidTaggedDma.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BD930 (ExfTryToWakePushLock.c)
+ *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ *     IommupDeviceGetPasidDevice @ 0x14050DD3C (IommupDeviceGetPasidDevice.c)
+ *     IommupPasidDeviceDelete @ 0x14050E464 (IommupPasidDeviceDelete.c)
+ *     HalpIommuFreeDomainId @ 0x1405154A8 (HalpIommuFreeDomainId.c)
+ *     IommuDisableDevicePasid @ 0x140522130 (IommuDisableDevicePasid.c)
+ *     IommupUnmapDeviceInternal @ 0x140523FE8 (IommupUnmapDeviceInternal.c)
+ *     IommupHvDetachPasidDevice @ 0x140524940 (IommupHvDetachPasidDevice.c)
+ */
+
+__int64 __fastcall IommupDeviceDisableSvm(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // r14d
+  __int64 v5; // rbp
+  __int64 *v6; // rbx
+  __int64 v7; // r8
+  unsigned int v8; // ebp
+  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+
+  v2 = 0;
+  v9 = 0LL;
+  if ( !IommupDeviceGetPasidDevice(a1, a2, 0, &v9) )
+    return 3221225473LL;
+  if ( (*(_DWORD *)(a1 + 384) & 4) != 0 )
+    (*(void (__fastcall **)(_QWORD, __int64))(a1 + 320))(*(_QWORD *)(a1 + 280), a1 + 384);
+  v5 = v9;
+  if ( HalpHvIommu )
+  {
+    IommupHvDetachPasidDevice(a1);
+  }
+  else
+  {
+    v6 = *(__int64 **)(v9 + 56);
+    v2 = *(_DWORD *)(*v6 + 16);
+    IommuDisableDevicePasid((__int64)v6, a1);
+    IommupUnmapDeviceInternal(*v6, a1, v7);
+  }
+  v8 = IommupPasidDeviceDelete(v5);
+  if ( !HalpHvIommu )
+    HalpIommuFreeDomainId(*(_QWORD *)(a1 + 32), v2);
+  ExAcquirePushLockExclusiveEx(a1 + 376, 0LL);
+  if ( *(_QWORD *)(a1 + 360) != a1 + 360 )
+    v8 = -1073740024;
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(a1 + 376), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)(a1 + 376));
+  KeAbPostRelease(a1 + 376);
+  *(_DWORD *)(a1 + 384) &= 0xFFFFFF03;
+  return v8;
+}

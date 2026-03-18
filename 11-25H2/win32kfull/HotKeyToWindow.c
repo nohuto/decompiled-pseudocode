@@ -1,0 +1,24 @@
+/*
+ * XREFs of HotKeyToWindow @ 0x140216838
+ * Callers:
+ *     DWP_SetHotKey @ 0x1401A8FA4 (DWP_SetHotKey.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x14027D2B8 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall HotKeyToWindow(__int64 a1, __int64 a2)
+{
+  int v2; // ebx
+  __int64 i; // rdx
+
+  v2 = a1;
+  for ( i = *(_QWORD *)(W32GetUserSessionState(a1, a2) + 12936); ; i = *(_QWORD *)(i + 16) )
+  {
+    if ( !i )
+      return 0LL;
+    if ( *(_DWORD *)(i + 8) == v2 )
+      break;
+  }
+  return *(_QWORD *)i & -(__int64)((*(_BYTE *)(*(_QWORD *)(*(_QWORD *)i + 40LL) + 31LL) & 0x10) != 0);
+}

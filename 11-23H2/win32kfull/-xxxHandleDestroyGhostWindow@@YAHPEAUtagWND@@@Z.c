@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?xxxHandleDestroyGhostWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F3EF8
+ * Callers:
+ *     ?xxxHandleGhostRelatedWindowDestruction@@YAXPEAUtagWND@@@Z @ 0x1C013BED8 (-xxxHandleGhostRelatedWindowDestruction@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C0026C40 (InternalRemoveProp.c)
+ *     HMValidateHandleNoSecure @ 0x1C00B02D0 (HMValidateHandleNoSecure.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F410C (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ */
+
+__int64 __fastcall xxxHandleDestroyGhostWindow(struct tagWND *a1)
+{
+  int v1; // edi
+  __int64 v3; // rax
+  struct tagWND *v4; // rbx
+  unsigned __int16 v5; // cx
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int128 v10; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+30h] [rbp-18h]
+
+  v1 = 0;
+  v3 = InternalRemoveProp((__int64)a1, *(unsigned __int16 *)(gpsi + 900LL), 1u);
+  if ( !v3 )
+  {
+    v3 = InternalRemoveProp((__int64)a1, *(unsigned __int16 *)(gpsi + 1378LL), 1u);
+    if ( !v3 )
+      return 0LL;
+    v1 = 1;
+  }
+  v4 = (struct tagWND *)HMValidateHandleNoSecure(v3, 1);
+  if ( v4 )
+  {
+    v10 = 0LL;
+    v11 = 0LL;
+    ThreadLock(v4, &v10);
+    if ( v1 )
+      v5 = *(_WORD *)(gpsi + 1378LL);
+    else
+      v5 = *(_WORD *)(gpsi + 900LL);
+    InternalRemoveProp((__int64)v4, v5, 1u);
+    xxxHideGhostWindow(a1, v4);
+    ThreadUnlock1(v7, v6, v8);
+  }
+  return 0LL;
+}

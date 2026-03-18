@@ -1,0 +1,13 @@
+/*
+ * XREFs of PiUEventMetaNotificationCallback @ 0x1407A59B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 PiUEventMetaNotificationCallback()
+{
+  PiUEventBroadcastSubscriberPresent = 1;
+  return 0LL;
+}

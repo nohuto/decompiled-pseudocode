@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?DisableHardwareCursor@COverlayContext@@AEAAXXZ @ 0x1800B998C
+ * Callers:
+ *     ?EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z @ 0x1800B9510 (-EndOverlayCandidateCollection@COverlayContext@@QEAAJPEBVCVisualTree@@AEBVCDirtyRegion@@@Z.c)
+ *     ?Reset@COverlayContext@@QEAAXXZ @ 0x1800C68E4 (-Reset@COverlayContext@@QEAAXXZ.c)
+ * Callees:
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x1800B1804 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DisableHardwareCursor@CCursorState@@QEAAXU_LUID@@I@Z @ 0x180269878 (-DisableHardwareCursor@CCursorState@@QEAAXU_LUID@@I@Z.c)
+ */
+
+void __fastcall COverlayContext::DisableHardwareCursor(COverlayContext *this)
+{
+  __int64 v2; // rax
+  __int64 v3; // rsi
+  __int64 v4; // rbx
+  unsigned int v5; // ebp
+  struct _LUID *v6; // rax
+  CCursorState *v7; // rcx
+  CResource *v8; // rcx
+  char v9; // [rsp+30h] [rbp+8h] BYREF
+
+  if ( *((_QWORD *)this + 1379) )
+  {
+    v2 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 184LL))(*(_QWORD *)this);
+    v3 = v2;
+    if ( v2 )
+    {
+      v4 = *((_QWORD *)this + 1379);
+      v5 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v2 + 56LL))(v2);
+      v6 = (struct _LUID *)(*(__int64 (__fastcall **)(__int64, char *))(*(_QWORD *)v3 + 48LL))(v3, &v9);
+      v7 = *(CCursorState **)(v4 + 744);
+      if ( v7 )
+        CCursorState::DisableHardwareCursor(v7, *v6, v5);
+    }
+    v8 = (CResource *)*((_QWORD *)this + 1379);
+    *((_QWORD *)this + 1379) = 0LL;
+    if ( v8 )
+      CResource::InternalRelease(v8);
+  }
+}

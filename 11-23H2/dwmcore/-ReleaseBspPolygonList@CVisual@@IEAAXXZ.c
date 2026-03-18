@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18008332C
+ * Callers:
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180063E50 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x18008375C (--1CVisual@@MEAA@XZ.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x18007F480 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?GetBspPolygonList@CVisual@@QEBAPEAV?$DynArray@PEAVCPolygon@@$0A@@@XZ @ 0x18008336C (-GetBspPolygonList@CVisual@@QEBAPEAV-$DynArray@PEAVCPolygon@@$0A@@@XZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800CACC8 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010F3C8 (--3@YAXPEAX_K@Z.c)
+ *     ??$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z @ 0x1801D7404 (--$ReleaseInterface@VCPolygon@@@@YAXAEAPEAVCPolygon@@@Z.c)
+ *     ?SetBspPolygonList@CVisual@@QEAAXPEAV?$DynArray@PEAVCPolygon@@$0A@@@@Z @ 0x1802115B8 (-SetBspPolygonList@CVisual@@QEAAXPEAV-$DynArray@PEAVCPolygon@@$0A@@@@Z.c)
+ */
+
+void __fastcall CVisual::ReleaseBspPolygonList(CVisual *this)
+{
+  __int64 BspPolygonList; // rax
+  _DWORD *v3; // rbx
+  unsigned int i; // edi
+
+  BspPolygonList = CVisual::GetBspPolygonList();
+  v3 = (_DWORD *)BspPolygonList;
+  if ( BspPolygonList )
+  {
+    for ( i = *(_DWORD *)(BspPolygonList + 24); i; ReleaseInterface<CPolygon>(*(_QWORD *)v3 + 8LL * i) )
+      --i;
+    v3[6] = 0;
+    DynArrayImpl<0>::ShrinkToSize(v3, 8LL);
+    DynArrayImpl<0>::~DynArrayImpl<0>((__int64)v3);
+    operator delete(v3, 0x20uLL);
+    CVisual::SetBspPolygonList(this, 0LL);
+  }
+}

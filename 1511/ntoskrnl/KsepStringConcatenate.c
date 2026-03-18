@@ -1,0 +1,85 @@
+/*
+ * XREFs of KsepStringConcatenate @ 0x1403B8750
+ * Callers:
+ *     KsepLoadShimProvider @ 0x1401CCE04 (KsepLoadShimProvider.c)
+ *     KsepRegistryOpenKey @ 0x1403B8888 (KsepRegistryOpenKey.c)
+ * Callees:
+ *     KsepPoolAllocatePaged @ 0x1400028EC (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x140166980 (memmove.c)
+ *     RtlAssert @ 0x1401F912C (RtlAssert.c)
+ */
+
+__int64 __fastcall KsepStringConcatenate(__int64 a1, _WORD *a2, _WORD *a3, int a4)
+{
+  __int64 v8; // rdi
+  __int64 v9; // rbx
+  size_t v10; // rbx
+  size_t v11; // rdi
+  __int64 v12; // r14
+  size_t v13; // rbp
+  PVOID Paged; // rax
+  __int16 v15; // bx
+  __int64 v17; // rcx
+  char v18; // al
+  __int64 v19; // rcx
+  char v20; // al
+  __int64 v21; // rcx
+  char v22; // al
+
+  if ( !a1 )
+  {
+    v17 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    v18 = KsepDebugFlag;
+    KsepHistoryErrors[2 * v17 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v17] = 197327;
+    if ( (v18 & 4) != 0 )
+      RtlAssert("ResultString != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x2CFu, 0LL);
+  }
+  if ( !a2 )
+  {
+    v19 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    v20 = KsepDebugFlag;
+    KsepHistoryErrors[2 * v19 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v19] = 197328;
+    if ( (v20 & 4) != 0 )
+      RtlAssert("LeftString != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x2D0u, 0LL);
+  }
+  if ( !a3 )
+  {
+    v21 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    v22 = KsepDebugFlag;
+    KsepHistoryErrors[2 * v21 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v21] = 197329;
+    if ( (v22 & 4) != 0 )
+      RtlAssert("RightString != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x2D1u, 0LL);
+  }
+  v8 = -1LL;
+  *(_QWORD *)a1 = 0LL;
+  v9 = -1LL;
+  *(_QWORD *)(a1 + 8) = 0LL;
+  do
+    ++v9;
+  while ( a2[v9] );
+  v10 = 2 * v9;
+  do
+    ++v8;
+  while ( a3[v8] );
+  v11 = 2 * v8;
+  v12 = -(__int64)(a4 != 0) & 2;
+  v13 = v10 + v12 + v11;
+  if ( v13 + 1 > 0xFFFE )
+    return 2147483653LL;
+  Paged = KsepPoolAllocatePaged(v13 + 2);
+  if ( !Paged )
+    return 3221225495LL;
+  *(_QWORD *)(a1 + 8) = Paged;
+  memmove(Paged, a2, v10);
+  if ( v12 )
+    *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * (v10 >> 1)) = 92;
+  memmove((void *)(*(_QWORD *)(a1 + 8) + 2 * ((v12 + v10) >> 1)), a3, v11);
+  v15 = v12 + v11 + v10;
+  *(_WORD *)(*(_QWORD *)(a1 + 8) + 2 * (v13 >> 1)) = 0;
+  *(_WORD *)a1 = v15;
+  *(_WORD *)(a1 + 2) = v15 + 2;
+  return 0LL;
+}

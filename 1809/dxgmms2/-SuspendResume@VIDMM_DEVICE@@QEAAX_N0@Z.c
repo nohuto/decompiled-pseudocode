@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z @ 0x1C007E9B0
+ * Callers:
+ *     ?VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z @ 0x1C0015920 (-VidMmSuspendResumeDevice@@YAXPEAVVIDMM_DEVICE@@_N1@Z.c)
+ * Callees:
+ *     memset @ 0x1C001A9C0 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C007EA1C (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ */
+
+void __fastcall VIDMM_DEVICE::SuspendResume(VIDMM_GLOBAL **this, char a2, char a3)
+{
+  VIDMM_GLOBAL *v6; // rcx
+  _QWORD v7[12]; // [rsp+20h] [rbp-68h] BYREF
+
+  memset(v7, 0, 0x58uLL);
+  v6 = *this;
+  LODWORD(v7[0]) = 123;
+  v7[5] = this;
+  LOBYTE(v7[6]) = a2;
+  BYTE1(v7[6]) = a3;
+  VIDMM_GLOBAL::QueueSystemCommandAndWait(v6, (struct _VIDMM_SYSTEM_COMMAND *)v7, 1);
+}

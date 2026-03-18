@@ -1,0 +1,34 @@
+/*
+ * XREFs of HalpCmcLogPollingTimeoutEvent @ 0x14057AB04
+ * Callers:
+ *     HalpCmcPollProcessor @ 0x140453548 (HalpCmcPollProcessor.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x1403DFEC0 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ */
+
+char __fastcall HalpCmcLogPollingTimeoutEvent(__int128 *a1, int a2)
+{
+  __int128 v2; // xmm0
+  int v3; // eax
+  _DWORD Src[8]; // [rsp+20h] [rbp-40h] BYREF
+  __int128 v6; // [rsp+40h] [rbp-20h]
+  int v7; // [rsp+50h] [rbp-10h]
+  int v8; // [rsp+54h] [rbp-Ch]
+
+  v2 = *a1;
+  v7 = 0;
+  Src[1] = 1;
+  Src[3] = 1;
+  v3 = *((_DWORD *)a1 + 4);
+  Src[0] = 1733060695;
+  Src[2] = 56;
+  Src[5] = -2147483647;
+  Src[4] = 541868360;
+  Src[6] = 2;
+  Src[7] = 24;
+  v6 = v2;
+  v7 = v3;
+  v8 = a2;
+  return WheaLogInternalEvent(Src);
+}

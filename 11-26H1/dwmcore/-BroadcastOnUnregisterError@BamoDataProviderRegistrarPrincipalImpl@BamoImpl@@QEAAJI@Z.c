@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?BroadcastOnUnregisterError@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@QEAAJI@Z @ 0x1802415D8
+ * Callers:
+ *     ?BroadcastOnUnregisterError@BamoDataProviderRegistrarPrincipal@@UEAAJI@Z @ 0x180241590 (-BroadcastOnUnregisterError@BamoDataProviderRegistrarPrincipal@@UEAAJI@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18007F810 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z @ 0x180161C14 (-TrackError@BaseBamoConnectionImpl@BamoImpl@Microsoft@@QEAAJJI@Z.c)
+ *     ?CallOnUnregisterErrorOnStub@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@CAJPEAVBamoStubImpl@2Microsoft@@I@Z @ 0x1802416D4 (-CallOnUnregisterErrorOnStub@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@CAJPEAVBamoStubImp.c)
+ */
+
+__int64 __fastcall BamoImpl::BamoDataProviderRegistrarPrincipalImpl::BroadcastOnUnregisterError(
+        BamoImpl::BamoDataProviderRegistrarPrincipalImpl *this,
+        unsigned int a2)
+{
+  __int64 v2; // rax
+  __int64 i; // rbx
+  int v6; // eax
+  unsigned int v7; // edi
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = *((_QWORD *)this + 2);
+  if ( *(_QWORD *)(*(_QWORD *)(v2 + 32) + 64LL) )
+  {
+    for ( i = *((_QWORD *)this + 4); i; i = *(_QWORD *)(i + 40) )
+    {
+      if ( *(_BYTE *)(i + 56) )
+      {
+        v6 = BamoImpl::BamoDataProviderRegistrarPrincipalImpl::CallOnUnregisterErrorOnStub(
+               (struct Microsoft::BamoImpl::BamoStubImpl *)i,
+               a2);
+        v7 = v6;
+        if ( v6 < 0 )
+        {
+          wil::details::in1diag3::Return_Hr(
+            retaddr,
+            (void *)0x273,
+            (int)"d:\\os\\tools\\BamoCodegen\\Inc\\BamoPrincipal.inl",
+            (const char *)(unsigned int)v6);
+          return v7;
+        }
+      }
+    }
+    return 0;
+  }
+  else
+  {
+    Microsoft::BamoImpl::BaseBamoConnectionImpl::TrackError(
+      *(struct Microsoft::BamoImpl::ConnectionIndirector ***)(v2 + 32),
+      0x87B20814,
+      0);
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x2D17,
+      (int)"onecoreuap\\windows\\DWM\\dwmcore\\dataprovider\\objfre\\amd64\\dataprovider.bamo.h",
+      (const char *)0x87B20814LL);
+    return 2276591636LL;
+  }
+}

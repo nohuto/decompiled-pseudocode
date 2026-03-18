@@ -1,0 +1,79 @@
+/*
+ * XREFs of HalpBlkInitializeProcessorState @ 0x140BEEEC0
+ * Callers:
+ *     HalpBlkStartBlockedProcessor @ 0x140BEF0B8 (HalpBlkStartBlockedProcessor.c)
+ * Callees:
+ *     memmove @ 0x14073D480 (memmove.c)
+ *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     HalpBlkInitializeIdt @ 0x140BEEDE0 (HalpBlkInitializeIdt.c)
+ */
+
+unsigned __int64 __fastcall HalpBlkInitializeProcessorState(
+        unsigned __int64 *a1,
+        char *a2,
+        __int64 a3,
+        __int64 a4,
+        int a5)
+{
+  int v5; // ebx
+  struct _KPRCB *CurrentPrcb; // rdx
+  int v9; // r8d
+  unsigned __int64 v10; // rax
+  unsigned __int64 v11; // rax
+  unsigned __int64 result; // rax
+
+  v5 = HalpBlkNumberProcessors;
+  memset_0(a2, 0, 0xE000uLL);
+  memset_0(a1, 0, 0x5E0uLL);
+  CurrentPrcb = KeGetCurrentPrcb();
+  v9 = CurrentPrcb->CoresPerPhysicalProcessor * CurrentPrcb->LogicalProcessorsPerCore;
+  *((_DWORD *)a2 + 3) = a5;
+  *((_DWORD *)a2 + 2) = v5;
+  *(_QWORD *)a2 = a2;
+  *((_DWORD *)a2 + 6) = a5 & -v9;
+  *((_QWORD *)a2 + 4) = HalpLocalApic;
+  a2[40] = HalpApicUsingMsrs;
+  a2[41] = HalpApicX2Mode;
+  a2[42] = HalpApicClusterModeEnabled;
+  a2[43] = CurrentPrcb->CpuVendor;
+  *((_WORD *)a1 + 43) = CurrentPrcb->ProcessorState.SpecialRegisters.Gdtr.Limit;
+  a1[11] = (unsigned __int64)(a2 + 49072);
+  memmove(
+    a2 + 49072,
+    CurrentPrcb->ProcessorState.SpecialRegisters.Gdtr.Base,
+    CurrentPrcb->ProcessorState.SpecialRegisters.Gdtr.Limit + 1LL);
+  HalpBlkInitializeIdt((__int64)(a1 + 12), a2 + 36864);
+  *((_QWORD *)a2 + 5134) = a2;
+  *((_WORD *)a2 + 24569) = (_WORD)a2 - 24576;
+  a2[49140] = (unsigned int)((_DWORD)a2 + 40960) >> 16;
+  a2[49143] = (unsigned int)((_DWORD)a2 + 40960) >> 24;
+  *((_DWORD *)a2 + 12286) = (unsigned __int64)(a2 + 40960) >> 32;
+  *(_QWORD *)(a2 + 41004) = a2 + 28672;
+  *(_QWORD *)(a2 + 40996) = a2 + 20480;
+  *(_QWORD *)(a2 + 41012) = a2 + 36864;
+  *(_QWORD *)(a2 + 40964) = a2 + 12288;
+  *((_QWORD *)a2 + 12) = a2 + 28672;
+  *((_QWORD *)a2 + 10) = a2 + 12288;
+  *((_QWORD *)a2 + 11) = a2 + 20480;
+  *((_QWORD *)a2 + 13) = a2 + 36864;
+  *((_QWORD *)a2 + 6) = a2 + 36864;
+  *((_QWORD *)a2 + 7) = a2 + 36864;
+  *((_QWORD *)a2 + 9) = a2 + 49072;
+  *((_QWORD *)a2 + 8) = a2 + 40960;
+  a1[65] = (unsigned __int64)HalpBlkProcessorStartup;
+  a1[53] = (unsigned __int64)(a2 + 12280);
+  a1[50] = (unsigned __int64)a2;
+  *((_DWORD *)a1 + 82) = 2818064;
+  *((_DWORD *)a1 + 83) = 5439531;
+  a1[42] = 1572907LL;
+  v10 = __readcr0();
+  *a1 = v10;
+  a1[2] = HalpBlkRootPageTablePa;
+  *((_WORD *)a1 + 56) = 64;
+  a2[49141] = -119;
+  v11 = __readcr4();
+  result = v11 & 0xFFFFFFFFFF7FFFFFuLL;
+  a1[3] = result;
+  *((_QWORD *)a2 + 277) = 0LL;
+  return result;
+}

@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?MonitorNotifyDXGIGammaRampChange@@YAJPEAXI@Z @ 0x1403AA994
+ * Callers:
+ *     DxgkAdjustFullscreenGamma @ 0x1401B4C30 (DxgkAdjustFullscreenGamma.c)
+ *     DxgkSetGammaRamp @ 0x1401C60B0 (DxgkSetGammaRamp.c)
+ *     ?UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z @ 0x1403AA144 (-UpdateGammaRamp@ADAPTER_DISPLAY@@QEAAJI@Z.c)
+ * Callees:
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x140031B50 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?_GetMonitorInstance@MONITOR_MGR@@QEAAJIEAEAVMONITOR_REF_ACCESSOR@@@Z @ 0x1402CBB30 (-_GetMonitorInstance@MONITOR_MGR@@QEAAJIEAEAVMONITOR_REF_ACCESSOR@@@Z.c)
+ *     ?AddReference@MONITOR_REF_ACCESSOR@@AEAAXXZ @ 0x1402CC034 (-AddReference@MONITOR_REF_ACCESSOR@@AEAAXXZ.c)
+ *     ?Release@MONITOR_REF_ACCESSOR@@QEAAXXZ @ 0x1402CC050 (-Release@MONITOR_REF_ACCESSOR@@QEAAXXZ.c)
+ *     ?OnDxgiGammaRampChange@MonitorGammaState@DxgMonitor@@QEAAJXZ @ 0x1403AAB80 (-OnDxgiGammaRampChange@MonitorGammaState@DxgMonitor@@QEAAJXZ.c)
+ */
+
+__int64 __fastcall MonitorNotifyDXGIGammaRampChange(DXGADAPTER *a1, unsigned int a2)
+{
+  __int64 v2; // rdi
+  MONITOR_MGR *v4; // rsi
+  int MonitorInstance; // ebx
+  void *v7; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-10h]
+  void *retaddr; // [rsp+38h] [rbp+0h]
+
+  v2 = a2;
+  if ( !a1 || a2 == -1 )
+    return 3221225485LL;
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(a1) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 3012;
+  }
+  if ( !*((_QWORD *)a1 + 395) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 3013;
+  }
+  v4 = *(MONITOR_MGR **)(*((_QWORD *)a1 + 395) + 112LL);
+  if ( !v4 )
+  {
+    WdLogSingleEntry1(2LL);
+    WdLogGlobalForLineNumber = 3023;
+    return 3221225485LL;
+  }
+  v7 = retaddr;
+  v8 = 0LL;
+  MONITOR_REF_ACCESSOR::AddReference((MONITOR_REF_ACCESSOR *)&v7);
+  MonitorInstance = MONITOR_MGR::_GetMonitorInstance(v4, v2, 1, (struct MONITOR_REF_ACCESSOR *)&v7);
+  if ( MonitorInstance >= 0 )
+  {
+    DxgMonitor::MonitorGammaState::OnDxgiGammaRampChange(*(DxgMonitor::MonitorGammaState **)(v8 + 248));
+  }
+  else
+  {
+    WdLogSingleEntry2(7LL, v2, v4);
+    WdLogGlobalForLineNumber = 3041;
+  }
+  MONITOR_REF_ACCESSOR::Release((MONITOR_REF_ACCESSOR *)&v7);
+  return (unsigned int)MonitorInstance;
+}

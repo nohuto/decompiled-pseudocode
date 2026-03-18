@@ -1,0 +1,16 @@
+/*
+ * XREFs of MiGetLargestPageIndex @ 0x1402C8990
+ * Callers:
+ *     MiAddPhysicalMemoryChunks @ 0x140A2BEFC (MiAddPhysicalMemoryChunks.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140A3F9C0 (MiQueryMemoryPhysicalContiguity.c)
+ *     MmManagePartitionCreateLargePages @ 0x140A45644 (MmManagePartitionCreateLargePages.c)
+ *     MmBuildLargePages @ 0x140A45FD8 (MmBuildLargePages.c)
+ *     MiFindLargePageMemory @ 0x140A497D8 (MiFindLargePageMemory.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 MiGetLargestPageIndex()
+{
+  return (KeFeatureBits & 0x2000000000LL) == 0;
+}

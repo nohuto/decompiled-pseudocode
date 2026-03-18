@@ -1,0 +1,47 @@
+/*
+ * XREFs of PspIumVerifyParentSd @ 0x14071AD14
+ * Callers:
+ *     PsDispatchIumService @ 0x14024ED54 (PsDispatchIumService.c)
+ * Callees:
+ *     SeAccessCheck @ 0x14007E440 (SeAccessCheck.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1401213E0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x1402B2440 (ExFreePoolWithTag.c)
+ *     SeCaptureSubjectContext @ 0x14049D010 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1404AC530 (SeReleaseSubjectContext.c)
+ */
+
+__int64 __fastcall PspIumVerifyParentSd(int a1, NTSTATUS a2, __int64 a3)
+{
+  __int64 result; // rax
+  PSECURITY_DESCRIPTOR SecurityDescriptor; // [rsp+50h] [rbp-38h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+58h] [rbp-30h] BYREF
+  NTSTATUS AccessStatus; // [rsp+98h] [rbp+10h] BYREF
+  ACCESS_MASK GrantedAccess; // [rsp+A8h] [rbp+20h] BYREF
+
+  AccessStatus = a2;
+  result = SeConvertStringSecurityDescriptorToSecurityDescriptor(
+             a3,
+             a1,
+             (__int64)&SecurityDescriptor,
+             (__int64)&AccessStatus);
+  AccessStatus = result;
+  if ( (int)result >= 0 )
+  {
+    SeCaptureSubjectContext(&SubjectContext);
+    SeAccessCheck(
+      SecurityDescriptor,
+      &SubjectContext,
+      0,
+      0x80u,
+      0,
+      0LL,
+      &PsTrustletGenericMapping,
+      1,
+      &GrantedAccess,
+      &AccessStatus);
+    SeReleaseSubjectContext(&SubjectContext);
+    ExFreePoolWithTag(SecurityDescriptor, 0);
+    return (unsigned int)AccessStatus;
+  }
+  return result;
+}

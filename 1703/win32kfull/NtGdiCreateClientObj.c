@@ -1,0 +1,43 @@
+/*
+ * XREFs of NtGdiCreateClientObj @ 0x1C00FF720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C002B5F8 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ */
+
+struct HOBJ__ *__fastcall NtGdiCreateClientObj(unsigned int a1)
+{
+  struct HOBJ__ *v1; // rbx
+  __int64 v2; // rdi
+  struct OBJECT *Object; // rax
+  struct OBJECT *v4; // rsi
+  struct HOBJ__ *v5; // rax
+  __int64 v6; // rdx
+  __int64 v8; // [rsp+48h] [rbp+10h] BYREF
+
+  v1 = 0LL;
+  v2 = a1;
+  if ( (a1 & 0xFF00FFFF) != 0 || (a1 & 0x600000) == 0 || (a1 & 0x1F0000) != 0x60000 )
+    return 0LL;
+  Object = (struct OBJECT *)AllocateObject(24LL, 6LL, 0LL);
+  v4 = Object;
+  if ( Object )
+  {
+    v8 = 0LL;
+    v5 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)&v8, Object, 0, 0, 6);
+    v1 = v5;
+    if ( v5 )
+    {
+      v1 = (struct HOBJ__ *)(v2 | (unsigned __int64)v5);
+      HmgModifyHandleType(v2 | (unsigned __int64)v5, v6);
+    }
+    else
+    {
+      FreeObject(v4, 6LL);
+    }
+    if ( v8 )
+      _InterlockedDecrement((volatile signed __int32 *)(v8 + 12));
+  }
+  return v1;
+}

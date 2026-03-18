@@ -1,0 +1,26 @@
+/*
+ * XREFs of ??1?$PagedPoolArray@VDXGALLOCATIONREFERENCE@@$0BA@@@QEAA@XZ @ 0x1402930B8
+ * Callers:
+ *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x140290740 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
+ *     ?DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEBD@Z @ 0x14037B94C (-DxgkEvictInternal@@YAJPEAU_D3DKMT_EVICT@@HPEBD@Z.c)
+ * Callees:
+ *     ??_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z @ 0x140038CAC (--_EDXGALLOCATIONREFERENCE@@QEAAPEAXI@Z.c)
+ *     ??1DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x140293000 (--1DXGALLOCATIONREFERENCE@@QEAA@XZ.c)
+ */
+
+void __fastcall PagedPoolArray<DXGALLOCATIONREFERENCE,16>::~PagedPoolArray<DXGALLOCATIONREFERENCE,16>(__int64 a1)
+{
+  DXGALLOCATIONREFERENCE *v2; // rcx
+  unsigned int i; // ebx
+
+  v2 = *(DXGALLOCATIONREFERENCE **)a1;
+  if ( v2 == (DXGALLOCATIONREFERENCE *)(a1 + 8) )
+  {
+    for ( i = 0; i < *(_DWORD *)(a1 + 136); ++i )
+      DXGALLOCATIONREFERENCE::~DXGALLOCATIONREFERENCE((struct _EX_RUNDOWN_REF **)(*(_QWORD *)a1 + 8LL * i));
+  }
+  else if ( v2 )
+  {
+    DXGALLOCATIONREFERENCE::`vector deleting destructor'(v2);
+  }
+}

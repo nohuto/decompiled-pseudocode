@@ -1,0 +1,36 @@
+/*
+ * XREFs of GreCreateDIBitmapReal @ 0x1C02DDA3C
+ * Callers:
+ *     RecolorDeskPattern @ 0x1C009FC30 (RecolorDeskPattern.c)
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0220834 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C0236080 (xxxRealDrawMenuItem.c)
+ *     ?GreIcmSetBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAX@Z @ 0x1C02CDF60 (-GreIcmSetBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAX@Z.c)
+ *     GreCreateDIBBrush @ 0x1C02D0430 (GreCreateDIBBrush.c)
+ * Callees:
+ *     ?GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK3K_KPEAPEAX@Z @ 0x1C00476E0 (-GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK.c)
+ */
+
+__int64 __fastcall GreCreateDIBitmapReal(
+        HDC a1,
+        unsigned int a2,
+        __int64 a3,
+        unsigned int *a4,
+        int a5,
+        unsigned int a6,
+        unsigned int a7,
+        void *a8,
+        unsigned int a9,
+        void *a10,
+        char a11,
+        unsigned __int64 a12,
+        _QWORD *a13)
+{
+  __int64 v14[3]; // [rsp+60h] [rbp-28h] BYREF
+  __int16 v15; // [rsp+78h] [rbp-10h]
+
+  v14[2] = 0LL;
+  v14[1] = a7;
+  v14[0] = a3;
+  v15 = 0;
+  return GreCreateDIBitmapReal(a1, a2, v14, a4, a5, a6, a8, a9, a10, a11, a12, a13);
+}

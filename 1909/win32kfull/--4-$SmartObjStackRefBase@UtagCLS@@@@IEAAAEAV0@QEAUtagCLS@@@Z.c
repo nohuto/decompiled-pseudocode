@@ -1,0 +1,29 @@
+/*
+ * XREFs of ??4?$SmartObjStackRefBase@UtagCLS@@@@IEAAAEAV0@QEAUtagCLS@@@Z @ 0x1C00E0C0C
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C0061510 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall SmartObjStackRefBase<tagCLS>::operator=(_QWORD *a1, __int64 a2)
+{
+  if ( a2 != *(_QWORD *)*a1 )
+  {
+    if ( *a1 != gSmartObjNullRef && !--*(_DWORD *)(*a1 + 8LL) )
+    {
+      if ( *(_BYTE *)(*a1 + 12LL) )
+        Win32FreeToPagedLookasideList(gpStackRefLookAside, *a1);
+    }
+    if ( a2 )
+    {
+      *a1 = *(_QWORD *)(a2 + 128);
+      ++*(_DWORD *)(*a1 + 8LL);
+    }
+    else
+    {
+      *a1 = gSmartObjNullRef;
+    }
+  }
+  return a1;
+}

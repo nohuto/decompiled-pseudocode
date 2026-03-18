@@ -1,0 +1,105 @@
+/*
+ * XREFs of IopAddCodeRegion @ 0x140593264
+ * Callers:
+ *     KeCapturePersistentThreadState @ 0x140262B20 (KeCapturePersistentThreadState.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14041E7E0 (RtlImageNtHeaderEx.c)
+ *     RtlULongLongSub @ 0x140476D94 (RtlULongLongSub.c)
+ *     IopValidateSectionSize @ 0x1404D81F4 (IopValidateSectionSize.c)
+ *     memmove @ 0x1406BFC40 (memmove.c)
+ */
+
+__int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
+{
+  ULONGLONG v3; // r12
+  unsigned int v4; // edi
+  const void *v6; // rsi
+  ULONGLONG v7; // r15
+  char v8; // r11
+  PVOID *v9; // r14
+  __int64 v10; // rbx
+  unsigned __int64 v11; // rbp
+  unsigned int *v12; // rdx
+  unsigned int *v13; // rax
+  unsigned __int64 v14; // rdx
+  unsigned int v15; // edi
+  __int64 v16; // rcx
+  unsigned int v17; // edi
+  ULONGLONG pullResult[11]; // [rsp+20h] [rbp-58h] BYREF
+  char v21; // [rsp+88h] [rbp+10h]
+  __int64 v22; // [rsp+90h] [rbp+18h] BYREF
+  unsigned int v23; // [rsp+98h] [rbp+20h]
+
+  v3 = *(_QWORD *)(a1 + 248);
+  pullResult[0] = 0LL;
+  v4 = a2;
+  LODWORD(v22) = 4112;
+  v23 = (a2 + 7) & 0xFFFFFFF8;
+  v21 = 0;
+  v6 = 0LL;
+  v7 = -1LL;
+  IopValidateSectionSize(v23, (unsigned int *)&v22);
+  v9 = (PVOID *)PsLoadedModuleList;
+  if ( (unsigned int)v22 > 0x10 )
+  {
+    v10 = (unsigned int)(v22 - 16);
+    while ( v9 != &PsLoadedModuleList )
+    {
+      v11 = (unsigned __int64)v9[6];
+      if ( v3 >= v11 && v3 < v11 + *((unsigned int *)v9 + 38) )
+      {
+        v22 = 0LL;
+        RtlImageNtHeaderEx(1, v11, 0LL, &v22);
+        if ( !v22 )
+          return v4;
+        v12 = (unsigned int *)(v22 + *(unsigned __int16 *)(v22 + 20) + 24LL);
+        v13 = &v12[10 * *(unsigned __int16 *)(v22 + 6)];
+        while ( 1 )
+        {
+          if ( v12 >= v13 )
+          {
+            v8 = v21;
+            goto LABEL_15;
+          }
+          v6 = (const void *)(v11 + v12[3]);
+          v7 = (ULONGLONG)v6 + v12[2];
+          if ( v3 >= (unsigned __int64)v6 && v3 < v7 )
+            break;
+          v12 += 10;
+        }
+        if ( (v12[9] & 0x2000000) != 0 )
+          return v4;
+        v8 = 1;
+        v21 = 1;
+      }
+LABEL_15:
+      v9 = (PVOID *)*v9;
+    }
+    if ( v8 )
+    {
+      v14 = (unsigned __int64)(unsigned int)v10 >> 1;
+      if ( *(_QWORD *)(a1 + 248) - v14 + 1 >= (unsigned __int64)v6 )
+        v6 = (const void *)(*(_QWORD *)(a1 + 248) - v14 + 1);
+      if ( (unsigned __int64)v6 + v10 <= v7
+        || RtlULongLongSub(v7, (ULONGLONG)v6, pullResult) >= 0
+        && (LODWORD(v10) = pullResult[0], pullResult[0] <= 0xFFFFFFFF) )
+      {
+        if ( (_DWORD)v10 )
+        {
+          a3[1038] |= 0x800u;
+          v15 = v23;
+          a3[2078] = v23;
+          v16 = v15;
+          a3[2079] = 1;
+          v17 = (v15 + 23) & 0xFFFFFFF8;
+          *(_QWORD *)((char *)a3 + v16) = v6;
+          *(_DWORD *)((char *)a3 + v16 + 12) = v10;
+          *(_DWORD *)((char *)a3 + v16 + 8) = v17;
+          memmove((char *)a3 + v17, v6, (unsigned int)v10);
+          return (unsigned int)v10 + v17;
+        }
+      }
+    }
+  }
+  return v4;
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?Is2DAffine@Matrix3x3@@QEBA_NXZ @ 0x1801C87C0
+ * Callers:
+ *     ?GenerateDrawList@CBrushDrawListGenerator@@QEAAJPEAVCDrawListEntryBuilder@@PEBVCDrawListBrush@@PEAVCRenderingEffectFactory@@@Z @ 0x18008CC4C (-GenerateDrawList@CBrushDrawListGenerator@@QEAAJPEAVCDrawListEntryBuilder@@PEBVCDrawListBrush@@P.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall Matrix3x3::Is2DAffine(Matrix3x3 *this)
+{
+  float v1; // xmm1_4
+  float v2; // xmm1_4
+  float v3; // xmm2_4
+  bool result; // al
+
+  v1 = COERCE_DOUBLE(COERCE_UNSIGNED_INT64(*((float *)this + 2)) & _xmm);
+  result = 1;
+  if ( v1 < 0.0000011920929 )
+  {
+    v2 = COERCE_DOUBLE(COERCE_UNSIGNED_INT64(*((float *)this + 5)) & _xmm);
+    if ( v2 < 0.0000011920929 )
+    {
+      v3 = COERCE_DOUBLE(COERCE_UNSIGNED_INT64((float)(*((float *)this + 8) - 1.0)) & _xmm);
+      if ( v3 < 0.0000011920929 )
+        return 0;
+    }
+  }
+  return result;
+}

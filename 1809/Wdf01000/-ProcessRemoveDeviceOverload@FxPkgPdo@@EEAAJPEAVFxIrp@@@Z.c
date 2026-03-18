@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?ProcessRemoveDeviceOverload@FxPkgPdo@@EEAAJPEAVFxIrp@@@Z @ 0x1C007BE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CleanupStateMachines@FxPkgPnp@@QEAAXE@Z @ 0x1C0082700 (-CleanupStateMachines@FxPkgPnp@@QEAAXE@Z.c)
+ *     ?CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z @ 0x1C0082B00 (-CompletePnpRequest@FxPkgPnp@@IEAAJPEAVFxIrp@@J@Z.c)
+ *     ?DeleteDevice@FxPkgPnp@@IEAAXXZ @ 0x1C0082C08 (-DeleteDevice@FxPkgPnp@@IEAAXXZ.c)
+ */
+
+int __fastcall FxPkgPdo::ProcessRemoveDeviceOverload(FxPkgPdo *this, FxIrp *Irp)
+{
+  if ( this->m_CanBeDeleted )
+  {
+    IoReleaseRemoveLockAndWaitEx(
+      (PIO_REMOVE_LOCK)&this->m_DeviceBase->m_DeviceObject.m_DeviceObject[1],
+      Irp->m_Irp,
+      0x20u);
+    FxPkgPnp::CleanupStateMachines(this, 1u);
+    FxPkgPnp::DeleteDevice(this);
+    IofCompleteRequest(Irp->m_Irp, 0);
+    Irp->m_Irp = 0LL;
+    return 0;
+  }
+  else
+  {
+    this->m_DeviceRemoveProcessed = 0LL;
+    return FxPkgPnp::CompletePnpRequest(this, Irp, Irp->m_Irp->IoStatus.Status);
+  }
+}

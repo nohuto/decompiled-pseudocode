@@ -1,0 +1,13 @@
+/*
+ * XREFs of NtGdiDdDDIDestroyAllocation @ 0x1C013C9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 NtGdiDdDDIDestroyAllocation()
+{
+  return __imp_NtGdiDdDDIDestroyAllocation();
+}

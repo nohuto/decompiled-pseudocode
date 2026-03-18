@@ -1,0 +1,94 @@
+/*
+ * XREFs of KiAbEntryUpdateOwnerTreePosition @ 0x1402E3830
+ * Callers:
+ *     KiAbConvertWaiterToOwnerEntry @ 0x14027E670 (KiAbConvertWaiterToOwnerEntry.c)
+ *     KiAbDeferredProcessingWorker @ 0x1402E4D00 (KiAbDeferredProcessingWorker.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x1402E2370 (RtlRbInsertNodeEx.c)
+ *     RtlRbRemoveNode @ 0x1402E2A20 (RtlRbRemoveNode.c)
+ */
+
+char __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
+{
+  unsigned int v3; // eax
+  char v4; // r8
+  __int64 v5; // rax
+  char v6; // cl
+  unsigned __int64 *v7; // rdi
+  unsigned __int64 v8; // rdx
+  bool v9; // al
+  unsigned __int64 v10; // rax
+  unsigned int v11; // r8d
+
+  v3 = *(_DWORD *)(a1 + 80) & 0x3FFFFFFF;
+  if ( v3 )
+  {
+    _BitScanReverse(&v11, v3);
+    v4 = v11 + 1;
+  }
+  else
+  {
+    v4 = 0;
+  }
+  v5 = *(_QWORD *)(a1 - 88LL * (*(_BYTE *)(a1 + 8) & 0x3F) - 16);
+  v6 = *(_BYTE *)(v5 + 563);
+  if ( v6 > v4 )
+  {
+    v4 = *(_BYTE *)(v5 + 563);
+    if ( v6 > 30 )
+      v4 = 30;
+  }
+  if ( *(_BYTE *)(a1 + 40) != v4 )
+  {
+    v7 = (unsigned __int64 *)(a2 + 40);
+    *(_BYTE *)(a1 + 40) = v4;
+    RtlRbRemoveNode(a2 + 40, (unsigned __int64 *)(a1 + 16));
+    v8 = *v7;
+    if ( (v7[1] & 1) == 0 )
+      goto LABEL_8;
+    if ( v8 )
+    {
+      v8 ^= (unsigned __int64)v7;
+LABEL_8:
+      v9 = 0;
+      if ( !v8 )
+        goto LABEL_18;
+      while ( 1 )
+      {
+        if ( *(_BYTE *)(v8 + 24) <= *(_BYTE *)(a1 + 40) )
+        {
+          v10 = *(_QWORD *)(v8 + 8);
+          if ( (v7[1] & 1) != 0 )
+          {
+            if ( !v10 )
+              goto LABEL_17;
+            v10 ^= v8;
+          }
+          if ( !v10 )
+          {
+LABEL_17:
+            v9 = 1;
+            goto LABEL_18;
+          }
+        }
+        else
+        {
+          v10 = *(_QWORD *)v8;
+          if ( (v7[1] & 1) != 0 )
+          {
+            if ( !v10 )
+              break;
+            v10 ^= v8;
+          }
+          if ( !v10 )
+            break;
+        }
+        v8 = v10;
+      }
+    }
+    v9 = 0;
+LABEL_18:
+    LOBYTE(v5) = RtlRbInsertNodeEx((__int64 *)v7, v8, v9, a1 + 16);
+  }
+  return v5;
+}

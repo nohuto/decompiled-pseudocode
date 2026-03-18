@@ -1,0 +1,25 @@
+/*
+ * XREFs of MiInitializeSessionPool @ 0x14057E5D0
+ * Callers:
+ *     MiSessionCreate @ 0x14057DF80 (MiSessionCreate.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x1400CE300 (MiGetPteAddress.c)
+ *     MiInitializeDynamicBitmap @ 0x14057E66C (MiInitializeDynamicBitmap.c)
+ *     ExInitializePoolDescriptor @ 0x14057E934 (ExInitializePoolDescriptor.c)
+ */
+
+__int64 MiInitializeSessionPool()
+{
+  unsigned __int64 v0; // rbx
+
+  v0 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.Bitmap[2];
+  *(_QWORD *)(v0 + 160) = 0LL;
+  ExInitializePoolDescriptor(v0 + 3456, 33LL);
+  *(_QWORD *)(v0 + 184) = MiGetPteAddress(*(_QWORD *)(v0 + 56));
+  if ( !(unsigned int)MiInitializeDynamicBitmap(v0 + 168, qword_14036C120, 0x2000000LL, 0LL) )
+    return 3221225626LL;
+  *(_QWORD *)(v0 + 168) = 0LL;
+  *(_QWORD *)(v0 + 192) = 0x2000000LL;
+  *(_DWORD *)(v0 + 4) |= 4u;
+  return 0LL;
+}

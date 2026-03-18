@@ -1,0 +1,52 @@
+/*
+ * XREFs of EtwpUpdateEnableMask @ 0x1406C6D30
+ * Callers:
+ *     NtTraceEvent @ 0x14026C620 (NtTraceEvent.c)
+ *     EtwpRegisterUMGuid @ 0x14066E310 (EtwpRegisterUMGuid.c)
+ *     EtwpRegisterProvider @ 0x14074F950 (EtwpRegisterProvider.c)
+ * Callees:
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x14066BA28 (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpReleaseLoggerContext @ 0x14066BAFC (EtwpReleaseLoggerContext.c)
+ *     EtwpCheckLoggerControlAccess @ 0x1406C6E08 (EtwpCheckLoggerControlAccess.c)
+ */
+
+void __fastcall EtwpUpdateEnableMask(__int64 a1, char a2, char a3, char a4, _BYTE *a5)
+{
+  _DWORD *v5; // rbx
+  unsigned int i; // edi
+  int v10; // esi
+  __int64 v11; // rax
+  unsigned int *v12; // rbp
+  int v13; // eax
+
+  if ( !a2 )
+  {
+    v5 = (_DWORD *)(a1 + 136);
+    for ( i = 0; i < 8; ++i )
+    {
+      if ( *(v5 - 2) && (!a3 || (*v5 & 0x400) != 0) )
+      {
+        v10 = 0;
+        v11 = EtwpAcquireLoggerContextByLoggerId(*(_QWORD *)(a1 + 392), *((unsigned __int16 *)v5 - 1), 0);
+        v12 = (unsigned int *)v11;
+        if ( v11 )
+        {
+          v13 = *(_DWORD *)(v11 + 12);
+          if ( a4 )
+          {
+            if ( (v13 & 0x80u) != 0 )
+              v10 = EtwpCheckLoggerControlAccess(0x200u);
+          }
+          else if ( (v13 & 0x1000000) != 0 )
+          {
+            v10 = -1073741790;
+          }
+          EtwpReleaseLoggerContext(v12, 0);
+          if ( !v10 )
+            *a5 |= 1 << i;
+        }
+      }
+      v5 += 8;
+    }
+  }
+}

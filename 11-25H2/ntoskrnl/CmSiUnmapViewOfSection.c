@@ -1,0 +1,12 @@
+/*
+ * XREFs of CmSiUnmapViewOfSection @ 0x1404996D0
+ * Callers:
+ *     HvpViewMapFreeView @ 0x140A46244 (HvpViewMapFreeView.c)
+ * Callees:
+ *     ZwUnmapViewOfSection @ 0x14069B680 (ZwUnmapViewOfSection.c)
+ */
+
+NTSTATUS __fastcall CmSiUnmapViewOfSection(__int64 a1, HANDLE *a2, void *a3)
+{
+  return ZwUnmapViewOfSection(*a2, a3);
+}

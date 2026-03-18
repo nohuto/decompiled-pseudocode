@@ -1,0 +1,24 @@
+/*
+ * XREFs of PoFxRegisterComponentPerfStates @ 0x14074D550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFxBugCheck @ 0x140377108 (PopFxBugCheck.c)
+ *     PopFxRegisterComponentPerfStates @ 0x14074E534 (PopFxRegisterComponentPerfStates.c)
+ */
+
+__int64 __fastcall PoFxRegisterComponentPerfStates(
+        ULONG_PTR BugCheckParameter2,
+        ULONG_PTR BugCheckParameter3,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6)
+{
+  if ( (unsigned int)BugCheckParameter3 >= *(_DWORD *)(BugCheckParameter2 + 868) )
+    PopFxBugCheck(0x614uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 2uLL);
+  _mm_lfence();
+  if ( *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(BugCheckParameter2 + 872) + 8LL * (unsigned int)BugCheckParameter3) + 424LL) )
+    PopFxBugCheck(0x600uLL, BugCheckParameter2, (unsigned int)BugCheckParameter3, 0LL);
+  return PopFxRegisterComponentPerfStates(BugCheckParameter2, a5, a6);
+}

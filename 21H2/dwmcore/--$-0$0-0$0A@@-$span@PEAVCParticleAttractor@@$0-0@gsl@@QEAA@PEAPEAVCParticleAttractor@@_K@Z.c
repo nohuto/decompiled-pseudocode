@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??$?0$0?0$0A@@?$span@PEAVCParticleAttractor@@$0?0@gsl@@QEAA@PEAPEAVCParticleAttractor@@_K@Z @ 0x18019A68C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x18003C050 (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x180190BB4 (-terminate@details@gsl@@YAXXZ.c)
+ */
+
+gsl::details *__fastcall gsl::span<CParticleAttractor *,-1>::span<CParticleAttractor *,-1>(
+        gsl::details *a1,
+        __int64 a2,
+        __int64 a3)
+{
+  gsl::details *v5; // rcx
+  bool v6; // zf
+
+  gsl::details::extent_type<-1>::extent_type<-1>(a1, a3);
+  v6 = *(_QWORD *)a1 == -1LL;
+  *((_QWORD *)a1 + 1) = a2;
+  if ( v6 || !a2 && *(_QWORD *)a1 )
+  {
+    gsl::details::terminate(v5);
+    JUMPOUT(0x18019A6CCLL);
+  }
+  return a1;
+}

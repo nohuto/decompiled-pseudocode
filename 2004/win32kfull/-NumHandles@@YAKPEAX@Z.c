@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?NumHandles@@YAKPEAX@Z @ 0x1C00BFE28
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C00C02E4 (-InitiateWin32kCleanup@@YAHXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0157760 (__security_check_cookie.c)
+ */
+
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall NumHandles(void *a1)
+{
+  __int64 result; // rax
+  _OWORD ObjectInformation[3]; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v3; // [rsp+60h] [rbp-18h]
+
+  v3 = 0LL;
+  memset(ObjectInformation, 0, sizeof(ObjectInformation));
+  if ( !ghDisconnectDesk || ZwQueryObject(ghDisconnectDesk, ObjectBasicInformation, ObjectInformation, 0x38u, 0LL) )
+    return 0LL;
+  result = DWORD2(ObjectInformation[0]);
+  if ( DWORD2(ObjectInformation[0]) > 1 )
+  {
+    gdwHydraHint |= 0x400000u;
+    return DWORD2(ObjectInformation[0]);
+  }
+  return result;
+}

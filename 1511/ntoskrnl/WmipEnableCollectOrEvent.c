@@ -1,0 +1,44 @@
+/*
+ * XREFs of WmipEnableCollectOrEvent @ 0x1404C9514
+ * Callers:
+ *     WmipOpenBlock @ 0x1404C8168 (WmipOpenBlock.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x140081870 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x140087240 (KeReleaseMutex.c)
+ *     WmipSendEnableRequest @ 0x1404C9764 (WmipSendEnableRequest.c)
+ */
+
+__int64 __fastcall WmipEnableCollectOrEvent(ULONG_PTR BugCheckParameter2, int a2, _BYTE *a3)
+{
+  int v5; // edx
+  int v6; // ebx
+  __int64 *i; // rax
+  int v8; // ecx
+
+  *a3 = 0;
+  v5 = a2 - 2244924;
+  if ( !v5 )
+  {
+    v6 = 0;
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+    for ( i = *(__int64 **)(BugCheckParameter2 + 56); i != (__int64 *)(BugCheckParameter2 + 56); i = (__int64 *)*i )
+    {
+      v8 = *((_DWORD *)i + 4);
+      if ( (v8 & 0x1000) == 0 && ((v8 & 0x8000) == 0 || !v6) )
+        v6 = v6 || (v8 & 4) != 0;
+    }
+    KeReleaseMutex(&WmipSMMutex, 0);
+    if ( !v6 )
+      return (unsigned int)v6;
+LABEL_14:
+    KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+    v6 = WmipSendEnableRequest(BugCheckParameter2);
+    KeReleaseMutex(&WmipSMMutex, 0);
+    if ( v6 >= 0 )
+      *a3 = 1;
+    return (unsigned int)v6;
+  }
+  if ( v5 == 4 )
+    goto LABEL_14;
+  return 3221225647LL;
+}

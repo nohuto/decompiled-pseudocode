@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?SetIntegerProperty@CHolographicViewerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C017D4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DirectComposition::CHolographicViewerMarshaler::SetIntegerProperty(
+        DirectComposition::CHolographicViewerMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        __int64 a4,
+        bool *a5)
+{
+  unsigned int v5; // edx
+  int v6; // r8d
+  int v7; // eax
+  int v8; // eax
+
+  v5 = 0;
+  if ( !a3 )
+  {
+    v8 = *((_DWORD *)this + 11);
+    if ( (v8 & 1) == 0 )
+    {
+      if ( a4 )
+      {
+        *((_DWORD *)this + 12) = a4;
+        *((_DWORD *)this + 11) = v8 | 1;
+        *a5 = 1;
+        return v5;
+      }
+      return (unsigned int)-1073741811;
+    }
+    return (unsigned int)-1073741790;
+  }
+  v6 = a3 - 1;
+  if ( !v6 )
+  {
+    v7 = *((_DWORD *)this + 11);
+    if ( (v7 & 2) == 0 )
+    {
+      if ( a4 )
+      {
+        *((_DWORD *)this + 13) = a4;
+        *((_DWORD *)this + 11) = v7 | 2;
+        goto LABEL_9;
+      }
+      return (unsigned int)-1073741811;
+    }
+    return (unsigned int)-1073741790;
+  }
+  if ( v6 != 5 )
+    return (unsigned int)-1073741811;
+  if ( *((_DWORD *)this + 22) != (_DWORD)a4 )
+  {
+    *((_DWORD *)this + 10) |= 0x40u;
+    *((_DWORD *)this + 22) = a4;
+LABEL_9:
+    *a5 = 1;
+  }
+  return v5;
+}

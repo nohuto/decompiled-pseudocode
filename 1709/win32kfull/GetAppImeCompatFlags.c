@@ -1,0 +1,17 @@
+/*
+ * XREFs of GetAppImeCompatFlags @ 0x1C00CE968
+ * Callers:
+ *     xxxImmProcessKey @ 0x1C00CE9BC (xxxImmProcessKey.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00D07A0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     EditionGetAppImeCompatFlags @ 0x1C01A1B70 (EditionGetAppImeCompatFlags.c)
+ *     ?FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z @ 0x1C01B9814 (-FinalizeKoreanImeCompStrOnMouseClick@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C00AA650 (W32GetThreadWin32Thread.c)
+ */
+
+__int64 __fastcall GetAppImeCompatFlags(__int64 ThreadWin32Thread, __int64 a2, __int64 a3, __int64 a4)
+{
+  if ( !ThreadWin32Thread )
+    ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread(), a2, a3, a4);
+  return *(unsigned int *)(*(_QWORD *)(ThreadWin32Thread + 400) + 736LL);
+}

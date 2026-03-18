@@ -1,0 +1,73 @@
+/*
+ * XREFs of ?ReserveTemporaryResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C009FC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0015BC0 (_guard_dispatch_icall_nop.c)
+ *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C004BFC8 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
+ */
+
+__int64 __fastcall VIDMM_APERTURE_SEGMENT::ReserveTemporaryResource(
+        VIDMM_LINEAR_POOL **this,
+        struct _VIDMM_GLOBAL_ALLOC *a2,
+        __int64 a3)
+{
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  _QWORD *v8; // rax
+  int v9; // eax
+  __int64 v10; // rcx
+  unsigned int v11; // esi
+  _QWORD *v12; // rax
+
+  if ( g_IsInternalReleaseOrDbg )
+  {
+    WdLogNewEntry5_WdTrace(this);
+    v6 = WdLogNewEntry5_WdTrace(v5);
+    *(_QWORD *)(v6 + 24) = this;
+    *(_QWORD *)(v6 + 32) = a2;
+  }
+  if ( *((_QWORD *)a2 + 2) > (unsigned __int64)this[6] )
+    return 3223191808LL;
+  if ( ((_DWORD)this[10] & 0x20) != 0 )
+  {
+    v8 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2, a3);
+    v8[5] = 0LL;
+    v8[6] = 0LL;
+    v8[7] = 0LL;
+    v8[3] = 270LL;
+    v8[4] = 13LL;
+    WdLogEvent5_WdCriticalError(v8);
+  }
+  (*((void (__fastcall **)(VIDMM_LINEAR_POOL **, struct _VIDMM_GLOBAL_ALLOC *))*this + 7))(this, a2);
+  v9 = VIDMM_LINEAR_POOL::Allocate(
+         this[22],
+         *((_QWORD *)a2 + 2),
+         *((_DWORD *)a2 + 8),
+         1,
+         0LL,
+         0LL,
+         0,
+         0,
+         a2,
+         (union _LARGE_INTEGER *)a2 + 32,
+         (void **)a2 + 31);
+  v11 = v9;
+  if ( v9 < 0 )
+  {
+    if ( g_IsInternalReleaseOrDbg )
+      *(_QWORD *)(WdLogNewEntry5_WdTrace(v10) + 24) = v9;
+  }
+  else
+  {
+    *((_QWORD *)a2 + 33) = this;
+    if ( g_IsInternalReleaseOrDbg )
+    {
+      v12 = (_QWORD *)WdLogNewEntry5_WdTrace(*(_QWORD *)&g_IsInternalReleaseOrDbg);
+      v12[3] = *((_QWORD *)a2 + 31);
+      v12[4] = *((int *)a2 + 65);
+      v12[5] = *((unsigned int *)a2 + 64);
+    }
+  }
+  return v11;
+}

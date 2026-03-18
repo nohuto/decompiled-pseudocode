@@ -1,0 +1,41 @@
+/*
+ * XREFs of CmpSetSystemRegistryString @ 0x14065BCB0
+ * Callers:
+ *     CmpSetSystemValues @ 0x140C36DF0 (CmpSetSystemValues.c)
+ * Callees:
+ *     ZwSetValueKey @ 0x14069BD40 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x14069CD20 (ZwDeleteValueKey.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x14076F0B0 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     RtlFreeAnsiString @ 0x1408F1D50 (RtlFreeAnsiString.c)
+ */
+
+__int64 __fastcall CmpSetSystemRegistryString(HANDLE KeyHandle, PUNICODE_STRING ValueName, __int64 a3)
+{
+  wchar_t *Buffer; // rdi
+  char v6; // al
+  unsigned int v7; // ebx
+  UNICODE_STRING UnicodeString; // [rsp+30h] [rbp-18h] BYREF
+
+  *(_QWORD *)&UnicodeString.Length = 0LL;
+  Buffer = 0LL;
+  UnicodeString.Buffer = 0LL;
+  if ( a3 )
+  {
+    v6 = RtlCreateUnicodeStringFromAsciiz(&UnicodeString);
+    Buffer = UnicodeString.Buffer;
+    if ( v6 )
+      v7 = ZwSetValueKey(KeyHandle, ValueName, 0, 1u, UnicodeString.Buffer, UnicodeString.Length + 2);
+    else
+      v7 = -1073741823;
+  }
+  else
+  {
+    v7 = ZwDeleteValueKey(KeyHandle, ValueName);
+    if ( v7 != -1073741772 )
+      return v7;
+    v7 = 0;
+  }
+  if ( Buffer )
+    RtlFreeAnsiString(&UnicodeString);
+  return v7;
+}

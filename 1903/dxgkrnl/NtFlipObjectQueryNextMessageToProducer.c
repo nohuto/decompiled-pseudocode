@@ -1,0 +1,50 @@
+/*
+ * XREFs of NtFlipObjectQueryNextMessageToProducer @ 0x1C005FA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C005E928 (-QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z.c)
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C005E998 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C006066C (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
+__int64 __fastcall NtFlipObjectQueryNextMessageToProducer(void *a1, _DWORD *a2)
+{
+  struct CFlipConsumerMessage *v4; // rdi
+  char v5; // r8
+  int v6; // ebx
+  int v7; // edx
+  struct CFlipConsumerMessage *v9; // [rsp+50h] [rbp+18h] BYREF
+  PVOID Object; // [rsp+58h] [rbp+20h] BYREF
+
+  if ( a1 && a2 )
+  {
+    Object = 0LL;
+    v4 = 0LL;
+    v9 = 0LL;
+    KeEnterCriticalRegion();
+    v6 = FlipManagerObject::ResolveHandle(a1, 2u, v5, (struct FlipManagerObject **)&Object);
+    if ( v6 >= 0 )
+    {
+      v6 = FlipManagerObject::QueryNextMessageToProducer((FlipManagerObject *)Object, 0, &v9);
+      v4 = v9;
+    }
+    if ( v6 >= 0 )
+    {
+      v7 = *((_DWORD *)v4 + 8);
+      if ( a2 + 1 < a2 || (unsigned __int64)(a2 + 1) > MmUserProbeAddress )
+        *(_BYTE *)MmUserProbeAddress = 0;
+      *a2 = v7;
+    }
+    if ( v4 )
+      CFlipPropertySetBase::Release(v4);
+    if ( Object )
+      ObfDereferenceObject(Object);
+    KeLeaveCriticalRegion();
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return (unsigned int)v6;
+}

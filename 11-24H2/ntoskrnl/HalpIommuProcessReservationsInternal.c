@@ -1,0 +1,42 @@
+/*
+ * XREFs of HalpIommuProcessReservationsInternal @ 0x1405544C0
+ * Callers:
+ *     HalpIommuProcessReservations @ 0x140554464 (HalpIommuProcessReservations.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x140542CD0 (HalpMmAllocateMemoryInternal.c)
+ *     HalpIommuDetermineReservedPciRid @ 0x140553B0C (HalpIommuDetermineReservedPciRid.c)
+ *     HalpIommuProcessMemoryErrata @ 0x140554370 (HalpIommuProcessMemoryErrata.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall HalpIommuProcessReservationsInternal(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 result; // rax
+  _DWORD *MemoryInternal; // rax
+  __int64 v8; // r9
+  unsigned int v9; // [rsp+30h] [rbp+8h] BYREF
+
+  v9 = 0;
+  result = guard_dispatch_icall_no_overrides(a1[2], &v9, 0LL, a4);
+  if ( (_DWORD)result == -1073741789 )
+  {
+    MemoryInternal = (_DWORD *)HalpMmAllocateMemoryInternal(8 * v9 + 8, 1u);
+    a1[67] = MemoryInternal;
+    if ( MemoryInternal )
+    {
+      *MemoryInternal = v9;
+      result = guard_dispatch_icall_no_overrides(a1[2], &v9, a1[67] + 8LL, v8);
+      if ( (int)result >= 0 )
+      {
+        result = HalpIommuProcessMemoryErrata(v9, a1[67] + 8LL, a2);
+        if ( (int)result >= 0 )
+          return HalpIommuDetermineReservedPciRid(a1);
+      }
+    }
+    else
+    {
+      return 3221225626LL;
+    }
+  }
+  return result;
+}

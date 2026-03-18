@@ -1,0 +1,89 @@
+/*
+ * XREFs of RemoteRedrawScreen @ 0x1C0131D40
+ * Callers:
+ *     xxxRemoteDisconnect @ 0x1C00A1044 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C0131F08 (xxxRemoteReconnect.c)
+ *     NtUserRemoteRedrawScreen @ 0x1C01D9370 (NtUserRemoteRedrawScreen.c)
+ *     RemotePassthruDisable @ 0x1C020281C (RemotePassthruDisable.c)
+ *     RemoteShadowCleanup @ 0x1C0202970 (RemoteShadowCleanup.c)
+ *     RemoteShadowStart @ 0x1C0202B7C (RemoteShadowStart.c)
+ * Callees:
+ *     xxxSwitchDesktop @ 0x1C002C52C (xxxSwitchDesktop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0044724 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     PushW32ThreadLock @ 0x1C00AD510 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00AD580 (PopAndFreeW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C01381F0 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0140D40 (memset_0.c)
+ */
+
+// write access to const memory has been detected, the output may be wrong!
+__int64 __fastcall RemoteRedrawScreen(__int64 a1, __int64 a2, __int64 a3)
+{
+  PDEVICE_OBJECT v3; // rcx
+  void *v4; // rdi
+  __int128 v6; // [rsp+40h] [rbp-39h] BYREF
+  __int64 v7; // [rsp+50h] [rbp-29h]
+  __int128 v8; // [rsp+58h] [rbp-21h] BYREF
+  __int64 v9; // [rsp+68h] [rbp-11h]
+  _BYTE v10[8]; // [rsp+70h] [rbp-9h] BYREF
+  GUID ActivityId; // [rsp+78h] [rbp-1h] BYREF
+  int v12; // [rsp+88h] [rbp+Fh]
+  char v13; // [rsp+A0h] [rbp+27h]
+  __int64 v14; // [rsp+B0h] [rbp+37h]
+
+  v3 = WPP_GLOBAL_Control;
+  LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+            && (HIDWORD(WPP_GLOBAL_Control->Timer) & 4) != 0
+            && BYTE1(WPP_GLOBAL_Control->Timer) >= 4u;
+  LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
+  if ( (_BYTE)a2 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      a2,
+      a3,
+      13,
+      4,
+      3,
+      13,
+      (__int64)&WPP_713a73a9a0bc322488e80543f5fb9642_Traceguids);
+  if ( gbFreezeScreenUpdates )
+  {
+    gbFreezeScreenUpdates = 0;
+    if ( (unsigned int)UserRemoteConnectedSessionUsingWddm(v3, a2, a3) )
+    {
+      memset_0(v10, 0, 0x48uLL);
+      EtwActivityIdControl(3u, &ActivityId);
+      v14 = MEMORY[0xFFFFF78000000014];
+      v12 = 66;
+      v13 = -1;
+      DrvSetMonitorPowerState(*(_QWORD *)(gpDispInfo + 16LL), 1LL, 0LL, v10);
+    }
+    else
+    {
+      KeSetEvent(gpRemoteSessionOcclusionEvent, 1, 0);
+    }
+    if ( gspdeskShouldBeForeground )
+    {
+      gbDesktopLocked = 0;
+      v4 = *(void **)(gspdeskShouldBeForeground + 40LL);
+      if ( (*(_DWORD *)(gspdeskShouldBeForeground + 48LL) & 8) == 0 )
+      {
+        v7 = 0LL;
+        v9 = 0LL;
+        v6 = 0LL;
+        v8 = 0LL;
+        PushW32ThreadLock((__int64)v4, &v8, UserDereferenceObject);
+        if ( v4 )
+          ObfReferenceObject(v4);
+        PushW32ThreadLock(gspdeskShouldBeForeground, &v6, UserDereferenceObject);
+        if ( gspdeskShouldBeForeground )
+          ObfReferenceObject(gspdeskShouldBeForeground);
+        xxxSwitchDesktop((__int64)v4, gspdeskShouldBeForeground, 2);
+        PopAndFreeW32ThreadLock((__int64)&v6);
+        PopAndFreeW32ThreadLock((__int64)&v8);
+      }
+      LockObjectAssignment(gspdeskShouldBeForeground, 0LL);
+    }
+  }
+  return 0LL;
+}

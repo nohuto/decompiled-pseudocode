@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?SetWin32kInterface@DXGPROCESS@@QEAAXQEBU_DXGKWIN32KENG_INTERFACE@@@Z @ 0x1C01EA7F4
+ * Callers:
+ *     ??0DXGPROCESSVM@@QEAA@PEAVDXGGLOBAL@@QEAU_EPROCESS@@PEAVDXGPROCESS@@2@Z @ 0x1C0056394 (--0DXGPROCESSVM@@QEAA@PEAVDXGGLOBAL@@QEAU_EPROCESS@@PEAVDXGPROCESS@@2@Z.c)
+ *     ?DxgkCddCreate@@YAJQEAX0PEBXPEAI22PEAU_CDDDXGK_DRIVERINFO@@3PEAU_LUID@@PEAPEAU_OBJECT_TYPE@@@Z @ 0x1C0186620 (-DxgkCddCreate@@YAJQEAX0PEBXPEAI22PEAU_CDDDXGK_DRIVERINFO@@3PEAU_LUID@@PEAPEAU_OBJECT_TYPE@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall DXGPROCESS::SetWin32kInterface(DXGPROCESS *this, unsigned int (**a2)(void))
+{
+  if ( a2 )
+    *((_DWORD *)this + 106) = (a2[27]() != 0 ? 4 : 0) | *((_DWORD *)this + 106) & 0xFFFFFFFB;
+  *((_QWORD *)this + 11) = a2;
+}

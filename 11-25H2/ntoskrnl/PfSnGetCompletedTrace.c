@@ -1,0 +1,60 @@
+/*
+ * XREFs of PfSnGetCompletedTrace @ 0x140A3F494
+ * Callers:
+ *     PfSnQueryPrefetcherInformation @ 0x140A3F3AC (PfSnQueryPrefetcherInformation.c)
+ * Callees:
+ *     KeReleaseGuardedMutex @ 0x140286F40 (KeReleaseGuardedMutex.c)
+ *     ExAcquireFastMutex @ 0x14029C580 (ExAcquireFastMutex.c)
+ *     memmove @ 0x1406B4940 (memmove.c)
+ *     ProbeForWrite @ 0x140934CF0 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PfSnGetCompletedTrace(volatile void *a1, unsigned int a2, unsigned int *a3)
+{
+  char v5; // r12
+  char *v6; // rbx
+  unsigned int *v7; // r14
+  unsigned int v8; // eax
+  unsigned int v9; // edi
+  __int64 v11; // rax
+
+  v5 = 1;
+  ExAcquireFastMutex(&stru_140E66D68);
+  dword_140E66DA4 = 2;
+  v6 = (char *)qword_140E66D58;
+  if ( qword_140E66D58 == &qword_140E66D58 )
+  {
+    v9 = -2147483622;
+  }
+  else
+  {
+    v7 = (unsigned int *)((char *)qword_140E66D58 + 24);
+    v8 = *((_DWORD *)qword_140E66D58 + 6);
+    if ( v8 <= a2 )
+    {
+      v11 = *(_QWORD *)qword_140E66D58;
+      if ( *((PVOID **)qword_140E66D58 + 1) != &qword_140E66D58 || *(PVOID *)(v11 + 8) != qword_140E66D58 )
+        __fastfail(3u);
+      qword_140E66D58 = *(PVOID *)qword_140E66D58;
+      *(_QWORD *)(v11 + 8) = &qword_140E66D58;
+      --dword_140E66DA0;
+      KeReleaseGuardedMutex(&stru_140E66D68);
+      v5 = 0;
+      if ( KeGetCurrentThread()->PreviousMode )
+        ProbeForWrite(a1, a2, 8u);
+      memmove((void *)a1, v6 + 16, *v7);
+      *a3 = *v7;
+      ExFreePoolWithTag(v6, 0);
+      v9 = 0;
+    }
+    else
+    {
+      *a3 = v8;
+      v9 = -1073741789;
+    }
+  }
+  if ( v5 )
+    KeReleaseGuardedMutex(&stru_140E66D68);
+  return v9;
+}

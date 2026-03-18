@@ -1,0 +1,40 @@
+/*
+ * XREFs of ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1406058BC
+ * Callers:
+ *     VfPtAddStackInfoIfNotExist @ 0x140B7BDA4 (VfPtAddStackInfoIfNotExist.c)
+ *     VfPtGenerateTraceInformation @ 0x140B7BF8C (VfPtGenerateTraceInformation.c)
+ *     VfPtProcessAllocPoolInfo @ 0x140B7C57C (VfPtProcessAllocPoolInfo.c)
+ *     VfPtProcessFreePoolInfo @ 0x140B7C634 (VfPtProcessFreePoolInfo.c)
+ *     ViPtDeleteAvlTrees @ 0x140B7C760 (ViPtDeleteAvlTrees.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x14031F360 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031F3B0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
+void __fastcall ViPtAcquireTreeLockAtDpcLevelSafe(__int64 a1, __int64 a2)
+{
+  char v4; // al
+  struct _KTHREAD *CurrentThread; // rsi
+  volatile LONG *v6; // rcx
+
+  if ( *(struct _KTHREAD **)(a1 + 136) != KeGetCurrentThread() )
+  {
+    v4 = *(_BYTE *)(a2 + 9);
+    if ( (v4 & 2) == 0 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      v6 = (volatile LONG *)(a1 + 128);
+      if ( (v4 & 4) != 0 )
+      {
+        ExAcquireSpinLockExclusiveAtDpcLevel(v6);
+        *(_QWORD *)(a1 + 136) = CurrentThread;
+      }
+      else
+      {
+        ExAcquireSpinLockSharedAtDpcLevel(v6);
+      }
+      *(_BYTE *)(a2 + 9) |= 2u;
+      *(_QWORD *)a2 = a1;
+    }
+  }
+}

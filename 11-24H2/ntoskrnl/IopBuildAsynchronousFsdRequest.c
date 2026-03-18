@@ -1,0 +1,111 @@
+/*
+ * XREFs of IopBuildAsynchronousFsdRequest @ 0x1403754A0
+ * Callers:
+ *     IoBuildAsynchronousFsdRequest @ 0x140375460 (IoBuildAsynchronousFsdRequest.c)
+ *     PnpQueryInterface @ 0x1409C4D84 (PnpQueryInterface.c)
+ *     IopBuildSynchronousFsdRequest @ 0x140A3CDD0 (IopBuildSynchronousFsdRequest.c)
+ *     IopCreateArcName @ 0x140A75840 (IopCreateArcName.c)
+ * Callees:
+ *     IopAllocateIrpExReturn @ 0x140253DC0 (IopAllocateIrpExReturn.c)
+ *     IoFreeMdl @ 0x140267750 (IoFreeMdl.c)
+ *     IoAllocateMdl @ 0x140267BF0 (IoAllocateMdl.c)
+ *     IopProbeAndLockPages @ 0x140267E4C (IopProbeAndLockPages.c)
+ *     PsGetIoPriorityThread @ 0x140276920 (PsGetIoPriorityThread.c)
+ *     IoFreeIrp @ 0x14031A520 (IoFreeIrp.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x140374220 (IoSetDiskIoAttributionFromThread.c)
+ *     memmove @ 0x1406BFC40 (memmove.c)
+ *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall IopBuildAsynchronousFsdRequest(
+        unsigned int a1,
+        __int64 a2,
+        void *a3,
+        unsigned int a4,
+        _QWORD *a5,
+        __int64 a6)
+{
+  size_t v6; // r13
+  __int64 v8; // rsi
+  __int64 Irp; // rbx
+  unsigned __int8 *v11; // rdi
+  int v12; // eax
+  int v14; // eax
+  __int64 v16; // rdx
+  struct _MDL *Mdl; // rcx
+  void *Pool2; // rax
+  int v19; // eax
+
+  v6 = a4;
+  v8 = a2;
+  LOBYTE(a2) = *(_BYTE *)(a2 + 76);
+  Irp = IopAllocateIrpExReturn(v8, a2, 0LL);
+  if ( Irp )
+  {
+    *(_QWORD *)(Irp + 152) = KeGetCurrentThread();
+    v11 = (unsigned __int8 *)(*(_QWORD *)(Irp + 184) - 72LL);
+    *v11 = a1;
+    if ( a1 <= 0x1B )
+    {
+      v12 = 138478080;
+      if ( _bittest(&v12, a1) )
+      {
+LABEL_4:
+        *(_DWORD *)(Irp + 16) = *(_DWORD *)(Irp + 16) & 0xFFF1FFFF | (((unsigned int)PsGetIoPriorityThread(*(_QWORD *)(Irp + 152)) << 17)
+                                                                    + 0x20000);
+        *(_QWORD *)(Irp + 72) = a6;
+        return Irp;
+      }
+    }
+    v14 = *(_DWORD *)(v8 + 48);
+    if ( (v14 & 4) != 0 )
+    {
+      Pool2 = (void *)ExAllocatePool2(0x48uLL);
+      *(_QWORD *)(Irp + 24) = Pool2;
+      if ( Pool2 )
+      {
+        if ( a1 == 4 )
+        {
+          memmove(Pool2, a3, v6);
+          v19 = 48;
+        }
+        else
+        {
+          *(_QWORD *)(Irp + 112) = a3;
+          v19 = 112;
+        }
+        *(_DWORD *)(Irp + 16) = v19;
+        LODWORD(v6) = a4;
+        goto LABEL_8;
+      }
+    }
+    else
+    {
+      if ( (v14 & 0x10) == 0 )
+      {
+        *(_QWORD *)(Irp + 112) = a3;
+LABEL_8:
+        *((_DWORD *)v11 + 2) = v6;
+        if ( a5 )
+          *((_QWORD *)v11 + 3) = *a5;
+        if ( *(_DWORD *)(v8 + 72) == 7
+          || *(_DWORD *)(v8 + 72) == 8
+          || *(_DWORD *)(v8 + 72) == 9
+          || *(_DWORD *)(v8 + 72) == 36 )
+        {
+          IoSetDiskIoAttributionFromThread(Irp, *(struct _KTHREAD **)(Irp + 152));
+        }
+        goto LABEL_4;
+      }
+      Mdl = IoAllocateMdl(a3, v6, 0, 0, 0LL);
+      *(_QWORD *)(Irp + 8) = Mdl;
+      if ( Mdl )
+      {
+        IopProbeAndLockPages(Mdl, v16, (LOCK_OPERATION)(a1 == 3), v8, *v11);
+        goto LABEL_8;
+      }
+    }
+    IoFreeIrp((PIRP)Irp);
+  }
+  return 0LL;
+}

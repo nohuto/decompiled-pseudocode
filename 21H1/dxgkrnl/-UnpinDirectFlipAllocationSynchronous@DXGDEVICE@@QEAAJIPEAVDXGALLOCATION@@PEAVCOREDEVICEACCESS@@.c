@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?UnpinDirectFlipAllocationSynchronous@DXGDEVICE@@QEAAJIPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C0252710
+ * Callers:
+ *     ?UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C015EE0C (-UnpinDirectFlipAllocation@DXGDEVICE@@QEAAJIIPEAPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@@Z.c)
+ * Callees:
+ *     ?Release@COREDEVICEACCESS@@QEAAXXZ @ 0x1C000A1D4 (-Release@COREDEVICEACCESS@@QEAAXXZ.c)
+ *     ?AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z @ 0x1C000AA18 (-AcquireSharedUncheck@COREDEVICEACCESS@@QEAAXPEAD@Z.c)
+ *     ?TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z @ 0x1C0018CD0 (-TestAndSetDisplayedPrimary@DXGDEVICE@@QEAAXIPEBVDXGALLOCATION@@PEAV2@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0026570 (_guard_dispatch_icall_nop.c)
+ *     ?RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z @ 0x1C015EEC0 (-RemoveDirectFlipAllocationFromList@DXGDEVICE@@AEAAEIPEAVDXGALLOCATION@@@Z.c)
+ */
+
+__int64 __fastcall DXGDEVICE::UnpinDirectFlipAllocationSynchronous(
+        DXGDEVICE *this,
+        unsigned int a2,
+        struct DXGALLOCATION *a3,
+        struct COREDEVICEACCESS *a4)
+{
+  __int64 v8; // rbp
+  struct DXGALLOCATION *v9; // r9
+  char v10; // r15
+  int v11; // eax
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  _QWORD *v15; // rax
+  char *v16; // rdx
+  unsigned int v18[10]; // [rsp+20h] [rbp-28h] BYREF
+
+  LODWORD(v8) = 0;
+  if ( DXGDEVICE::RemoveDirectFlipAllocationFromList((struct _KTHREAD **)this, a2, a3) )
+  {
+    v18[0] = 0;
+    v10 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, unsigned int *))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2)
+                                                                                            + 640LL)
+                                                                                + 8LL)
+                                                                    + 696LL))(
+            *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+            *((_QWORD *)a3 + 3),
+            v18);
+    if ( a4 )
+      COREDEVICEACCESS::Release(a4);
+    if ( v10 )
+    {
+      if ( v18[0] <= 1 )
+      {
+        v11 = (*(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL)
+                                                                            + 8LL)
+                                                                + 704LL))(
+                *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+                *((_QWORD *)a3 + 3),
+                a2);
+        v8 = v11;
+        if ( v11 < 0 )
+        {
+          v15 = (_QWORD *)WdLogNewEntry5_WdWarning(v13, v12, v14);
+          v15[3] = a3;
+          v15[4] = *((_QWORD *)a3 + 3);
+          v15[5] = v8;
+          WdLogEvent5_WdWarning(v15);
+        }
+      }
+    }
+    DXGDEVICE::TestAndSetDisplayedPrimary((struct _KTHREAD **)this, a2, a3, v9);
+    if ( a4 )
+      COREDEVICEACCESS::AcquireSharedUncheck(a4, v16);
+    (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 640LL) + 8LL) + 240LL))(
+      *(_QWORD *)(*((_QWORD *)this + 2) + 648LL),
+      *((_QWORD *)a3 + 3));
+  }
+  return (unsigned int)v8;
+}

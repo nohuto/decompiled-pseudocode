@@ -1,0 +1,181 @@
+/*
+ * XREFs of MiUnlockWorkingSetExclusive @ 0x14004CB90
+ * Callers:
+ *     MiOutPageSingleKernelStack @ 0x1400052A8 (MiOutPageSingleKernelStack.c)
+ *     MiDeleteFinalPageTables @ 0x1400055B8 (MiDeleteFinalPageTables.c)
+ *     MiAcquireProperVm @ 0x140007D88 (MiAcquireProperVm.c)
+ *     MiTrimSharedPageFromViews @ 0x140008834 (MiTrimSharedPageFromViews.c)
+ *     MiSystemFault @ 0x1400097D0 (MiSystemFault.c)
+ *     MiInsertInSystemSpace @ 0x14000A670 (MiInsertInSystemSpace.c)
+ *     MiRemoveFromSystemSpace @ 0x14000B73C (MiRemoveFromSystemSpace.c)
+ *     MiEncodeProtoFill @ 0x14000CEF0 (MiEncodeProtoFill.c)
+ *     MiClearNonPagedBitMapBits @ 0x14001A124 (MiClearNonPagedBitMapBits.c)
+ *     MiSetPagingOfDriver @ 0x14001A3D0 (MiSetPagingOfDriver.c)
+ *     MiBeginProcessClean @ 0x14001BE64 (MiBeginProcessClean.c)
+ *     MiUnlinkWorkingSet @ 0x14001C13C (MiUnlinkWorkingSet.c)
+ *     MiCleanWorkingSet @ 0x14001C2D0 (MiCleanWorkingSet.c)
+ *     MiWalkVaRange @ 0x14001C524 (MiWalkVaRange.c)
+ *     MiCloneVads @ 0x14001D7C8 (MiCloneVads.c)
+ *     MiBuildForkPte @ 0x14001DDD8 (MiBuildForkPte.c)
+ *     MiSplitPrivatePage @ 0x14001E7D0 (MiSplitPrivatePage.c)
+ *     MiMakeProtoLeafValid @ 0x14001EF04 (MiMakeProtoLeafValid.c)
+ *     MiOutSwapWorkingSetCallback @ 0x14001F030 (MiOutSwapWorkingSetCallback.c)
+ *     MiEmptyWorkingSet @ 0x14001F584 (MiEmptyWorkingSet.c)
+ *     MiWaitForCollidedFaultComplete @ 0x14001F86C (MiWaitForCollidedFaultComplete.c)
+ *     NtUnlockVirtualMemory @ 0x140021060 (NtUnlockVirtualMemory.c)
+ *     MmEnforceWorkingSetLimit @ 0x140021C18 (MmEnforceWorkingSetLimit.c)
+ *     MiRemoveSecureEntry @ 0x1400383F0 (MiRemoveSecureEntry.c)
+ *     MiIssueHardFault @ 0x140039650 (MiIssueHardFault.c)
+ *     MiDeleteSystemPagableVm @ 0x14003C140 (MiDeleteSystemPagableVm.c)
+ *     MmAccessFault @ 0x14004BD30 (MmAccessFault.c)
+ *     MiZeroFault @ 0x14004D290 (MiZeroFault.c)
+ *     MiDeleteVirtualAddresses @ 0x140057CB0 (MiDeleteVirtualAddresses.c)
+ *     MiAgeWorkingSet @ 0x140058F90 (MiAgeWorkingSet.c)
+ *     MiDecommitPages @ 0x14005ADD0 (MiDecommitPages.c)
+ *     MiSetProtectionOnSection @ 0x14005BC70 (MiSetProtectionOnSection.c)
+ *     MiGetPageProtection @ 0x14005F320 (MiGetPageProtection.c)
+ *     MiProtectPrivateMemory @ 0x1400614B0 (MiProtectPrivateMemory.c)
+ *     MiChargeWsles @ 0x140061CF0 (MiChargeWsles.c)
+ *     MiCommitExistingVad @ 0x1400629D0 (MiCommitExistingVad.c)
+ *     MiFinishHardFault @ 0x1400663D0 (MiFinishHardFault.c)
+ *     MmCopyToCachedPage @ 0x140069110 (MmCopyToCachedPage.c)
+ *     MiDeleteVad @ 0x14006AE10 (MiDeleteVad.c)
+ *     MiGetVadWakeList @ 0x14006C180 (MiGetVadWakeList.c)
+ *     MiFreePhysicalView @ 0x14006C290 (MiFreePhysicalView.c)
+ *     MiCopyOnWriteEx @ 0x14006EE60 (MiCopyOnWriteEx.c)
+ *     MiProtectPool @ 0x140078150 (MiProtectPool.c)
+ *     MmAdjustWorkingSetSizeEx @ 0x140096B2C (MmAdjustWorkingSetSizeEx.c)
+ *     MiFlushDirtyBitsToPfn @ 0x140098664 (MiFlushDirtyBitsToPfn.c)
+ *     MiLockPagedAddress @ 0x14009A36C (MiLockPagedAddress.c)
+ *     MiLockDownWorkingSet @ 0x14009A59C (MiLockDownWorkingSet.c)
+ *     MiCreateForkWsles @ 0x14009A6E4 (MiCreateForkWsles.c)
+ *     MiCreateForkWsle @ 0x14009A798 (MiCreateForkWsle.c)
+ *     MiCloneReserveVadCommit @ 0x14009AA54 (MiCloneReserveVadCommit.c)
+ *     MiCreateCloneChain @ 0x14009ABD0 (MiCreateCloneChain.c)
+ *     MiPopulateWorkingSetFreeList @ 0x14009B2F0 (MiPopulateWorkingSetFreeList.c)
+ *     MiMarkPteDirty @ 0x1400A4E50 (MiMarkPteDirty.c)
+ *     MiMakeSystemCacheRangeValid @ 0x1400A5070 (MiMakeSystemCacheRangeValid.c)
+ *     MmProbeAndLockPages @ 0x1400A7230 (MmProbeAndLockPages.c)
+ *     MiStealPage @ 0x1400ABC50 (MiStealPage.c)
+ *     MmUnmapViewInSystemCache @ 0x1400ADB30 (MmUnmapViewInSystemCache.c)
+ *     MiCopyToUserVa @ 0x1400B55D0 (MiCopyToUserVa.c)
+ *     MiTrimWorkingSet @ 0x1400B5BA0 (MiTrimWorkingSet.c)
+ *     NtGetWriteWatch @ 0x1400B66D0 (NtGetWriteWatch.c)
+ *     MiRemoveMappedPtes @ 0x1400B6D00 (MiRemoveMappedPtes.c)
+ *     MiLockCode @ 0x1400B7B30 (MiLockCode.c)
+ *     MiMakeSystemAddressValid @ 0x1400B82F0 (MiMakeSystemAddressValid.c)
+ *     MiSetSystemCodeProtection @ 0x1400B8D54 (MiSetSystemCodeProtection.c)
+ *     MmSetAddressRangeModified @ 0x1400B9910 (MmSetAddressRangeModified.c)
+ *     MiWriteDemandZeroPte @ 0x1400BAC24 (MiWriteDemandZeroPte.c)
+ *     MiDeletePagablePteRange @ 0x1400BACF0 (MiDeletePagablePteRange.c)
+ *     MiSetReadOnlyOnSectionView @ 0x1400BB050 (MiSetReadOnlyOnSectionView.c)
+ *     MmRemoveExecuteGrants @ 0x1400BB4A8 (MmRemoveExecuteGrants.c)
+ *     NtLockVirtualMemory @ 0x1400BB80C (NtLockVirtualMemory.c)
+ *     MiInsertPrivateVad @ 0x1400BC014 (MiInsertPrivateVad.c)
+ *     MiMakeDriverPagesPrivate @ 0x1400BDAC8 (MiMakeDriverPagesPrivate.c)
+ *     MiConvertAndFlushWsleVas @ 0x1400D05B4 (MiConvertAndFlushWsleVas.c)
+ *     MiDeletePartialVad @ 0x1400D6084 (MiDeletePartialVad.c)
+ *     MiSwapStackPage @ 0x1400D872C (MiSwapStackPage.c)
+ *     MiDeleteKernelStackPages @ 0x1400E1D60 (MiDeleteKernelStackPages.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1400E86F4 (MiUnlockProbePacketWorkingSet.c)
+ *     MiProtoFault @ 0x1400EA824 (MiProtoFault.c)
+ *     MiDoneWithThisPageGetAnother @ 0x1400EC988 (MiDoneWithThisPageGetAnother.c)
+ *     MiDeprioritizeVad @ 0x1400ED6E0 (MiDeprioritizeVad.c)
+ *     MiDuplicateCloneLeaf @ 0x1400F3798 (MiDuplicateCloneLeaf.c)
+ *     MiSetTrimWhileAgingState @ 0x1400F3E10 (MiSetTrimWhileAgingState.c)
+ *     MmOutSwapWorkingSet @ 0x1400F56B4 (MmOutSwapWorkingSet.c)
+ *     MiPrivateFixup @ 0x1400FEA08 (MiPrivateFixup.c)
+ *     MiReplaceRotateWithDemandZero @ 0x140102EA0 (MiReplaceRotateWithDemandZero.c)
+ *     MiRotateComplete @ 0x140103530 (MiRotateComplete.c)
+ *     MiDeleteRotateAndStopFaults @ 0x140103598 (MiDeleteRotateAndStopFaults.c)
+ *     MiWaitForRotateToComplete @ 0x1401036B0 (MiWaitForRotateToComplete.c)
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x140103E00 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiDeleteSessionAddressSpace @ 0x140114000 (MiDeleteSessionAddressSpace.c)
+ *     MiLockPageTableRange @ 0x140114F64 (MiLockPageTableRange.c)
+ *     MiUnlockPageTableRange @ 0x14011573C (MiUnlockPageTableRange.c)
+ *     MmStoreDecommitVirtualMemory @ 0x140116440 (MmStoreDecommitVirtualMemory.c)
+ *     MiEmptyAccessLogs @ 0x140116604 (MiEmptyAccessLogs.c)
+ *     MiDeleteSessionPdes @ 0x140116E90 (MiDeleteSessionPdes.c)
+ *     MiSessionRemoveImage @ 0x14011F8FC (MiSessionRemoveImage.c)
+ *     MiCountSystemImageCommitment @ 0x14011FFB4 (MiCountSystemImageCommitment.c)
+ *     MiSessionInsertImage @ 0x14012599C (MiSessionInsertImage.c)
+ *     MiSharePages @ 0x140128D20 (MiSharePages.c)
+ *     MiEmptyWsPrivatePagesCallback @ 0x14012BE8C (MiEmptyWsPrivatePagesCallback.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x14012D814 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiWaitForForkToComplete @ 0x14012FC18 (MiWaitForForkToComplete.c)
+ *     MiFreeUnusedPfnPages @ 0x1401322A8 (MiFreeUnusedPfnPages.c)
+ *     MiDeleteBootRange @ 0x1401332F0 (MiDeleteBootRange.c)
+ *     MiInsertViewOfPhysicalSection @ 0x14013BD7C (MiInsertViewOfPhysicalSection.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x140141B8C (MiGetWsAndMakePageTablesNx.c)
+ *     MiUpdatePrivateDemandZeroView @ 0x1401CEB88 (MiUpdatePrivateDemandZeroView.c)
+ *     MiMakeSpecialPoolPaged @ 0x1401CEE78 (MiMakeSpecialPoolPaged.c)
+ *     MmReplaceImportEntry @ 0x1401CF09C (MmReplaceImportEntry.c)
+ *     MiClearCommitReleaseState @ 0x1401CF714 (MiClearCommitReleaseState.c)
+ *     MiReAcquireOutSwappedProcessCommit @ 0x1401D03B4 (MiReAcquireOutSwappedProcessCommit.c)
+ *     MiReleaseOutSwappedProcessCommit @ 0x1401D059C (MiReleaseOutSwappedProcessCommit.c)
+ *     MmEnableProcessSvm @ 0x1401D094C (MmEnableProcessSvm.c)
+ *     MmSetCommitReleaseEligibility @ 0x1401D09A8 (MmSetCommitReleaseEligibility.c)
+ *     MiDeprioritizeVARange @ 0x1401D257C (MiDeprioritizeVARange.c)
+ *     MiTranslatePageForCopy @ 0x1401D4068 (MiTranslatePageForCopy.c)
+ *     MmCopyMemory @ 0x1401D45A8 (MmCopyMemory.c)
+ *     MiSetPagesModified @ 0x1401D4A14 (MiSetPagesModified.c)
+ *     MiMakeImagePageOk @ 0x1401D52A4 (MiMakeImagePageOk.c)
+ *     MmProtectSystemCacheView @ 0x1401D57E4 (MmProtectSystemCacheView.c)
+ *     MiSwitchToTransition @ 0x1401D6E6C (MiSwitchToTransition.c)
+ *     MiRemoveVadEvent @ 0x1401D7610 (MiRemoveVadEvent.c)
+ *     MiTrimAllSystemPagableMemory @ 0x1401D83E0 (MiTrimAllSystemPagableMemory.c)
+ *     MmUpdateOldWorkingSetPages @ 0x1401D8810 (MmUpdateOldWorkingSetPages.c)
+ *     MiDeleteSessionPoolRange @ 0x1401DBB98 (MiDeleteSessionPoolRange.c)
+ *     MiDbgCopyMemory @ 0x1401DD808 (MiDbgCopyMemory.c)
+ *     MiDeleteProcessShadow @ 0x1401DE720 (MiDeleteProcessShadow.c)
+ *     MiSynchronizePageFree @ 0x1401DF454 (MiSynchronizePageFree.c)
+ *     MiGetWorkingSetInfoEx @ 0x1401DF5F4 (MiGetWorkingSetInfoEx.c)
+ *     MiCombineWorkingSet @ 0x1401E0DFC (MiCombineWorkingSet.c)
+ *     MmOutSwapVirtualAddresses @ 0x1401E1508 (MmOutSwapVirtualAddresses.c)
+ *     MiMapUserLargePages @ 0x1401E1F60 (MiMapUserLargePages.c)
+ *     MiWriteLargePde @ 0x1401E2CA4 (MiWriteLargePde.c)
+ *     MiHandleForkTransitionPte @ 0x1401E4E64 (MiHandleForkTransitionPte.c)
+ *     MiScrubAweMappedPage @ 0x1401E5AB4 (MiScrubAweMappedPage.c)
+ *     MiScrubLargeMappedPage @ 0x1401E5BA4 (MiScrubLargeMappedPage.c)
+ *     MmFreeLoaderBlock @ 0x14074E52C (MmFreeLoaderBlock.c)
+ *     MiReturnDriverLoadPages @ 0x140784C40 (MiReturnDriverLoadPages.c)
+ * Callees:
+ *     MiAgeWorkingSet @ 0x140058F90 (MiAgeWorkingSet.c)
+ *     MiGetVmPartition @ 0x1400A8E60 (MiGetVmPartition.c)
+ *     MiReduceWs @ 0x1400F12BC (MiReduceWs.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x14021422C (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
+__int64 __fastcall MiUnlockWorkingSetExclusive(__int64 a1, __int64 a2, __int64 a3)
+{
+  char v3; // al
+  unsigned __int8 v4; // di
+  char v6; // al
+  __int64 result; // rax
+  __int64 v8; // r8
+  __int64 VmPartition; // rax
+  void *retaddr; // [rsp+28h] [rbp+0h]
+
+  v3 = *(_BYTE *)(a1 + 219);
+  v4 = a2;
+  if ( (v3 & 0x10) != 0 )
+  {
+    *(_BYTE *)(a1 + 219) = v3 & 0xEF;
+    VmPartition = MiGetVmPartition(a1, a2, a3);
+    MiAgeWorkingSet(a1, v4, 1LL, *(unsigned __int16 *)(*(_QWORD *)(VmPartition + 5616) + 2358LL));
+  }
+  v6 = *(_BYTE *)(a1 + 219);
+  if ( (v6 & 0x20) != 0 )
+  {
+    v8 = *(_QWORD *)(a1 + 136);
+    *(_BYTE *)(a1 + 219) = v6 & 0xDF;
+    MiReduceWs(a1, v4, v8);
+  }
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) != 0 )
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(a1, retaddr);
+  else
+    *(_DWORD *)a1 = 0;
+  result = v4;
+  __writecr8(v4);
+  return result;
+}

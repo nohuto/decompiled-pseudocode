@@ -1,0 +1,162 @@
+/*
+ * XREFs of HalpApicConvertToRte @ 0x140498134
+ * Callers:
+ *     HalpApicSetLineState @ 0x140498000 (HalpApicSetLineState.c)
+ * Callees:
+ *     HalpApicConvertId @ 0x1405A1180 (HalpApicConvertId.c)
+ */
+
+__int64 __fastcall HalpApicConvertToRte(_DWORD *a1, int *a2, int *a3)
+{
+  int v3; // r10d
+  int v4; // r9d
+  int v5; // ebx
+  unsigned int v9; // r11d
+  int v10; // eax
+  int v11; // ecx
+  int v12; // edx
+  __int64 result; // rax
+  int v14; // ecx
+  int v15; // ecx
+  int v16; // ecx
+  int v17; // ecx
+  int v18; // ecx
+  int v19; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = a1[3];
+  v4 = 0;
+  v5 = 0;
+  v19 = 0;
+  v9 = -1073741637;
+  if ( (v3 & 1) == 0 )
+  {
+    v5 = 65791;
+    v9 = 0;
+    goto LABEL_11;
+  }
+  v10 = a1[12];
+  if ( (v10 & 0xFFFFFF00) == 0 )
+  {
+    v5 = (unsigned __int8)v10;
+    if ( a1[4] == -1 )
+    {
+      v11 = a1[6];
+      if ( v11 == 7 )
+      {
+        v18 = a1[8];
+        if ( KeGetCurrentPrcb()->CpuVendor == 1 )
+        {
+          v5 = a1[8] & 0x1FF;
+        }
+        else
+        {
+          v4 = (v18 << 17) | 0x10000;
+          if ( (v18 & 0x8000) == 0 )
+            goto LABEL_7;
+        }
+      }
+      else
+      {
+        if ( v11 == 8 )
+        {
+          v5 = a1[8];
+          v4 = a1[9];
+          goto LABEL_7;
+        }
+        switch ( a1[5] )
+        {
+          case 1:
+            if ( v11 != 4 && (v3 & 2) != 0 )
+              v5 = (unsigned __int8)v10 | 0x100;
+            break;
+          case 2:
+            v5 = 1024;
+            break;
+          case 3:
+            v5 = (unsigned __int8)v10 | 0x200;
+            break;
+          case 4:
+            v5 = (unsigned __int8)v10 | 0x700;
+            break;
+          case 7:
+            v5 = (unsigned __int8)v10 | 0x500;
+            break;
+          default:
+            goto LABEL_11;
+        }
+        if ( HalpApicGuestX2Mode )
+        {
+          v5 &= ~0x100u;
+          goto LABEL_7;
+        }
+        v14 = v11 - 1;
+        if ( !v14 )
+        {
+          v4 = HalpApicX2Mode != 0 ? -1 : -16777216;
+          goto LABEL_7;
+        }
+        v15 = v14 - 2;
+        if ( !v15 )
+        {
+LABEL_7:
+          v12 = v5 | 0x8000;
+          if ( a1[2] )
+            v12 = v5;
+          v9 = 0;
+          v5 = v12 | 0x2000;
+          if ( *a1 != 2 )
+            v5 = v12;
+          goto LABEL_11;
+        }
+        v16 = v15 - 1;
+        if ( !v16 )
+        {
+          if ( HalpApicX2Mode )
+          {
+            v4 = a1[8];
+            if ( KeGetCurrentPrcb()->CpuVendor != 1 )
+              goto LABEL_7;
+            goto LABEL_24;
+          }
+          goto LABEL_23;
+        }
+        v17 = v16 - 1;
+        if ( !v17 )
+        {
+          v5 |= 0x800u;
+LABEL_23:
+          v4 = a1[8];
+LABEL_24:
+          v4 <<= 24;
+          goto LABEL_7;
+        }
+        if ( v17 != 1 )
+        {
+          v5 |= 0x800u;
+          goto LABEL_11;
+        }
+        if ( HalpApicX2Mode )
+        {
+          if ( KeGetCurrentPrcb()->CpuVendor == 1 )
+          {
+            HalpApicConvertId(0LL, &v19);
+            v4 = v19;
+            goto LABEL_24;
+          }
+          v4 = a1[9] | (a1[8] << 16);
+        }
+        else
+        {
+          v4 = (*((unsigned __int16 *)a1 + 18) | (unsigned __int16)(16 * *((_WORD *)a1 + 16))) << 24;
+        }
+      }
+      v5 |= 0x800u;
+      goto LABEL_7;
+    }
+  }
+LABEL_11:
+  result = v9;
+  *a2 = v5;
+  *a3 = v4;
+  return result;
+}

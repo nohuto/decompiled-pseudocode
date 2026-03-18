@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?SendEtwOutput@CBasePTPEngine@@IEAAXW4Action@Etw@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1400C90C4
+ * Callers:
+ *     ?TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z @ 0x1400C9040 (-TPAAPSetCurtainState@CPTPEngine@@AEAAXH@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140242EE0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall CBasePTPEngine::SendEtwOutput(__int64 a1, int a2, __int64 a3)
+{
+  int v3; // eax
+  __int64 v4; // rbx
+  __int64 v5; // rcx
+  __int64 result; // rax
+
+  v3 = *(_DWORD *)(a3 + 16);
+  v4 = a1 + 772;
+  *(_OWORD *)(a1 + 780) = *(_OWORD *)a3;
+  *(_DWORD *)(a1 + 796) = v3;
+  *(_DWORD *)(a1 + 776) = a2;
+  v5 = *(_QWORD *)(a1 + 8);
+  *(_DWORD *)v4 = 1;
+  result = (*(__int64 (__fastcall **)(__int64, __int64))(*(_QWORD *)v5 + 8LL))(v5, v4);
+  *(_OWORD *)v4 = 0LL;
+  *(_OWORD *)(v4 + 16) = 0LL;
+  return result;
+}

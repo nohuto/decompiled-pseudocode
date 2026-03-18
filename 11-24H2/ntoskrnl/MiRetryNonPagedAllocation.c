@@ -1,0 +1,67 @@
+/*
+ * XREFs of MiRetryNonPagedAllocation @ 0x140481470
+ * Callers:
+ *     MiGetPoolPages @ 0x1402E9F58 (MiGetPoolPages.c)
+ * Callees:
+ *     KeAreInterruptsEnabled @ 0x140257E20 (KeAreInterruptsEnabled.c)
+ *     MiReleaseSpinLockExclusive @ 0x14028EE30 (MiReleaseSpinLockExclusive.c)
+ *     KeResetEvent @ 0x14028EEC0 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14028F370 (ExAcquireSpinLockExclusive.c)
+ *     MiSufficientAvailablePages @ 0x1402AA420 (MiSufficientAvailablePages.c)
+ *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ */
+
+__int64 __fastcall MiRetryNonPagedAllocation(int a1)
+{
+  unsigned int v3; // ebx
+  LARGE_INTEGER *Timeout; // rsi
+  NTSTATUS i; // edi
+  KIRQL v6; // bp
+
+  if ( KeGetCurrentIrql() > 1u )
+    return 0LL;
+  if ( (KeGetPcr()->Prcb.DpcRequestSummary & 0x10001) != 0 )
+    return 0LL;
+  v3 = 0;
+  if ( !KeAreInterruptsEnabled() || a1 )
+    return 0LL;
+  if ( (unsigned int)MiSufficientAvailablePages((__int64)&MiSystemPartition, 0xA0uLL) )
+    return 1LL;
+  Timeout = (LARGE_INTEGER *)&Mi30Milliseconds;
+  for ( i = 1; ; i = KeWaitForSingleObject(&stru_140E3CB68, WrFreePage, 0, 0, Timeout) )
+  {
+    v6 = ExAcquireSpinLockExclusive(dword_140E3CB40);
+    if ( (unsigned int)MiSufficientAvailablePages((__int64)&MiSystemPartition, 0xA0uLL) )
+      break;
+    if ( i == 1 )
+    {
+      if ( byte_140E2CA5C )
+      {
+        if ( dword_140E2CA58 == dword_140E3CB80 )
+          goto LABEL_22;
+        byte_140E2CA5C = 0;
+      }
+    }
+    else
+    {
+      if ( i == 258 )
+      {
+        if ( !byte_140E2CA5C )
+        {
+          dword_140E2CA58 = dword_140E3CB80;
+          byte_140E2CA5C = 1;
+        }
+        goto LABEL_22;
+      }
+      Timeout = (LARGE_INTEGER *)&Mi10Milliseconds;
+    }
+    KeResetEvent(&stru_140E3CB68);
+    MiReleaseSpinLockExclusive(dword_140E3CB40, v6);
+  }
+  if ( byte_140E2CA5C )
+    byte_140E2CA5C = 0;
+  v3 = 1;
+LABEL_22:
+  MiReleaseSpinLockExclusive(dword_140E3CB40, v6);
+  return v3;
+}

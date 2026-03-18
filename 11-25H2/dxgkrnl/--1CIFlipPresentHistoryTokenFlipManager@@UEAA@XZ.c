@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1CIFlipPresentHistoryTokenFlipManager@@UEAA@XZ @ 0x14000B000
+ * Callers:
+ *     ??_GCIFlipPresentHistoryTokenFlipManager@@UEAAPEAXI@Z @ 0x14000AFE0 (--_GCIFlipPresentHistoryTokenFlipManager@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnlockAndRelease@CFlipManagerToken@@QEAAXXZ @ 0x14000B3C8 (-UnlockAndRelease@CFlipManagerToken@@QEAAXXZ.c)
+ */
+
+void __fastcall CIFlipPresentHistoryTokenFlipManager::~CIFlipPresentHistoryTokenFlipManager(CFlipManagerToken **this)
+{
+  *this = (CFlipManagerToken *)&CIFlipPresentHistoryTokenFlipManager::`vftable';
+  CFlipManagerToken::UnlockAndRelease(this[1]);
+  *this = (CFlipManagerToken *)&CIFlipPresentHistoryTokenData::`vftable';
+}

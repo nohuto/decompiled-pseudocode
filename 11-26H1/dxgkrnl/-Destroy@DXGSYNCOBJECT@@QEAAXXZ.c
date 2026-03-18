@@ -1,0 +1,67 @@
+/*
+ * XREFs of ?Destroy@DXGSYNCOBJECT@@QEAAXXZ @ 0x1403531A0
+ * Callers:
+ *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I_N@Z @ 0x1401FE008 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I_N@Z.c)
+ *     ?CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIONOBJECTINFO2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@_NPEAVDXGPAGINGQUEUE@@PEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEAIPEAPEAVDXGADAPTERSYNCOBJECT@@PEAU_D3DDDI_NATIVEFENCEINFO@@PEAE@Z @ 0x1403511A0 (-CreateSyncObject@DXGGLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAVDXGDEVICE@@IPEAU_D3DDDI_SYNCHRONIZATIO.c)
+ * Callees:
+ *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x140007E9C (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x14000E0B0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x140016BA0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x14001D870 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x14002BDA0 (DxgkLogInternalTriageEvent.c)
+ *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x14004611C (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ??1DXGSYNCOBJECTSA@@QEAA@XZ @ 0x140050584 (--1DXGSYNCOBJECTSA@@QEAA@XZ.c)
+ *     ?FreeHandle@DXGGLOBAL@@QEAAXI@Z @ 0x140053BB8 (-FreeHandle@DXGGLOBAL@@QEAAXI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1402EABB0 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Stop@DXGADAPTERSYNCOBJECT@@QEAAXXZ @ 0x140353308 (-Stop@DXGADAPTERSYNCOBJECT@@QEAAXXZ.c)
+ *     ??1DXGSYNCOBJECT@@IEAA@XZ @ 0x1403534C4 (--1DXGSYNCOBJECT@@IEAA@XZ.c)
+ *     ?Destroy@DXGSYNCOBJECTCA@@QEAAXXZ @ 0x140353634 (-Destroy@DXGSYNCOBJECTCA@@QEAAXXZ.c)
+ *     ?DestroyPeriodicFrameNotification@DXGSYNCOBJECT@@QEAAXXZ @ 0x1404146E0 (-DestroyPeriodicFrameNotification@DXGSYNCOBJECT@@QEAAXXZ.c)
+ */
+
+void __fastcall DXGSYNCOBJECT::Destroy(DXGSYNCOBJECT *this)
+{
+  unsigned int v2; // edx
+  __int64 v3; // rcx
+  struct DXGPROCESS *Current; // rax
+  int v5; // eax
+  _BYTE v6[24]; // [rsp+50h] [rbp-18h] BYREF
+
+  if ( *((_DWORD *)this + 6) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 2405;
+    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"m_cReference == 0", 2405LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( *((_DWORD *)this + 105) == 6 )
+    DXGSYNCOBJECT::DestroyPeriodicFrameNotification(this);
+  v2 = *((_DWORD *)this + 20);
+  if ( v2 )
+  {
+    if ( (*((_DWORD *)this + 107) & 0x10) != 0 )
+    {
+      DXGPROCESS::FreeHandleSafe(*((DXGPROCESS **)this + 54), v2);
+    }
+    else
+    {
+      DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v6);
+      DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6);
+      DXGGLOBAL::FreeHandle(*((DXGGLOBAL **)this + 2), *((_DWORD *)this + 20));
+      DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v6);
+    }
+    *((_DWORD *)this + 20) = 0;
+  }
+  if ( (*((_DWORD *)this + 106) & 4) != 0 )
+    DXGSYNCOBJECTCA::Destroy(this);
+  else
+    DXGADAPTERSYNCOBJECT::Stop((DXGSYNCOBJECT *)((char *)this + 440));
+  Current = DXGPROCESS::GetCurrent(v3);
+  WdLogSingleEntry3(4LL, this, *((unsigned int *)this + 20), Current);
+  v5 = *((_DWORD *)this + 106) >> 2;
+  WdLogGlobalForLineNumber = 2449;
+  if ( (v5 & 1) != 0 )
+    DXGSYNCOBJECT::~DXGSYNCOBJECT(this);
+  else
+    DXGSYNCOBJECTSA::~DXGSYNCOBJECTSA(this);
+  DXGQUOTAALLOCATOR<256,1835156294>::operator delete(this);
+}

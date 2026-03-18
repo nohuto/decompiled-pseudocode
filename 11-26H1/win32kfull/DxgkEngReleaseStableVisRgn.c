@@ -1,0 +1,26 @@
+/*
+ * XREFs of DxgkEngReleaseStableVisRgn @ 0x1400AB290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$GreReleaseSemaphoreExclusive@$01$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1400A6CE8 (--$GreReleaseSemaphoreExclusive@$01$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??$GreReleaseSemaphoreShared@$02$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1400AB2EC (--$GreReleaseSemaphoreShared@$02$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??$GreReleaseSemaphoreShared@$00$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1400AB3D8 (--$GreReleaseSemaphoreShared@$00$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??$GreReleaseSemaphoreShared@$01$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1400AB8B4 (--$GreReleaseSemaphoreShared@$01$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ */
+
+__int64 __fastcall DxgkEngReleaseStableVisRgn(Gre::Base *a1)
+{
+  int v1; // ebx
+  struct Gre::Base::SESSION_GLOBALS *v2; // rdi
+
+  v1 = (int)a1;
+  v2 = Gre::Base::Globals(a1);
+  GreReleaseSemaphoreShared<3,>(v2);
+  if ( v1 )
+    GreReleaseSemaphoreShared<2,>(v2);
+  else
+    GreReleaseSemaphoreExclusive<2,>(v2);
+  GreReleaseSemaphoreShared<1,>(v2);
+  return UserLeaveUserCritSec();
+}

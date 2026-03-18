@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?ProcessSetClearColor@CDesktopRenderTarget@@UEAAJPEAVCResourceTable@@PEBUMILCMD_TARGET_SETCLEARCOLOR@@@Z @ 0x18011DE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR@@YAXKQEBJIJI@Z @ 0x180047444 (-MilInstrumentationCheckHR@@YAXKQEBJIJI@Z.c)
+ *     ?ProcessSetClearColor@CHwndRenderTarget@@UEAAJPEAVCResourceTable@@PEBUMILCMD_TARGET_SETCLEARCOLOR@@@Z @ 0x18011C830 (-ProcessSetClearColor@CHwndRenderTarget@@UEAAJPEAVCResourceTable@@PEBUMILCMD_TARGET_SETCLEARCOLO.c)
+ */
+
+__int64 __fastcall CDesktopRenderTarget::ProcessSetClearColor(
+        CDesktopRenderTarget *this,
+        struct CResourceTable *a2,
+        const struct MILCMD_TARGET_SETCLEARCOLOR *a3)
+{
+  unsigned int v3; // ebx
+  __int64 v4; // rdi
+  int v8; // eax
+
+  v3 = 0;
+  v4 = 0LL;
+  *(_OWORD *)((char *)this + 396) = *(_OWORD *)((char *)a3 + 8);
+  *((_DWORD *)this + 102) = 1065353216;
+  if ( *((_DWORD *)this + 46) )
+  {
+    while ( 1 )
+    {
+      v8 = CHwndRenderTarget::ProcessSetClearColor(*(CHwndRenderTarget **)(*((_QWORD *)this + 20) + 8 * v4), a2, a3);
+      v3 = v8;
+      if ( v8 < 0 )
+        break;
+      v4 = (unsigned int)(v4 + 1);
+      if ( (unsigned int)v4 >= *((_DWORD *)this + 46) )
+        return v3;
+    }
+    MilInstrumentationCheckHR(0x14u, 0LL, 0, v8, 0x4A4u);
+  }
+  return v3;
+}

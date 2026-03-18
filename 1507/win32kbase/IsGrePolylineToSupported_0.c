@@ -1,0 +1,13 @@
+/*
+ * XREFs of IsGrePolylineToSupported_0 @ 0x1C00012D8
+ * Callers:
+ *     NtGdiPolyPolyDraw @ 0x1C0068CF0 (NtGdiPolyPolyDraw.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 IsGrePolylineToSupported_0()
+{
+  return IsGrePolylineToSupported();
+}

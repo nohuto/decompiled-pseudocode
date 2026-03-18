@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??8CPathData@@QEBA_NAEBV0@@Z @ 0x180182390
+ * Callers:
+ *     ??8CExpressionValue@@QEBA_NAEBV0@@Z @ 0x18000F6E0 (--8CExpressionValue@@QEBA_NAEBV0@@Z.c)
+ *     ?SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z @ 0x180181408 (-SetPath@CPathGeometry@@AEAAXPEBVCPathData@@@Z.c)
+ * Callees:
+ *     memcmp_0 @ 0x1802DF6C8 (memcmp_0.c)
+ */
+
+bool __fastcall CPathData::operator==(__int64 a1, __int64 a2)
+{
+  size_t v2; // r8
+
+  v2 = *(_QWORD *)(a1 + 24) - *(_QWORD *)(a1 + 16);
+  return v2 == *(_QWORD *)(a2 + 24) - *(_QWORD *)(a2 + 16)
+      && memcmp_0(*(const void **)(a1 + 16), *(const void **)(a2 + 16), v2) == 0;
+}

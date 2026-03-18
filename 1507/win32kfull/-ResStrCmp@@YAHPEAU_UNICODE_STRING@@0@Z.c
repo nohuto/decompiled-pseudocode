@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?ResStrCmp@@YAHPEAU_UNICODE_STRING@@0@Z @ 0x1C005E684
+ * Callers:
+ *     SearchIconCache @ 0x1C005E5B0 (SearchIconCache.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ResStrCmp(struct _UNICODE_STRING *a1, struct _UNICODE_STRING *a2)
+{
+  unsigned int v3; // ebx
+  USHORT Length; // ax
+  PWSTR Buffer; // rdx
+  UNICODE_STRING String; // [rsp+30h] [rbp-18h] BYREF
+  ULONG Value; // [rsp+50h] [rbp+8h] BYREF
+
+  v3 = 0;
+  Length = a1->Length;
+  if ( a1->Length )
+  {
+    if ( a2->Length )
+    {
+      if ( RtlEqualUnicodeString(a1, a2, 1u) )
+        return 1;
+    }
+    else
+    {
+      Buffer = a1->Buffer;
+      if ( *Buffer == 35 )
+      {
+        String.Length = Length - 2;
+        String.MaximumLength = Length - 2;
+        String.Buffer = Buffer + 1;
+        RtlUnicodeStringToInteger(&String, 0xAu, &Value);
+        return (PWSTR)Value == a2->Buffer;
+      }
+    }
+    return v3;
+  }
+  if ( a1->Buffer != a2->Buffer )
+    return v3;
+  return 1LL;
+}

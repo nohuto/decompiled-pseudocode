@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?Delete@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAXXZ @ 0x1C025A410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GDXG_HOST_REMOTEOBJECTCHANNEL@@IEAAPEAXI@Z @ 0x1C02594D8 (--_GDXG_HOST_REMOTEOBJECTCHANNEL@@IEAAPEAXI@Z.c)
+ */
+
+void __fastcall DXG_HOST_REMOTEOBJECTCHANNEL::Delete(DXG_HOST_REMOTEOBJECTCHANNEL *this)
+{
+  if ( this )
+    DXG_HOST_REMOTEOBJECTCHANNEL::`scalar deleting destructor'(this);
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??_EFxPkgPnp@@MEAAPEAXI@Z @ 0x1C009A670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0012220 (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C009A3F8 (--1FxPkgPnp@@MEAA@XZ.c)
+ */
+
+FxPkgPnp *__fastcall FxPkgPnp::`vector deleting destructor'(FxPkgPnp *this, unsigned int a2)
+{
+  char v2; // bl
+  FxPkgPnp *v4; // rcx
+
+  v2 = a2;
+  FxPkgPnp::~FxPkgPnp(this, a2);
+  if ( (v2 & 1) != 0 )
+  {
+    v4 = (FxPkgPnp *)((char *)this - 48);
+    if ( SLOBYTE(this->m_ObjectFlags) >= 0 )
+      v4 = this;
+    FxPoolFree(v4);
+  }
+  return this;
+}

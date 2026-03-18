@@ -1,0 +1,45 @@
+/*
+ * XREFs of ??0DataProviderProxy@@QEAA@XZ @ 0x180208360
+ * Callers:
+ *     ?CreateDataProviderProxy@BamoImpl@@YAXPEAVBaseBamoConnectionImpl@1Microsoft@@PEAVBamoPeer@dataprovider_AutoBamos@@PEAPEAVBamoProxy@Bamo@3@@Z @ 0x18023F1F8 (-CreateDataProviderProxy@BamoImpl@@YAXPEAVBaseBamoConnectionImpl@1Microsoft@@PEAVBamoPeer@datapr.c)
+ * Callees:
+ *     ?_Assign_grow@?$_Hash_vec@V?$allocator@V?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@PEAUIUnknown@@@std@@@std@@U_Iterator_base0@2@@std@@@std@@@std@@QEAAX_KV?$_List_unchecked_const_iterator@V?$_List_val@U?$_List_simple_types@PEAUIUnknown@@@std@@@std@@U_Iterator_base0@2@@2@@Z @ 0x1800E8884 (-_Assign_grow@-$_Hash_vec@V-$allocator@V-$_List_unchecked_const_iterator@V-$_List_val@U-$_List_s.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z @ 0x1800E95D0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@@std@@YAPEAX_K@Z.c)
+ */
+
+DataProviderProxy *__fastcall DataProviderProxy::DataProviderProxy(DataProviderProxy *this, __int64 a2)
+{
+  _QWORD *v3; // rax
+  DataProviderProxy *result; // rax
+
+  *((_DWORD *)this + 6) = 0;
+  *((_QWORD *)this + 4) = 0LL;
+  *((_QWORD *)this + 2) = &BamoImpl::BamoDataProviderProxyImpl::`vftable';
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 14) = 0;
+  *(_QWORD *)this = &DataProviderProxy::`vftable'{for `Microsoft::Bamo::BamoProxy'};
+  *((_QWORD *)this + 1) = &DataProviderProxy::`vftable'{for `IDataProviderProxy'};
+  *((_DWORD *)this + 20) = 0;
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  v3 = std::_Allocate<16,std::_Default_allocate_traits>(0x20uLL, a2);
+  *v3 = v3;
+  v3[1] = v3;
+  *((_QWORD *)this + 11) = v3;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
+  *((_QWORD *)this + 16) = 7LL;
+  *((_QWORD *)this + 17) = 8LL;
+  *((_DWORD *)this + 20) = 1065353216;
+  std::_Hash_vec<std::allocator<std::_List_unchecked_const_iterator<std::_List_val<std::_List_simple_types<IUnknown *>>,std::_Iterator_base0>>>::_Assign_grow(
+    (__int64)this + 104,
+    0x10uLL,
+    *((_QWORD *)this + 11));
+  result = this;
+  *((_QWORD *)this + 18) = 0LL;
+  *((_QWORD *)this + 19) = 0LL;
+  *((_QWORD *)this + 20) = 0LL;
+  return result;
+}

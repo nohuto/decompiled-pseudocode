@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?ForTopology@CCD_STORE@@SAJAEBVCCD_SET_STRING_ID@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@1@PEAX@Z2_N@Z @ 0x140369C80
+ * Callers:
+ *     ?LoadByTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@K_N@Z @ 0x140369438 (-LoadByTopologySetId@CCD_RECENT_TOPOLOGY_RETRIEVER@@QEAAJAEBVCCD_SET_STRING_ID@@K_N@Z.c)
+ *     ?Persist@CCD_TOPOLOGY@@QEAAJI@Z @ 0x14036D944 (-Persist@CCD_TOPOLOGY@@QEAAJI@Z.c)
+ * Callees:
+ *     ?GetTopologySetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ @ 0x140369CC8 (-GetTopologySetStr@CCD_SET_STRING_ID@@QEBAAEBU_STRING@@XZ.c)
+ *     ??$_ForSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVTOPOLOGY_SET_DESCRIPTOR@0@PEAX@Z3_N@Z @ 0x140369D2C (--$_ForSetSubkey@VTOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@@CCD_STORE@@CAJPEAGAEBU_STRING@@P6AJPEAVTOP.c)
+ */
+
+__int64 __fastcall CCD_STORE::ForTopology(
+        const struct CCD_SET_STRING_ID *a1,
+        int (*a2)(struct CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *, void *),
+        void *a3,
+        char a4)
+{
+  const struct _STRING *TopologySetStr; // rax
+  __int64 v8; // rcx
+  char v10; // [rsp+20h] [rbp-18h]
+
+  TopologySetStr = CCD_SET_STRING_ID::GetTopologySetStr(a1);
+  v10 = a4;
+  return CCD_STORE::_ForSetSubkey<CCD_STORE::TOPOLOGY_SET_DESCRIPTOR>(v8, TopologySetStr, a2, a3, v10);
+}

@@ -1,0 +1,153 @@
+/*
+ * XREFs of ?LogAnimationEnded@CAnimationLoggingManager@@QEAAX_KPEAVCResource@@IIW4AnimationEndedReasonType@@@Z @ 0x18021559C
+ * Callers:
+ *     ?NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z @ 0x1800987C4 (-NotifyAnimationStateChanged@CBaseExpression@@AEAAJW4AnimationEventType@@@Z.c)
+ *     ?ProcessSetAnimationEnded@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMATIONLOGGINGMANAGER_SETANIMATIONENDED@@@Z @ 0x1802163F0 (-ProcessSetAnimationEnded@CAnimationLoggingManager@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_ANIMA.c)
+ * Callees:
+ *     ?TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@@@Z @ 0x18003E94C (-TryGetDebugInfoForResource@CAnimationLoggingManager@@AEAAPEAUResourceDebugInfo@1@PEAVCResource@.c)
+ *     _tlgKeywordOn @ 0x1800BB1F8 (_tlgKeywordOn.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E12E0 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     __security_check_cookie @ 0x18010EF20 (__security_check_cookie.c)
+ *     memset_0 @ 0x1801100E8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B76D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?SendAnimationEnded@DiagnosticCallbacksManager@@QEAAJII_KIGW4AnimationEndedReasonType@@AEBVCExpressionValue@@@Z @ 0x1801BAB58 (-SendAnimationEnded@DiagnosticCallbacksManager@@QEAAJII_KIGW4AnimationEndedReasonType@@AEBVCExpr.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U?$_tlgWrapSz@G@@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4AEBU?$_tlgWrapSz@G@@55@Z @ 0x180215288 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U-$_tlgWrapSz@G@@U3@U3@@-$_tlgWrit.c)
+ *     ?GetCommentForObject@CAnimationLoggingManager@@AEAAPEBGI@Z @ 0x180215548 (-GetCommentForObject@CAnimationLoggingManager@@AEAAPEBGI@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026FE48 (ModuleFailFastForHRESULT.c)
+ */
+
+char __fastcall CAnimationLoggingManager::LogAnimationEnded(
+        wchar_t *a1,
+        __int64 a2,
+        struct CResource *a3,
+        unsigned int a4,
+        unsigned int a5,
+        int a6)
+{
+  struct CAnimationLoggingManager::ResourceDebugInfo *DebugInfoForResource; // rax
+  wchar_t *v11; // rbx
+  __int64 v12; // rcx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  wchar_t *v15; // rax
+  struct CAnimationLoggingManager::ResourceDebugInfo *v16; // rbx
+  DiagnosticCallbacksManager *v17; // rdi
+  __int64 v18; // rax
+  int v19; // eax
+  int v20; // eax
+  int v22; // [rsp+20h] [rbp-B9h]
+  int v23; // [rsp+20h] [rbp-B9h]
+  __int64 v24; // [rsp+28h] [rbp-B1h]
+  __int64 v25; // [rsp+30h] [rbp-A9h]
+  unsigned int v26; // [rsp+50h] [rbp-89h] BYREF
+  unsigned int v27; // [rsp+54h] [rbp-85h] BYREF
+  wchar_t *CommentForObject; // [rsp+58h] [rbp-81h] BYREF
+  wchar_t *v29; // [rsp+60h] [rbp-79h] BYREF
+  wchar_t *v30; // [rsp+68h] [rbp-71h] BYREF
+  int v31[2]; // [rsp+70h] [rbp-69h] BYREF
+  _BYTE v32[64]; // [rsp+80h] [rbp-59h] BYREF
+  __int64 v33; // [rsp+C0h] [rbp-19h] BYREF
+  int v34; // [rsp+C8h] [rbp-11h]
+  char v35; // [rsp+CCh] [rbp-Dh]
+  wil::details::in1diag3 *retaddr; // [rsp+128h] [rbp+4Fh]
+
+  LOBYTE(DebugInfoForResource) = a6;
+  if ( a6 )
+  {
+    LOBYTE(DebugInfoForResource) = a6 - 1;
+    if ( a6 == 1 )
+    {
+      v11 = L"Animation disconnected due to direct property set (API)";
+    }
+    else
+    {
+      LOBYTE(DebugInfoForResource) = a6 - 2;
+      if ( a6 == 2 )
+      {
+        v11 = L"Animation disconnected because the target was destroyed";
+      }
+      else
+      {
+        if ( a6 != 3 )
+          ModuleFailFastForHRESULT(2147549183LL, retaddr);
+        v11 = L"Animation was stopped (StopAnimation)";
+      }
+    }
+  }
+  else
+  {
+    v11 = L"Animation completed";
+  }
+  if ( (unsigned int)dword_1803E3798 > 5 )
+  {
+    LOBYTE(DebugInfoForResource) = tlgKeywordOn((__int64)&dword_1803E3798, 1LL);
+    if ( (_BYTE)DebugInfoForResource )
+    {
+      CommentForObject = (wchar_t *)CAnimationLoggingManager::GetCommentForObject((CAnimationLoggingManager *)a1, a4);
+      v15 = a1 + 80;
+      if ( *((_QWORD *)a1 + 23) >= 8uLL )
+        v15 = *(wchar_t **)v15;
+      v29 = v15;
+      v30 = v11;
+      v26 = a5;
+      v27 = a4;
+      *(_QWORD *)v31 = a2;
+      LOBYTE(DebugInfoForResource) = _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>,_tlgWrapSz<unsigned short>>(
+                                       v12,
+                                       byte_180380014,
+                                       v13,
+                                       v14,
+                                       (__int64)v31,
+                                       (__int64)&v27,
+                                       (__int64)&v26,
+                                       &v30,
+                                       &v29,
+                                       &CommentForObject);
+    }
+  }
+  if ( a3 )
+  {
+    DebugInfoForResource = CAnimationLoggingManager::TryGetDebugInfoForResource((CAnimationLoggingManager *)a1, a3);
+    v16 = DebugInfoForResource;
+    if ( DebugInfoForResource )
+    {
+      if ( *((_DWORD *)DebugInfoForResource + 10) )
+      {
+        v17 = *(DiagnosticCallbacksManager **)(*((_QWORD *)a1 + 2) + 1248LL);
+        memset_0(v32, 0, sizeof(v32));
+        v18 = *(_QWORD *)a3;
+        v33 = 0LL;
+        v34 = 18;
+        v35 = 0;
+        v19 = (*(__int64 (__fastcall **)(struct CResource *, _QWORD, _BYTE *))(v18 + 136))(a3, a5, v32);
+        if ( v19 < 0 )
+          wil::details::in1diag3::FailFast_Hr(
+            retaddr,
+            654LL,
+            (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
+            (const char *)(unsigned int)v19,
+            v22);
+        LODWORD(v25) = a6;
+        v20 = DiagnosticCallbacksManager::SendAnimationEnded(
+                v17,
+                *((_DWORD *)v16 + 10),
+                *((_DWORD *)v16 + 11),
+                a2,
+                a5,
+                v24,
+                v25,
+                (CExpressionValue *)v32);
+        if ( v20 < 0 )
+          wil::details::in1diag3::FailFast_Hr(
+            retaddr,
+            664LL,
+            (__int64)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\animationloggingmanager.cpp",
+            (const char *)(unsigned int)v20,
+            v23);
+        LOBYTE(DebugInfoForResource) = Microsoft::WRL::ComPtr<ID2D1PathGeometry>::InternalRelease(&v33);
+      }
+    }
+  }
+  return (char)DebugInfoForResource;
+}

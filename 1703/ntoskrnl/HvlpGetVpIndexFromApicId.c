@@ -1,0 +1,35 @@
+/*
+ * XREFs of HvlpGetVpIndexFromApicId @ 0x1401E5A3C
+ * Callers:
+ *     HvlpEnableNextLogicalProcessor @ 0x1401E5790 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlHalGetVpIndexFromApicId @ 0x1401E6DD0 (HvlHalGetVpIndexFromApicId.c)
+ * Callees:
+ *     HvcallpNoHypervisorPresent @ 0x140130000 (HvcallpNoHypervisorPresent.c)
+ *     HvlpAcquireHypercallPage @ 0x1401E5364 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x1401E5D98 (HvlpReleaseHypercallPage.c)
+ */
+
+__int64 __fastcall HvlpGetVpIndexFromApicId(int a1, _DWORD *a2)
+{
+  unsigned int v2; // esi
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  _DWORD *v7; // r15
+  PHYSICAL_ADDRESS v9[3]; // [rsp+20h] [rbp-58h] BYREF
+  PHYSICAL_ADDRESS v10[3]; // [rsp+40h] [rbp-38h] BYREF
+
+  v2 = 0;
+  v5 = HvlpAcquireHypercallPage(v9, 1, 0LL, 16LL);
+  v6 = HvlpAcquireHypercallPage(v10, 2, 0LL, 4LL);
+  *(_QWORD *)v5 = -1LL;
+  v7 = (_DWORD *)v6;
+  *(_QWORD *)(v5 + 8) = 0LL;
+  *(_DWORD *)(v5 + 16) = a1;
+  if ( (unsigned __int16)HvcallCodeVa() )
+    v2 = -1073741823;
+  else
+    *a2 = *v7;
+  HvlpReleaseHypercallPage(v9);
+  HvlpReleaseHypercallPage(v10);
+  return v2;
+}

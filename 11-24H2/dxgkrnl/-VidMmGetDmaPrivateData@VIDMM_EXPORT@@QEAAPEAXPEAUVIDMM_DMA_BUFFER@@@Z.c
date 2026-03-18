@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?VidMmGetDmaPrivateData@VIDMM_EXPORT@@QEAAPEAXPEAUVIDMM_DMA_BUFFER@@@Z @ 0x1400404EC
+ * Callers:
+ *     ?RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x14042303C (-RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCAT.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400A1CA0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall VIDMM_EXPORT::VidMmGetDmaPrivateData(VIDMM_EXPORT *this, struct VIDMM_DMA_BUFFER *a2)
+{
+  return (*(__int64 (__fastcall **)(struct VIDMM_DMA_BUFFER *))(*((_QWORD *)this + 1) + 528LL))(a2);
+}

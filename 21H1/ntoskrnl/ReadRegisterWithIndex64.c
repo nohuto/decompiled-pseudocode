@@ -1,0 +1,13 @@
+/*
+ * XREFs of ReadRegisterWithIndex64 @ 0x1405C5CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1403FE9E0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall ReadRegisterWithIndex64(__int64 a1, unsigned __int8 a2)
+{
+  return ((__int64 (__fastcall *)(_QWORD))off_140C05380)(*(_QWORD *)a1 + a2
+                                                                       * (unsigned int)*(unsigned __int8 *)(a1 + 14));
+}

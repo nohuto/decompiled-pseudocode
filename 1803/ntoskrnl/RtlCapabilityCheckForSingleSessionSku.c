@@ -1,0 +1,30 @@
+/*
+ * XREFs of RtlCapabilityCheckForSingleSessionSku @ 0x140785010
+ * Callers:
+ *     PopPowerInformationInternal @ 0x140522340 (PopPowerInformationInternal.c)
+ * Callees:
+ *     RtlIsMultiSessionSku @ 0x140509250 (RtlIsMultiSessionSku.c)
+ *     RtlCapabilityCheck @ 0x140784D70 (RtlCapabilityCheck.c)
+ */
+
+__int64 __fastcall RtlCapabilityCheckForSingleSessionSku(
+        HANDLE ExistingTokenHandle,
+        UNICODE_STRING *SourceString,
+        _BYTE *a3)
+{
+  unsigned int v3; // ebx
+
+  v3 = 0;
+  if ( a3 )
+  {
+    if ( RtlIsMultiSessionSku() )
+      *a3 = 0;
+    else
+      return (unsigned int)RtlCapabilityCheck(ExistingTokenHandle, SourceString, a3);
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v3;
+}

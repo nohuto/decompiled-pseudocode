@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?ResetDefaultStateForAllInteractions@CInteraction@@SAXXZ @ 0x18020C664
+ * Callers:
+ *     ?OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@Z @ 0x18019EE9C (-OnUp@CManipulationManager@@IEAAXPEAVCInteraction@@IW4InputType@@PEAVCManipulationContext@@_N33@.c)
+ * Callees:
+ *     ?ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z @ 0x18020C5DC (-ResetDefaultInteractionForCurrentMC@CInteraction@@QEAAX_N@Z.c)
+ */
+
+void __fastcall CInteraction::ResetDefaultStateForAllInteractions(__int64 a1, char a2)
+{
+  int v2; // ebx
+  __int64 v3; // rdi
+
+  v2 = 0;
+  if ( dword_1803E6368 > 0 )
+  {
+    v3 = 0LL;
+    do
+    {
+      CInteraction::ResetDefaultInteractionForCurrentMC(
+        *(CInteraction **)((char *)CInteraction::s_DefaultStateLockedInteractions + v3),
+        a2);
+      ++v2;
+      v3 += 8LL;
+    }
+    while ( v2 < dword_1803E6368 );
+  }
+  CArray<CInteraction *,CArrayEqualHelper<CInteraction *>>::RemoveAll((__int64)&CInteraction::s_DefaultStateLockedInteractions);
+}

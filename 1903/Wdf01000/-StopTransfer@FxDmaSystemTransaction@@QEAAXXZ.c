@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?StopTransfer@FxDmaSystemTransaction@@QEAAXXZ @ 0x1C0037158
+ * Callers:
+ *     imp_WdfDmaTransactionStopSystemTransfer @ 0x1C00320F0 (imp_WdfDmaTransactionStopSystemTransfer.c)
+ * Callees:
+ *     WPP_IFR_SF_q @ 0x1C0010E28 (WPP_IFR_SF_q.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0014164 (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?CancelMappedTransfer@FxDmaSystemTransaction@@IEAAEXZ @ 0x1C0036E78 (-CancelMappedTransfer@FxDmaSystemTransaction@@IEAAEXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C005B7E4 (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
+void __fastcall FxDmaSystemTransaction::StopTransfer(FxDmaSystemTransaction *this)
+{
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  unsigned __int64 v3; // rsi
+  const void *_a1; // rax
+  unsigned int v5; // edx
+  _FX_DRIVER_GLOBALS *v6; // rcx
+
+  this->m_IsCancelled = 1;
+  if ( !FxDmaSystemTransaction::CancelMappedTransfer(this) )
+  {
+    m_Globals = this->m_Globals;
+    v3 = (unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL;
+    _a1 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+    if ( !this->m_ObjectSize )
+      _a1 = 0LL;
+    WPP_IFR_SF_q(this->m_Globals, 2u, 0xFu, 0xEu, WPP_FxDmaTransactionSystem_cpp_Traceguids, _a1);
+    if ( m_Globals->FxVerifierOn
+      && (_FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(m_Globals, v5, 0xBu) || m_Globals->FxVerifyDownlevel) )
+    {
+      if ( !this->m_ObjectSize )
+        v3 = 0LL;
+      FxVerifierBugCheckWorker(v6, WDF_DMA_FATAL_ERROR, v3, this->m_State);
+    }
+  }
+}

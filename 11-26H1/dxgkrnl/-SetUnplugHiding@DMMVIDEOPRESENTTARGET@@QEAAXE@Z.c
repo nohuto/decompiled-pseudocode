@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?SetUnplugHiding@DMMVIDEOPRESENTTARGET@@QEAAXE@Z @ 0x140194B24
+ * Callers:
+ *     ?UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x14025F128 (-UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_.c)
+ *     ?ProcessHPDFiltering@VIDPN_MGR@@QEAA?AW4_DMM_HPD_FILTER_RESULT@@PEAU_DXGK_CONNECTION_CHANGE@@AEAU_DMM_HPD_FILTER_INFO@@EPEAU_GUID@@@Z @ 0x1403D1D10 (-ProcessHPDFiltering@VIDPN_MGR@@QEAA-AW4_DMM_HPD_FILTER_RESULT@@PEAU_DXGK_CONNECTION_CHANGE@@AEA.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DMMVIDEOPRESENTTARGET::SetUnplugHiding(DMMVIDEOPRESENTTARGET *this, unsigned __int8 a2)
+{
+  *(_BYTE *)(*((_QWORD *)this + 67) + 172LL) = a2;
+  WdLogSingleEntry2(7LL, *((unsigned int *)this + 6), a2);
+  WdLogGlobalForLineNumber = 428;
+}

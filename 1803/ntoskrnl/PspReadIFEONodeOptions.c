@@ -1,0 +1,135 @@
+/*
+ * XREFs of PspReadIFEONodeOptions @ 0x140574290
+ * Callers:
+ *     PspAllocateProcess @ 0x1404ED888 (PspAllocateProcess.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x14006DDA0 (RtlInitUnicodeStringEx.c)
+ *     ExAllocatePoolWithQuotaTag @ 0x1400EF190 (ExAllocatePoolWithQuotaTag.c)
+ *     __security_check_cookie @ 0x140187410 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1401A77A0 (ZwQueryValueKey.c)
+ *     memmove @ 0x1401BC900 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
+ *     RtlUnicodeStringToInteger @ 0x140552E50 (RtlUnicodeStringToInteger.c)
+ */
+
+void __fastcall PspReadIFEONodeOptions(__int64 a1, void *a2, __int64 *a3)
+{
+  _BYTE *v6; // r15
+  NTSTATUS v7; // eax
+  NTSTATUS v8; // ebx
+  PVOID PoolWithQuotaTag; // rbp
+  int v10; // ecx
+  ULONG Length; // ebx
+  NTSTATUS v12; // eax
+  unsigned int v13; // eax
+  __int64 v14; // rax
+  ULONG ResultLength; // [rsp+30h] [rbp-68h] BYREF
+  ULONG Value[3]; // [rsp+34h] [rbp-64h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-58h] BYREF
+  _BYTE KeyValueInformation[24]; // [rsp+50h] [rbp-48h] BYREF
+
+  if ( RtlInitUnicodeStringEx(&DestinationString, L"NodeOptions") < 0 )
+    return;
+  v6 = KeyValueInformation;
+  v7 = ZwQueryValueKey(a2, &DestinationString, KeyValuePartialInformation, KeyValueInformation, 0x14u, &ResultLength);
+  v8 = v7;
+  if ( v7 >= 0 )
+  {
+    PoolWithQuotaTag = 0LL;
+LABEL_7:
+    v10 = *((_DWORD *)v6 + 1);
+    if ( ((v10 - 3) & 0xFFFFFFFB) != 0 )
+    {
+      switch ( v10 )
+      {
+        case 4:
+          if ( *((_DWORD *)v6 + 2) == 4 )
+          {
+            ResultLength = 4;
+            Value[0] = *((_DWORD *)v6 + 3);
+          }
+          else
+          {
+            v8 = -1073741820;
+          }
+          break;
+        case 11:
+          v8 = -1073741788;
+          break;
+        case 1:
+          if ( ((unsigned __int8)Value & 3) != 0 )
+          {
+            v8 = -2147483646;
+          }
+          else
+          {
+            ResultLength = 4;
+            DestinationString.Buffer = (wchar_t *)(v6 + 12);
+            DestinationString.Length = *((_WORD *)v6 + 4);
+            DestinationString.MaximumLength = *((_WORD *)v6 + 4);
+            v8 = RtlUnicodeStringToInteger(&DestinationString, 0, Value);
+          }
+          break;
+        default:
+          v8 = -1073741788;
+          break;
+      }
+    }
+    else if ( v10 == 4 )
+    {
+      ResultLength = *((_DWORD *)v6 + 2);
+      v13 = *((_DWORD *)v6 + 2);
+      if ( v13 > 4 )
+        v8 = -2147483643;
+      else
+        memmove(Value, v6 + 12, v13);
+    }
+    else
+    {
+      v8 = -1073741788;
+    }
+LABEL_12:
+    if ( PoolWithQuotaTag )
+      ExFreePoolWithTag(PoolWithQuotaTag, 0);
+    goto LABEL_4;
+  }
+  if ( v7 == -2147483643 )
+  {
+    Length = ResultLength;
+    PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, ResultLength, 0x6B497452u);
+    if ( !PoolWithQuotaTag )
+      return;
+    while ( 1 )
+    {
+      v6 = PoolWithQuotaTag;
+      v12 = ZwQueryValueKey(a2, &DestinationString, KeyValuePartialInformation, PoolWithQuotaTag, Length, &ResultLength);
+      v8 = v12;
+      if ( v12 >= 0 )
+        goto LABEL_7;
+      if ( v12 != -2147483643 )
+        goto LABEL_12;
+      ExFreePoolWithTag(PoolWithQuotaTag, 0);
+      Length = ResultLength;
+      PoolWithQuotaTag = ExAllocatePoolWithQuotaTag((POOL_TYPE)520, ResultLength, 0x6B497452u);
+      if ( !PoolWithQuotaTag )
+        return;
+    }
+  }
+LABEL_4:
+  if ( v8 >= 0 )
+  {
+    if ( LOBYTE(Value[0]) )
+    {
+      if ( LOBYTE(Value[0]) == 1 && Value[0] >> 8 < (unsigned __int16)KeNumberNodes && !*a3 )
+      {
+        v14 = KeNodeBlock[(unsigned __int64)Value[0] >> 8];
+        if ( *(_QWORD *)(v14 + 136) )
+          *a3 = v14;
+      }
+    }
+    else if ( (Value[0] & 0xFFFFFF00) != 0 )
+    {
+      *(_DWORD *)(a1 + 768) |= 0x100000u;
+    }
+  }
+}

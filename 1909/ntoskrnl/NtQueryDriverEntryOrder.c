@@ -1,0 +1,102 @@
+/*
+ * XREFs of NtQueryDriverEntryOrder @ 0x140911F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14003F9B0 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquireFastMutexUnsafe @ 0x140089BB0 (ExAcquireFastMutexUnsafe.c)
+ *     ExReleaseFastMutexUnsafe @ 0x140089D40 (ExReleaseFastMutexUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x1400F4860 (ExUnlockUserBuffer.c)
+ *     ProbeForWrite @ 0x1405F10D0 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x140678440 (SeSinglePrivilegeCheck.c)
+ *     ExLockUserBuffer @ 0x1406A49BC (ExLockUserBuffer.c)
+ */
+
+NTSTATUS __stdcall NtQueryDriverEntryOrder(PULONG Ids, PULONG Count)
+{
+  NTSTATUS result; // eax
+  KPROCESSOR_MODE PreviousMode; // bl
+  __int64 v6; // rcx
+  ULONG v7; // eax
+  struct _KTHREAD *v8; // rax
+  NTSTATUS EnvironmentVariable; // ebx
+  unsigned int v10; // r8d
+  __int64 v11; // rdx
+  unsigned __int16 *v12; // r9
+  _DWORD *i; // r10
+  unsigned int v14; // eax
+  __int64 v15; // [rsp+38h] [rbp-30h] BYREF
+  PVOID P; // [rsp+40h] [rbp-28h] BYREF
+  struct _KTHREAD *CurrentThread; // [rsp+58h] [rbp-10h]
+  ULONG v18; // [rsp+88h] [rbp+20h] BYREF
+
+  if ( dword_140432490 != 2 )
+    return -1073741822;
+  CurrentThread = KeGetCurrentThread();
+  PreviousMode = CurrentThread->PreviousMode;
+  if ( PreviousMode )
+  {
+    v6 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)Count < 0x7FFFFFFF0000LL )
+      v6 = (__int64)Count;
+    *(_DWORD *)v6 = *(_DWORD *)v6;
+    v7 = 4 * *Count;
+    v18 = v7;
+    if ( !Ids )
+    {
+      v18 = 0;
+      v7 = 0;
+    }
+    if ( v7 )
+      ProbeForWrite(Ids, v7, 4u);
+    if ( !SeSinglePrivilegeCheck(SeSystemEnvironmentPrivilege, PreviousMode) )
+      return -1073741727;
+  }
+  else
+  {
+    v18 = Ids != 0LL ? 4 * *Count : 0;
+  }
+  if ( v18 )
+  {
+    result = ExLockUserBuffer((unsigned __int64)Ids, v18, PreviousMode, IoWriteAccess, &v15, (struct _MDL **)&P);
+    if ( result < 0 )
+      return result;
+  }
+  else
+  {
+    v15 = 0LL;
+    P = 0LL;
+  }
+  v18 >>= 1;
+  v8 = KeGetCurrentThread();
+  --v8->KernelApcDisable;
+  ExAcquireFastMutexUnsafe(&ExpEnvironmentLock);
+  EnvironmentVariable = HalGetEnvironmentVariableEx(L"DriverOrder", &EfiDriverVariablesGuid, v15, &v18, 0LL);
+  ExReleaseFastMutexUnsafe(&ExpEnvironmentLock);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( EnvironmentVariable < 0 )
+  {
+    if ( EnvironmentVariable == -1073741568 )
+    {
+      v18 = 0;
+      EnvironmentVariable = 0;
+    }
+  }
+  else
+  {
+    v10 = v18 >> 1;
+    v11 = (v18 >> 1) - 1;
+    v12 = (unsigned __int16 *)(v15 + 2 * v11);
+    for ( i = (_DWORD *)(v15 + 4 * v11); v10; --v10 )
+      *i-- = *v12--;
+  }
+  v14 = 2 * v18;
+  v18 *= 2;
+  if ( P )
+  {
+    ExUnlockUserBuffer((struct _MDL *)P);
+    v14 = v18;
+  }
+  *Count = v14 >> 2;
+  return EnvironmentVariable;
+}

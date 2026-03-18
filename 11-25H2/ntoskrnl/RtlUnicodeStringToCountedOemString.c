@@ -1,0 +1,77 @@
+/*
+ * XREFs of RtlUnicodeStringToCountedOemString @ 0x1408E87F0
+ * Callers:
+ *     DifRtlUnicodeStringToCountedOemStringWrapper @ 0x14062E780 (DifRtlUnicodeStringToCountedOemStringWrapper.c)
+ * Callees:
+ *     AllocateOrValidateCharStringBuffer @ 0x140441300 (AllocateOrValidateCharStringBuffer.c)
+ *     RtlpDidUnicodeToOemWork @ 0x1408E6310 (RtlpDidUnicodeToOemWork.c)
+ *     RtlUnicodeToMultiByteSize @ 0x1408E66F0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToOemN @ 0x1408E8900 (RtlUnicodeToOemN.c)
+ *     ExFreePool @ 0x140B62CB0 (ExFreePool.c)
+ */
+
+NTSTATUS __stdcall RtlUnicodeStringToCountedOemString(
+        POEM_STRING DestinationString,
+        PCUNICODE_STRING SourceString,
+        BOOLEAN AllocateDestinationString)
+{
+  unsigned __int16 *p_MaximumLength; // r15
+  char **p_Buffer; // rsi
+  NTSTATUS result; // eax
+  int v9; // ebx
+  ULONG BytesInOemString; // [rsp+88h] [rbp+10h] BYREF
+  BOOLEAN v11; // [rsp+90h] [rbp+18h]
+
+  v11 = AllocateDestinationString;
+  BytesInOemString = 0;
+  RtlUnicodeToMultiByteSize(&BytesInOemString, SourceString->Buffer, SourceString->Length);
+  if ( BytesInOemString )
+  {
+    if ( BytesInOemString > 0xFFFF )
+    {
+      return -1073741584;
+    }
+    else
+    {
+      p_MaximumLength = &DestinationString->MaximumLength;
+      p_Buffer = &DestinationString->Buffer;
+      result = AllocateOrValidateCharStringBuffer(
+                 AllocateDestinationString,
+                 BytesInOemString,
+                 (__int64 *)&DestinationString->Buffer,
+                 &DestinationString->MaximumLength);
+      if ( result >= 0 )
+      {
+        v9 = RtlUnicodeToOemN(
+               *p_Buffer,
+               *p_MaximumLength,
+               &BytesInOemString,
+               SourceString->Buffer,
+               SourceString->Length);
+        if ( v9 >= 0 )
+        {
+          DestinationString->Length = BytesInOemString;
+          if ( !RtlpDidUnicodeToOemWork(&DestinationString->Length, (__int64)SourceString) )
+            v9 = -1073741470;
+        }
+        if ( v9 < 0 )
+        {
+          if ( AllocateDestinationString )
+          {
+            ExFreePool(*p_Buffer);
+            *p_Buffer = 0LL;
+            *p_MaximumLength = 0;
+          }
+        }
+        return v9;
+      }
+    }
+  }
+  else
+  {
+    *(_DWORD *)&DestinationString->Length = 0;
+    DestinationString->Buffer = 0LL;
+    return 0;
+  }
+  return result;
+}

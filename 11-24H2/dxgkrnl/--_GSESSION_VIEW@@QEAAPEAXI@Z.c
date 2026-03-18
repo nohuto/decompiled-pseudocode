@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x140058794
+ * Callers:
+ *     ?RemoveSourceViewFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@IE@Z @ 0x1403671F4 (-RemoveSourceViewFromSession@DXGSESSIONDATA@@QEAAJAEBU_LUID@@IE@Z.c)
+ *     ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1403676B0 (-RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ.c)
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ??1SESSION_VIEW@@QEAA@XZ @ 0x1403FB43C (--1SESSION_VIEW@@QEAA@XZ.c)
+ */
+
+SESSION_VIEW *__fastcall SESSION_VIEW::`scalar deleting destructor'(SESSION_VIEW *this)
+{
+  SESSION_VIEW::~SESSION_VIEW(this);
+  DXGQUOTAALLOCATOR<256,1835156294>::operator delete(this);
+  return this;
+}

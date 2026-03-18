@@ -1,0 +1,240 @@
+/*
+ * XREFs of NtUserConvertPrimaryPointerToMouseDrag @ 0x140292FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x14005FE74 (UserSetLastError.c)
+ *     SetMiPPromotion @ 0x14009B518 (SetMiPPromotion.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1400A5B18 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     xxxPromotePointerToMouse @ 0x1400A7304 (xxxPromotePointerToMouse.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x140189210 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     GetPromotablePointerIdForThread @ 0x14028C608 (GetPromotablePointerIdForThread.c)
+ *     Feature_ConvertPointerToDragApiFollowup__private_IsEnabledDeviceUsageNoInline @ 0x1402924D4 (Feature_ConvertPointerToDragApiFollowup__private_IsEnabledDeviceUsageNoInline.c)
+ */
+
+__int64 NtUserConvertPrimaryPointerToMouseDrag()
+{
+  struct tagTHREADINFO *v0; // rbx
+  __int64 v1; // rdx
+  __int64 v2; // rdi
+  __int64 v3; // rdx
+  bool v4; // bl
+  bool v5; // si
+  __int64 UserSessionState; // rax
+  int v7; // edx
+  int v8; // r8d
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  char v11; // si
+  bool v12; // bp
+  __int64 v13; // rax
+  int v14; // r8d
+  int v15; // edx
+  __int64 v17; // rdx
+  unsigned __int16 PromotablePointerIdForThread; // r13
+  char v19; // bl
+  char v20; // r12
+  __int64 v21; // rax
+  int v22; // edx
+  int v23; // r8d
+  __int64 v24; // rdx
+  bool v25; // si
+  __int64 v26; // rax
+  int v27; // edx
+  int v28; // r8d
+  __int64 v29; // rdx
+  unsigned __int16 v30; // r13
+  char v31; // r12
+  __int64 v32; // rax
+  int v33; // edx
+  int v34; // r8d
+  __int64 v35; // rdx
+  __int16 v36; // [rsp+30h] [rbp-A8h]
+  __int16 v37; // [rsp+30h] [rbp-A8h]
+  char v38; // [rsp+40h] [rbp-98h]
+  bool v39; // [rsp+E0h] [rbp+8h]
+  bool v40; // [rsp+E0h] [rbp+8h]
+  struct tagTHREADINFO *v41; // [rsp+E8h] [rbp+10h] BYREF
+
+  v0 = (struct tagTHREADINFO *)EnterCrit(0LL, 0LL);
+  v2 = 0LL;
+  if ( (unsigned int)Feature_ConvertPointerToDragApiFollowup__private_IsEnabledDeviceUsageNoInline() )
+  {
+    v41 = v0;
+    if ( *((_DWORD *)v0 + 360) == 2 )
+    {
+      if ( !(unsigned __int8)IsCapturedByThread(&v41) )
+      {
+        v4 = *(unsigned int **)&WPP_GLOBAL_Control != &WPP_GLOBAL_Control
+          && _bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+          && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) >= 3u;
+        v5 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+        if ( !v4 && *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED )
+          goto LABEL_13;
+        UserSessionState = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v3);
+        v36 = 116;
+        goto LABEL_12;
+      }
+      SetMiPPromotion(v41, 582);
+      v9 = *(_QWORD *)&WPP_GLOBAL_Control;
+      if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+        || !_bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+        || (v11 = 1, *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 4u) )
+      {
+        v11 = 0;
+      }
+      v12 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+      if ( v11 || *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+      {
+        v13 = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v10);
+        LOBYTE(v14) = v12;
+        LOBYTE(v15) = v11;
+        WPP_RECORDER_AND_TRACE_SF_(
+          *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+          v15,
+          v14,
+          *(_QWORD *)(v13 + 69416),
+          4,
+          10,
+          117,
+          (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids);
+      }
+LABEL_21:
+      v2 = 1LL;
+      goto LABEL_22;
+    }
+    PromotablePointerIdForThread = GetPromotablePointerIdForThread((__int64)v0, v1);
+    if ( !PromotablePointerIdForThread )
+    {
+      v4 = *(unsigned int **)&WPP_GLOBAL_Control != &WPP_GLOBAL_Control
+        && _bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+        && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) >= 3u;
+      v5 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+      if ( !v4 && *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED )
+        goto LABEL_13;
+      UserSessionState = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v17);
+      v36 = 118;
+      goto LABEL_12;
+    }
+    v19 = 1;
+    if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+      || !_bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+      || (v20 = 1, *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 4u) )
+    {
+      v20 = 0;
+    }
+    v39 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+    if ( v20 || *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    {
+      v21 = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v17);
+      LOBYTE(v22) = v20;
+      LOBYTE(v23) = v39;
+      WPP_RECORDER_AND_TRACE_SF_d(
+        *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+        v22,
+        v23,
+        *(_QWORD *)(v21 + 69416),
+        4,
+        10,
+        119,
+        (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids,
+        PromotablePointerIdForThread);
+    }
+    if ( xxxPromotePointerToMouse(PromotablePointerIdForThread, 65537LL) )
+      goto LABEL_21;
+    if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+      || !_bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+      || *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 3u )
+    {
+      v19 = 0;
+    }
+    v25 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+    if ( !v19 && *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED )
+      goto LABEL_13;
+    v26 = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v24);
+    v38 = PromotablePointerIdForThread;
+    v37 = 120;
+LABEL_47:
+    LOBYTE(v28) = v25;
+    LOBYTE(v27) = v19;
+    WPP_RECORDER_AND_TRACE_SF_d(
+      *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+      v27,
+      v28,
+      *(_QWORD *)(v26 + 69416),
+      3,
+      10,
+      v37,
+      (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids,
+      v38);
+    goto LABEL_13;
+  }
+  v30 = GetPromotablePointerIdForThread((__int64)v0, v1);
+  if ( v30 )
+  {
+    v19 = 1;
+    if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+      || !_bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+      || (v31 = 1, *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 4u) )
+    {
+      v31 = 0;
+    }
+    v40 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+    if ( v31 || *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    {
+      v32 = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v29);
+      LOBYTE(v33) = v31;
+      LOBYTE(v34) = v40;
+      WPP_RECORDER_AND_TRACE_SF_d(
+        *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+        v33,
+        v34,
+        *(_QWORD *)(v32 + 69416),
+        4,
+        10,
+        122,
+        (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids,
+        v30);
+    }
+    if ( xxxPromotePointerToMouse(v30, 65537LL) )
+      goto LABEL_21;
+    if ( *(unsigned int **)&WPP_GLOBAL_Control == &WPP_GLOBAL_Control
+      || !_bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+      || *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) < 3u )
+    {
+      v19 = 0;
+    }
+    v25 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+    if ( !v19 && *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED )
+      goto LABEL_13;
+    v26 = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v35);
+    v38 = v30;
+    v37 = 123;
+    goto LABEL_47;
+  }
+  v4 = *(unsigned int **)&WPP_GLOBAL_Control != &WPP_GLOBAL_Control
+    && _bittest((const signed __int32 *)(*(_QWORD *)&WPP_GLOBAL_Control + 44LL), 9u)
+    && *(_BYTE *)(*(_QWORD *)&WPP_GLOBAL_Control + 41LL) >= 3u;
+  v5 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+  if ( !v4 && *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED )
+    goto LABEL_13;
+  UserSessionState = W32GetUserSessionState(*(_QWORD *)&WPP_GLOBAL_Control, v29);
+  v36 = 121;
+LABEL_12:
+  LOBYTE(v8) = v5;
+  LOBYTE(v7) = v4;
+  WPP_RECORDER_AND_TRACE_SF_(
+    *(_QWORD *)(*(_QWORD *)&WPP_GLOBAL_Control + 24LL),
+    v7,
+    v8,
+    *(_QWORD *)(UserSessionState + 69416),
+    3,
+    10,
+    v36,
+    (__int64)&WPP_50f270925f983674ef77b34f83514a3b_Traceguids);
+LABEL_13:
+  UserSetLastError(5023);
+LABEL_22:
+  UserSessionSwitchLeaveCrit(v9);
+  return v2;
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?IsGpqForegroundAccessibleOnInputThread@@YA_N_NAEBUtagUIPI_INFO_INT@@@Z @ 0x1C014EA56
+ * Callers:
+ *     EditionLLMouseButtonHook @ 0x1C01ABA90 (EditionLLMouseButtonHook.c)
+ *     EditionLLMouseWheelHook @ 0x1C01ABC70 (EditionLLMouseWheelHook.c)
+ *     EditionxxxReportMouseBreakToAccessibility @ 0x1C01ABDA0 (EditionxxxReportMouseBreakToAccessibility.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall IsGpqForegroundAccessibleOnInputThread(char a1, const struct tagUIPI_INFO_INT *a2)
+{
+  if ( a1 && gpqForeground && !*((_DWORD *)a2 + 2) )
+    return CheckAccess(a2, gpqForeground + 432LL);
+  else
+    return 1;
+}

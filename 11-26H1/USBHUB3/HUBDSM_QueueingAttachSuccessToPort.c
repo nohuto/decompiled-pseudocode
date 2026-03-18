@@ -1,0 +1,26 @@
+/*
+ * XREFs of HUBDSM_QueueingAttachSuccessToPort @ 0x140023630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400467F0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall HUBDSM_QueueingAttachSuccessToPort(__int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rax
+
+  v1 = *(_QWORD *)(a1 + 960);
+  v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01015 + 1632))(
+         WdfDriverGlobals,
+         *(_QWORD *)(v1 + 8));
+  (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const char *, __int64, const char *))(WdfFunctions_01015 + 1640))(
+    WdfDriverGlobals,
+    v2,
+    "DSM Tag",
+    8632LL,
+    "onecore\\drivers\\wdm\\usb\\usb3\\hub\\src\\hubmisc.c");
+  _InterlockedOr((volatile signed __int32 *)(v1 + 1644), 1u);
+  return 4077LL;
+}

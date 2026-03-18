@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?StartPreparationOnPhysicalAdapter@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C0033878
+ * Callers:
+ *     ?StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z @ 0x1C0033820 (-StartPreparation@VIDMM_GLOBAL@@IEAAXIPEAVVIDMM_DEVICE@@PEAUVIDMM_ALLOC@@W4_VIDMM_OPERATION@@@Z.c)
+ * Callees:
+ *     Template_p @ 0x1C0006E98 (Template_p.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::StartPreparationOnPhysicalAdapter(VIDMM_GLOBAL *this, __int64 a2, __int64 a3)
+{
+  __int64 v4; // rdi
+  int v5; // eax
+  _QWORD *v6; // rax
+
+  v4 = (unsigned int)a2;
+  if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x80u) != 0 )
+    Template_p((__int64)this, &EventPagingStartPreparation, a3, *((_QWORD *)this + (unsigned int)a2 + 143));
+  if ( *((_DWORD *)this + v4 + 414) != *((_DWORD *)this + v4 + 478)
+    || *((_DWORD *)this + v4 + 542) != *((_DWORD *)this + v4 + 606) )
+  {
+    v6 = (_QWORD *)WdLogNewEntry5_WdCriticalError(this, a2);
+    v6[3] = 270LL;
+    v6[4] = 33LL;
+    v6[5] = this;
+    v6[6] = 0LL;
+    v6[7] = 0LL;
+    WdLogEvent5_WdCriticalError(v6);
+  }
+  v5 = *((_DWORD *)this + v4 + 414);
+  *((_DWORD *)this + v4 + 958) = 0;
+  *((_DWORD *)this + v4 + 1022) = v5;
+  *((_DWORD *)this + v4 + 1086) = *((_DWORD *)this + v4 + 542);
+}

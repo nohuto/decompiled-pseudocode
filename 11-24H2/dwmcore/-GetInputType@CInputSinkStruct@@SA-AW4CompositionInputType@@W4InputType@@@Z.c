@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?GetInputType@CInputSinkStruct@@SA?AW4CompositionInputType@@W4InputType@@@Z @ 0x18024E39C
+ * Callers:
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x180091730 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CInputSinkStruct::GetInputType(int a1)
+{
+  int v1; // ecx
+  int v2; // ecx
+  int v3; // ecx
+  int v4; // ecx
+  int v5; // ecx
+
+  v1 = a1 - 2;
+  if ( !v1 )
+    return 3LL;
+  v2 = v1 - 1;
+  if ( !v2 )
+    return 3LL;
+  v3 = v2 - 1;
+  if ( !v3 )
+    return 4LL;
+  v4 = v3 - 1;
+  if ( !v4 )
+    return 1LL;
+  v5 = v4 - 1;
+  if ( !v5 )
+    return 1LL;
+  if ( v5 == 1 )
+    return 5LL;
+  return 0LL;
+}

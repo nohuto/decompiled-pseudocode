@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?ChargePinnedBackingStore@VIDMM_GLOBAL@@QEAAJ_K@Z @ 0x1C0061A44
+ * Callers:
+ *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_N@Z @ 0x1C0061C1C (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EPEAU_VIDMM_LOCAL_ALLOC@@_.c)
+ *     ?EvictResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C0063C30 (-EvictResource@VIDMM_SYSMEM_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
+ *     ?ReferenceDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DMA_BUFFER@@PEAU_D3DDDI_ALLOCATIONLIST@@IEJPEAKPEAT_LARGE_INTEGER@@PEA_KPEAPEAUVIDMM_ALLOC@@PEAU_VIDMM_PRIMARIES_REFERENCES@@PEAPEAVDXGALLOCATION@@@Z @ 0x1C006EA10 (-ReferenceDmaBuffer@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DMA_BUFFER@@PEAU_D3DDDI_ALLOCATIONLIST@@IEJPEA.c)
+ *     ?EvictResource@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C00C4030 (-EvictResource@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@EEEPEAU_VIDMM_LOCAL_ALLOC@@.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall VIDMM_GLOBAL::ChargePinnedBackingStore(VIDMM_GLOBAL *this, __int64 a2)
+{
+  char *v2; // rdi
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // rax
+
+  v2 = (char *)this + 7088;
+  ExAcquirePushLockExclusiveEx((char *)this + 7088, 0LL);
+  v5 = *((_QWORD *)this + 891);
+  v6 = v5 + a2;
+  if ( v5 + a2 > qword_1C00511F0 || v6 < v5 )
+  {
+    ExReleasePushLockExclusiveEx(v2, 0LL);
+    return 3221225473LL;
+  }
+  else
+  {
+    *((_QWORD *)this + 891) = v6;
+    ExReleasePushLockExclusiveEx(v2, 0LL);
+    return 0LL;
+  }
+}

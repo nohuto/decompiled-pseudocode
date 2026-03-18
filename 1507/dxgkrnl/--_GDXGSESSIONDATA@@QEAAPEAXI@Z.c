@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GDXGSESSIONDATA@@QEAAPEAXI@Z @ 0x1C000CB58
+ * Callers:
+ *     ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C00BDEAC (-DestroySession@DXGSESSIONMGR@@QEAAXXZ.c)
+ *     ??1DXGSESSIONMGR@@QEAA@XZ @ 0x1C01567D8 (--1DXGSESSIONMGR@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00689D8 (--3@YAXPEAX@Z.c)
+ *     ??1DXGSESSIONDATA@@QEAA@XZ @ 0x1C00BE0C8 (--1DXGSESSIONDATA@@QEAA@XZ.c)
+ */
+
+DXGSESSIONDATA *__fastcall DXGSESSIONDATA::`scalar deleting destructor'(DXGSESSIONDATA *this)
+{
+  DXGSESSIONDATA::~DXGSESSIONDATA(this);
+  operator delete(this);
+  return this;
+}

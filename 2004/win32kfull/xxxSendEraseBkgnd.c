@@ -1,0 +1,36 @@
+/*
+ * XREFs of xxxSendEraseBkgnd @ 0x1C00FFB34
+ * Callers:
+ *     xxxSimpleDoSyncPaint @ 0x1C006CB10 (xxxSimpleDoSyncPaint.c)
+ *     xxxBeginPaint @ 0x1C008B1A8 (xxxBeginPaint.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C009BB64 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C00A2698 (SetOrClrWF.c)
+ */
+
+__int64 __fastcall xxxSendEraseBkgnd(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
+{
+  unsigned __int64 DCEx; // rdi
+  unsigned int v6; // ebp
+
+  if ( !a3 || (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 31LL) & 0x20) != 0 )
+    return 0LL;
+  if ( a2 )
+    DCEx = a2;
+  else
+    DCEx = _GetDCEx(a1, a3, 327808LL);
+  if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 416LL) != *(_QWORD *)(gptiCurrent + 416LL) )
+    GreSetDCOwnerEx(DCEx, 0LL, 0LL, 1LL);
+  v6 = xxxSendMessage(a1, 0x14u, DCEx, 0LL);
+  if ( *(_QWORD *)(*(_QWORD *)(a1 + 16) + 416LL) != *(_QWORD *)(gptiCurrent + 416LL) )
+    GreSetDCOwnerEx(DCEx, 2147483650LL, 0LL, 1LL);
+  if ( !v6 )
+  {
+    SetOrClrWF(1, a1, 0x104u, 1);
+    if ( (*(_BYTE *)(*(_QWORD *)(a1 + 40) + 21LL) & 1) == 0 )
+      SetOrClrWF(1, a1, 0x102u, 1);
+  }
+  if ( !a2 )
+    ReleaseCacheDC(DCEx, 1LL);
+  return v6;
+}

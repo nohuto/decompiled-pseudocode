@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?IsXBoxOneDevice@DXGADAPTER@@QEBAEXZ @ 0x1C000A5AC
+ * Callers:
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C0113370 (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C014EA68 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DXGADAPTER::IsXBoxOneDevice(DXGADAPTER *this)
+{
+  return (*((_DWORD *)this + 77) & 0x200) != 0;
+}

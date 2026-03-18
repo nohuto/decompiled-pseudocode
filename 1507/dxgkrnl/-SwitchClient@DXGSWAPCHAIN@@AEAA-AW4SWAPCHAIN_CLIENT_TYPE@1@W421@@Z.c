@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?SwitchClient@DXGSWAPCHAIN@@AEAA?AW4SWAPCHAIN_CLIENT_TYPE@1@W421@@Z @ 0x1C0022630
+ * Callers:
+ *     ?GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C00225B0 (-GetOtherClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF.c)
+ *     ?DuplicateSurfacesForOpen@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z @ 0x1C0161AD4 (-DuplicateSurfacesForOpen@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_OPENSWAPCHAIN@@@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C016291C (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DXGSWAPCHAIN::SwitchClient(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int64 v5; // rax
+
+  if ( !(_DWORD)a2 )
+    return 1LL;
+  if ( (_DWORD)a2 != 1 )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(a1, a2, a3, a4);
+    *(_QWORD *)(v5 + 24) = 264LL;
+    WdLogEvent5_WdAssertion(v5);
+  }
+  return 0LL;
+}

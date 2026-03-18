@@ -1,0 +1,23 @@
+/*
+ * XREFs of VfPtMmAllocatePagesForMdlEx_Exit @ 0x140B7C400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfPtMiscPoolNotification @ 0x1403F7FF8 (VfPtMiscPoolNotification.c)
+ *     VfIsKernelVerificationOn @ 0x1404F8A90 (VfIsKernelVerificationOn.c)
+ */
+
+char __fastcall VfPtMmAllocatePagesForMdlEx_Exit(__int64 a1)
+{
+  char result; // al
+  __int64 v3; // rcx
+
+  result = VfIsKernelVerificationOn();
+  if ( !result )
+  {
+    v3 = *(_QWORD *)(a1 + 48);
+    if ( v3 )
+      return VfPtMiscPoolNotification(v3, *(__int16 *)(v3 + 8), 0x69646D4Du, 0);
+  }
+  return result;
+}

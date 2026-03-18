@@ -1,0 +1,36 @@
+/*
+ * XREFs of ??0DXGPRESENTMUTEX@@QEAA@QEAVADAPTER_RENDER@@@Z @ 0x140043530
+ * Callers:
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1402F3D20 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1403886A4 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x140019E90 (DxgkLogInternalTriageEvent.c)
+ */
+
+DXGPRESENTMUTEX *__fastcall DXGPRESENTMUTEX::DXGPRESENTMUTEX(DXGPRESENTMUTEX *this, struct ADAPTER_RENDER *const a2)
+{
+  *((_QWORD *)this + 1) = a2;
+  *((_BYTE *)this + 16) = 0;
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 7977;
+    DxgkLogInternalTriageEvent(0LL, 262146, 0xFFFFFFFFLL, L"m_pRenderCore != NULL", 7977LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( *(struct _KTHREAD **)(*((_QWORD *)this + 1) + 800LL) == KeGetCurrentThread() )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 7982;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      0xFFFFFFFFLL,
+      L"!m_pRenderCore->m_PresentMutex.IsOwner()",
+      7982LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  return this;
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?Invoke@FxCxFileObjectFileCreate@@QEAAEPEAUWDFDEVICE__@@PEAUWDFREQUEST__@@PEAUWDFFILEOBJECT__@@@Z @ 0x14003F660
+ * Callers:
+ *     ?OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1400374F0 (-OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z.c)
+ * Callees:
+ *     ?CallbackEnd@FxLockedCallback@@IEAAXE@Z @ 0x14003F6F0 (-CallbackEnd@FxLockedCallback@@IEAAXE@Z.c)
+ *     _guard_dispatch_icall @ 0x1400AC750 (_guard_dispatch_icall.c)
+ */
+
+unsigned __int8 __fastcall FxCxFileObjectFileCreate::Invoke(
+        FxCxFileObjectFileCreate *this,
+        WDFDEVICE__ *Device,
+        WDFREQUEST__ *Request,
+        WDFFILEOBJECT__ *FileObject)
+{
+  unsigned __int8 v4; // bl
+  FxCallbackLock *m_CallbackLock; // rcx
+  unsigned __int8 irql; // [rsp+40h] [rbp+8h] BYREF
+
+  v4 = 0;
+  if ( this->Method )
+  {
+    m_CallbackLock = this->m_CallbackLock;
+    irql = 0;
+    if ( m_CallbackLock )
+      m_CallbackLock->Lock(m_CallbackLock, &irql);
+    v4 = this->Method(Device, Request, FileObject);
+    FxLockedCallback::CallbackEnd(this, irql);
+  }
+  return v4;
+}

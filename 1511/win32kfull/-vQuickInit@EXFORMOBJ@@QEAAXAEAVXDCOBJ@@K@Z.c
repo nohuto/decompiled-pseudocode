@@ -1,0 +1,78 @@
+/*
+ * XREFs of ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C0019C30
+ * Callers:
+ *     NtGdiEllipse @ 0x1C0003B50 (NtGdiEllipse.c)
+ *     ??0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z @ 0x1C0003E90 (--0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z.c)
+ *     NtGdiConvertMetafileRect @ 0x1C0007290 (NtGdiConvertMetafileRect.c)
+ *     GrePolyPolygonInternal @ 0x1C0010084 (GrePolyPolygonInternal.c)
+ *     ??0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0010368 (--0PATHSTACKOBJ@@QEAA@AEAVXDCOBJ@@H@Z.c)
+ *     GreExcludeClipRect @ 0x1C00178E8 (GreExcludeClipRect.c)
+ *     GreGradientFill @ 0x1C0019264 (GreGradientFill.c)
+ *     GreGetTransform @ 0x1C0019AE0 (GreGetTransform.c)
+ *     ?bGetNtoD@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@QEAU_POINTL@@@Z @ 0x1C001A7F4 (-bGetNtoD@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@PEAVDCOBJ@@QEAU_POINTL@@@Z.c)
+ *     ?bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z @ 0x1C001D26C (-bIFIMetricsToLogFontW2@@YAHAEAVDCOBJ@@PEAUtagENUMLOGFONTEXW@@PEAU_IFIMETRICS@@VEFLOATEXT@@@Z.c)
+ *     ?bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z @ 0x1C001D334 (-bIFIMetricsToTextMetricW2@@YAHAEAVDCOBJ@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z.c)
+ *     ?bSetFontXform@PFEOBJ@@QEAAHAEAVXDCOBJ@@PEAUtagLOGFONTW@@PEAU_FD_XFORM@@KKQEAU_POINTL@@AEAVIFIOBJ@@H@Z @ 0x1C001E818 (-bSetFontXform@PFEOBJ@@QEAAHAEAVXDCOBJ@@PEAUtagLOGFONTW@@PEAU_FD_XFORM@@KKQEAU_POINTL@@AEAVIFIOB.c)
+ *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C00203CC (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
+ *     ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C0020454 (-bCalcOrientation@MAPPER@@QEAAHXZ.c)
+ *     ?ulSimpleOrientation@RFONTOBJ@@QEAAKPEAVXDCOBJ@@@Z @ 0x1C0025100 (-ulSimpleOrientation@RFONTOBJ@@QEAAKPEAVXDCOBJ@@@Z.c)
+ *     ?bCalcLayoutUnits@RFONTOBJ@@QEAAHPEAVXDCOBJ@@@Z @ 0x1C0025284 (-bCalcLayoutUnits@RFONTOBJ@@QEAAHPEAVXDCOBJ@@@Z.c)
+ *     ?bModifyWorldTransform@XDCOBJ@@QEAAHPEBU_XFORML@@K@Z @ 0x1C002D6D8 (-bModifyWorldTransform@XDCOBJ@@QEAAHPEBU_XFORML@@K@Z.c)
+ *     ?bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z @ 0x1C002E0E0 (-bSpDwmValidateSurface@@YAHAEAVXDCOBJ@@HHHH@Z.c)
+ *     NtGdiFlushUserBatch @ 0x1C0030EB0 (NtGdiFlushUserBatch.c)
+ *     GreStretchDIBitsInternal @ 0x1C00348C8 (GreStretchDIBitsInternal.c)
+ *     ?ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x1C003FDF8 (-ExtTextOutRect@@YAHAEAVXDCOBJ@@PEAUtagRECT@@@Z.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C0040258 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     NtGdiPatBlt @ 0x1C00412C0 (NtGdiPatBlt.c)
+ *     GreStretchBltInternal @ 0x1C0046C60 (GreStretchBltInternal.c)
+ *     GreGetAppClipBox @ 0x1C00DD344 (GreGetAppClipBox.c)
+ *     NtGdiTransparentBlt @ 0x1C00F0040 (NtGdiTransparentBlt.c)
+ *     GreMaskBlt @ 0x1C00F0648 (GreMaskBlt.c)
+ *     GreRectangle @ 0x1C00FC0C4 (GreRectangle.c)
+ *     GreGetBoundsRect @ 0x1C00FCBE0 (GreGetBoundsRect.c)
+ *     GreSetBoundsRect @ 0x1C00FDB28 (GreSetBoundsRect.c)
+ *     NtGdiComputeXformCoefficients @ 0x1C00FEA40 (NtGdiComputeXformCoefficients.c)
+ *     GreSetViewportOrg @ 0x1C0101830 (GreSetViewportOrg.c)
+ *     GreGetTextExtentW @ 0x1C01027C0 (GreGetTextExtentW.c)
+ *     ?bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z @ 0x1C0116174 (-bGetNtoWScales@@YAHPEAVEPOINTFL@@AEAVXDCOBJ@@PEAU_FD_XFORM@@AEAVPFEOBJ@@PEAH@Z.c)
+ *     NtGdiExtFloodFill @ 0x1C012E0C0 (NtGdiExtFloodFill.c)
+ *     NtGdiFrameRgn @ 0x1C012FC30 (NtGdiFrameRgn.c)
+ *     NtGdiFillRgn @ 0x1C01301F0 (NtGdiFillRgn.c)
+ *     NtGdiFastPolyPolyline @ 0x1C013B590 (NtGdiFastPolyPolyline.c)
+ *     ?GreLineTo@@YAHPEAUHDC__@@HH@Z @ 0x1C013BD04 (-GreLineTo@@YAHPEAUHDC__@@HH@Z.c)
+ *     GreSetWindowOrg @ 0x1C013F02C (GreSetWindowOrg.c)
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z @ 0x1C0140480 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1@Z.c)
+ *     ??0EXFORMOBJ@@QEAA@AEAVXDCOBJ@@K@Z @ 0x1C01510B0 (--0EXFORMOBJ@@QEAA@AEAVXDCOBJ@@K@Z.c)
+ *     GreGetTextExtentExW @ 0x1C01523C4 (GreGetTextExtentExW.c)
+ *     ?bGetNtoWScale@@YAHPEAVEFLOAT@@AEAVDCOBJ@@AEAVRFONTOBJ@@AEAVPFEOBJ@@@Z @ 0x1C027F300 (-bGetNtoWScale@@YAHPEAVEFLOAT@@AEAVDCOBJ@@AEAVRFONTOBJ@@AEAVPFEOBJ@@@Z.c)
+ *     ?GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z @ 0x1C028AD38 (-GreGetStringBitmapW@@YAIPEAUHDC__@@PEAGIPEAUSTRINGBITMAP@@I@Z.c)
+ *     ?NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z @ 0x1C0290F88 (-NtGdiInvertRgnInternal@@YAHPEAUHDC__@@PEAUHRGN__@@@Z.c)
+ *     NtGdiOffsetClipRgn @ 0x1C0291870 (NtGdiOffsetClipRgn.c)
+ *     NtGdiPtVisible @ 0x1C0291A20 (NtGdiPtVisible.c)
+ *     ?GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z @ 0x1C02923B8 (-GrePolyBezierInternal@@YAHPEAUHDC__@@PEAUtagPOINT@@K@Z.c)
+ *     GreAngleArc @ 0x1C02925A8 (GreAngleArc.c)
+ *     GreMoveTo @ 0x1C0292A68 (GreMoveTo.c)
+ *     GrePolyBezierTo @ 0x1C0292CA0 (GrePolyBezierTo.c)
+ *     GrePolyDraw @ 0x1C0292E74 (GrePolyDraw.c)
+ *     GrePolyPolylineInternal @ 0x1C0293414 (GrePolyPolylineInternal.c)
+ *     GrePolylineTo @ 0x1C02935F0 (GrePolylineTo.c)
+ *     NtGdiRoundRect @ 0x1C02937B0 (NtGdiRoundRect.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C029AF88 (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     NtGdiGetPath @ 0x1C02A5020 (NtGdiGetPath.c)
+ *     NtGdiStrokeAndFillPath @ 0x1C02A54A0 (NtGdiStrokeAndFillPath.c)
+ *     NtGdiStrokePath @ 0x1C02A55E0 (NtGdiStrokePath.c)
+ *     NtGdiWidenPath @ 0x1C02A56F0 (NtGdiWidenPath.c)
+ *     NtGdiArcInternal @ 0x1C02A8B20 (NtGdiArcInternal.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall EXFORMOBJ::vQuickInit(EXFORMOBJ *this, struct XDCOBJ *a2, unsigned int a3)
+{
+  *((_DWORD *)this + 2) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 80LL) + 68LL);
+  *((_DWORD *)this + 3) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 80LL) + 312LL) & 1;
+  if ( (*(_DWORD *)(*(_QWORD *)(*(_QWORD *)a2 + 80LL) + 352LL) & 0xE000) != 0 || a3 != 516 )
+    EXFORMOBJ::vInit(this, a2, a3, 0);
+  else
+    *(_QWORD *)this = *(_QWORD *)a2 + 336LL;
+}

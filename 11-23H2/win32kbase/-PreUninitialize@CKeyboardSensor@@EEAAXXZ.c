@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?PreUninitialize@CKeyboardSensor@@EEAAXXZ @ 0x1C0080AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     isInputVirtualizationEnabled @ 0x1C004FF0C (isInputVirtualizationEnabled.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Uninitialize@CIVChannel@@QEAAXXZ @ 0x1C01F3B30 (-Uninitialize@CIVChannel@@QEAAXXZ.c)
+ */
+
+void __fastcall CKeyboardSensor::PreUninitialize(CKeyboardSensor *this, __int64 a2, __int64 a3, __int64 a4)
+{
+  _QWORD *v5; // rdx
+  NSInstrumentation::CLeakTrackingAllocator *v6; // rcx
+
+  if ( isInputVirtualizationEnabled((__int64)this, a2, a3, a4) )
+    CIVChannel::Uninitialize((CKeyboardSensor *)((char *)this + 1288));
+  v5 = (_QWORD *)*((_QWORD *)this + 168);
+  if ( v5 )
+  {
+    v6 = gpLeakTrackingAllocator;
+    *v5 = &CBaseProcessor::`vftable';
+    NSInstrumentation::CLeakTrackingAllocator::Free(v6, v5);
+  }
+  *((_QWORD *)this + 168) = 0LL;
+}

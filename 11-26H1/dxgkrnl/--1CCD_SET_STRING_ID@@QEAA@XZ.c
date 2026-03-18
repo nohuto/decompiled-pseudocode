@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??1CCD_SET_STRING_ID@@QEAA@XZ @ 0x1402AC5A0
+ * Callers:
+ *     ??_GCCD_SET_STRING_ID@@QEAAPEAXI@Z @ 0x14005ED28 (--_GCCD_SET_STRING_ID@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ?_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1402AC4B8 (-_Cleanup@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ */
+
+void __fastcall CCD_SET_STRING_ID::~CCD_SET_STRING_ID(CCD_SET_STRING_ID *this)
+{
+  CCD_SET_STRING_ID::_Cleanup(this);
+}

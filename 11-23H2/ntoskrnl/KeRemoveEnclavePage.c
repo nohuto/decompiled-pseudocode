@@ -1,0 +1,20 @@
+/*
+ * XREFs of KeRemoveEnclavePage @ 0x1405706A0
+ * Callers:
+ *     MiDecommitHardwareEnclavePages @ 0x1406474E0 (MiDecommitHardwareEnclavePages.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140AAD240 (MiDeleteAllHardwareEnclaves.c)
+ *     MiDeleteEnclavePages @ 0x140AAD468 (MiDeleteEnclavePages.c)
+ * Callees:
+ *     KiEncls @ 0x14041FC80 (KiEncls.c)
+ *     KiEnclsStatus @ 0x140570718 (KiEnclsStatus.c)
+ */
+
+__int64 KeRemoveEnclavePage()
+{
+  unsigned int v0; // eax
+
+  if ( !_bittest64(&KeFeatureBits, 0x28u) )
+    return 3221225659LL;
+  v0 = KiEncls(3u);
+  return KiEnclsStatus(v0);
+}

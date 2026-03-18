@@ -1,0 +1,17 @@
+/*
+ * XREFs of KdAllocateDynamicMemory @ 0x140A4EC54
+ * Callers:
+ *     MiInitSystem @ 0x140A4C4D4 (MiInitSystem.c)
+ * Callees:
+ *     KdSetDbgPrintBufferSize @ 0x14050BC34 (KdSetDbgPrintBufferSize.c)
+ */
+
+__int64 KdAllocateDynamicMemory()
+{
+  __int64 result; // rax
+
+  result = 0LL;
+  if ( (_DWORD)KdPrintBufferAllocateSize )
+    return KdSetDbgPrintBufferSize((unsigned int)KdPrintBufferAllocateSize);
+  return result;
+}

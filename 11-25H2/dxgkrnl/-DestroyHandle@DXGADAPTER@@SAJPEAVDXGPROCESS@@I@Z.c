@@ -1,0 +1,153 @@
+/*
+ * XREFs of ?DestroyHandle@DXGADAPTER@@SAJPEAVDXGPROCESS@@I@Z @ 0x14031E194
+ * Callers:
+ *     ?VmBusCloseAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x14021A920 (-VmBusCloseAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1402DE70C (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ *     ?DxgkEnumAdaptersImpl@@YAJPEAU_D3DKMT_ENUMADAPTERS@@DEW4_KWAIT_REASON@@@Z @ 0x14031C638 (-DxgkEnumAdaptersImpl@@YAJPEAU_D3DKMT_ENUMADAPTERS@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z @ 0x14031CA60 (-DxgkEnumAdapters3Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS3@@DEW4_KWAIT_REASON@@@Z.c)
+ *     ?DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z @ 0x14031D170 (-DxgkEnumAdaptersInternal@@YAJPEAUENUMADAPTERSINTERNAL@@DEW4_KWAIT_REASON@@@Z.c)
+ *     DxgkCloseAdapterImpl @ 0x14031DF20 (DxgkCloseAdapterImpl.c)
+ *     ?DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z @ 0x14031EA60 (-DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z.c)
+ * Callees:
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140013780 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x140013A20 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x140015500 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x140019E90 (DxgkLogInternalTriageEvent.c)
+ *     ?ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ @ 0x14003962C (-ReleaseReferenceNoTracking@DXGADAPTER@@QEAAXXZ.c)
+ *     ?FreeHandleUnsafe@DXGPROCESS@@QEAAXI@Z @ 0x14005DA14 (-FreeHandleUnsafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     Feature_Servicing_GraphicsKernel_VolatileAccessorUpdate__private_IsEnabledDeviceUsageNoInline @ 0x14006681C (Feature_Servicing_GraphicsKernel_VolatileAccessorUpdate__private_IsEnabledDeviceUsageNoInline.c)
+ *     ?CloseAdapter@DXGPROCESS@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1403354B4 (-CloseAdapter@DXGPROCESS@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ */
+
+__int64 __fastcall DXGADAPTER::DestroyHandle(struct _KTHREAD **this, unsigned int a2)
+{
+  __int64 v4; // rbx
+  int v5; // eax
+  struct _KTHREAD *v6; // rbp
+  __int64 v7; // r8
+  __int64 v8; // rbx
+  int v9; // edx
+  __int64 v10; // rbx
+  struct _KTHREAD *v11; // r8
+  __int64 v12; // rbx
+  int v13; // edx
+  struct ADAPTER_RENDER *v15; // rdx
+  _BYTE v16[8]; // [rsp+50h] [rbp-38h] BYREF
+  char *v17; // [rsp+58h] [rbp-30h]
+  int v18; // [rsp+60h] [rbp-28h]
+
+  if ( !this )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 3365;
+    DxgkLogInternalTriageEvent(0LL, 262146, 0xFFFFFFFFLL, L"pProcess != NULL", 3365LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  v17 = (char *)(this + 31);
+  if ( this != (struct _KTHREAD **)-248LL )
+  {
+    Feature_Servicing_GraphicsKernel_VolatileAccessorUpdate__private_IsEnabledDeviceUsageNoInline();
+    if ( this[32] == KeGetCurrentThread() )
+    {
+      WdLogSingleEntry0(1LL);
+      WdLogGlobalForLineNumber = 1575;
+      DxgkLogInternalTriageEvent(
+        0LL,
+        262146,
+        0xFFFFFFFFLL,
+        L"bAllowAcquireRecursive || pPushLock == NULL || !m_pPushLock->IsExclusiveOwner()",
+        1575LL,
+        0LL,
+        0LL,
+        0LL,
+        0LL);
+    }
+  }
+  DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(this + 31));
+  v4 = (a2 >> 6) & 0xFFFFFF;
+  v5 = *((_DWORD *)this + 102) >> 8;
+  v18 = 2;
+  if ( (v5 & 1) != 0 )
+  {
+    v6 = this[74];
+    DXGPUSHLOCK::AcquireShared((struct _KTHREAD *)((char *)v6 + 248));
+    if ( (unsigned int)v4 < *((_DWORD *)v6 + 74) )
+    {
+      v7 = *((_QWORD *)v6 + 35);
+      v8 = 2 * v4;
+      if ( ((a2 >> 25) & 0x60) == (*(_BYTE *)(v7 + 8 * v8 + 8) & 0x60) && (*(_DWORD *)(v7 + 8 * v8 + 8) & 0x2000) == 0 )
+      {
+        v9 = *(_DWORD *)(v7 + 8 * v8 + 8) & 0x1F;
+        if ( v9 )
+        {
+          if ( v9 == 1 )
+          {
+            v10 = *(_QWORD *)(v7 + 8 * v8);
+            goto LABEL_14;
+          }
+          WdLogSingleEntry0(2LL);
+          WdLogGlobalForLineNumber = 318;
+          DxgkLogInternalTriageEvent(0LL, 0x40000, 0xFFFFFFFFLL, L"Handle type mismatch", 318LL, 0LL, 0LL, 0LL, 0LL);
+        }
+      }
+    }
+    v10 = 0LL;
+LABEL_14:
+    _InterlockedDecrement((volatile signed __int32 *)v6 + 66);
+    ExReleasePushLockSharedEx((char *)v6 + 248, 0LL);
+    KeLeaveCriticalRegion();
+    goto LABEL_23;
+  }
+  if ( (unsigned int)v4 >= *((_DWORD *)this + 74) )
+    goto LABEL_22;
+  v11 = this[35];
+  v12 = 2 * v4;
+  if ( ((a2 >> 25) & 0x60) != (*((_BYTE *)v11 + 8 * v12 + 8) & 0x60) )
+    goto LABEL_22;
+  if ( (*((_DWORD *)v11 + 2 * v12 + 2) & 0x2000) != 0 )
+    goto LABEL_22;
+  v13 = *((_DWORD *)v11 + 2 * v12 + 2) & 0x1F;
+  if ( !v13 )
+    goto LABEL_22;
+  if ( v13 != 1 )
+  {
+    WdLogSingleEntry0(2LL);
+    WdLogGlobalForLineNumber = 318;
+    DxgkLogInternalTriageEvent(0LL, 0x40000, 0xFFFFFFFFLL, L"Handle type mismatch", 318LL, 0LL, 0LL, 0LL, 0LL);
+LABEL_22:
+    v10 = 0LL;
+    goto LABEL_23;
+  }
+  v10 = *((_QWORD *)v11 + v12);
+LABEL_23:
+  if ( v10 )
+  {
+    DXGPROCESS::FreeHandleUnsafe((DXGPROCESS *)this, a2);
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16);
+    KeEnterCriticalRegion();
+    ExAcquirePushLockSharedEx(v10 + 136, 0LL);
+    _InterlockedIncrement((volatile signed __int32 *)(v10 + 152));
+    v15 = *(struct ADAPTER_RENDER **)(v10 + 3128);
+    if ( v15 )
+    {
+      if ( *(_DWORD *)(v10 + 240) == -1 )
+      {
+        WdLogSingleEntry0(3LL);
+        WdLogGlobalForLineNumber = 3395;
+      }
+      else
+      {
+        DXGPROCESS::CloseAdapter((DXGPROCESS *)this, v15);
+      }
+    }
+    _InterlockedDecrement((volatile signed __int32 *)(v10 + 152));
+    ExReleasePushLockSharedEx(v10 + 136, 0LL);
+    KeLeaveCriticalRegion();
+    DXGADAPTER::ReleaseReferenceNoTracking((DXGADAPTER *)v10);
+    return 0LL;
+  }
+  else
+  {
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v16);
+    return 3221225485LL;
+  }
+}

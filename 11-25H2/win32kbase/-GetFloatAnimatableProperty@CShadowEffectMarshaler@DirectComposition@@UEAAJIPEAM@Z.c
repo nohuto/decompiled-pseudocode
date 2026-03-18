@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?GetFloatAnimatableProperty@CShadowEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1401A25C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x140230340 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ */
+
+__int64 __fastcall DirectComposition::CShadowEffectMarshaler::GetFloatAnimatableProperty(
+        DirectComposition::CShadowEffectMarshaler *this,
+        unsigned int a2,
+        float *a3)
+{
+  unsigned int v3; // r9d
+  int v4; // eax
+
+  v3 = 0;
+  switch ( a2 )
+  {
+    case 4u:
+      v4 = *((_DWORD *)this + 28);
+      goto LABEL_12;
+    case 6u:
+      v4 = *((_DWORD *)this + 29);
+      goto LABEL_12;
+    case 7u:
+      v4 = *((_DWORD *)this + 30);
+      goto LABEL_12;
+    case 8u:
+      v4 = *((_DWORD *)this + 31);
+      goto LABEL_12;
+    case 9u:
+      v4 = *((_DWORD *)this + 32);
+LABEL_12:
+      *(_DWORD *)a3 = v4;
+      return v3;
+  }
+  return (unsigned int)DirectComposition::CResourceMarshaler::GetFloatAnimatableProperty(this, a2, a3);
+}

@@ -1,0 +1,66 @@
+/*
+ * XREFs of ?Serialize@DMMVIDPNSOURCEMODESET@@QEBAJPEAV?$AutoBuffer@U_DMM_VIDPNSOURCEMODESET_SERIALIZATION@@@DMM@@@Z @ 0x140266A98
+ * Callers:
+ *     ?_SerializeVidPnSourceModeSet@VIDPN_MGR@@AEBAJQEAVDMMVIDPN@@IQEAV?$AutoBuffer@U_DMM_VIDPNSOURCEMODESET_SERIALIZATION@@@DMM@@@Z @ 0x14025D548 (-_SerializeVidPnSourceModeSet@VIDPN_MGR@@AEBAJQEAVDMMVIDPN@@IQEAV-$AutoBuffer@U_DMM_VIDPNSOURCEM.c)
+ * Callees:
+ *     ?Initialize@?$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_POOL_FLAGS@@@Z @ 0x140023444 (-Initialize@-$AutoBuffer@U_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION@@@DMM@@QEAAJ_KQEBXW4DXGK_P.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x14003DE80 (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     ?Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z @ 0x14008F000 (-Serialize@DMMVIDPNSOURCEMODE@@QEBAXQEAU_D3DKMDT_VIDPN_SOURCE_MODE@@@Z.c)
+ */
+
+__int64 __fastcall DMMVIDPNSOURCEMODESET::Serialize(DMMVIDPNSOURCEMODESET *this, _QWORD *a2)
+{
+  __int64 result; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rbp
+  int v7; // eax
+  unsigned int v8; // esi
+  unsigned __int8 v9; // bp
+  DMMVIDPNSOURCEMODESET *v10; // rsi
+  const struct DMMVIDPNSOURCEMODE *i; // rsi
+
+  if ( a2 )
+  {
+    if ( a2[4] )
+    {
+      WdLogSingleEntry0(1LL);
+      WdLogGlobalForLineNumber = 334;
+    }
+    v5 = 1LL;
+    if ( *((_QWORD *)this + 8) > 1uLL )
+      v5 = *((_QWORD *)this + 8);
+    v6 = 44 * v5;
+    v7 = DMM::AutoBuffer<_DMM_DISPMODECHANGEREQUESTSET_SERIALIZATION>::Initialize(a2, 44 * v5);
+    v8 = v7;
+    if ( v7 >= 0 )
+    {
+      v9 = 0;
+      *(_BYTE *)a2[4] = *((_BYTE *)this + 64);
+      v10 = (DMMVIDPNSOURCEMODESET *)*((_QWORD *)this + 6);
+      if ( v10 != (DMMVIDPNSOURCEMODESET *)((char *)this + 48) )
+      {
+        for ( i = (DMMVIDPNSOURCEMODESET *)((char *)v10 - 8); i; i = DMMVIDPNSOURCEMODESET::GetNextMode(this, i) )
+          DMMVIDPNSOURCEMODE::Serialize(i, (struct _D3DKMDT_VIDPN_SOURCE_MODE *const)(a2[4] + 4LL + 40LL * v9++));
+      }
+      if ( v9 != *(_BYTE *)a2[4] )
+      {
+        WdLogSingleEntry0(1LL);
+        WdLogGlobalForLineNumber = 372;
+      }
+      return 0LL;
+    }
+    else
+    {
+      WdLogSingleEntry3(2LL, v6, this, v7);
+      result = v8;
+      WdLogGlobalForLineNumber = 352;
+    }
+  }
+  else
+  {
+    WdLogSingleEntry1(2LL, 0LL);
+    result = 3221225485LL;
+    WdLogGlobalForLineNumber = 328;
+  }
+  return result;
+}

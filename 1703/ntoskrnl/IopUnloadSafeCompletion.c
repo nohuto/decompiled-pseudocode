@@ -1,0 +1,42 @@
+/*
+ * XREFs of IopUnloadSafeCompletion @ 0x1400325E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14004BBF0 (ObfReferenceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x1400EFC60 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x140189DC0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall IopUnloadSafeCompletion(__int64 a1, __int64 a2, __int64 a3)
+{
+  unsigned int v3; // edi
+  PVOID v7; // rbx
+
+  v3 = 0;
+  if ( *(int *)(a2 + 48) < 0 )
+  {
+    if ( *(_BYTE *)(a3 + 24) )
+      goto LABEL_3;
+  }
+  else if ( *(_BYTE *)(a3 + 25) )
+  {
+LABEL_3:
+    v7 = *(PVOID *)a3;
+    ObfReferenceObjectWithTag(*(PVOID *)a3, 0x70436F49u);
+    v3 = (*(__int64 (__fastcall **)(__int64, __int64, _QWORD))(a3 + 16))(a1, a2, *(_QWORD *)(a3 + 8));
+    ExFreePoolWithTag((PVOID)a3, 0);
+    ObfDereferenceObjectWithTag(v7, 0x70436F49u);
+    return v3;
+  }
+  if ( *(_BYTE *)(a2 + 68) && *(_BYTE *)(a3 + 26) )
+    goto LABEL_3;
+  if ( *(_BYTE *)(a2 + 65) )
+  {
+    v3 = 259;
+    *(_BYTE *)(*(_QWORD *)(a2 + 184) + 3LL) |= 1u;
+  }
+  ExFreePoolWithTag((PVOID)a3, 0);
+  return v3;
+}

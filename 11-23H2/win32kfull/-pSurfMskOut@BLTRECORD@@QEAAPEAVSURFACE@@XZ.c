@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C009D754
+ * Callers:
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C00BDB6C (-bStretch@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z @ 0x1C00FEE00 (-bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C028E310 (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C028EC30 (-bRotate@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
+ *     ?bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0292D80 (-bStretch@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+struct SURFACE *__fastcall BLTRECORD::pSurfMskOut(BLTRECORD *this)
+{
+  if ( (*((_DWORD *)this + 53) & 0x10000) != 0 )
+    return (struct SURFACE *)*((_QWORD *)this + 10);
+  else
+    return 0LL;
+}

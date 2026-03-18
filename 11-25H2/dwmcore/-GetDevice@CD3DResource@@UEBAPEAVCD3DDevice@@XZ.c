@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetDevice@CD3DResource@@UEBAPEAVCD3DDevice@@XZ @ 0x1801E9330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+struct CD3DDevice *__fastcall CD3DResource::GetDevice(CD3DResource *this)
+{
+  return *(struct CD3DDevice **)(*((_QWORD *)this + 5) + 80LL);
+}

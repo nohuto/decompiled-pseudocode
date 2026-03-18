@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?CompareLangName@@YAHPEBX0@Z @ 0x14016C9B8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+int __fastcall CompareLangName(const wchar_t *a1, const wchar_t **a2)
+{
+  return wcsicmp(a1, *a2);
+}

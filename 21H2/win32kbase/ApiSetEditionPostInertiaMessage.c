@@ -1,0 +1,72 @@
+/*
+ * XREFs of ApiSetEditionPostInertiaMessage @ 0x1C020A640
+ * Callers:
+ *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x1C01E11D4 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0037614 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00DE650 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ApiSetEditionPostInertiaMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  unsigned int v6; // esi
+  __int64 v7; // rbp
+  unsigned int v8; // r14d
+  PDEVICE_OBJECT v10; // rcx
+  char v11; // di
+  void *v12; // r9
+  void *v13; // r8
+
+  v6 = 0;
+  v7 = a3;
+  v8 = a2;
+  v10 = WPP_GLOBAL_Control;
+  v11 = 1;
+  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
+    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  {
+    LOBYTE(a2) = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
+  {
+    LOBYTE(a3) = 0;
+  }
+  v12 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
+  if ( (_BYTE)a2 || (_BYTE)a3 )
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      a2,
+      a3,
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      180,
+      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+  if ( qword_1C029D3F0 && (int)qword_1C029D3F0(v10, a2, a3, v12) >= 0 && qword_1C029D3F8 )
+    v6 = ((__int64 (__fastcall *)(__int64, _QWORD, __int64, __int64, __int64))qword_1C029D3F8)(a1, v8, v7, a4, a5);
+  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
+    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  {
+    LOBYTE(a2) = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    v11 = 0;
+  if ( (_BYTE)a2 || v11 )
+  {
+    v13 = &WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids;
+    LOBYTE(v13) = v11;
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      a2,
+      (_DWORD)v13,
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      181,
+      (__int64)&WPP_0697f2bc7c5d31d94a4cce9255604f83_Traceguids);
+  }
+  return v6;
+}

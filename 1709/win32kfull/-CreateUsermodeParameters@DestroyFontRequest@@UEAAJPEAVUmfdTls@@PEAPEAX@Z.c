@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@DestroyFontRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C003F3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C0037DD4 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
+__int64 __fastcall DestroyFontRequest::CreateUsermodeParameters(DestroyFontRequest *this, UmfdUMBuffer **a2, void **a3)
+{
+  char *v6; // rax
+  __int64 v7; // rdx
+
+  v6 = (char *)UmfdTls::CommitUMBuffer(a2, 0x48u, 1);
+  if ( !v6 )
+    return 3221225495LL;
+  *((_QWORD *)this + 6) = v6 + 8;
+  v7 = *((_QWORD *)this + 5);
+  *(_OWORD *)(v6 + 8) = *(_OWORD *)v7;
+  *(_OWORD *)(v6 + 24) = *(_OWORD *)(v7 + 16);
+  *(_OWORD *)(v6 + 40) = *(_OWORD *)(v7 + 32);
+  *(_OWORD *)(v6 + 56) = *(_OWORD *)(v7 + 48);
+  *((_QWORD *)v6 + 7) = 0LL;
+  *((_QWORD *)v6 + 4) = **(_QWORD **)(v7 + 24);
+  a2[4] = (UmfdUMBuffer *)v7;
+  *(_QWORD *)v6 = *((_QWORD *)this + 6);
+  *a3 = v6;
+  return 0LL;
+}

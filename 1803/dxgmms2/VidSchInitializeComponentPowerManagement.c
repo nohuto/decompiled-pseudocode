@@ -1,0 +1,46 @@
+/*
+ * XREFs of VidSchInitializeComponentPowerManagement @ 0x1C00BD3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0012370 (VidSchiDriverNodeEngineToSchedulerNode.c)
+ */
+
+__int64 __fastcall VidSchInitializeComponentPowerManagement(
+        __int64 a1,
+        int a2,
+        unsigned int a3,
+        unsigned int a4,
+        int a5,
+        _BYTE *a6)
+{
+  unsigned int v6; // eax
+  __int64 v7; // rcx
+  _BYTE *v8; // r10
+  __int64 v10; // rcx
+  char v11; // al
+
+  *a6 = 0;
+  if ( a2 )
+  {
+    if ( a2 == 2 )
+    {
+      if ( a4 >= *(_DWORD *)(a1 + 40) )
+        return 3221225485LL;
+      *(_DWORD *)(*(_QWORD *)(a1 + 8LL * a4 + 3032) + 28128LL) = a5;
+    }
+  }
+  else
+  {
+    v6 = VidSchiDriverNodeEngineToSchedulerNode(a1, a4, a3);
+    if ( v6 >= *(_DWORD *)(v7 + 64) )
+      return 3221225485LL;
+    _mm_lfence();
+    v10 = *(_QWORD *)(v7 + 8LL * v6 + 440);
+    *(_DWORD *)(v10 + 6256) = a5;
+    v11 = *(_BYTE *)(v10 + 12) & 1;
+    *(_BYTE *)(v10 + 6260) = 1;
+    *v8 = v11;
+  }
+  return 0LL;
+}

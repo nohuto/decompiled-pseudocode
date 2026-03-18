@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?PauseChannel@DXG_VMBUS_CHANNEL_BASE@@QEAAX_N@Z @ 0x1C037612C
+ * Callers:
+ *     ?PauseVirtualGpu@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0345784 (-PauseVirtualGpu@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ *     ?PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C0345800 (-PauseVmBusChannels@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ *     ?ResetVirtualFunction@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_RESETVIRTUALFUNCTION@@@Z @ 0x1C0369444 (-ResetVirtualFunction@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_RESETVIRTUALFUNC.c)
+ *     ?VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z @ 0x1C036FE70 (-VirtualGpuDriverEscape@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGK_VIRTUALGPUDRIVERESCAPE@@@Z.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0007B4C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@E@Z @ 0x1C0052644 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@E@Z.c)
+ */
+
+void __fastcall DXG_VMBUS_CHANNEL_BASE::PauseChannel(DXG_VMBUS_CHANNEL_BASE *this, char a2)
+{
+  _BYTE v4[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+    (DXGAUTOPUSHLOCKEXCLUSIVE *)v4,
+    (DXG_VMBUS_CHANNEL_BASE *)((char *)this + 16),
+    *((_QWORD *)this + 3) != (_QWORD)KeGetCurrentThread());
+  if ( *(_QWORD *)this )
+  {
+    *((_BYTE *)this + 70) = 1;
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v4);
+    if ( a2 )
+    {
+      ((void (__fastcall *)(_QWORD))qword_1C0141F68)(*(_QWORD *)this);
+      *((_BYTE *)this + 71) = 1;
+    }
+  }
+  else
+  {
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v4);
+  }
+}

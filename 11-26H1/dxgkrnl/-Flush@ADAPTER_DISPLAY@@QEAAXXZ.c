@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?Flush@ADAPTER_DISPLAY@@QEAAXXZ @ 0x14005F9A4
+ * Callers:
+ *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEBD@Z @ 0x14030D4B0 (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEBD@Z.c)
+ * Callees:
+ *     ?Flush@DXGDODPRESENT@@QEAAXXZ @ 0x1403FA184 (-Flush@DXGDODPRESENT@@QEAAXXZ.c)
+ */
+
+void __fastcall ADAPTER_DISPLAY::Flush(ADAPTER_DISPLAY *this)
+{
+  DXGDODPRESENT *v1; // rcx
+
+  v1 = (DXGDODPRESENT *)*((_QWORD *)this + 58);
+  if ( v1 )
+    DXGDODPRESENT::Flush(v1);
+}

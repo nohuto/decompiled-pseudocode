@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C0239E1C
+ * Callers:
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C023A844 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C023AB70 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned int __fastcall DetectPromotionType(
+        const struct tagMOUSE_PROMOTION_ENTRY **a1,
+        const struct tagMOUSE_PROMOTION_ENTRY *a2)
+{
+  const struct tagMOUSE_PROMOTION_ENTRY *v2; // rax
+  int v3; // ecx
+
+  if ( !a2 )
+  {
+    v2 = *a1;
+    a2 = (const struct tagMOUSE_PROMOTION_ENTRY *)a1;
+    while ( v2 )
+    {
+      a2 = v2;
+      v2 = *(const struct tagMOUSE_PROMOTION_ENTRY **)v2;
+    }
+  }
+  v3 = *((_DWORD *)a2 + 11);
+  if ( (v3 & 0x10) != 0 )
+    return (((v3 & 8) != 0) + 1) | 0x10000;
+  if ( (*((_DWORD *)a2 + 5) & 0x40000) != 0 )
+    return (((v3 & 8) != 0) + 1) | 0x20000;
+  return 0x10000000;
+}

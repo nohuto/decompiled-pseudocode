@@ -1,0 +1,40 @@
+/*
+ * XREFs of DwmAsyncOwnerChange @ 0x14005E124
+ * Callers:
+ *     xxxCreateWindowEx @ 0x14003997C (xxxCreateWindowEx.c)
+ *     xxxDW_DestroyOwnedWindows @ 0x14004E938 (xxxDW_DestroyOwnedWindows.c)
+ *     ?FreeWindow_Phase3@@YAXPEAUtagWND@@PEAUtagTHREADINFO@@PEAU?$Win32HMOptionalThreadLockAlways@UtagWND@@@@@Z @ 0x1400593C8 (-FreeWindow_Phase3@@YAXPEAUtagWND@@PEAUtagTHREADINFO@@PEAU-$Win32HMOptionalThreadLockAlways@Utag.c)
+ *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x14005E1E4 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x14005E600 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z @ 0x14017E968 (-zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x14018AAC4 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x14025D7D0 (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x14001D2A8 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
+__int64 __fastcall DwmAsyncOwnerChange(PVOID Object, __int64 a2, __int64 a3)
+{
+  unsigned int v6; // ebx
+  _OWORD v8[2]; // [rsp+20h] [rbp-40h] BYREF
+  __int64 v9; // [rsp+40h] [rbp-20h]
+  int v10; // [rsp+48h] [rbp-18h]
+  _QWORD v11[2]; // [rsp+4Ch] [rbp-14h]
+
+  v6 = -1073741823;
+  IncrementDWMWindowUniqueness();
+  if ( Object )
+  {
+    memset(v8, 0, sizeof(v8));
+    v9 = 0LL;
+    WORD2(v8[0]) = 0x8000;
+    LODWORD(v8[0]) = 3932180;
+    v10 = 1073741877;
+    v11[0] = a2;
+    v11[1] = a3;
+    EtwUpdateEvent(a2, 1073741877LL);
+    v6 = LpcRequestPort(Object, v8);
+    ObfDereferenceObject(Object);
+  }
+  return v6;
+}

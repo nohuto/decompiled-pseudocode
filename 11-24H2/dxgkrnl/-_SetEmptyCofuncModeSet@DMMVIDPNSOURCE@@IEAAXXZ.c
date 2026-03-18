@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ @ 0x14000DAA0
+ * Callers:
+ *     ??0DMMVIDPNSOURCE@@QEAA@QEAVDMMVIDPNSOURCESET@@QEAVDMMVIDEOPRESENTSOURCE@@@Z @ 0x14000DCF0 (--0DMMVIDPNSOURCE@@QEAA@QEAVDMMVIDPNSOURCESET@@QEAVDMMVIDEOPRESENTSOURCE@@@Z.c)
+ *     ?RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z @ 0x14031A9CC (-RemovePath@DMMVIDPNTOPOLOGY@@QEAAJIIPEAPEAVDMMVIDPNPRESENTPATH@@@Z.c)
+ * Callees:
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x14000BE00 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??0DMMVIDPNSOURCEMODESET@@IEAA@PEAVDMMVIDPNSOURCE@@@Z @ 0x14000DB38 (--0DMMVIDPNSOURCEMODESET@@IEAA@PEAVDMMVIDPNSOURCE@@@Z.c)
+ */
+
+void __fastcall DMMVIDPNSOURCE::_SetEmptyCofuncModeSet(DMMVIDPNSOURCE *this)
+{
+  DMMVIDPNSOURCEMODESET *Pool2; // rax
+  DMMVIDPNSOURCEMODESET *v3; // rax
+  DMMVIDPNSOURCEMODESET *v4; // rdi
+  __int64 v5; // rcx
+
+  while ( 1 )
+  {
+    Pool2 = (DMMVIDPNSOURCEMODESET *)ExAllocatePool2(256LL, 152LL, 1313891414LL);
+    if ( Pool2 )
+    {
+      v3 = DMMVIDPNSOURCEMODESET::DMMVIDPNSOURCEMODESET(Pool2, this);
+      v4 = v3;
+      if ( v3 )
+        break;
+    }
+    WdLogSingleEntry0(6LL);
+    WdLogGlobalForLineNumber = 1189;
+    ZwYieldExecution();
+  }
+  v5 = *((_QWORD *)this + 13);
+  if ( v5 && v3 != (DMMVIDPNSOURCEMODESET *)v5 )
+    ReferenceCounted::Release((ReferenceCounted *)(v5 + 88));
+  *((_QWORD *)this + 13) = v4;
+}

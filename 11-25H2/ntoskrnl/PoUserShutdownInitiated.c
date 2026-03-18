@@ -1,0 +1,18 @@
+/*
+ * XREFs of PoUserShutdownInitiated @ 0x140A9B420
+ * Callers:
+ *     PopPowerInformationInternal @ 0x140A1B29C (PopPowerInformationInternal.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x140311890 (PsIsCurrentThreadInServerSilo.c)
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x140748030 (PopSwitchUpdateUserShutdownScenarioState.c)
+ */
+
+char PoUserShutdownInitiated()
+{
+  char result; // al
+
+  result = PsIsCurrentThreadInServerSilo();
+  if ( !result )
+    return PopSwitchUpdateUserShutdownScenarioState(3LL);
+  return result;
+}

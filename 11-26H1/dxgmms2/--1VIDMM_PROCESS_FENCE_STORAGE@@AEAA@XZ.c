@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??1VIDMM_PROCESS_FENCE_STORAGE@@AEAA@XZ @ 0x14011AF5C
+ * Callers:
+ *     ??_GVIDMM_PROCESS_FENCE_STORAGE@@AEAAPEAXI@Z @ 0x140004680 (--_GVIDMM_PROCESS_FENCE_STORAGE@@AEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FreePageStorageList@VIDMM_PROCESS_FENCE_STORAGE@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x14011AFB4 (-FreePageStorageList@VIDMM_PROCESS_FENCE_STORAGE@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
+ */
+
+void __fastcall VIDMM_PROCESS_FENCE_STORAGE::~VIDMM_PROCESS_FENCE_STORAGE(VIDMM_PROCESS_FENCE_STORAGE *this)
+{
+  VIDMM_PROCESS_FENCE_STORAGE *v2; // rcx
+  VIDMM_PROCESS_FENCE_STORAGE *v3; // rcx
+  VIDMM_PROCESS_FENCE_STORAGE *v4; // rcx
+  VIDMM_PROCESS_FENCE_STORAGE *v5; // rcx
+  VIDMM_PROCESS_FENCE_STORAGE *v6; // rcx
+  VIDMM_PROCESS_FENCE_STORAGE *v7; // rcx
+
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(this, (struct _LIST_ENTRY *)((char *)this + 8));
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(v2, (struct _LIST_ENTRY *)((char *)this + 24));
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(v3, (struct _LIST_ENTRY *)((char *)this + 104));
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(v4, (struct _LIST_ENTRY *)((char *)this + 40));
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(v5, (struct _LIST_ENTRY *)((char *)this + 72));
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(v6, (struct _LIST_ENTRY *)((char *)this + 56));
+  VIDMM_PROCESS_FENCE_STORAGE::FreePageStorageList(v7, (struct _LIST_ENTRY *)((char *)this + 88));
+}

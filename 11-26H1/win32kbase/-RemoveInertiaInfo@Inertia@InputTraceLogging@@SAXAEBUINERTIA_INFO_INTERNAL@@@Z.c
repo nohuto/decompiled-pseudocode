@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x14012654C
+ * Callers:
+ *     ?InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z @ 0x140126480 (-InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@555@Z @ 0x1400070D0 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@@-$_tlgWrit.c)
+ *     _tlgKeywordOn @ 0x1400E4F60 (_tlgKeywordOn.c)
+ *     ?InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z @ 0x14021947C (-InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z.c)
+ */
+
+void __fastcall InputTraceLogging::Inertia::RemoveInertiaInfo(const struct INERTIA_INFO_INTERNAL *a1)
+{
+  __int64 v1; // r8
+  int v2; // ecx
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  int v7; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v8; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v9; // [rsp+60h] [rbp-10h] BYREF
+  int v10; // [rsp+88h] [rbp+18h] BYREF
+  int v11; // [rsp+90h] [rbp+20h] BYREF
+  int v12; // [rsp+98h] [rbp+28h] BYREF
+
+  if ( (unsigned int)dword_1402A9E40 > 4 && tlgKeywordOn((__int64)&dword_1402A9E40, 2LL) )
+  {
+    v2 = *(_DWORD *)(v1 + 184);
+    v10 = -__CFSHR__(v2, 4);
+    v11 = -__CFSHR__(v2, 3);
+    v12 = -__CFSHR__(v2, 5);
+    v3 = *(_QWORD *)(v1 + 120);
+    v7 = -__CFSHR__(v2, 2);
+    v4 = *(unsigned int *)(v1 + 24);
+    v8 = v3;
+    v9 = InputTraceLogging::InertiaSourceToString(v4);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (__int64)&dword_1402A9E40,
+      (__int64)&unk_14028B4B5,
+      v5,
+      v6,
+      (void **)&v9,
+      (__int64)&v8,
+      (__int64)&v7,
+      (__int64)&v12,
+      (__int64)&v11,
+      (__int64)&v10);
+  }
+}

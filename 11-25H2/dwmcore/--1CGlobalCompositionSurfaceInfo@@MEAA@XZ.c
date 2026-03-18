@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??1CGlobalCompositionSurfaceInfo@@MEAA@XZ @ 0x180100AEC
+ * Callers:
+ *     ??_ECGlobalCompositionSurfaceInfo@@MEAAPEAXI@Z @ 0x180100AA0 (--_ECGlobalCompositionSurfaceInfo@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1CBindInfo@CGlobalCompositionSurfaceInfo@@QEAA@XZ @ 0x180100F28 (--1CBindInfo@CGlobalCompositionSurfaceInfo@@QEAA@XZ.c)
+ *     ?TryGetVtrSurfaceManager@@YAPEAVIVtrSurfaceManager@@XZ @ 0x18010407C (-TryGetVtrSurfaceManager@@YAPEAVIVtrSurfaceManager@@XZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall CGlobalCompositionSurfaceInfo::~CGlobalCompositionSurfaceInfo(CGlobalCompositionSurfaceInfo *this)
+{
+  struct IVtrSurfaceManager *VtrSurfaceManager; // rax
+
+  *(_QWORD *)this = &CGlobalCompositionSurfaceInfo::`vftable'{for `CMILCOMBaseT<IUnknown,IUnknown,CMilObjectDeleter>'};
+  *((_QWORD *)this + 2) = &CGlobalCompositionSurfaceInfo::`vftable'{for `IDeviceResourceNotify'};
+  *((_QWORD *)this + 13) = &CGlobalCompositionSurfaceInfo::`vftable';
+  VtrSurfaceManager = TryGetVtrSurfaceManager();
+  if ( VtrSurfaceManager )
+    (*(void (__fastcall **)(struct IVtrSurfaceManager *, char *))(*(_QWORD *)VtrSurfaceManager + 16LL))(
+      VtrSurfaceManager,
+      (char *)this + 40);
+  CGlobalCompositionSurfaceInfo::CBindInfo::~CBindInfo((CGlobalCompositionSurfaceInfo *)((char *)this + 112));
+  CCompositionSurfaceInfo::~CCompositionSurfaceInfo(this);
+}

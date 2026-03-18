@@ -1,0 +1,13 @@
+/*
+ * XREFs of NtGdiFlushUserBatch_0 @ 0x1C0001008
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C001CE70 (W32CalloutDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 NtGdiFlushUserBatch_0()
+{
+  return NtGdiFlushUserBatch();
+}

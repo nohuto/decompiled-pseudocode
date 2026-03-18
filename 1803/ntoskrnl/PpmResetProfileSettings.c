@@ -1,0 +1,81 @@
+/*
+ * XREFs of PpmResetProfileSettings @ 0x1401825BC
+ * Callers:
+ *     PpmRegisterProfiles @ 0x140648FC4 (PpmRegisterProfiles.c)
+ *     PpmDisableProfile @ 0x14076ED30 (PpmDisableProfile.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *__fastcall PpmResetProfileSettings(__int64 a1)
+{
+  __int64 v1; // r9
+  _QWORD *v2; // rdx
+  _OWORD *v3; // rax
+  _OWORD *v4; // r8
+  __int64 v5; // r10
+  __int128 v6; // xmm1
+  _OWORD *v7; // rax
+  _OWORD *v8; // rcx
+  __int128 v9; // xmm1
+  __int64 v10; // rcx
+  _QWORD *result; // rax
+  __int64 v12; // r8
+
+  v1 = 21LL;
+  v2 = (_QWORD *)(a1 + 40);
+  v3 = (_OWORD *)(a1 + 40);
+  v4 = &unk_1403A65A8;
+  v5 = 21LL;
+  do
+  {
+    *v3 = *v4;
+    v3[1] = v4[1];
+    v3[2] = v4[2];
+    v3[3] = v4[3];
+    v3[4] = v4[4];
+    v3[5] = v4[5];
+    v3[6] = v4[6];
+    v3 += 8;
+    v6 = v4[7];
+    v4 += 8;
+    *(v3 - 1) = v6;
+    --v5;
+  }
+  while ( v5 );
+  v7 = (_OWORD *)(a1 + 2728);
+  v8 = &unk_1403A7028;
+  do
+  {
+    *v7 = *v8;
+    v7[1] = v8[1];
+    v7[2] = v8[2];
+    v7[3] = v8[3];
+    v7[4] = v8[4];
+    v7[5] = v8[5];
+    v7[6] = v8[6];
+    v7 += 8;
+    v9 = v8[7];
+    v8 += 8;
+    *(v7 - 1) = v9;
+    --v1;
+  }
+  while ( v1 );
+  v10 = 2LL;
+  do
+  {
+    result = v2;
+    v12 = 2LL;
+    do
+    {
+      *result = 0LL;
+      result += 336;
+      --v12;
+    }
+    while ( v12 );
+    ++v2;
+    --v10;
+  }
+  while ( v10 );
+  return result;
+}

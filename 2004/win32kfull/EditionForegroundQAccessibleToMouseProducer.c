@@ -1,0 +1,22 @@
+/*
+ * XREFs of EditionForegroundQAccessibleToMouseProducer @ 0x1C0107A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MSGLUA_GPQFOREGROUND@@YAXXZ @ 0x1C00EB62C (-MSGLUA_GPQFOREGROUND@@YAXXZ.c)
+ *     ?WakeInjectedFlushWaiter@@YAXXZ @ 0x1C011EE10 (-WakeInjectedFlushWaiter@@YAXXZ.c)
+ */
+
+__int64 __fastcall EditionForegroundQAccessibleToMouseProducer(__int64 a1, int a2, int a3)
+{
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v6 = a1;
+  if ( !gpqForeground || (unsigned __int8)CheckAccess(&v6, gpqForeground + 428LL) )
+    return 1LL;
+  if ( a2 )
+    MSGLUA_GPQFOREGROUND();
+  if ( a3 )
+    WakeInjectedFlushWaiter();
+  return 0LL;
+}

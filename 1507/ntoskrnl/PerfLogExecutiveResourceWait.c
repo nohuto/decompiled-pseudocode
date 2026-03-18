@@ -1,0 +1,80 @@
+/*
+ * XREFs of PerfLogExecutiveResourceWait @ 0x14025FA64
+ * Callers:
+ *     ExAcquireSharedStarveExclusive @ 0x140052F60 (ExAcquireSharedStarveExclusive.c)
+ *     ExpWaitForResource @ 0x14009C5E0 (ExpWaitForResource.c)
+ *     ExAcquireResourceExclusiveLite @ 0x1400C8A30 (ExAcquireResourceExclusiveLite.c)
+ *     ExAcquireResourceSharedLite @ 0x1400C8DB0 (ExAcquireResourceSharedLite.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x14012EDB8 (ExAcquireSharedWaitForExclusive.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x1400103E0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1401716B0 (__security_check_cookie.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x14025F478 (EtwpGetTrackingLockSlotForThread.c)
+ */
+
+__int64 __fastcall PerfLogExecutiveResourceWait(int a1, __int64 a2, unsigned int a3)
+{
+  struct _KPRCB *CurrentPrcb; // rdi
+  unsigned __int64 v7; // rbx
+  __int16 Group; // r15
+  unsigned __int8 GroupIndex; // r12
+  __int64 result; // rax
+  __int64 v11; // r8
+  unsigned __int64 v12; // rbx
+  unsigned int v13; // [rsp+30h] [rbp-50h]
+  _QWORD v14[3]; // [rsp+38h] [rbp-48h] BYREF
+  unsigned int v15; // [rsp+50h] [rbp-30h]
+  int KernelStack; // [rsp+54h] [rbp-2Ch]
+  __int64 v17; // [rsp+58h] [rbp-28h]
+  int v18; // [rsp+60h] [rbp-20h]
+  int v19; // [rsp+64h] [rbp-1Ch]
+  _QWORD v20[2]; // [rsp+68h] [rbp-18h] BYREF
+
+  CurrentPrcb = KeGetCurrentPrcb();
+  v7 = __rdtsc();
+  Group = CurrentPrcb->Group;
+  GroupIndex = CurrentPrcb->GroupIndex;
+  ++CurrentPrcb->SynchCounters.ExEtwSynchTrackingNotificationsCount;
+  LOWORD(v13) = Group;
+  HIWORD(v13) = GroupIndex;
+  result = EtwpGetTrackingLockSlotForThread(a2, a1 & 0xFFFF0000);
+  v11 = result;
+  if ( result )
+  {
+    ++CurrentPrcb->SynchCounters.ExEtwSynchTrackingNotificationsAccountedCount;
+    result = 4294967263LL;
+    if ( ((a1 - 65572) & 0xFFFFFFDF) != 0 )
+    {
+      if ( ((a1 - 66084) & 0xFFFFFFDF) == 0 )
+      {
+        if ( *(_DWORD *)(v11 + 32) == 4 && *(_WORD *)(v11 + 24) == Group && *(_BYTE *)(v11 + 26) == GroupIndex )
+          v12 = v7 - *(_QWORD *)v11;
+        else
+          v12 = 0LL;
+        result = a3 / EtwpExecutiveResourceTimeout;
+        if ( !(a3 % EtwpExecutiveResourceTimeout) )
+        {
+          v14[0] = 0LL;
+          v18 = a1;
+          v17 = a2;
+          v15 = a3;
+          v14[1] = v12;
+          v14[2] = *(_QWORD *)v11;
+          v19 = 0;
+          v20[1] = 48LL;
+          KernelStack = (int)KeGetCurrentThread()[1].KernelStack;
+          v20[0] = v14;
+          return (__int64)EtwTraceKernelEvent((int)v20, 1, 0x20020000u, 0x52Bu, 22026242);
+        }
+      }
+    }
+    else
+    {
+      result = v13;
+      *(_DWORD *)(v11 + 24) = v13;
+      *(_DWORD *)(v11 + 32) = 4;
+      *(_QWORD *)v11 = v7;
+    }
+  }
+  return result;
+}

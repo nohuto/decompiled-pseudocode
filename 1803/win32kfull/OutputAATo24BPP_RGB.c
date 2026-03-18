@@ -1,0 +1,51 @@
+/*
+ * XREFs of OutputAATo24BPP_RGB @ 0x1C01155E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int8 *__fastcall OutputAATo24BPP_RGB(_DWORD *a1, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
+{
+  unsigned __int8 *result; // rax
+  __int64 v7; // r8
+  __int64 v8; // rcx
+  _BYTE *v9; // r9
+
+  result = (unsigned __int8 *)(a2 + 4);
+  if ( (*a1 & 0x80u) != 0 )
+  {
+    if ( (unsigned __int64)result < a3 )
+    {
+      v9 = (_BYTE *)(a4 + 1);
+      do
+      {
+        if ( result[3] )
+        {
+          v9[1] = ~*(_BYTE *)(a5 + 4LL * ((unsigned int)result[2] + 512));
+          *v9 = ~*(_BYTE *)(a5 + 4LL * ((unsigned int)result[1] + 256));
+          *(v9 - 1) = ~*(_BYTE *)(a5 + 4LL * *result);
+        }
+        v9 += 3;
+        result += 4;
+      }
+      while ( (unsigned __int64)result < a3 );
+    }
+  }
+  else if ( (unsigned __int64)result < a3 )
+  {
+    v7 = a4 + 1;
+    do
+    {
+      v7 += 3LL;
+      *(_BYTE *)(v7 - 2) = ~*(_BYTE *)(a5 + 4LL * ((unsigned int)result[2] + 512));
+      *(_BYTE *)(v7 - 3) = ~*(_BYTE *)(a5 + 4LL * ((unsigned int)result[1] + 256));
+      v8 = *result;
+      result += 4;
+      *(_BYTE *)(v7 - 4) = ~*(_BYTE *)(a5 + 4 * v8);
+    }
+    while ( (unsigned __int64)result < a3 );
+  }
+  return result;
+}

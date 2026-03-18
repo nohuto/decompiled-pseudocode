@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?vHalve@@YAXAEAVEVECTORFX@@@Z @ 0x1C013B63C
+ * Callers:
+ *     ?bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x1C00E4E48 (-bPolygonizePen@WIDEPENOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ *     ?bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z @ 0x1C013B4F0 (-bThicken@WIDEPENOBJ@@AEAAHPEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall vHalve(struct EVECTORFX *a1)
+{
+  int v1; // eax
+
+  if ( *(int *)a1 >= 0 )
+    ++*(_DWORD *)a1;
+  v1 = *((_DWORD *)a1 + 1);
+  if ( v1 >= 0 )
+    *((_DWORD *)a1 + 1) = v1 + 1;
+  *(int *)a1 >>= 1;
+  *((int *)a1 + 1) >>= 1;
+}

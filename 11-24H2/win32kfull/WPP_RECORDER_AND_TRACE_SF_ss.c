@@ -1,0 +1,131 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_ss @ 0x1402AAD68
+ * Callers:
+ *     ?xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z @ 0x140249264 (-xxxInitializeMoveSizeData@@YAXPEAUtagWND@@PEAUMOVESIZEDATA@@IK@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140340330 (_guard_dispatch_icall.c)
+ */
+
+_UNKNOWN **__fastcall WPP_RECORDER_AND_TRACE_SF_ss(
+        __int64 a1,
+        char a2,
+        char a3,
+        __int64 a4,
+        int a5,
+        int a6,
+        int a7,
+        int a8,
+        const char *a9,
+        const char *a10)
+{
+  _UNKNOWN **result; // rax
+  const char *v11; // rsi
+  const char *v12; // rdi
+  __int64 v13; // rbx
+  __int64 v17; // rdx
+  __int64 v18; // rdx
+  const char *v19; // r8
+  __int64 v20; // rax
+  __int64 v21; // rax
+  const char *v22; // rcx
+  __int64 v23; // rax
+  __int64 v24; // rax
+  __int64 v25; // rbx
+  int v26; // [rsp+20h] [rbp-48h]
+  __int64 v27; // [rsp+50h] [rbp-18h]
+  __int64 v28; // [rsp+58h] [rbp-10h]
+  _UNKNOWN *retaddr; // [rsp+68h] [rbp+0h] BYREF
+
+  result = &retaddr;
+  v11 = a9;
+  v12 = a10;
+  v13 = -1LL;
+  if ( a2 )
+  {
+    if ( a10 )
+    {
+      v17 = -1LL;
+      do
+        ++v17;
+      while ( a10[v17] );
+      v18 = v17 + 1;
+    }
+    else
+    {
+      v18 = 5LL;
+    }
+    v19 = a10;
+    if ( !a10 )
+      v19 = "NULL";
+    if ( a9 )
+    {
+      v20 = -1LL;
+      do
+        ++v20;
+      while ( a9[v20] );
+      v21 = v20 + 1;
+    }
+    else
+    {
+      v21 = 5LL;
+    }
+    v22 = a9;
+    if ( !a9 )
+      v22 = "NULL";
+    result = (_UNKNOWN **)((__int64 (__fastcall *)(__int64, __int64, void *, __int64, const char *, __int64, const char *, __int64, _QWORD))pfnWppTraceMessage)(
+                            a1,
+                            43LL,
+                            &WPP_9d843df1cd7c396fd9785948f6505ea0_Traceguids,
+                            91LL,
+                            v22,
+                            v21,
+                            v19,
+                            v18,
+                            0LL);
+  }
+  if ( a3 )
+  {
+    if ( a10 )
+    {
+      v23 = -1LL;
+      do
+        ++v23;
+      while ( a10[v23] );
+      v24 = v23 + 1;
+    }
+    else
+    {
+      v24 = 5LL;
+    }
+    if ( !a10 )
+      v12 = "NULL";
+    if ( a9 )
+    {
+      do
+        ++v13;
+      while ( a9[v13] );
+      v25 = v13 + 1;
+    }
+    else
+    {
+      v25 = 5LL;
+    }
+    if ( !a9 )
+      v11 = "NULL";
+    LOWORD(v26) = 91;
+    return (_UNKNOWN **)WppAutoLogTrace(
+                          a4,
+                          5LL,
+                          1LL,
+                          &WPP_9d843df1cd7c396fd9785948f6505ea0_Traceguids,
+                          v26,
+                          v11,
+                          v25,
+                          v12,
+                          v24,
+                          0LL,
+                          v27,
+                          v28);
+  }
+  return result;
+}

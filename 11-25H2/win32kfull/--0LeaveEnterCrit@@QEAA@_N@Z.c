@@ -1,0 +1,73 @@
+/*
+ * XREFs of ??0LeaveEnterCrit@@QEAA@_N@Z @ 0x1402709B8
+ * Callers:
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x14001E1E0 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxMsgWaitForMultipleObjectsEx @ 0x14001F190 (xxxMsgWaitForMultipleObjectsEx.c)
+ *     xxxDesktopThreadWaiter @ 0x140020F14 (xxxDesktopThreadWaiter.c)
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1400268FC (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x14002B4FC (-xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z.c)
+ *     ?xxxPlaySoundAsynchronous@CUserPlaySound@@SAJK@Z @ 0x1400D7F5C (-xxxPlaySoundAsynchronous@CUserPlaySound@@SAJK@Z.c)
+ *     xxxSoundSentry @ 0x1401108CC (xxxSoundSentry.c)
+ *     xxxSetInformationThread @ 0x140114240 (xxxSetInformationThread.c)
+ *     xxxDCETrackCaptionButton @ 0x140117458 (xxxDCETrackCaptionButton.c)
+ *     xxxGetTitleBarInfoEx @ 0x140118784 (xxxGetTitleBarInfoEx.c)
+ *     xxxRemoteDisconnect @ 0x1401263A8 (xxxRemoteDisconnect.c)
+ *     ?TerminateDesktopThreads@@YAXXZ @ 0x140127104 (-TerminateDesktopThreads@@YAXXZ.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x140139D58 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     xxxLW_LoadFonts @ 0x140147F80 (xxxLW_LoadFonts.c)
+ *     xxxCreateDesktopEx @ 0x140166938 (xxxCreateDesktopEx.c)
+ *     ClientLoadLocalT1Fonts @ 0x1401A3E24 (ClientLoadLocalT1Fonts.c)
+ *     ClientDeliverUserApc @ 0x1401A3EC4 (ClientDeliverUserApc.c)
+ *     xxxClientThreadSetup @ 0x1401A3F70 (xxxClientThreadSetup.c)
+ *     ?xxxSendNCHitTest@@YAXPEAUtagWND@@UtagPOINT@@1PEAU2@PEAHPEAUtagPNTRWINDOWHITTTESTARGS@@@Z @ 0x1401C276C (-xxxSendNCHitTest@@YAXPEAUtagWND@@UtagPOINT@@1PEAU2@PEAHPEAUtagPNTRWINDOWHITTTESTARGS@@@Z.c)
+ *     RequestInputSinkInfoFromPoint @ 0x1401CD604 (RequestInputSinkInfoFromPoint.c)
+ *     xxxWaitForDITMouseInjectionFlush @ 0x1401D4478 (xxxWaitForDITMouseInjectionFlush.c)
+ *     WaitForRitToCompleteLastCommand @ 0x1401E8278 (WaitForRitToCompleteLastCommand.c)
+ *     xxxSwitchDesktopWithFade @ 0x1401FCFD0 (xxxSwitchDesktopWithFade.c)
+ *     xxxSwitchDesktop @ 0x1401FD254 (xxxSwitchDesktop.c)
+ *     xxxDesktopPaintCallback @ 0x140200ED0 (xxxDesktopPaintCallback.c)
+ *     ?xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z @ 0x14020EC4C (-xxxInitTerminal@@YAJPEAUtagTERMINAL@@@Z.c)
+ *     xxxInitInput @ 0x140212530 (xxxInitInput.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x140212E60 (xxxUpdatePerUserSystemParameters.c)
+ *     PaintScreenBackground @ 0x14021A020 (PaintScreenBackground.c)
+ *     xxxSynchronizeDWMWindowChanges @ 0x140221FD8 (xxxSynchronizeDWMWindowChanges.c)
+ *     MagGetLensContextInformation @ 0x140231FF0 (MagGetLensContextInformation.c)
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x140237040 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x140237B0C (-xxxMouseEventDirect@@YAHKKKK_K00H@Z.c)
+ *     RawInputThread @ 0x140238B50 (RawInputThread.c)
+ *     xxxPrintWindow @ 0x140241E1C (xxxPrintWindow.c)
+ *     xxxRemoteReconnect @ 0x1402573C0 (xxxRemoteReconnect.c)
+ *     xxxActivateDebugger @ 0x14025E0C0 (xxxActivateDebugger.c)
+ *     xxxSnapWindow @ 0x140266650 (xxxSnapWindow.c)
+ *     ?xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z @ 0x140278994 (-xxxCallGenerateIAMKey@@YAJPEAUtagIAM_KKEY@@@Z.c)
+ *     xxxGetDeviceChangeInfo @ 0x14027C658 (xxxGetDeviceChangeInfo.c)
+ *     xxxDesktopThread @ 0x140288970 (xxxDesktopThread.c)
+ *     xxxOldMessageBeep @ 0x1402AF948 (xxxOldMessageBeep.c)
+ *     xxxDwmStopRedirection @ 0x1402B5280 (xxxDwmStopRedirection.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1402B7660 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     ClientNoMemoryPopup @ 0x1402BA2B8 (ClientNoMemoryPopup.c)
+ *     xxxUserModeCallback @ 0x1402BE608 (xxxUserModeCallback.c)
+ *     ?xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z @ 0x1402DF124 (-xxxAnimateCaption@@YAXPEAUtagWND@@PEAUHDC__@@PEAUtagRECT@@2@Z.c)
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1402ED638 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1402EFE98 (-GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+LeaveEnterCrit *__fastcall LeaveEnterCrit::LeaveEnterCrit(LeaveEnterCrit *this, __int64 a2)
+{
+  __int64 UserSessionState; // rax
+
+  *(_BYTE *)this = 0;
+  if ( (_BYTE)a2 )
+  {
+    UserSessionState = W32GetUserSessionState(this, a2);
+    if ( (unsigned __int8)ExIsFastResourceHeldExclusive(*(_QWORD *)(UserSessionState + 16)) == 1 )
+    {
+      *(_BYTE *)this = 1;
+      LeaveMitRitHazardCrit();
+    }
+  }
+  UserSessionSwitchLeaveCrit(this);
+  return this;
+}

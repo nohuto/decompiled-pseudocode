@@ -1,0 +1,63 @@
+/*
+ * XREFs of ExpConvertExclusiveToSharedLite @ 0x1403645CC
+ * Callers:
+ *     ExConvertExclusiveToSharedLite @ 0x140364540 (ExConvertExclusiveToSharedLite.c)
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402237F0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ExpApplyPriorityBoost @ 0x140291140 (ExpApplyPriorityBoost.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x140295000 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x140318018 (KeWakeWaitChain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1403F1DD4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall ExpConvertExclusiveToSharedLite(__int64 a1)
+{
+  int v2; // ebp
+  __int64 *v3; // rax
+  char v4; // si
+  _DWORD *SchedulerAssist; // r9
+  unsigned __int64 OldIrql; // rdi
+  __int64 result; // rax
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  int v10; // eax
+  bool v11; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+  __int64 *v13; // [rsp+50h] [rbp+8h] BYREF
+
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 96), &LockHandle);
+  v2 = *(_DWORD *)(a1 + 72);
+  *(_DWORD *)(a1 + 72) = 0;
+  *(_WORD *)(a1 + 26) &= ~0x80u;
+  v3 = *(__int64 **)(a1 + 32);
+  *(_QWORD *)(a1 + 32) = 0LL;
+  *(_DWORD *)(a1 + 64) += v2;
+  v4 = *(_BYTE *)(a1 + 27);
+  v13 = v3;
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  OldIrql = LockHandle.OldIrql;
+  if ( KiIrqlFlags )
+  {
+    if ( (KiIrqlFlags & 1) != 0 )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v10 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v11 = (v10 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v10;
+        if ( v11 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+  }
+  __writecr8(OldIrql);
+  result = KeWakeWaitChain(&v13, 0LL, 0LL, SchedulerAssist);
+  if ( v2 && v4 )
+    result = ExpApplyPriorityBoost(a1, 65280, (__int64)KeGetCurrentThread());
+  __incgsdword(0x8674u);
+  return result;
+}

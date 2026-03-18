@@ -1,0 +1,22 @@
+/*
+ * XREFs of VfZwMapViewOfSection_Entry @ 0x140B845D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViZwCheckVirtualAddress @ 0x140B84D98 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B84DE4 (ViZwShouldCheck.c)
+ */
+
+__int64 __fastcall VfZwMapViewOfSection_Entry(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 result; // rax
+
+  result = ViZwShouldCheck(a1, a2, a3);
+  if ( (_DWORD)result )
+  {
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 56), *(_QWORD *)a1);
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 32), *(_QWORD *)a1);
+    return ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 24), *(_QWORD *)a1);
+  }
+  return result;
+}

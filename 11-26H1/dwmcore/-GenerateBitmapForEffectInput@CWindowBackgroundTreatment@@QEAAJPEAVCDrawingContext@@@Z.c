@@ -1,0 +1,105 @@
+/*
+ * XREFs of ?GenerateBitmapForEffectInput@CWindowBackgroundTreatment@@QEAAJPEAVCDrawingContext@@@Z @ 0x18009B10C
+ * Callers:
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x1800831C0 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     ?Reset@EffectInput@@SAXPEAU1@@Z @ 0x18001A090 (-Reset@EffectInput@@SAXPEAU1@@Z.c)
+ *     ??1CDrawListBitmap@@QEAA@XZ @ 0x18001B620 (--1CDrawListBitmap@@QEAA@XZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18007F810 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?RemoveStaleRealization@CWindowBackgroundBitmapProducer@@QEAAXAEBVRenderTargetInfo@@@Z @ 0x18009B0B8 (-RemoveStaleRealization@CWindowBackgroundBitmapProducer@@QEAAXAEBVRenderTargetInfo@@@Z.c)
+ *     ?EnsureRealizationInternal@CCachedImageProducer@@IEAAJPEAVCDrawingContext@@PEAPEBVCCachedRealization@1@@Z @ 0x18009B9B4 (-EnsureRealizationInternal@CCachedImageProducer@@IEAAJPEAVCDrawingContext@@PEAPEBVCCachedRealiza.c)
+ *     ?Create@CWindowBackgroundBitmapProducer@@SAJPEAVCWindowBackgroundTreatment@@PEAPEAV1@@Z @ 0x18009CA70 (-Create@CWindowBackgroundBitmapProducer@@SAJPEAVCWindowBackgroundTreatment@@PEAPEAV1@@Z.c)
+ *     __security_check_cookie @ 0x1802202A0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1802D6010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CWindowBackgroundTreatment::GenerateBitmapForEffectInput(
+        CWindowBackgroundTreatment *this,
+        struct CDrawingContext *a2)
+{
+  CCachedImageProducer **v4; // rsi
+  struct CCachedImageProducer::CCachedRealization ***v5; // rdi
+  const struct RenderTargetInfo *v6; // rax
+  CCachedImageProducer *v7; // rcx
+  int v8; // eax
+  unsigned int v9; // edi
+  __int64 result; // rax
+  int v11; // eax
+  __int64 v12; // xmm1_8
+  __int64 v13; // xmm1_8
+  struct CCachedImageProducer::CCachedRealization *v14; // [rsp+20h] [rbp-A8h] BYREF
+  __int128 v15; // [rsp+30h] [rbp-98h] BYREF
+  char v16; // [rsp+40h] [rbp-88h]
+  __int128 v17; // [rsp+60h] [rbp-68h]
+  wil::details::in1diag3 *retaddr; // [rsp+C8h] [rbp+0h]
+
+  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 9) + 64LL))(
+          *((_QWORD *)this + 9),
+          19LL) )
+  {
+    v4 = (CCachedImageProducer **)((char *)this + 80);
+    v5 = (struct CCachedImageProducer::CCachedRealization ***)*((_QWORD *)this + 10);
+    if ( v5 )
+    {
+      v6 = (const struct RenderTargetInfo *)(*(__int64 (__fastcall **)(char *))(*((_QWORD *)a2 + 2) + 16LL))((char *)a2 + 16);
+      CWindowBackgroundBitmapProducer::RemoveStaleRealization(v5, v6);
+    }
+    else
+    {
+      *v4 = 0LL;
+      v11 = CWindowBackgroundBitmapProducer::Create(this, (struct CWindowBackgroundBitmapProducer **)this + 10);
+      v9 = v11;
+      if ( v11 < 0 )
+      {
+        wil::details::in1diag3::Return_Hr(
+          retaddr,
+          (void *)0x7E,
+          (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\windowbackgroundtreatment.cpp",
+          (const char *)(unsigned int)v11);
+        return v9;
+      }
+      v12 = *((_QWORD *)this + 13);
+      *(_OWORD *)((char *)this + 136) = *(_OWORD *)((char *)this + 88);
+      *((_QWORD *)this + 19) = v12;
+    }
+    v16 = 0;
+    v15 = 0LL;
+    v17 = 0LL;
+    EffectInput::Reset((struct EffectInput *)&v15);
+    v7 = *v4;
+    *((_QWORD *)this + 39) = &v15;
+    v14 = 0LL;
+    v8 = CCachedImageProducer::EnsureRealizationInternal(v7, a2, &v14);
+    v9 = v8;
+    if ( v8 >= 0 )
+    {
+      if ( *((_BYTE *)this + 302) )
+      {
+        if ( !(*(unsigned __int8 (__fastcall **)(_QWORD))(**((_QWORD **)a2 + 993) + 192LL))(*((_QWORD *)a2 + 993)) )
+          *((_BYTE *)this + 300) = 1;
+      }
+      v9 = 0;
+    }
+    else
+    {
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x203,
+        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\windowbackgroundtreatment.cpp",
+        (const char *)(unsigned int)v8);
+      wil::details::in1diag3::Return_Hr(
+        retaddr,
+        (void *)0x9F,
+        (int)"onecoreuap\\windows\\dwm\\dwmcore\\resources\\windowbackgroundtreatment.cpp",
+        (const char *)v9);
+    }
+    *((_QWORD *)this + 39) = 0LL;
+    CDrawListBitmap::~CDrawListBitmap((CDrawListBitmap *)&v15);
+    return v9;
+  }
+  result = 0LL;
+  v13 = *((_QWORD *)this + 13);
+  *(_OWORD *)((char *)this + 136) = *(_OWORD *)((char *)this + 88);
+  *((_QWORD *)this + 19) = v13;
+  return result;
+}

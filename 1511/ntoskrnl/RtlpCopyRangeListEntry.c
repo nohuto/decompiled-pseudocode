@@ -1,0 +1,71 @@
+/*
+ * XREFs of RtlpCopyRangeListEntry @ 0x14052E0B8
+ * Callers:
+ *     RtlpAddIntersectingRanges @ 0x14052DDD4 (RtlpAddIntersectingRanges.c)
+ *     RtlCopyRangeList @ 0x14052E024 (RtlCopyRangeList.c)
+ *     RtlMergeRangeLists @ 0x1406445F0 (RtlMergeRangeLists.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x1400BB7D4 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlpDeleteRangeListEntry @ 0x14052E46C (RtlpDeleteRangeListEntry.c)
+ */
+
+_QWORD *__fastcall RtlpCopyRangeListEntry(__int64 a1)
+{
+  _QWORD *v2; // rax
+  _QWORD *v3; // rbx
+  char *v5; // rsi
+  __int64 v6; // r15
+  __int64 i; // rdi
+  __int64 v8; // rdi
+  _OWORD *v9; // rax
+  _OWORD *v10; // rdx
+  char **v11; // rax
+  char *v12; // rdx
+
+  v2 = ExAllocateFromNPagedLookasideList(&RtlpRangeListEntryLookasideList);
+  v3 = v2;
+  if ( v2 )
+  {
+    *(_OWORD *)v2 = *(_OWORD *)a1;
+    *((_OWORD *)v2 + 1) = *(_OWORD *)(a1 + 16);
+    *((_OWORD *)v2 + 2) = *(_OWORD *)(a1 + 32);
+    v2[6] = *(_QWORD *)(a1 + 48);
+    if ( (*((_BYTE *)v2 + 33) & 0x10) != 0 )
+      ++*(_DWORD *)v2[2];
+    if ( (*(_BYTE *)(a1 + 34) & 1) != 0 )
+    {
+      v5 = (char *)(v2 + 2);
+      v6 = a1 + 16;
+      v2[3] = v2 + 2;
+      v2[2] = v2 + 2;
+      for ( i = *(_QWORD *)(a1 + 16); ; i = *(_QWORD *)(v8 + 40) )
+      {
+        v8 = i - 40;
+        if ( v6 == v8 + 40 )
+          break;
+        v9 = ExAllocateFromNPagedLookasideList(&RtlpRangeListEntryLookasideList);
+        v10 = v9;
+        if ( !v9 )
+        {
+          RtlpDeleteRangeListEntry(v3);
+          return 0LL;
+        }
+        *v9 = *(_OWORD *)v8;
+        v9[1] = *(_OWORD *)(v8 + 16);
+        v9[2] = *(_OWORD *)(v8 + 32);
+        *((_QWORD *)v9 + 6) = *(_QWORD *)(v8 + 48);
+        if ( (*((_BYTE *)v9 + 33) & 0x10) != 0 )
+          ++**((_DWORD **)v9 + 2);
+        v11 = (char **)v3[3];
+        v12 = (char *)v10 + 40;
+        *(_QWORD *)v12 = v5;
+        *((_QWORD *)v12 + 1) = v11;
+        if ( *v11 != v5 )
+          __fastfail(3u);
+        *v11 = v12;
+        v3[3] = v12;
+      }
+    }
+  }
+  return v3;
+}

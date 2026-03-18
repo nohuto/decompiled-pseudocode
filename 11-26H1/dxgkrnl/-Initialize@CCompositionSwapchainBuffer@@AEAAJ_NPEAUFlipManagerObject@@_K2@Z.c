@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?Initialize@CCompositionSwapchainBuffer@@AEAAJ_NPEAUFlipManagerObject@@_K2@Z @ 0x14005DEE4
+ * Callers:
+ *     ?Create@CCompositionSwapchainBuffer@@SAJ_NPEAUFlipManagerObject@@_K_KPEAPEAV1@@Z @ 0x140025D1C (-Create@CCompositionSwapchainBuffer@@SAJ_NPEAUFlipManagerObject@@_K_KPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?InitializeAttributes@CFlipExBuffer@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x140026BDC (-InitializeAttributes@CFlipExBuffer@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     memset @ 0x1400A5E00 (memset.c)
+ */
+
+__int64 __fastcall CCompositionSwapchainBuffer::Initialize(
+        CCompositionSwapchainBuffer *this,
+        unsigned __int8 a2,
+        struct FlipManagerObject *a3,
+        __int64 a4,
+        unsigned __int64 a5)
+{
+  int v6; // ebx
+  int v9; // ecx
+  _DWORD v11[36]; // [rsp+20h] [rbp-98h] BYREF
+
+  v6 = a2;
+  memset(v11, 0, sizeof(v11));
+  v11[34] = 16 * (v6 | (2 * (v6 | (2 * v6))));
+  v11[17] = 1;
+  v9 = CFlipExBuffer::InitializeAttributes(this, (const struct CSM_BUFFER_ATTRIBUTES *)v11);
+  if ( v9 >= 0 )
+  {
+    *((_QWORD *)this + 89) = a3;
+    v9 = 0;
+    *((_DWORD *)this + 30) = 1065353216;
+    *((_DWORD *)this + 46) |= 0x4000u;
+    *((_DWORD *)this + 33) = 1065353216;
+    *((_QWORD *)this + 91) = a5;
+    *((_QWORD *)this + 42) = 0LL;
+    *((_QWORD *)this + 90) = a4;
+    *((_DWORD *)this + 23) = 1;
+    *((_QWORD *)this + 92) = 0LL;
+    *((_BYTE *)this + 744) = 1;
+  }
+  return (unsigned int)v9;
+}

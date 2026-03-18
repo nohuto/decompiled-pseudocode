@@ -1,0 +1,23 @@
+/*
+ * XREFs of KdpWriteIoSpace @ 0x140C157BC
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140C17038 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpSysWriteIoSpace @ 0x1405E43D4 (KdpSysWriteIoSpace.c)
+ */
+
+__int64 __fastcall KdpWriteIoSpace(__int64 a1)
+{
+  __int64 v1; // r9
+  int v3; // [rsp+28h] [rbp-30h]
+  __int128 v4; // [rsp+40h] [rbp-18h] BYREF
+  int v5; // [rsp+70h] [rbp+18h] BYREF
+
+  v1 = *(_QWORD *)(a1 + 16);
+  v4 = 0LL;
+  LOWORD(v4) = 56;
+  v3 = *(_DWORD *)(a1 + 24);
+  *((_QWORD *)&v4 + 1) = a1;
+  *(_DWORD *)(a1 + 8) = KdpSysWriteIoSpace(1, 0, 1, v1, (unsigned __int8 *)(a1 + 28), v3, &v5);
+  return KdSendPacket(2LL, &v4, 0LL, &KdpContext);
+}

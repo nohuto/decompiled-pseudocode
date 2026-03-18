@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierZwLoadKey @ 0x140AE6B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierZwLoadKey()
+{
+  return ((__int64 (*)(void))pXdvZwLoadKey)();
+}

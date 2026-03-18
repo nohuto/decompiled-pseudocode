@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?SetSDRBoost@CStereoRenderTargetBitmap@@UEAAXM@Z @ 0x1802A7A90
+ * Callers:
+ *     ?SetSDRBoost@CStereoRenderTargetBitmap@@$4PPPPPPPM@KI@EAAXM@Z @ 0x18010D0F0 (-SetSDRBoost@CStereoRenderTargetBitmap@@$4PPPPPPPM@KI@EAAXM@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+void __fastcall CStereoRenderTargetBitmap::SetSDRBoost(CStereoRenderTargetBitmap *this, float a2)
+{
+  (*(void (__fastcall **)(_QWORD))(**((_QWORD **)this + 6) + 40LL))(*((_QWORD *)this + 6));
+  CRenderTargetBitmap::SetSDRBoost(this, a2);
+}

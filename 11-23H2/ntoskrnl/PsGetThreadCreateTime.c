@@ -1,0 +1,12 @@
+/*
+ * XREFs of PsGetThreadCreateTime @ 0x1405A3D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PsGetThreadCreateTime(__int64 a1)
+{
+  return *(_QWORD *)(a1 + 1152);
+}

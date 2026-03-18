@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C02DF6E8
+ * Callers:
+ *     ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C0015A70 (-UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     ?UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C010E8C8 (-UninitializeThread@UmfdHostLifeTimeManager@@SAXXZ.c)
+ *     ?UmfdCancelServerOutstandingRequests@@YAJPEAX@Z @ 0x1C010EA38 (-UmfdCancelServerOutstandingRequests@@YAJPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CMultipleConsumerWorkQueue::CWaitableWorkItem::Cancel(
+        CMultipleConsumerWorkQueue::CWaitableWorkItem *this)
+{
+  *((_DWORD *)this + 2) = 4;
+  KeSetEvent(**(PRKEVENT **)(*((_QWORD *)this + 5) + 8LL), 1, 0);
+}

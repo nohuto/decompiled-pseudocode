@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?DrainAllocations@DXGDEVICE@@QEAAXXZ @ 0x1C0079D3C
+ * Callers:
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C0082554 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0002B00 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C0002B60 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0002E50 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C00800E0 (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
+ */
+
+void __fastcall DXGDEVICE::DrainAllocations(struct _KTHREAD **this)
+{
+  struct DXGALLOCATION *v2; // r9
+  _BYTE v3[8]; // [rsp+30h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v4; // [rsp+38h] [rbp-20h]
+  int v5; // [rsp+40h] [rbp-18h]
+
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v3, this + 17);
+  DXGPUSHLOCK::AcquireExclusive(v4);
+  v5 = 2;
+  while ( this[6] )
+  {
+    v2 = this[6];
+    this[6] = (struct _KTHREAD *)*((_QWORD *)v2 + 8);
+    *((_QWORD *)v2 + 7) = 0LL;
+    *((_QWORD *)v2 + 8) = 0LL;
+    DXGDEVICE::DestroyAllocations((DXGDEVICE *)this, 0LL, 0, v2, 0LL, 0);
+  }
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v3);
+}

@@ -1,0 +1,32 @@
+/*
+ * XREFs of _tlgWriteTransfer_EventWriteTransfer @ 0x140009A68
+ * Callers:
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByRef@$0BA@@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByRef@$0BA@@@@Z @ 0x140008368 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByRef@$0BA@@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlg.c)
+ *     ?DoDisplayModeReset@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXXZ @ 0x14000877C (-DoDisplayModeReset@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@AEAAXXZ.c)
+ *     ?RunDiagnostics@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@SAXW4CallingSource@2@W4DiagnosticFlags@2@@Z @ 0x14000945C (-RunDiagnostics@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@SAXW4CallingSource@2@W4Diag.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U?$_tlgWrapSz@D@@U1@U1@U2@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@333AEBU?$_tlgWrapSz@D@@3343333@Z @ 0x140009E34 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U-$_tlgWrapSz@D@@U1@U1@U2@U1@U1@U1@U1@@-$_tlgWriteTem.c)
+ * Callees:
+ *     <none>
+ */
+
+ULONG __fastcall tlgWriteTransfer_EventWriteTransfer(
+        __int64 a1,
+        unsigned __int8 *a2,
+        const GUID *a3,
+        const GUID *a4,
+        ULONG UserDataCount,
+        PEVENT_DATA_DESCRIPTOR UserData)
+{
+  EVENT_DESCRIPTOR EventDescriptor; // [rsp+30h] [rbp-18h] BYREF
+
+  *(_DWORD *)&EventDescriptor.Id = *a2 << 24;
+  *(_DWORD *)&EventDescriptor.Level = *(unsigned __int16 *)(a2 + 1);
+  EventDescriptor.Keyword = *(_QWORD *)(a2 + 3);
+  UserData->Ptr = *(_QWORD *)(a1 + 8);
+  UserData->Size = **(unsigned __int16 **)(a1 + 8);
+  UserData->Reserved = 2;
+  UserData[1].Ptr = (ULONGLONG)(a2 + 11);
+  UserData[1].Size = *(unsigned __int16 *)(a2 + 11);
+  UserData[1].Reserved = 1;
+  return EventWriteTransfer(*(_QWORD *)(a1 + 32), &EventDescriptor, a3, a4, UserDataCount, UserData);
+}

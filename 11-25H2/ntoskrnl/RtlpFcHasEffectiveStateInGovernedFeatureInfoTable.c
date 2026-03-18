@@ -1,0 +1,106 @@
+/*
+ * XREFs of RtlpFcHasEffectiveStateInGovernedFeatureInfoTable @ 0x14077DE28
+ * Callers:
+ *     RtlQueryFeatureConfigurationFromBuffers @ 0x1405DD024 (RtlQueryFeatureConfigurationFromBuffers.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x140AC8970 (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ * Callees:
+ *     RtlpFcGetFeatureHasSubscriptionsFromBuffer @ 0x14077DD5C (RtlpFcGetFeatureHasSubscriptionsFromBuffer.c)
+ *     RtlFindLowerBoundInSortedArray @ 0x1409C2D50 (RtlFindLowerBoundInSortedArray.c)
+ *     RtlpFcLinearSearchInSortedArray @ 0x140AB3F68 (RtlpFcLinearSearchInSortedArray.c)
+ */
+
+char __fastcall RtlpFcHasEffectiveStateInGovernedFeatureInfoTable(
+        int a1,
+        __int64 a2,
+        __int64 a3,
+        int a4,
+        __int64 a5,
+        int *a6)
+{
+  char v6; // bl
+  __int64 v9; // rbp
+  _DWORD *LowerBoundInSortedArray; // rax
+  int v11; // r14d
+  _DWORD *v12; // rdx
+  __int64 v13; // rax
+  _DWORD *v14; // r11
+  _DWORD *v15; // rdi
+  unsigned int v16; // ecx
+  int *v17; // r8
+  unsigned int v18; // ecx
+  int v19; // ecx
+  unsigned int v20; // eax
+  int v21; // edx
+  unsigned int v22; // eax
+  int v23; // eax
+  __int64 v24; // rdx
+  int v26; // [rsp+50h] [rbp+8h] BYREF
+
+  v26 = a1;
+  v6 = 0;
+  if ( a2 )
+  {
+    v9 = a2 + *(_QWORD *)(a2 + 8);
+    if ( (unsigned __int16)*(_DWORD *)a2 )
+    {
+      LowerBoundInSortedArray = (_DWORD *)RtlFindLowerBoundInSortedArray(
+                                            (unsigned int)&v26,
+                                            v9,
+                                            (unsigned __int16)*(_DWORD *)a2,
+                                            16,
+                                            (__int64)RtlpFcCompareFeatureIdToGovernedFeature);
+      v11 = v26;
+      v12 = LowerBoundInSortedArray;
+      if ( LowerBoundInSortedArray == (_DWORD *)(v9 + 16LL * (unsigned __int16)*(_DWORD *)a2)
+        || *LowerBoundInSortedArray != v26 )
+      {
+        v12 = 0LL;
+      }
+    }
+    else
+    {
+      v13 = RtlpFcLinearSearchInSortedArray(
+              (unsigned int)&v26,
+              v9,
+              0,
+              a4,
+              (__int64)RtlpFcCompareFeatureIdToGovernedFeature);
+      v11 = v26;
+      v12 = (_DWORD *)v13;
+    }
+    if ( v12 )
+    {
+      v14 = v12;
+      v15 = v12;
+      v16 = a4 == 1 ? v12[3] : v12[2];
+      if ( (v16 & 1) != 0 && *(_DWORD *)(v9 + 16LL * (unsigned __int16)(v16 >> 7)) != *v12 )
+      {
+        v17 = a6;
+        v6 = 1;
+        *(_OWORD *)a6 = 0LL;
+        *v17 = v11;
+        if ( a4 == 1 )
+          v18 = v12[3];
+        else
+          v18 = v12[2];
+        v19 = v17[1] ^ ((unsigned __int8)v17[1] ^ (unsigned __int8)(16 * (v18 >> 1))) & 0x30;
+        v17[1] = v19;
+        if ( a4 == 1 )
+          v20 = v12[3];
+        else
+          v20 = v12[2];
+        v21 = v19 ^ ((unsigned __int8)(v20 >> 3) ^ (unsigned __int8)v19) & 0xF;
+        v17[1] = v21;
+        if ( a4 == 1 )
+          v22 = v14[3];
+        else
+          v22 = v15[2];
+        v23 = v21 ^ ((unsigned __int8)v21 ^ (unsigned __int8)((unsigned __int8)(v22 >> 23) << 6)) & 0x40;
+        v24 = a5;
+        v17[1] = v23;
+        RtlpFcGetFeatureHasSubscriptionsFromBuffer(v11, v24, (__int64)v17, 12);
+      }
+    }
+  }
+  return v6;
+}

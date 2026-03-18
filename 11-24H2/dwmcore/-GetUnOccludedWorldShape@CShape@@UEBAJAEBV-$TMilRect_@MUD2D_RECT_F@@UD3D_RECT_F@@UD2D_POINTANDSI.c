@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?GetUnOccludedWorldShape@CShape@@UEBAJAEBV?$TMilRect_@MUD2D_RECT_F@@UD3D_RECT_F@@UD2D_POINTANDSIZE_F@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@PEAPEAV1@@Z @ 0x180259190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CShape::GetUnOccludedWorldShape(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+{
+  *a4 = 0LL;
+  return 2147500033LL;
+}

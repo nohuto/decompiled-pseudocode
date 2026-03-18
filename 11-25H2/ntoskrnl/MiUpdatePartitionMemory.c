@@ -1,0 +1,33 @@
+/*
+ * XREFs of MiUpdatePartitionMemory @ 0x140680134
+ * Callers:
+ *     MiMakePartitionMemoryBlock @ 0x1407EC78C (MiMakePartitionMemoryBlock.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x1402BEA90 (ExAcquireSpinLockExclusive.c)
+ *     MiReleaseSpinLockExclusive @ 0x140329B80 (MiReleaseSpinLockExclusive.c)
+ *     MiDereferencePageRuns @ 0x1403BAB84 (MiDereferencePageRuns.c)
+ *     MiComputeNodeMemory @ 0x140660C50 (MiComputeNodeMemory.c)
+ */
+
+void __fastcall MiUpdatePartitionMemory(__int64 a1, __int64 a2, int a3)
+{
+  _DWORD *v3; // rdi
+  KIRQL v7; // al
+  __int64 v8; // r15
+  __int64 v9; // r9
+  __int64 v10; // r14
+
+  v3 = (_DWORD *)(a1 + 200);
+  v7 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 200));
+  v8 = *(_QWORD *)(a1 + 32);
+  v9 = *(_QWORD *)(a2 + 8);
+  v10 = *(_QWORD *)(a1 + 80);
+  *(_QWORD *)(a1 + 32) = *(_QWORD *)(a2 + 16);
+  *(_QWORD *)(a1 + 80) = v9;
+  MiReleaseSpinLockExclusive(v3, v7);
+  MiComputeNodeMemory((ULONG *)a1, a3);
+  if ( v8 )
+    MiDereferencePageRuns(v8);
+  if ( v10 )
+    MiDereferencePageRuns(v10);
+}

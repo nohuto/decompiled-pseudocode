@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?ProcessAppendExcludedSharedLights@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_APPENDEXCLUDEDSHAREDLIGHTS@@PEBXI@Z @ 0x180211230
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddSharedLights@CVisual@@AEAAJAEAV?$vector@ULightEntry@CVisual@@V?$allocator@ULightEntry@CVisual@@@std@@@std@@W4LightBehavior@@PEBVCResourceTable@@PEBII@Z @ 0x18021053C (-AddSharedLights@CVisual@@AEAAJAEAV-$vector@ULightEntry@CVisual@@V-$allocator@ULightEntry@CVisua.c)
+ */
+
+__int64 __fastcall CVisual::ProcessAppendExcludedSharedLights(
+        CVisual *this,
+        const struct CResourceTable *a2,
+        const struct tagMILCMD_VISUAL_APPENDEXCLUDEDSHAREDLIGHTS *a3,
+        __int64 a4,
+        unsigned int a5)
+{
+  unsigned int v5; // eax
+  int v6; // eax
+  __int64 v7; // rcx
+  unsigned int v8; // ebx
+
+  v5 = *((_DWORD *)a3 + 2);
+  if ( a5 < v5 || (v5 & 3) != 0 )
+  {
+    v8 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)this, 0LL, 0, -2003303421, 0xBC5u, 0LL);
+  }
+  else
+  {
+    v6 = CVisual::AddSharedLights((__int64)this, (_QWORD **)this + 35, 1u, a2, a4, v5 >> 2);
+    v8 = v6;
+    if ( v6 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xBCCu, 0LL);
+  }
+  return v8;
+}

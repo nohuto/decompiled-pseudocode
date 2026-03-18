@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?BoundTrackersHaveActiveCustomAnimations@CInteractionTrackerBindingManager@@QEAA_NPEAVCInteractionTracker@@@Z @ 0x1802373D0
+ * Callers:
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x180231764 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x18003F850 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0CI@@std@@YA_K_K@Z @ 0x1800B122C (--$_Get_size_of_n@$0CI@@std@@YA_K_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800DC75C (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ?HasActiveCustomAnimation@CInteractionTracker@@AEAA_NXZ @ 0x18013273E (-HasActiveCustomAnimation@CInteractionTracker@@AEAA_NXZ.c)
+ *     ??$_Erase_tree@V?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@std@@@?$_Tree_val@U?$_Tree_simple_types@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@@std@@@std@@QEAAXAEAV?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@1@PEAU?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@1@@Z @ 0x180236174 (--$_Erase_tree@V-$allocator@U-$_Tree_node@U-$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@PEAVCInteractionTracker@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x180236BA8 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@PEAVCInteractionTracker@@.c)
+ *     ?GetConnectedTrackersForAxis@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@W4InteractionTrackerBindingModeFlags@@PEAV?$set@PEAVCInteractionTracker@@U?$less@PEAVCInteractionTracker@@@std@@V?$allocator@PEAVCInteractionTracker@@@3@@std@@PEAPEAV2@@Z @ 0x180237FD0 (-GetConnectedTrackersForAxis@CInteractionTrackerBindingManager@@AEAAXPEAVCInteractionTracker@@W4.c)
+ */
+
+char __fastcall CInteractionTrackerBindingManager::BoundTrackersHaveActiveCustomAnimations(
+        CInteractionTrackerBindingManager *this,
+        struct CInteractionTracker *a2)
+{
+  char v2; // si
+  int v3; // edi
+  int v4; // ebx
+  SIZE_T size_of; // rax
+  _QWORD *v6; // rax
+  _QWORD *v7; // r10
+  __int64 *v8; // rcx
+  void *v10[3]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 *v11; // [rsp+60h] [rbp+18h] BYREF
+
+  v2 = 0;
+  v3 = (int)this;
+  v4 = (int)a2;
+  v10[1] = 0LL;
+  size_of = std::_Get_size_of_n<40>(1uLL);
+  v6 = (_QWORD *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  *v6 = v6;
+  v6[1] = v6;
+  v6[2] = v6;
+  *((_WORD *)v6 + 12) = 257;
+  v10[0] = v6;
+  CInteractionTrackerBindingManager::GetConnectedTrackersForAxis(v3, v4, 7, (unsigned int)v10, 0LL);
+  v7 = v10[0];
+  v8 = *(__int64 **)v10[0];
+  v11 = *(__int64 **)v10[0];
+  while ( !*((_BYTE *)v8 + 25) )
+  {
+    if ( CInteractionTracker::HasActiveCustomAnimation((CInteractionTracker *)v8[4]) )
+    {
+      v2 = 1;
+      break;
+    }
+    std::_Tree_unchecked_const_iterator<std::_Tree_val<std::_Tree_simple_types<CInteractionTracker *>>,std::_Iterator_base0>::operator++(&v11);
+    v8 = v11;
+  }
+  std::_Tree_val<std::_Tree_simple_types<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<enum SceneMaterialInputType::Enum const,unsigned int>,void *>>>(
+    (__int64)v10,
+    (__int64)v10,
+    v7[1]);
+  std::_Deallocate<16,0>(v10[0], 0x28uLL);
+  return v2;
+}

@@ -1,0 +1,61 @@
+/*
+ * XREFs of ?PinMode@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@I@Z @ 0x1C017FF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFromHandle@?$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@SAPEAVDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@Z @ 0x1C0009EC4 (-GetFromHandle@-$ExposedViaHandle@VDMMVIDPNSOURCEMODESET@@PEAUD3DKMDT_HVIDPNSOURCEMODESET__@@@@S.c)
+ *     Template_q @ 0x1C0011A2C (Template_q.c)
+ *     ?PinMode@DMMVIDPNSOURCEMODESET@@QEAAJI@Z @ 0x1C0092860 (-PinMode@DMMVIDPNSOURCEMODESET@@QEAAJI@Z.c)
+ */
+
+__int64 __fastcall DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::PinMode(
+        DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *this,
+        struct D3DKMDT_HVIDPNSOURCEMODESET__ *const a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 v5; // rbx
+  __int64 v6; // rax
+  __int64 v7; // rsi
+  DMMVIDPNSOURCEMODESET *v8; // rax
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 v11; // rcx
+  __int64 v12; // r8
+  int v13; // ebx
+  __int64 v14; // rax
+
+  v5 = (unsigned int)a2;
+  if ( (qword_1C00467F0 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+    Template_q((__int64)this, &EventProfilerEnter, a3, 7007);
+  v6 = WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+  v7 = v5;
+  *(_QWORD *)(v6 + 24) = v5;
+  *(_QWORD *)(v6 + 32) = this;
+  v8 = (DMMVIDPNSOURCEMODESET *)ExposedViaHandle<DMMVIDPNSOURCEMODESET,D3DKMDT_HVIDPNSOURCEMODESET__ *>::GetFromHandle((__int64)this);
+  if ( v8 )
+  {
+    v13 = DMMVIDPNSOURCEMODESET::PinMode(v8, v5);
+    if ( v13 >= 0 )
+    {
+      v13 = 0;
+    }
+    else
+    {
+      v14 = WdLogNewEntry5_WdError(v11);
+      *(_QWORD *)(v14 + 24) = v7;
+      *(_QWORD *)(v14 + 32) = this;
+      WdLogEvent5_WdError(v14);
+    }
+  }
+  else
+  {
+    v10 = WdLogNewEntry5_WdError(v9);
+    *(_QWORD *)(v10 + 24) = this;
+    WdLogEvent5_WdError(v10);
+    v13 = -1071774968;
+  }
+  if ( (qword_1C00467F0 & 2) != 0 && (Microsoft_Windows_DxgKrnlEnableBits & 0x4000) != 0 )
+    Template_q(v11, &EventProfilerExit, v12, 7007);
+  return (unsigned int)v13;
+}

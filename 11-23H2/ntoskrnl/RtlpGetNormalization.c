@@ -1,0 +1,77 @@
+/*
+ * XREFs of RtlpGetNormalization @ 0x1409C88BC
+ * Callers:
+ *     RtlIsNormalizedString @ 0x1409C1BC0 (RtlIsNormalizedString.c)
+ *     RtlNormalizeString @ 0x1409C1C50 (RtlNormalizeString.c)
+ * Callees:
+ *     ZwGetNlsSectionPtr @ 0x14041CD60 (ZwGetNlsSectionPtr.c)
+ *     NormalizationListEntry_Alloc @ 0x1405B5A60 (NormalizationListEntry_Alloc.c)
+ *     NormalizationList__InsertTail @ 0x1405B5A84 (NormalizationList__InsertTail.c)
+ *     NormalizationList__Lock @ 0x1405B5AB8 (NormalizationList__Lock.c)
+ *     NormalizationList__Lookup @ 0x1405B5AE8 (NormalizationList__Lookup.c)
+ *     NormalizationList__Unlock @ 0x1405B5B18 (NormalizationList__Unlock.c)
+ *     Normalization__LoadTables @ 0x1409C0FF8 (Normalization__LoadTables.c)
+ *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall RtlpGetNormalization(unsigned int a1, char **a2)
+{
+  __int64 result; // rax
+  int v5; // ecx
+  char *v6; // rsi
+  char *v7; // rax
+  __int64 v8; // rdx
+  int NlsSectionPtr; // ebx
+  __int64 v10; // rax
+  _DWORD *v11; // rbx
+  int Tables; // ebp
+  unsigned __int64 v13; // [rsp+58h] [rbp+10h]
+  unsigned __int16 *v14; // [rsp+60h] [rbp+18h]
+
+  if ( !a2 )
+    return 3221225712LL;
+  NormalizationList__Lock();
+  v6 = NormalizationList__Lookup(a1);
+  if ( !v6 )
+  {
+    v14 = 0LL;
+    v13 = 0LL;
+    v7 = NormalizationList__Lookup(v5 ^ 0x100u);
+    if ( v7 )
+    {
+      v14 = (unsigned __int16 *)*((_QWORD *)v7 + 1);
+      v13 = *((_QWORD *)v7 + 2);
+    }
+    else
+    {
+      v8 = a1;
+      LODWORD(v8) = a1 & 0xFFFFFEFF;
+      NlsSectionPtr = ZwGetNlsSectionPtr(12LL, v8);
+      if ( NlsSectionPtr < 0 )
+        goto LABEL_12;
+    }
+    v10 = NormalizationListEntry_Alloc();
+    v11 = (_DWORD *)v10;
+    if ( !v10 )
+    {
+      NlsSectionPtr = -1073741801;
+LABEL_12:
+      NormalizationList__Unlock();
+      return (unsigned int)NlsSectionPtr;
+    }
+    v6 = (char *)(v10 + 24);
+    Tables = Normalization__LoadTables(a1, v14, v13, (_DWORD *)(v10 + 24));
+    if ( Tables < 0 )
+    {
+      ExFreePoolWithTag(v11, 0);
+      NlsSectionPtr = Tables;
+      goto LABEL_12;
+    }
+    v11[4] = a1;
+    NormalizationList__InsertTail((__int64)v11);
+  }
+  NormalizationList__Unlock();
+  result = 0LL;
+  *a2 = v6;
+  return result;
+}

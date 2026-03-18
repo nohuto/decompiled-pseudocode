@@ -1,0 +1,79 @@
+/*
+ * XREFs of LdrpGetAlternateResourceModuleHandleEx @ 0x1403DC3A8
+ * Callers:
+ *     LdrpAccessResourceData @ 0x140A878C8 (LdrpAccessResourceData.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
+ *     LdrpGetMappingFromCacheEntry @ 0x1403DC568 (LdrpGetMappingFromCacheEntry.c)
+ *     KeReleaseMutant @ 0x1403DD0B0 (KeReleaseMutant.c)
+ *     KeReleaseMutantEx @ 0x1403DD130 (KeReleaseMutantEx.c)
+ *     LdrpInitMuiCrits @ 0x1403DD614 (LdrpInitMuiCrits.c)
+ *     RtlImageNtHeaderEx @ 0x14046A510 (RtlImageNtHeaderEx.c)
+ */
+
+__int64 __fastcall LdrpGetAlternateResourceModuleHandleEx(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
+{
+  unsigned int SystemCallNumber; // ebx
+  signed int i; // ecx
+  __int64 v9; // rdx
+  int j; // edi
+  __int16 v11; // cx
+  __int64 v13; // [rsp+38h] [rbp-30h] BYREF
+  __int64 v14; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v15; // [rsp+48h] [rbp-20h] BYREF
+
+  v14 = 0LL;
+  v13 = 0LL;
+  LdrpInitMuiCrits();
+  KeWaitForSingleObject(&NormalizationListLock.FirstArgument, Executive, 0, 0, 0LL);
+  *a4 = 0LL;
+  SystemCallNumber = NormalizationListLock.SystemCallNumber;
+  for ( i = NormalizationListLock.SystemCallNumber - 1; i >= 0; --i )
+  {
+    v9 = (__int64)i << 6;
+    if ( *(_QWORD *)(v9 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) == a1 )
+    {
+      if ( v14 )
+      {
+        for ( j = SystemCallNumber; j >= 0; --j )
+        {
+          if ( *(_QWORD *)(((__int64)j << 6) + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 8) == a1
+            && (unsigned __int8)LdrpGetMappingFromCacheEntry((unsigned int)j, a3, &v14, &v13) )
+          {
+            SystemCallNumber = j;
+            goto LABEL_12;
+          }
+        }
+        SystemCallNumber = NormalizationListLock.SystemCallNumber;
+        break;
+      }
+      v14 = *(_QWORD *)(v9 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 32);
+      v13 = *(_QWORD *)(v9 + *(_QWORD *)((char *)&NormalizationListLock.116 + 4) + 48);
+      SystemCallNumber = i;
+    }
+  }
+LABEL_12:
+  if ( SystemCallNumber == NormalizationListLock.SystemCallNumber )
+  {
+    v14 = 0LL;
+  }
+  else
+  {
+    if ( !v13 )
+    {
+      v15 = 0LL;
+      RtlImageNtHeaderEx(1LL, v14 & 0xFFFFFFFFFFFFFFFCuLL, 0LL, &v15);
+      if ( v15 )
+      {
+        v11 = *(_WORD *)(v15 + 24);
+        if ( v11 == 267 || v11 == 523 )
+          v13 = *(unsigned int *)(v15 + 80);
+        else
+          v13 = 0LL;
+      }
+    }
+    *a4 = v13;
+  }
+  KeReleaseMutantEx((struct _KTHREAD *)&NormalizationListLock.FirstArgument);
+  return v14;
+}

@@ -1,0 +1,73 @@
+/*
+ * XREFs of NtGdiGetGlyphOutline @ 0x1C00743F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RFONTOBJ@@@Z @ 0x1C00745D4 (-GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RF.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C00F8AA8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00FA9A0 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     memmove @ 0x1C0141300 (memmove.c)
+ *     memset_0 @ 0x1C0141600 (memset_0.c)
+ */
+
+__int64 __fastcall NtGdiGetGlyphOutline(
+        __int64 a1,
+        unsigned __int16 a2,
+        unsigned int a3,
+        ULONG64 a4,
+        size_t Size,
+        char *a6,
+        ULONG64 a7,
+        int a8)
+{
+  unsigned int GlyphOutlineInternal; // r14d
+  void *v12; // rbx
+  __int128 *v13; // rdx
+  ULONG64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // rdx
+  __int64 v17; // r8
+  __int128 v19; // [rsp+60h] [rbp-98h] BYREF
+  int v20; // [rsp+70h] [rbp-88h]
+  __int128 v21; // [rsp+78h] [rbp-80h] BYREF
+  _BYTE v22[112]; // [rsp+88h] [rbp-70h] BYREF
+
+  GlyphOutlineInternal = -1;
+  v21 = 0LL;
+  v19 = 0LL;
+  v20 = 0;
+  if ( (unsigned int)(Size - 1) <= 0x270FFFF )
+    v12 = (void *)AllocFreeTmpBuffer((unsigned int)Size);
+  else
+    v12 = 0LL;
+  if ( v12 || !(_DWORD)Size )
+  {
+    v13 = (__int128 *)a7;
+    v14 = MmUserProbeAddress;
+    if ( a7 >= MmUserProbeAddress )
+      v13 = (__int128 *)MmUserProbeAddress;
+    v21 = *v13;
+    if ( v12 )
+      memset_0(v12, 0, (unsigned int)Size);
+    v15 = SGDGetSessionState(v14);
+    EUDCCountRegion::EUDCCountRegion((EUDCCountRegion *)v22, *(struct Gre::Full::SESSION_GLOBALS **)(v15 + 32));
+    GlyphOutlineInternal = GreGetGlyphOutlineInternal(a1, a2, a3, &v19, Size, v12, &v21, a8);
+    if ( GlyphOutlineInternal != -1 )
+    {
+      if ( v12 )
+      {
+        if ( (unsigned __int64)&a6[(unsigned int)Size] > MmUserProbeAddress || &a6[(unsigned int)Size] <= a6 )
+          *(_BYTE *)MmUserProbeAddress = 0;
+        memmove(a6, v12, (unsigned int)Size);
+      }
+      if ( a4 >= MmUserProbeAddress )
+        a4 = MmUserProbeAddress;
+      *(_OWORD *)a4 = v19;
+      *(_DWORD *)(a4 + 16) = v20;
+    }
+    EUDCCountRegion::~EUDCCountRegion((EUDCCountRegion *)v22);
+    if ( v12 )
+      FreeTmpBuffer(v12, v16, v17);
+  }
+  return GlyphOutlineInternal;
+}

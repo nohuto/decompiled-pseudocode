@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_EIMonitorDescriptorEnumerator@DxgMonitor@@UEAAPEAXI@Z @ 0x1400922B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ */
+
+DxgMonitor::IMonitorDescriptorEnumerator *__fastcall DxgMonitor::IMonitorDescriptorEnumerator::`vector deleting destructor'(
+        DxgMonitor::IMonitorDescriptorEnumerator *this,
+        char a2)
+{
+  *(_QWORD *)this = &DxgMonitor::IMonitorDescriptorEnumerator::`vftable';
+  if ( (a2 & 1) != 0 )
+    DXGQUOTAALLOCATOR<256,1835156294>::operator delete(this);
+  return this;
+}

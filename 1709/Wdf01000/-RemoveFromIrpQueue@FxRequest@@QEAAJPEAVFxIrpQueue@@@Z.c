@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?RemoveFromIrpQueue@FxRequest@@QEAAJPEAVFxIrpQueue@@@Z @ 0x1C000D660
+ * Callers:
+ *     ?RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z @ 0x1C001C5F4 (-RequestCancelable@FxIoQueue@@QEAAJPEAVFxRequest@@EP6AXPEAUWDFREQUEST__@@@ZE@Z.c)
+ * Callees:
+ *     ?RemoveIrpFromQueueByContext@FxIrpQueue@@AEAAPEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@@Z @ 0x1C0010034 (-RemoveIrpFromQueueByContext@FxIrpQueue@@AEAAPEAU_IRP@@PEAU_IO_CSQ_IRP_CONTEXT@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C001A480 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C003C594 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
+__int64 __fastcall FxRequest::RemoveFromIrpQueue(FxRequest *this, FxIrpQueue *IrpQueue)
+{
+  _FX_DRIVER_GLOBALS *m_Globals; // rdi
+  FxRequest_vtbl *v4; // rax
+  const void *_a1; // rdx
+
+  m_Globals = this->m_Globals;
+  if ( !FxIrpQueue::RemoveIrpFromQueueByContext(IrpQueue, &this->m_CsqContext) )
+    return 3221225760LL;
+  if ( m_Globals->FxVerifierOn && !this->m_IrpQueue )
+  {
+    _a1 = (const void *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+    if ( !this->m_ObjectSize )
+      _a1 = 0LL;
+    WPP_IFR_SF_q(m_Globals, 2u, 0x10u, 0x29u, WPP_FxRequest_cpp_Traceguids, _a1);
+    FxVerifierDbgBreakPoint(m_Globals);
+  }
+  v4 = this->__vftable;
+  this->m_IrpQueue = 0LL;
+  v4->Release(this, (void *)1969583441, 2030, "minkernel\\wdf\\framework\\shared\\core\\fxrequest.cpp");
+  return 0LL;
+}

@@ -1,0 +1,128 @@
+/*
+ * XREFs of NtAlpcImpersonateClientContainerOfPort @ 0x1407418D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140257E40 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1403C5CE0 (ObDereferenceObjectDeferDelete.c)
+ *     PsGetWorkOnBehalfThread @ 0x140432F80 (PsGetWorkOnBehalfThread.c)
+ *     IoThreadToProcess @ 0x140441CC0 (IoThreadToProcess.c)
+ *     PsEncodeThreadWorkOnBehalfTicket @ 0x1404453F0 (PsEncodeThreadWorkOnBehalfTicket.c)
+ *     PoEnergyEstimationEnabled @ 0x140448760 (PoEnergyEstimationEnabled.c)
+ *     PsImpersonateContainerOfThread @ 0x140492240 (PsImpersonateContainerOfThread.c)
+ *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ *     AlpcpUnlockMessage @ 0x140898D70 (AlpcpUnlockMessage.c)
+ *     AlpcpLookupMessage @ 0x14093E7E0 (AlpcpLookupMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x1409D5840 (AlpcpCaptureIdMessage.c)
+ */
+
+__int64 __fastcall NtAlpcImpersonateClientContainerOfPort(HANDLE Handle, __int64 a2, int a3)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  PVOID v5; // r14
+  NTSTATUS v6; // edi
+  KPROCESSOR_MODE PreviousMode; // r9
+  int v8; // r9d
+  struct _KTHREAD *v9; // r15
+  struct _KTHREAD *WorkOnBehalfThread; // rax
+  struct _KTHREAD *v11; // rsi
+  struct _KTHREAD *v12; // r8
+  void *Teb; // r8
+  __int64 v14; // r8
+  int v16; // [rsp+30h] [rbp-48h] BYREF
+  ULONG_PTR BugCheckParameter2; // [rsp+38h] [rbp-40h] BYREF
+  PVOID Object; // [rsp+40h] [rbp-38h] BYREF
+  PVOID v19; // [rsp+48h] [rbp-30h]
+  __int64 v20[5]; // [rsp+50h] [rbp-28h] BYREF
+  NTSTATUS v21; // [rsp+90h] [rbp+18h] BYREF
+  int v22; // [rsp+98h] [rbp+20h] BYREF
+
+  v21 = 0;
+  v16 = 0;
+  BugCheckParameter2 = 0LL;
+  v22 = 0;
+  v20[0] = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v5 = 0LL;
+  v19 = 0LL;
+  if ( a3 )
+  {
+    v6 = -1073741811;
+  }
+  else
+  {
+    AlpcpCaptureIdMessage(a2, &v22, &v21);
+    PreviousMode = KeGetCurrentThread()->PreviousMode;
+    Object = 0LL;
+    v6 = ObReferenceObjectByHandle(Handle, 0x20000u, AlpcPortObjectType, PreviousMode, &Object, 0LL);
+    v5 = Object;
+    v19 = Object;
+    if ( v6 >= 0 )
+    {
+      if ( (*((_BYTE *)Object + 416) & 6) == 6
+        && KeGetCurrentThread()->ApcState.Process == (_KPROCESS *)*((_QWORD *)Object + 3) )
+      {
+        v6 = AlpcpLookupMessage((_DWORD)Object, v22, v21, v8, (__int64)&BugCheckParameter2);
+        v21 = v6;
+        if ( v6 >= 0 )
+        {
+          if ( (*(_DWORD *)(BugCheckParameter2 + 40) & 0x80u) == 0 )
+          {
+            v9 = *(struct _KTHREAD **)(BugCheckParameter2 + 32);
+            if ( v9 )
+            {
+              WorkOnBehalfThread = (struct _KTHREAD *)PsGetWorkOnBehalfThread(
+                                                        *(struct _KTHREAD **)(BugCheckParameter2 + 32),
+                                                        &v16);
+              v11 = WorkOnBehalfThread;
+              if ( WorkOnBehalfThread )
+              {
+                PsImpersonateContainerOfThread(WorkOnBehalfThread);
+                if ( v16 )
+                  ObDereferenceObjectDeferDelete(v11);
+              }
+              else if ( IoThreadToProcess(v9)[3].UserWaitTime || PoEnergyEstimationEnabled() )
+              {
+                v11 = v9;
+                PsImpersonateContainerOfThread(v9);
+              }
+              else
+              {
+                v11 = 0LL;
+              }
+              if ( v11 )
+              {
+                v12 = KeGetCurrentThread();
+                if ( (v12->MiscFlags & 0x400) != 0 || v12->ApcStateIndex == 1 )
+                  Teb = 0LL;
+                else
+                  Teb = v12->Teb;
+                if ( Teb )
+                {
+                  PsEncodeThreadWorkOnBehalfTicket((__int64)v11, v20);
+                  *(_QWORD *)(v14 + 696) = v20[0];
+                }
+              }
+            }
+            AlpcpUnlockMessage(BugCheckParameter2);
+          }
+          else
+          {
+            AlpcpUnlockMessage(BugCheckParameter2);
+            v6 = -1073740029;
+          }
+        }
+      }
+      else
+      {
+        v6 = -1073741790;
+      }
+    }
+  }
+  if ( v5 )
+    ObfDereferenceObject(v5);
+  KeLeaveCriticalRegion();
+  return (unsigned int)v6;
+}

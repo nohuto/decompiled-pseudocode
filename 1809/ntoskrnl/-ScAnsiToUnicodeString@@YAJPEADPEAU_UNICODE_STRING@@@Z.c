@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?ScAnsiToUnicodeString@@YAJPEADPEAU_UNICODE_STRING@@@Z @ 0x1406CF320
+ * Callers:
+ *     ?ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ @ 0x14032B438 (-ExtractDeviceStrings@SC_DEVICE@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ScAnsiToUnicodeString(char *a1, struct _UNICODE_STRING *a2)
+{
+  return 3221225474LL;
+}

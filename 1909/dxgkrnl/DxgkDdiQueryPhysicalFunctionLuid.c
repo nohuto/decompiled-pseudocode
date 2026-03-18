@@ -1,0 +1,28 @@
+/*
+ * XREFs of DxgkDdiQueryPhysicalFunctionLuid @ 0x1C021083C
+ * Callers:
+ *     ?DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z @ 0x1C0050F70 (-DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z.c)
+ *     DpiFdoDispatchIoctl @ 0x1C029F6C0 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C003C540 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ */
+
+void __fastcall DxgkDdiQueryPhysicalFunctionLuid(char *a1, int a2, struct _LUID *a3)
+{
+  bool v3; // zf
+  struct _LUID *v5; // rdx
+  LONG HighPart; // [rsp+28h] [rbp-20h]
+  DWORD LowPart; // [rsp+30h] [rbp-18h]
+
+  v3 = a2 == 1;
+  v5 = (struct _LUID *)(a1 + 276);
+  if ( v3 )
+    v5 = (struct _LUID *)(a1 + 4212);
+  RtlCopyLuid(a3, v5);
+  if ( bTracingEnabled )
+  {
+    LowPart = a3->LowPart;
+    HighPart = a3->HighPart;
+    VgpuTrace(1, 0, a1, L"DxgkDdiQueryPhysicalFunctionLuid", (wchar_t *)L"%d %d ", HighPart, LowPart);
+  }
+}

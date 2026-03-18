@@ -1,0 +1,29 @@
+/*
+ * XREFs of PpIrpQueryResourceRequirements @ 0x140A643AC
+ * Callers:
+ *     IopQueryDeviceResources @ 0x140832B48 (IopQueryDeviceResources.c)
+ *     PiQueryResourceRequirements @ 0x140A64274 (PiQueryResourceRequirements.c)
+ * Callees:
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ *     IopSynchronousCall @ 0x140834D44 (IopSynchronousCall.c)
+ */
+
+__int64 __fastcall PpIrpQueryResourceRequirements(_QWORD *a1, _QWORD *a2)
+{
+  __int64 result; // rax
+  _WORD v5[44]; // [rsp+30h] [rbp-58h] BYREF
+
+  *a2 = 0LL;
+  memset_0(v5, 0, 0x48uLL);
+  v5[0] = 2843;
+  result = IopSynchronousCall(a1, (__int64)v5, -1073741637, 0LL, a2);
+  if ( (int)result < 0 )
+  {
+    *a2 = 0LL;
+  }
+  else if ( !*a2 )
+  {
+    return 3221225659LL;
+  }
+  return result;
+}

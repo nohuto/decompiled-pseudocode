@@ -1,0 +1,39 @@
+/*
+ * XREFs of bMappedViewStrlen @ 0x1C0236A94
+ * Callers:
+ *     bBMFDIFIMETRICS @ 0x1C0233E2C (bBMFDIFIMETRICS.c)
+ *     bGetFntResource @ 0x1C0236788 (bGetFntResource.c)
+ *     bVerifyVTFD @ 0x1C0236EA4 (bVerifyVTFD.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall bMappedViewStrlen(unsigned __int64 a1, __int64 a2, _BYTE *a3, _QWORD *a4)
+{
+  unsigned int v4; // r10d
+  _BYTE *v5; // rdx
+  _BYTE *v6; // rax
+
+  v4 = 0;
+  if ( a4 )
+    *a4 = 0LL;
+  v5 = (_BYTE *)(a1 + a2);
+  if ( (unsigned __int64)a3 >= a1 && a3 < v5 )
+  {
+    v6 = a3;
+    do
+    {
+      if ( !*v6 )
+        break;
+      ++v6;
+    }
+    while ( v6 != v5 );
+    if ( v6 != v5 )
+    {
+      if ( a4 )
+        *a4 = v6 - a3;
+      return 1;
+    }
+  }
+  return v4;
+}

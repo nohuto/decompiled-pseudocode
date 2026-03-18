@@ -1,0 +1,88 @@
+/*
+ * XREFs of ?ProcessModeChange@RapidHPD@@YA_NW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAVCMonitorTopology@@@Z @ 0x1C005A478
+ * Callers:
+ *     ?OnMonitorRectsChanged@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEAU_DXGK_SET_DISPLAY_CONFIG_PARAMS_EX@@@Z @ 0x1C005AEC4 (-OnMonitorRectsChanged@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEAU_DXGK_S.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0044724 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C014083C (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??0CRapidHpdInfo@@AEAA@PEAVCMonitorTopology@@AEBU_GUID@@@Z @ 0x1C022D058 (--0CRapidHpdInfo@@AEAA@PEAVCMonitorTopology@@AEBU_GUID@@@Z.c)
+ *     ?RapidHpdModeChange@DesktopRecalc@InputTraceLogging@@SAXH@Z @ 0x1C022D220 (-RapidHpdModeChange@DesktopRecalc@InputTraceLogging@@SAXH@Z.c)
+ *     ?ResetTimer@CRapidHpdInfo@@AEAAXXZ @ 0x1C022D2B4 (-ResetTimer@CRapidHpdInfo@@AEAAXXZ.c)
+ */
+
+char __fastcall RapidHPD::ProcessModeChange(CRapidHpdInfo *a1, const struct _GUID *a2, struct CMonitorTopology *a3)
+{
+  char v3; // di
+  int v4; // ebx
+  struct CMonitorTopology *v5; // rbp
+  int v7; // esi
+  int v9; // edx
+  int v10; // ecx
+  CRapidHpdInfo *v11; // rax
+  struct _GUID *v12; // rax
+
+  v3 = 1;
+  v4 = 0;
+  v5 = a3;
+  v7 = (int)a1;
+  if ( !byte_1C035E35C )
+  {
+    FastGetProfileDword(0LL, 2LL, L"RapidHpdTimeoutMs", 5000LL, &CRapidHpdInfo::s_timeoutMs);
+    byte_1C035E35C = 1;
+  }
+  if ( !v7 )
+    return 0;
+  if ( v7 == 1 )
+  {
+    if ( CRapidHpdInfo::s_pRapidHpdInfo )
+    {
+      CRapidHpdInfo::ResetTimer(a1);
+      v10 = 4;
+    }
+    else
+    {
+      v11 = (CRapidHpdInfo *)Win32AllocPoolZInit(48LL, 1920168789LL);
+      if ( v11 )
+        v12 = (struct _GUID *)CRapidHpdInfo::CRapidHpdInfo(v11, v5, a2);
+      else
+        v12 = 0LL;
+      CRapidHpdInfo::s_pRapidHpdInfo = v12;
+      v10 = 2;
+    }
+  }
+  else
+  {
+    if ( v7 != 2 )
+      MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 167LL);
+    if ( !CRapidHpdInfo::s_pRapidHpdInfo )
+    {
+      if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+        || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x40) == 0
+        || BYTE1(WPP_GLOBAL_Control->Timer) < 3u )
+      {
+        v3 = 0;
+      }
+      if ( v3 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      {
+        v9 = 10;
+        LOBYTE(v9) = v3;
+        LOBYTE(a3) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
+        WPP_RECORDER_AND_TRACE_SF_(
+          WPP_GLOBAL_Control->AttachedDevice,
+          v9,
+          (_DWORD)a3,
+          (_DWORD)WPP_GLOBAL_Control,
+          3,
+          7,
+          10,
+          (__int64)&WPP_cdd13d021a4138299c50903c2e0608fa_Traceguids);
+      }
+      return 0;
+    }
+    ++*(_DWORD *)&CRapidHpdInfo::s_pRapidHpdInfo[1].Data2;
+    v10 = 3;
+  }
+  LOBYTE(v4) = v10 == 2;
+  InputTraceLogging::DesktopRecalc::RapidHpdModeChange(v4);
+  return 1;
+}

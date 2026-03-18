@@ -1,0 +1,56 @@
+/*
+ * XREFs of HUBDSM_ComputingU1U2TimeoutsAndExitLatency @ 0x140021500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBMISC_ComputeU1Timeout @ 0x14002E840 (HUBMISC_ComputeU1Timeout.c)
+ *     HUBMISC_ComputeU2Timeout @ 0x14002EAA8 (HUBMISC_ComputeU2Timeout.c)
+ */
+
+__int64 __fastcall HUBDSM_ComputingU1U2TimeoutsAndExitLatency(__int64 a1)
+{
+  __int64 v1; // rbx
+  char v2; // r9
+  _DWORD *v3; // rcx
+  unsigned int v4; // edx
+  char v5; // r8
+  bool v6; // r9
+  char v7; // r10
+  unsigned __int16 v8; // ax
+  unsigned int v9; // r8d
+  int v10; // ecx
+  int v11; // eax
+
+  v1 = *(_QWORD *)(a1 + 960);
+  HUBMISC_ComputeU1Timeout(v1);
+  HUBMISC_ComputeU2Timeout(v1);
+  v2 = *(_BYTE *)(v1 + 2222);
+  v3 = (_DWORD *)(v1 + 2224);
+  LOWORD(v4) = 0;
+  v5 = 1;
+  v6 = v2 && ((*v3 & 0x10) != 0 || v2 != -1);
+  v7 = *(_BYTE *)(v1 + 2223);
+  if ( !v7 || (*v3 & 0x20) == 0 && v7 == -1 )
+    v5 = 0;
+  if ( v6 || v5 )
+  {
+    if ( v5 )
+      v8 = *(_WORD *)(v1 + 2212);
+    else
+      v8 = *(_WORD *)(v1 + 2210);
+    v9 = 1000 * v8;
+    v11 = 2100;
+    if ( v9 > 0x834 )
+      v11 = v9;
+    v10 = *(unsigned __int16 *)(*(_QWORD *)v1 + 1204LL) + *(unsigned __int16 *)(*(_QWORD *)v1 + 2508LL);
+    v4 = (v11
+        + 2 * (v10 + *(unsigned __int16 *)(v1 + 2590) + 200)
+        + (v11 + 2 * (v10 + *(unsigned __int16 *)(v1 + 2590) + 200))
+        * (unsigned int)*(unsigned __int8 *)(v1 + 2214)
+        / 0x64
+        + 500)
+       / 0x3E8;
+  }
+  *(_WORD *)(v1 + 2218) = v4;
+  return 4077LL;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1DXGCRITICALREGION@@QEAA@XZ @ 0x1C00203F0
+ * Callers:
+ *     ?DxgkWaitForVerticalBlankEventInternal@@YAJIIIIPEAPEAU_KEVENT@@@Z @ 0x1C00DA620 (-DxgkWaitForVerticalBlankEventInternal@@YAJIIIIPEAPEAU_KEVENT@@@Z.c)
+ *     ?PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C016E650 (-PrepareToReset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?Leave@DXGCRITICALREGION@@QEAAXXZ @ 0x1C0012C04 (-Leave@DXGCRITICALREGION@@QEAAXXZ.c)
+ */
+
+void __fastcall DXGCRITICALREGION::~DXGCRITICALREGION(DXGCRITICALREGION *this, __int64 a2, __int64 a3, __int64 a4)
+{
+  if ( *((_BYTE *)this + 1) )
+    DXGCRITICALREGION::Leave(this, a2, a3, a4);
+}

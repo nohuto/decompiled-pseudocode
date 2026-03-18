@@ -1,0 +1,40 @@
+/*
+ * XREFs of RtlpInitializeNonVolatileFlush @ 0x140516130
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140CAD020 (Phase1InitializationIoReady.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
+ */
+
+__int64 RtlpInitializeNonVolatileFlush()
+{
+  __int64 result; // rax
+  _OWORD v1[2]; // [rsp+20h] [rbp-38h] BYREF
+
+  memset(v1, 0, sizeof(v1));
+  result = ZwQuerySystemInformation(192LL, v1, 32LL, 0LL);
+  if ( (int)result >= 0 )
+  {
+    if ( (BYTE8(v1[0]) & 1) != 0 )
+      RtlpIsFlushRequired = 0;
+    if ( (v1[0] & 4) != 0 )
+    {
+      RtlpOptimalFlushMethod = 2;
+    }
+    else
+    {
+      if ( (v1[0] & 2) == 0 )
+      {
+LABEL_9:
+        result = DWORD1(v1[0]);
+        RtlpClFlushSize = DWORD1(v1[0]);
+        return result;
+      }
+      RtlpOptimalFlushMethod = 3;
+    }
+    RtlpIsDrainRequired = 1;
+    goto LABEL_9;
+  }
+  return result;
+}

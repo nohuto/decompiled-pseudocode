@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?ProcessSetWrappingVMode@CSceneSurfaceMaterialInput@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_SCENESURFACEMATERIALINPUT_SETWRAPPINGVMODE@@@Z @ 0x1801EB5F4
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800ADEEC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E1B90 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall CSceneSurfaceMaterialInput::ProcessSetWrappingVMode(
+        CSceneSurfaceMaterialInput *this,
+        struct CResourceTable *a2,
+        const struct tagMILCMD_SCENESURFACEMATERIALINPUT_SETWRAPPINGVMODE *a3)
+{
+  int v3; // eax
+
+  v3 = *((_DWORD *)a3 + 2);
+  if ( *((_DWORD *)this + 26) != v3 )
+  {
+    *((_DWORD *)this + 26) = v3;
+    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset((__int64 *)this + 8);
+  }
+  return 0LL;
+}

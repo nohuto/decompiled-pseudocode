@@ -1,0 +1,151 @@
+/*
+ * XREFs of ??0ReleaseAndReacquirePerObjectLocks@@QEAA@XZ @ 0x1C008FBDC
+ * Callers:
+ *     fnHkINLPNOTIFYSTRUCT @ 0x1C0006A80 (fnHkINLPNOTIFYSTRUCT.c)
+ *     xxxClientLoadMenu @ 0x1C0030C0C (xxxClientLoadMenu.c)
+ *     xxxClientCopyImage @ 0x1C0030E98 (xxxClientCopyImage.c)
+ *     ClientFreeLibrary @ 0x1C00426E8 (ClientFreeLibrary.c)
+ *     SfnCOPYDATA @ 0x1C00436E0 (SfnCOPYDATA.c)
+ *     xxxClientLoadImage @ 0x1C0043B54 (xxxClientLoadImage.c)
+ *     SfnINSTRINGNULL @ 0x1C0044240 (SfnINSTRINGNULL.c)
+ *     SfnPOWERBROADCAST @ 0x1C0044700 (SfnPOWERBROADCAST.c)
+ *     xxxClientAddFontResourceW @ 0x1C0044DA4 (xxxClientAddFontResourceW.c)
+ *     fnHkINLPCBTCREATESTRUCT @ 0x1C0044FDC (fnHkINLPCBTCREATESTRUCT.c)
+ *     SfnINDEVICECHANGE @ 0x1C0046680 (SfnINDEVICECHANGE.c)
+ *     ClientLoadLibrary @ 0x1C0046A58 (ClientLoadLibrary.c)
+ *     SfnGETDBCSTEXTLENGTHS @ 0x1C0047690 (SfnGETDBCSTEXTLENGTHS.c)
+ *     xxxClientLoadStringW @ 0x1C00480B4 (xxxClientLoadStringW.c)
+ *     xxxClientExpandStringW @ 0x1C0048558 (xxxClientExpandStringW.c)
+ *     xxxClientFreeWindowClassExtraBytes @ 0x1C008F2E4 (xxxClientFreeWindowClassExtraBytes.c)
+ *     SfnNCDESTROY @ 0x1C008F3B0 (SfnNCDESTROY.c)
+ *     xxxClientAllocWindowClassExtraBytes @ 0x1C008F69C (xxxClientAllocWindowClassExtraBytes.c)
+ *     SfnINLPWINDOWPOS @ 0x1C008F7D0 (SfnINLPWINDOWPOS.c)
+ *     fnHkINDWORD @ 0x1C0090F64 (fnHkINDWORD.c)
+ *     xxxClientCallWinEventProc @ 0x1C00910F0 (xxxClientCallWinEventProc.c)
+ *     SfnOUTLPCOMBOBOXINFO @ 0x1C00FAE90 (SfnOUTLPCOMBOBOXINFO.c)
+ *     xxxClientCallDitThread @ 0x1C00FB338 (xxxClientCallDitThread.c)
+ *     SfnEMPTY @ 0x1C00FC950 (SfnEMPTY.c)
+ *     SfnINOUTLPPOINT5 @ 0x1C00FF5E0 (SfnINOUTLPPOINT5.c)
+ *     SfnINOUTLPUAHMEASUREMENUITEM @ 0x1C01008C0 (SfnINOUTLPUAHMEASUREMENUITEM.c)
+ *     SfnINLPUAHDRAWMENU @ 0x1C0100CB0 (SfnINLPUAHDRAWMENU.c)
+ *     SfnINLPUAHINITMENU @ 0x1C0100F90 (SfnINLPUAHINITMENU.c)
+ *     SfnINLPUAHDRAWMENUITEM @ 0x1C0101270 (SfnINLPUAHDRAWMENUITEM.c)
+ *     ClientImmProcessKey @ 0x1C010196C (ClientImmProcessKey.c)
+ *     xxxClientWOWGetProcModule @ 0x1C0102900 (xxxClientWOWGetProcModule.c)
+ *     SfnINOUTLPSCROLLINFO @ 0x1C0105190 (SfnINOUTLPSCROLLINFO.c)
+ *     SfnSHELLWINDOWMANAGEMENTNOTIFY @ 0x1C010A9C0 (SfnSHELLWINDOWMANAGEMENTNOTIFY.c)
+ *     fnHkINLPMOUSEHOOKSTRUCTEX @ 0x1C010DC94 (fnHkINLPMOUSEHOOKSTRUCTEX.c)
+ *     SfnINOUTLPRECT @ 0x1C01102C0 (SfnINOUTLPRECT.c)
+ *     SfnSHELLWINDOWMANAGEMENTCALLOUT @ 0x1C0110870 (SfnSHELLWINDOWMANAGEMENTCALLOUT.c)
+ *     xxxClientMonitorEnumProc @ 0x1C0112130 (xxxClientMonitorEnumProc.c)
+ *     SfnINSTRING @ 0x1C0118960 (SfnINSTRING.c)
+ *     SfnOUTLPTITLEBARINFOEX @ 0x1C01198B0 (SfnOUTLPTITLEBARINFOEX.c)
+ *     xxxClientBroadcastThemeChange @ 0x1C0121B10 (xxxClientBroadcastThemeChange.c)
+ *     xxxClientRimDevCallback @ 0x1C0122974 (xxxClientRimDevCallback.c)
+ *     ClientImmLoadLayout @ 0x1C01241F4 (ClientImmLoadLayout.c)
+ *     xxxClientGetCharsetInfo @ 0x1C0125008 (xxxClientGetCharsetInfo.c)
+ *     SfnOUTLPRECT @ 0x1C0143300 (SfnOUTLPRECT.c)
+ *     SfnOPTOUTLPDWORDOPTOUTLPDWORD @ 0x1C0146790 (SfnOPTOUTLPDWORDOPTOUTLPDWORD.c)
+ *     SfnINLPDRAWITEMSTRUCT @ 0x1C0148170 (SfnINLPDRAWITEMSTRUCT.c)
+ *     SfnINOUTLPMEASUREITEMSTRUCT @ 0x1C014A990 (SfnINOUTLPMEASUREITEMSTRUCT.c)
+ *     xxxClientExtTextOutW @ 0x1C014B850 (xxxClientExtTextOutW.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C014BB78 (xxxClientGetTextExtentPointW.c)
+ *     ClientGetListboxString @ 0x1C014C7B4 (ClientGetListboxString.c)
+ *     fnHkINLPCBTACTIVATESTRUCT @ 0x1C014EE30 (fnHkINLPCBTACTIVATESTRUCT.c)
+ *     SfnINDESTROYCLIPBRD @ 0x1C014F500 (SfnINDESTROYCLIPBRD.c)
+ *     SfnINWPARAMDBCSCHAR @ 0x1C0151DD0 (SfnINWPARAMDBCSCHAR.c)
+ *     ?xxxClientCopyDDEIn2@@YAHPEAUtagINTDDEINFO@@@Z @ 0x1C0228F88 (-xxxClientCopyDDEIn2@@YAHPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxClientCopyDDEOut2@@YAKPEAUtagINTDDEINFO@@@Z @ 0x1C02290FC (-xxxClientCopyDDEOut2@@YAKPEAUtagINTDDEINFO@@@Z.c)
+ *     ClientEventCallback @ 0x1C0229288 (ClientEventCallback.c)
+ *     SfnCOPYGLOBALDATA @ 0x1C0229680 (SfnCOPYGLOBALDATA.c)
+ *     SfnGESTURE @ 0x1C0229AC0 (SfnGESTURE.c)
+ *     SfnGETWINDOWDATA @ 0x1C0229E10 (SfnGETWINDOWDATA.c)
+ *     SfnIMECONTROL @ 0x1C0229FC0 (SfnIMECONTROL.c)
+ *     SfnINCNTOUTSTRING @ 0x1C022AB60 (SfnINCNTOUTSTRING.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C022B180 (SfnINCNTOUTSTRINGNULL.c)
+ *     SfnINLPCOMPAREITEMSTRUCT @ 0x1C022B730 (SfnINLPCOMPAREITEMSTRUCT.c)
+ *     SfnINLPDELETEITEMSTRUCT @ 0x1C022BAA0 (SfnINLPDELETEITEMSTRUCT.c)
+ *     SfnINLPHELPINFOSTRUCT @ 0x1C022BDF0 (SfnINLPHELPINFOSTRUCT.c)
+ *     SfnINLPHLPSTRUCT @ 0x1C022C260 (SfnINLPHLPSTRUCT.c)
+ *     SfnINLPKDRAWSWITCHWND @ 0x1C022C6C0 (SfnINLPKDRAWSWITCHWND.c)
+ *     SfnINLPMDICREATESTRUCT @ 0x1C022CC00 (SfnINLPMDICREATESTRUCT.c)
+ *     SfnINLPUAHNCPAINTMENUPOPUP @ 0x1C022D280 (SfnINLPUAHNCPAINTMENUPOPUP.c)
+ *     SfnINOUTDRAG @ 0x1C022D640 (SfnINOUTDRAG.c)
+ *     SfnINOUTLPSIZE @ 0x1C022DA40 (SfnINOUTLPSIZE.c)
+ *     SfnINOUTMENUGETOBJECT @ 0x1C022DE00 (SfnINOUTMENUGETOBJECT.c)
+ *     SfnINOUTNEXTMENU @ 0x1C022E240 (SfnINOUTNEXTMENU.c)
+ *     SfnINPAINTCLIPBRD @ 0x1C022E630 (SfnINPAINTCLIPBRD.c)
+ *     SfnINPGESTURENOTIFYSTRUCT @ 0x1C022EA30 (SfnINPGESTURENOTIFYSTRUCT.c)
+ *     SfnINSIZECLIPBRD @ 0x1C022EE90 (SfnINSIZECLIPBRD.c)
+ *     SfnINWPARAMCHAR @ 0x1C022F220 (SfnINWPARAMCHAR.c)
+ *     SfnKEYBOARDCORRECTIONCALLOUT @ 0x1C022F5C0 (SfnKEYBOARDCORRECTIONCALLOUT.c)
+ *     SfnOUTDWORDINDWORD @ 0x1C022F9A0 (SfnOUTDWORDINDWORD.c)
+ *     SfnOUTLPSCROLLBARINFO @ 0x1C022FD60 (SfnOUTLPSCROLLBARINFO.c)
+ *     SfnPOPTINLPUINT @ 0x1C02301A0 (SfnPOPTINLPUINT.c)
+ *     SfnPOUTLPINT @ 0x1C0230660 (SfnPOUTLPINT.c)
+ *     SfnSENTDDEMSG @ 0x1C0230C20 (SfnSENTDDEMSG.c)
+ *     SfnTOUCH @ 0x1C0231000 (SfnTOUCH.c)
+ *     SfnTOUCHHITTESTING @ 0x1C0231350 (SfnTOUCHHITTESTING.c)
+ *     fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0231818 (fnHkINLPDEBUGHOOKSTRUCT.c)
+ *     fnHkINLPKBDLLHOOKSTRUCT @ 0x1C02319F8 (fnHkINLPKBDLLHOOKSTRUCT.c)
+ *     fnHkINLPMSLLHOOKSTRUCT @ 0x1C0231B70 (fnHkINLPMSLLHOOKSTRUCT.c)
+ *     fnHkINLPRECT @ 0x1C0231CEC (fnHkINLPRECT.c)
+ *     fnHkOPTINLPEVENTMSG @ 0x1C0231EE0 (fnHkOPTINLPEVENTMSG.c)
+ *     xxxClientCallDefWindowProc @ 0x1C0232150 (xxxClientCallDefWindowProc.c)
+ *     xxxClientCallDefaultInputHandler @ 0x1C02322C0 (xxxClientCallDefaultInputHandler.c)
+ *     xxxClientCallDelegateThread @ 0x1C023243C (xxxClientCallDelegateThread.c)
+ *     xxxClientCallLocalMouseHooks @ 0x1C0232784 (xxxClientCallLocalMouseHooks.c)
+ *     xxxClientCharToWchar @ 0x1C02328E8 (xxxClientCharToWchar.c)
+ *     xxxClientCopyDDEIn1 @ 0x1C0232A10 (xxxClientCopyDDEIn1.c)
+ *     xxxClientCopyDDEOut1 @ 0x1C0232ED4 (xxxClientCopyDDEOut1.c)
+ *     xxxClientFindMnemChar @ 0x1C0233290 (xxxClientFindMnemChar.c)
+ *     xxxClientFreeDDEHandle @ 0x1C0233528 (xxxClientFreeDDEHandle.c)
+ *     xxxClientGetDDEFlags @ 0x1C0233650 (xxxClientGetDDEFlags.c)
+ *     xxxClientGetDDEHookData @ 0x1C0233778 (xxxClientGetDDEHookData.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C023397C (xxxClientLpkDrawTextEx.c)
+ *     xxxClientPSMTextOut @ 0x1C0233DE4 (xxxClientPSMTextOut.c)
+ *     xxxClientUpdateDpi @ 0x1C0234174 (xxxClientUpdateDpi.c)
+ * Callees:
+ *     <none>
+ */
+
+ReleaseAndReacquirePerObjectLocks *__fastcall ReleaseAndReacquirePerObjectLocks::ReleaseAndReacquirePerObjectLocks(
+        ReleaseAndReacquirePerObjectLocks *this)
+{
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v3; // rsi
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  __int64 v6; // r8
+  __int64 *ThreadWin32Thread; // rax
+  unsigned int DLT; // eax
+  tagDomLock *DomainLockRef; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // ebx
+  __int64 v13; // rcx
+  __int64 CurrentThreadProcess; // rax
+
+  *(_BYTE *)this = 0;
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess(this)
+    || (CurrentProcess = PsGetCurrentProcess(v5, v4, v6),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(v13),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v3 = *ThreadWin32Thread;
+  }
+  *(_BYTE *)this = *(_BYTE *)(v3 + 1472);
+  *(_BYTE *)(v3 + 1472) = 0;
+  if ( (*(_BYTE *)this & 1) != 0 )
+  {
+    tagObjLock::UnLockExclusive((tagObjLock *)(v3 + 384));
+    DLT = DLT_THREADINFO::getDLT();
+    DomainLockRef = (tagDomLock *)GetDomainLockRef(DLT);
+    tagDomLock::UnLockShared(DomainLockRef);
+  }
+  return this;
+}

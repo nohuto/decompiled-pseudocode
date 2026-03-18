@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?CalcDirectionVector@@YA?AUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@0@Z @ 0x1801515D0
+ * Callers:
+ *     ?TryAddEdgeFromEndPoints@?$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_POINT_2F@@0AEBIM@Z @ 0x18015152C (-TryAddEdgeFromEndPoints@-$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_POINT_2F@@0AEBIM@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1802DF698 (sqrtf_0.c)
+ */
+
+struct D2D_VECTOR_2F __fastcall CalcDirectionVector(const struct D2D_POINT_2F *a1, const struct D2D_POINT_2F *a2)
+{
+  float v2; // xmm6_4
+  float v3; // xmm7_4
+  __m128 v4; // xmm2
+  __m128 v5; // xmm1
+
+  v2 = a2->x - a1->x;
+  v3 = a2->y - a1->y;
+  v4 = (__m128)(unsigned int)`CVisual::SetOpacityInternal'::`2'::sc_defaultValue;
+  v4.m128_f32[0] = 1.0 / sqrtf_0((float)(v3 * v3) + (float)(v2 * v2));
+  v5 = v4;
+  v4.m128_f32[0] = v4.m128_f32[0] * v3;
+  v5.m128_f32[0] = v5.m128_f32[0] * v2;
+  return (struct D2D_VECTOR_2F)_mm_unpacklo_ps(v5, v4).m128_u64[0];
+}

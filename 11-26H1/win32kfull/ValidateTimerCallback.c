@@ -1,0 +1,34 @@
+/*
+ * XREFs of ValidateTimerCallback @ 0x140149E20
+ * Callers:
+ *     xxxDispatchMessage @ 0x140035320 (xxxDispatchMessage.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ValidateTimerCallback(__int64 a1, __int64 a2)
+{
+  __int64 v3; // rdi
+  _QWORD **v4; // r8
+  _QWORD *i; // rax
+  HANDLE v7; // rbx
+
+  v3 = a1;
+  if ( *(_DWORD *)(a1 + 664) <= 0x501u && (*(_DWORD *)(a1 + 680) & 0x1000000) != 0 )
+  {
+    a1 = 0LL;
+    if ( (_InterlockedCompareExchange((volatile signed __int32 *)(v3 + 520), 0, 0) & 0xC) == 0 )
+    {
+      v7 = *(HANDLE *)(W32GetUserSessionState(0LL, a2) + 63536);
+      if ( PsGetProcessId(**(PEPROCESS **)(v3 + 456)) != v7 )
+        return 1LL;
+    }
+  }
+  v4 = (_QWORD **)(W32GetUserSessionState(a1, a2) + 57536);
+  for ( i = *v4; i != v4; i = (_QWORD *)*i )
+  {
+    if ( *(_QWORD *)(*(i - 6) + 456LL) == *(_QWORD *)(v3 + 456) && (*(_DWORD *)(i - 3) & 6) == 0 && *(i - 5) == a2 )
+      return 1LL;
+  }
+  return 0LL;
+}

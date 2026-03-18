@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?GetHostHandle@DXGSYNCOBJECT@@QEAAIIE@Z @ 0x1C01BF8A4
+ * Callers:
+ *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C008BA68 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
+ *     ?VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@PEAVDXGDEVICESYNCOBJECT@@@Z @ 0x1C0195C00 (-VmBusSendCreateNtSharedObject@DXG_GUEST_GLOBAL_VMBUS@@QEAAIPEAVDXGPROCESS@@IPEAVDXGSYNCOBJECT@@.c)
+ *     ?VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJECT@@IPEAE@Z @ 0x1C0196A04 (-VmBusSendIsSyncObjectSignaled@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGSYNCOBJEC.c)
+ *     ?VmBusSendSignalSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBIU_D3DDDICB_SIGNALFLAGS@@K1PEB_K_KPEBQEAX_N@Z @ 0x1C0197EB4 (-VmBusSendSignalSyncObject@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@IPEBIU_D3DDDICB_SIGN.c)
+ *     ?VmBusSendWaitForSyncObjectFromGpu@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGCONTEXT@@PEBIPEAPEAVDXGSYNCOBJECT@@PEAPEAVDXGDEVICESYNCOBJECT@@PEB_K_KI@Z @ 0x1C0199520 (-VmBusSendWaitForSyncObjectFromGpu@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAVDXGPROCESS@@PEAVDXGCONTE.c)
+ * Callees:
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0007CC0 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0007D10 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall DXGSYNCOBJECT::GetHostHandle(DXGSYNCOBJECT *this, int a2)
+{
+  struct _KTHREAD **v5; // rsi
+  unsigned int v6; // edi
+  __int64 **v7; // rbx
+  __int64 *i; // rax
+
+  if ( (*((_BYTE *)this + 164) & 1) == 0 )
+    return *((unsigned int *)this + 20);
+  v5 = (struct _KTHREAD **)((char *)this + 32);
+  v6 = 0;
+  DXGFASTMUTEX::Acquire((DXGSYNCOBJECT *)((char *)this + 32));
+  v7 = (__int64 **)((char *)this + 88);
+  for ( i = *v7; i != (__int64 *)v7; i = (__int64 *)*i )
+  {
+    if ( *((_DWORD *)i + 4) == a2 )
+    {
+      v6 = *((_DWORD *)i + 5);
+      break;
+    }
+  }
+  DXGFASTMUTEX::Release(v5);
+  return v6;
+}

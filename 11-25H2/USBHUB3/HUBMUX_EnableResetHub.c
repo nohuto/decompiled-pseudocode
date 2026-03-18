@@ -1,0 +1,18 @@
+/*
+ * XREFs of HUBMUX_EnableResetHub @ 0x1400113E8
+ * Callers:
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x14000A670 (HUBHSM_WaitingForPortsToAcquireReferenceOnStart.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall HUBMUX_EnableResetHub(__int64 a1)
+{
+  KSPIN_LOCK *v1; // rdi
+  KIRQL v3; // al
+
+  v1 = (KSPIN_LOCK *)(a1 + 2328);
+  v3 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 2328));
+  _InterlockedOr((volatile signed __int32 *)(a1 + 2360), 4u);
+  KeReleaseSpinLock(v1, v3);
+}

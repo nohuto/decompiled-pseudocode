@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?InitializeSensorGlobals@@YAJXZ @ 0x14023E120
+ * Callers:
+ *     ?InitializeInputGlobals@@YAJXZ @ 0x14023D618 (-InitializeInputGlobals@@YAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x14023F3B0 (__security_check_cookie.c)
+ *     memmove @ 0x14023FA40 (memmove.c)
+ */
+
+__int64 __fastcall InitializeSensorGlobals(__int64 a1)
+{
+  __int64 UserSessionState; // rax
+  _QWORD Src[18]; // [rsp+20h] [rbp-49h] BYREF
+
+  UserSessionState = W32GetUserSessionState(a1);
+  Src[16] = 2LL;
+  Src[2] = 0LL;
+  Src[3] = 0LL;
+  Src[0] = CMouseSensor_CreateInstance;
+  Src[1] = CMouseSensor_Destroy;
+  Src[5] = "Mouse Sensor";
+  Src[6] = CKeyboardSensor_CreateInstance;
+  Src[7] = CKeyboardSensor_Destroy;
+  Src[11] = "Keyboard Sensor";
+  Src[12] = CHidInput_CreateInstance;
+  Src[13] = CHidInput_Destroy;
+  Src[17] = "Hid Sensor";
+  *(_DWORD *)(UserSessionState + 3096) = 1;
+  Src[4] = 0LL;
+  Src[8] = 0LL;
+  Src[9] = 0LL;
+  Src[10] = 1LL;
+  Src[14] = 0LL;
+  Src[15] = 0LL;
+  memmove((void *)(UserSessionState + 3120), Src, 0x90uLL);
+  return 0LL;
+}

@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?StoreElement@MULTIBRUSH@@QEAAXJ@Z @ 0x140066C38
+ * Callers:
+ *     ?MulStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1400622A0 (-MulStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ.c)
+ *     ?MulStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x140064150 (-MulStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_.c)
+ *     ?MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1400651E0 (-MulBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSH.c)
+ *     ?bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x140065E64 (-bBitBltScreenToScreen@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@.c)
+ *     ?bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x140066750 (-bBitBltFromScreen@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PE.c)
+ *     ?MulTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x140066E90 (-MulTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOB.c)
+ *     ?MulLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x140067810 (-MulLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?MulFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1403286C0 (-MulFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall MULTIBRUSH::StoreElement(MULTIBRUSH *this, int a2)
+{
+  __int64 v2; // rax
+  __int64 v4; // rcx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // rcx
+
+  v2 = *((_QWORD *)this + 1);
+  if ( v2 )
+  {
+    v4 = *((_QWORD *)this + 4);
+    if ( v4 )
+    {
+      v5 = 2LL * a2;
+      if ( *((_QWORD *)this + 5) != -1LL )
+      {
+        *(_QWORD *)(v4 + 8 * v5 + 16) = *(_QWORD *)(v2 + 32);
+        *(_QWORD *)(*((_QWORD *)this + 1) + 32LL) = *((_QWORD *)this + 5);
+        *((_QWORD *)this + 5) = -1LL;
+      }
+      *(_QWORD *)(*((_QWORD *)this + 4) + 8 * v5 + 8) = *(_QWORD *)(*((_QWORD *)this + 1) + 8LL);
+      v6 = *((_QWORD *)this + 2);
+      if ( v6 )
+        *(_QWORD *)(*((_QWORD *)this + 1) + 80LL) = v6;
+      v7 = *((_QWORD *)this + 3);
+      if ( v7 )
+        *(_QWORD *)(*((_QWORD *)this + 1) + 88LL) = v7;
+    }
+    **((_DWORD **)this + 1) = *((_DWORD *)this + 1);
+    *(_QWORD *)(*((_QWORD *)this + 1) + 8LL) = *((_QWORD *)this + 4);
+  }
+}

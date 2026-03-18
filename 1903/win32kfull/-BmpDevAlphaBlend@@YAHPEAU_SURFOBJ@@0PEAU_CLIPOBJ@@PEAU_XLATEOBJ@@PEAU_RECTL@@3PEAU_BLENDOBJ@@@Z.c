@@ -1,0 +1,120 @@
+/*
+ * XREFs of ?BmpDevAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x1C02934F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C01664D0 (_guard_dispatch_icall_nop.c)
+ *     ??0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x1C0293464 (--0BMPDEVOPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x1C02934C8 (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C02951A8 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ?bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z @ 0x1C0295258 (-bBmpMakeOpaque@@YAHPEAVSURFACE@@@Z.c)
+ */
+
+__int64 __fastcall BmpDevAlphaBlend(
+        struct _SURFOBJ *a1,
+        struct _SURFOBJ *a2,
+        struct _CLIPOBJ *a3,
+        struct _XLATEOBJ *a4,
+        struct _RECTL *a5,
+        struct _RECTL *a6,
+        struct _BLENDOBJ *a7)
+{
+  unsigned int v11; // r14d
+  HDEV hdev; // rbx
+  unsigned int v13; // eax
+  __int64 v14; // rax
+  struct _DISPSURF *v15; // rsi
+  __int64 v16; // r9
+  int v17; // eax
+  __int64 v18; // r9
+  __int64 v19; // rbx
+  struct _SURFOBJ *DevBitmap; // rdi
+  struct _SURFOBJ *v21; // rax
+  __int64 v23; // [rsp+40h] [rbp-48h] BYREF
+  __int64 v24; // [rsp+48h] [rbp-40h] BYREF
+  struct SURFACE *v25; // [rsp+50h] [rbp-38h] BYREF
+  struct SURFACE *v26; // [rsp+58h] [rbp-30h] BYREF
+  unsigned int v27; // [rsp+90h] [rbp+8h]
+
+  v11 = 0;
+  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v26, a1);
+  BMPDEVOPEN::BMPDEVOPEN((BMPDEVOPEN *)&v25, a2);
+  if ( a1 )
+  {
+    hdev = a1->hdev;
+    v13 = (*(_DWORD *)(SURFOBJ_TO_SURFACE_NOT_NULL(a1) + 112) & 0x10000) != 0
+        ? (*((__int64 (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct _BLENDOBJ *))hdev
+           + 407))(
+            a1,
+            a2,
+            a3,
+            a4,
+            a5,
+            a6,
+            a7)
+        : ((__int64 (__fastcall *)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct _BLENDOBJ *))EngAlphaBlend)(
+            a1,
+            a2,
+            a3,
+            a4,
+            a5,
+            a6,
+            a7);
+    v11 = v13;
+    v27 = v13;
+    v14 = UserGetHDEV();
+    if ( v14 )
+    {
+      if ( (*(_DWORD *)(v14 + 40) & 0x20000000) != 0 )
+      {
+        v15 = **(struct _DISPSURF ***)(v14 + 1800);
+        if ( v15 )
+        {
+          do
+          {
+            v16 = *((_QWORD *)v15 + 6);
+            v23 = v16;
+            if ( v16 )
+            {
+              if ( (*(_DWORD *)(v16 + 1824) & 0x8000000) != 0 )
+              {
+                v17 = *(_DWORD *)(v16 + 2128);
+                if ( (v17 & 0x1000) != 0 && (v17 & 0x8000) != 0 )
+                {
+                  if ( *(_QWORD *)(*(_QWORD *)(v16 + 1792) + 632LL) )
+                  {
+                    MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
+                      (MARK_ACCDRV_NOTIFICATION *)&v24,
+                      (struct PDEVOBJ *)&v23,
+                      a1);
+                    v19 = *(_QWORD *)(v18 + 1792);
+                    DevBitmap = GetDevBitmap(v15, a2);
+                    v21 = GetDevBitmap(v15, a1);
+                    (*(void (__fastcall **)(struct _SURFOBJ *, struct _SURFOBJ *, struct _CLIPOBJ *, struct _XLATEOBJ *, struct _RECTL *, struct _RECTL *, struct _BLENDOBJ *))(v19 + 632))(
+                      v21,
+                      DevBitmap,
+                      a3,
+                      a4,
+                      a5,
+                      a6,
+                      a7);
+                    if ( v24 )
+                      *(_WORD *)(v24 + 78) &= ~0x8000u;
+                  }
+                }
+              }
+            }
+            v15 = *(struct _DISPSURF **)v15;
+          }
+          while ( v15 );
+          v11 = v27;
+        }
+      }
+    }
+  }
+  if ( v25 )
+    bBmpMakeOpaque(v25);
+  if ( v26 )
+    bBmpMakeOpaque(v26);
+  return v11;
+}

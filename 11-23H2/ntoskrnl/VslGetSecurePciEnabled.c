@@ -1,0 +1,21 @@
+/*
+ * XREFs of VslGetSecurePciEnabled @ 0x1403B6540
+ * Callers:
+ *     HvlGetEnlightenmentInfo @ 0x140543FC0 (HvlGetEnlightenmentInfo.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x14033FCF0 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x140340388 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     memset @ 0x140435A00 (memset.c)
+ */
+
+char VslGetSecurePciEnabled()
+{
+  _DWORD v1[28]; // [rsp+20h] [rbp-88h] BYREF
+
+  memset(v1, 0, 0x68uLL);
+  if ( HvlQueryVsmConnection(0LL) && (v1[4] = 1, (int)VslpEnterIumSecureMode(2u, 263, 0, (__int64)v1) >= 0) )
+    return v1[4] & 1;
+  else
+    return 0;
+}

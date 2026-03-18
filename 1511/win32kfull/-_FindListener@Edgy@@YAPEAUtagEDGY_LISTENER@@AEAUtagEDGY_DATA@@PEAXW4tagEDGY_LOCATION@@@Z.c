@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?_FindListener@Edgy@@YAPEAUtagEDGY_LISTENER@@AEAUtagEDGY_DATA@@PEAXW4tagEDGY_LOCATION@@@Z @ 0x1C00FE138
+ * Callers:
+ *     EdgyUnregisterListener @ 0x1C00FDE28 (EdgyUnregisterListener.c)
+ *     ?_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z @ 0x1C00FE0C8 (-_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Edgy::_FindListener(__int64 a1, __int64 a2, int a3)
+{
+  unsigned int v3; // r9d
+  __int64 result; // rax
+
+  v3 = 0;
+  if ( !*(_DWORD *)a1 )
+    return 0LL;
+  while ( 1 )
+  {
+    result = *(_QWORD *)(a1 + 8) + 32LL * v3;
+    if ( *(_QWORD *)result == a2 && *(_DWORD *)(result + 16) == a3 )
+      break;
+    if ( ++v3 >= *(_DWORD *)a1 )
+      return 0LL;
+  }
+  return result;
+}

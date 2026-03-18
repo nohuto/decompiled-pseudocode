@@ -1,0 +1,15 @@
+/*
+ * XREFs of DxgkEngReleaseDC @ 0x1C02610C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DxgkEngReleaseDC(__int64 a1, __int64 a2)
+{
+  if ( a2 )
+    return bDeleteDCInternal(a2, 1LL, 0LL, 1LL);
+  else
+    return UserReleaseDC(a1);
+}

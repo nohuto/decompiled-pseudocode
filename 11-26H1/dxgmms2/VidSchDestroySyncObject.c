@@ -1,0 +1,281 @@
+/*
+ * XREFs of VidSchDestroySyncObject @ 0x1400E15C0
+ * Callers:
+ *     ?DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ @ 0x14009D6F0 (-DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAUVIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1400D51C0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAUVIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KW4_DXGK_PAGESIZE@@2KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEBVDXGADAPTERALLOCATION@@PEAX77KE7PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAUVIDMM_CROSSADAPTER_ALLOC@@PEAVVIDMM_FENCE_STORAGE_PAGE@@PEAPEAUVIDMM_GLOBAL_ALLOC@@PEAE@Z @ 0x1400DEEC4 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KW4_DXGK_PAGESIZE@@2KKKU_D3DDDI_SE.c)
+ *     ?DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1400E1D88 (-DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ * Callees:
+ *     VidSchiReleaseSyncObjectReference @ 0x1400127F0 (VidSchiReleaseSyncObjectReference.c)
+ *     DxgkLogInternalTriageEvent @ 0x14002EEAC (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x14003A7B4 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpqq_EtwWriteTransfer @ 0x14003A86C (McTemplateK0ppqqpqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpt_EtwWriteTransfer @ 0x14003A928 (McTemplateK0ppqqpt_EtwWriteTransfer.c)
+ *     ?UnwaitCpuWaitersHelper@@YAXPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x14003AB8C (-UnwaitCpuWaitersHelper@@YAXPEAU_VIDSCH_SYNC_OBJECT@@@Z.c)
+ *     VidSchTimeoutSyncObject @ 0x14003CDFC (VidSchTimeoutSyncObject.c)
+ *     McTemplateK0pptqx_EtwWriteTransfer @ 0x1400491F0 (McTemplateK0pptqx_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqppqi_EtwWriteTransfer @ 0x14004AEA0 (McTemplateK0ppqqppqi_EtwWriteTransfer.c)
+ *     memset @ 0x14005BBC0 (memset.c)
+ */
+
+__int64 __fastcall VidSchDestroySyncObject(struct _VIDSCH_SYNC_OBJECT *P, __int64 a2)
+{
+  __int64 v3; // r8
+  int v4; // esi
+  __int64 v5; // r9
+  __int64 v7; // rcx
+  int v8; // eax
+  __int64 v9; // r8
+  int v10; // eax
+  __int64 v11; // rcx
+  int v12; // eax
+  const EVENT_DESCRIPTOR *v13; // rdx
+  __int64 v14; // rcx
+  int v15; // eax
+  __int64 v16; // rcx
+  __int64 v17; // rdx
+  int v18; // eax
+  __int64 v19; // rcx
+  __int64 v20; // [rsp+40h] [rbp-21h]
+  __int64 v21; // [rsp+40h] [rbp-21h]
+  int v22; // [rsp+48h] [rbp-19h]
+  __int64 v23; // [rsp+48h] [rbp-19h]
+  int v24; // [rsp+48h] [rbp-19h]
+  __int64 v25; // [rsp+48h] [rbp-19h]
+  int v26; // [rsp+50h] [rbp-11h]
+  int v27; // [rsp+50h] [rbp-11h]
+  __int64 v28; // [rsp+58h] [rbp-9h]
+  _QWORD v29[10]; // [rsp+68h] [rbp+7h] BYREF
+
+  if ( P )
+  {
+    if ( *((_BYTE *)P + 26) )
+      UnwaitCpuWaitersHelper(P);
+    if ( *((int *)P + 9) > 1 )
+      VidSchTimeoutSyncObject(P);
+    v3 = *((_QWORD *)P + 2);
+    v4 = *((_DWORD *)P + 12);
+    if ( v3 )
+    {
+      if ( v4 == 6 || *((_BYTE *)P + 56) )
+      {
+        if ( (byte_14008A201 & 1) != 0 )
+          McTemplateK0pptqx_EtwWriteTransfer(
+            (__int64)P,
+            &EventDestroyNativeFence,
+            v3,
+            *(_QWORD *)(*((_QWORD *)P + 1) + 16LL),
+            P,
+            1,
+            *(_DWORD *)(v3 + 320),
+            *(_QWORD *)(v3 + 304));
+        goto LABEL_16;
+      }
+      if ( !bTracingEnabled )
+      {
+LABEL_16:
+        VidSchiReleaseSyncObjectReference((char *)P, a2);
+        return 0LL;
+      }
+      v5 = *(_QWORD *)(*((_QWORD *)P + 1) + 16LL);
+      if ( *(_DWORD *)(v3 + 224) != 1 )
+      {
+        if ( *(_DWORD *)(v3 + 224) != 2 )
+        {
+          if ( *(_DWORD *)(v3 + 224) != 3 )
+          {
+            if ( *(_DWORD *)(v3 + 224) != 4 )
+            {
+              if ( *(_DWORD *)(v3 + 224) == 5 )
+              {
+                if ( (byte_14008A201 & 1) == 0 )
+                  goto LABEL_16;
+                v23 = *(_QWORD *)(v3 + 232);
+                v10 = *(_DWORD *)(v3 + 228);
+                v20 = *(unsigned int *)(v3 + 296);
+                goto LABEL_40;
+              }
+              if ( *(_DWORD *)(v3 + 224) == 6 )
+              {
+                if ( (byte_14008A201 & 1) == 0 )
+                  goto LABEL_16;
+                v16 = *(unsigned int *)(v3 + 232);
+                v17 = *(unsigned int *)(v3 + 296);
+                v28 = *(_QWORD *)(v3 + 240);
+                v27 = *(_DWORD *)(v3 + 236);
+                v18 = *(_DWORD *)(v3 + 228);
+LABEL_55:
+                McTemplateK0ppqqppqi_EtwWriteTransfer(
+                  (__int64)&DxgkControlGuid_Context,
+                  &EventDestroyPeriodicMonitoredFence,
+                  0LL,
+                  v5,
+                  P,
+                  1,
+                  v18,
+                  v17,
+                  v16,
+                  v27,
+                  v28);
+                goto LABEL_16;
+              }
+              goto LABEL_56;
+            }
+            if ( (byte_14008A201 & 1) == 0 )
+              goto LABEL_16;
+            v25 = *(_QWORD *)(v3 + 232);
+            v15 = *(_DWORD *)(v3 + 228);
+            v21 = *(unsigned int *)(v3 + 296);
+            goto LABEL_48;
+          }
+          if ( (byte_14008A201 & 1) == 0 )
+            goto LABEL_16;
+          v23 = *(_QWORD *)(v3 + 232);
+          v10 = *(_DWORD *)(v3 + 228);
+          v20 = *(unsigned int *)(v3 + 296);
+          goto LABEL_35;
+        }
+        if ( (byte_14008A201 & 1) == 0 )
+          goto LABEL_16;
+        v7 = *(unsigned int *)(v3 + 296);
+        v26 = *(_DWORD *)(v3 + 236);
+        v22 = *(_DWORD *)(v3 + 232);
+        v8 = *(_DWORD *)(v3 + 228);
+        goto LABEL_19;
+      }
+      if ( (byte_14008A201 & 1) == 0 )
+        goto LABEL_16;
+      v11 = *(unsigned int *)(v3 + 296);
+      v24 = *(_DWORD *)(v3 + 232);
+      v12 = *(_DWORD *)(v3 + 228);
+    }
+    else
+    {
+      memset(v29, 0, sizeof(v29));
+      if ( v4 == 4 )
+      {
+        v9 = 4294962295LL;
+        a2 = 5LL;
+        v29[1] = 4294962295LL;
+      }
+      else
+      {
+        v9 = v29[1];
+        a2 = 3LL;
+      }
+      if ( !bTracingEnabled )
+        goto LABEL_16;
+      v5 = *(_QWORD *)(*(_QWORD *)(*((_QWORD *)P + 1) + 8LL) + 16LL);
+      a2 = (unsigned int)(a2 - 1);
+      if ( (_DWORD)a2 )
+      {
+        a2 = (unsigned int)(a2 - 1);
+        if ( (_DWORD)a2 )
+        {
+          a2 = (unsigned int)(a2 - 1);
+          if ( (_DWORD)a2 )
+          {
+            a2 = (unsigned int)(a2 - 1);
+            if ( (_DWORD)a2 )
+            {
+              a2 = (unsigned int)(a2 - 1);
+              if ( !(_DWORD)a2 )
+              {
+                if ( (byte_14008A201 & 1) == 0 )
+                  goto LABEL_16;
+                v23 = v9;
+                v20 = LODWORD(v29[9]);
+                v10 = HIDWORD(v29[0]);
+LABEL_40:
+                v13 = (const EVENT_DESCRIPTOR *)&EventDestroyMonitoredFence;
+                goto LABEL_41;
+              }
+              if ( (_DWORD)a2 == 1 )
+              {
+                if ( (byte_14008A201 & 1) == 0 )
+                  goto LABEL_16;
+                v16 = LODWORD(v29[1]);
+                v17 = LODWORD(v29[9]);
+                v28 = v29[2];
+                v27 = HIDWORD(v29[1]);
+                v18 = HIDWORD(v29[0]);
+                goto LABEL_55;
+              }
+LABEL_56:
+              WdLogSingleEntry0(1LL);
+              WdLogGlobalForLineNumber = 1056;
+              DxgkLogInternalTriageEvent(v19, 262146LL);
+              goto LABEL_16;
+            }
+            if ( (byte_14008A201 & 1) == 0 )
+              goto LABEL_16;
+            v25 = v9;
+            v21 = LODWORD(v29[9]);
+            v15 = HIDWORD(v29[0]);
+LABEL_48:
+            McTemplateK0ppqqpx_EtwWriteTransfer(
+              (__int64)&DxgkControlGuid_Context,
+              &EventDestroyCPUNotification,
+              0LL,
+              v5,
+              P,
+              1,
+              v15,
+              v21,
+              v25);
+            goto LABEL_16;
+          }
+          if ( (byte_14008A201 & 1) == 0 )
+            goto LABEL_16;
+          v23 = v9;
+          v20 = LODWORD(v29[9]);
+          v10 = HIDWORD(v29[0]);
+LABEL_35:
+          v13 = (const EVENT_DESCRIPTOR *)&EventDestroyFence;
+LABEL_41:
+          McTemplateK0ppqqpx_EtwWriteTransfer((__int64)&DxgkControlGuid_Context, v13, 0LL, v5, P, 1, v10, v20, v23);
+          goto LABEL_16;
+        }
+        if ( (byte_14008A201 & 1) == 0 )
+          goto LABEL_16;
+        v7 = LODWORD(v29[9]);
+        v26 = HIDWORD(v29[1]);
+        v22 = v29[1];
+        v8 = HIDWORD(v29[0]);
+LABEL_19:
+        McTemplateK0ppqqpqq_EtwWriteTransfer(
+          (__int64)&DxgkControlGuid_Context,
+          &EventDestroySemaphore,
+          0LL,
+          v5,
+          P,
+          1,
+          v8,
+          v7,
+          v22,
+          v26);
+        goto LABEL_16;
+      }
+      if ( (byte_14008A201 & 1) == 0 )
+        goto LABEL_16;
+      v11 = LODWORD(v29[9]);
+      v24 = v29[1];
+      v12 = HIDWORD(v29[0]);
+    }
+    McTemplateK0ppqqpt_EtwWriteTransfer(
+      (__int64)&DxgkControlGuid_Context,
+      &EventDestroySynchronizationMutex,
+      0LL,
+      v5,
+      P,
+      1,
+      v12,
+      v11,
+      v24);
+    goto LABEL_16;
+  }
+  WdLogSingleEntry1(1LL, -1073741811LL);
+  WdLogGlobalForLineNumber = 11053;
+  DxgkLogInternalTriageEvent(v14, 0x40000LL);
+  return 3221225485LL;
+}

@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x1801327B8
+ * Callers:
+ *     ?UpdateExpressions@CExpressionManager@@QEAAX_K0@Z @ 0x180049C24 (-UpdateExpressions@CExpressionManager@@QEAAX_K0@Z.c)
+ * Callees:
+ *     ?EnsurePositionIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z @ 0x18013263A (-EnsurePositionIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z.c)
+ *     ?EnsureScaleIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXXZ @ 0x1801326CA (-EnsureScaleIsGreaterThanOrEqualToMin@CInteractionTracker@@AEAAXXZ.c)
+ *     ?EnsureScaleIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXXZ @ 0x180132704 (-EnsureScaleIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXXZ.c)
+ *     ?TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ @ 0x18013484E (-TryGetActiveChainingHelper@InteractionSourceManager@@QEBAPEAVCChainingHelper@@XZ.c)
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x180231764 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z @ 0x180231F84 (-EnsurePositionIsLessThanOrEqualToMax@CInteractionTracker@@AEAAXW4PropertyValueMask@1@@Z.c)
+ *     ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x180276100 (-UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ.c)
+ */
+
+void __fastcall CInteractionTracker::NotifyExpressionProcessingComplete(CInteractionTracker *this)
+{
+  bool v1; // al
+  __int64 v3; // rdx
+  __int64 v4; // rdx
+  CChainingHelper *ActiveChainingHelper; // rax
+
+  v1 = 1;
+  if ( (*((_BYTE *)this + 541) & 1) == 0 )
+    v1 = *((_QWORD *)this + 80) == 0LL;
+  if ( !*((_DWORD *)this + 44) )
+  {
+    if ( v1 )
+      goto LABEL_8;
+LABEL_7:
+    if ( (*((_BYTE *)this + 541) & 8) == 0 )
+      goto LABEL_9;
+    goto LABEL_8;
+  }
+  if ( !v1 )
+    goto LABEL_7;
+  CInteractionTracker::CheckForIdle(this);
+LABEL_8:
+  CInteractionTracker::EnsurePositionIsGreaterThanOrEqualToMin((__int64)this, 7);
+  CInteractionTracker::EnsurePositionIsLessThanOrEqualToMax(this, 7LL);
+  CInteractionTracker::EnsureScaleIsGreaterThanOrEqualToMin(this, v3);
+  CInteractionTracker::EnsureScaleIsLessThanOrEqualToMax(this, v4);
+LABEL_9:
+  *((_BYTE *)this + 541) &= ~8u;
+  ActiveChainingHelper = InteractionSourceManager::TryGetActiveChainingHelper((CInteractionTracker *)((char *)this + 200));
+  if ( ActiveChainingHelper )
+    CChainingHelper::UpdateConfigurationIfDirty(ActiveChainingHelper);
+  CInteractionTracker::SendPendingCallbacks(this);
+}

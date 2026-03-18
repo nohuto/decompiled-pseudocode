@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0018398
+ * Callers:
+ *     VidSchiSetFlipDevice @ 0x1C0006310 (VidSchiSetFlipDevice.c)
+ *     VidSchiCompletePendingFlip @ 0x1C001830C (VidSchiCompletePendingFlip.c)
+ *     ?VidSchiCancelAndRequeueIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C0048350 (-VidSchiCancelAndRequeueIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?VidSchiCompleteFlipsFromLatestPresentId@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IIPEA_KPEAIPEA_NQEAKPEAPEAU_VIDSCH_DEVICE@@@Z @ 0x1C0048F0C (-VidSchiCompleteFlipsFromLatestPresentId@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IIPEA_K.c)
+ *     ?VidSchiSubmitNextFlipRange@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C004AA60 (-VidSchiSubmitNextFlipRange@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C004B63C (-VidSchiGetNumFlipQueueEntriesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?VidSchiGetNumHistoryLayersUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C004B6B4 (-VidSchiGetNumHistoryLayersUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     ?VidSchiGetNumOverlayPlanesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z @ 0x1C004B764 (-VidSchiGetNumOverlayPlanesUsed@@YAIPEAU_VIDSCH_GLOBAL@@I@Z.c)
+ *     VidSchResetFlipQueueTimeout @ 0x1C0105A14 (VidSchResetFlipQueueTimeout.c)
+ *     VidSchCollectDbgInfo @ 0x1C0109750 (VidSchCollectDbgInfo.c)
+ *     VidSchiGetNumFlipAllocAttribs @ 0x1C010A260 (VidSchiGetNumFlipAllocAttribs.c)
+ * Callees:
+ *     <none>
+ */
+
+struct VIDSCH_FLIP_QUEUE *__fastcall VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueue(VIDSCH_FLIP_QUEUE_ITERATOR *this)
+{
+  __int64 v1; // r8
+  __int64 v2; // rax
+
+  v1 = *((int *)this + 3);
+  v2 = *(_QWORD *)(*(_QWORD *)this + 8LL * *((unsigned int *)this + 2) + 3200);
+  if ( (_DWORD)v1 == -1 )
+    return *(struct VIDSCH_FLIP_QUEUE **)(v2 + 32);
+  else
+    return *(struct VIDSCH_FLIP_QUEUE **)(v2 + 8 * v1 + 40);
+}

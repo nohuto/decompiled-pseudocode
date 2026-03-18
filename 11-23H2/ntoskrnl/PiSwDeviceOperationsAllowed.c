@@ -1,0 +1,22 @@
+/*
+ * XREFs of PiSwDeviceOperationsAllowed @ 0x14079CB78
+ * Callers:
+ *     PiSwIrpPropertySet @ 0x14079C6F8 (PiSwIrpPropertySet.c)
+ *     PiSwIrpInterfaceRegister @ 0x14081AD94 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x14081B124 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x14081B698 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpSetLifetime @ 0x14085C0F4 (PiSwIrpSetLifetime.c)
+ *     PiSwIrpGetLifetime @ 0x140967530 (PiSwIrpGetLifetime.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall PiSwDeviceOperationsAllowed(__int64 a1)
+{
+  char v1; // dl
+
+  v1 = 1;
+  if ( !a1 || !*(_QWORD *)(a1 + 80) || (*(_DWORD *)(a1 + 4) & 4) == 0 || *(_QWORD *)(a1 + 88) )
+    return 0;
+  return v1;
+}

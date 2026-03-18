@@ -1,0 +1,152 @@
+/*
+ * XREFs of KiUpdateThreadHgsFeedback @ 0x14034E8CC
+ * Callers:
+ *     KiRetireDpcList @ 0x140251EB0 (KiRetireDpcList.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x14034AEC0 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiReduceByEffectiveIdleSmtSet @ 0x14034B700 (KiReduceByEffectiveIdleSmtSet.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x14034C1B0 (KiEndThreadAccountingPeriodEx.c)
+ *     KiEndIdleCycleAccumulation @ 0x14034C5A0 (KiEndIdleCycleAccumulation.c)
+ *     KiEndThreadCycleAccumulation @ 0x14034D120 (KiEndThreadCycleAccumulation.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14034DCD0 (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14034F060 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KeQueryTotalCycleTimeThread @ 0x1403EBDD0 (KeQueryTotalCycleTimeThread.c)
+ * Callees:
+ *     KiRequestSoftwareInterrupt @ 0x140297BA0 (KiRequestSoftwareInterrupt.c)
+ *     EtwTraceThreadFeedbackRead @ 0x14064E130 (EtwTraceThreadFeedbackRead.c)
+ *     EtwTraceWorkloadClassUpdate @ 0x14064E2D8 (EtwTraceWorkloadClassUpdate.c)
+ */
+
+void __fastcall KiUpdateThreadHgsFeedback(struct _KPRCB *a1, __int64 a2, __int64 a3, char a4)
+{
+  unsigned __int64 v7; // r8
+  unsigned __int64 v8; // rcx
+  unsigned __int64 v9; // rax
+  __int64 v10; // rdx
+  unsigned __int8 CpuVendor; // al
+  __int64 v12; // r8
+  unsigned __int8 v13; // di
+  unsigned __int64 v14; // rsi
+  __int64 v15; // rax
+  __int64 v16; // rax
+  unsigned int v17; // eax
+  __int64 v18; // r8
+  unsigned __int16 v19; // cx
+  unsigned int v20; // eax
+  unsigned int v21; // eax
+
+  if ( KiHgsPlusEnabled && (!a2 || *(_UNKNOWN **)(a2 + 544) != &KiInitialProcess) )
+  {
+    v7 = *(_QWORD *)(a2 + 1080) + a3;
+    *(_QWORD *)(a2 + 1080) = v7;
+    v8 = __rdtsc() - *(_QWORD *)(a2 + 1072);
+    if ( v8 > qword_140FC43D8 || a4 )
+    {
+      v9 = __rdtsc();
+      v10 = (unsigned __int64)HIDWORD(v9) << 32;
+      *(_QWORD *)(a2 + 1080) = 0LL;
+      *(_QWORD *)(a2 + 1072) = v9;
+      if ( v8 > qword_140FC43D8 && v7 > qword_140FC43E8 )
+      {
+        CpuVendor = a1->CpuVendor;
+        v12 = 0LL;
+        v13 = 0;
+        LOBYTE(v14) = 0;
+        if ( CpuVendor == 2 )
+        {
+          v15 = __readmsr(0x17D2u);
+          v10 = (unsigned __int64)HIDWORD(v15) << 32;
+          v13 = v15;
+          v14 = (unsigned __int64)v15 >> 63;
+        }
+        else
+        {
+          if ( CpuVendor != 1 )
+          {
+LABEL_12:
+            if ( SBYTE4(xmmword_140FC5B10) < 0 )
+              EtwTraceThreadFeedbackRead(a2, KeGetCurrentPrcb(), v12);
+            if ( (_BYTE)v14 && v13 < (unsigned int)KiHgsPlusConfiguration )
+            {
+              v16 = *(unsigned __int8 *)(a2 + 517);
+              *(_DWORD *)(a2 + 1088) = 0;
+              if ( (_BYTE)v16 == v13 )
+              {
+                *(_QWORD *)(a2 + 1092) = 0LL;
+                return;
+              }
+              v19 = *((_WORD *)&KiHgsPlusConfiguration + v16 + 38);
+              v10 = *((unsigned __int16 *)&KiHgsPlusConfiguration + v13 + 38);
+              if ( (unsigned __int16)v10 >= v19 )
+              {
+                *(_DWORD *)(a2 + 1092) = 0;
+                if ( (unsigned __int16)v10 <= v19 )
+                {
+                  v18 = 2LL;
+                }
+                else
+                {
+                  v21 = *(_DWORD *)(a2 + 1096) + 1;
+                  *(_DWORD *)(a2 + 1096) = v21;
+                  if ( v21 < dword_140FC4400 )
+                    return;
+                  v18 = 4LL;
+                }
+                *(_DWORD *)(a2 + 1096) = 0;
+              }
+              else
+              {
+                v20 = *(_DWORD *)(a2 + 1092) + 1;
+                *(_QWORD *)(a2 + 1092) = v20;
+                if ( v20 < dword_140FC43FC )
+                  return;
+                *(_DWORD *)(a2 + 1092) = 0;
+                v18 = 8LL;
+              }
+              *(_BYTE *)(a2 + 517) = v13;
+              if ( (WORD2(xmmword_140FC5B10) & 0x100) == 0 )
+                goto LABEL_27;
+              LOBYTE(v10) = v13;
+            }
+            else
+            {
+              v17 = *(_DWORD *)(a2 + 1088) + 1;
+              *(_DWORD *)(a2 + 1088) = v17;
+              if ( v17 < dword_140FC43F0 )
+                return;
+              if ( dword_140FC43F8 )
+              {
+                *(_BYTE *)(a2 + 517) = dword_140FC43F4;
+                LOBYTE(v10) = dword_140FC43F4;
+              }
+              else
+              {
+                LOBYTE(v10) = byte_140FC443C;
+                *(_BYTE *)(a2 + 517) = byte_140FC443C;
+              }
+              *(_QWORD *)(a2 + 1092) = 0LL;
+              *(_DWORD *)(a2 + 1088) = 0;
+              if ( (WORD2(xmmword_140FC5B10) & 0x100) == 0 )
+                goto LABEL_27;
+              v18 = 16LL;
+            }
+            EtwTraceWorkloadClassUpdate(a2, v10, v18);
+LABEL_27:
+            if ( !a4 )
+            {
+              LOBYTE(v10) = 2;
+              a1->QuantumEnd = 1;
+              KiRequestSoftwareInterrupt(a1, v10);
+            }
+            return;
+          }
+          v15 = __readmsr(0xC0000501);
+          v10 = (unsigned __int64)HIDWORD(v15) << 32;
+          v13 = v15 & 7;
+          LOBYTE(v14) = v15 < 0;
+        }
+        v12 = v15;
+        goto LABEL_12;
+      }
+    }
+  }
+}

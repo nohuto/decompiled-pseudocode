@@ -1,0 +1,93 @@
+/*
+ * XREFs of ?xxxSetSPIMetrics@@YAHPEAU_UNICODE_STRING@@KPEAXHPEAH@Z @ 0x140249884
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1401CB418 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     UserSetLastError @ 0x140022F00 (UserSetLastError.c)
+ *     ValidateExternalLogFont @ 0x1401248C4 (ValidateExternalLogFont.c)
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x140201244 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ *     ?SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z @ 0x140201470 (-SetWindowMetricInt@@YAHPEAU_UNICODE_STRING@@GH@Z.c)
+ *     ?xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z @ 0x140249A28 (-xxxSPISetMinMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagMINIMIZEDMETRICS@@H@Z.c)
+ *     DwmAsyncNotifyAnimationChange @ 0x14024A6E0 (DwmAsyncNotifyAnimationChange.c)
+ *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1402ACC58 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1402ACD48 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ */
+
+__int64 __fastcall xxxSetSPIMetrics(
+        struct _UNICODE_STRING *a1,
+        __int64 a2,
+        struct tagMINIMIZEDMETRICS *a3,
+        int a4,
+        int *a5)
+{
+  unsigned int v8; // edi
+  void *v9; // rax
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  int v12; // ebx
+  __int64 UserSessionState; // rax
+  int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // rdx
+  __int64 v17; // rdx
+  __int64 v18; // rdx
+
+  *a5 = 0;
+  switch ( (_DWORD)a2 )
+  {
+    case ',':
+      v14 = xxxSPISetMinMetrics(a1, a3, a4);
+      goto LABEL_25;
+    case '"':
+      if ( !(unsigned int)ValidateExternalLogFont((__int64)a3, a2) )
+        goto LABEL_23;
+      v14 = SPISetIconTitleFont(a1, (struct tagLOGFONTW *)a3, a4);
+      goto LABEL_25;
+    case '*':
+      if ( !(unsigned int)ValidateExternalLogFont((__int64)a3 + 24, a2)
+        || !(unsigned int)ValidateExternalLogFont((__int64)a3 + 124, v15)
+        || !(unsigned int)ValidateExternalLogFont((__int64)a3 + 224, v16)
+        || !(unsigned int)ValidateExternalLogFont((__int64)a3 + 316, v17)
+        || !(unsigned int)ValidateExternalLogFont((__int64)a3 + 408, v18) )
+      {
+        goto LABEL_23;
+      }
+      v14 = xxxSPISetNCMetrics(a1, a3, a4);
+      goto LABEL_25;
+    case '.':
+      if ( !(unsigned int)ValidateExternalLogFont((__int64)a3 + 16, a2) )
+        goto LABEL_23;
+      v14 = SPISetIconMetrics(a1, a3, a4);
+LABEL_25:
+      v12 = v14;
+LABEL_26:
+      *a5 = v12;
+      return 1LL;
+  }
+  if ( (_DWORD)a2 != 73 )
+  {
+LABEL_23:
+    UserSetLastError(87);
+    return 0LL;
+  }
+  v8 = *((_DWORD *)a3 + 1);
+  v9 = (void *)ReferenceDwmApiPort(a1, a2);
+  DwmAsyncNotifyAnimationChange(v9);
+  if ( !a4 )
+  {
+    v12 = 0;
+    goto LABEL_10;
+  }
+  v12 = SetWindowMetricInt(a1, 149LL, v8);
+  if ( v12 )
+  {
+LABEL_10:
+    UserSessionState = W32GetUserSessionState(v11, v10);
+    if ( v8 )
+      *(_DWORD *)(UserSessionState + 66792) |= 0x10000u;
+    else
+      *(_DWORD *)(UserSessionState + 66792) &= ~0x10000u;
+    goto LABEL_26;
+  }
+  return 1LL;
+}

@@ -1,0 +1,27 @@
+/*
+ * XREFs of x86BiosReadCmosPort @ 0x1404BA360
+ * Callers:
+ *     x86BiosReadIoSpace @ 0x140396DC0 (x86BiosReadIoSpace.c)
+ * Callees:
+ *     x86BiosReadCmosPortByte @ 0x1404BA3E0 (x86BiosReadCmosPortByte.c)
+ */
+
+__int64 __fastcall x86BiosReadCmosPort(int a1, unsigned __int16 a2)
+{
+  int v3; // esi
+  unsigned int CmosPortByte; // edi
+  int v5; // ebx
+
+  v3 = a2;
+  CmosPortByte = (unsigned __int8)x86BiosReadCmosPortByte(a2);
+  if ( a1 > 0 )
+  {
+    CmosPortByte |= (unsigned __int8)x86BiosReadCmosPortByte((unsigned int)(v3 + 1)) << 8;
+    if ( a1 > 1 )
+    {
+      v5 = (unsigned __int8)x86BiosReadCmosPortByte((unsigned int)(v3 + 3)) << 8;
+      CmosPortByte |= (v5 | (unsigned __int8)x86BiosReadCmosPortByte((unsigned int)(v3 + 2))) << 16;
+    }
+  }
+  return CmosPortByte;
+}

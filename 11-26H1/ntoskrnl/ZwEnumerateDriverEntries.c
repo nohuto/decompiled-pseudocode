@@ -1,0 +1,14 @@
+/*
+ * XREFs of ZwEnumerateDriverEntries @ 0x1407250F0
+ * Callers:
+ *     DifZwEnumerateDriverEntriesWrapper @ 0x1406A5300 (DifZwEnumerateDriverEntriesWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwEnumerateDriverEntries(__int64 a1, __int64 a2)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(a1, a2);
+}

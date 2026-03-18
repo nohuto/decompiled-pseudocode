@@ -1,0 +1,131 @@
+/*
+ * XREFs of PopBlackBoxUpdate @ 0x14069C85C
+ * Callers:
+ *     NtPowerInformation @ 0x140699980 (NtPowerInformation.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x14003EAB0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x14003F5C0 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14003F9B0 (KeLeaveCriticalRegionThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x140082D98 (KiQueryUnbiasedInterruptTime.c)
+ *     ExfTryToWakePushLock @ 0x1400C6390 (ExfTryToWakePushLock.c)
+ *     memmove @ 0x1401D7480 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x14036E010 (ExAllocatePoolWithTag.c)
+ *     RtlTestProtectedAccess @ 0x1406B8AE0 (RtlTestProtectedAccess.c)
+ */
+
+__int64 __fastcall PopBlackBoxUpdate(char **a1, char *a2)
+{
+  __int64 v3; // rax
+  _UNKNOWN **v4; // r14
+  int v5; // edi
+  struct _KTHREAD *CurrentThread; // rax
+  unsigned __int64 v7; // r12
+  unsigned __int64 v8; // rax
+  size_t v9; // rsi
+  unsigned int v10; // edi
+  char v11; // bl
+  unsigned __int64 v13; // rcx
+  char *v14; // rax
+  char *v15; // rcx
+  PVOID PoolWithTag; // rax
+  _KPROCESS *Process; // rcx
+  char v19; // [rsp+60h] [rbp+8h]
+
+  v19 = 0;
+  v3 = *((int *)a1 + 6);
+  if ( (unsigned int)v3 > 0x13 )
+  {
+    v10 = -1073741811;
+    goto LABEL_11;
+  }
+  v4 = &PopBlackBoxEntries + 13 * v3;
+  if ( (_BYTE)a2 )
+  {
+    v14 = a1[1];
+    if ( v14 )
+    {
+      v15 = *a1;
+      a2 = &v14[(_QWORD)v15];
+      if ( &v14[(_QWORD)v15] > (char *)0x7FFFFFFF0000LL || a2 < v15 )
+        MEMORY[0x7FFFFFFF0000] = 0;
+    }
+    if ( ((_DWORD)v4[2] & 1) != 0 )
+    {
+      Process = KeGetCurrentThread()->Process;
+      LOBYTE(Process) = BYTE2(Process[2].ActiveProcessors.Bitmap[4]);
+      LOBYTE(a2) = 97;
+      if ( !(unsigned __int8)RtlTestProtectedAccess(Process, a2) )
+      {
+        v10 = -1073741790;
+        goto LABEL_11;
+      }
+    }
+  }
+  v5 = *((_DWORD *)a1 + 7);
+  v19 = 1;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopBlackBoxLock, 0LL);
+  if ( (v5 & 1) == 0 )
+  {
+    v7 = 0LL;
+    v8 = (unsigned __int64)a1[1];
+    v9 = 4096LL;
+    if ( v8 < 0x1000 )
+      v9 = (size_t)a1[1];
+    v4[12] = (_UNKNOWN *)v8;
+    v4[11] = (_UNKNOWN *)v9;
+LABEL_7:
+    if ( v4[10]
+      || (PoolWithTag = ExAllocatePoolWithTag(NonPagedPoolNx, 0x1000uLL, 0x206D654Du), (v4[10] = PoolWithTag) != 0LL) )
+    {
+      v4[9] = (_UNKNOWN *)KiQueryUnbiasedInterruptTime();
+      if ( v9 )
+        memmove((char *)v4[10] + v7, *a1, v9);
+      v10 = 0;
+    }
+    else
+    {
+      v10 = -1073741670;
+    }
+    goto LABEL_11;
+  }
+  v9 = (size_t)a1[1];
+  if ( !v9 )
+  {
+LABEL_29:
+    v10 = -1073741811;
+    goto LABEL_11;
+  }
+  v7 = (unsigned __int64)a1[2];
+  v13 = -1LL;
+  if ( v7 + v9 >= v7 )
+    v13 = v7 + v9;
+  v10 = v7 + v9 < v7 ? 0xC0000095 : 0;
+  if ( v7 + v9 >= v7 )
+  {
+    if ( v13 <= (unsigned __int64)v4[12] )
+    {
+      if ( v7 >= 0x1000 )
+      {
+        v9 = 0LL;
+      }
+      else if ( v13 > 0x1000 )
+      {
+        v9 = 4096 - v7;
+      }
+      goto LABEL_7;
+    }
+    goto LABEL_29;
+  }
+LABEL_11:
+  if ( v19 )
+  {
+    v11 = _InterlockedExchangeAdd64((volatile signed __int64 *)&PopBlackBoxLock, 0xFFFFFFFFFFFFFFFFuLL);
+    if ( (v11 & 2) != 0 && (v11 & 4) == 0 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&PopBlackBoxLock);
+    KeAbPostRelease((ULONG_PTR)&PopBlackBoxLock);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  }
+  return v10;
+}

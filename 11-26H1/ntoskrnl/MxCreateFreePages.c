@@ -1,0 +1,50 @@
+/*
+ * XREFs of MxCreateFreePages @ 0x140CF5CA8
+ * Callers:
+ *     MxAddSmallFreeDescriptorsToFreeList @ 0x140CF4EC0 (MxAddSmallFreeDescriptorsToFreeList.c)
+ *     MxCreateNodeFreeZeroList @ 0x140CF5D60 (MxCreateNodeFreeZeroList.c)
+ * Callees:
+ *     MxCreateFreePageNode @ 0x140CF5A8C (MxCreateFreePageNode.c)
+ *     MxMapFreePageNode @ 0x140CF7CF4 (MxMapFreePageNode.c)
+ */
+
+unsigned __int64 __fastcall MxCreateFreePages(__int64 a1, __int64 a2, unsigned __int64 a3)
+{
+  unsigned __int64 v5; // r8
+  unsigned __int64 FreePageNode; // rbx
+  _QWORD v8[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  if ( qword_14101EC08 < (unsigned __int64)qword_14101EC10 )
+    v5 = 0LL;
+  else
+    v5 = qword_14101EC08 - qword_14101EC10;
+  if ( qword_14101EBF0 <= v5 )
+  {
+    a3 = 0LL;
+  }
+  else
+  {
+    if ( a3 <= qword_14101EBF0 - v5 )
+      goto LABEL_10;
+    a3 = qword_14101EBF0 - v5;
+    if ( qword_14101EBF0 != v5 )
+    {
+      stru_140E2EB88.ApcStateIndex |= 0x20u;
+      goto LABEL_10;
+    }
+  }
+  stru_140E2EB88.ApcStateIndex |= 0x40u;
+LABEL_10:
+  if ( !a3 )
+    return 0LL;
+  v8[1] = v8;
+  v8[0] = v8;
+  FreePageNode = MxCreateFreePageNode(a1, a2, a3, (__int64)v8);
+  if ( !FreePageNode )
+  {
+    stru_140E2EB88.ApcStateIndex |= 8u;
+    return 0LL;
+  }
+  MxMapFreePageNode(a1, v8);
+  return FreePageNode;
+}

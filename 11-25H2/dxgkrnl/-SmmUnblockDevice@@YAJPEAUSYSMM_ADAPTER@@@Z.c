@@ -1,0 +1,106 @@
+/*
+ * XREFs of ?SmmUnblockDevice@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x14027DB8C
+ * Callers:
+ *     ?SysMmCreateAdapter@@YAJPEAU_DEVICE_OBJECT@@PEBQEAU1@IPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IIPEBUSYSMM_ADAPTER_CREATE_PARAMS@@PEAPEAUSYSMM_ADAPTER@@@Z @ 0x14027E850 (-SysMmCreateAdapter@@YAJPEAU_DEVICE_OBJECT@@PEBQEAU1@IPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IIPEBUSYS.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x140019E90 (DxgkLogInternalTriageEvent.c)
+ *     ?SmmUseIommuV2Interface@@YA_NXZ @ 0x1400511E8 (-SmmUseIommuV2Interface@@YA_NXZ.c)
+ *     ?SmmUseIommuV3Interface@@YA_NXZ @ 0x1400577CC (-SmmUseIommuV3Interface@@YA_NXZ.c)
+ *     ?SmmGetIommuInterfaceVersion@@YAKXZ @ 0x140064D40 (-SmmGetIommuInterfaceVersion@@YAKXZ.c)
+ *     _guard_dispatch_icall @ 0x14009F940 (_guard_dispatch_icall.c)
+ *     ?SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x14027D724 (-SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z.c)
+ *     ?SysMmEnableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x14027DF24 (-SysMmEnableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z.c)
+ */
+
+__int64 __fastcall SmmUnblockDevice(struct SYSMM_ADAPTER *a1)
+{
+  __int64 v2; // rcx
+  unsigned int v3; // edi
+  __int64 v4; // rbp
+  __int64 v5; // rcx
+  unsigned int *v6; // rsi
+  __int64 v7; // rdx
+  int v8; // eax
+  int v9; // eax
+  __int64 v11; // [rsp+20h] [rbp-38h]
+  int v12; // [rsp+68h] [rbp+10h] BYREF
+
+  if ( (unsigned int)SmmGetIommuInterfaceVersion() < 2 || (*(_DWORD *)(v2 + 20) & 4) == 0 )
+    return 0LL;
+  v3 = 0;
+  v4 = **(_QWORD **)(v2 + 392);
+  if ( SmmUseIommuV2Interface() || SmmUseIommuV3Interface() )
+  {
+    v6 = (unsigned int *)(v5 + 100);
+    ((void (__fastcall *)(__int64, __int64))qword_14015E588)(v4, v5 + 100);
+    v7 = *v6;
+    if ( (_DWORD)v7 == 2 || (*((_DWORD *)a1 + 22) & 8) != 0 )
+      return v3;
+    if ( (v7 & 2) != 0 )
+    {
+      v8 = SmmIommuSwitchToPassthrough(a1);
+      v3 = v8;
+      if ( v8 < 0 )
+      {
+        WdLogSingleEntry1(4LL, v8);
+        WdLogGlobalForLineNumber = 3233;
+      }
+      return v3;
+    }
+    if ( (v7 & 1) == 0 )
+    {
+      WdLogSingleEntry1(2LL, v7);
+      v11 = *v6;
+      WdLogGlobalForLineNumber = 3294;
+      DxgkLogInternalTriageEvent(
+        0LL,
+        0x40000,
+        0xFFFFFFFFLL,
+        L"QueryAvailableDomainTypes returned unexpected list of available types. No passthrough or translate domains avail"
+         "able. AvailableDomainTypes=0x%.8x",
+        v11,
+        0LL,
+        0LL,
+        0LL,
+        0LL);
+      return (unsigned int)-1073741823;
+    }
+    v9 = SysMmEnableIommu(a1, 1LL);
+    v3 = v9;
+    if ( v9 < 0 )
+    {
+      WdLogSingleEntry1(4LL, v9);
+      WdLogGlobalForLineNumber = 3246;
+      return v3;
+    }
+    v12 = 1;
+    if ( SmmUseIommuV2Interface() || SmmUseIommuV3Interface() )
+    {
+      v3 = ((__int64 (__fastcall *)(void (__fastcall *)(struct _IOMMU_INTERFACE_STATE_CHANGE *, _DWORD *), struct SYSMM_ADAPTER *, __int64, int *))qword_14015E590)(
+             SmmDomainTypeStateChangeCallback,
+             a1,
+             v4,
+             &v12);
+      if ( (v3 & 0x80000000) == 0 )
+        return v3;
+    }
+    else
+    {
+      v3 = -1073741823;
+    }
+    WdLogSingleEntry1(2LL, (int)v3);
+    WdLogGlobalForLineNumber = 3284;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000,
+      0xFFFFFFFFLL,
+      L"Failed to register domain state callback. Status=0x%.8x",
+      (int)v3,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    return v3;
+  }
+  return 3221225473LL;
+}

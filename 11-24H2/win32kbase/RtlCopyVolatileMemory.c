@@ -1,0 +1,63 @@
+/*
+ * XREFs of RtlCopyVolatileMemory @ 0x14023F410
+ * Callers:
+ *     NtGdiGetCurrentDpiInfo @ 0x140010B60 (NtGdiGetCurrentDpiInfo.c)
+ *     ?DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z @ 0x140013DF0 (-DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z.c)
+ *     NtQueryCompositionInputSink @ 0x14004A590 (NtQueryCompositionInputSink.c)
+ *     NtUserGetPointerDeviceOrientation @ 0x140062E50 (NtUserGetPointerDeviceOrientation.c)
+ *     rimProcessInput @ 0x1400BC820 (rimProcessInput.c)
+ *     NtGdiRectInRegion @ 0x1400D1C40 (NtGdiRectInRegion.c)
+ *     ?NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z @ 0x1400E7360 (-NtGdiGetDeviceCapsAllInternal@@YAHAEAVPDEVOBJ@@PEAU_DEVCAPS@@@Z.c)
+ *     NtGdiGetRgnBox @ 0x140100150 (NtGdiGetRgnBox.c)
+ *     ?_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z @ 0x14011481C (-_CreateCompositionInputSink@@YAJPEBUCOMPOSITION_INPUT_SINK@@HPEAPEAX@Z.c)
+ *     NtUserCreateActivationObject @ 0x14012F500 (NtUserCreateActivationObject.c)
+ *     RIMGetDevicePropertiesLockfree @ 0x140135580 (RIMGetDevicePropertiesLockfree.c)
+ *     RIMGetSourceProcessId @ 0x140142E90 (RIMGetSourceProcessId.c)
+ *     RIMRegisterForInputWithCallbacks @ 0x14014F6E0 (RIMRegisterForInputWithCallbacks.c)
+ *     RIMGetDevicePreparsedDataLockfree @ 0x1401541A0 (RIMGetDevicePreparsedDataLockfree.c)
+ *     RIMInjectInput @ 0x140156010 (RIMInjectInput.c)
+ *     NtUserDisplayConfigGetDeviceInfo @ 0x14016B770 (NtUserDisplayConfigGetDeviceInfo.c)
+ *     NtUserDisplayConfigSetDeviceInfo @ 0x14016BDA0 (NtUserDisplayConfigSetDeviceInfo.c)
+ *     NtUserFunctionalizeDisplayConfig @ 0x14016C1F0 (NtUserFunctionalizeDisplayConfig.c)
+ *     NtUserGetInputLocaleInfo @ 0x14016CC70 (NtUserGetInputLocaleInfo.c)
+ *     NtUserGetPointerInfoList @ 0x14016D3B0 (NtUserGetPointerInfoList.c)
+ *     NtUserGetPointerProprietaryId @ 0x14016D880 (NtUserGetPointerProprietaryId.c)
+ *     NtUserGetRawPointerDeviceData @ 0x14016DA20 (NtUserGetRawPointerDeviceData.c)
+ *     NtUserInjectKeyboardInput @ 0x14016E210 (NtUserInjectKeyboardInput.c)
+ *     NtUserInjectMouseInput @ 0x14016EBE0 (NtUserInjectMouseInput.c)
+ *     NtUserQueryDisplayConfig @ 0x14016F580 (NtUserQueryDisplayConfig.c)
+ *     NtUserSetDisplayConfig @ 0x140170CE0 (NtUserSetDisplayConfig.c)
+ *     NtUserSetManipulationInputTarget @ 0x140171460 (NtUserSetManipulationInputTarget.c)
+ *     NtUserSetSysColors @ 0x140171750 (NtUserSetSysColors.c)
+ *     NtUserToUnicodeEx @ 0x140173450 (NtUserToUnicodeEx.c)
+ *     NtHWCursorUpdatePointer @ 0x140179790 (NtHWCursorUpdatePointer.c)
+ *     NtRIMDeviceIoControl @ 0x14017ACF0 (NtRIMDeviceIoControl.c)
+ *     RIMDeviceIoControl @ 0x14017AF70 (RIMDeviceIoControl.c)
+ *     RIMUnregisterForInput @ 0x14017BA20 (RIMUnregisterForInput.c)
+ *     RtlCopyFromUser @ 0x1401A22E8 (RtlCopyFromUser.c)
+ *     NtConfigureInputSpace @ 0x1401B7710 (NtConfigureInputSpace.c)
+ *     NtInputSpaceRegionFromPoint @ 0x1401B7A50 (NtInputSpaceRegionFromPoint.c)
+ *     NtMITConfigureVirtualTouchpad @ 0x1401B7DD0 (NtMITConfigureVirtualTouchpad.c)
+ *     NtUserGetExtendedPointerDeviceProperty @ 0x1401BA9F0 (NtUserGetExtendedPointerDeviceProperty.c)
+ *     NtUserGetInputContainerId @ 0x1401BAB10 (NtUserGetInputContainerId.c)
+ *     NtUserGetPointerDeviceInputSpace @ 0x1401BAE60 (NtUserGetPointerDeviceInputSpace.c)
+ *     NtUserGetSystemContentRects @ 0x1401BAF30 (NtUserGetSystemContentRects.c)
+ *     NtUserInitializeInputDeviceInjection @ 0x1401BB2D0 (NtUserInitializeInputDeviceInjection.c)
+ *     NtUserInjectPointerInput @ 0x1401BB770 (NtUserInjectPointerInput.c)
+ *     NtUserMapPointsByVisualIdentifier @ 0x1401BC710 (NtUserMapPointsByVisualIdentifier.c)
+ *     NtUserSetSystemContentRects @ 0x1401BDBD0 (NtUserSetSystemContentRects.c)
+ *     ?DxgkEngQueryRemoteVidPnSourceFromGdiDisplayName@@YAJPEAU_D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME@@@Z @ 0x1401CCF80 (-DxgkEngQueryRemoteVidPnSourceFromGdiDisplayName@@YAJPEAU_D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDI.c)
+ *     NtRIMSetExtendedDeviceProperty @ 0x1401D4FD0 (NtRIMSetExtendedDeviceProperty.c)
+ *     RIMAreSiblingDevices @ 0x1401D6B80 (RIMAreSiblingDevices.c)
+ *     RIMFillDeviceHealthInfo @ 0x1401D7700 (RIMFillDeviceHealthInfo.c)
+ *     RIMGetPhysicalDeviceRect @ 0x1401D7F10 (RIMGetPhysicalDeviceRect.c)
+ *     RtlCopyToUser @ 0x1402C3008 (RtlCopyToUser.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void *__cdecl RtlCopyVolatileMemory(void *a1, const void *Src, size_t Size)
+{
+  return memmove(a1, Src, Size);
+}

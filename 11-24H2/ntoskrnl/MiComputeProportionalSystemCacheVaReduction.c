@@ -1,0 +1,18 @@
+/*
+ * XREFs of MiComputeProportionalSystemCacheVaReduction @ 0x1403F850C
+ * Callers:
+ *     MiRemoveUnusedSegments @ 0x1403F734C (MiRemoveUnusedSegments.c)
+ *     MiSegmentDereferenceWorker @ 0x1403F7BB0 (MiSegmentDereferenceWorker.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MiComputeProportionalSystemCacheVaReduction(__int64 a1)
+{
+  unsigned __int64 v1; // rax
+
+  if ( !qword_140E38940 )
+    return 0LL;
+  v1 = 100 * (unsigned __int64)*(unsigned int *)(a1 + 2408) / qword_140E38940;
+  return (8 * v1) & -(__int64)(v1 != 0);
+}

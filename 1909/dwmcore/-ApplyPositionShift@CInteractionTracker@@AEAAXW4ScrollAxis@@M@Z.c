@@ -1,0 +1,58 @@
+/*
+ * XREFs of ?ApplyPositionShift@CInteractionTracker@@AEAAXW4ScrollAxis@@M@Z @ 0x1801D7898
+ * Callers:
+ *     ?ProcessApplyPositionShift@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_APPLYPOSITIONSHIFT@@PEBXI@Z @ 0x1801D99EC (-ProcessApplyPositionShift@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTI.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1800E7E60 (__security_check_cookie.c)
+ *     ModuleFailFastForHRESULT @ 0x1801583B0 (ModuleFailFastForHRESULT.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x1801D7A2C (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z @ 0x1801DB9B4 (-SetPosition@CInteractionTracker@@AEAAXAEBUD2DVector3@@W4TrackerUpdateType@1@@Z.c)
+ */
+
+char __fastcall CInteractionTracker::ApplyPositionShift(__int64 a1, int a2, float a3)
+{
+  int v3; // eax
+  __int64 v4; // rax
+  int v5; // edx
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v9; // [rsp+20h] [rbp-28h] BYREF
+  int v10; // [rsp+28h] [rbp-20h]
+  const void *retaddr; // [rsp+48h] [rbp+0h]
+
+  v3 = *(_DWORD *)(a1 + 168);
+  if ( v3 )
+  {
+    LODWORD(v4) = v3 - 1;
+    if ( (unsigned int)v4 <= 1 )
+    {
+      LOBYTE(v4) = CInteractionTracker::AreInteractionAnimationsAlive((CInteractionTracker *)a1);
+      if ( (_BYTE)v4 )
+      {
+        if ( v5 )
+        {
+          if ( v5 != 1 )
+            ModuleFailFastForHRESULT(-2147024809, retaddr);
+          v4 = *(_QWORD *)(v6 + 336);
+        }
+        else
+        {
+          v4 = *(_QWORD *)(v6 + 328);
+        }
+        *(float *)(v4 + 616) = a3 + *(float *)(v4 + 616);
+      }
+    }
+  }
+  else
+  {
+    v7 = *(_DWORD *)(a1 + 80);
+    v9 = *(_QWORD *)(a1 + 72);
+    v10 = v7;
+    if ( a2 )
+      *((float *)&v9 + 1) = *((float *)&v9 + 1) + a3;
+    else
+      *(float *)&v9 = *(float *)&v9 + a3;
+    LOBYTE(v4) = CInteractionTracker::SetPosition(a1, &v9, 0LL);
+  }
+  return v4;
+}

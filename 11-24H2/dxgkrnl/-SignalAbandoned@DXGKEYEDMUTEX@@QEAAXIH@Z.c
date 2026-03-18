@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?SignalAbandoned@DXGKEYEDMUTEX@@QEAAXIH@Z @ 0x1403949B8
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x14034D4E0 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ * Callees:
+ *     ??0DXGKEYEDMUTEXBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGKEYEDMUTEX@@@Z @ 0x140036FE4 (--0DXGKEYEDMUTEXBYHANDLE@@QEAA@IPEAVDXGPROCESS@@PEAPEAVDXGKEYEDMUTEX@@@Z.c)
+ *     ??1DXGKEYEDMUTEXBYHANDLE@@QEAA@XZ @ 0x140042294 (--1DXGKEYEDMUTEXBYHANDLE@@QEAA@XZ.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1400422B4 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x14029C800 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?SignalAbandonedInternal@DXGKEYEDMUTEX@@QEAAXIH@Z @ 0x140394F94 (-SignalAbandonedInternal@DXGKEYEDMUTEX@@QEAAXIH@Z.c)
+ */
+
+void __fastcall DXGKEYEDMUTEX::SignalAbandoned(DXGKEYEDMUTEX *this, unsigned int a2)
+{
+  __int64 v2; // rbx
+  struct _KTHREAD **Current; // rax
+  struct DXGKEYEDMUTEX *v4; // [rsp+30h] [rbp+8h] BYREF
+  DXGKEYEDMUTEX *v5; // [rsp+48h] [rbp+20h] BYREF
+
+  v4 = this;
+  v2 = a2;
+  Current = (struct _KTHREAD **)DXGPROCESS::GetCurrent((__int64)this);
+  v4 = 0LL;
+  DXGKEYEDMUTEXBYHANDLE::DXGKEYEDMUTEXBYHANDLE((DXGKEYEDMUTEXBYHANDLE *)&v5, v2, Current, &v4);
+  if ( v4 )
+  {
+    DXGKEYEDMUTEX::SignalAbandonedInternal(v4, v2, 0);
+    if ( v5 )
+      DXGKEYEDMUTEX::ReleaseReference(v5);
+  }
+  else
+  {
+    WdLogSingleEntry2(3LL, v2, -1073741811LL);
+    WdLogGlobalForLineNumber = 4447;
+    DXGKEYEDMUTEXBYHANDLE::~DXGKEYEDMUTEXBYHANDLE(&v5);
+  }
+}

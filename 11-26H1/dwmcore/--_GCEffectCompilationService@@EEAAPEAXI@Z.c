@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??_GCEffectCompilationService@@EEAAPEAXI@Z @ 0x18022EF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x18002D600 (--3@YAXPEAX@Z.c)
+ *     ?FinalRelease@?$CMILRefCountBaseT@VIUnknownWeakRef@@VCMilObjectDeleter@@@@MEAAXXZ @ 0x1801C0A10 (-FinalRelease@-$CMILRefCountBaseT@VIUnknownWeakRef@@VCMilObjectDeleter@@@@MEAAXXZ.c)
+ *     ??1CEffectCompilationService@@EEAA@XZ @ 0x18022EEBC (--1CEffectCompilationService@@EEAA@XZ.c)
+ */
+
+CEffectCompilationService *__fastcall CEffectCompilationService::`scalar deleting destructor'(
+        CEffectCompilationService *this,
+        char a2)
+{
+  CEffectCompilationService::~CEffectCompilationService(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      CMILRefCountBaseT<IUnknownWeakRef,CMilObjectDeleter>::FinalRelease();
+    else
+      operator delete(this);
+  }
+  return this;
+}

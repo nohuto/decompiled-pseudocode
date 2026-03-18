@@ -1,0 +1,50 @@
+/*
+ * XREFs of ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140035F90
+ * Callers:
+ *     ?UpdateAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@K@Z @ 0x14009B954 (-UpdateAllocationPriority@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@K@Z.c)
+ *     ?InvalidateCache@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MULTI_GLOBAL_ALLOC@@PEAUVIDMM_MULTI_ALLOC@@_K3@Z @ 0x14009F738 (-InvalidateCache@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAUVIDMM_MULTI_GLOBAL_ALLOC@@PEAUVIDMM_M.c)
+ *     ?VidMmCopyContentEscape@@YAJW4_D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION@@PEAXI_K2@Z @ 0x1400A2820 (-VidMmCopyContentEscape@@YAJW4_D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION@@PEAXI_K2@Z.c)
+ *     VidMmSetExistingSysMemPages @ 0x1400A3B50 (VidMmSetExistingSysMemPages.c)
+ *     VidMmSetExistingSysMemStore @ 0x1400A3C40 (VidMmSetExistingSysMemStore.c)
+ *     ?AllocateGlobal@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAUVIDMM_GLOBAL_ALLOC@@_KIW4VIDMM_HEAP_ALLOCATE_FLAGS@@PEAXW4VIDMM_PROCESS_HEAP_MAPPING@@PEAPEAUVIDMM_HEAP_ALLOC@@PEAPEAXPEAE@Z @ 0x1400ACD30 (-AllocateGlobal@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAUVIDMM_GLOBAL_ALLOC@@_KIW4VIDMM_HEAP_ALLOCATE_FL.c)
+ *     ?GetGuestPhysicalAddress@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEBUVIDMM_HEAP_ALLOC@@@Z @ 0x1400AD740 (-GetGuestPhysicalAddress@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEBUVIDMM_HEAP_ALLOC@@@Z.c)
+ *     ?MapViewOfAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAUVIDMM_HEAP_ALLOC@@_K1_N2PEAPEAX@Z @ 0x1400ADB40 (-MapViewOfAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAUVIDMM_HEAP_ALLOC@@_K1_N2PEAPEAX@Z.c)
+ *     ?UnmapViewOfAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAUVIDMM_HEAP_ALLOC@@PEAX@Z @ 0x1400ADC40 (-UnmapViewOfAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAUVIDMM_HEAP_ALLOC@@PEAX@Z.c)
+ *     ReleaseTemporaryResourcesForAllocation @ 0x1400AFF9C (ReleaseTemporaryResourcesForAllocation.c)
+ *     ?VidMmReleaseTemporaryResourcesForLegacyAllocation@@YAXPEAUVIDMM_PHYSICAL_ADAPTER_LEGACY@@PEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@_N@Z @ 0x1400B37E4 (-VidMmReleaseTemporaryResourcesForLegacyAllocation@@YAXPEAUVIDMM_PHYSICAL_ADAPTER_LEGACY@@PEAUVI.c)
+ *     ?UnmapVideoApertureSegment@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@I_K11T_LARGE_INTEGER@@_N@Z @ 0x1400D9190 (-UnmapVideoApertureSegment@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@I_K11T_LARGE_INTEGER@@_N@Z.c)
+ *     CommitResources_0 @ 0x1400DCFC8 (CommitResources_0.c)
+ *     ?LockHeapAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAUVIDMM_HEAP_ALLOC@@PEAUVIDMM_GLOBAL_ALLOC@@_K2W4_LOCK_OPERATION@@PEAVVIDMM_GLOBAL@@_N@Z @ 0x1400F5F40 (-LockHeapAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAUVIDMM_HEAP_ALLOC@@PEAUVIDMM_GLOBAL_ALLOC@@_.c)
+ *     ?ForceDiscardOffer@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x14010DB3C (-ForceDiscardOffer@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ProcessSystemMemoryOfferList @ 0x14010E534 (ProcessSystemMemoryOfferList.c)
+ *     ?ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x140112990 (-ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
+ *     EvictResources @ 0x1401172F8 (EvictResources.c)
+ *     ?ResetUndo@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAUVIDMM_HEAP_ALLOC@@PEAX_K@Z @ 0x14011CEC0 (-ResetUndo@VIDMM_RECYCLE_HEAP_MGR@@UEAAJPEAUVIDMM_HEAP_ALLOC@@PEAX_K@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14002EEAC (DxgkLogInternalTriageEvent.c)
+ *     ?IsOwner@DXGFASTMUTEX@@QEBAEXZ @ 0x140036084 (-IsOwner@DXGFASTMUTEX@@QEBAEXZ.c)
+ *     _guard_dispatch_icall @ 0x14005B850 (_guard_dispatch_icall.c)
+ */
+
+DXGAUTOMUTEX *__fastcall DXGAUTOMUTEX::DXGAUTOMUTEX(DXGAUTOMUTEX *this, struct DXGFASTMUTEX *const a2, char a3)
+{
+  void (__fastcall *v5)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD); // rax
+  __int64 v7; // rcx
+
+  *(_QWORD *)this = a2;
+  *((_BYTE *)this + 8) = 0;
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    v5 = (void (__fastcall *)(_QWORD, __int64, __int64, const wchar_t *, __int64, _QWORD, _QWORD, _QWORD, _QWORD))DxgCoreInterface[88];
+    WdLogGlobalForLineNumber = 628;
+    v5(0LL, 262146LL, 0xFFFFFFFFLL, L"m_pMutex != NULL", 628LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  if ( !a3 && DXGFASTMUTEX::IsOwner(*(DXGFASTMUTEX **)this) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 635;
+    DxgkLogInternalTriageEvent(v7, 262146LL);
+  }
+  return this;
+}

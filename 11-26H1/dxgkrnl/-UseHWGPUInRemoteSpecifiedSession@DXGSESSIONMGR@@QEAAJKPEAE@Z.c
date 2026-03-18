@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?UseHWGPUInRemoteSpecifiedSession@DXGSESSIONMGR@@QEAAJKPEAE@Z @ 0x140204B14
+ * Callers:
+ *     ?DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@PEAKAEAE@Z @ 0x14042C8BC (-DxgkpFindDefaultRenderAdapterForSession@@YAJAEAU_LUID@@AEAVDXGADAPTER_REFERENCE@@PEAKAEAE@Z.c)
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x14000D6A0 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x14000E0B0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x140016BA0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall DXGSESSIONMGR::UseHWGPUInRemoteSpecifiedSession(
+        DXGSESSIONMGR *this,
+        unsigned int a2,
+        unsigned __int8 *a3)
+{
+  __int64 v3; // rdi
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  v3 = a2;
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGSESSIONMGR *)((char *)this + 88), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+  if ( (unsigned int)v3 < *((_DWORD *)this + 20) && *(_QWORD *)(*((_QWORD *)this + 6) + 8 * v3) )
+  {
+    _mm_lfence();
+    *a3 = *(_BYTE *)(*(_QWORD *)(*((_QWORD *)this + 6) + 8 * v3) + 18505LL);
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v7);
+    return 0LL;
+  }
+  else
+  {
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v7);
+    return 3221226021LL;
+  }
+}

@@ -1,0 +1,46 @@
+/*
+ * XREFs of WPP_IFR_SF_D @ 0x1C005B340
+ * Callers:
+ *     ?Stop@FxTimer@@QEAAEE@Z @ 0x1C0003728 (-Stop@FxTimer@@QEAAEE@Z.c)
+ *     ?CompleteInternal@FxRequest@@AEAAJJ@Z @ 0x1C0008890 (-CompleteInternal@FxRequest@@AEAAJJ@Z.c)
+ *     ?ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPTOR@@K@Z @ 0x1C001A074 (-ValidateMemoryDescriptor@FxRequestBuffer@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_MEMORY_DESCRIPT.c)
+ *     GetImageName @ 0x1C0026FBC (GetImageName.c)
+ *     imp_WdfDeviceSetSpecialFileSupport @ 0x1C002E0B0 (imp_WdfDeviceSetSpecialFileSupport.c)
+ *     imp_WdfDeviceInitSetFileObjectConfig @ 0x1C0031890 (imp_WdfDeviceInitSetFileObjectConfig.c)
+ *     imp_WdfFdoRetrieveNextStaticChild @ 0x1C005B4F0 (imp_WdfFdoRetrieveNextStaticChild.c)
+ *     ?LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceCompanionCallbacks@@PEAPEAUIDeviceCompanion@@@Z @ 0x1C0060714 (-LoadCompanion@FxCompanionLibrary@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAU_DEVICE_OBJECT@@PEAUIDeviceC.c)
+ *     imp_WdfControlDeviceInitSetShutdownNotification @ 0x1C0061BB0 (imp_WdfControlDeviceInitSetShutdownNotification.c)
+ *     imp_WdfCxDeviceInitSetFileObjectConfig @ 0x1C0065780 (imp_WdfCxDeviceInitSetFileObjectConfig.c)
+ *     ?InitializeLockOrder@FxVerifierLock@@AEAAXXZ @ 0x1C006D898 (-InitializeLockOrder@FxVerifierLock@@AEAAXXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C000B6B0 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C005B6FC (FxWmiTraceMessage.c)
+ */
+
+void __fastcall WPP_IFR_SF_D(
+        _FX_DRIVER_GLOBALS *globals,
+        unsigned __int8 flags,
+        unsigned int id,
+        unsigned __int16 traceGuid,
+        const _GUID *_a1,
+        unsigned int globals_0)
+{
+  int v9; // eax
+  unsigned __int64 v10; // r11
+
+  v9 = *(&WPP_GLOBAL_WDF_Control.Characteristics + 16 * ((unsigned __int64)id >> 16) + (((id - 1) >> 5) & 0x7FF));
+  if ( _bittest(&v9, ((_BYTE)id - 1) & 0x1F) )
+  {
+    v10 = (unsigned __int64)id >> 16 << 6;
+    if ( *((_BYTE *)&WPP_GLOBAL_WDF_Control.Flags + v10 + 1) >= 2u )
+      FxWmiTraceMessage(
+        *(unsigned __int64 *)((char *)&WPP_GLOBAL_WDF_Control.CurrentIrp + v10),
+        0x2Bu,
+        _a1,
+        traceGuid,
+        &globals_0,
+        4LL,
+        0LL);
+  }
+  FxIFR(globals, 2u, id, _a1, traceGuid, &globals_0, 4LL, 0LL);
+}

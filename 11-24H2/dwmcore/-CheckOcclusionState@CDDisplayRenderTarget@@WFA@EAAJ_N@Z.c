@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?CheckOcclusionState@CDDisplayRenderTarget@@WFA@EAAJ_N@Z @ 0x180276250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CDDisplayRenderTarget::CheckOcclusionState(__int64 a1, char a2)
+{
+  return CDDisplayRenderTarget::CheckOcclusionState((CDDisplayRenderTarget *)(a1 - 80), a2);
+}

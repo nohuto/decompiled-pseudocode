@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?GetBlurCacheRealizationKey@CBackdropVisualImage@@QEBA_NAEBVRenderTargetInfo@@PEAPEBX@Z @ 0x1802457C0
+ * Callers:
+ *     ?ExecuteBlur@CRenderingTechnique@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@AEBUD2D_VECTOR_2F@@PEBUD2D_SIZE_F@@PEAU3@@Z @ 0x18004A12C (-ExecuteBlur@CRenderingTechnique@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@AEBUD2D_VECTOR_2F@@.c)
+ * Callees:
+ *     ?IsValid@CBackdropVisualImage@@QEBA_NXZ @ 0x18000B1E0 (-IsValid@CBackdropVisualImage@@QEBA_NXZ.c)
+ *     ?FindExistingCachedTarget@CCachedVisualImage@@IEBAPEAVCCachedTarget@1@AEBVRenderTargetInfo@@@Z @ 0x180108B50 (-FindExistingCachedTarget@CCachedVisualImage@@IEBAPEAVCCachedTarget@1@AEBVRenderTargetInfo@@@Z.c)
+ *     ?IsValid@CCachedTarget@CCachedVisualImage@@QEBA_NXZ @ 0x18010C380 (-IsValid@CCachedTarget@CCachedVisualImage@@QEBA_NXZ.c)
+ */
+
+char __fastcall CBackdropVisualImage::GetBlurCacheRealizationKey(
+        CBackdropVisualImage *this,
+        const struct RenderTargetInfo *a2,
+        CCachedVisualImage::CCachedTarget **a3)
+{
+  const struct RenderTargetInfo *v4; // rdx
+  CCachedVisualImage *v5; // rcx
+  CCachedVisualImage::CCachedTarget *ExistingCachedTarget; // rax
+  CCachedVisualImage::CCachedTarget *v7; // rbx
+
+  if ( !CBackdropVisualImage::IsValid(this) )
+    return 0;
+  ExistingCachedTarget = CCachedVisualImage::FindExistingCachedTarget(v5, v4);
+  v7 = ExistingCachedTarget;
+  if ( !ExistingCachedTarget || !CCachedVisualImage::CCachedTarget::IsValid(ExistingCachedTarget) || *((_BYTE *)v7 + 56) )
+    return 0;
+  *a3 = v7;
+  return 1;
+}

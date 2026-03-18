@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?GetDdiSubRectCnt@DXGPRESENT@@QEBAII@Z @ 0x1C033E37C
+ * Callers:
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C01BF8F0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DXGPRESENT::GetDdiSubRectCnt(DXGPRESENT *this, unsigned int a2)
+{
+  if ( a2 >= *((_DWORD *)this + 17) && a2 )
+    return 0LL;
+  else
+    return *((unsigned int *)this + a2 + 88);
+}

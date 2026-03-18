@@ -1,0 +1,35 @@
+/*
+ * XREFs of ??0DXGDIAGNOSTICSWITHMUTEX@@QEAA@IW4_POOL_TYPE@@@Z @ 0x1C0020864
+ * Callers:
+ *     ?CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_OUTPUTDUPL_FLAGS@@@Z @ 0x1C0156D64 (-CreateOutputDuplication@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_CREATE_OUTPUTDUPL@@PEAU_D3DKMT_CREATE_.c)
+ * Callees:
+ *     ??0DXGFASTMUTEX@@QEAA@W4_DXGK_BLOCK_THREAD_REASON@@W4DXGK_LOCK_ORDER@@@Z @ 0x1C0006DD4 (--0DXGFASTMUTEX@@QEAA@W4_DXGK_BLOCK_THREAD_REASON@@W4DXGK_LOCK_ORDER@@@Z.c)
+ *     ??0DXGDIAGNOSTICS@@QEAA@IW4_POOL_TYPE@@@Z @ 0x1C000E734 (--0DXGDIAGNOSTICS@@QEAA@IW4_POOL_TYPE@@@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0065FA0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ */
+
+DXGDIAGNOSTICSWITHMUTEX *__fastcall DXGDIAGNOSTICSWITHMUTEX::DXGDIAGNOSTICSWITHMUTEX(
+        DXGDIAGNOSTICSWITHMUTEX *this,
+        unsigned int a2,
+        enum _POOL_TYPE a3)
+{
+  void *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  __int64 v9; // rax
+
+  DXGDIAGNOSTICS::DXGDIAGNOSTICS(this, a2, a3);
+  v4 = operator new[](0x40uLL, 0x4B677844u, (enum _POOL_TYPE)512);
+  if ( v4 )
+    v4 = (void *)DXGFASTMUTEX::DXGFASTMUTEX((__int64)v4, 47, 32);
+  *((_QWORD *)this + 3) = v4;
+  if ( !v4 )
+  {
+    v9 = WdLogNewEntry5_WdLowResource(v6, v5, v7, v8);
+    *(_QWORD *)(v9 + 24) = 352LL;
+    WdLogEvent5_WdLowResource(v9);
+  }
+  return this;
+}

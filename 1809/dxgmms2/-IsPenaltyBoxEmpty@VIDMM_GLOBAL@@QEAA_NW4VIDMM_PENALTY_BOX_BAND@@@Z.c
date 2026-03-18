@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?IsPenaltyBoxEmpty@VIDMM_GLOBAL@@QEAA_NW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C0002990
+ * Callers:
+ *     ?HandlePromotionCandidates@VIDMM_GLOBAL@@QEAAXPEA_N@Z @ 0x1C007C4D0 (-HandlePromotionCandidates@VIDMM_GLOBAL@@QEAAXPEA_N@Z.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C00029E0 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCKSHARED@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C0002A3C (--0DXGAUTOPUSHLOCKSHARED@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ?IsPenaltyBoxEmptyWithoutLock@VIDMM_GLOBAL@@QEAA_NW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1C0018D00 (-IsPenaltyBoxEmptyWithoutLock@VIDMM_GLOBAL@@QEAA_NW4VIDMM_PENALTY_BOX_BAND@@@Z.c)
+ */
+
+__int64 __fastcall VIDMM_GLOBAL::IsPenaltyBoxEmpty(__int64 a1)
+{
+  __int64 v1; // rbx
+  _BYTE v3[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v1 = a1;
+  DXGAUTOPUSHLOCKSHARED::DXGAUTOPUSHLOCKSHARED((DXGAUTOPUSHLOCKSHARED *)v3, (struct DXGPUSHLOCK *const)(a1 + 41240));
+  LOBYTE(v1) = VIDMM_GLOBAL::IsPenaltyBoxEmptyWithoutLock(v1, 1LL);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v3);
+  return (unsigned __int8)v1;
+}

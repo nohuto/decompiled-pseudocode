@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?EnsureSurfaceShader@CSurfaceShaderComposer@@IEAAJW4SurfaceShaderType@@@Z @ 0x1802457B0
+ * Callers:
+ *     ?GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11PixelShader@@@Z @ 0x180245858 (-GetSurfacePixelShaderNoRef@CSurfaceShaderComposer@@QEAAJW4SurfaceShaderType@@PEAPEAUID3D11Pixel.c)
+ * Callees:
+ *     ?CreatePixelShader@CD3DDevice@@QEAAJPEBX_KPEAUID3D11ClassLinkage@@PEAPEAUID3D11PixelShader@@@Z @ 0x180038998 (-CreatePixelShader@CD3DDevice@@QEAAJPEBX_KPEAUID3D11ClassLinkage@@PEAPEAUID3D11PixelShader@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x180068608 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x1800C7124 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+__int64 __fastcall CSurfaceShaderComposer::EnsureSurfaceShader(__int64 a1, unsigned int a2)
+{
+  unsigned int v2; // ebx
+  struct ID3D11PixelShader **v3; // rbp
+  __int64 v4; // rdi
+  CD3DDevice *v5; // rsi
+  struct ID3D11ClassLinkage *v6; // r9
+  int PixelShader; // eax
+  __int64 v8; // rcx
+
+  v2 = 0;
+  v3 = (struct ID3D11PixelShader **)(a1 + 8LL * a2);
+  v4 = 3LL * a2;
+  if ( !*v3 )
+  {
+    v5 = *(CD3DDevice **)(a1 + 120);
+    if ( *((_DWORD *)v5 + 156) >= *((_DWORD *)&unk_180341D30 + 6 * a2 + 5) )
+    {
+      Microsoft::WRL::ComPtr<IUnknown>::InternalRelease((__int64 *)(a1 + 8LL * a2));
+      PixelShader = CD3DDevice::CreatePixelShader(
+                      v5,
+                      *((const void **)&unk_180341D30 + v4 + 1),
+                      *((_QWORD *)&unk_180341D30 + v4),
+                      v6,
+                      v3);
+      v2 = PixelShader;
+      if ( PixelShader < 0 )
+        MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, PixelShader, 0x1F1u, 0LL);
+    }
+  }
+  return v2;
+}

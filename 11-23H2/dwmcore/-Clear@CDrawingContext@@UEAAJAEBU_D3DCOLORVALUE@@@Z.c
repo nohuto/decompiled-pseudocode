@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?Clear@CDrawingContext@@UEAAJAEBU_D3DCOLORVALUE@@@Z @ 0x1800DD080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FlushDrawList@CD2DContext@@QEAAJXZ @ 0x180074D40 (-FlushDrawList@CD2DContext@@QEAAJXZ.c)
+ *     ?EnsureBeginDraw@CD2DContext@@AEAAXXZ @ 0x180075A34 (-EnsureBeginDraw@CD2DContext@@AEAAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x18009DA0C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010EE30 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18011B6B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0ffff_EventWriteTransfer @ 0x18012DF28 (McTemplateU0ffff_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x1801A2414 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
+__int64 __fastcall CDrawingContext::Clear(CDrawingContext *this, const struct _D3DCOLORVALUE *a2)
+{
+  int v4; // eax
+  __int64 v5; // rcx
+  __int64 v6; // rbx
+  unsigned int v7; // esi
+  __int64 v8; // rdi
+  int v9; // eax
+  int v10; // r8d
+  int v11; // r9d
+
+  v4 = (*(__int64 (__fastcall **)(CDrawingContext *))(*(_QWORD *)this + 112LL))(this);
+  v6 = 0LL;
+  v7 = v4;
+  if ( v4 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, v4, 0x280u, 0LL);
+  }
+  else
+  {
+    v8 = *((_QWORD *)this + 3);
+    CD2DContext::FlushDrawList((CD2DContext *)(v8 + 16));
+    v9 = *(_DWORD *)(v8 + 368);
+    if ( v9 )
+      v6 = *(_QWORD *)(*(_QWORD *)(v8 + 344) + 8LL * (unsigned int)(v9 - 1));
+    CD2DContext::EnsureBeginDraw((CD2DContext *)(v8 + 16));
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      McTemplateU0ffff_EventWriteTransfer(
+        (unsigned int)&Microsoft_Windows_Dwm_Core_Provider_Context,
+        (unsigned int)&EVTDESC_ETWGUID_CLEAREVENT_Start,
+        v10,
+        v11,
+        *(_DWORD *)(v6 + 60),
+        *(_DWORD *)(v6 + 64));
+    (*(void (__fastcall **)(_QWORD, const struct _D3DCOLORVALUE *))(**(_QWORD **)(*(_QWORD *)(v6 + 16) + 200LL) + 376LL))(
+      *(_QWORD *)(*(_QWORD *)(v6 + 16) + 200LL),
+      a2);
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      McGenEventWrite_EventWriteTransfer(&Microsoft_Windows_Dwm_Core_Provider_Context, &EVTDESC_ETWGUID_CLEAREVENT_Stop);
+  }
+  return v7;
+}

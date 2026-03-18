@@ -1,0 +1,21 @@
+/*
+ * XREFs of KiHeadlessDisplayString @ 0x1401C6494
+ * Callers:
+ *     KiBugCheckDebugBreak @ 0x1401C5E48 (KiBugCheckDebugBreak.c)
+ *     KiBugCheckProgress @ 0x1401C5EFC (KiBugCheckProgress.c)
+ *     KiDisplayBlueScreen @ 0x1401C6018 (KiDisplayBlueScreen.c)
+ * Callees:
+ *     HeadlessDispatch @ 0x1401340E0 (HeadlessDispatch.c)
+ */
+
+__int64 __fastcall KiHeadlessDisplayString(__int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+
+  if ( a1 )
+  {
+    if ( a2 )
+      return HeadlessDispatch(0x17u, a1, a2, 0LL, 0LL);
+  }
+  return result;
+}

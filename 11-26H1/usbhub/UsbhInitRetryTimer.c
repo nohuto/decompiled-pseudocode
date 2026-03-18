@@ -1,0 +1,22 @@
+/*
+ * XREFs of UsbhInitRetryTimer @ 0x1400512C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhQueueWorkItemWithRetry @ 0x14000FB5C (UsbhQueueWorkItemWithRetry.c)
+ *     FdoExt @ 0x1400196E0 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x14003E310 (WPP_RECORDER_SF_.c)
+ */
+
+__int64 __fastcall UsbhInitRetryTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  FdoExt(a2);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      1u,
+      0xAu,
+      (__int64)&WPP_e515ed24217c325a0d538c98f1498d1a_Traceguids);
+  return UsbhQueueWorkItemWithRetry(a2, 0LL, (__int64)UsbhInitCallbackWorker, 1LL, a4, 0, 0x49577473u);
+}

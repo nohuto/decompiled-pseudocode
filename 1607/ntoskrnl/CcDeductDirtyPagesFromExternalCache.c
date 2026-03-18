@@ -1,0 +1,38 @@
+/*
+ * XREFs of CcDeductDirtyPagesFromExternalCache @ 0x1401341C8
+ * Callers:
+ *     CcUnregisterExternalCache @ 0x1401B1924 (CcUnregisterExternalCache.c)
+ * Callees:
+ *     KeAcquireQueuedSpinLock @ 0x1400E8D30 (KeAcquireQueuedSpinLock.c)
+ *     KeReleaseQueuedSpinLock @ 0x1400E8DA0 (KeReleaseQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1401B1B04 (CcPostDeferredWrites.c)
+ */
+
+struct _LIST_ENTRY *__fastcall CcDeductDirtyPagesFromExternalCache(__int64 a1, unsigned __int64 a2)
+{
+  unsigned __int64 v2; // rdi
+  unsigned int v4; // esi
+  KIRQL v5; // al
+  unsigned __int64 v6; // rdx
+  struct _LIST_ENTRY *result; // rax
+
+  v2 = a2;
+  while ( v2 )
+  {
+    v4 = v2;
+    if ( v2 > 0xFFFFFFFF )
+      v4 = -1;
+    v2 -= v4;
+    v5 = KeAcquireQueuedSpinLock(5uLL);
+    v6 = *(_QWORD *)(a1 + 8);
+    if ( v6 < v4 )
+      v4 = *(_QWORD *)(a1 + 8);
+    *(_QWORD *)(a1 + 8) = v6 - v4;
+    CcGlobalDirtyPageStatistics -= v4;
+    KeReleaseQueuedSpinLock(5uLL, v5);
+  }
+  result = &CcDeferredWrites;
+  if ( CcDeferredWrites.Flink != &CcDeferredWrites )
+    return (struct _LIST_ENTRY *)CcPostDeferredWrites(a1);
+  return result;
+}

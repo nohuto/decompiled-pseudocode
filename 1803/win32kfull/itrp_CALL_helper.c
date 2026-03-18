@@ -1,0 +1,12 @@
+/*
+ * XREFs of itrp_CALL_helper @ 0x1C02C6440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InvokeInterpreter @ 0x1C02C52B4 (InvokeInterpreter.c)
+ */
+
+void __fastcall itrp_CALL_helper(__int64 a1)
+{
+  InvokeInterpreter(dword_1C03271B8, *(_QWORD *)a1, *(_QWORD *)a1 + *(unsigned __int16 *)(a1 + 8));
+}

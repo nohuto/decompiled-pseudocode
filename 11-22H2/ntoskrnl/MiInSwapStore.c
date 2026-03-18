@@ -1,0 +1,40 @@
+/*
+ * XREFs of MiInSwapStore @ 0x1406816C4
+ * Callers:
+ *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x140243CC0 (KeWaitForSingleObject.c)
+ *     MiGetProcessPartition @ 0x140275574 (MiGetProcessPartition.c)
+ *     KeInitializeEvent @ 0x1402AF840 (KeInitializeEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B6890 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItemToPartition @ 0x1402B956C (ExQueueWorkItemToPartition.c)
+ *     MiAllocatePool @ 0x1402DF1A0 (MiAllocatePool.c)
+ *     KeQueryPriorityThread @ 0x140304B70 (KeQueryPriorityThread.c)
+ *     MiInSwapStoreContextDereference @ 0x1406818E8 (MiInSwapStoreContextDereference.c)
+ */
+
+__int64 __fastcall MiInSwapStore(PVOID Object)
+{
+  char *Pool; // rax
+  char *v3; // rbx
+  __int64 ProcessPartition; // rax
+  int v5; // r8d
+
+  Pool = (char *)MiAllocatePool(64, 0x48uLL, 0x73536D4Du);
+  v3 = Pool;
+  if ( !Pool )
+    return 3221225626LL;
+  KeInitializeEvent((PRKEVENT)(Pool + 40), NotificationEvent, 0);
+  *(_QWORD *)v3 = 0LL;
+  *((_QWORD *)v3 + 2) = MiInSwapStoreWorker;
+  *((_QWORD *)v3 + 3) = v3;
+  ObfReferenceObjectWithTag(Object, 0x73576D4Du);
+  *((_QWORD *)v3 + 4) = Object;
+  *((_DWORD *)v3 + 16) = 2;
+  KeQueryPriorityThread(KeGetCurrentThread());
+  ProcessPartition = MiGetProcessPartition((__int64)Object);
+  ExQueueWorkItemToPartition(v3, v5 + 32, 0xFFFFFFFF, *(_QWORD *)(ProcessPartition + 200));
+  KeWaitForSingleObject(v3 + 40, WrKernel, 0, 0, (PLARGE_INTEGER)&Mi30Milliseconds);
+  MiInSwapStoreContextDereference(v3);
+  return 0LL;
+}

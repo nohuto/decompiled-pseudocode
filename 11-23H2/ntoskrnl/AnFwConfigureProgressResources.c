@@ -1,0 +1,49 @@
+/*
+ * XREFs of AnFwConfigureProgressResources @ 0x140AEE920
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEDC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x1402AF870 (KeInitializeEvent.c)
+ *     BgpGetBitsPerPixel @ 0x140385500 (BgpGetBitsPerPixel.c)
+ *     BgpTxtRegionSize @ 0x1403880DC (BgpTxtRegionSize.c)
+ *     BgpGxRectangleSize @ 0x14038813C (BgpGxRectangleSize.c)
+ *     BgpFoGetFontHandle @ 0x140AEDBC4 (BgpFoGetFontHandle.c)
+ *     BgpTxtCreateRegion @ 0x140AEE2AC (BgpTxtCreateRegion.c)
+ */
+
+__int64 __fastcall AnFwConfigureProgressResources(__int64 a1)
+{
+  int BitsPerPixel; // eax
+  _DWORD v4[2]; // [rsp+40h] [rbp-28h] BYREF
+  __int64 *v5; // [rsp+48h] [rbp-20h] BYREF
+  int v6; // [rsp+50h] [rbp-18h]
+  int v7; // [rsp+54h] [rbp-14h]
+  __int64 v8; // [rsp+70h] [rbp+8h] BYREF
+
+  v8 = 0LL;
+  v5 = 0LL;
+  KeInitializeEvent(&stru_140D16A00, NotificationEvent, 1u);
+  if ( !a1 || (*(_DWORD *)(a1 + 24) & 1) == 0 )
+    return 0LL;
+  if ( dword_140C0E63C == 1 )
+  {
+    word_140C0B4F0 = 0;
+    word_140C0B4E4 = -7936;
+    word_140C0B4E8 = -7818;
+    word_140C0B4EC = -7937;
+  }
+  if ( (int)BgpFoGetFontHandle(0LL, &v5) < 0 )
+    return 0LL;
+  v4[0] = HIDWORD(qword_140C0E630);
+  v4[1] = dword_140C0E638;
+  v6 = *(_DWORD *)(a1 + 20);
+  v7 = 1;
+  if ( (int)BgpTxtCreateRegion((_DWORD *)a1, (_DWORD *)(a1 + 8), (__int64)v4, (_QWORD *)(a1 + 28), &v8, 10) < 0 )
+    return 0LL;
+  BitsPerPixel = BgpGetBitsPerPixel();
+  dword_140C0E4D4 = ((BgpGxRectangleSize(*(_DWORD *)(a1 + 12), *(_DWORD *)(a1 + 8), BitsPerPixel) + 15) & 0xFFFFFFF0)
+                  + 128;
+  dword_140C0E4D0 = dword_140C0E4D4 * ((unsigned __int16)word_140C0B4E8 - (unsigned __int16)word_140C0B4E4 + 1);
+  dword_140C0E4D8 = BgpTxtRegionSize(v8);
+  return v8;
+}

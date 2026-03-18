@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?FindAdapterObject@DXGSYNCOBJECTCA@@QEAAPEAVDXGADAPTERSYNCOBJECTCA@@PEAVADAPTER_RENDER@@@Z @ 0x1C0044D74
+ * Callers:
+ *     ?WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDXGPROCESS@@PEAVDXGDEVICE@@PEAX@Z @ 0x1C00F4E98 (-WaitForSynchronizationObjectFromCpu@@YAJPEBU_D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU@@PEAVDX.c)
+ *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C00F61DC (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
+ *     DxgkSignalSynchronizationObjectFromGpuByReference @ 0x1C00FB380 (DxgkSignalSynchronizationObjectFromGpuByReference.c)
+ *     ?SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPROCESS@@_N6@Z @ 0x1C0107E60 (-SignalSynchronizationObjectInternal@@YAJIPEBIU_D3DDDICB_SIGNALFLAGS@@K0PEB_K_KPEBQEAXPEAVDXGPRO.c)
+ *     ?WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N444@Z @ 0x1C011EBA0 (-WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N444@Z.c)
+ *     ?GetDxgAdapterSyncObject@DXGSYNCOBJECTCA@@QEAAJPEAVADAPTER_RENDER@@PEAPEAVDXGADAPTERSYNCOBJECT@@@Z @ 0x1C0269B04 (-GetDxgAdapterSyncObject@DXGSYNCOBJECTCA@@QEAAJPEAVADAPTER_RENDER@@PEAPEAVDXGADAPTERSYNCOBJECT@@.c)
+ * Callees:
+ *     <none>
+ */
+
+struct DXGADAPTERSYNCOBJECTCA *__fastcall DXGSYNCOBJECTCA::FindAdapterObject(
+        DXGSYNCOBJECTCA *this,
+        struct ADAPTER_RENDER *a2)
+{
+  DXGSYNCOBJECTCA *i; // rax
+
+  for ( i = (DXGSYNCOBJECTCA *)*((_QWORD *)this + 36); ; i = *(DXGSYNCOBJECTCA **)i )
+  {
+    if ( i == (DXGSYNCOBJECTCA *)((char *)this + 288) )
+      return 0LL;
+    if ( !a2 || *((struct ADAPTER_RENDER **)i - 3) == a2 )
+      break;
+  }
+  return (DXGSYNCOBJECTCA *)((char *)i - 40);
+}

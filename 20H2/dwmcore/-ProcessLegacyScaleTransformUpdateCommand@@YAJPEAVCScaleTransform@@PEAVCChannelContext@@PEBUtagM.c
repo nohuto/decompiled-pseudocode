@@ -1,0 +1,52 @@
+/*
+ * XREFs of ?ProcessLegacyScaleTransformUpdateCommand@@YAJPEAVCScaleTransform@@PEAVCChannelContext@@PEBUtagMILCMD_SCALETRANSFORM@@@Z @ 0x1800D3644
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800ADEEC (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800EE9F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall ProcessLegacyScaleTransformUpdateCommand(
+        struct CScaleTransform *a1,
+        struct CChannelContext *a2,
+        const struct tagMILCMD_SCALETRANSFORM *a3)
+{
+  float v3; // xmm0_4
+  __int64 v6; // rax
+  float v7; // xmm0_4
+  __int64 v8; // rax
+  float v9; // xmm0_4
+  float v10; // xmm0_4
+  __int64 v12; // rax
+  __int64 v13; // rax
+
+  v3 = *((float *)a3 + 2);
+  if ( v3 != *((float *)a1 + 38) )
+  {
+    v6 = *(_QWORD *)a1;
+    *((float *)a1 + 38) = v3;
+    (*(void (__fastcall **)(struct CScaleTransform *, _QWORD, _QWORD))(v6 + 72))(a1, 0LL, 0LL);
+  }
+  v7 = *((float *)a3 + 3);
+  if ( v7 != *((float *)a1 + 39) )
+  {
+    v8 = *(_QWORD *)a1;
+    *((float *)a1 + 39) = v7;
+    (*(void (__fastcall **)(struct CScaleTransform *, _QWORD, _QWORD))(v8 + 72))(a1, 0LL, 0LL);
+  }
+  v9 = *((float *)a3 + 4);
+  if ( v9 != *((float *)a1 + 40) )
+  {
+    v12 = *(_QWORD *)a1;
+    *((float *)a1 + 40) = v9;
+    (*(void (__fastcall **)(struct CScaleTransform *, _QWORD, _QWORD))(v12 + 72))(a1, 0LL, 0LL);
+  }
+  v10 = *((float *)a3 + 5);
+  if ( v10 != *((float *)a1 + 41) )
+  {
+    v13 = *(_QWORD *)a1;
+    *((float *)a1 + 41) = v10;
+    (*(void (__fastcall **)(struct CScaleTransform *, _QWORD, _QWORD))(v13 + 72))(a1, 0LL, 0LL);
+  }
+  return 0LL;
+}

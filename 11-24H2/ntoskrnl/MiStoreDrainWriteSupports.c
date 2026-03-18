@@ -1,0 +1,23 @@
+/*
+ * XREFs of MiStoreDrainWriteSupports @ 0x1402CF620
+ * Callers:
+ *     MiStoreCheckCompleteWriteBatch @ 0x1402D001C (MiStoreCheckCompleteWriteBatch.c)
+ *     MiStoreDeletePartition @ 0x14068BE24 (MiStoreDeletePartition.c)
+ * Callees:
+ *     RtlpInterlockedFlushSList @ 0x1406B3910 (RtlpInterlockedFlushSList.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall MiStoreDrainWriteSupports(union _SLIST_HEADER *a1)
+{
+  PSLIST_ENTRY v1; // rbx
+  PSLIST_ENTRY v2; // rcx
+
+  v1 = RtlpInterlockedFlushSList(a1 + 86);
+  while ( v1 )
+  {
+    v2 = v1;
+    v1 = v1->Next;
+    ExFreePoolWithTag(v2, 0);
+  }
+}

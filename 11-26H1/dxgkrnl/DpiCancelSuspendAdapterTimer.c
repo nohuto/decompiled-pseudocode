@@ -1,0 +1,34 @@
+/*
+ * XREFs of DpiCancelSuspendAdapterTimer @ 0x140032AD8
+ * Callers:
+ *     ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1400323CC (-DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     DpiRequestDevicePowerState @ 0x140032628 (DpiRequestDevicePowerState.c)
+ * Callees:
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x140012744 (McTemplateK0pt_EtwWriteTransfer.c)
+ */
+
+void __fastcall DpiCancelSuspendAdapterTimer(__int64 a1)
+{
+  char v2; // di
+  BOOLEAN v3; // bl
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
+
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v2 = 0;
+  if ( KeGetCurrentIrql() < 2u )
+  {
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)(a1 + 4224), &LockHandle);
+    v2 = 1;
+  }
+  WdLogSingleEntry3(9LL, a1, 0LL, 0LL);
+  WdLogGlobalForLineNumber = 4914;
+  if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x20000) != 0 )
+    McTemplateK0pt_EtwWriteTransfer((__int64)&DxgkControlGuid_Context, (__int64)&Dxgk_DevicePowerRequiredTimer);
+  v3 = KeCancelTimer((PKTIMER)(a1 + 4304));
+  if ( v2 )
+  {
+    KeReleaseInStackQueuedSpinLock(&LockHandle);
+    if ( !v3 )
+      KeFlushQueuedDpcs();
+  }
+}

@@ -1,0 +1,32 @@
+/*
+ * XREFs of PfpPowerActionStartScenarioTracing @ 0x140409D7C
+ * Callers:
+ *     PfPowerActionNotify @ 0x140409780 (PfPowerActionNotify.c)
+ * Callees:
+ *     PfLogEvent @ 0x14005F30C (PfLogEvent.c)
+ *     PfTAccessTracingStart @ 0x140404D3C (PfTAccessTracingStart.c)
+ *     MmPerformMemoryListCommand @ 0x14040E2BC (MmPerformMemoryListCommand.c)
+ *     PfTAccessTracingCleanup @ 0x14040E304 (PfTAccessTracingCleanup.c)
+ */
+
+__int64 __fastcall PfpPowerActionStartScenarioTracing(__int64 a1, __int64 a2)
+{
+  __int64 v3; // rdx
+  __int64 v4; // r8
+  __int64 v6; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+28h] [rbp-10h]
+
+  PfTAccessTracingCleanup(&PfTGlobals, a2, 4LL);
+  MmPerformMemoryListCommand(1LL, v3, v4);
+  PfTAccessTracingStart((__int64)&PfTGlobals, (__int64)&PfKernelGlobals, 4);
+  v7 = 0LL;
+  v6 = *(int *)(a1 + 48);
+  LODWORD(v7) = 4 * (unsigned __int16)*(_DWORD *)(a1 + 52);
+  return PfLogEvent(
+           27,
+           dword_14036DE5C
+         + (unsigned int)((((MEMORY[0xFFFFF78000000004] * (unsigned __int64)MEMORY[0xFFFFF78000000320]) >> 24)
+                         + ((MEMORY[0xFFFFF78000000004] * HIDWORD(MEMORY[0xFFFFF78000000320])) << 8)) >> 10),
+           &v6,
+           0x10u);
+}

@@ -1,0 +1,157 @@
+/*
+ * XREFs of ?GreGetCurrentThreadCrossSessionCheck@@YAPEAU_GRETHREAD@@XZ @ 0x140071590
+ * Callers:
+ *     GreClientRgnUpdatedStable @ 0x140013468 (GreClientRgnUpdatedStable.c)
+ *     GreClientRgnUpdated @ 0x140013A14 (GreClientRgnUpdated.c)
+ *     ??$GrepAcquireLockValidate@$0O@@@YAXXZ @ 0x140013E20 (--$GrepAcquireLockValidate@$0O@@@YAXXZ.c)
+ *     ??$GreReleaseSemaphoreExclusive@$08PEAUHSEMAPHORE__@@@@YAXPEAUHSEMAPHORE__@@@Z @ 0x14001DA64 (--$GreReleaseSemaphoreExclusive@$08PEAUHSEMAPHORE__@@@@YAXPEAUHSEMAPHORE__@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$08@@YAXXZ @ 0x14001DAC8 (--$GrepAcquireLockValidate@$08@@YAXXZ.c)
+ *     GreUpdateSpriteVisRgn @ 0x1400384E0 (GreUpdateSpriteVisRgn.c)
+ *     ??$GreReleaseSemaphoreExclusive@$07VPDEVOBJ@@@@YAXVPDEVOBJ@@@Z @ 0x1400686B0 (--$GreReleaseSemaphoreExclusive@$07VPDEVOBJ@@@@YAXVPDEVOBJ@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$03@@YAXXZ @ 0x14006B768 (--$GrepAcquireLockValidate@$03@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$00@@YAXXZ @ 0x14006B7F4 (--$GrepAcquireLockValidate@$00@@YAXXZ.c)
+ *     ?vSynchronizeDriver@@YAXK@Z @ 0x14006B94C (-vSynchronizeDriver@@YAXK@Z.c)
+ *     ??$GrepAcquireLockValidate@$01@@YAXXZ @ 0x14006BCF0 (--$GrepAcquireLockValidate@$01@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$07@@YAXXZ @ 0x14006BD7C (--$GrepAcquireLockValidate@$07@@YAXXZ.c)
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x14006F670 (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ??0?$SEMOBJ@$0N@@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x14006FAEC (--0-$SEMOBJ@$0N@@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x14006FDD0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??$GrepAcquireLockValidate@$0P@@@YAXXZ @ 0x1400701DC (--$GrepAcquireLockValidate@$0P@@@YAXXZ.c)
+ *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1400702E0 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x140070E90 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ??$GreAcquireSemaphoreShared@$02$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x140071CD0 (--$GreAcquireSemaphoreShared@$02$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??0?$SEMOBJSHARED@$02@@QEAA@XZ @ 0x140071D98 (--0-$SEMOBJSHARED@$02@@QEAA@XZ.c)
+ *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x140071F20 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
+ *     ??0?$PushLockSharedObj@$0A@$0A@@@QEAA@AEAUGLOBALS@Font@Gre@@@Z @ 0x14007253C (--0-$PushLockSharedObj@$0A@$0A@@@QEAA@AEAUGLOBALS@Font@Gre@@@Z.c)
+ *     ??$GreAcquireSemaphoreShared@$00$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1400725E4 (--$GreAcquireSemaphoreShared@$00$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$05@@YAXXZ @ 0x140072750 (--$GrepAcquireLockValidate@$05@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$06@@YAXXZ @ 0x14007347C (--$GrepAcquireLockValidate@$06@@YAXXZ.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1400801CC (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ *     ?SpNotifyLSurfaceRedirSurfAssoc@@YAJQEAUHDEV__@@PEAUHLSURF__@@PEAU_SURFOBJ@@H@Z @ 0x14009EC1C (-SpNotifyLSurfaceRedirSurfAssoc@@YAJQEAUHDEV__@@PEAUHLSURF__@@PEAU_SURFOBJ@@H@Z.c)
+ *     ?SpNotifyLSurface@@YAJPEAUHDEV__@@PEAUHLSURF__@@HKPEAU_CD_HLSURF_CREATIONCONTEXT@@@Z @ 0x14009ED44 (-SpNotifyLSurface@@YAJPEAUHDEV__@@PEAUHLSURF__@@HKPEAU_CD_HLSURF_CREATIONCONTEXT@@@Z.c)
+ *     ??0?$SEMOBJSHARED@$00@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1400A6694 (--0-$SEMOBJSHARED@$00@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$02@@YAXXZ @ 0x1400AA7C4 (--$GrepAcquireLockValidate@$02@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$0N@@@YAXXZ @ 0x1400B438C (--$GrepAcquireLockValidate@$0N@@@YAXXZ.c)
+ *     ?wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@AEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z @ 0x1400C0C28 (-wpgdGetLinkMetricsPlus@RFONTOBJ@@QEAAPEAU_GLYPHDATA@@AEAVXDCOBJ@@PEAVESTROBJ@@PEBG2KPEAHH@Z.c)
+ *     ??$GrepAcquireLockValidate@$0BB@@@YAXXZ @ 0x1400C693C (--$GrepAcquireLockValidate@$0BB@@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$0BE@@@YAXXZ @ 0x1400C6AC0 (--$GrepAcquireLockValidate@$0BE@@@YAXXZ.c)
+ *     ??$GreReleaseSemaphoreExclusive@$0P@PEAVRFONT@@@@YAXPEAVRFONT@@@Z @ 0x1400D5B14 (--$GreReleaseSemaphoreExclusive@$0P@PEAVRFONT@@@@YAXPEAVRFONT@@@Z.c)
+ *     ?vSrcOpaqCopyS8D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1400EE780 (-vSrcOpaqCopyS8D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcOpaqCopyS4D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1400EEA00 (-vSrcOpaqCopyS4D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcTranCopyS8D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1400EEB20 (-vSrcTranCopyS8D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcOpaqCopyS8D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1400EEF80 (-vSrcOpaqCopyS8D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcTranCopyS8D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1400EF340 (-vSrcTranCopyS8D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$0BI@@@YAXXZ @ 0x1400EF45C (--$GrepAcquireLockValidate@$0BI@@@YAXXZ.c)
+ *     ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1400F4A1C (-ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z.c)
+ *     ?ValidateAndReferencePDEV@@YA_NPEAUHDEV__@@@Z @ 0x1400F5F54 (-ValidateAndReferencePDEV@@YA_NPEAUHDEV__@@@Z.c)
+ *     prfntKillList @ 0x1400F60E8 (prfntKillList.c)
+ *     ??$GrepAcquireLockValidate@$0BD@@@YAXXZ @ 0x1400F6488 (--$GrepAcquireLockValidate@$0BD@@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$0A@@@YAXXZ @ 0x1400F6BC4 (--$GrepAcquireLockValidate@$0A@@@YAXXZ.c)
+ *     GreRemoveDisplayDriverRealizations @ 0x1400F8354 (GreRemoveDisplayDriverRealizations.c)
+ *     UnmapPrintKView @ 0x1400FD6F0 (UnmapPrintKView.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x140101C04 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     ?pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ @ 0x140101DB4 (-pfdg@PFEOBJ@@QEAAPEAU_FD_GLYPHSET@@XZ.c)
+ *     ??$GrepAcquireLockValidate@$0BM@@@YAXXZ @ 0x140102008 (--$GrepAcquireLockValidate@$0BM@@@YAXXZ.c)
+ *     ?GrepGetGlyphOutline@@YAKAEAVDCOBJ@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@H@Z @ 0x14010CB48 (-GrepGetGlyphOutline@@YAKAEAVDCOBJ@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@H@Z.c)
+ *     ??$GreReleaseSemaphoreShared@$08PEAUHSEMAPHORE__@@@@YAXPEAUHSEMAPHORE__@@@Z @ 0x14016A694 (--$GreReleaseSemaphoreShared@$08PEAUHSEMAPHORE__@@@@YAXPEAUHSEMAPHORE__@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$09@@YAXXZ @ 0x140182B04 (--$GrepAcquireLockValidate@$09@@YAXXZ.c)
+ *     ??$GreReleaseSemaphoreExclusive@$09$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x140182BBC (--$GreReleaseSemaphoreExclusive@$09$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ?vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z @ 0x14018548C (-vSpComputeUnlockedRegion@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ??$GreAcquireSemaphoreShared@$05$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x1401AB3CC (--$GreAcquireSemaphoreShared@$05$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1401BB14C (-dtorHelper@RFONTOBJ@@QEAAXXZ.c)
+ *     ??$GreReleaseSemaphoreCommon@$07P6AXPEAUHSEMAPHORE__@@@Z@@YAXP6AXPEAUHSEMAPHORE__@@@Z0@Z @ 0x1401BD5EC (--$GreReleaseSemaphoreCommon@$07P6AXPEAUHSEMAPHORE__@@@Z@@YAXP6AXPEAUHSEMAPHORE__@@@Z0@Z.c)
+ *     ?FNTCachepInit@@YAXPEBG@Z @ 0x1401C5E88 (-FNTCachepInit@@YAXPEBG@Z.c)
+ *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1401C61E8 (-PutFNTCacheCheckSum@@YAXKK@Z.c)
+ *     ??$GrepAcquireLockValidate@$0BJ@@@YAXXZ @ 0x1401C6318 (--$GrepAcquireLockValidate@$0BJ@@@YAXXZ.c)
+ *     ?Contains@TrustedFontFileTable@@SA_NPEBG@Z @ 0x1401F44A0 (-Contains@TrustedFontFileTable@@SA_NPEBG@Z.c)
+ *     ??0?$SEMOBJ@$0BG@@@QEAA@PEAUtagSILOGLOBALS@@@Z @ 0x1401F4574 (--0-$SEMOBJ@$0BG@@@QEAA@PEAUtagSILOGLOBALS@@@Z.c)
+ *     ?vUnlock@?$SEMOBJ@$0BK@@@QEAAXXZ @ 0x140201B7C (-vUnlock@-$SEMOBJ@$0BK@@@QEAAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$0BH@@@YAXXZ @ 0x140215F18 (--$GrepAcquireLockValidate@$0BH@@@YAXXZ.c)
+ *     ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x140225258 (-UmfdZombifyAllUmfdFonts@@YAXXZ.c)
+ *     ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x14023EB9C (-vSpHideSprites@@YAXPEAUHDEV__@@H@Z.c)
+ *     ?vRedo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x140253454 (-vRedo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
+ *     ?bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z @ 0x14026ABBC (-bSpUpdateDeviceSurface@@YAHPEAU_SURFOBJ@@PEAPEAU_CLIPOBJ@@AEAVRGNOBJ@@PEAVECLIPOBJ@@@Z.c)
+ *     GreDrvDisconnect @ 0x140287F5C (GreDrvDisconnect.c)
+ *     ??$GrepAcquireLockValidate@$0CB@@@YAXXZ @ 0x140288D1C (--$GrepAcquireLockValidate@$0CB@@@YAXXZ.c)
+ *     ?vSrcOpaqCopyS4D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x140289B80 (-vSrcOpaqCopyS4D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$0CC@@@YAXXZ @ 0x14028B11C (--$GrepAcquireLockValidate@$0CC@@@YAXXZ.c)
+ *     ?GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z @ 0x14028DA20 (-GdiMovePointer@@YAXPEAU_SURFOBJ@@JJPEAU_RECTL@@H@Z.c)
+ *     bDrvReconnect @ 0x140291B28 (bDrvReconnect.c)
+ *     ?Add@TrustedFontFileTable@@SAXPEBG@Z @ 0x140293A08 (-Add@TrustedFontFileTable@@SAXPEBG@Z.c)
+ *     bDrvShadowDisconnect @ 0x140293AD4 (bDrvShadowDisconnect.c)
+ *     ??$GreReleaseSemaphoreExclusive@$0BM@$$V@@YAXAEAUGLOBALS@Font@Gre@@@Z @ 0x140294034 (--$GreReleaseSemaphoreExclusive@$0BM@$$V@@YAXAEAUGLOBALS@Font@Gre@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$0BK@@@YAXXZ @ 0x140296284 (--$GrepAcquireLockValidate@$0BK@@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$0BN@@@YAXXZ @ 0x14029630C (--$GrepAcquireLockValidate@$0BN@@@YAXXZ.c)
+ *     ?vCleanUpFntCache@@YAXXZ @ 0x140296BF8 (-vCleanUpFntCache@@YAXXZ.c)
+ *     ??$GrepAcquireLockValidate@$0L@@@YAXXZ @ 0x14030F040 (--$GrepAcquireLockValidate@$0L@@@YAXXZ.c)
+ *     ?vSrcOpaqCopyS4D16@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x14030F6A0 (-vSrcOpaqCopyS4D16@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcOpaqCopyS8D16@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x14030F960 (-vSrcOpaqCopyS8D16@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcTranCopyS8D16New@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@P6AX011JPEAPEAG@Z1@Z @ 0x140310204 (-vSrcTranCopyS8D16New@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@P6AX011JPEAPEAG@Z1@Z.c)
+ *     ??$GreReleaseSemaphoreExclusive@$0BF@PEAU_SPRITESTATE@@@@YAXPEAU_SPRITESTATE@@@Z @ 0x140312A20 (--$GreReleaseSemaphoreExclusive@$0BF@PEAU_SPRITESTATE@@@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ??$GrepAcquireLockValidate@$0BF@@@YAXXZ @ 0x140312A8C (--$GrepAcquireLockValidate@$0BF@@@YAXXZ.c)
+ *     ?SpSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z @ 0x140313B10 (-SpSaveScreenBits@@YA_KPEAU_SURFOBJ@@K_KPEAU_RECTL@@@Z.c)
+ *     ?vSpCheckForWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@1@Z @ 0x1403162AC (-vSpCheckForWndobjOverlap@@YAXPEAU_SPRITESTATE@@PEAU_RECTL@@1@Z.c)
+ *     ?vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ @ 0x140318698 (-vUndo@UNDOWNDOBJSPRITEOVERLAPCLIP@@QEAAXXZ.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x14031912C (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     ?vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z @ 0x140319690 (-vUpdateClientRgnOnSpriteOverlap@@YAXPEAVEWNDOBJ@@AEAVRGNOBJ@@@Z.c)
+ *     EngCreateWnd @ 0x140319940 (EngCreateWnd.c)
+ *     GreClientRgnDone @ 0x140319FA4 (GreClientRgnDone.c)
+ *     GreDeleteWnd @ 0x14031A0A0 (GreDeleteWnd.c)
+ *     GreSetClientRgn @ 0x14031A314 (GreSetClientRgn.c)
+ *     ?FntCacheHDEVInProc@@YAXPEAUHDEV__@@K@Z @ 0x14031B1A4 (-FntCacheHDEVInProc@@YAXPEAUHDEV__@@K@Z.c)
+ *     CloseFNTCache @ 0x14031BB10 (CloseFNTCache.c)
+ *     ??$GrepAcquireLockValidate@$0BL@@@YAXXZ @ 0x14031BC9C (--$GrepAcquireLockValidate@$0BL@@@YAXXZ.c)
+ *     ?GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z @ 0x14031BD5C (-GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z.c)
+ *     ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x14031BE44 (-LoadModuleWorkHorse@@YAPEAXPEAGH@Z.c)
+ *     EngFreeModule @ 0x14031C020 (EngFreeModule.c)
+ *     ?vLoadFontFileView@@YAXPEAGKPEAPEAUFONTFILEVIEW@@KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KPEA_KPEAPEAUHDEV__@@PEAUFNTCHECKSUM@@HPEAH@Z @ 0x140327830 (-vLoadFontFileView@@YAXPEAGKPEAPEAUFONTFILEVIEW@@KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KPEA_KPEAPEAUH.c)
+ *     ?bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x140327B58 (-bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z.c)
+ *     ?bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x140327CB8 (-bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z.c)
+ *     ?vClosePrintKView@@YAXXZ @ 0x140328130 (-vClosePrintKView@@YAXXZ.c)
+ *     GreCreateHalftonePalette @ 0x1403317EC (GreCreateHalftonePalette.c)
+ *     ??$NtGdiExtFloodFillImpl@$0A@@@YAHPEAUHDC__@@HHKI@Z @ 0x140331F58 (--$NtGdiExtFloodFillImpl@$0A@@@YAHPEAUHDC__@@HHKI@Z.c)
+ *     ?ulAnimatePalette@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z @ 0x140334D0C (-ulAnimatePalette@XEPALOBJ@@QEAAKKKPEBUtagPALETTEENTRY@@@Z.c)
+ *     ??$GreReleaseSemaphoreExclusive@$0BD@$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x140335B70 (--$GreReleaseSemaphoreExclusive@$0BD@$$V@@YAXAEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ *     GreDrvReconnect @ 0x140335C68 (GreDrvReconnect.c)
+ *     bDrvDisconnect @ 0x140336124 (bDrvDisconnect.c)
+ *     bDrvDisplayIOCtl @ 0x140336358 (bDrvDisplayIOCtl.c)
+ *     bDrvShadowConnect @ 0x140336578 (bDrvShadowConnect.c)
+ *     vDrvInvalidateRect @ 0x1403367D8 (vDrvInvalidateRect.c)
+ *     ?SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z @ 0x140336D94 (-SpNotifyLSurfaceTracking@@YAJPEAUHDEV__@@PEAUHLSURF__@@H@Z.c)
+ *     ?DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z @ 0x140346178 (-DrvRealizeHalftonePalette@@YAPEAVPALETTE@@PEAUHDEV__@@H@Z.c)
+ *     DrvReleaseHDEV @ 0x1403465C8 (DrvReleaseHDEV.c)
+ *     EngLoadImage @ 0x140346920 (EngLoadImage.c)
+ *     VerifierEngAllocMem @ 0x1403494D0 (VerifierEngAllocMem.c)
+ *     VerifierEngFreeMem @ 0x1403499D0 (VerifierEngFreeMem.c)
+ * Callees:
+ *     <none>
+ */
+
+struct _GRETHREAD *GreGetCurrentThreadCrossSessionCheck(void)
+{
+  struct _KTHREAD *CurrentThread; // rbp
+  __int64 v1; // rbx
+  __int64 v2; // rsi
+  __int64 v3; // rcx
+  __int64 *ThreadWin32Thread; // rax
+  __int64 CurrentProcess; // rax
+  int ProcessSessionId; // edi
+  __int64 CurrentThreadProcess; // rax
+
+  CurrentThread = KeGetCurrentThread();
+  v1 = 0LL;
+  v2 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentProcess = PsGetCurrentProcess(v3),
+        ProcessSessionId = PsGetProcessSessionIdEx(CurrentProcess),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        ProcessSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v2 = *ThreadWin32Thread;
+  }
+  if ( v2 )
+    return (struct _GRETHREAD *)(v2 + 8);
+  return (struct _GRETHREAD *)v1;
+}

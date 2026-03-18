@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??0CScratchRenderTargetBitmap@@IEAA@VDisplayId@@@Z @ 0x1800B9E78
+ * Callers:
+ *     ?Create@CScratchRenderTargetBitmap@@SAJIIPEAVCD3DDeviceLevel1@@VDisplayId@@PEAUPixelFormatInfo@@_NPEAPEAV1@@Z @ 0x1800B9954 (-Create@CScratchRenderTargetBitmap@@SAJIIPEAVCD3DDeviceLevel1@@VDisplayId@@PEAUPixelFormatInfo@@.c)
+ * Callees:
+ *     ??0CHwTextureRenderTarget@@IEAA@VDisplayId@@@Z @ 0x180078864 (--0CHwTextureRenderTarget@@IEAA@VDisplayId@@@Z.c)
+ */
+
+__int64 __fastcall CScratchRenderTargetBitmap::CScratchRenderTargetBitmap(__int64 a1, __int64 a2)
+{
+  __int64 result; // rax
+
+  CHwTextureRenderTarget::CHwTextureRenderTarget(a1, a2);
+  *(_QWORD *)(a1 + 288) = 0LL;
+  *(_QWORD *)a1 = &CScratchRenderTargetBitmap::`vftable'{for `CBaseRenderTarget'};
+  *(_QWORD *)(a1 + 160) = &CScratchRenderTargetBitmap::`vftable'{for `CMILCOMBase'};
+  *(_QWORD *)(a1 + 216) = &CScratchRenderTargetBitmap::`vftable'{for `IRenderTargetBitmap'};
+  *(_QWORD *)(a1 + 224) = &CScratchRenderTargetBitmap::`vftable'{for `ID2DBitmap'};
+  *(_QWORD *)(a1 + 232) = &CScratchRenderTargetBitmap::`vftable'{for `ID2DBitmapCacheSource'};
+  *(_QWORD *)(a1 + 240) = &CScratchRenderTargetBitmap::`vftable'{for `IDeviceResource'};
+  result = a1;
+  *(_WORD *)(a1 + 296) = 256;
+  return result;
+}

@@ -1,0 +1,30 @@
+/*
+ * XREFs of PopBatteryAdd @ 0x14066EBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1400FBFA8 (PopAcquireRwLockExclusive.c)
+ *     PopAcquirePolicyLock @ 0x1403C87E0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x1403C8828 (PopReleasePolicyLock.c)
+ *     PopChangeCapability @ 0x14056DEF8 (PopChangeCapability.c)
+ *     PopBatteryWaitTag @ 0x14066F638 (PopBatteryWaitTag.c)
+ */
+
+void __fastcall PopBatteryAdd(__int64 a1)
+{
+  __int64 v2; // rdx
+
+  KeInitializeEvent((PRKEVENT)(a1 + 80), SynchronizationEvent, 0);
+  if ( ++dword_140303670 == 1 )
+  {
+    PopAcquirePolicyLock();
+    LOBYTE(v2) = 1;
+    PopChangeCapability(&byte_140303F7E, v2);
+    PopReleasePolicyLock();
+  }
+  PopAcquireRwLockExclusive((unsigned __int64 *)PopCB);
+  byte_140303678 = 1;
+  PopBatteryWaitTag(a1);
+  PopReleaseRwLock(PopCB);
+}

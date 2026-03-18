@@ -1,0 +1,66 @@
+/*
+ * XREFs of WPP_IFR_SF_DDDDDDD @ 0x140080610
+ * Callers:
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1400778E8 (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x140032A50 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x140056738 (FxWmiTraceMessage.c)
+ */
+
+void __fastcall WPP_IFR_SF_DDDDDDD(
+        _FX_DRIVER_GLOBALS *globals,
+        unsigned __int8 _a1,
+        unsigned int _a2,
+        unsigned __int16 _a3,
+        const _GUID *_a4,
+        unsigned int _a5,
+        unsigned int _a6,
+        unsigned int _a7,
+        unsigned int globals_0,
+        unsigned int level,
+        unsigned int flags,
+        unsigned int id)
+{
+  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x800) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 5u )
+    FxWmiTraceMessage(
+      (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
+      43LL,
+      WPP_FxPkgPnp_cpp_Traceguids,
+      0x40u,
+      &_a5,
+      4LL,
+      &_a6,
+      4LL,
+      &_a7,
+      4LL,
+      &globals_0,
+      4LL,
+      &level,
+      4LL,
+      &flags,
+      4LL,
+      &id,
+      4LL,
+      0LL);
+  FxIFR(
+    globals,
+    5u,
+    0xCu,
+    WPP_FxPkgPnp_cpp_Traceguids,
+    0x40u,
+    &_a5,
+    4LL,
+    &_a6,
+    4LL,
+    &_a7,
+    4LL,
+    &globals_0,
+    4LL,
+    &level,
+    4LL,
+    &flags,
+    4LL,
+    &id,
+    4LL,
+    0LL);
+}

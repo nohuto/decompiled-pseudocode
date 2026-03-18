@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?SysMmQueryIommuState@@YAXPEBUSYSMM_ADAPTER@@PEATSYSMM_IOMMU_STATE@@@Z @ 0x1403356A0
+ * Callers:
+ *     ?IsGpuVaIoMmuSupported@DXGADAPTER@@QEBAEXZ @ 0x14004039C (-IsGpuVaIoMmuSupported@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsGpuVaIoMmuGlobalSupported@DXGADAPTER@@QEBAEXZ @ 0x1400403CC (-IsGpuVaIoMmuGlobalSupported@DXGADAPTER@@QEBAEXZ.c)
+ *     ?SysMmFinalizeInitialization@@YAJPEAUSYSMM_ADAPTER@@T_LARGE_INTEGER@@_N2PEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IW4SYSMM_LEGACY_IOMMU_FLAGS_MODE@@PEATSYSMM_IOMMU_STATE@@@Z @ 0x1402862F0 (-SysMmFinalizeInitialization@@YAJPEAUSYSMM_ADAPTER@@T_LARGE_INTEGER@@_N2PEBU_DXGK_PHYSICAL_MEMOR.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x140356E10 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     DxgkEscape @ 0x140419AB0 (DxgkEscape.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall SysMmQueryIommuState(const struct SYSMM_ADAPTER *a1, union SYSMM_IOMMU_STATE *a2)
+{
+  int v2; // eax
+  int v5; // ecx
+  int v6; // edx
+
+  v2 = 0;
+  *(_DWORD *)a2 = 0;
+  if ( (dword_140161610 & 0x400) == 0 )
+    LOBYTE(v2) = *((_DWORD *)a1 + 24) != 0;
+  *(_DWORD *)a2 = v2;
+  v5 = v2 | (2 * (*((_DWORD *)a1 + 23) & 1));
+  *(_DWORD *)a2 = v5;
+  v6 = v5 | (2 * (*((_DWORD *)a1 + 23) & 2));
+  *(_DWORD *)a2 = v6;
+  *(_DWORD *)a2 = v6 | (2 * (*((_DWORD *)a1 + 23) & 4));
+}

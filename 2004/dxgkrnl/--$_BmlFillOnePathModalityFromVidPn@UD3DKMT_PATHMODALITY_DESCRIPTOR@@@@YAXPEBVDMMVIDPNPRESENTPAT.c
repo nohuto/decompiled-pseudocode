@@ -1,0 +1,102 @@
+/*
+ * XREFs of ??$_BmlFillOnePathModalityFromVidPn@UD3DKMT_PATHMODALITY_DESCRIPTOR@@@@YAXPEBVDMMVIDPNPRESENTPATH@@PEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C015E524
+ * Callers:
+ *     ?BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C015E310 (-BmlFillPathModalityFromVidPn@@YAJPEBVDMMVIDPN@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ * Callees:
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0005424 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ @ 0x1C000A278 (-GetGraphicsInfo@DMMVIDPNSOURCEMODE@@QEBAPEBU_D3DKMDT_GRAPHICS_RENDERING_FORMAT@@XZ.c)
+ */
+
+__int64 __fastcall _BmlFillOnePathModalityFromVidPn<D3DKMT_PATHMODALITY_DESCRIPTOR>(__int64 a1, __int64 a2)
+{
+  __int64 v2; // rsi
+  __int64 v5; // rax
+  __int64 v6; // rsi
+  DMMVIDPNSOURCEMODE *v7; // rcx
+  const struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT *GraphicsInfo; // rax
+  const struct _D3DKMDT_GRAPHICS_RENDERING_FORMAT *v9; // rax
+  __int128 v10; // xmm1
+  __int64 v11; // rdx
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  __int64 v14; // rcx
+  __int64 v15; // rax
+  __int64 v16; // xmm1_8
+  int v17; // ecx
+  int v18; // eax
+  __int64 result; // rax
+
+  v2 = *(_QWORD *)(a1 + 88);
+  v5 = *(_QWORD *)(v2 + 104);
+  if ( v5 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v5 + 96));
+    v6 = *(_QWORD *)(v2 + 104);
+  }
+  else
+  {
+    v6 = 0LL;
+  }
+  v7 = *(DMMVIDPNSOURCEMODE **)(v6 + 144);
+  if ( v7 )
+  {
+    if ( (*(_QWORD *)a2 & 0x100LL) != 0 )
+    {
+      GraphicsInfo = DMMVIDPNSOURCEMODE::GetGraphicsInfo(v7);
+      if ( *(_DWORD *)(a2 + 96) != GraphicsInfo->PrimSurfSize.cx
+        || *(_DWORD *)(a2 + 100) != GraphicsInfo->PrimSurfSize.cy )
+      {
+        *(_QWORD *)a2 &= ~0x800000uLL;
+      }
+    }
+    else
+    {
+      *(_QWORD *)a2 &= ~0x800000uLL;
+    }
+    v9 = DMMVIDPNSOURCEMODE::GetGraphicsInfo(*(DMMVIDPNSOURCEMODE **)(v6 + 144));
+    *(_OWORD *)(a2 + 96) = *(_OWORD *)&v9->PrimSurfSize.cx;
+    v10 = *(_OWORD *)&v9->Stride;
+    *(_QWORD *)a2 |= 0x100uLL;
+    *(_OWORD *)(a2 + 112) = v10;
+  }
+  ReferenceCounted::Release((ReferenceCounted *)(v6 + 88), a2);
+  v12 = *(_QWORD *)(a1 + 96);
+  v13 = *(_QWORD *)(v12 + 104);
+  if ( v13 )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)(v13 + 96));
+    v14 = *(_QWORD *)(v12 + 104);
+  }
+  else
+  {
+    v14 = 0LL;
+  }
+  v15 = *(_QWORD *)(v14 + 144);
+  if ( v15 )
+  {
+    *(_OWORD *)(a2 + 32) = *(_OWORD *)(v15 + 72);
+    *(_OWORD *)(a2 + 48) = *(_OWORD *)(v15 + 88);
+    *(_OWORD *)(a2 + 64) = *(_OWORD *)(v15 + 104);
+    v16 = *(_QWORD *)(v15 + 120);
+    *(_QWORD *)a2 |= 0x87uLL;
+    *(_QWORD *)(a2 + 80) = v16;
+  }
+  ReferenceCounted::Release((ReferenceCounted *)(v14 + 88), v11);
+  v17 = *(_DWORD *)(a1 + 116);
+  if ( v17 && (unsigned int)(v17 - 254) > 1 )
+  {
+    *(_QWORD *)a2 |= 0x200uLL;
+    *(_DWORD *)(a2 + 132) = v17;
+  }
+  v18 = *(_DWORD *)(a1 + 112);
+  if ( v18 && v18 != 254 )
+  {
+    *(_DWORD *)(a2 + 136) = v18;
+    *(_QWORD *)a2 |= 0x40000000000uLL;
+  }
+  *(_DWORD *)(a2 + 88) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 96LL) + 80LL);
+  *(_DWORD *)(a2 + 92) = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 96) + 96LL) + 84LL);
+  result = 0x800000000000LL;
+  *(_QWORD *)a2 |= 0x800000000000uLL;
+  return result;
+}

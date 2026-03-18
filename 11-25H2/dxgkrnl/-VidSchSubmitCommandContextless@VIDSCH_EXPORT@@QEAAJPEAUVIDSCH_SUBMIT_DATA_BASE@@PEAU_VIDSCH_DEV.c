@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?VidSchSubmitCommandContextless@VIDSCH_EXPORT@@QEAAJPEAUVIDSCH_SUBMIT_DATA_BASE@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1400519B0
+ * Callers:
+ *     ?SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@HPEAT_LARGE_INTEGER@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEBD@Z @ 0x140317D20 (-SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADA.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14009F940 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall VIDSCH_EXPORT::VidSchSubmitCommandContextless(
+        VIDSCH_EXPORT *this,
+        struct VIDSCH_SUBMIT_DATA_BASE *a2,
+        struct _VIDSCH_DEVICE *a3,
+        struct _VIDSCH_SYNC_OBJECT *a4)
+{
+  return (*(__int64 (__fastcall **)(struct VIDSCH_SUBMIT_DATA_BASE *, struct _VIDSCH_DEVICE *, struct _VIDSCH_SYNC_OBJECT *))(*((_QWORD *)this + 1) + 1016LL))(
+           a2,
+           a3,
+           a4);
+}

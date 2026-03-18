@@ -1,0 +1,50 @@
+/*
+ * XREFs of SymCryptWipe @ 0x1403F6508
+ * Callers:
+ *     SymCryptSha256Result @ 0x1403F4F10 (SymCryptSha256Result.c)
+ *     SymCryptParallelSha256Result1 @ 0x1403F5CD0 (SymCryptParallelSha256Result1.c)
+ *     SymCryptParallelSha256Result2 @ 0x1403F5D60 (SymCryptParallelSha256Result2.c)
+ *     SymCryptParallelSha256ResultDone @ 0x1403F5DE0 (SymCryptParallelSha256ResultDone.c)
+ *     SymCryptParallelHashProcess @ 0x1403F6520 (SymCryptParallelHashProcess.c)
+ *     SymCryptParallelHashProcess_serial @ 0x1403F67E0 (SymCryptParallelHashProcess_serial.c)
+ *     SymCryptRsakeyCreate @ 0x1403F7864 (SymCryptRsakeyCreate.c)
+ *     SymCryptRsakeySetValue @ 0x1403F7B0C (SymCryptRsakeySetValue.c)
+ *     SymCryptRsakeyWipe @ 0x1403F8004 (SymCryptRsakeyWipe.c)
+ *     SymCryptEcurveAllocate @ 0x1403F80AC (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveFree @ 0x1403F8834 (SymCryptEcurveFree.c)
+ *     SymCryptEckeySetValue @ 0x1403F8A98 (SymCryptEckeySetValue.c)
+ *     SymCryptEckeyWipe @ 0x1403F8EF0 (SymCryptEckeyWipe.c)
+ *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x1403F909C (SymCryptRsaPkcs1CheckSignaturePadding.c)
+ *     SymCryptIntWipe @ 0x1403F95BC (SymCryptIntWipe.c)
+ *     SymCryptEcDsaVerify @ 0x1403F9B90 (SymCryptEcDsaVerify.c)
+ *     SymCryptRsaPkcs1Verify @ 0x1403FA3B0 (SymCryptRsaPkcs1Verify.c)
+ *     SymCryptSha512AppendBlocks_ull @ 0x1403FA6D0 (SymCryptSha512AppendBlocks_ull.c)
+ *     SymCryptSha512Result @ 0x1403FBD48 (SymCryptSha512Result.c)
+ *     SymCryptSha1Result @ 0x1403FD0D0 (SymCryptSha1Result.c)
+ *     SymCryptMd5Result @ 0x1403FDB00 (SymCryptMd5Result.c)
+ *     SymCryptHashCommonPaddingMd4Style @ 0x140402FB8 (SymCryptHashCommonPaddingMd4Style.c)
+ *     SymCryptFdefIntAddMixedSize @ 0x1404030DC (SymCryptFdefIntAddMixedSize.c)
+ *     SymCryptFdefIntDivMod @ 0x140403228 (SymCryptFdefIntDivMod.c)
+ *     SymCryptFdefIntDivPow2 @ 0x1404032FC (SymCryptFdefIntDivPow2.c)
+ *     SymCryptFdefIntMulMixedSize @ 0x14040352C (SymCryptFdefIntMulMixedSize.c)
+ *     SymCryptFdefRawDivMod @ 0x1404038A8 (SymCryptFdefRawDivMod.c)
+ *     SymCryptFdefModElementSetValueUint32Generic @ 0x1404043E0 (SymCryptFdefModElementSetValueUint32Generic.c)
+ *     SymCryptFdefModElementToIntGeneric @ 0x140404464 (SymCryptFdefModElementToIntGeneric.c)
+ *     SymCryptFdefModInvMontgomery @ 0x140404880 (SymCryptFdefModInvMontgomery.c)
+ *     SymCryptFdefModInvMontgomery256 @ 0x140404930 (SymCryptFdefModInvMontgomery256.c)
+ *     SymCryptFdefModPreGetMontgomery @ 0x140404D00 (SymCryptFdefModPreGetMontgomery.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x140404E4C (SymCryptFdefModSetRandomGeneric.c)
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x140405370 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ *     SymCryptFdefIntCopyMixedSize @ 0x1404057D0 (SymCryptFdefIntCopyMixedSize.c)
+ *     SymCryptFdefIntSetValueUint32 @ 0x140405940 (SymCryptFdefIntSetValueUint32.c)
+ *     SymCryptFdefIntSetValueUint64 @ 0x140405974 (SymCryptFdefIntSetValueUint64.c)
+ *     SymCryptFdef369ModInvMontgomery @ 0x140409700 (SymCryptFdef369ModInvMontgomery.c)
+ *     SymCryptFdef369ModPreGetMontgomery @ 0x140409820 (SymCryptFdef369ModPreGetMontgomery.c)
+ * Callees:
+ *     SymCryptWipeAsm @ 0x1403F5E50 (SymCryptWipeAsm.c)
+ */
+
+__int64 __fastcall SymCryptWipe(__int64 a1, unsigned __int64 a2)
+{
+  return SymCryptWipeAsm(a1, a2);
+}

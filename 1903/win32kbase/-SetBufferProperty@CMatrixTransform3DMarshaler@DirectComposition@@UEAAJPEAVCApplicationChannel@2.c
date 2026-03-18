@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?SetBufferProperty@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A60A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x1C00C0490 (memcmp.c)
+ */
+
+__int64 __fastcall DirectComposition::CMatrixTransform3DMarshaler::SetBufferProperty(
+        DirectComposition::CMatrixTransform3DMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        _OWORD *a4,
+        unsigned __int64 a5,
+        bool *a6)
+{
+  unsigned int v6; // ebx
+  _OWORD *v8; // rsi
+
+  v6 = 0;
+  *a6 = 0;
+  if ( a3 == 16 && a4 && a5 == 64 )
+  {
+    v8 = (_OWORD *)((char *)this + 40);
+    if ( memcmp((char *)this + 40, a4, 0x40uLL) )
+    {
+      *v8 = *a4;
+      v8[1] = a4[1];
+      v8[2] = a4[2];
+      v8[3] = a4[3];
+      *a6 = 1;
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v6;
+}

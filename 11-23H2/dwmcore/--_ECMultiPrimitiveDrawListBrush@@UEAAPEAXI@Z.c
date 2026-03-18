@@ -1,0 +1,51 @@
+/*
+ * XREFs of ??_ECMultiPrimitiveDrawListBrush@@UEAAPEAXI@Z @ 0x1800724E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x180042C34 (--3@YAXPEAX@Z.c)
+ *     ?GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z @ 0x1800726C0 (-GetCurrent@CThreadContext@@SAJPEAPEAV1@@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x180105114 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18011B6B0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ModuleFailFastForHRESULT @ 0x18026F868 (ModuleFailFastForHRESULT.c)
+ */
+
+CMultiPrimitiveDrawListBrush *__fastcall CMultiPrimitiveDrawListBrush::`vector deleting destructor'(
+        CMultiPrimitiveDrawListBrush *this,
+        char a2)
+{
+  void (__fastcall ***v4)(_QWORD, __int64); // rcx
+  int Current; // eax
+  struct CThreadContext *v6; // rcx
+  void *retaddr; // [rsp+28h] [rbp+0h]
+  struct CThreadContext *v9; // [rsp+30h] [rbp+8h] BYREF
+
+  v4 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 9);
+  if ( v4 )
+    (**v4)(v4, 1LL);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+    {
+      __global_delete(this, 0x60uLL);
+    }
+    else
+    {
+      Current = CThreadContext::GetCurrent(&v9);
+      if ( Current < 0 )
+        ModuleFailFastForHRESULT((unsigned int)Current, retaddr);
+      v6 = v9;
+      if ( *((_DWORD *)v9 + 93) >= *((_DWORD *)v9 + 92) )
+      {
+        operator delete(this);
+      }
+      else
+      {
+        *(_QWORD *)this = *((_QWORD *)v9 + 47);
+        ++*((_DWORD *)v6 + 93);
+        *((_QWORD *)v6 + 47) = this;
+      }
+    }
+  }
+  return this;
+}

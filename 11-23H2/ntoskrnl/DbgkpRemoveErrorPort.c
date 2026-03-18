@@ -1,0 +1,50 @@
+/*
+ * XREFs of DbgkpRemoveErrorPort @ 0x140939F70
+ * Callers:
+ *     DbgkFlushErrorPort @ 0x1407513E4 (DbgkFlushErrorPort.c)
+ *     DbgkpSendErrorMessage @ 0x14093A27C (DbgkpSendErrorMessage.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x140293450 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x140297694 (PsGetServerSiloGlobals.c)
+ *     KeResetEvent @ 0x1402AF940 (KeResetEvent.c)
+ *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     DbgkpDereferenceErrorPort @ 0x14053BB88 (DbgkpDereferenceErrorPort.c)
+ */
+
+int __fastcall DbgkpRemoveErrorPort(__int64 a1, ULONG_PTR a2, volatile signed __int32 *a3)
+{
+  _UNKNOWN **v3; // rax
+  int v7; // r14d
+  __int64 v8; // rax
+  _UNKNOWN *retaddr; // [rsp+28h] [rbp+0h] BYREF
+
+  v3 = &retaddr;
+  if ( !_interlockedbittestandset(a3 + 1, 0) )
+  {
+    --*(_WORD *)(a1 + 484);
+    v7 = 0;
+    ExAcquirePushLockExclusiveEx(a2, 0LL);
+    if ( *(volatile signed __int32 **)(a2 + 8) == a3 )
+    {
+      *(_QWORD *)(a2 + 16) = 0LL;
+      *(_QWORD *)(a2 + 8) = 0LL;
+      v7 = 1;
+      v8 = PdcCreateWatchdogAroundClientCall();
+      if ( (void *)a2 == (char *)PsGetServerSiloGlobals(v8) + 968 )
+        _interlockedbittestandreset((volatile signed __int32 *)(MmWriteableSharedUserData + 752), 0);
+    }
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)a2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)a2);
+    KeAbPostRelease(a2);
+    LODWORD(v3) = (unsigned int)KeLeaveCriticalRegionThread(a1);
+    if ( v7 )
+    {
+      DbgkpDereferenceErrorPort(a3);
+      LODWORD(v3) = KeResetEvent(*(PRKEVENT *)(a2 + 24));
+    }
+  }
+  return (int)v3;
+}

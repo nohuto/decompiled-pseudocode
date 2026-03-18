@@ -1,0 +1,92 @@
+/*
+ * XREFs of AlpcpDeletePort @ 0x140463E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x1400762A0 (KeLeaveCriticalRegionThread.c)
+ *     KeAbPostRelease @ 0x140082CF0 (KeAbPostRelease.c)
+ *     ObfDereferenceObjectWithTag @ 0x140082F70 (ObfDereferenceObjectWithTag.c)
+ *     ObfDereferenceObject @ 0x1400841C0 (ObfDereferenceObject.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140084A00 (ExAcquirePushLockExclusiveEx.c)
+ *     ExfTryToWakePushLock @ 0x1400A7DA0 (ExfTryToWakePushLock.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x1400D2EC8 (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcpSendCloseMessage @ 0x140463CE0 (AlpcpSendCloseMessage.c)
+ *     AlpcpDestroyPort @ 0x140463FC8 (AlpcpDestroyPort.c)
+ *     AlpcpDereferenceBlobEx @ 0x14049D674 (AlpcpDereferenceBlobEx.c)
+ */
+
+_QWORD *__fastcall AlpcpDeletePort(__int64 a1)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v3; // rcx
+  int v4; // eax
+  __int64 v5; // rcx
+  __int64 v6; // rsi
+  void *v7; // rcx
+  int v8; // ecx
+  void *v9; // rcx
+  void *v10; // rcx
+  ULONG_PTR v11; // rcx
+  void *v13; // rcx
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( (*(_DWORD *)(a1 + 256) & 0x1000) != 0 )
+    AlpcpSendCloseMessage(a1);
+  v3 = *(_QWORD *)(a1 + 16);
+  if ( v3 )
+  {
+    ExAcquirePushLockExclusiveEx(v3 - 16, 0LL);
+    v4 = (*(_DWORD *)(a1 + 416) >> 1) & 3;
+    switch ( v4 )
+    {
+      case 1:
+        **(_QWORD **)(a1 + 16) = 0LL;
+        break;
+      case 2:
+        *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL) = 0LL;
+        v5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL);
+LABEL_8:
+        if ( v5 )
+        {
+          *(_QWORD *)(v5 + 424) = 0LL;
+          *(_QWORD *)(v5 + 432) = 0LL;
+        }
+        break;
+      case 3:
+        *(_QWORD *)(*(_QWORD *)(a1 + 16) + 8LL) = 0LL;
+        v5 = *(_QWORD *)(*(_QWORD *)(a1 + 16) + 16LL);
+        goto LABEL_8;
+    }
+    v6 = *(_QWORD *)(a1 + 16);
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)(v6 - 16), 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)(v6 - 16));
+    KeAbPostRelease(v6 - 16);
+    AlpcpDereferenceBlobEx(*(_QWORD *)(a1 + 16));
+    *(_QWORD *)(a1 + 16) = 0LL;
+  }
+  v7 = *(void **)(a1 + 32);
+  if ( v7 )
+  {
+    ObfDereferenceObject(v7);
+    AlpcpFreeCompletionPacketLookaside(*(KSPIN_LOCK **)(a1 + 48));
+  }
+  v8 = *(_DWORD *)(a1 + 416);
+  if ( (v8 & 6) == 4 && (v8 & 0x400) == 0 )
+  {
+    v13 = *(void **)(a1 + 80);
+    if ( v13 )
+      ObfDereferenceObject(v13);
+  }
+  v9 = *(void **)(a1 + 24);
+  if ( ((unsigned __int8)v9 & 1) == 0 && v9 )
+    ObfDereferenceObjectWithTag(v9, 0x63706C41u);
+  v10 = *(void **)(a1 + 368);
+  if ( v10 )
+    ObfDereferenceObject(v10);
+  v11 = _InterlockedExchange64((volatile __int64 *)(a1 + 440), 0LL);
+  if ( v11 )
+    AlpcpDereferenceBlobEx(v11);
+  AlpcpDestroyPort(a1);
+  return KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+}

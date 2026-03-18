@@ -1,0 +1,36 @@
+/*
+ * XREFs of LPMDisplayUnregisterInternalDisplay @ 0x1C016B5C4
+ * Callers:
+ *     DpiFdoStopAdapter @ 0x1C0195AFC (DpiFdoStopAdapter.c)
+ * Callees:
+ *     ??0AutoResourceLock@@QEAA@PEAU_ERESOURCE@@@Z @ 0x1C0025618 (--0AutoResourceLock@@QEAA@PEAU_ERESOURCE@@@Z.c)
+ */
+
+void __fastcall LPMDisplayUnregisterInternalDisplay(struct _FILE_OBJECT *a1, struct _ERESOURCE *a2)
+{
+  __int64 v3; // rdi
+  __int64 v4; // rcx
+  PFILE_OBJECT *v5; // rbx
+  _QWORD *v6; // rax
+  PERESOURCE Resource; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = (unsigned int)a2;
+  AutoResourceLock::AutoResourceLock((AutoResourceLock *)&Resource, a2);
+  v5 = FileObject;
+  if ( FileObject[2] == a1 && *((_DWORD *)FileObject + 6) == (_DWORD)v3 )
+  {
+    FileObject[2] = 0LL;
+    *((_DWORD *)v5 + 6) = -1;
+  }
+  else
+  {
+    v6 = (_QWORD *)WdLogNewEntry5_WdError(v4);
+    v6[3] = v5[2];
+    v6[4] = *((unsigned int *)v5 + 6);
+    v6[5] = a1;
+    v6[6] = v3;
+    WdLogEvent5_WdError(v6);
+  }
+  ExReleaseResourceLite(Resource);
+  KeLeaveCriticalRegion();
+}

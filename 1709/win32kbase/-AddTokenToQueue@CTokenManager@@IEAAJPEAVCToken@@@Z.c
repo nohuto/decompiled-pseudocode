@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?AddTokenToQueue@CTokenManager@@IEAAJPEAVCToken@@@Z @ 0x1C00356E0
+ * Callers:
+ *     ?CreateFlipExToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z @ 0x1C0035810 (-CreateFlipExToken@CTokenManager@@IEAAJ_KAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@PEA_N@Z.c)
+ *     ?AddUnBindTokenInternal@CTokenManager@@IEAAJPEAUCompositionSurfaceObject@@@Z @ 0x1C0153684 (-AddUnBindTokenInternal@CTokenManager@@IEAAJPEAUCompositionSurfaceObject@@@Z.c)
+ * Callees:
+ *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAUCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C00354DC (-EnsureTokenQueue@CTokenManager@@IEAAJPEAUCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
+ *     ?AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z @ 0x1C0037B24 (-AddToken@CTokenQueue@@QEAAXPEAVCToken@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00AB7F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CTokenManager::AddTokenToQueue(CTokenManager *this, struct CompositionSurfaceObject **a2)
+{
+  int v4; // edi
+  CTokenQueue *v5; // rcx
+  struct CTokenManager::TokenQueueTableEntry *v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v4 = 0;
+  if ( (*((unsigned __int8 (__fastcall **)(struct CompositionSurfaceObject **))*a2 + 20))(a2) )
+  {
+    v5 = (CTokenManager *)((char *)this + 248);
+    goto LABEL_4;
+  }
+  v4 = CTokenManager::EnsureTokenQueue(this, a2[4], &v7);
+  if ( v4 >= 0 )
+  {
+    v5 = (CTokenQueue *)*((_QWORD *)v7 + 1);
+LABEL_4:
+    CTokenQueue::AddToken(v5, (struct CToken *)a2);
+  }
+  return (unsigned int)v4;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCCompositionDistantLightMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B3B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseAllReferences@CCompositionDistantLightMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00B3BA0 (-ReleaseAllReferences@CCompositionDistantLightMarshaler@DirectComposition@@MEAAXPEAVCApplication.c)
+ */
+
+void __fastcall DirectComposition::CSharedResourceMarshaler<DirectComposition::CCompositionDistantLightMarshaler,2>::ReleaseAllReferences(
+        DirectComposition::CCompositionDistantLightMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2)
+{
+  __int64 v2; // rax
+
+  v2 = *((_QWORD *)this + 17);
+  if ( v2 )
+  {
+    *(_DWORD *)(v2 + 36) = 0;
+    ObfDereferenceObject((PVOID)(*((_QWORD *)this + 17) - 24LL));
+    *((_QWORD *)this + 17) = 0LL;
+  }
+  DirectComposition::CCompositionDistantLightMarshaler::ReleaseAllReferences(this, a2);
+}

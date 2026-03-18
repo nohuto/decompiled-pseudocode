@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?SetDefaultConfiguration@CInteractionMarshaler@DirectComposition@@QEAAJXZ @ 0x14004A558
+ * Callers:
+ *     ?EnsureWriteableInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_N1PEBGPEAPEAVCInteractionMarshaler@2@@Z @ 0x14004AA6C (-EnsureWriteableInteraction@CVisualMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@_.c)
+ *     ?SetIntegerProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x14004BB50 (-SetIntegerProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JP.c)
+ * Callees:
+ *     ?CheckInputSinkTypes@CInteractionMarshaler@DirectComposition@@AEAAJXZ @ 0x140049698 (-CheckInputSinkTypes@CInteractionMarshaler@DirectComposition@@AEAAJXZ.c)
+ */
+
+__int64 __fastcall DirectComposition::CInteractionMarshaler::SetDefaultConfiguration(
+        DirectComposition::CInteractionMarshaler *this)
+{
+  char v1; // al
+
+  v1 = *((_BYTE *)this + 332);
+  *((_DWORD *)this + 4) |= 0x800u;
+  *((_BYTE *)this + 332) = v1 & 0x3E | 1;
+  return DirectComposition::CInteractionMarshaler::CheckInputSinkTypes(this);
+}

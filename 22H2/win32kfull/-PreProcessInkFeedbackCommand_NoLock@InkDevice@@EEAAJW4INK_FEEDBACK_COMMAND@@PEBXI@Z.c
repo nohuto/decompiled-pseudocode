@@ -1,0 +1,106 @@
+/*
+ * XREFs of ?PreProcessInkFeedbackCommand_NoLock@InkDevice@@EEAAJW4INK_FEEDBACK_COMMAND@@PEBXI@Z @ 0x1C0243F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0040C00 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C00EDC14 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     __security_check_cookie @ 0x1C0138430 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0226010 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@D@@U2@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$00@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@D@@4AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$00@@@Z @ 0x1C0241E68 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@D@@U2@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByV.c)
+ *     ?ValidatePointer@InkDevice@@AEBAJI@Z @ 0x1C02449A0 (-ValidatePointer@InkDevice@@AEBAJI@Z.c)
+ */
+
+__int64 __fastcall InkDevice::PreProcessInkFeedbackCommand_NoLock(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4)
+{
+  unsigned int v5; // ebx
+  __int64 v7; // r8
+  struct tagTHREADINFO *v8; // rax
+  __int64 v9; // r8
+  __int64 v10; // r9
+  int v12; // [rsp+58h] [rbp-9h] BYREF
+  char v13; // [rsp+5Ch] [rbp-5h] BYREF
+  __int64 v14; // [rsp+60h] [rbp-1h] BYREF
+  __int64 v15; // [rsp+68h] [rbp+7h] BYREF
+  void *v16; // [rsp+70h] [rbp+Fh] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+78h] [rbp+17h] BYREF
+  int *v18; // [rsp+98h] [rbp+37h]
+  int v19; // [rsp+A0h] [rbp+3Fh]
+  int v20; // [rsp+A4h] [rbp+43h]
+
+  v5 = 0;
+  v7 = (unsigned int)(a2 - 1);
+  if ( (_DWORD)a2 == 1 )
+  {
+    if ( (_DWORD)a4 != 64 )
+    {
+      v5 = -1073741811;
+      if ( (unsigned int)dword_1C03540E0 <= 2 )
+        return v5;
+      goto LABEL_14;
+    }
+    v5 = InkDevice::ValidatePointer((InkDevice *)(a1 - 32), *a3);
+    if ( (v5 & 0x80000000) == 0 || (unsigned int)dword_1C03540E0 <= 2 )
+      return v5;
+LABEL_17:
+    v12 = v5;
+    v14 = (__int64)"ValidatePointer failed";
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<char>>(
+      (__int64)&dword_1C03540E0,
+      byte_1C031D70B,
+      v9,
+      v10,
+      (__int64)&v12,
+      (void **)&v14);
+    return v5;
+  }
+  if ( (_DWORD)a2 == 2 )
+  {
+    if ( (_DWORD)a4 != 4 )
+    {
+      v5 = -1073741811;
+      if ( (unsigned int)dword_1C03540E0 <= 2 )
+        return v5;
+LABEL_14:
+      v20 = 0;
+      v12 = -1073741811;
+      v19 = 4;
+      v18 = &v12;
+      tlgWriteTransfer_EtwWriteTransfer(
+        (__int64)&dword_1C03540E0,
+        (unsigned __int8 *)dword_1C031C186,
+        0LL,
+        0LL,
+        3u,
+        &v17);
+      return v5;
+    }
+    v8 = PtiCurrentShared(a1, a2, v7, a4);
+    if ( (unsigned int)IsProcessDwm(**((_QWORD **)v8 + 53)) )
+      return v5;
+    v5 = InkDevice::ValidatePointer((InkDevice *)(a1 - 32), *a3);
+    if ( (v5 & 0x80000000) == 0 || (unsigned int)dword_1C03540E0 <= 2 )
+      return v5;
+    goto LABEL_17;
+  }
+  v5 = -1073741637;
+  if ( (unsigned int)dword_1C03540E0 > 2 )
+  {
+    v13 = a2;
+    v12 = -1073741637;
+    v16 = *(void **)(a1 + 48);
+    v14 = (__int64)"Unsupported command";
+    v15 = a1 & -(__int64)(a1 != 32);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<1>>(
+      v15,
+      byte_1C031DDDC,
+      v7,
+      a4,
+      (__int64)&v12,
+      (void **)&v14,
+      &v16,
+      (__int64)&v15,
+      (__int64)&v13);
+  }
+  return v5;
+}

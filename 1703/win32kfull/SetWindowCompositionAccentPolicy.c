@@ -1,0 +1,41 @@
+/*
+ * XREFs of SetWindowCompositionAccentPolicy @ 0x1C010AC38
+ * Callers:
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0038710 (NtUserSetWindowCompositionAttribute.c)
+ * Callees:
+ *     DwmAsyncSetCompositionAttribute @ 0x1C001EC48 (DwmAsyncSetCompositionAttribute.c)
+ *     ?SetWindowCompositionInfo@@YAHPEAUtagWND@@PEBUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C001FF9C (-SetWindowCompositionInfo@@YAHPEAUtagWND@@PEBUWINDOWCOMPOSITIONINFO@@@Z.c)
+ *     _GetWindowCompositionInfo @ 0x1C0061E00 (_GetWindowCompositionInfo.c)
+ */
+
+__int64 __fastcall SetWindowCompositionAccentPolicy(struct tagWND *a1, __int128 *a2)
+{
+  unsigned int v4; // ebx
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+  void *v9; // rax
+  _BYTE v11[8]; // [rsp+20h] [rbp-38h] BYREF
+  __int128 v12; // [rsp+28h] [rbp-30h]
+
+  v4 = -1073741816;
+  if ( (unsigned int)GetWindowCompositionInfo((__int64)a1, (__int64)v11) )
+  {
+    if ( (_QWORD)v12 == *(_QWORD *)a2 && DWORD2(v12) == *((_DWORD *)a2 + 2) )
+      return 0;
+    v12 = *a2;
+    if ( !(unsigned int)SetWindowCompositionInfo(a1, (const struct WINDOWCOMPOSITIONINFO *)v11) )
+      return (unsigned int)-1073741801;
+    if ( !(unsigned int)IsWindowDesktopComposed(a1) )
+    {
+      return 0;
+    }
+    else
+    {
+      v9 = (void *)ReferenceDwmApiPort(v6, v5, v7, v8);
+      return (unsigned int)DwmAsyncSetCompositionAttribute(v9, *(_QWORD *)a1, 19, a2);
+    }
+  }
+  return v4;
+}

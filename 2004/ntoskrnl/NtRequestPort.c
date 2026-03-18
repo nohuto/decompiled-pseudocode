@@ -1,0 +1,34 @@
+/*
+ * XREFs of NtRequestPort @ 0x140700970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalPutDmaAdapter @ 0x140208270 (HalPutDmaAdapter.c)
+ *     KeLeaveCriticalRegionThread @ 0x14020B010 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x14040A280 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1405F5C90 (ObReferenceObjectByHandle.c)
+ *     AlpcpSendMessage @ 0x1406851E0 (AlpcpSendMessage.c)
+ */
+
+__int64 __fastcall NtRequestPort(HANDLE Handle, __m256i *a2)
+{
+  int v4; // ebx
+  struct _KTHREAD *CurrentThread; // rax
+  _QWORD v7[9]; // [rsp+30h] [rbp-48h] BYREF
+  PVOID Object; // [rsp+90h] [rbp+18h] BYREF
+
+  memset(v7, 0, 0x40uLL);
+  Object = 0LL;
+  v4 = ObReferenceObjectByHandle(Handle, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  if ( v4 >= 0 )
+  {
+    v7[0] = Object;
+    LODWORD(v7[6]) = 0x10000;
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    v4 = AlpcpSendMessage((__int64)v7, a2, 0LL, KeGetCurrentThread()->PreviousMode);
+    KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+    HalPutDmaAdapter((PADAPTER_OBJECT)Object);
+  }
+  return (unsigned int)v4;
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of HUBPSM20_IssuingSuspendedToDeviceSM @ 0x140012EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140046540 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall HUBPSM20_IssuingSuspendedToDeviceSM(__int64 a1)
+{
+  __int64 v1; // rbx
+
+  v1 = *(_QWORD *)(a1 + 960);
+  (*(void (__fastcall **)(_QWORD, __int64))(*(_QWORD *)(v1 + 1328) + 1480LL))(*(_QWORD *)(v1 + 1328), 4098LL);
+  *(_WORD *)(v1 + 184) |= 4u;
+  return 3013LL;
+}

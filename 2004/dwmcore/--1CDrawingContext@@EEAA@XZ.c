@@ -1,0 +1,49 @@
+/*
+ * XREFs of ??1CDrawingContext@@EEAA@XZ @ 0x180099404
+ * Callers:
+ *     ??_ECDrawingContext@@EEAAPEAXI@Z @ 0x1800D4820 (--_ECDrawingContext@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x18003CAA0 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003E144 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x18005811C (--1CDrawListEntryBuilder@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1800585C8 (--3@YAXPEAX@Z.c)
+ *     ?PopAllStacks@CDrawingContext@@AEAAXXZ @ 0x180079AF4 (-PopAllStacks@CDrawingContext@@AEAAXXZ.c)
+ *     ?Clear@CScopedClipStack@@QEAAXXZ @ 0x180079DA8 (-Clear@CScopedClipStack@@QEAAXXZ.c)
+ *     ??1CLightStack@@QEAA@XZ @ 0x18009A650 (--1CLightStack@@QEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x18009B990 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ */
+
+void __fastcall CDrawingContext::~CDrawingContext(CDrawingContext *this)
+{
+  CD3DDevice *v2; // rcx
+
+  *(_QWORD *)this = &CDrawingContext::`vftable'{for `CMILCOMBase'};
+  *((_QWORD *)this + 2) = &CDrawingContext::`vftable'{for `IDrawingContext'};
+  *((_QWORD *)this + 3) = &CDrawingContext::`vftable'{for `ID2DContextOwner'};
+  CDrawingContext::PopAllStacks(this);
+  CDrawListEntryBuilder::~CDrawListEntryBuilder((Mesh::MeshGraph **)this + 452);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 3576);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 3544);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 3512);
+  operator delete(*((void **)this + 433));
+  operator delete(*((void **)this + 418));
+  operator delete(*((void **)this + 410));
+  operator delete(*((void **)this + 406));
+  CScopedClipStack::Clear((CDrawingContext *)((char *)this + 936));
+  operator delete(*((void **)this + 402));
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 1808);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 936);
+  operator delete(*((void **)this + 115));
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 840);
+  CLightStack::~CLightStack((CDrawingContext *)((char *)this + 600));
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 536);
+  DynArrayImpl<0>::~DynArrayImpl<0>((char *)this + 472);
+  operator delete(*((void **)this + 57));
+  operator delete(*((void **)this + 53));
+  operator delete(*((void **)this + 49));
+  v2 = (CD3DDevice *)*((_QWORD *)this + 5);
+  if ( v2 )
+    CD3DDevice::Release(v2);
+  wil::com_ptr_t<ID2DBitmap,wil::err_returncode_policy>::~com_ptr_t<ID2DBitmap,wil::err_returncode_policy>((__int64)this + 32);
+  *(_QWORD *)this = &CMILCOMBase::`vftable';
+}

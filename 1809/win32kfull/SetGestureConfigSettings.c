@@ -1,0 +1,79 @@
+/*
+ * XREFs of SetGestureConfigSettings @ 0x1C012AC54
+ * Callers:
+ *     NtUserSetGestureConfig @ 0x1C012A940 (NtUserSetGestureConfig.c)
+ * Callees:
+ *     FreeWindowGCData @ 0x1C00217EC (FreeWindowGCData.c)
+ *     UserSetLastError @ 0x1C0073CC4 (UserSetLastError.c)
+ *     ?VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z @ 0x1C010FB38 (-VWPLAddBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@KH@Z.c)
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C012AAF8 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C012AD8C (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z @ 0x1C012ADC4 (-SortGestureConfigArray@@YAHPEAUtagGESTURECONFIG@@H@Z.c)
+ *     ?FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z @ 0x1C0133D50 (-FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z.c)
+ */
+
+__int64 __fastcall SetGestureConfigSettings(struct tagWND *a1, __int64 a2, unsigned int a3, __int64 a4)
+{
+  __int64 v7; // rdx
+  __int64 v8; // r8
+  __int64 v9; // r9
+  __int64 v10; // rax
+  _QWORD *v11; // rdi
+  _BYTE *v12; // rax
+  unsigned __int64 v13; // rdx
+  struct tagVWPLGESTUREDATA *GCData; // rdi
+  int v15; // ecx
+  _BYTE *v16; // rcx
+  __int64 v17; // rbx
+  __int64 v19; // rcx
+
+  if ( !(unsigned int)SortGestureConfigArray((struct tagGESTURECONFIG *)a4, a3) )
+    goto LABEL_16;
+  if ( !GetGCData(a1) )
+  {
+    v10 = Win32AllocPoolWithQuota(24LL, 1684501333LL);
+    v11 = (_QWORD *)v10;
+    if ( !v10
+      || (*(_DWORD *)(v10 + 12) = 0,
+          *(_DWORD *)(v10 + 8) = 0,
+          v12 = (_BYTE *)Win32AllocPoolWithQuota(1LL, 1835168597LL),
+          (*v11 = v12) == 0LL) )
+    {
+      v19 = 14LL;
+      goto LABEL_18;
+    }
+    *v12 = 0;
+    v11[2] = 0LL;
+    VWPLAddBase((struct tagVWPL **)(*(_QWORD *)(*((_QWORD *)a1 + 2) + 424LL) + 872LL), (__int64)v11, a1, 5u);
+  }
+  GCData = GetGCData(a1);
+  if ( *(_DWORD *)a4 )
+    return _StoreGestureConfig(a1, a3, (struct tagGESTURECONFIG *)a4);
+  v15 = *(_DWORD *)(a4 + 4);
+  if ( !v15 && !*(_DWORD *)(a4 + 8) )
+  {
+    FreeWindowGCData(a1, v13, v8, v9);
+    v15 = *(_DWORD *)(a4 + 4);
+  }
+  v7 = *(unsigned int *)(a4 + 8);
+  if ( (v15 | *(_DWORD *)(a4 + 8)) != 1 || v15 == (_DWORD)v7 )
+  {
+LABEL_16:
+    v19 = 87LL;
+LABEL_18:
+    UserSetLastError(v19, v7, v8, v9);
+    return 0LL;
+  }
+  *((_DWORD *)GCData + 2) = v15;
+  v16 = *(_BYTE **)GCData;
+  *((_DWORD *)GCData + 3) = *(_DWORD *)(a4 + 8);
+  *v16 = 0;
+  v17 = *((_QWORD *)GCData + 2);
+  if ( v17 )
+  {
+    FreeWindowGCList(*((struct tagGESTURECONFIGLIST ***)GCData + 2));
+    Win32FreePool(v17);
+    *((_QWORD *)GCData + 2) = 0LL;
+  }
+  return 1LL;
+}

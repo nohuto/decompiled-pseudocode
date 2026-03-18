@@ -1,0 +1,38 @@
+/*
+ * XREFs of _CmMatchLastKnownParentCallback @ 0x140A71990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _wcsicmp @ 0x1404FBC30 (_wcsicmp.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ *     _PnpGetObjectProperty @ 0x1408CB8A0 (_PnpGetObjectProperty.c)
+ */
+
+bool __fastcall CmMatchLastKnownParentCallback(_QWORD *a1, const WCHAR *a2, __int64 a3, const wchar_t *a4)
+{
+  char v4; // bl
+  int v7; // [rsp+60h] [rbp-1B8h] BYREF
+  _DWORD v8[3]; // [rsp+64h] [rbp-1B4h] BYREF
+  wchar_t Str2[200]; // [rsp+70h] [rbp-1A8h] BYREF
+
+  v4 = 0;
+  v7 = 0;
+  v8[0] = 0;
+  if ( (int)PnpGetObjectProperty(
+              a1,
+              a2,
+              1u,
+              0LL,
+              0LL,
+              (__int64)&DEVPKEY_Device_LastKnownParent,
+              &v7,
+              Str2,
+              0x190u,
+              (__int64)v8,
+              0) >= 0
+    && v7 == 18 )
+  {
+    return wcsicmp(a4, Str2) == 0;
+  }
+  return v4;
+}

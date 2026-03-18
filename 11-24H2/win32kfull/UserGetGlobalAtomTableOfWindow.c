@@ -1,0 +1,18 @@
+/*
+ * XREFs of UserGetGlobalAtomTableOfWindow @ 0x1400312A8
+ * Callers:
+ *     SetRedrawProp @ 0x140031254 (SetRedrawProp.c)
+ *     InternalSetProp @ 0x140031458 (InternalSetProp.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall UserGetGlobalAtomTableOfWindow(__int64 a1)
+{
+  __int64 result; // rax
+
+  result = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(a1 + 16) + 464LL) + 656LL);
+  if ( result )
+    return *(_QWORD *)(result + 168);
+  return result;
+}

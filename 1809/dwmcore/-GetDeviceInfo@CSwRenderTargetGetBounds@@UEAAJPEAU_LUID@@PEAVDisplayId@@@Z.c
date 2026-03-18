@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?GetDeviceInfo@CSwRenderTargetGetBounds@@UEAAJPEAU_LUID@@PEAVDisplayId@@@Z @ 0x18006A870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CSwRenderTargetGetBounds::GetDeviceInfo(
+        CSwRenderTargetGetBounds *this,
+        struct _LUID *a2,
+        struct DisplayId *a3)
+{
+  *a2 = g_luidZero;
+  return 0LL;
+}

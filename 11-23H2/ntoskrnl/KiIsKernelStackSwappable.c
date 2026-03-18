@@ -1,0 +1,17 @@
+/*
+ * XREFs of KiIsKernelStackSwappable @ 0x14057A280
+ * Callers:
+ *     KeTryToFreezeThreadStack @ 0x14056F0D8 (KeTryToFreezeThreadStack.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall KiIsKernelStackSwappable(__int64 a1)
+{
+  unsigned int v1; // edx
+
+  v1 = 0;
+  if ( *(_BYTE *)(a1 + 391) && (*(_DWORD *)(a1 + 120) & 0x40) != 0 )
+    return *(_BYTE *)(a1 + 195) < 25;
+  return v1;
+}

@@ -1,0 +1,84 @@
+/*
+ * XREFs of ?ConstructLocalToGlobalTransform@CInteractionProcessor@@AEAA?AUD2DMatrix@@PEAV?$DynArray@UAxisWithType@@$0A@@@@Z @ 0x18017C6DC
+ * Callers:
+ *     ??$CalculateHandledInteractions@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@AEBUInteractionAxis@@PEAUInteractionAxisGroup@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@PEAUD2DMatrix@@66@Z @ 0x18017B788 (--$CalculateHandledInteractions@UDwmTouchInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@W4F.c)
+ *     ??$CalculateHandledInteractions@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmMousewheelInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeMousewheelPrimitiveType@@@@AEBUInteractionAxis@@PEAUInteractionAxisGroup@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@PEAUD2DMatrix@@66@Z @ 0x18017BA88 (--$CalculateHandledInteractions@UDwmMousewheelInteractionConfigurationPrimitive@@U-$TMILFlagsEnu.c)
+ *     ??$CalculateHandledInteractions@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@CInteractionProcessor@@QEAAJPEAV?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@AEBUInteractionAxis@@PEAUInteractionAxisGroup@@PEAUIInteractionContextWrapper@@PEAW4InteractionState@@PEAU2@PEAUD2DMatrix@@66@Z @ 0x18017BD90 (--$CalculateHandledInteractions@UDwmTouchpadInteractionConfigurationPrimitive@@U-$TMILFlagsEnum@.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@U2@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3333AEBU?$_tlgWrapperByVal@$03@@444444444@Z @ 0x1800A99E4 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U1@U1@U1@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@_ea_1800A99E4.c)
+ *     ?ConvertVectorArrayToMatrix@magic@@YA?AUD2DMatrix@@PEAUD2DVector3@@@Z @ 0x18017B71C (-ConvertVectorArrayToMatrix@magic@@YA-AUD2DMatrix@@PEAUD2DVector3@@@Z.c)
+ *     ?CanAddThisColumnVectorToMatrix@magic@@YA_NPEAUD2DVector3@@IAEBU2@@Z @ 0x18017CD80 (-CanAddThisColumnVectorToMatrix@magic@@YA_NPEAUD2DVector3@@IAEBU2@@Z.c)
+ *     __security_check_cookie @ 0x1802202A0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall CInteractionProcessor::ConstructLocalToGlobalTransform(
+        __int64 *a1,
+        __int64 a2,
+        __int64 *a3,
+        const struct D2DVector3 *a4)
+{
+  __int64 v4; // rsi
+  int v5; // eax
+  __int64 v6; // rdi
+  __int64 v10; // rbx
+  __int64 v11; // r15
+  int v12; // eax
+  __int64 v13; // rcx
+  int v14; // eax
+  __int64 v15; // rcx
+  unsigned int v17[2]; // [rsp+D0h] [rbp-58h] BYREF
+  int v18; // [rsp+D8h] [rbp-50h]
+  __int64 v19; // [rsp+E0h] [rbp-48h]
+  __int64 v20; // [rsp+E8h] [rbp-40h]
+  __int64 v21; // [rsp+F0h] [rbp-38h]
+  __int64 v22; // [rsp+F8h] [rbp-30h]
+  _OWORD v23[2]; // [rsp+100h] [rbp-28h] BYREF
+  int v24; // [rsp+120h] [rbp-8h]
+
+  v4 = 0LL;
+  v5 = *((_DWORD *)a3 + 6) - 1;
+  v24 = 0;
+  v6 = v5;
+  memset(v23, 0, sizeof(v23));
+  if ( v5 >= 0 )
+  {
+    v10 = 16LL * v5;
+    do
+    {
+      if ( (unsigned int)v4 >= 3 )
+        break;
+      v11 = *a3;
+      v12 = *(_DWORD *)(v10 + *a3 + 8);
+      *(_QWORD *)v17 = *(_QWORD *)(v10 + *a3);
+      v18 = v12;
+      if ( magic::CanAddThisColumnVectorToMatrix(
+             (magic *)v23,
+             (struct D2DVector3 *)(unsigned int)v4,
+             (unsigned int)v17,
+             a4) )
+      {
+        v13 = 3 * v4;
+        v14 = *(_DWORD *)(v10 + v11 + 8);
+        v4 = (unsigned int)(v4 + 1);
+        *(_QWORD *)((char *)v23 + 4 * v13) = *(_QWORD *)(v10 + v11);
+        *((_DWORD *)v23 + v13 + 2) = v14;
+      }
+      v10 -= 16LL;
+      --v6;
+    }
+    while ( v6 >= 0 );
+  }
+  magic::ConvertVectorArrayToMatrix(a2, (int *)v23);
+  if ( (unsigned int)dword_1803DC880 > 4 && (qword_1803DC890 & 2) != 0 && (qword_1803DC898 & 2) == qword_1803DC898 )
+  {
+    v19 = a1[60];
+    v20 = a1[40];
+    v21 = a1[20];
+    v22 = *a1;
+    *(_QWORD *)v17 = a1;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      v15,
+      (__int64)&unk_1803B23A5);
+  }
+  return a2;
+}

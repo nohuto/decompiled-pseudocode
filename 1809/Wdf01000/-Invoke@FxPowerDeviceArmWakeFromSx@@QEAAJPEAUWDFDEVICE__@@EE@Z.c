@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?Invoke@FxPowerDeviceArmWakeFromSx@@QEAAJPEAUWDFDEVICE__@@EE@Z @ 0x1C007F06C
+ * Callers:
+ *     ?PowerPolSleepingWakeWakeArrived@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0089B20 (-PowerPolSleepingWakeWakeArrived@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ *     ?PowerPolSleepingWakeWakeArrivedNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C0089C10 (-PowerPolSleepingWakeWakeArrivedNP@FxPkgPnp@@KA-AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+int (__fastcall *__fastcall FxPowerDeviceArmWakeFromSx::Invoke(
+        FxPowerDeviceArmWakeFromSx *this,
+        WDFDEVICE__ *Device,
+        __int64 DeviceWakeEnabled,
+        __int64 ChildrenArmedForWake))(WDFDEVICE__ *)
+{
+  int (__fastcall *m_MethodWithReason)(WDFDEVICE__ *, unsigned __int8, unsigned __int8); // rax
+  char v5; // r11
+  WDFDEVICE__ *v6; // r10
+  int (__fastcall *result)(WDFDEVICE__ *); // rax
+
+  m_MethodWithReason = this->m_MethodWithReason;
+  v5 = DeviceWakeEnabled;
+  v6 = Device;
+  if ( m_MethodWithReason )
+  {
+    LOBYTE(DeviceWakeEnabled) = ChildrenArmedForWake;
+    LOBYTE(Device) = v5;
+    return (int (__fastcall *)(WDFDEVICE__ *))((__int64 (__fastcall *)(WDFDEVICE__ *, WDFDEVICE__ *, __int64))m_MethodWithReason)(
+                                                v6,
+                                                Device,
+                                                DeviceWakeEnabled);
+  }
+  else
+  {
+    result = this->m_Method;
+    if ( this->m_Method )
+      return (int (__fastcall *)(WDFDEVICE__ *))((__int64 (__fastcall *)(WDFDEVICE__ *, WDFDEVICE__ *, __int64, __int64))result)(
+                                                  Device,
+                                                  Device,
+                                                  DeviceWakeEnabled,
+                                                  ChildrenArmedForWake);
+  }
+  return result;
+}

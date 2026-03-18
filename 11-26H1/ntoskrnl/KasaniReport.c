@@ -1,0 +1,83 @@
+/*
+ * XREFs of KasaniReport @ 0x1405DDA50
+ * Callers:
+ *     __asan_load1 @ 0x1405DDF40 (__asan_load1.c)
+ *     __asan_load16 @ 0x1405DE000 (__asan_load16.c)
+ *     __asan_load16_atomic @ 0x1405DE2A0 (__asan_load16_atomic.c)
+ *     __asan_load16_volatile @ 0x1405DE510 (__asan_load16_volatile.c)
+ *     __asan_load1_atomic @ 0x1405DE7B0 (__asan_load1_atomic.c)
+ *     __asan_load1_volatile @ 0x1405DE850 (__asan_load1_volatile.c)
+ *     __asan_load2 @ 0x1405DE910 (__asan_load2.c)
+ *     __asan_load2_atomic @ 0x1405DEA30 (__asan_load2_atomic.c)
+ *     __asan_load2_volatile @ 0x1405DEB20 (__asan_load2_volatile.c)
+ *     __asan_load4 @ 0x1405DEC40 (__asan_load4.c)
+ *     __asan_load4_atomic @ 0x1405DEDA0 (__asan_load4_atomic.c)
+ *     __asan_load4_volatile @ 0x1405DEEE0 (__asan_load4_volatile.c)
+ *     __asan_load8 @ 0x1405DF050 (__asan_load8.c)
+ *     __asan_load8_atomic @ 0x1405DF1F0 (__asan_load8_atomic.c)
+ *     __asan_load8_volatile @ 0x1405DF370 (__asan_load8_volatile.c)
+ *     __asan_loadN @ 0x1405DF510 (__asan_loadN.c)
+ *     __asan_loadN_atomic @ 0x1405DF610 (__asan_loadN_atomic.c)
+ *     __asan_loadN_volatile @ 0x1405DF6E0 (__asan_loadN_volatile.c)
+ *     __asan_memcpy @ 0x1405DF7E0 (__asan_memcpy.c)
+ *     __asan_memset @ 0x1405DF9F0 (__asan_memset.c)
+ *     __asan_report_load1 @ 0x1405DFB20 (__asan_report_load1.c)
+ *     __asan_report_load16 @ 0x1405DFB50 (__asan_report_load16.c)
+ *     __asan_report_load2 @ 0x1405DFB80 (__asan_report_load2.c)
+ *     __asan_report_load4 @ 0x1405DFBB0 (__asan_report_load4.c)
+ *     __asan_report_load8 @ 0x1405DFBE0 (__asan_report_load8.c)
+ *     __asan_report_loadN @ 0x1405DFC10 (__asan_report_loadN.c)
+ *     __asan_report_store1 @ 0x1405DFC30 (__asan_report_store1.c)
+ *     __asan_report_store16 @ 0x1405DFC60 (__asan_report_store16.c)
+ *     __asan_report_store2 @ 0x1405DFC90 (__asan_report_store2.c)
+ *     __asan_report_store4 @ 0x1405DFCC0 (__asan_report_store4.c)
+ *     __asan_report_store8 @ 0x1405DFCF0 (__asan_report_store8.c)
+ *     __asan_report_storeN @ 0x1405DFD20 (__asan_report_storeN.c)
+ *     __asan_store1 @ 0x1405DFDE0 (__asan_store1.c)
+ *     __asan_store16 @ 0x1405DFEA0 (__asan_store16.c)
+ *     __asan_store16_atomic @ 0x1405E0140 (__asan_store16_atomic.c)
+ *     __asan_store16_volatile @ 0x1405E03B0 (__asan_store16_volatile.c)
+ *     __asan_store1_atomic @ 0x1405E0650 (__asan_store1_atomic.c)
+ *     __asan_store1_volatile @ 0x1405E06F0 (__asan_store1_volatile.c)
+ *     __asan_store2 @ 0x1405E07B0 (__asan_store2.c)
+ *     __asan_store2_atomic @ 0x1405E08D0 (__asan_store2_atomic.c)
+ *     __asan_store2_volatile @ 0x1405E09C0 (__asan_store2_volatile.c)
+ *     __asan_store4 @ 0x1405E0AE0 (__asan_store4.c)
+ *     __asan_store4_atomic @ 0x1405E0C40 (__asan_store4_atomic.c)
+ *     __asan_store4_volatile @ 0x1405E0D80 (__asan_store4_volatile.c)
+ *     __asan_store8 @ 0x1405E0EF0 (__asan_store8.c)
+ *     __asan_store8_atomic @ 0x1405E1090 (__asan_store8_atomic.c)
+ *     __asan_store8_volatile @ 0x1405E1210 (__asan_store8_volatile.c)
+ *     __asan_storeN @ 0x1405E13C0 (__asan_storeN.c)
+ *     __asan_storeN_atomic @ 0x1405E14C0 (__asan_storeN_atomic.c)
+ *     __asan_storeN_volatile @ 0x1405E1590 (__asan_storeN_volatile.c)
+ *     __asan_wrap_memchr @ 0x1405E1690 (__asan_wrap_memchr.c)
+ *     __asan_wrap_memcmp @ 0x1405E17C0 (__asan_wrap_memcmp.c)
+ *     __asan_wrap_strcat @ 0x1405E19D0 (__asan_wrap_strcat.c)
+ *     __asan_wrap_strcmp @ 0x1405E1CC0 (__asan_wrap_strcmp.c)
+ *     __asan_wrap_strcpy @ 0x1405E1EC0 (__asan_wrap_strcpy.c)
+ *     __asan_wrap_strlen @ 0x1405E20D0 (__asan_wrap_strlen.c)
+ *     __asan_wrap_strncmp @ 0x1405E21F0 (__asan_wrap_strncmp.c)
+ *     __asan_wrap_strncpy @ 0x1405E23E0 (__asan_wrap_strncpy.c)
+ *     __asan_wrap_wcscat @ 0x1405E25F0 (__asan_wrap_wcscat.c)
+ *     __asan_wrap_wcscpy @ 0x1405E29C0 (__asan_wrap_wcscpy.c)
+ *     __asan_wrap_wcslen @ 0x1405E2C40 (__asan_wrap_wcslen.c)
+ *     __asan_wrap_wcsncpy @ 0x1405E2DD0 (__asan_wrap_wcsncpy.c)
+ *     KasanUmaCopyFromUser @ 0x14071EF20 (KasanUmaCopyFromUser.c)
+ *     KasanUmaCopyFromUserNonTemporal @ 0x14071F050 (KasanUmaCopyFromUserNonTemporal.c)
+ *     KasanUmaCopyToUser @ 0x14071F180 (KasanUmaCopyToUser.c)
+ *     KasanUmaCopyToUserNonTemporal @ 0x14071F2B0 (KasanUmaCopyToUserNonTemporal.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ */
+
+void __fastcall __noreturn KasaniReport(
+        ULONG_PTR BugCheckParameter1,
+        ULONG_PTR BugCheckParameter2,
+        unsigned __int8 a3,
+        ULONG_PTR a4,
+        unsigned __int8 a5)
+{
+  KasaniValidationEnabled = 0;
+  KeBugCheckEx(0x1F2u, BugCheckParameter1, BugCheckParameter2, a4, a5 | ((unsigned __int64)a3 << 8));
+}

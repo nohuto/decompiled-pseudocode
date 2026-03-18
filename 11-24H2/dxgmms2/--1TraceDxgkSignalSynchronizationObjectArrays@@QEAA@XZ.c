@@ -1,0 +1,37 @@
+/*
+ * XREFs of ??1TraceDxgkSignalSynchronizationObjectArrays@@QEAA@XZ @ 0x140011258
+ * Callers:
+ *     VidSchiCompleteSignalCommmand @ 0x14000DCD0 (VidSchiCompleteSignalCommmand.c)
+ *     ?VidSchiSignalSyncObjectsFromCpu@@YAJPEAVHwQueueStagingList@@IPEAPEAU_VIDSCH_SYNC_OBJECT@@U_D3DDDICB_SIGNALFLAGS@@PEB_KPEAPEAUVIDSCH_HW_QUEUE@@@Z @ 0x14000EF50 (-VidSchiSignalSyncObjectsFromCpu@@YAJPEAVHwQueueStagingList@@IPEAPEAU_VIDSCH_SYNC_OBJECT@@U_D3DD.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x14000FC30 (VidSchSignalSyncObjectsFromGpu.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x140013C80 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall TraceDxgkSignalSynchronizationObjectArrays::~TraceDxgkSignalSynchronizationObjectArrays(
+        TraceDxgkSignalSynchronizationObjectArrays *this)
+{
+  char *v2; // rcx
+  char *v3; // rcx
+  void *v4; // rcx
+
+  v2 = (char *)*((_QWORD *)this + 9);
+  if ( v2 != (char *)this + 80 && v2 )
+    ExFreePoolWithTag(v2, 0);
+  *((_QWORD *)this + 9) = 0LL;
+  *((_DWORD *)this + 24) = 0;
+  v3 = (char *)*((_QWORD *)this + 5);
+  if ( v3 != (char *)this + 48 && v3 )
+    ExFreePoolWithTag(v3, 0);
+  *((_QWORD *)this + 5) = 0LL;
+  *((_DWORD *)this + 14) = 0;
+  v4 = *(void **)this;
+  if ( *(TraceDxgkSignalSynchronizationObjectArrays **)this != (TraceDxgkSignalSynchronizationObjectArrays *)((char *)this + 8)
+    && v4 )
+  {
+    ExFreePoolWithTag(v4, 0);
+  }
+  *(_QWORD *)this = 0LL;
+  *((_DWORD *)this + 6) = 0;
+}

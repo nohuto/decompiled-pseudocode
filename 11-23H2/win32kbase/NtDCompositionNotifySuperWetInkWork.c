@@ -1,0 +1,36 @@
+/*
+ * XREFs of NtDCompositionNotifySuperWetInkWork @ 0x1C0209B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C00269C4 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00D6930 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall NtDCompositionNotifySuperWetInkWork(unsigned int a1)
+{
+  int v1; // edi
+  struct DirectComposition::CApplicationChannel *v2; // rsi
+  __int64 v3; // rbp
+  struct _ERESOURCE *v4; // rbx
+  __int64 v5; // rcx
+  struct DirectComposition::CApplicationChannel *v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v7 = 0LL;
+  v1 = DirectComposition::CApplicationChannel::ReferenceHandleAndLock(a1, &v7);
+  if ( v1 >= 0 )
+  {
+    v2 = v7;
+    v3 = *((_QWORD *)v7 + 5);
+    v4 = *(struct _ERESOURCE **)(v3 + 8);
+    KeEnterCriticalRegion();
+    ExAcquireResourceSharedLite(v4, 1u);
+    v5 = *(_QWORD *)(v3 + 80);
+    if ( v5 )
+      KeSetEvent(*(PRKEVENT *)(v5 + 8), 1, 0);
+    ExReleaseResourceLite(*(PERESOURCE *)(v3 + 8));
+    KeLeaveCriticalRegion();
+    (**(void (__fastcall ***)(struct DirectComposition::CApplicationChannel *))v2)(v2);
+  }
+  return (unsigned int)v1;
+}

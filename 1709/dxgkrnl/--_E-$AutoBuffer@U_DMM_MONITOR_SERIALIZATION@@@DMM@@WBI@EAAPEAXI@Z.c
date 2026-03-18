@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_E?$AutoBuffer@U_DMM_MONITOR_SERIALIZATION@@@DMM@@WBI@EAAPEAXI@Z @ 0x1C0016D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DMM::AutoBuffer<_DMM_MONITOR_SERIALIZATION>::`vector deleting destructor'(__int64 a1)
+{
+  return DMM::AutoBuffer<_DMM_MONITOR_SERIALIZATION>::`scalar deleting destructor'((void *)(a1 - 24));
+}

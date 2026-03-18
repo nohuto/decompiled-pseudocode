@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?DxgkGetVirtualFrameBufferAccessCount@@YAKXZ @ 0x1401B48D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x140009940 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x14000A0F0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x14000B9E0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140028A90 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ */
+
+__int64 DxgkGetVirtualFrameBufferAccessCount(void)
+{
+  struct DXGGLOBAL *Global; // rax
+  _DWORD *v1; // rbx
+  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  Global = DXGGLOBAL::GetGlobal();
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v3, (struct DXGGLOBAL *)((char *)Global + 1600), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v3);
+  v1 = (_DWORD *)*((_QWORD *)DXGGLOBAL::GetGlobal() + 199);
+  if ( v1 )
+    LODWORD(v1) = *v1;
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v3);
+  return (unsigned int)v1;
+}

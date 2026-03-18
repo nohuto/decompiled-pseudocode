@@ -1,0 +1,30 @@
+/*
+ * XREFs of ApiSetEditionUpdateAsyncKeyStateThreads @ 0x140197FD0
+ * Callers:
+ *     UpdateAsyncKeyState @ 0x14008A330 (UpdateAsyncKeyState.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14024BC70 (_guard_dispatch_icall.c)
+ */
+
+__int64 (*__fastcall ApiSetEditionUpdateAsyncKeyStateThreads(__int64 a1, char a2))(void)
+{
+  __int64 (*result)(void); // rax
+  __int64 v5; // rcx
+  __int64 v6; // rdx
+
+  result = *(__int64 (**)(void))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(a1) + 48) + 5408LL);
+  if ( result )
+  {
+    result = (__int64 (*)(void))result();
+    if ( (int)result >= 0 )
+    {
+      result = *(__int64 (**)(void))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(v5) + 48) + 5416LL);
+      if ( result )
+      {
+        LOBYTE(v6) = a2;
+        return (__int64 (*)(void))((__int64 (__fastcall *)(__int64, __int64))result)(a1, v6);
+      }
+    }
+  }
+  return result;
+}

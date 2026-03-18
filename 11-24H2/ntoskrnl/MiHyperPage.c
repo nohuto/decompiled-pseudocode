@@ -1,0 +1,30 @@
+/*
+ * XREFs of MiHyperPage @ 0x140308718
+ * Callers:
+ *     MiActivePageClaimCandidate @ 0x140306540 (MiActivePageClaimCandidate.c)
+ *     MiIdentifyPfn @ 0x140307510 (MiIdentifyPfn.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MiHyperPage(__int64 a1)
+{
+  unsigned __int64 v1; // r10
+  unsigned int v2; // r8d
+  unsigned __int64 v3; // rdx
+  int v4; // r9d
+
+  v1 = (((unsigned __int64)qword_140E2F280 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v2 = 0;
+  v3 = *(_QWORD *)(a1 + 8) | 0x8000000000000000uLL;
+  v4 = 0;
+  while ( v3 >= 0xFFFFF68000000000uLL && v3 <= 0xFFFFF6FFFFFFFFFFuLL )
+  {
+    if ( v3 >= v1 && v3 <= (((unsigned __int64)qword_140E2F290 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL )
+      return (unsigned int)(v4 != 0) + 1;
+    ++v4;
+    v3 = (__int64)(v3 << 25) >> 16;
+    v1 &= 0xFFFFFFFFFFFFF000uLL;
+  }
+  return v2;
+}

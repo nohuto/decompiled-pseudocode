@@ -1,0 +1,23 @@
+/*
+ * XREFs of HalpIumQueryVariableInfo @ 0x140561830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall HalpIumQueryVariableInfo(unsigned int a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
+{
+  __int64 result; // rax
+  _QWORD v8[4]; // [rsp+30h] [rbp-48h] BYREF
+
+  if ( !qword_140FC0F90 )
+    return 0x8000000000000003uLL;
+  v8[0] = a1;
+  result = guard_dispatch_icall_no_overrides(8LL, 0LL, 0LL, v8);
+  *a2 = v8[1];
+  *a3 = v8[2];
+  *a4 = v8[3];
+  return result;
+}

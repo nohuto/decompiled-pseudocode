@@ -1,0 +1,21 @@
+/*
+ * XREFs of MiInitializeFreeZeroPfnListHead @ 0x1406732B0
+ * Callers:
+ *     MiInitializePartitionFreeZeroLists @ 0x1407ECDEC (MiInitializePartitionFreeZeroLists.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MiInitializeFreeZeroPfnListHead(__int64 a1, int a2, int a3)
+{
+  __int64 result; // rax
+
+  *(_QWORD *)a1 = 0LL;
+  result = 0x3FFFFFFFFFLL;
+  *(_DWORD *)(a1 + 12) = a2;
+  *(_DWORD *)(a1 + 8) = a3;
+  *(_QWORD *)(a1 + 16) = 0x3FFFFFFFFFLL;
+  *(_QWORD *)(a1 + 24) = 0x3FFFFFFFFFLL;
+  *(_DWORD *)(a1 + 32) = 0;
+  return result;
+}

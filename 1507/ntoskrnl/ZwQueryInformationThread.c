@@ -1,0 +1,20 @@
+/*
+ * XREFs of ZwQueryInformationThread @ 0x14017F490
+ * Callers:
+ *     VfZwQueryInformationThread @ 0x140757400 (VfZwQueryInformationThread.c)
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __stdcall ZwQueryInformationThread(
+        HANDLE ThreadHandle,
+        THREADINFOCLASS ThreadInformationClass,
+        PVOID ThreadInformation,
+        ULONG ThreadInformationLength,
+        PULONG ReturnLength)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(ThreadHandle, *(_QWORD *)&ThreadInformationClass, ThreadInformation);
+}

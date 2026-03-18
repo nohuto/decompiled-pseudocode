@@ -1,0 +1,89 @@
+/*
+ * XREFs of PopDiagTracePowerSettingRegistration @ 0x140A8A7C0
+ * Callers:
+ *     PopGetSettingNotificationName @ 0x1409BAE7C (PopGetSettingNotificationName.c)
+ * Callees:
+ *     _tlgCreate1Sz_wchar_t @ 0x140330A30 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140330CB0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetCurrentThreadProcess @ 0x1404709D0 (PsGetCurrentThreadProcess.c)
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ */
+
+char __fastcall PopDiagTracePowerSettingRegistration(__int64 a1, int a2, char a3)
+{
+  _KPROCESS *CurrentThreadProcess; // rax
+  unsigned __int16 *LastRebalanceQpc; // r10
+  const wchar_t *v8; // r9
+  unsigned __int64 v9; // rax
+  bool v10; // zf
+  const wchar_t *v11; // rdx
+  const wchar_t *v12; // r8
+  char v14; // [rsp+38h] [rbp-39h] BYREF
+  int v15; // [rsp+3Ch] [rbp-35h] BYREF
+  __int64 v16; // [rsp+40h] [rbp-31h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v17; // [rsp+48h] [rbp-29h] BYREF
+  __int64 *v18; // [rsp+68h] [rbp-9h]
+  __int64 v19; // [rsp+70h] [rbp-1h]
+  char v20[16]; // [rsp+78h] [rbp+7h] BYREF
+  int *v21; // [rsp+88h] [rbp+17h]
+  __int64 v22; // [rsp+90h] [rbp+1Fh]
+  __int64 v23; // [rsp+98h] [rbp+27h]
+  __int64 v24; // [rsp+A0h] [rbp+2Fh]
+  char *v25; // [rsp+A8h] [rbp+37h]
+  __int64 v26; // [rsp+B0h] [rbp+3Fh]
+
+  CurrentThreadProcess = PsGetCurrentThreadProcess();
+  LastRebalanceQpc = (unsigned __int16 *)CurrentThreadProcess[1].LastRebalanceQpc;
+  if ( LastRebalanceQpc )
+  {
+    v8 = (const wchar_t *)*((_QWORD *)LastRebalanceQpc + 1);
+    v9 = (unsigned __int64)*LastRebalanceQpc >> 1;
+    v10 = 2 * v9 == 0;
+    CurrentThreadProcess = (_KPROCESS *)(2 * v9);
+    v11 = (const wchar_t *)((char *)v8 + (_QWORD)CurrentThreadProcess);
+    if ( !v10 )
+    {
+      do
+      {
+        if ( *v11 == 92 )
+          break;
+        --v11;
+      }
+      while ( v11 != v8 );
+    }
+    v12 = v11 + 1;
+    if ( v11 == v8 )
+      v12 = v11;
+    if ( (unsigned int)dword_140E076F0 > 5 )
+    {
+      if ( (qword_140E07700 & 0x400000000000LL) == 0
+        || (LOBYTE(CurrentThreadProcess) = 1, (qword_140E07708 & 0x400000000000LL) != qword_140E07708) )
+      {
+        LOBYTE(CurrentThreadProcess) = 0;
+      }
+      if ( (_BYTE)CurrentThreadProcess )
+      {
+        v16 = 0x2000000LL;
+        v18 = &v16;
+        v19 = 8LL;
+        tlgCreate1Sz_wchar_t((__int64)v20, v12);
+        v15 = a2;
+        v21 = &v15;
+        v22 = 4LL;
+        v25 = &v14;
+        v23 = a1;
+        v24 = 16LL;
+        v14 = a3;
+        v26 = 1LL;
+        LOBYTE(CurrentThreadProcess) = tlgWriteTransfer_EtwWriteTransfer(
+                                         (__int64)&dword_140E076F0,
+                                         (unsigned __int8 *)word_14004A102,
+                                         0LL,
+                                         0LL,
+                                         7u,
+                                         &v17);
+      }
+    }
+  }
+  return (char)CurrentThreadProcess;
+}

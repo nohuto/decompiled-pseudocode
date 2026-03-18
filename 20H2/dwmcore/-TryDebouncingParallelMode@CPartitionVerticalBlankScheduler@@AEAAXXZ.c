@@ -1,0 +1,62 @@
+/*
+ * XREFs of ?TryDebouncingParallelMode@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18007CB30
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x180078EE0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ * Callees:
+ *     McGenEventWrite_EventWriteTransfer @ 0x180029964 (McGenEventWrite_EventWriteTransfer.c)
+ *     ?GetActualParallelModePolicy@CPartitionVerticalBlankScheduler@@AEBA?AW4ParallelModePolicy@@XZ @ 0x18003D58C (-GetActualParallelModePolicy@CPartitionVerticalBlankScheduler@@AEBA-AW4ParallelModePolicy@@XZ.c)
+ *     __security_check_cookie @ 0x1800E29B0 (__security_check_cookie.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180152344 (McTemplateU0q_EventWriteTransfer.c)
+ */
+
+void __fastcall CPartitionVerticalBlankScheduler::TryDebouncingParallelMode(CPartitionVerticalBlankScheduler *this)
+{
+  int v2; // eax
+  __int64 v3; // rcx
+  __int64 v4; // r8
+  int v5; // eax
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-28h] BYREF
+
+  if ( *((_DWORD *)this + 2794) || !*((_DWORD *)this + 2795) )
+    return;
+  v2 = CPartitionVerticalBlankScheduler::GetActualParallelModePolicy((__int64)this) - 1;
+  if ( !v2 )
+  {
+LABEL_5:
+    *((_DWORD *)this + 2795) = 0;
+    if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+      McGenEventWrite_EventWriteTransfer(
+        &Microsoft_Windows_Dwm_Core_Provider_Context,
+        &EVTDESC_SCHEDULE_PARALLEL_MODE_Stop,
+        v4,
+        1u,
+        &v6);
+    return;
+  }
+  v5 = v2 - 1;
+  if ( v5 )
+  {
+    if ( v5 == 1 )
+    {
+      *((_BYTE *)this + 15900) = 1;
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+        McTemplateU0q_EventWriteTransfer(v3, &EVTDESC_SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC, 3LL);
+    }
+  }
+  else
+  {
+    v4 = *((unsigned int *)this + 1257);
+    if ( (_DWORD)v4 != -1
+      && *((_QWORD *)this + 1990) < (unsigned __int64)(*((_QWORD *)this + 38 * v4 + 31)
+                                                     + g_qpcFrequency.QuadPart
+                                                     * (unsigned int)CCommonRegistryData::ParallelModeLeaveAfterThresholdMS
+                                                     / 1000) )
+    {
+      *((_BYTE *)this + 15900) = 1;
+      if ( (Microsoft_Windows_Dwm_CoreEnableBits & 0x10) != 0 )
+        McTemplateU0q_EventWriteTransfer(304 * v4, &EVTDESC_SCHEDULE_PARALLEL_MODE_NEEDS_TO_WAIT_FOR_NEXT_VSYNC, 2LL);
+    }
+    if ( !*((_BYTE *)this + 15900) )
+      goto LABEL_5;
+  }
+}

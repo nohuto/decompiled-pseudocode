@@ -1,0 +1,47 @@
+/*
+ * XREFs of PpmEventAffinityMaskEx @ 0x1405DD5A0
+ * Callers:
+ *     PpmEventAffinityMask @ 0x1405D8D90 (PpmEventAffinityMask.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140259680 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
+ *     PpmEventAddAffinityMaskAsSubset @ 0x1405DD440 (PpmEventAddAffinityMaskAsSubset.c)
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ */
+
+void __fastcall PpmEventAffinityMaskEx(PCEVENT_DESCRIPTOR EventDescriptor, _WORD *a2)
+{
+  ULONG UserDataCount; // [rsp+40h] [rbp-478h] BYREF
+  _BYTE v5[4]; // [rsp+44h] [rbp-474h] BYREF
+  int v6; // [rsp+48h] [rbp-470h] BYREF
+  GUID UserData; // [rsp+4Ch] [rbp-46Ch] BYREF
+  _BYTE v8[64]; // [rsp+460h] [rbp-58h] BYREF
+
+  UserData.Data1 = 0;
+  v6 = 0;
+  UserDataCount = 0;
+  if ( PpmEtwRegistered )
+  {
+    if ( EtwEventEnabled(PpmEtwHandle, EventDescriptor) )
+    {
+      PpmEventAddAffinityMaskAsSubset(
+        0LL,
+        a2,
+        (__int64)v5,
+        (__int64)v8,
+        (__int64)&UserData.Data2,
+        &UserData,
+        &v6,
+        &UserDataCount);
+      EtwWriteEx(
+        PpmEtwHandle,
+        EventDescriptor,
+        0LL,
+        0,
+        0LL,
+        0LL,
+        UserDataCount,
+        (PEVENT_DATA_DESCRIPTOR)&UserData.Data2);
+    }
+  }
+}

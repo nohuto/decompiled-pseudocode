@@ -1,0 +1,24 @@
+/*
+ * XREFs of MiNonPagedPoolToNode @ 0x1404CE570
+ * Callers:
+ *     MiMakeSystemRangeAvailable @ 0x1402A4448 (MiMakeSystemRangeAvailable.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x1405339B0 (KeBugCheckEx.c)
+ */
+
+__int64 __fastcall MiNonPagedPoolToNode(ULONG_PTR BugCheckParameter2)
+{
+  __int64 result; // rax
+
+  for ( result = 0LL; ; result = (unsigned int)(result + 1) )
+  {
+    if ( (unsigned int)result >= (unsigned __int16)KeNumberNodes )
+      KeBugCheckEx(0x1Au, 0x5309uLL, BugCheckParameter2, 0LL, 0LL);
+    if ( BugCheckParameter2 >= *(_QWORD *)(384 * result + qword_140E2D6B8 + 104)
+      && BugCheckParameter2 < *(_QWORD *)(384 * result + qword_140E2D6B8 + 112) )
+    {
+      break;
+    }
+  }
+  return result;
+}

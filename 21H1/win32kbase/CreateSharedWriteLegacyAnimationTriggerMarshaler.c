@@ -1,0 +1,24 @@
+/*
+ * XREFs of CreateSharedWriteLegacyAnimationTriggerMarshaler @ 0x1C0004160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@CSharedWriteLegacyAnimationTriggerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C00041A0 (-Create@CSharedWriteLegacyAnimationTriggerMarshaler@DirectComposition@@SAJPEBVCSharedSystemResou.c)
+ */
+
+__int64 __fastcall CreateSharedWriteLegacyAnimationTriggerMarshaler(
+        const struct DirectComposition::CSharedSystemResource *a1,
+        int a2,
+        struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler **a3)
+{
+  __int64 result; // rax
+  struct DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  *a3 = 0LL;
+  if ( *((_DWORD *)a1 + 3) != a2 )
+    return 3221225485LL;
+  v5 = 0LL;
+  result = DirectComposition::CSharedWriteLegacyAnimationTriggerMarshaler::Create(a1, &v5);
+  *a3 = v5;
+  return result;
+}

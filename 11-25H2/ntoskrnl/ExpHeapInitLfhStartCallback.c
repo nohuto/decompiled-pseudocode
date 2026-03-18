@@ -1,0 +1,19 @@
+/*
+ * XREFs of ExpHeapInitLfhStartCallback @ 0x14064E440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpHpLfhContextEnable @ 0x1405FA23C (RtlpHpLfhContextEnable.c)
+ */
+
+__int64 __fastcall ExpHeapInitLfhStartCallback(__int64 a1)
+{
+  __int64 result; // rax
+
+  if ( (*(_DWORD *)(a1 + 20) & 0x400000) == 0 )
+    NT_ASSERT("Heap->GlobalFlags & 0x00400000");
+  result = RtlpHpLfhContextEnable(a1 + 832, (__int64)&unk_140E6B918);
+  if ( (int)result >= 0 )
+    _InterlockedAnd((volatile signed __int32 *)(a1 + 20), 0xFFBFFFFF);
+  return result;
+}

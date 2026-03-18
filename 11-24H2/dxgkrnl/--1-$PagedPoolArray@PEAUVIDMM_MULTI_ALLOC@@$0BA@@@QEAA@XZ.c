@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??1?$PagedPoolArray@PEAUVIDMM_MULTI_ALLOC@@$0BA@@@QEAA@XZ @ 0x140371DAC
+ * Callers:
+ *     ?DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z @ 0x1402A4B90 (-DxgkSubmitCommandInternal@@YAJPEBU_D3DKMT_SUBMITCOMMAND@@PEAVDXGPROCESS@@@Z.c)
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ */
+
+void __fastcall PagedPoolArray<VIDMM_MULTI_ALLOC *,16>::~PagedPoolArray<VIDMM_MULTI_ALLOC *,16>(void **a1)
+{
+  if ( *a1 != a1 + 1 )
+    DXGQUOTAALLOCATOR<256,1835156294>::operator delete(*a1);
+}

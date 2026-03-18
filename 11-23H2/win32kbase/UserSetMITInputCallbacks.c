@@ -1,0 +1,111 @@
+/*
+ * XREFs of UserSetMITInputCallbacks @ 0x1C00B0BF0
+ * Callers:
+ *     NtMITSetInputCallbacks @ 0x1C00B0AF0 (NtMITSetInputCallbacks.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0050ECC (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ @ 0x1C0084A30 (-DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ.c)
+ *     ?CreateCoreMsgPort@InputExtensibilityCallout@@AEAAJXZ @ 0x1C00B0D3C (-CreateCoreMsgPort@InputExtensibilityCallout@@AEAAJXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D6660 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
+__int64 __fastcall UserSetMITInputCallbacks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  PDEVICE_OBJECT v5; // rcx
+  char v6; // bl
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  _QWORD *v9; // rdi
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rax
+  int v13; // edx
+  int v14; // r8d
+  unsigned int v15; // edi
+
+  v5 = WPP_GLOBAL_Control;
+  v6 = 1;
+  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
+    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  {
+    LOBYTE(a2) = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
+  {
+    LOBYTE(a3) = 0;
+  }
+  if ( (_BYTE)a2 || (_BYTE)a3 )
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      a2,
+      a3,
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      2,
+      24,
+      (__int64)&WPP_fb9796299f7e36879c4ad881ea88b0c0_Traceguids);
+  if ( !gDWMCapable )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 310LL);
+  v9 = *(_QWORD **)(SGDGetUserSessionState(v5, a2, a3, a4) + 16048);
+  if ( *v9 )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 45LL);
+  *v9 = a1;
+  if ( !v9[3] )
+  {
+    v12 = SGDGetUserSessionState(v8, v7, v10, v11);
+    InputExtensibilityCallout::CreateCoreMsgPort(*(InputExtensibilityCallout **)(v12 + 16048));
+    if ( !v9[3] )
+      KeBugCheck(0x164u);
+  }
+  if ( CInputThreadBase::DeclareThreadAsInput((CInputThreadBase *)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc) )
+  {
+    v15 = 1;
+  }
+  else
+  {
+    v15 = 0;
+    if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+      || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
+      || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 2u) )
+    {
+      LOBYTE(v13) = 0;
+    }
+    if ( (_BYTE)v13 || WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LOBYTE(v14) = WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED;
+      WPP_RECORDER_AND_TRACE_SF_(
+        WPP_GLOBAL_Control->AttachedDevice,
+        v13,
+        v14,
+        WPP_MAIN_CB.Queue.ListEntry.Flink,
+        2,
+        2,
+        25,
+        (__int64)&WPP_fb9796299f7e36879c4ad881ea88b0c0_Traceguids);
+    }
+  }
+  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 2) == 0
+    || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  {
+    LOBYTE(v13) = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    v6 = 0;
+  if ( (_BYTE)v13 || v6 )
+  {
+    LOBYTE(v14) = v6;
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      v13,
+      v14,
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      2,
+      26,
+      (__int64)&WPP_fb9796299f7e36879c4ad881ea88b0c0_Traceguids);
+  }
+  return v15;
+}

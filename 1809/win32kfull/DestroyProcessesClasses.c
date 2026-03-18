@@ -1,0 +1,19 @@
+/*
+ * XREFs of DestroyProcessesClasses @ 0x1C0116A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DestroyClass @ 0x1C0022594 (DestroyClass.c)
+ */
+
+__int64 __fastcall DestroyProcessesClasses(struct tagPROCESSINFO *a1)
+{
+  struct _CALLPROCDATA ***i; // rdi
+  __int64 result; // rax
+
+  for ( i = (struct _CALLPROCDATA ***)((char *)a1 + 352); *i; result = DestroyClass(a1, i) )
+    ;
+  while ( *((_QWORD *)a1 + 45) )
+    result = DestroyClass(a1, (struct _CALLPROCDATA ***)a1 + 45);
+  return result;
+}

@@ -1,0 +1,96 @@
+/*
+ * XREFs of ??0CSceneWorld@@QEAA@PEAVCComposition@@PEAVCSceneVisual@@@Z @ 0x18028857C
+ * Callers:
+ *     ?OnRootChanged@CSceneVisual@@QEAAJXZ @ 0x18021CB84 (-OnRootChanged@CSceneVisual@@QEAAJXZ.c)
+ * Callees:
+ *     ??4?$com_ptr_t@VCDeviceTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCDeviceTexture@@@Z @ 0x1800452B4 (--4-$com_ptr_t@VCDeviceTexture@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCDeviceTexture@.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180110AD4 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??2CEllipseGeometry@@SAPEAX_K@Z @ 0x1801C381C (--2CEllipseGeometry@@SAPEAX_K@Z.c)
+ *     ?RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x1802069C0 (-RegisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x180208768 (ModuleFailFastForHRESULT.c)
+ *     ??0CLight@@IEAA@PEAVCComposition@@@Z @ 0x1802641FC (--0CLight@@IEAA@PEAVCComposition@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1802D6010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+CSceneWorld *__fastcall CSceneWorld::CSceneWorld(CSceneWorld *this, struct CComposition *a2, struct CSceneVisual *a3)
+{
+  unsigned __int64 v3; // r14
+  __int64 *v4; // r15
+  _DWORD *v7; // rax
+  _DWORD *v8; // rcx
+  __int64 v9; // rdi
+  CLight *v10; // rcx
+  __int64 v11; // rcx
+  void *retaddr; // [rsp+38h] [rbp+0h]
+
+  v3 = (unsigned __int64)this + 72;
+  *((_DWORD *)this + 2) = 0;
+  v4 = (__int64 *)((char *)this + 152);
+  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)this + 3) = a2;
+  *((_QWORD *)this + 4) = 2LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 10) = 0;
+  *(_QWORD *)this = &CSceneWorld::`vftable'{for `CContent'};
+  *((_QWORD *)this + 9) = &CSceneWorld::`vftable'{for `ISceneNotificationListener'};
+  *((_QWORD *)this + 10) = a3;
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
+  *((_QWORD *)this + 16) = 0LL;
+  *((_QWORD *)this + 17) = 0LL;
+  *((_QWORD *)this + 18) = 0LL;
+  *((_QWORD *)this + 19) = 0LL;
+  *((_BYTE *)this + 160) = 0;
+  v7 = CEllipseGeometry::operator new();
+  v8 = v7;
+  if ( v7 )
+  {
+    v7[2] = 0;
+    *((_QWORD *)v7 + 2) = 0LL;
+    *((_QWORD *)v7 + 3) = a2;
+    *((_QWORD *)v7 + 4) = 2LL;
+    *((_QWORD *)v7 + 6) = 0LL;
+    v7[10] = 0;
+    *((_QWORD *)v7 + 10) = 0LL;
+    *((_QWORD *)v7 + 11) = 0LL;
+    *((_QWORD *)v7 + 12) = 0LL;
+    *((_QWORD *)v7 + 13) = 0LL;
+    *((_QWORD *)v7 + 14) = 0LL;
+    *((_QWORD *)v7 + 15) = 0LL;
+    *(_QWORD *)v7 = &CSceneNode::`vftable';
+    *((_QWORD *)v7 + 18) = 0LL;
+  }
+  else
+  {
+    v8 = 0LL;
+  }
+  v9 = *((_QWORD *)this + 12);
+  *((_QWORD *)this + 12) = v8;
+  if ( v8 )
+    (*(void (__fastcall **)(_DWORD *))(*(_QWORD *)v8 + 8LL))(v8);
+  if ( v9 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+  v10 = (CLight *)DefaultHeap::AllocClear(0x158uLL);
+  if ( !v10 )
+    ModuleFailFastForHRESULT(-2147024882, retaddr);
+  CLight::CLight(v10, a2);
+  *(_DWORD *)(v11 + 232) = 1065353216;
+  *(_QWORD *)(v11 + 88) = &CSpotLight::`vftable'{for `ISceneNotificationListener'};
+  *(_QWORD *)v11 = &CEnvironmentLight::`vftable'{for `CLightGeneratedT<CLight,CPropertyChangeResource>'};
+  *(_OWORD *)(v11 + 236) = xmmword_1803A19D0;
+  *(_OWORD *)(v11 + 252) = xmmword_1803A19E0;
+  *(_OWORD *)(v11 + 268) = xmmword_1803A19F0;
+  *(_OWORD *)(v11 + 284) = xmmword_1803A1A00;
+  *(_OWORD *)(v11 + 300) = xmmword_1803A1A10;
+  *(_OWORD *)(v11 + 316) = xmmword_1803A1A20;
+  *(_QWORD *)(v11 + 332) = 0xBF3B531EBD893965uLL;
+  *(_DWORD *)(v11 + 340) = 1059333266;
+  wil::com_ptr_t<CDeviceTexture,wil::err_returncode_policy>::operator=(v4, v11);
+  CSceneResourceManager::RegisterSceneListener(
+    *(CSceneResourceManager **)(*((_QWORD *)this + 3) + 672LL),
+    (struct ISceneNotificationListener *)(v3 & ((unsigned __int128)-(__int128)(unsigned __int64)this >> 64)));
+  return this;
+}

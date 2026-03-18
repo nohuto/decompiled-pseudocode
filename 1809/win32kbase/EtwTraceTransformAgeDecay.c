@@ -1,0 +1,16 @@
+/*
+ * XREFs of EtwTraceTransformAgeDecay @ 0x1C00E8710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0px @ 0x1C00EA344 (McTemplateK0px.c)
+ */
+
+__int64 __fastcall EtwTraceTransformAgeDecay(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 result; // rax
+
+  if ( (BYTE3(Microsoft_Windows_Win32kEnableBits) & 8) != 0 )
+    return McTemplateK0px(a1, a2, a3, a1, a2);
+  return result;
+}

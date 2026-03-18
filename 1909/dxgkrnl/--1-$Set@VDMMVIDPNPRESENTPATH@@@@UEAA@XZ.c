@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??1?$Set@VDMMVIDPNPRESENTPATH@@@@UEAA@XZ @ 0x1C0005228
+ * Callers:
+ *     ??1DMMVIDPNTOPOLOGY@@UEAA@XZ @ 0x1C00051D4 (--1DMMVIDPNTOPOLOGY@@UEAA@XZ.c)
+ *     ??_E?$Set@VDMMVIDPNPRESENTPATH@@@@UEAAPEAXI@Z @ 0x1C00559C0 (--_E-$Set@VDMMVIDPNPRESENTPATH@@@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Clear@?$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNPRESENTPATH@@@@@@QEAAXXZ @ 0x1C0019A8C (-Clear@-$DoublyLinkedList@VDMMVIDPNPRESENTPATH@@U-$DoubleLinkedListElementDeleter@VDMMVIDPNPRESE.c)
+ */
+
+__int64 __fastcall Set<DMMVIDPNPRESENTPATH>::~Set<DMMVIDPNPRESENTPATH>(_QWORD *a1)
+{
+  *a1 = &Set<DMMVIDPNPRESENTPATH>::`vftable';
+  a1[1] = &DoublyLinkedList<DMMVIDPNPRESENTPATH,DoubleLinkedListElementDeleter<DMMVIDPNPRESENTPATH>>::`vftable';
+  return DoublyLinkedList<DMMVIDPNPRESENTPATH,DoubleLinkedListElementDeleter<DMMVIDPNPRESENTPATH>>::Clear();
+}

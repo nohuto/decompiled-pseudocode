@@ -1,0 +1,227 @@
+/*
+ * XREFs of NtRenameKey @ 0x14084F890
+ * Callers:
+ *     DifNtRenameKeyWrapper @ 0x140688CF0 (DifNtRenameKeyWrapper.c)
+ * Callees:
+ *     CmpIsRegistryLockAcquired @ 0x140262890 (CmpIsRegistryLockAcquired.c)
+ *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     CmpInitializeThreadInfo @ 0x14043CF00 (CmpInitializeThreadInfo.c)
+ *     CmCleanupThreadInfo @ 0x14044C0A0 (CmCleanupThreadInfo.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x1404869D8 (CmpAllocateTransientPoolWithQuota.c)
+ *     CmSiFreeMemory @ 0x140495010 (CmSiFreeMemory.c)
+ *     CmDoVirtualTest @ 0x1404D4AF4 (CmDoVirtualTest.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     CmRenameKey @ 0x140857A3C (CmRenameKey.c)
+ *     CmPostCallbackNotificationEx @ 0x1408C9D50 (CmPostCallbackNotificationEx.c)
+ *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
+ *     SeReleaseSubjectContext @ 0x1408CB2E0 (SeReleaseSubjectContext.c)
+ *     CmpCaptureUnicodeStringBuffer @ 0x1408F2650 (CmpCaptureUnicodeStringBuffer.c)
+ *     SeCaptureSubjectContext @ 0x140933620 (SeCaptureSubjectContext.c)
+ *     CmpDoesBufferRequireCapturing @ 0x14097DDF0 (CmpDoesBufferRequireCapturing.c)
+ *     CmpCaptureUnicodeString @ 0x14097E720 (CmpCaptureUnicodeString.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140AB2878 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140B3181C (CmKeyBodyReplicateToVirtual.c)
+ *     CmObReferenceObjectByHandle @ 0x140C58340 (CmObReferenceObjectByHandle.c)
+ *     CmpReleaseShutdownRundown @ 0x140C58900 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140C58930 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140C58A50 (CmpDetachFromRegistryProcess.c)
+ *     CmpAcquireShutdownRundown @ 0x140C58AB0 (CmpAcquireShutdownRundown.c)
+ */
+
+__int64 __fastcall NtRenameKey(__int64 a1, __int64 a2)
+{
+  char v3; // r13
+  struct _PRIVILEGE_SET *v4; // r12
+  unsigned int PreviousMode; // r15d
+  char v6; // r14
+  char v7; // si
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  int v11; // ebx
+  unsigned __int16 v12; // bx
+  _WORD *v13; // r13
+  int v14; // r8d
+  int v15; // r9d
+  __int64 TransientPoolWithQuota; // rax
+  __int64 v17; // r8
+  unsigned int i; // ecx
+  int v19; // r13d
+  __int64 v20; // rdx
+  int v21; // r8d
+  int v22; // r9d
+  struct _KTHREAD *CurrentThread; // rax
+  int v24; // r9d
+  int v25; // eax
+  __int64 v26; // r8
+  PVOID v27; // rcx
+  char v29; // [rsp+45h] [rbp-123h]
+  PVOID Object; // [rsp+50h] [rbp-118h] BYREF
+  int v31; // [rsp+58h] [rbp-110h] BYREF
+  __int128 v32; // [rsp+60h] [rbp-108h] BYREF
+  __int64 v33; // [rsp+78h] [rbp-F0h]
+  _QWORD v34[2]; // [rsp+80h] [rbp-E8h] BYREF
+  __int128 v35; // [rsp+90h] [rbp-D8h] BYREF
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+A0h] [rbp-C8h] BYREF
+  _OWORD v37[2]; // [rsp+C0h] [rbp-A8h] BYREF
+  __int64 v38; // [rsp+E0h] [rbp-88h]
+  __int128 v39; // [rsp+E8h] [rbp-80h] BYREF
+  __int64 v40; // [rsp+F8h] [rbp-70h]
+  struct _KAPC_STATE ApcState; // [rsp+100h] [rbp-68h] BYREF
+
+  *(_QWORD *)&v35 = a1;
+  v39 = 0LL;
+  v40 = 0LL;
+  v32 = 0LL;
+  memset(&ApcState, 0, sizeof(ApcState));
+  CmpInitializeThreadInfo((_KAFFINITY_EX *)&v39);
+  v3 = 0;
+  Object = 0LL;
+  v4 = 0LL;
+  v33 = 0LL;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  v6 = 0;
+  memset(v37, 0, sizeof(v37));
+  v38 = 0LL;
+  v34[1] = v34;
+  v34[0] = v34;
+  v31 = 0;
+  v7 = 0;
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  v29 = CmpAcquireShutdownRundown(v9, v8);
+  if ( !v29 )
+  {
+    v11 = -1073741431;
+    goto LABEL_38;
+  }
+  LOBYTE(v10) = PreviousMode;
+  v11 = CmpCaptureUnicodeString(&v32, a2, v10);
+  if ( v11 < 0 )
+  {
+    v6 = 0;
+    goto LABEL_38;
+  }
+  v12 = v32;
+  if ( (unsigned __int16)(v32 - 1) > 0x1FFu )
+  {
+    v11 = -1073741811;
+    v6 = 0;
+    goto LABEL_38;
+  }
+  v13 = (_WORD *)*((_QWORD *)&v32 + 1);
+  if ( (unsigned __int8)CmpDoesBufferRequireCapturing(PreviousMode, *((_QWORD *)&v32 + 1)) )
+  {
+    TransientPoolWithQuota = CmpAllocateTransientPoolWithQuota();
+    v4 = (struct _PRIVILEGE_SET *)TransientPoolWithQuota;
+    v33 = TransientPoolWithQuota;
+    if ( !TransientPoolWithQuota )
+    {
+      v11 = -1073741670;
+      v3 = 0;
+      v6 = 0;
+      goto LABEL_38;
+    }
+    LOBYTE(v17) = PreviousMode;
+    CmpCaptureUnicodeStringBuffer(&v32, TransientPoolWithQuota, v17);
+    v13 = (_WORD *)*((_QWORD *)&v32 + 1);
+    v12 = v32;
+  }
+  if ( !*v13 )
+  {
+    v11 = -1073741811;
+    v3 = 0;
+    v6 = 0;
+    goto LABEL_38;
+  }
+  for ( i = 0; i < v12 >> 1; ++i )
+  {
+    if ( v13[i] == 92 )
+    {
+      v11 = -1073741811;
+LABEL_17:
+      v3 = 0;
+      v6 = 0;
+      goto LABEL_38;
+    }
+  }
+  LOBYTE(v15) = PreviousMode;
+  v19 = v35;
+  v11 = CmObReferenceObjectByHandle(v35, 131078, v14, v15, (__int64)&Object, 0LL);
+  if ( v11 == -1073741790 )
+  {
+    SeCaptureSubjectContext(&SubjectContext);
+    v7 = 1;
+    if ( !CmDoVirtualTest() )
+      goto LABEL_20;
+    LOBYTE(v22) = PreviousMode;
+    v11 = CmObReferenceObjectByHandle(v19, 131097, v21, v22, (__int64)&Object, 0LL);
+    if ( v11 < 0 )
+      goto LABEL_17;
+    if ( !(unsigned __int8)CmKeyBodyNeedsVirtualImage(Object) )
+    {
+LABEL_20:
+      v11 = -1073741790;
+      goto LABEL_17;
+    }
+    v3 = 1;
+    v6 = 1;
+  }
+  else
+  {
+    v3 = 1;
+  }
+  v7 = v6;
+  if ( v11 < 0 )
+    goto LABEL_17;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( !WheapPfaLock.ExpectedRunTime || (unsigned int)CmpIsRegistryLockAcquired() )
+  {
+    v3 = 0;
+    goto LABEL_33;
+  }
+  *(_QWORD *)&v37[0] = Object;
+  *((_QWORD *)&v37[0] + 1) = &v32;
+  LOBYTE(v24) = 1;
+  v25 = CmpCallCallBacksEx(4, (unsigned int)v37, 0, v24, 19, (__int64)Object, (__int64)v34);
+  if ( v25 >= 0 )
+  {
+LABEL_33:
+    if ( !v6
+      || (LOBYTE(v20) = PreviousMode,
+          v11 = CmKeyBodyReplicateToVirtual(&Object, v20, 131078LL, &SubjectContext, &v31),
+          v11 >= 0) )
+    {
+      CmpAttachToRegistryProcess(&ApcState);
+      v35 = v32;
+      LOBYTE(v26) = PreviousMode;
+      v11 = CmRenameKey(Object, &v35, v26);
+      CmpDetachFromRegistryProcess(&ApcState);
+      v7 = v6;
+    }
+    goto LABEL_37;
+  }
+  v11 = 0;
+  if ( v25 != -1073740541 )
+    v11 = v25;
+  v3 = 0;
+LABEL_37:
+  v6 = 1;
+LABEL_38:
+  if ( v7 )
+    SeReleaseSubjectContext(&SubjectContext);
+  if ( v3 )
+    v11 = CmPostCallbackNotificationEx(19, (_DWORD)Object, v11, (unsigned int)v37, 0LL, (__int64)v34);
+  if ( v6 )
+    KeLeaveCriticalRegion();
+  v27 = Object;
+  if ( Object )
+    ObfDereferenceObject(Object);
+  if ( v4 )
+    CmSiFreeMemory(v4);
+  if ( v29 )
+    CmpReleaseShutdownRundown(v27);
+  CmCleanupThreadInfo((_KAFFINITY_EX **)&v39);
+  return (unsigned int)v11;
+}

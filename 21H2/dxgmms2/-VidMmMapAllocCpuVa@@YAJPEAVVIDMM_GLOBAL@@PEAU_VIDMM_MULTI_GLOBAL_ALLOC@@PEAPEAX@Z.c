@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?VidMmMapAllocCpuVa@@YAJPEAVVIDMM_GLOBAL@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@PEAPEAX@Z @ 0x1C002CE40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmUnmapAllocCpuVa@VIDMM_GLOBAL@@QEAAJPEAVDXGPROCESS@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z @ 0x1C00DC24C (-VidMmUnmapAllocCpuVa@VIDMM_GLOBAL@@QEAAJPEAVDXGPROCESS@@PEAU_VIDMM_MULTI_GLOBAL_ALLOC@@@Z.c)
+ */
+
+__int64 __fastcall VidMmMapAllocCpuVa(struct VIDMM_GLOBAL *a1, struct _VIDMM_MULTI_GLOBAL_ALLOC *a2, void **a3)
+{
+  return VIDMM_GLOBAL::VidMmUnmapAllocCpuVa(a1, a2, (struct _VIDMM_MULTI_GLOBAL_ALLOC *)a3);
+}

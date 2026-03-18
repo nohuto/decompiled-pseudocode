@@ -1,0 +1,55 @@
+/*
+ * XREFs of ??_ECResourceTable@@UEAAPEAXI@Z @ 0x180090520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x180036FB8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x18003AF68 (--3@YAXPEAX@Z.c)
+ *     ?AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z @ 0x1800DC280 (-AddBeziers@CDrawListPolygonBuilder@@EEAAXPEBUD2D1_BEZIER_SEGMENT@@I@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800EBD90 (_guard_dispatch_icall_nop.c)
+ */
+
+CDrawListEntry **__fastcall CResourceTable::`vector deleting destructor'(CDrawListEntry **this, char a2)
+{
+  _QWORD **v3; // rdi
+  _QWORD *v5; // rcx
+  CDrawListEntry *v6; // rcx
+  unsigned int v7; // r8d
+  _QWORD *v9; // rax
+  __int64 *v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rdx
+  void (*v13)(void); // rax
+
+  *this = (CDrawListEntry *)&CResourceTable::`vftable';
+  v3 = (_QWORD **)(this + 8);
+  while ( 1 )
+  {
+    v5 = *v3;
+    if ( *v3 == v3 )
+      break;
+    if ( (_QWORD **)v5[1] != v3 || (v9 = (_QWORD *)*v5, *(_QWORD **)(*v5 + 8LL) != v5) )
+      __fastfail(3u);
+    *v3 = v9;
+    v10 = v5 - 1;
+    v9[1] = v3;
+    v11 = *v10;
+    v12 = (unsigned __int64)(v10 + 1) & -(__int64)(v10 != 0LL);
+    v10[1] = v12;
+    v13 = *(void (**)(void))(v11 + 8);
+    v10[2] = v12;
+    v13();
+  }
+  ReleaseInterface<CProcessAttribution>(this + 7);
+  v6 = this[5];
+  this[2] = (CDrawListEntry *)&HANDLE_TABLE::`vftable';
+  operator delete(v6);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      CDrawListPolygonBuilder::AddBeziers((CDrawListPolygonBuilder *)this, (const struct D2D1_BEZIER_SEGMENT *)0x50, v7);
+    else
+      operator delete(this);
+  }
+  return this;
+}

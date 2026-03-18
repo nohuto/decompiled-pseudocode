@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?bReadFromAccumulatedBounds@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHXZ @ 0x1C02A8130
+ * Callers:
+ *     NtGdiLineTo @ 0x1C015A570 (NtGdiLineTo.c)
+ *     NtGdiInvertRgn @ 0x1C02A94E0 (NtGdiInvertRgn.c)
+ *     GrePolyBezier @ 0x1C02AB7A0 (GrePolyBezier.c)
+ *     GrePolyPolygon @ 0x1C02ABAE0 (GrePolyPolygon.c)
+ *     GrePolyPolyline @ 0x1C02ABDD0 (GrePolyPolyline.c)
+ *     NtGdiRectangle @ 0x1C02ACE40 (NtGdiRectangle.c)
+ * Callees:
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C004DD9C (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C01381F0 (__security_check_cookie.c)
+ *     ?bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0265C84 (-bOffsetSubtract@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     ?bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z @ 0x1C0299D74 (-bReadBackRect@DWMSCREENREADMODIFYWRITEASSIST@@QEAAHPEBU_RECTL@@@Z.c)
+ */
+
+__int64 __fastcall DWMSCREENREADMODIFYWRITEASSIST::bReadFromAccumulatedBounds(DWMSCREENREADMODIFYWRITEASSIST *this)
+{
+  _QWORD **v1; // rax
+  unsigned int v3; // ebx
+  struct _RECTL v5; // [rsp+20h] [rbp-28h] BYREF
+
+  v1 = (_QWORD **)*((_QWORD *)this + 3);
+  v3 = 0;
+  if ( *v1 )
+  {
+    if ( (unsigned int)GreGetBounds(**v1, &v5, 4LL) )
+    {
+      ERECTL::bOffsetSubtract(
+        (ERECTL *)&v5,
+        (const struct _POINTL *)(**((_QWORD **)this + 3) + 8LL * (*(_DWORD *)(**((_QWORD **)this + 3) + 40LL) & 1) + 1016),
+        0);
+      if ( !ERECTL::bEmpty((ERECTL *)&v5) )
+        return DWMSCREENREADMODIFYWRITEASSIST::bReadBackRect(this, &v5);
+    }
+  }
+  return v3;
+}

@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?PacketCallback@CIVChannel@@AEAAJPEAU_IVSRContext@@@Z @ 0x140222344
+ * Callers:
+ *     ?sPacketCallback@CIVChannel@@CAJPEAU_IVSRContext@@@Z @ 0x140222740 (-sPacketCallback@CIVChannel@@CAJPEAU_IVSRContext@@@Z.c)
+ * Callees:
+ *     ?Win32AllocPoolZInitImpl@@YAPEAX_K0K@Z @ 0x140047370 (-Win32AllocPoolZInitImpl@@YAPEAX_K0K@Z.c)
+ *     isChildPartition @ 0x1400D2FA0 (isChildPartition.c)
+ *     ?Receive@CIVChannel@@AEAAJXZ @ 0x140222420 (-Receive@CIVChannel@@AEAAJXZ.c)
+ *     _guard_dispatch_icall @ 0x14024BC70 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14024C2C0 (memmove.c)
+ */
+
+__int64 __fastcall CIVChannel::PacketCallback(CIVChannel *this, struct _IVSRContext *a2, int a3)
+{
+  unsigned int v5; // r14d
+  unsigned int v6; // r12d
+  const void *v7; // rbp
+  unsigned __int64 v8; // r15
+  void *v9; // rax
+  const void *v10; // rsi
+
+  if ( !isChildPartition((int)this, (int)a2, a3) )
+    KeBugCheck(0x164u);
+  v5 = *((_DWORD *)a2 + 40);
+  v6 = *((_DWORD *)a2 + 44);
+  v7 = (const void *)*((_QWORD *)a2 + 13);
+  if ( !v5 )
+  {
+    v8 = *((_QWORD *)a2 + 14);
+    v9 = (void *)Win32AllocPoolZInitImpl(256LL, v8, 0x6E705649u);
+    v10 = v9;
+    if ( !v9 )
+      return CIVChannel::Receive(this);
+    memmove(v9, v7, v8);
+    v7 = v10;
+  }
+  if ( !(*((unsigned __int8 (__fastcall **)(_QWORD, _QWORD, _QWORD, const void *, _QWORD))this + 3))(
+          *(_QWORD *)this,
+          v6,
+          v5,
+          v7,
+          *((_QWORD *)a2 + 19)) )
+    return 0LL;
+  return CIVChannel::Receive(this);
+}

@@ -1,0 +1,55 @@
+/*
+ * XREFs of RtlLengthSid @ 0x14009FED0
+ * Callers:
+ *     SPCall2ServerInternal @ 0x1404B09F0 (SPCall2ServerInternal.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1404C20C0 (SepAppendAceToTokenObjectAcl.c)
+ *     RtlpCopyEffectiveAce @ 0x1404C8940 (RtlpCopyEffectiveAce.c)
+ *     ExpWnfResolveScopeInstance @ 0x1404F63DC (ExpWnfResolveScopeInstance.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140540674 (ObpCaptureBoundaryDescriptor.c)
+ *     PiUEventInitClientRegistrationContext @ 0x140542C18 (PiUEventInitClientRegistrationContext.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140543A30 (SeCaptureSidAndAttributesArray.c)
+ *     RtlpSysVolCreateSecurityDescriptor @ 0x1405C384C (RtlpSysVolCreateSecurityDescriptor.c)
+ *     _CmGetDeviceRegKeySecurityDescriptor @ 0x1405E09D4 (_CmGetDeviceRegKeySecurityDescriptor.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x1405E0F7C (_PnpGetPropertiesSecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x1405F29E4 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     LocalGetAclForString @ 0x140601100 (LocalGetAclForString.c)
+ *     LookupSidInTable @ 0x14060181C (LookupSidInTable.c)
+ *     BiCreateKeySecurityDescriptor @ 0x140608EA0 (BiCreateKeySecurityDescriptor.c)
+ *     MiSessionObjectCreate @ 0x14060A7FC (MiSessionObjectCreate.c)
+ *     ObCreateKernelObjectsSD @ 0x14061CE70 (ObCreateKernelObjectsSD.c)
+ *     ObpGetDosDevicesProtection @ 0x14061D22C (ObpGetDosDevicesProtection.c)
+ *     MiCreateMemoryEventSD @ 0x14061D430 (MiCreateMemoryEventSD.c)
+ *     DbgkpCreateNotificationEvent @ 0x140620BDC (DbgkpCreateNotificationEvent.c)
+ *     ObpCreateDefaultObjectTypeSD @ 0x140621F3C (ObpCreateDefaultObjectTypeSD.c)
+ *     WdipSemSqmInit @ 0x1406392D8 (WdipSemSqmInit.c)
+ *     MiCreatePagingFile @ 0x14063BE50 (MiCreatePagingFile.c)
+ *     PfpCreateEvent @ 0x1406455CC (PfpCreateEvent.c)
+ *     NtSetUuidSeed @ 0x14064B320 (NtSetUuidSeed.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x14064EBCC (_PnpGetEnumSecurityDescriptor.c)
+ *     CmpBuildAdminInformation @ 0x1406F46D0 (CmpBuildAdminInformation.c)
+ *     IopCheckGetQuotaBufferValidity @ 0x14071967C (IopCheckGetQuotaBufferValidity.c)
+ *     IoCheckQuotaBufferValidity @ 0x14071BD90 (IoCheckQuotaBufferValidity.c)
+ *     PiAuCheckTokenMembership @ 0x1407299AC (PiAuCheckTokenMembership.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x140729BE0 (PiAuGetServiceStateSecurityObject.c)
+ *     PiAuGetStateDirectorySecurityObject @ 0x140729E54 (PiAuGetStateDirectorySecurityObject.c)
+ *     RtlReplaceSidInSd @ 0x140785250 (RtlReplaceSidInSd.c)
+ *     RtlpCreateServerAcl @ 0x140785B10 (RtlpCreateServerAcl.c)
+ *     LocalGetAceCondition @ 0x140796B58 (LocalGetAceCondition.c)
+ *     SddlAddAccessFilterAce @ 0x140796F78 (SddlAddAccessFilterAce.c)
+ *     SddlAddMandatoryAce @ 0x140797194 (SddlAddMandatoryAce.c)
+ *     SddlAddProcessTrustLabelAce @ 0x1407972F0 (SddlAddProcessTrustLabelAce.c)
+ *     SddlAddScopedPolicyIDAce @ 0x140797448 (SddlAddScopedPolicyIDAce.c)
+ *     GetOperandValue @ 0x140798348 (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x140799EA8 (LocalGetRelativeAttributeForString.c)
+ *     SmKmStoreFileMakeSecurityDescriptor @ 0x14079E914 (SmKmStoreFileMakeSecurityDescriptor.c)
+ *     DrvDbGetSecurityDescriptor @ 0x1407F403C (DrvDbGetSecurityDescriptor.c)
+ *     ObpGetSilosRootDirectory @ 0x1407F687C (ObpGetSilosRootDirectory.c)
+ *     ViInitializeLocalSystemDescriptor @ 0x1408142A0 (ViInitializeLocalSystemDescriptor.c)
+ * Callees:
+ *     <none>
+ */
+
+ULONG __stdcall RtlLengthSid(PSID Sid)
+{
+  return 4 * *((unsigned __int8 *)Sid + 1) + 8;
+}

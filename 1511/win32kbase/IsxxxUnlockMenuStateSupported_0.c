@@ -1,0 +1,13 @@
+/*
+ * XREFs of IsxxxUnlockMenuStateSupported_0 @ 0x1C00026F0
+ * Callers:
+ *     ?EnsureRequiredApiSetExtensions@@YAXXZ @ 0x1C0066BD4 (-EnsureRequiredApiSetExtensions@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+__int64 IsxxxUnlockMenuStateSupported_0()
+{
+  return IsxxxUnlockMenuStateSupported();
+}

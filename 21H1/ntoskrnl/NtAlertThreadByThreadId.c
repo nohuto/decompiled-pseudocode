@@ -1,0 +1,36 @@
+/*
+ * XREFs of NtAlertThreadByThreadId @ 0x1405E0420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAlertThreadByThreadId @ 0x140204570 (KeAlertThreadByThreadId.c)
+ *     HalPutDmaAdapter @ 0x140261190 (HalPutDmaAdapter.c)
+ *     PsLookupThreadByThreadId @ 0x1405DFE40 (PsLookupThreadByThreadId.c)
+ */
+
+NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
+{
+  struct _KTHREAD *CurrentThread; // rbx
+  int v2; // edi
+  NTSTATUS result; // eax
+  _KPROCESS *Process; // rax
+  struct _DMA_ADAPTER *v5; // rbx
+  PETHREAD Thread; // [rsp+38h] [rbp+10h] BYREF
+
+  CurrentThread = KeGetCurrentThread();
+  v2 = 0;
+  Thread = 0LL;
+  result = PsLookupThreadByThreadId(a1, &Thread);
+  if ( result >= 0 )
+  {
+    Process = CurrentThread->Process;
+    v5 = (struct _DMA_ADAPTER *)Thread;
+    if ( Thread->Process == Process )
+      KeAlertThreadByThreadId((__int64)Thread);
+    else
+      v2 = -1073741790;
+    HalPutDmaAdapter(v5);
+    return v2;
+  }
+  return result;
+}

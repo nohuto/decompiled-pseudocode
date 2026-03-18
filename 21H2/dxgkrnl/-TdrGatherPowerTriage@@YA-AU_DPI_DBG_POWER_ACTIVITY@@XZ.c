@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?TdrGatherPowerTriage@@YA?AU_DPI_DBG_POWER_ACTIVITY@@XZ @ 0x1C00525B4
+ * Callers:
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z @ 0x1C0052318 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N@Z.c)
+ * Callees:
+ *     ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C000BBD0 (-DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ.c)
+ */
+
+__int64 TdrGatherPowerTriage()
+{
+  struct DXGGLOBAL *Global; // rax
+  char v1; // cl
+  char v2; // dl
+  _QWORD *v3; // r10
+  _QWORD *v4; // r8
+  _QWORD *v5; // r9
+  __int64 v6; // rax
+  char v7; // al
+  char v8; // cl
+  char v9; // al
+  __int64 v11; // [rsp+30h] [rbp+8h]
+
+  v11 = 0LL;
+  Global = DXGGLOBAL_GetGlobal();
+  v1 = 0;
+  v2 = 0;
+  v3 = (_QWORD *)((char *)Global + 800);
+  v4 = (_QWORD *)*((_QWORD *)Global + 100);
+  while ( v4 != v3 && v4 )
+  {
+    v5 = v4;
+    v4 = (_QWORD *)*v4;
+    v6 = v5[27];
+    if ( v6 && *(_DWORD *)(*(_QWORD *)(v6 + 64) + 4288LL) )
+    {
+      if ( (v1 & 1) != 0 || (v7 = 0, v5[351]) )
+        v7 = 1;
+      v8 = v7 | v1 & 0xFE;
+      if ( (v8 & 2) != 0 || (v9 = 0, *((_DWORD *)v5 + 1121)) )
+        v9 = 2;
+      v1 = v9 | v8 & 0xFD;
+      LOBYTE(v11) = v1;
+    }
+  }
+  if ( (v1 & 1) != 0 || (v1 = v11, g_TdrRecoveryInProgress) )
+    v2 = 1;
+  LOBYTE(v11) = v2 | v1 & 0xFE;
+  return v11;
+}

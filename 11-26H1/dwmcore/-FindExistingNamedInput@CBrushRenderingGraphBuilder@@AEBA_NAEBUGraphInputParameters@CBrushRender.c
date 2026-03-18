@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?FindExistingNamedInput@CBrushRenderingGraphBuilder@@AEBA_NAEBUGraphInputParameters@CBrushRenderingGraph@@PEAI@Z @ 0x1801C08D8
+ * Callers:
+ *     ?AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18028BB2C (-AddNineGridBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCNineGridBrush@@_NPEAPEAVCRenderingTechn.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CBrushRenderingGraphBuilder::FindExistingNamedInput(
+        CBrushRenderingGraphBuilder *this,
+        const struct CBrushRenderingGraph::GraphInputParameters *a2,
+        unsigned int *a3)
+{
+  __int64 v3; // r11
+  __int64 v4; // rcx
+  __int64 v5; // r9
+  bool result; // al
+
+  v3 = *(_QWORD *)this;
+  v4 = 0LL;
+  if ( *(_DWORD *)(v3 + 40) )
+  {
+    v5 = *(_QWORD *)(v3 + 16);
+    do
+    {
+      if ( *(_QWORD *)(v5 + 24 * v4) == *(_QWORD *)a2
+        && *(_QWORD *)(v5 + 24 * v4 + 8) == *((_QWORD *)a2 + 1)
+        && *(_DWORD *)(v5 + 24 * v4 + 16) == *((_DWORD *)a2 + 4) )
+      {
+        break;
+      }
+      v4 = (unsigned int)(v4 + 1);
+    }
+    while ( (unsigned int)v4 < *(_DWORD *)(v3 + 40) );
+  }
+  result = (unsigned int)v4 < *(_DWORD *)(v3 + 40);
+  *a3 = v4;
+  return result;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of DxgkIncrementGlobalConnectionChangeId @ 0x14005A570
+ * Callers:
+ *     ?CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@AEAK3PEAU_DXGK_SET_TIMING_RESULTS@@PEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@E@Z @ 0x14030F324 (-CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_P.c)
+ * Callees:
+ *     <none>
+ */
+
+signed __int64 DxgkIncrementGlobalConnectionChangeId()
+{
+  return _InterlockedIncrement64(&qword_1401612A8);
+}

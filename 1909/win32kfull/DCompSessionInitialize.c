@@ -1,0 +1,19 @@
+/*
+ * XREFs of DCompSessionInitialize @ 0x1C0380270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?wil_details_FeaturePropertyCache_ReportUsageToService@@YAXPEATwil_details_FeaturePropertyCache@@IPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1C012ACDC (-wil_details_FeaturePropertyCache_ReportUsageToService@@YAXPEATwil_details_FeaturePropertyCache@.c)
+ */
+
+__int64 DCompSessionInitialize()
+{
+  wil_details_FeaturePropertyCache_ReportUsageToService(
+    (__int64)&Feature_DWMTouchTargeting__private_propertyCache,
+    8348580LL,
+    (const struct FEATURE_LOGGED_TRAITS *)&unk_1C02DB69C,
+    1,
+    3);
+  g_bHitTestDwmFirstForTouch = 1;
+  return DCompositionSessionInitialize(0LL);
+}

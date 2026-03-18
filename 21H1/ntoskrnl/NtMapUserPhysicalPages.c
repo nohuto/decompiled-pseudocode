@@ -1,0 +1,136 @@
+/*
+ * XREFs of NtMapUserPhysicalPages @ 0x1408D2390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiGetPteAddress @ 0x14027AF40 (MiGetPteAddress.c)
+ *     MiAllocatePool @ 0x1402A0FB0 (MiAllocatePool.c)
+ *     ExGetCallBackBlockRoutine @ 0x14037F340 (ExGetCallBackBlockRoutine.c)
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     MiFreePhysicalPageChain @ 0x1405460C8 (MiFreePhysicalPageChain.c)
+ *     MiGetAweNode @ 0x1405468C0 (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x1405469B8 (MiGetAweViewPageSize.c)
+ *     MiLockAwePagesShared @ 0x1405474BC (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x140547518 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x1405484AC (MiUnlockAweVadsShared.c)
+ *     MiWriteAwePtes @ 0x140548778 (MiWriteAwePtes.c)
+ *     MiCaptureUlongPtrArray @ 0x1408D0E54 (MiCaptureUlongPtrArray.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x1408D17B4 (MiReferenceIncomingPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall NtMapUserPhysicalPages(__int64 a1, unsigned __int64 a2, char *a3)
+{
+  struct _KTHREAD *CurrentThread; // r12
+  unsigned __int64 v6; // rsi
+  ULONG_PTR v7; // r15
+  __int64 v8; // r14
+  _QWORD *Pool; // rdi
+  int v10; // ebx
+  _QWORD *AweNode; // rax
+  __int64 v13; // rbx
+  __int64 AweViewPageSize; // r8
+  __int64 v15; // r10
+  unsigned __int64 v16; // r11
+  _DWORD *PteAddress; // rsi
+  __int64 v18; // r8
+  int v19; // r9d
+  __int64 *v20; // rsi
+  __int64 v21; // rbp
+  ULONG_PTR v22; // [rsp+40h] [rbp-1068h]
+  __int64 v23[3]; // [rsp+48h] [rbp-1060h] BYREF
+  _BYTE P[4096]; // [rsp+60h] [rbp-1048h] BYREF
+
+  *(_OWORD *)v23 = 0LL;
+  if ( a2 - 1 > 0xFFFFFFFFFFFFELL )
+    return 3221225712LL;
+  CurrentThread = KeGetCurrentThread();
+  v6 = a1 & 0xFFFFFFFFFFFFF000uLL;
+  v7 = 0LL;
+  v8 = 0LL;
+  Pool = 0LL;
+  if ( !a3 )
+    goto LABEL_6;
+  if ( a2 > 0x200 )
+  {
+    Pool = MiAllocatePool(64, 8 * a2, 0x77526D4Du);
+    if ( !Pool )
+      return 3221225626LL;
+  }
+  else
+  {
+    Pool = P;
+  }
+  v10 = MiCaptureUlongPtrArray(Pool, a3, a2);
+  if ( v10 >= 0 )
+  {
+LABEL_6:
+    v22 = MiLockAweVadsShared((__int64)CurrentThread);
+    AweNode = MiGetAweNode(v6);
+    v8 = (__int64)AweNode;
+    if ( !AweNode )
+      goto LABEL_7;
+    v13 = AweNode[4];
+    AweViewPageSize = MiGetAweViewPageSize((__int64)AweNode);
+    if ( !AweViewPageSize )
+      AweViewPageSize = ExGetCallBackBlockRoutine(v13);
+    if ( AweViewPageSize == 1 || (((AweViewPageSize << 12) - 1) & v6) == 0 )
+    {
+      v16 = ((AweViewPageSize * a2) << 12) + v6 - 1;
+      if ( v16 > v6 )
+      {
+        if ( v6 < (*(unsigned int *)(v15 + 24) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 32) << 32)) << 12
+          || v16 > (((*(unsigned int *)(v15 + 28) | ((unsigned __int64)*(unsigned __int8 *)(v15 + 33) << 32)) << 12) | 0xFFF) )
+        {
+          v10 = -1073741585;
+        }
+        else
+        {
+          PteAddress = (_DWORD *)MiGetPteAddress(v6);
+          if ( v18 == 512 )
+          {
+            do
+              PteAddress = (_DWORD *)MiGetPteAddress((unsigned __int64)PteAddress);
+            while ( v19 != 1 );
+          }
+          v7 = MiLockAwePagesShared(v13, (__int64)CurrentThread);
+          if ( !Pool
+            || (v10 = MiReferenceIncomingPhysicalPages(v13, (__int64)Pool, a2, 0LL, v23, v8, PteAddress), v10 >= 0) )
+          {
+            v23[1] = MiWriteAwePtes(v8, Pool, a2, 0LL, (unsigned __int64)PteAddress, 1);
+            v10 = 0;
+          }
+        }
+        if ( v7 )
+          MiUnlockAweVadsShared((__int64)CurrentThread, v7);
+      }
+      else
+      {
+        v10 = -1073741584;
+      }
+    }
+    else
+    {
+LABEL_7:
+      v10 = -1073741585;
+    }
+    if ( v22 )
+      MiUnlockAweVadsShared((__int64)CurrentThread, v22);
+  }
+  v20 = v23;
+  v21 = 2LL;
+  do
+  {
+    if ( *v20 )
+      MiFreePhysicalPageChain(v8, *v20, 0);
+    ++v20;
+    --v21;
+  }
+  while ( v21 );
+  if ( a3 )
+  {
+    if ( Pool != (_QWORD *)P )
+      ExFreePoolWithTag(Pool, 0);
+  }
+  return (unsigned int)v10;
+}

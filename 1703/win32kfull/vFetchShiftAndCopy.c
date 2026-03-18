@@ -1,0 +1,53 @@
+/*
+ * XREFs of vFetchShiftAndCopy @ 0x1C02B6E64
+ * Callers:
+ *     ?vPatCpyRect8@@YAXPEAU_PATBLTFRAME@@@Z @ 0x1C00DC450 (-vPatCpyRect8@@YAXPEAU_PATBLTFRAME@@@Z.c)
+ *     ?vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02A2BD0 (-vPatCpyRow8@@YAXPEAU_PATBLTFRAME@@JH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall vFetchShiftAndCopy(__int64 a1)
+{
+  unsigned int *v1; // r11
+  __int64 v2; // rdx
+  unsigned int v3; // ebx
+  __int64 v4; // r8
+  __int64 v5; // r10
+  unsigned __int64 v6; // r9
+  unsigned int *v7; // rcx
+  unsigned int v8; // r10d
+  __int64 v9; // rax
+  unsigned int v10; // r10d
+  __int64 v11; // rax
+
+  v1 = *(unsigned int **)a1;
+  v2 = *(unsigned int *)(a1 + 24);
+  v3 = *(_DWORD *)(a1 + 20);
+  v4 = *(_QWORD *)(a1 + 8);
+  v5 = *(unsigned int *)(a1 + 16);
+  v6 = *(_QWORD *)a1 + 4 * v2;
+  v7 = (unsigned int *)(v4 + v5);
+  if ( v3 == 8 )
+  {
+    v8 = v5 + 4;
+    v9 = v8 - 8;
+    if ( v8 < 8 )
+      v9 = v8;
+    CopyPattern(v1, v2, *(_DWORD *)(v9 + v4), *v7);
+  }
+  else
+  {
+    while ( (unsigned __int64)v1 < v6 )
+    {
+      v10 = v5 + 4;
+      *v1 = *v7;
+      v11 = v10 - v3;
+      ++v1;
+      if ( v10 < v3 )
+        v11 = v10;
+      LODWORD(v5) = v11;
+      v7 = (unsigned int *)(v4 + v11);
+    }
+  }
+}

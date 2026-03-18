@@ -1,0 +1,54 @@
+/*
+ * XREFs of MiUnlockLoaderEntry @ 0x1402920D8
+ * Callers:
+ *     MiSetPagingOfDriver @ 0x140290D84 (MiSetPagingOfDriver.c)
+ *     MiMakeDriverPagesPrivate @ 0x140291A50 (MiMakeDriverPagesPrivate.c)
+ *     MmProtectDriverSection @ 0x14036E870 (MmProtectDriverSection.c)
+ *     MiProtectDriverSectionPte @ 0x14061A4A0 (MiProtectDriverSectionPte.c)
+ *     MiFreeInitializationCode @ 0x140703AFC (MiFreeInitializationCode.c)
+ *     MiLockdownSections @ 0x140705904 (MiLockdownSections.c)
+ *     MiFindDriverNonPagedSections @ 0x140705CB8 (MiFindDriverNonPagedSections.c)
+ * Callees:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14022F8B0 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
+ *     ExfReleasePushLockShared @ 0x1402BD860 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14030F820 (KiCheckForKernelApcDelivery.c)
+ */
+
+int __fastcall MiUnlockLoaderEntry(__int64 a1, int a2)
+{
+  struct _KTHREAD *CurrentThread; // rdi
+  volatile signed __int64 *v3; // rbx
+  $C71981A45BEB2B45F82C232A7085991E *v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // rcx
+  __int64 v7; // r8
+  __int64 v8; // r9
+
+  CurrentThread = KeGetCurrentThread();
+  v3 = (volatile signed __int64 *)(a1 + 104);
+  if ( a2 )
+  {
+    if ( a2 != 2 )
+    {
+      LODWORD(v4) = ExReleaseAutoExpandPushLockExclusive((ULONG_PTR)v3, 0LL);
+      goto LABEL_5;
+    }
+    if ( _InterlockedCompareExchange64(v3, 0LL, 17LL) != 17 )
+      ExfReleasePushLockShared(v3);
+  }
+  else if ( (_InterlockedExchangeAdd64(v3, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+  {
+    ExfTryToWakePushLock(v3);
+  }
+  LODWORD(v4) = KeAbPostRelease((ULONG_PTR)v3);
+LABEL_5:
+  if ( CurrentThread->SpecialApcDisable++ == -1 )
+  {
+    v4 = &CurrentThread->152;
+    if ( ($C71981A45BEB2B45F82C232A7085991E *)v4->ApcState.ApcListHead[0].Flink != v4 )
+      LODWORD(v4) = KiCheckForKernelApcDelivery(v6, v5, v7, v8);
+  }
+  return (int)v4;
+}

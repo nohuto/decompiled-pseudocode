@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1DXGSYNCOBJECTLOCK@@QEAA@XZ @ 0x1C0004C5C
+ * Callers:
+ *     DxgkShareObjects @ 0x1C008FB50 (DxgkShareObjects.c)
+ *     ?Initialize@DXGPAGINGQUEUE@@IEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@@Z @ 0x1C01457C8 (-Initialize@DXGPAGINGQUEUE@@IEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGSYNCOBJECTLOCK::~DXGSYNCOBJECTLOCK(DXGSYNCOBJECTLOCK *this)
+{
+  if ( *((_BYTE *)this + 8) )
+    DXGSYNCOBJECTLOCK::Release(this);
+}

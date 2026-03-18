@@ -1,0 +1,48 @@
+/*
+ * XREFs of RtlpGetNameFromLangInfoNode @ 0x140179B48
+ * Callers:
+ *     _RtlpMuiRegValidateInstalled @ 0x140635D80 (_RtlpMuiRegValidateInstalled.c)
+ * Callees:
+ *     RtlStringCbCopyW @ 0x14006D198 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x1401054F0 (RtlInitUnicodeString.c)
+ *     RtlLCIDToCultureName @ 0x140787510 (RtlLCIDToCultureName.c)
+ */
+
+__int64 __fastcall RtlpGetNameFromLangInfoNode(__int64 a1, __int64 a2, __int64 a3)
+{
+  unsigned int v3; // ebx
+  __int16 v5; // ax
+  unsigned __int16 v6; // ax
+  unsigned __int16 Length; // si
+  unsigned __int16 v9; // cx
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+
+  v3 = 0;
+  if ( a1 && a2 && a3 )
+  {
+    v5 = *(_WORD *)(a2 + 6);
+    if ( v5 <= 0 )
+    {
+      v9 = *(_WORD *)(a2 + 4);
+      if ( ((v9 - 4096) & 0xFBFF) != 0 && (unsigned __int8)RtlLCIDToCultureName(v9, a3) )
+        return v3;
+    }
+    else
+    {
+      RtlInitUnicodeString(
+        &DestinationString,
+        (PCWSTR)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 24LL)
+               + 2LL * *(__int16 *)(*(_QWORD *)(*(_QWORD *)(a1 + 32) + 16LL) + 2LL * v5)));
+      v6 = *(_WORD *)(a3 + 2);
+      Length = DestinationString.Length;
+      if ( DestinationString.Length <= v6
+        && RtlStringCbCopyW(*(NTSTRSAFE_PWSTR *)(a3 + 8), v6, DestinationString.Buffer) >= 0 )
+      {
+        *(_WORD *)a3 = Length;
+        return v3;
+      }
+    }
+    return (unsigned int)-1073741595;
+  }
+  return 3221225485LL;
+}

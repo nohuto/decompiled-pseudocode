@@ -1,0 +1,65 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBM@?$vector@MV?$allocator@M@std@@@std@@AEAAPEAMQEAMAEBM@Z @ 0x180206950
+ * Callers:
+ *     ?EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ @ 0x1801436EC (-EnsureStrokeStyleForRender@CSpriteVectorShape@@AEAAJXZ.c)
+ *     ?AddColorWithPosition@CGradientColorData@@QEAAXPEBU_D3DCOLORVALUE@@M@Z @ 0x1801DD874 (-AddColorWithPosition@CGradientColorData@@QEAAXPEBU_D3DCOLORVALUE@@M@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180041DA0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$03@std@@YA_K_K@Z @ 0x180206D1C (--$_Get_size_of_n@$03@std@@YA_K_K@Z.c)
+ *     ?_Change_array@?$vector@MV?$allocator@M@std@@@std@@AEAAXQEAM_K1@Z @ 0x180206DB8 (-_Change_array@-$vector@MV-$allocator@M@std@@@std@@AEAAXQEAM_K1@Z.c)
+ *     ?_Xlength@?$vector@V?$unique_ptr@VCBetterCheckMPOCache@@U?$default_delete@VCBetterCheckMPOCache@@@std@@@std@@V?$allocator@V?$unique_ptr@VCBetterCheckMPOCache@@U?$default_delete@VCBetterCheckMPOCache@@@std@@@std@@@2@@std@@CAXXZ @ 0x18024E37C (-_Xlength@-$vector@V-$unique_ptr@VCBetterCheckMPOCache@@U-$default_delete@VCBetterCheckMPOCache@.c)
+ *     memmove_0 @ 0x1802DF6E0 (memmove_0.c)
+ */
+
+char *__fastcall std::vector<float>::_Emplace_reallocate<float const &>(const void **a1, _BYTE *a2, _DWORD *a3)
+{
+  __int64 v3; // rbx
+  __int64 v5; // r14
+  __int64 v7; // rax
+  unsigned __int64 v9; // rbp
+  unsigned __int64 v10; // rcx
+  unsigned __int64 v11; // rdx
+  SIZE_T size_of; // rax
+  char *v13; // rsi
+  char *v14; // r14
+  void *v15; // rcx
+  _BYTE *v16; // r8
+  _BYTE *v17; // rdx
+  size_t v18; // r8
+
+  v3 = 0x3FFFFFFFFFFFFFFFLL;
+  v5 = (a2 - (_BYTE *)*a1) >> 2;
+  v7 = ((_BYTE *)a1[1] - (_BYTE *)*a1) >> 2;
+  if ( v7 == 0x3FFFFFFFFFFFFFFFLL )
+    std::vector<std::unique_ptr<CBetterCheckMPOCache>>::_Xlength(a1);
+  v9 = v7 + 1;
+  v10 = ((_BYTE *)a1[2] - (_BYTE *)*a1) >> 2;
+  v11 = v10 >> 1;
+  if ( v10 <= 0x3FFFFFFFFFFFFFFFLL - (v10 >> 1) )
+  {
+    v3 = v11 + v10;
+    if ( v11 + v10 < v9 )
+      v3 = v7 + 1;
+  }
+  size_of = std::_Get_size_of_n<4>(v3);
+  v13 = (char *)std::_Allocate<16,std::_Default_allocate_traits,0>(size_of);
+  v14 = &v13[4 * v5];
+  *(_DWORD *)v14 = *a3;
+  v15 = v13;
+  v16 = a1[1];
+  v17 = *a1;
+  if ( a2 == v16 )
+  {
+    v18 = v16 - v17;
+  }
+  else
+  {
+    memmove_0(v13, v17, a2 - (_BYTE *)*a1);
+    v15 = v14 + 4;
+    v18 = (_BYTE *)a1[1] - a2;
+    v17 = a2;
+  }
+  memmove_0(v15, v17, v18);
+  std::vector<float>::_Change_array(a1, v13, v9, v3);
+  return v14;
+}

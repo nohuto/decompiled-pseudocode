@@ -1,0 +1,19 @@
+/*
+ * XREFs of vSpUnTearDownSprites @ 0x14023AD50
+ * Callers:
+ *     ?DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z @ 0x1400142C8 (-DxLddmPrimaryLockProcessDestroy@@YAXPEAUHDEV__@@KPEAK@Z.c)
+ *     ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x14013926C (-DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14023F3F0 (_guard_dispatch_icall.c)
+ */
+
+__int64 (__fastcall *__fastcall vSpUnTearDownSprites(__int64 a1, __int64 a2))(__int64, __int64, __int64)
+{
+  __int64 (__fastcall *result)(__int64, __int64, __int64); // rax
+
+  result = *(__int64 (__fastcall **)(__int64, __int64, __int64))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(a1, a2) + 24)
+                                                               + 56LL);
+  if ( result )
+    return (__int64 (__fastcall *)(__int64, __int64, __int64))result(a1, a2, 1LL);
+  return result;
+}

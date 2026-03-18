@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?HasOverrides@EdidMonitorDescriptor@DxgMonitor@@UEBA_NXZ @ 0x140281040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DxgMonitor::EdidMonitorDescriptor::HasOverrides(DxgMonitor::EdidMonitorDescriptor *this)
+{
+  return *((_DWORD *)this + 5) != 0;
+}

@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?SetMemoryBudgetTarget@VIDMM_GLOBAL@@QEAAXKK@Z @ 0x1400E0FA8
+ * Callers:
+ *     VidMmSetMemoryBudgetTarget @ 0x140046D80 (VidMmSetMemoryBudgetTarget.c)
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x140030000 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x1400301B0 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1400E1030 (-RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::SetMemoryBudgetTarget(struct _KTHREAD **this, int a2, int a3)
+{
+  _BYTE v6[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v6, this + 5152);
+  dword_14008A630 = a2;
+  dword_14008A638 = a2;
+  dword_14008A62C = a3;
+  dword_14008A634 = a3;
+  VIDMM_GLOBAL::RequestNewBudget((VIDMM_GLOBAL *)this, 1);
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v6);
+}

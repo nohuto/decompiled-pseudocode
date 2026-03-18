@@ -1,0 +1,55 @@
+/*
+ * XREFs of PipSetDependency @ 0x140601548
+ * Callers:
+ *     IoReserveDependency @ 0x140600BD0 (IoReserveDependency.c)
+ *     IoSetDependency @ 0x140600C48 (IoSetDependency.c)
+ *     PipConvertResolutionsToReservations @ 0x140600F88 (PipConvertResolutionsToReservations.c)
+ * Callees:
+ *     PipAddDependencyEdgeBetweenNodes @ 0x1401BEB4C (PipAddDependencyEdgeBetweenNodes.c)
+ *     PipQueryBindingResolution @ 0x140534DB8 (PipQueryBindingResolution.c)
+ *     PipDereferenceDependencyNode @ 0x140534E54 (PipDereferenceDependencyNode.c)
+ *     PipCreateDependencyNode @ 0x140534E60 (PipCreateDependencyNode.c)
+ */
+
+__int64 __fastcall PipSetDependency(__int64 a1, __int64 a2)
+{
+  __int64 *BindingResolution; // rax
+  __int64 DependencyNode; // rsi
+  unsigned int v6; // edi
+  __int64 *v7; // rax
+  __int64 v8; // rbx
+
+  BindingResolution = PipQueryBindingResolution(a1);
+  DependencyNode = (__int64)BindingResolution;
+  if ( BindingResolution )
+  {
+    ++*((_DWORD *)BindingResolution + 22);
+  }
+  else
+  {
+    DependencyNode = PipCreateDependencyNode(a1);
+    if ( !DependencyNode )
+      return (unsigned int)-1073741670;
+  }
+  v7 = PipQueryBindingResolution(a2);
+  v8 = (__int64)v7;
+  if ( v7 )
+  {
+    ++*((_DWORD *)v7 + 22);
+  }
+  else
+  {
+    v8 = PipCreateDependencyNode(a2);
+    if ( !v8 )
+    {
+      v6 = -1073741670;
+      goto LABEL_10;
+    }
+  }
+  v6 = PipAddDependencyEdgeBetweenNodes(DependencyNode, v8, a2);
+LABEL_10:
+  PipDereferenceDependencyNode(DependencyNode);
+  if ( v8 )
+    PipDereferenceDependencyNode(v8);
+  return v6;
+}

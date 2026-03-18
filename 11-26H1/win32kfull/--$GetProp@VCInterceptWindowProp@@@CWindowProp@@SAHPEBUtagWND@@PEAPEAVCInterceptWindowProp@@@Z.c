@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??$GetProp@VCInterceptWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCInterceptWindowProp@@@Z @ 0x140289418
+ * Callers:
+ *     ?GetOrCreate@CInterceptWindowProp@@SAPEAV1@PEAUtagWND@@@Z @ 0x140289258 (-GetOrCreate@CInterceptWindowProp@@SAPEAV1@PEAUtagWND@@@Z.c)
+ *     ?PopFrontSystemOperationData@@YA_NPEAUtagWND@@PEAUSystemOperationData@AdvancedWindowPos@@@Z @ 0x1402E2708 (-PopFrontSystemOperationData@@YA_NPEAUtagWND@@PEAUSystemOperationData@AdvancedWindowPos@@@Z.c)
+ *     ?RemoveLastSystemOperationData@WindowActions@@YAXPEAUtagWND@@@Z @ 0x1402E2C88 (-RemoveLastSystemOperationData@WindowActions@@YAXPEAUtagWND@@@Z.c)
+ *     ?UnreserveSystemOperationDataSlot@WindowActions@@YAXPEAUtagWND@@@Z @ 0x1402E3A08 (-UnreserveSystemOperationDataSlot@WindowActions@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     _GetProp @ 0x14003A810 (_GetProp.c)
+ */
+
+_BOOL8 __fastcall CWindowProp::GetProp<CInterceptWindowProp>(__int64 a1, __int64 *a2)
+{
+  __int64 UserSessionState; // rax
+  __int64 Prop; // rax
+
+  UserSessionState = W32GetUserSessionState(a1, a2);
+  Prop = GetProp(a1, *(unsigned __int16 *)(UserSessionState + 42292), 1u);
+  *a2 = Prop;
+  return Prop != 0;
+}

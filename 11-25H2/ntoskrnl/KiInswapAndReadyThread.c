@@ -1,0 +1,86 @@
+/*
+ * XREFs of KiInswapAndReadyThread @ 0x1402F1104
+ * Callers:
+ *     KiProcessThreadWaitList @ 0x1402874A0 (KiProcessThreadWaitList.c)
+ *     KiDirectSwitchThread @ 0x140315A20 (KiDirectSwitchThread.c)
+ * Callees:
+ *     KeSetEvent @ 0x140250100 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x140287200 (KiAcquireKobjectLockSafe.c)
+ *     KiDeferredReadySingleThread @ 0x1402877C0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x140288530 (KiFlushSoftwareInterruptBatch.c)
+ *     KiRequestProcessInSwap @ 0x1402F0FC0 (KiRequestProcessInSwap.c)
+ */
+
+char __fastcall KiInswapAndReadyThread(struct _KPRCB *a1, ULONG_PTR a2, __int64 a3)
+{
+  int v3; // eax
+  struct _SINGLE_LIST_ENTRY *Next; // rbx
+  char v8; // di
+  signed __int64 v9; // rax
+  volatile signed __int32 *v10; // rdi
+  signed __int64 *v11; // rbx
+  signed __int64 v12; // rcx
+  struct _SINGLE_LIST_ENTRY v14; // [rsp+38h] [rbp+10h] BYREF
+
+  v3 = *(_DWORD *)(a2 + 120);
+  if ( (v3 & 0x20000) != 0 )
+  {
+    if ( (v3 & 0x100000) == 0 )
+      goto LABEL_3;
+    _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0x14u);
+    if ( (_InterlockedExchangeAdd((volatile signed __int32 *)(*(_QWORD *)(a2 + 184) + 264LL), 8u) & 7) == 0 )
+      goto LABEL_3;
+    v10 = *(volatile signed __int32 **)(a2 + 184);
+    KiAcquireKobjectLockSafe(v10);
+    if ( (v10[66] & 7) == 0 )
+    {
+      _InterlockedAnd(v10, 0xFFFFFF7F);
+LABEL_3:
+      v14.Next = 0LL;
+      KiDeferredReadySingleThread(a1, a2, &v14, a3);
+      Next = v14.Next;
+      if ( v14.Next )
+      {
+        v8 = 1;
+        v14.Next = v14.Next->Next;
+        do
+        {
+          KiDeferredReadySingleThread(a1, (ULONG_PTR)&Next[-27], &v14, 0LL);
+          Next = v14.Next;
+          ++v8;
+          if ( v14.Next )
+            v14.Next = v14.Next->Next;
+          if ( (v8 & 0xF) == 0 )
+            KiFlushSoftwareInterruptBatch((char *)&a1->DeferredDispatchInterrupts);
+        }
+        while ( Next );
+      }
+      LOBYTE(v9) = KiFlushSoftwareInterruptBatch((char *)&a1->DeferredDispatchInterrupts);
+      return v9;
+    }
+LABEL_13:
+    LOBYTE(v9) = KiRequestProcessInSwap(a2, (__int64)v10);
+    return v9;
+  }
+  v10 = *(volatile signed __int32 **)(a2 + 184);
+  KiAcquireKobjectLockSafe(v10);
+  if ( (v10[66] & 7) != 0 )
+    goto LABEL_13;
+  _InterlockedAdd(v10 + 66, 8u);
+  _InterlockedAnd(v10, 0xFFFFFF7F);
+  _interlockedbittestandreset((volatile signed __int32 *)(a2 + 120), 0x14u);
+  *(_BYTE *)(a2 + 388) = 6;
+  v11 = (signed __int64 *)(a2 + 216);
+  _m_prefetchw(&KiStackInSwapListHead);
+  v9 = KiStackInSwapListHead;
+  do
+  {
+    *v11 = v9;
+    v12 = v9;
+    v9 = _InterlockedCompareExchange64(&KiStackInSwapListHead, (signed __int64)v11, v9);
+  }
+  while ( v9 != v12 );
+  if ( !v9 )
+    LOBYTE(v9) = KeSetEvent(&KiSwapEvent, 10, 0);
+  return v9;
+}

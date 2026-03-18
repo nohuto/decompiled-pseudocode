@@ -1,0 +1,78 @@
+/*
+ * XREFs of ?AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C0010C18
+ * Callers:
+ *     ?AddDevice@FxDriver@@CAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C0010D70 (-AddDevice@FxDriver@@CAJPEAU_DRIVER_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
+ * Callees:
+ *     WPP_IFR_SF_q @ 0x1C000B530 (WPP_IFR_SF_q.c)
+ *     ??0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z @ 0x1C000F00C (--0WDFDEVICE_INIT@@QEAA@PEAVFxDriver@@@Z.c)
+ *     ??1WDFDEVICE_INIT@@QEAA@XZ @ 0x1C000F1E0 (--1WDFDEVICE_INIT@@QEAA@XZ.c)
+ *     WPP_IFR_SF_d @ 0x1C0017D70 (WPP_IFR_SF_d.c)
+ *     __security_check_cookie @ 0x1C0030D80 (__security_check_cookie.c)
+ *     ?DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z @ 0x1C0076634 (-DeleteDeviceFromFailedCreate@FxDevice@@QEAAJJE@Z.c)
+ */
+
+__int64 __fastcall FxDriver::AddDevice(FxDriver *this, _DEVICE_OBJECT *PhysicalDeviceObject)
+{
+  __int64 v4; // rdx
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
+  WDFDRIVER__ *v6; // rbx
+  FxCallbackLock *m_CallbackLock; // rcx
+  int v8; // eax
+  FxCallbackLock *v9; // rcx
+  int v10; // ebx
+  _FX_DRIVER_GLOBALS *v11; // rcx
+  unsigned __int8 v13[16]; // [rsp+30h] [rbp-3E8h] BYREF
+  WDFDEVICE_INIT init; // [rsp+40h] [rbp-3D8h] BYREF
+
+  WDFDEVICE_INIT::WDFDEVICE_INIT(&init, this);
+  m_Globals = this->m_Globals;
+  if ( m_Globals->FxVerboseOn )
+    WPP_IFR_SF_q(m_Globals, 5u, 0xCu, 0xAu, WPP_FxDriverKm_cpp_Traceguids, PhysicalDeviceObject);
+  init.CreatedOnStack = 1;
+  init.InitType = FxDeviceInitTypeFdo;
+  init.Fdo.PhysicalDevice = PhysicalDeviceObject;
+  if ( this->m_ObjectSize )
+    v6 = (WDFDRIVER__ *)((unsigned __int64)this ^ 0xFFFFFFFFFFFFFFF8uLL);
+  else
+    v6 = 0LL;
+  if ( this->m_DriverDeviceAdd.Method )
+  {
+    m_CallbackLock = this->m_DriverDeviceAdd.m_CallbackLock;
+    v13[0] = 0;
+    if ( m_CallbackLock )
+      m_CallbackLock->Lock(m_CallbackLock, v13);
+    v8 = this->m_DriverDeviceAdd.Method(v6, &init);
+    v9 = this->m_DriverDeviceAdd.m_CallbackLock;
+    v10 = v8;
+    if ( v9 )
+    {
+      LOBYTE(v4) = v13[0];
+      v9->Unlock(v9, v4);
+    }
+  }
+  else
+  {
+    v10 = -1073741823;
+  }
+  if ( init.CreatedDevice )
+  {
+    if ( v10 < 0 )
+      v10 = FxDevice::DeleteDeviceFromFailedCreate(init.CreatedDevice, v10, 1u);
+    else
+      init.CreatedDevice->m_DeviceObject.m_DeviceObject->Flags &= ~0x80u;
+    v11 = this->m_Globals;
+    if ( v11->FxVerboseOn )
+      WPP_IFR_SF_d(v11, 5u, 0xCu, 0xDu, WPP_FxDriverKm_cpp_Traceguids, v10);
+  }
+  else
+  {
+    WPP_IFR_SF_d(this->m_Globals, 3u, 0xCu, 0xBu, WPP_FxDriverKm_cpp_Traceguids, v10);
+    if ( init.Fdo.Filter && v10 < 0 )
+    {
+      WPP_IFR_SF_d(this->m_Globals, 4u, 0xCu, 0xCu, WPP_FxDriverKm_cpp_Traceguids, v10);
+      v10 = 0;
+    }
+  }
+  WDFDEVICE_INIT::~WDFDEVICE_INIT(&init, v4);
+  return (unsigned int)v10;
+}

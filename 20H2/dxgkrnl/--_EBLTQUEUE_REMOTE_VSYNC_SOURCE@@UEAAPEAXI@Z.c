@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_EBLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAAPEAXI@Z @ 0x1C005E960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAA@XZ @ 0x1C02FF534 (--1BLTQUEUE_REMOTE_VSYNC_SOURCE@@UEAA@XZ.c)
+ */
+
+BLTQUEUE_REMOTE_VSYNC_SOURCE *__fastcall BLTQUEUE_REMOTE_VSYNC_SOURCE::`vector deleting destructor'(
+        BLTQUEUE_REMOTE_VSYNC_SOURCE *P,
+        char a2)
+{
+  BLTQUEUE_REMOTE_VSYNC_SOURCE::~BLTQUEUE_REMOTE_VSYNC_SOURCE(P);
+  if ( (a2 & 1) != 0 && P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

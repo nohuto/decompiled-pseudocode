@@ -1,0 +1,37 @@
+/*
+ * XREFs of PopDirectedDripsDiagNotifySessionStart @ 0x1408F2A3C
+ * Callers:
+ *     PopDirectedDripsNotify @ 0x140779328 (PopDirectedDripsNotify.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x1402609E0 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140263C10 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x14035A680 (ExfTryToWakePushLock.c)
+ */
+
+char __fastcall PopDirectedDripsDiagNotifySessionStart(__int64 a1, int a2)
+{
+  ULONG HandleAttributes; // eax
+  ULONG v5; // ett
+
+  _m_prefetchw(&PopDirectedDripsState);
+  HandleAttributes = PopDirectedDripsState.HandleAttributes;
+  do
+  {
+    v5 = HandleAttributes;
+    HandleAttributes = _InterlockedCompareExchange(
+                         (volatile signed __int32 *)&PopDirectedDripsState,
+                         HandleAttributes,
+                         HandleAttributes);
+  }
+  while ( v5 != HandleAttributes );
+  if ( (HandleAttributes & 1) != 0 )
+  {
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&PopDirectedDripsDiagLock, 0LL);
+    qword_140C1E9C0 = a1;
+    dword_140C1E9C8 = a2;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PopDirectedDripsDiagLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock(&PopDirectedDripsDiagLock);
+    LOBYTE(HandleAttributes) = KeAbPostRelease((ULONG_PTR)&PopDirectedDripsDiagLock);
+  }
+  return HandleAttributes;
+}

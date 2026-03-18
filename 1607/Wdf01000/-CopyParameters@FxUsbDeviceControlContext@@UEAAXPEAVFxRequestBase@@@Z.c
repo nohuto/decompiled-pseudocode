@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?CopyParameters@FxUsbDeviceControlContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C003A600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall FxUsbDeviceControlContext::CopyParameters(FxUsbDeviceControlContext *this, FxRequestBase *Request)
+{
+  _URB_CONTROL_TRANSFER *m_Urb; // r8
+
+  m_Urb = this->m_Urb;
+  this->m_CompletionParams.IoStatus.Information = m_Urb->TransferBufferLength;
+  this->m_UsbParameters.Parameters.DeviceControlTransfer.Length = m_Urb->TransferBufferLength;
+  FxUsbRequestContext::CopyParameters(this, Request);
+}

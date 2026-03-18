@@ -1,0 +1,366 @@
+/*
+ * XREFs of ?SendCreateBundleObject@DXG_GUEST_REMOTEOBJECTCHANNEL@@QEAAJKPEAI0@Z @ 0x1C0286EA8
+ * Callers:
+ *     ?VailSendCreateBundleObject@DXGSESSIONDATA@@QEAAJKPEAI0@Z @ 0x1C02B28FC (-VailSendCreateBundleObject@DXGSESSIONDATA@@QEAAJKPEAI0@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000A650 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000A89C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?Release@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C000EB44 (-Release@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ @ 0x1C000EC34 (-AcquireShared@DXGSYNCOBJECTLOCK@@QEAAXXZ.c)
+ *     ??0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z @ 0x1C000EC88 (--0DXGSYNCOBJECTLOCK@@QEAA@QEAVDXGGLOBAL@@_N@Z.c)
+ *     ??0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z @ 0x1C000EF94 (--0DXGHANDLETABLELOCKSHARED@@QEAA@PEAVDXGPROCESS@@@Z.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C0019318 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C001C328 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     __security_check_cookie @ 0x1C0024300 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0026570 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0026840 (memset.c)
+ *     ??1DXGRESOURCEREFERENCE@@QEAA@XZ @ 0x1C010C6A0 (--1DXGRESOURCEREFERENCE@@QEAA@XZ.c)
+ *     ??0DXGRESOURCEREFERENCE@@QEAA@PEAVDXGRESOURCE@@@Z @ 0x1C010C6F8 (--0DXGRESOURCEREFERENCE@@QEAA@PEAVDXGRESOURCE@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0119460 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?MoveAssign@DXGRESOURCEREFERENCE@@QEAAAEAV1@$$QEAV1@@Z @ 0x1C0124724 (-MoveAssign@DXGRESOURCEREFERENCE@@QEAAAEAV1@$$QEAV1@@Z.c)
+ *     ?GetEntryType@HMGRTABLE@@QEAA?AW4_HMGRENTRY_TYPE@@I@Z @ 0x1C0124BF8 (-GetEntryType@HMGRTABLE@@QEAA-AW4_HMGRENTRY_TYPE@@I@Z.c)
+ */
+
+__int64 __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::SendCreateBundleObject(
+        DXG_GUEST_REMOTEOBJECTCHANNEL *this,
+        __int64 a2,
+        char *a3,
+        struct _EX_RUNDOWN_REF *a4)
+{
+  struct _EX_RUNDOWN_REF *v4; // r12
+  __int64 v6; // r14
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // r8
+  struct DXGPROCESS *Current; // r13
+  __int64 v11; // rax
+  PERESOURCE *Global; // rax
+  char v13; // si
+  signed __int64 v14; // r15
+  _QWORD *v15; // r12
+  __int64 v16; // rax
+  _DWORD *v17; // rdi
+  __int64 v18; // rdx
+  int v19; // r9d
+  int EntryType; // eax
+  bool v21; // zf
+  __int64 v22; // rdx
+  _QWORD *v23; // rdx
+  __int64 v24; // r8
+  __int64 v25; // rsi
+  char *v26; // r15
+  signed __int64 v27; // rax
+  signed __int64 v28; // rcx
+  int v29; // eax
+  __int64 v30; // rdx
+  __int64 v31; // rax
+  __int64 v32; // rdi
+  __int64 v33; // rcx
+  int v34; // eax
+  _QWORD *v35; // rdx
+  __int64 v36; // rax
+  __int64 v37; // r9
+  int v38; // ecx
+  __int64 v39; // rcx
+  __int64 v40; // rax
+  struct _EX_RUNDOWN_REF *v41; // rdx
+  __int64 v42; // rdx
+  __int64 v43; // rcx
+  __int64 v44; // rax
+  _QWORD *v45; // rax
+  __int64 v46; // rcx
+  __int64 v47; // rax
+  __int64 v48; // rdx
+  __int64 v49; // rcx
+  int v50; // eax
+  __int64 v51; // rdx
+  __int64 v52; // rcx
+  __int64 v53; // r8
+  __int64 v54; // rax
+  __int64 v55; // rax
+  __int64 v56; // rcx
+  __int64 v57; // rdx
+  _QWORD *v58; // rax
+  __int64 v60; // [rsp+30h] [rbp-D0h]
+  _QWORD *v61; // [rsp+30h] [rbp-D0h]
+  unsigned int v62; // [rsp+38h] [rbp-C8h] BYREF
+  struct _EX_RUNDOWN_REF *v63; // [rsp+40h] [rbp-C0h] BYREF
+  _BYTE v64[24]; // [rsp+48h] [rbp-B8h] BYREF
+  signed __int64 v65; // [rsp+60h] [rbp-A0h]
+  signed __int64 v66; // [rsp+68h] [rbp-98h]
+  DXG_GUEST_REMOTEOBJECTCHANNEL *v67; // [rsp+70h] [rbp-90h]
+  _BYTE v68[24]; // [rsp+78h] [rbp-88h] BYREF
+  _DWORD v69[16]; // [rsp+90h] [rbp-70h] BYREF
+  _QWORD v70[16]; // [rsp+D0h] [rbp-30h] BYREF
+  int v71; // [rsp+150h] [rbp+50h] BYREF
+  int v72; // [rsp+154h] [rbp+54h]
+  int v73; // [rsp+158h] [rbp+58h]
+  int v74; // [rsp+15Ch] [rbp+5Ch]
+  _DWORD v75[3]; // [rsp+160h] [rbp+60h] BYREF
+  int v76; // [rsp+16Ch] [rbp+6Ch]
+  int v77; // [rsp+170h] [rbp+70h]
+  _BYTE v78[68]; // [rsp+174h] [rbp+74h] BYREF
+
+  v4 = a4;
+  v63 = a4;
+  v6 = (unsigned int)a2;
+  v67 = this;
+  Current = DXGPROCESS::GetCurrent((__int64)this, a2);
+  if ( !Current )
+  {
+    v11 = WdLogNewEntry5_WdError(v8, v7);
+    LODWORD(a3) = -1073741811;
+    *(_QWORD *)(v11 + 24) = -1073741811LL;
+    WdLogEvent5_WdError(v11);
+    return (unsigned int)a3;
+  }
+  if ( !v4 || !a3 || (unsigned int)(v6 - 1) > 0xF )
+  {
+    v58 = (_QWORD *)WdLogNewEntry5_WdWarning(v8, v7, v9);
+    v58[4] = a3;
+    LODWORD(a3) = -1073741811;
+    v58[6] = -1073741811LL;
+    v58[3] = v4;
+    v58[5] = v6;
+    WdLogEvent5_WdWarning(v58);
+    return (unsigned int)a3;
+  }
+  LODWORD(v4->Count) = 0;
+  Global = (PERESOURCE *)DXGGLOBAL::GetGlobal(v8, v7);
+  DXGSYNCOBJECTLOCK::DXGSYNCOBJECTLOCK((DXGSYNCOBJECTLOCK *)v68, Global, 0);
+  v13 = 0;
+  memset(v69, 0, sizeof(v69));
+  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v64, (struct _KTHREAD **)Current);
+  if ( (_DWORD)v6 )
+  {
+    v14 = a3 - (char *)v69;
+    v15 = (_QWORD *)((char *)Current + 240);
+    v16 = v6;
+    v17 = v69;
+    v60 = v6;
+    while ( 1 )
+    {
+      v18 = (*(_DWORD *)((char *)v17 + v14) >> 6) & 0xFFFFFF;
+      if ( (unsigned int)v18 < *((_DWORD *)Current + 64) )
+      {
+        v19 = *(_DWORD *)(*v15 + 16LL * (unsigned int)v18 + 8);
+        if ( ((*(_DWORD *)((char *)v17 + v14) >> 25) & 0x60) == (*(_BYTE *)(*v15 + 16LL * (unsigned int)v18 + 8) & 0x60)
+          && (v19 & 0x2000) == 0
+          && (v19 & 0x1F) != 0 )
+        {
+          EntryType = HMGRTABLE::GetEntryType((__int64)Current + 240, v18);
+          v21 = EntryType == 11;
+          *v17 = EntryType;
+          v16 = v60;
+          if ( v21 )
+            v13 = 1;
+          goto LABEL_17;
+        }
+        v16 = v60;
+      }
+      *v17 = 0;
+LABEL_17:
+      ++v17;
+      v60 = --v16;
+      if ( !v16 )
+      {
+        v4 = v63;
+        break;
+      }
+    }
+  }
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v64);
+  v76 = 0;
+  v77 = 0;
+  v75[2] = 1;
+  v75[0] = 1869901170;
+  v75[1] = -1073741823;
+  memset(v78, 0, sizeof(v78));
+  v74 = 0;
+  v71 = 1869901170;
+  v72 = -1073741823;
+  v73 = 2;
+  v62 = 16;
+  if ( v13 )
+    DXGSYNCOBJECTLOCK::AcquireShared((DXGSYNCOBJECTLOCK *)v68, v22);
+  `vector constructor iterator'(
+    (char *)v70,
+    8LL,
+    16LL,
+    (void (__fastcall *)(char *))DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE);
+  DXGHANDLETABLELOCKSHARED::DXGHANDLETABLELOCKSHARED((DXGHANDLETABLELOCKSHARED *)v64, (struct _KTHREAD **)Current);
+  v25 = 0LL;
+  if ( !(_DWORD)v6 )
+  {
+LABEL_58:
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v64);
+    v77 = v6;
+    v76 = *((_DWORD *)Current + 106);
+    v50 = (*(__int64 (__fastcall **)(_QWORD, _DWORD *, __int64, int *, unsigned int *))(**((_QWORD **)v67 + 1) + 32LL))(
+            *((_QWORD *)v67 + 1),
+            v75,
+            88LL,
+            &v71,
+            &v62);
+    a3 = (char *)v50;
+    if ( v50 < 0 )
+    {
+      v54 = WdLogNewEntry5_WdWarning(v52, v51, v53);
+      *(_QWORD *)(v54 + 24) = a3;
+      WdLogEvent5_WdWarning(v54);
+      goto LABEL_67;
+    }
+    if ( v62 == 16 )
+    {
+      if ( v73 == 2 )
+      {
+        LODWORD(a3) = v72;
+        if ( v72 >= 0 )
+          LODWORD(v4->Count) = v74;
+        goto LABEL_67;
+      }
+      v55 = WdLogNewEntry5_WdWarning(v52, v51, v53);
+      v56 = v73;
+    }
+    else
+    {
+      v55 = WdLogNewEntry5_WdWarning(v52, v51, v53);
+      v56 = v62;
+    }
+    *(_QWORD *)(v55 + 24) = v56;
+    *(_QWORD *)(v55 + 32) = -1073741823LL;
+    WdLogEvent5_WdWarning(v55);
+    LODWORD(a3) = -1073741823;
+    goto LABEL_67;
+  }
+  v26 = a3;
+  v61 = v70;
+  v27 = (char *)v69 - a3;
+  v28 = &v78[4] - a3;
+  v66 = (char *)v69 - a3;
+  v65 = &v78[4] - a3;
+  while ( 1 )
+  {
+    v29 = *(_DWORD *)&v26[v27];
+    if ( v29 == 4 )
+      break;
+    if ( v29 != 11 )
+    {
+      v45 = (_QWORD *)WdLogNewEntry5_WdWarning(v28, v23, v24);
+      v49 = *(unsigned int *)&a3[4 * v25];
+      LODWORD(a3) = -1073741811;
+      v45[3] = v49;
+      v45[4] = (int)v69[v25];
+      v45[5] = -1073741811LL;
+      goto LABEL_57;
+    }
+    v30 = *(unsigned int *)v26;
+    v31 = (*(_DWORD *)v26 >> 6) & 0xFFFFFF;
+    if ( (unsigned int)v31 >= *((_DWORD *)Current + 64) )
+      goto LABEL_50;
+    v24 = *((_QWORD *)Current + 30);
+    v30 = ((unsigned int)v30 >> 25) & 0x60;
+    v28 = *(unsigned int *)(v24 + 16 * v31 + 8);
+    if ( (_BYTE)v30 != (*(_BYTE *)(v24 + 16 * v31 + 8) & 0x60) || (v28 & 0x2000) != 0 || (v28 & 0x1F) == 0 )
+      goto LABEL_50;
+    v28 &= 0x1Fu;
+    if ( (_BYTE)v28 != 11 )
+    {
+      v47 = WdLogNewEntry5_WdError(v28, v30);
+      *(_QWORD *)(v47 + 24) = 267LL;
+      WdLogEvent5_WdError(v47);
+LABEL_50:
+      v45 = (_QWORD *)WdLogNewEntry5_WdWarning(v28, v30, v24);
+      v48 = *(unsigned int *)&a3[4 * v25];
+LABEL_53:
+      v45[3] = v48;
+      goto LABEL_56;
+    }
+    v32 = *(_QWORD *)(v24 + 16LL * (unsigned int)v31);
+    if ( !v32 )
+      goto LABEL_50;
+    v33 = *(unsigned int *)(*(_QWORD *)(v32 + 32) + 196LL);
+    if ( (v33 & 2) == 0 )
+    {
+      v45 = (_QWORD *)WdLogNewEntry5_WdWarning(v33, v30, v24);
+      v46 = *(_QWORD *)(v32 + 32);
+      goto LABEL_55;
+    }
+    v34 = *(_DWORD *)(v32 + 44);
+    v35 = v61;
+LABEL_45:
+    v28 = v65;
+    v23 = v35 + 1;
+    v25 = (unsigned int)(v25 + 1);
+    v61 = v23;
+    *(_DWORD *)&v26[v65] = v34;
+    v26 += 4;
+    if ( (unsigned int)v25 >= (unsigned int)v6 )
+      goto LABEL_58;
+    v27 = v66;
+  }
+  v36 = (*(_DWORD *)v26 >> 6) & 0xFFFFFF;
+  if ( (unsigned int)v36 < *((_DWORD *)Current + 64) )
+  {
+    v37 = *((_QWORD *)Current + 30);
+    v38 = *(_DWORD *)(v37 + 16 * v36 + 8);
+    if ( ((*(_DWORD *)v26 >> 25) & 0x60) == (*(_BYTE *)(v37 + 16 * v36 + 8) & 0x60)
+      && (v38 & 0x2000) == 0
+      && (v38 & 0x1F) != 0 )
+    {
+      v39 = v38 & 0x1F;
+      if ( (_BYTE)v39 == 4 )
+      {
+        v41 = *(struct _EX_RUNDOWN_REF **)(v37 + 16LL * (unsigned int)v36);
+        goto LABEL_40;
+      }
+      v40 = WdLogNewEntry5_WdError(v39, (*(_DWORD *)v26 >> 25) & 0x60);
+      *(_QWORD *)(v40 + 24) = 267LL;
+      WdLogEvent5_WdError(v40);
+    }
+  }
+  v41 = 0LL;
+LABEL_40:
+  DXGRESOURCEREFERENCE::DXGRESOURCEREFERENCE((DXGRESOURCEREFERENCE *)&v63, v41);
+  DXGRESOURCEREFERENCE::MoveAssign((struct _EX_RUNDOWN_REF **)&v70[v25], &v63);
+  DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE(&v63, v42);
+  v35 = v61;
+  v43 = *v61;
+  if ( *v61 )
+  {
+    if ( (*(_DWORD *)(v43 + 4) & 1) != 0 )
+    {
+      v44 = *(_QWORD *)(v43 + 56);
+      if ( v44 )
+      {
+        if ( (*(_DWORD *)(v44 + 12) & 8) == 0 )
+        {
+          v45 = (_QWORD *)WdLogNewEntry5_WdWarning(v43, v61, v24);
+          v48 = *(_QWORD *)(v70[v25] + 56LL);
+          goto LABEL_53;
+        }
+        v34 = *(_DWORD *)(v43 + 20);
+        goto LABEL_45;
+      }
+    }
+  }
+  v45 = (_QWORD *)WdLogNewEntry5_WdWarning(v43, v61, v24);
+  v46 = *(unsigned int *)&a3[4 * v25];
+LABEL_55:
+  v45[3] = v46;
+LABEL_56:
+  LODWORD(a3) = -1073741811;
+  v45[4] = -1073741811LL;
+LABEL_57:
+  WdLogEvent5_WdWarning(v45);
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v64);
+LABEL_67:
+  `vector destructor iterator'(
+    (char *)v70,
+    8LL,
+    16LL,
+    (void (__fastcall *)(char *))DXGRESOURCEREFERENCE::~DXGRESOURCEREFERENCE);
+  if ( v68[8] )
+    DXGSYNCOBJECTLOCK::Release((DXGSYNCOBJECTLOCK *)v68, v57);
+  return (unsigned int)a3;
+}

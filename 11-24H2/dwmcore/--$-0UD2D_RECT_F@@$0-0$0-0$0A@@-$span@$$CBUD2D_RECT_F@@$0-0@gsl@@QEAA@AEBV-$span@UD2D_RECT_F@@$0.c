@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??$?0UD2D_RECT_F@@$0?0$0?0$0A@@?$span@$$CBUD2D_RECT_F@@$0?0@gsl@@QEAA@AEBV?$span@UD2D_RECT_F@@$0?0@1@@Z @ 0x1801DCBB4
+ * Callers:
+ *     ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x180264314 (-DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1802F6010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+_QWORD *__fastcall gsl::span<D2D_RECT_F const,-1>::span<D2D_RECT_F const,-1>(_QWORD *a1, __int64 *a2)
+{
+  __int64 v2; // r8
+  __int64 v3; // rax
+
+  v2 = *a2;
+  if ( *a2 == -1 || (v3 = a2[1], *a1 = v2, (a1[1] = v3) == 0LL) && v2 )
+  {
+    ((void (*)(void))`gsl::details::get_terminate_handler'::`2'::handler)();
+    __debugbreak();
+  }
+  return a1;
+}

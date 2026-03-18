@@ -1,0 +1,21 @@
+/*
+ * XREFs of PiDqInit @ 0x14076EEB0
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x1407561E8 (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     PiDqObjectManagerInit @ 0x140548260 (PiDqObjectManagerInit.c)
+ */
+
+__int64 PiDqInit()
+{
+  __int64 result; // rax
+
+  PiDqObjectManagerInit(&PiDqDeviceManager, 1);
+  PiDqObjectManagerInit(&PiDqDeviceInterfaceManager, 3);
+  PiDqObjectManagerInit(&PiDqDeviceInterfaceClassManager, 4);
+  PiDqObjectManagerInit(&PiDqDeviceContainerManager, 5);
+  PiDqObjectManagerInit(&PiDqDeviceInstallerClassManager, 2);
+  result = 0LL;
+  PiDqSequenceNumber = 0LL;
+  return result;
+}

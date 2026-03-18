@@ -1,0 +1,107 @@
+/*
+ * XREFs of IoDevObjCreateDeviceSecure @ 0x1C00D33E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopDevObjApplyPostCreationSettings @ 0x1C00D3534 (IopDevObjApplyPostCreationSettings.c)
+ *     SeSddlSecurityDescriptorFromSDDL @ 0x1C00D36B4 (SeSddlSecurityDescriptorFromSDDL.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00D4D84 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00D4EC8 (PpRegStateUpdateStackCreationSettings.c)
+ */
+
+NTSTATUS __fastcall IoDevObjCreateDeviceSecure(
+        _DRIVER_OBJECT *DriverObject,
+        unsigned int DeviceExtensionSize,
+        _UNICODE_STRING *DeviceName,
+        ULONG DeviceType,
+        ULONG DeviceCharacteristics,
+        BOOLEAN Exclusive,
+        const _UNICODE_STRING *DefaultSDDLString,
+        const _GUID *DeviceClassGuid,
+        _DEVICE_OBJECT **DeviceObject)
+{
+  _DEVICE_OBJECT **v9; // r13
+  char Flags; // di
+  void *v11; // rsi
+  unsigned int Characteristics; // r15d
+  unsigned int v13; // r12d
+  NTSTATUS Device; // ebx
+  ULONG v15; // r9d
+  ULONG v16; // r8d
+  NTSTATUS result; // eax
+  void *securityDescriptor; // [rsp+48h] [rbp-38h] BYREF
+  STACK_CREATION_SETTINGS stackSettings; // [rsp+50h] [rbp-30h] BYREF
+  STACK_CREATION_SETTINGS updateSettings; // [rsp+68h] [rbp-18h] BYREF
+
+  v9 = DeviceObject;
+  DeviceObject = 0LL;
+  *v9 = 0LL;
+  if ( !DeviceName && (DeviceCharacteristics & 0x80u) == 0 )
+    return -1073741811;
+  if ( DeviceClassGuid )
+  {
+    result = PpRegStateReadCreateClassCreationSettings(DeviceClassGuid, DriverObject, &stackSettings);
+    if ( result < 0 )
+      return result;
+    Characteristics = stackSettings.Characteristics;
+    v11 = stackSettings.SecurityDescriptor;
+    v13 = stackSettings.DeviceType;
+    Flags = stackSettings.Flags;
+  }
+  else
+  {
+    Flags = 0;
+    v11 = 0LL;
+    Characteristics = 0;
+    memset(&stackSettings, 0, sizeof(stackSettings));
+    v13 = 0;
+  }
+  if ( (Flags & 2) != 0 )
+    goto LABEL_7;
+  Device = SeSddlSecurityDescriptorFromSDDL(DefaultSDDLString, DeviceExtensionSize, &securityDescriptor);
+  if ( Device >= 0 )
+  {
+    v11 = securityDescriptor;
+    Flags = 2;
+    stackSettings.Flags = 2;
+    stackSettings.SecurityDescriptor = securityDescriptor;
+    if ( !DeviceClassGuid
+      || (updateSettings.DeviceType = 0,
+          updateSettings.Characteristics = 0,
+          updateSettings.Exclusivity = 0,
+          updateSettings.Flags = 2,
+          updateSettings.SecurityDescriptor = securityDescriptor,
+          Device = PpRegStateUpdateStackCreationSettings(DeviceClassGuid, &updateSettings),
+          Device >= 0) )
+    {
+LABEL_7:
+      v15 = DeviceType;
+      v16 = DeviceCharacteristics;
+      if ( (stackSettings.Flags & 1) != 0 )
+        v15 = v13;
+      if ( (stackSettings.Flags & 4) != 0 )
+        v16 = Characteristics;
+      if ( (stackSettings.Flags & 8) != 0 )
+        Exclusive = stackSettings.Exclusivity;
+      Device = IoCreateDevice(
+                 DriverObject,
+                 DeviceExtensionSize,
+                 DeviceName,
+                 v15,
+                 v16,
+                 Exclusive,
+                 (PDEVICE_OBJECT *)&DeviceObject);
+      if ( Device >= 0 )
+      {
+        Device = IopDevObjApplyPostCreationSettings((_DEVICE_OBJECT *)DeviceObject, &stackSettings);
+        if ( Device < 0 )
+          IoDeleteDevice((PDEVICE_OBJECT)DeviceObject);
+        else
+          *v9 = (_DEVICE_OBJECT *)DeviceObject;
+      }
+    }
+  }
+  if ( (Flags & 2) != 0 )
+    ExFreePoolWithTag(v11, 0);
+  return Device;
+}

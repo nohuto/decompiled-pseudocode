@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?IsPropertyAnimatable@CMatrixTransformMarshaler@DirectComposition@@UEAA_NUDCOMPOSITION_PROPERTY_ID@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x14023D200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NUDCOMPOSITION_PROPERTY_ID@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x14023B0B0 (-IsPropertyAnimatable@CResourceMarshaler@DirectComposition@@UEAA_NUDCOMPOSITION_PROPERTY_ID@@W4D.c)
+ */
+
+bool __fastcall DirectComposition::CMatrixTransformMarshaler::IsPropertyAnimatable(__int64 a1, unsigned int a2, int a3)
+{
+  if ( a2 - 1 > 5 )
+    return DirectComposition::CResourceMarshaler::IsPropertyAnimatable(a1, a2, a3);
+  else
+    return a3 == 18;
+}

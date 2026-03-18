@@ -1,0 +1,22 @@
+/*
+ * XREFs of imp_WdfUsbInterfaceGetNumSettings @ 0x14009D120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x140010970 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
+unsigned __int8 __fastcall imp_WdfUsbInterfaceGetNumSettings(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFUSBINTERFACE__ *UsbInterface)
+{
+  FxUsbInterface *pUsbInterface; // [rsp+30h] [rbp+8h] BYREF
+
+  pUsbInterface = 0LL;
+  FxObjectHandleGetPtr(
+    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (unsigned __int64)UsbInterface,
+    0x1204u,
+    (void **)&pUsbInterface);
+  return pUsbInterface->m_NumSettings;
+}

@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEAAPEAVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1400348B0
+ * Callers:
+ *     ?FindBestMatch@DMMVIDPNSOURCEMODESET@@QEAAPEBVDMMVIDPNSOURCEMODE@@IIW4_D3DDDIFORMAT@@W4_D3DKMDT_VIDPN_SOURCE_MODE_TYPE@@@Z @ 0x1400347C0 (-FindBestMatch@DMMVIDPNSOURCEMODESET@@QEAAPEBVDMMVIDPNSOURCEMODE@@IIW4_D3DDDIFORMAT@@W4_D3DKMDT_.c)
+ *     _BmlGetPathModeListForPath @ 0x1402DC9A4 (_BmlGetPathModeListForPath.c)
+ * Callees:
+ *     <none>
+ */
+
+struct DMMVIDPNSOURCEMODE *__fastcall DMMVIDPNSOURCEMODESET::GetNextMode(
+        DMMVIDPNSOURCEMODESET *this,
+        const struct DMMVIDPNSOURCEMODE *const a2)
+{
+  DMMVIDPNSOURCEMODESET *v4; // rdx
+  struct DMMVIDPNSOURCEMODE *result; // rax
+
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 498;
+  }
+  v4 = (DMMVIDPNSOURCEMODESET *)*((_QWORD *)a2 + 1);
+  result = (DMMVIDPNSOURCEMODESET *)((char *)v4 - 8);
+  if ( v4 == (DMMVIDPNSOURCEMODESET *)((char *)this + 48) )
+    return 0LL;
+  return result;
+}

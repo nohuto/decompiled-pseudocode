@@ -1,0 +1,85 @@
+/*
+ * XREFs of AdtpBuildIPv6Strings @ 0x140A20804
+ * Callers:
+ *     AdtpBuildSockAddrString @ 0x140A20620 (AdtpBuildSockAddrString.c)
+ * Callees:
+ *     StringCchPrintfW @ 0x14046FE5C (StringCchPrintfW.c)
+ *     RtlIpv6AddressToStringW @ 0x1404759E0 (RtlIpv6AddressToStringW.c)
+ *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall AdtpBuildIPv6Strings(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, _BYTE *a5)
+{
+  __int64 v9; // rax
+  __int64 v10; // rax
+  unsigned int v11; // ebx
+  __int64 Pool2; // rax
+
+  if ( *(_WORD *)a1 == 23 )
+  {
+    if ( a2 && a3 )
+    {
+      *(_WORD *)(a2 + 2) = 110;
+      Pool2 = ExAllocatePool2(0x100uLL);
+      *(_QWORD *)(a2 + 8) = Pool2;
+      if ( !Pool2 )
+      {
+        v11 = -1073741801;
+        goto LABEL_20;
+      }
+      *a3 = 1;
+      *(_WORD *)a2 = 2
+                   * ((__int64)((unsigned int)RtlIpv6AddressToStringW(
+                                                (const struct in6_addr *)(a1 + 8),
+                                                *(PWSTR *)(a2 + 8))
+                              - *(_DWORD *)(a2 + 8)) >> 1);
+    }
+    if ( !a4 || !a5 )
+      return 0;
+    *(_WORD *)(a4 + 2) = 16;
+    v9 = ExAllocatePool2(0x100uLL);
+    *(_QWORD *)(a4 + 8) = v9;
+    if ( v9 )
+    {
+      *a5 = 1;
+      if ( StringCchPrintfW(
+             *(STRSAFE_LPWSTR *)(a4 + 8),
+             8uLL,
+             L"%d",
+             (unsigned __int16)(*(_WORD *)(a1 + 2) << 8) | HIBYTE(*(unsigned __int16 *)(a1 + 2))) >= 0 )
+      {
+        v10 = -1LL;
+        do
+          ++v10;
+        while ( *(_WORD *)(*(_QWORD *)(a4 + 8) + 2 * v10) );
+        *(_WORD *)a4 = 2 * v10;
+        return 0;
+      }
+      v11 = -1073741811;
+    }
+    else
+    {
+      v11 = -1073741801;
+    }
+  }
+  else
+  {
+    v11 = -1073741503;
+  }
+  if ( a3 )
+  {
+LABEL_20:
+    if ( *a3 )
+    {
+      *a3 = 0;
+      ExFreePoolWithTag(*(PVOID *)(a2 + 8), 0);
+    }
+  }
+  if ( a5 && *a5 )
+  {
+    *a5 = 0;
+    ExFreePoolWithTag(*(PVOID *)(a4 + 8), 0);
+  }
+  return v11;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of VerifierMmPrefetchPages @ 0x1406C0AE8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+NTSTATUS __stdcall VerifierMmPrefetchPages(ULONG NumberOfLists, PREAD_LIST *ReadLists)
+{
+  return pXdvMmPrefetchPages(NumberOfLists, ReadLists);
+}

@@ -1,0 +1,79 @@
+/*
+ * XREFs of DifIoIsWdmVersionAvailableWrapper @ 0x140629750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x140245670 (ExReleaseRundownProtection_0.c)
+ *     ExAcquireRundownProtection @ 0x1402792A0 (ExAcquireRundownProtection.c)
+ *     DifGetAPIThunkContextById @ 0x140489B90 (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1404C9B7C (DifGetReturnAddressForWrappers.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     IoIsWdmVersionAvailable @ 0x140A708B0 (IoIsWdmVersionAvailable.c)
+ */
+
+char __fastcall DifIoIsWdmVersionAvailableWrapper(UCHAR a1, UCHAR a2)
+{
+  __int64 *APIThunkContextById; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  __int64 *v8; // rsi
+  int v9; // eax
+  BOOLEAN v10; // bp
+  __int64 *i; // rbx
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  __int64 v14; // r9
+  BOOLEAN v15; // di
+  _QWORD **v16; // rsi
+  _QWORD *j; // rbx
+  _OWORD v19[2]; // [rsp+20h] [rbp-28h] BYREF
+  _UNKNOWN *retaddr; // [rsp+48h] [rbp+0h]
+
+  v19[0] = 0LL;
+  APIThunkContextById = DifGetAPIThunkContextById(327);
+  v8 = APIThunkContextById;
+  if ( APIThunkContextById )
+  {
+    v9 = *((_DWORD *)APIThunkContextById + 3);
+    if ( (v9 & 0x18) != 0 )
+    {
+      *(_QWORD *)&v19[0] = retaddr;
+    }
+    else if ( (v9 & 4) != 0 )
+    {
+      *(_QWORD *)&v19[0] = DifGetReturnAddressForWrappers();
+    }
+    v10 = 0;
+    BYTE9(v19[0]) = a1;
+    BYTE8(v19[0]) = a2;
+    if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
+      || (v10 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    {
+      for ( i = (__int64 *)v8[4]; i != v8 + 4; i = (__int64 *)*i )
+      {
+        if ( i != (__int64 *)16 )
+          guard_dispatch_icall_no_overrides(v19, v5, v6, v7);
+      }
+      if ( v10 )
+        ExReleaseRundownProtection_0(&DifRebootlessRundown);
+    }
+  }
+  BYTE10(v19[0]) = IoIsWdmVersionAvailable(a1, a2);
+  if ( v8 )
+  {
+    if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v15 = ExAcquireRundownProtection(&DifRebootlessRundown)) != 0 )
+    {
+      v16 = (_QWORD **)(v8 + 6);
+      for ( j = *v16; j != v16; j = (_QWORD *)*j )
+      {
+        if ( j != (_QWORD *)16 )
+          guard_dispatch_icall_no_overrides(v19, v12, v13, v14);
+      }
+      if ( v15 )
+        ExReleaseRundownProtection_0(&DifRebootlessRundown);
+    }
+  }
+  return BYTE10(v19[0]);
+}

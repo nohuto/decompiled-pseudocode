@@ -1,0 +1,67 @@
+/*
+ * XREFs of PiDevCfgPushCopyKeyEntry @ 0x14012C990
+ * Callers:
+ *     PiDevCfgCopyDeviceKeys @ 0x140515030 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140515118 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     ZwClose @ 0x140150800 (ZwClose.c)
+ *     ZwOpenKey @ 0x140150860 (ZwOpenKey.c)
+ *     ExAllocatePoolWithTag @ 0x140238380 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PiDevCfgPushCopyKeyEntry(HANDLE *a1, void *a2, void *a3, int a4)
+{
+  NTSTATUS v4; // esi
+  HANDLE *PoolWithTag; // rax
+  HANDLE *v10; // rbx
+  HANDLE **v11; // rax
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+
+  v4 = 0;
+  PoolWithTag = (HANDLE *)ExAllocatePoolWithTag(PagedPool, 0x28uLL, 0x63647050u);
+  v10 = PoolWithTag;
+  if ( !PoolWithTag )
+    return (unsigned int)-1073741670;
+  *((_DWORD *)PoolWithTag + 8) = a4;
+  if ( a4 >= 0 )
+  {
+    PoolWithTag[2] = a2;
+    PoolWithTag[3] = a3;
+LABEL_4:
+    v11 = (HANDLE **)a1[1];
+    *v10 = a1;
+    v10[1] = v11;
+    if ( *v11 != a1 )
+      __fastfail(3u);
+    *v11 = v10;
+    a1[1] = v10;
+    v10 = 0LL;
+    goto LABEL_6;
+  }
+  ObjectAttributes.RootDirectory = a2;
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)PiDevCfgEmptyString;
+  ObjectAttributes.Attributes = 512;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  v4 = ZwOpenKey(PoolWithTag + 2, 0x20019u, &ObjectAttributes);
+  if ( v4 >= 0 )
+  {
+    ObjectAttributes.Length = 48;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)PiDevCfgEmptyString;
+    ObjectAttributes.RootDirectory = a3;
+    ObjectAttributes.Attributes = 512;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v4 = ZwOpenKey(v10 + 3, 0xF003Fu, &ObjectAttributes);
+    if ( v4 >= 0 )
+    {
+      *((_DWORD *)v10 + 8) |= 0x40000000u;
+      goto LABEL_4;
+    }
+    ZwClose(v10[2]);
+  }
+LABEL_6:
+  if ( v10 )
+    ExFreePoolWithTag(v10, 0);
+  return (unsigned int)v4;
+}

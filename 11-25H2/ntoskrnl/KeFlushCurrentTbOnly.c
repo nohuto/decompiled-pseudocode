@@ -1,0 +1,63 @@
+/*
+ * XREFs of KeFlushCurrentTbOnly @ 0x14027027C
+ * Callers:
+ *     MiIssueFlushTbEntire @ 0x14026F7B8 (MiIssueFlushTbEntire.c)
+ *     MiFlushTbList @ 0x14032BCA0 (MiFlushTbList.c)
+ * Callees:
+ *     HvlpFastFlushAddressSpaceTb @ 0x14027015C (HvlpFastFlushAddressSpaceTb.c)
+ *     HvlpUseExtendedProcessorSetHypercalls @ 0x140270B34 (HvlpUseExtendedProcessorSetHypercalls.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x1403FA0C0 (KiPrepareFlushCurrentAffinity.c)
+ *     KiIsFlushEntire @ 0x1404037B0 (KiIsFlushEntire.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x14043C4C0 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiFlushCurrentTbOnly @ 0x1404417D0 (KiFlushCurrentTbOnly.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1404C2F48 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x140695D9C (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ */
+
+int __fastcall KeFlushCurrentTbOnly(unsigned int a1)
+{
+  unsigned __int64 v2; // rdi
+  char v3; // bl
+  __int64 v4; // r8
+  _BYTE v6[272]; // [rsp+20h] [rbp-128h] BYREF
+
+  memset_0(v6, 0, 0x108uLL);
+  if ( (HvlEnlightenments & 0x800000) == 0 || (HvlEnlightenments & 2) == 0 && !(unsigned __int8)KiIsFlushEntire(a1) )
+    return KiFlushCurrentTbOnly(a1);
+  if ( KiKvaShadow )
+  {
+    v2 = 0LL;
+    if ( a1 )
+      goto LABEL_11;
+LABEL_9:
+    v3 = 0;
+    goto LABEL_12;
+  }
+  if ( a1 == 1 )
+  {
+    v2 = KeGetCurrentThread()->ApcState.Process->DirectoryTableBase & 0xFFFFFFFFFFFFF000uLL;
+    goto LABEL_9;
+  }
+  v2 = 0LL;
+LABEL_11:
+  v3 = 1;
+LABEL_12:
+  KiPrepareFlushCurrentAffinity(v6);
+  if ( (unsigned __int8)HvlpUseExtendedProcessorSetHypercalls() )
+  {
+    if ( ((HvlpFlags >> 8) & 0xF) + 5 > 0xE || (HvlEnlightenments & 0x80u) == 0 )
+      return HvlpSlowFlushAddressSpaceTbEx(v2);
+    else
+      return HvlpFastFlushAddressSpaceTbEx(v2);
+  }
+  else
+  {
+    LOBYTE(v4) = v3;
+    if ( (HvlEnlightenments & 0x80u) == 0 )
+      return HvlpSlowFlushAddressSpaceTb(v2, v6, v4);
+    else
+      return HvlpFastFlushAddressSpaceTb(v2, (__int64)v6, v3);
+  }
+}

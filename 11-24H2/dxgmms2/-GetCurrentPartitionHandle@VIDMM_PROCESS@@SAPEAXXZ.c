@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?GetCurrentPartitionHandle@VIDMM_PROCESS@@SAPEAXXZ @ 0x1400C6A4C
+ * Callers:
+ *     ?Init@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@@Z @ 0x1400A8610 (-Init@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_PROCESS@@@Z.c)
+ *     ?Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJW4VIDMM_PAGE_PRIORITY@@_N@Z @ 0x1400BF898 (-Reset@VIDMM_RECYCLE_MULTIRANGE@@QEAAJW4VIDMM_PAGE_PRIORITY@@_N@Z.c)
+ *     ?CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_GLOBAL_ALLOC@@@Z @ 0x1400C5100 (-CommitGlobalBackingStore@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_GLOBAL_ALLOC@@@Z.c)
+ *     ?VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z @ 0x1400C69CC (-VidMmAllocateVirtualMemory@@YAJPEAPEAXPEA_KKK@Z.c)
+ *     ?Commit@VIDMM_RECYCLE_RANGE@@QEAAJEPEAE@Z @ 0x1400C794C (-Commit@VIDMM_RECYCLE_RANGE@@QEAAJEPEAE@Z.c)
+ *     ?Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z @ 0x1400CCC08 (-Allocate@VIDMM_RECYCLE_BLOCK@@QEAAJ_KE@Z.c)
+ *     ?ResetUndo@VIDMM_RECYCLE_MULTIRANGE@@QEAAJXZ @ 0x140104B0C (-ResetUndo@VIDMM_RECYCLE_MULTIRANGE@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x140023720 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
+__int64 VIDMM_PROCESS::GetCurrentPartitionHandle(void)
+{
+  __int64 v0; // rax
+
+  if ( !DXGPROCESS::GetCurrent() )
+    return -1LL;
+  v0 = *((_QWORD *)DXGPROCESS::GetCurrent() + 8);
+  if ( v0 )
+    v0 = *(_QWORD *)(v0 + 8);
+  if ( v0 )
+    return *(_QWORD *)(v0 + 304);
+  else
+    return -1LL;
+}

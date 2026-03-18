@@ -1,0 +1,42 @@
+/*
+ * XREFs of EditionStopSonar @ 0x1C013B8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     StopFade @ 0x1C01C2190 (StopFade.c)
+ */
+
+void *EditionStopSonar()
+{
+  void *result; // rax
+  __int64 v1; // rdx
+  __int64 v2; // rcx
+  __int64 v3; // r8
+  __int64 v4; // r9
+
+  result = gpdwCPUserPreferencesMask;
+  if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
+  {
+    result = (void *)gfade[0];
+    if ( (LODWORD(gfade[6]) & 0x80u) != 0 )
+    {
+      EnterCrit(0LL, 1LL);
+      if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
+      {
+        v2 = LODWORD(gfade[6]);
+        if ( (v2 & 0x80u) != 0LL )
+        {
+          StopFade();
+          giSonarRadius = -1;
+          if ( ((unsigned __int16)gpdwCPUserPreferencesMask & 0x4000) != 0 )
+          {
+            if ( gbLastVkForSonar )
+              gbLastVkForSonar = 0;
+          }
+        }
+      }
+      return (void *)UserSessionSwitchLeaveCrit(v2, v1, v3, v4);
+    }
+  }
+  return result;
+}

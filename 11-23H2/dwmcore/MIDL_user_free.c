@@ -1,0 +1,13 @@
+/*
+ * XREFs of MIDL_user_free @ 0x1800EB180
+ * Callers:
+ *     ??_V@YAXPEAX_K@Z @ 0x18010FA70 (--_V@YAXPEAX_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __stdcall MIDL_user_free(void *a1)
+{
+  operator delete(a1);
+}

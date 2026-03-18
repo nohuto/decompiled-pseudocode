@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?GetMDLForRange@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAU_MDL@@_K0@Z @ 0x1C0066B88
+ * Callers:
+ *     ?GetMDLForRange@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAU_MDL@@PEAX_K1@Z @ 0x1C0066B20 (-GetMDLForRange@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAU_MDL@@PEAX_K1@Z.c)
+ * Callees:
+ *     memset @ 0x1C0008500 (memset.c)
+ *     ?CopyPfnArray@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAXPEA_K_K1@Z @ 0x1C0065DC0 (-CopyPfnArray@VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW@@QEAAXPEA_K_K1@Z.c)
+ */
+
+struct _MDL *__fastcall VIDMM_RECYCLE_MULTIRANGE::GetMDLForRange(
+        VIDMM_RECYCLE_MULTIRANGE *this,
+        __int64 a2,
+        unsigned __int64 a3)
+{
+  void *v7; // rcx
+  SIZE_T v8; // rbp
+  PVOID PoolWithTag; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rcx
+
+  if ( *((_DWORD *)this + 54) != 4 )
+    return 0LL;
+  v7 = (void *)*((_QWORD *)this + 13);
+  if ( !v7 )
+  {
+LABEL_9:
+    v8 = 8 * (a3 >> 12) + 48;
+    PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)512, v8, 0x35336956u);
+    *((_QWORD *)this + 13) = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      _InterlockedIncrement(&dword_1C00275A0);
+      v11 = WdLogNewEntry5_WdLowResource(v10);
+      *(_QWORD *)(v11 + 24) = 3594LL;
+      WdLogEvent5_WdLowResource(v11);
+      return 0LL;
+    }
+    memset(PoolWithTag, 0, 0x30uLL);
+    *(_DWORD *)(*((_QWORD *)this + 13) + 40LL) = a3;
+    *(_WORD *)(*((_QWORD *)this + 13) + 8LL) = v8;
+    *(_QWORD *)(*((_QWORD *)this + 13) + 16LL) = **(_QWORD **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 10) + 32LL)
+                                                                         + 8LL)
+                                                             + 8LL);
+    goto LABEL_12;
+  }
+  if ( *((_QWORD *)this + 14) == a2 )
+  {
+    if ( *((_QWORD *)this + 15) == a3 )
+      return (struct _MDL *)v7;
+    goto LABEL_8;
+  }
+  if ( *((_QWORD *)this + 15) != a3 )
+  {
+LABEL_8:
+    ExFreePoolWithTag(v7, 0);
+    goto LABEL_9;
+  }
+LABEL_12:
+  v12 = *((_QWORD *)this + 13);
+  v13 = a2 + *((_QWORD *)this + 6);
+  *((_QWORD *)this + 14) = a2;
+  *((_QWORD *)this + 15) = a3;
+  *(_QWORD *)(v12 + 32) = v13;
+  VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW::CopyPfnArray(
+    (VIDMM_RECYCLE_HEAP_PHYSICAL_VIEW *)(*((_QWORD *)this + 10) + 88LL),
+    (unsigned __int64 *)(*((_QWORD *)this + 13) + 48LL),
+    a2 + *((_QWORD *)this + 6),
+    a2 + *((_QWORD *)this + 6) + a3);
+  return (struct _MDL *)*((_QWORD *)this + 13);
+}

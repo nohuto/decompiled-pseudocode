@@ -1,0 +1,198 @@
+/*
+ * XREFs of DpiCreateSecurityDescriptorForGpuVirtualization @ 0x14023C7C0
+ * Callers:
+ *     DpiFdoInitializeGpuVirtualization @ 0x1403FDFB4 (DpiFdoInitializeGpuVirtualization.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1400A1BC0 (__security_check_cookie.c)
+ *     memset @ 0x1400A2000 (memset.c)
+ */
+
+__int64 __fastcall DpiCreateSecurityDescriptorForGpuVirtualization(_QWORD *a1)
+{
+  void *v2; // rsi
+  ULONG v3; // eax
+  void *Pool2; // rax
+  void *v5; // r14
+  unsigned int v6; // ebx
+  NTSTATUS v7; // eax
+  ULONG v8; // ebx
+  ULONG v9; // ebx
+  ULONG v10; // ebx
+  struct _ACL *v11; // rax
+  struct _ACL *v12; // rdi
+  NTSTATUS Acl; // eax
+  NTSTATUS v14; // eax
+  NTSTATUS v15; // eax
+  NTSTATUS v16; // eax
+  NTSTATUS v17; // eax
+  NTSTATUS v18; // eax
+  NTSTATUS v19; // eax
+  NTSTATUS v20; // eax
+  ULONG v21; // eax
+  void *v22; // rax
+  NTSTATUS v23; // eax
+  size_t Size; // [rsp+20h] [rbp-40h] BYREF
+  _OWORD SecurityDescriptor[2]; // [rsp+28h] [rbp-38h] BYREF
+  __int64 v27; // [rsp+48h] [rbp-18h]
+  struct _SID_IDENTIFIER_AUTHORITY IdentifierAuthority; // [rsp+50h] [rbp-10h] BYREF
+
+  *(_WORD *)&IdentifierAuthority.Value[4] = 1280;
+  LODWORD(Size) = 0;
+  v27 = 0LL;
+  memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
+  *(_DWORD *)IdentifierAuthority.Value = 0;
+  v2 = 0LL;
+  v3 = RtlLengthRequiredSid(2u);
+  Pool2 = (void *)ExAllocatePool2(256LL, v3, 1953656900LL);
+  v5 = Pool2;
+  if ( Pool2 )
+  {
+    v7 = RtlInitializeSid(Pool2, &IdentifierAuthority, 2u);
+    v6 = v7;
+    if ( v7 >= 0 )
+    {
+      *RtlSubAuthoritySid(v5, 0) = 83;
+      *RtlSubAuthoritySid(v5, 1u) = 0;
+      v8 = RtlLengthSid(SeExports->SeLocalSystemSid);
+      v9 = RtlLengthSid(SeExports->SeAliasAdminsSid) + v8;
+      v10 = RtlLengthSid(v5) + 32 + v9;
+      v11 = (struct _ACL *)ExAllocatePool2(256LL, v10, 1953656900LL);
+      v12 = v11;
+      if ( v11 )
+      {
+        Acl = RtlCreateAcl(v11, v10, 2u);
+        v6 = Acl;
+        if ( Acl >= 0 )
+        {
+          v14 = RtlAddAccessAllowedAce(v12, 2u, 0x1F01FFu, SeExports->SeLocalSystemSid);
+          v6 = v14;
+          if ( v14 >= 0 )
+          {
+            v15 = RtlAddAccessAllowedAce(v12, 2u, 0x1F01FFu, SeExports->SeAliasAdminsSid);
+            v6 = v15;
+            if ( v15 >= 0 )
+            {
+              v16 = RtlAddAccessAllowedAce(v12, 2u, 0x1F01FFu, v5);
+              v6 = v16;
+              if ( v16 >= 0 )
+              {
+                v17 = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+                v6 = v17;
+                if ( v17 >= 0 )
+                {
+                  v18 = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v12, 0);
+                  v6 = v18;
+                  if ( v18 >= 0 )
+                  {
+                    v19 = RtlSetOwnerSecurityDescriptor(SecurityDescriptor, SeExports->SeLocalSystemSid, 0);
+                    v6 = v19;
+                    if ( v19 >= 0 )
+                    {
+                      v20 = RtlSetGroupSecurityDescriptor(SecurityDescriptor, SeExports->SeLocalSystemSid, 0);
+                      v6 = v20;
+                      if ( v20 >= 0 )
+                      {
+                        v21 = RtlLengthSecurityDescriptor(SecurityDescriptor);
+                        LODWORD(Size) = v21;
+                        if ( v21 >= 0x28 )
+                        {
+                          v22 = (void *)ExAllocatePool2(256LL, v21, 1953656900LL);
+                          v2 = v22;
+                          if ( v22 )
+                          {
+                            memset(v22, 0, (unsigned int)Size);
+                            v23 = RtlAbsoluteToSelfRelativeSD(SecurityDescriptor, v2, (PULONG)&Size);
+                            v6 = v23;
+                            if ( v23 >= 0 )
+                            {
+                              *a1 = v2;
+                              v2 = 0LL;
+                              v6 = 0;
+                            }
+                            else
+                            {
+                              WdLogSingleEntry1(2LL, v23);
+                              WdLogGlobalForLineNumber = 331;
+                            }
+                          }
+                          else
+                          {
+                            v6 = -1073741670;
+                          }
+                        }
+                        else
+                        {
+                          v6 = -1073741595;
+                          WdLogSingleEntry1(2LL, -1073741595LL);
+                          WdLogGlobalForLineNumber = 312;
+                        }
+                      }
+                      else
+                      {
+                        WdLogSingleEntry1(2LL, v20);
+                        WdLogGlobalForLineNumber = 295;
+                      }
+                    }
+                    else
+                    {
+                      WdLogSingleEntry1(2LL, v19);
+                      WdLogGlobalForLineNumber = 285;
+                    }
+                  }
+                  else
+                  {
+                    WdLogSingleEntry1(2LL, v18);
+                    WdLogGlobalForLineNumber = 275;
+                  }
+                }
+                else
+                {
+                  WdLogSingleEntry1(2LL, v17);
+                  WdLogGlobalForLineNumber = 265;
+                }
+              }
+              else
+              {
+                WdLogSingleEntry1(2LL, v16);
+                WdLogGlobalForLineNumber = 251;
+              }
+            }
+            else
+            {
+              WdLogSingleEntry1(2LL, v15);
+              WdLogGlobalForLineNumber = 241;
+            }
+          }
+          else
+          {
+            WdLogSingleEntry1(2LL, v14);
+            WdLogGlobalForLineNumber = 231;
+          }
+        }
+        else
+        {
+          WdLogSingleEntry1(2LL, Acl);
+          WdLogGlobalForLineNumber = 221;
+        }
+        ExFreePoolWithTag(v12, 0);
+        if ( v2 )
+          ExFreePoolWithTag(v2, 0);
+      }
+      else
+      {
+        v6 = -1073741670;
+      }
+    }
+    else
+    {
+      WdLogSingleEntry1(2LL, v7);
+      WdLogGlobalForLineNumber = 191;
+    }
+    ExFreePoolWithTag(v5, 0);
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return v6;
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of HalpBlkInitializePageTables @ 0x140C12F28
+ * Callers:
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140C12FAC (HalpBlkInitializeVirtualAddressSpace.c)
+ * Callees:
+ *     HalpMap @ 0x140478C5C (HalpMap.c)
+ *     HalpBlkAllocatePageTablePage @ 0x140C12D30 (HalpBlkAllocatePageTablePage.c)
+ */
+
+__int64 HalpBlkInitializePageTables()
+{
+  unsigned int v0; // esi
+  __int64 PageTablePage; // rbx
+  __int64 v2; // rdi
+  unsigned __int64 v3; // rax
+
+  v0 = 0;
+  PageTablePage = HalpBlkAllocatePageTablePage(1);
+  if ( PageTablePage
+    && (v2 = HalpBlkAllocatePageTablePage(1), (v3 = HalpMap(PageTablePage, 1LL, 1uLL, 1, 4u, 0LL)) != 0) )
+  {
+    HalpBlkRootPageTablePa = PageTablePage;
+    HalpBlkTiledMemoryMapPa = v2;
+    HalpBlkPageTableVaWindow = v3;
+  }
+  else
+  {
+    return (unsigned int)-1073741801;
+  }
+  return v0;
+}

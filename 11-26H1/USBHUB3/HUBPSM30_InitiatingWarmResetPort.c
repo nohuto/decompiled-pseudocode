@@ -1,0 +1,54 @@
+/*
+ * XREFs of HUBPSM30_InitiatingWarmResetPort @ 0x140013F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1400024E0 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x14002EE1C (HUBMISC_ControlTransfer.c)
+ *     _guard_dispatch_icall @ 0x1400467F0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall HUBPSM30_InitiatingWarmResetPort(__int64 a1)
+{
+  __int64 v1; // rbx
+  char v2; // al
+  __int64 *v3; // rdi
+  int v4; // eax
+  int v6; // [rsp+28h] [rbp-30h]
+  __int64 v7; // [rsp+28h] [rbp-30h]
+
+  v1 = *(_QWORD *)(a1 + 960);
+  v2 = *(_BYTE *)(v1 + 168) & 0x1C;
+  *(_BYTE *)(v1 + 169) = 3;
+  *(_WORD *)(v1 + 170) = 28;
+  *(_BYTE *)(v1 + 168) = v2 | 0x23;
+  *(_WORD *)(v1 + 172) = *(_WORD *)(v1 + 200);
+  *(_DWORD *)(v1 + 8) = 3061;
+  *(_WORD *)(v1 + 174) = 0;
+  v3 = (__int64 *)(v1 + 1432);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v6 = *(unsigned __int16 *)(v1 + 200);
+    WPP_RECORDER_SF_d(*v3, 4u, 4u, 0x30u, (__int64)&WPP_70469c384dd13630d566350a6f2705ad_Traceguids, v6);
+  }
+  v4 = HUBMISC_ControlTransfer(
+         *(_QWORD *)v1,
+         *(_QWORD *)(*(_QWORD *)v1 + 248LL),
+         v1,
+         (int)v1 + 16,
+         (__int64)HUBHTX_PortControlTransferComplete,
+         0LL,
+         0,
+         0,
+         *(_BYTE *)(*(_QWORD *)v1 + 2288LL));
+  if ( v4 < 0 )
+  {
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    {
+      LODWORD(v7) = v4;
+      WPP_RECORDER_SF_d(*v3, 2u, 4u, 0x31u, (__int64)&WPP_70469c384dd13630d566350a6f2705ad_Traceguids, v7);
+    }
+    (*(void (__fastcall **)(__int64, __int64))(v1 + 1240))(v1, 3008LL);
+  }
+  return 1000LL;
+}

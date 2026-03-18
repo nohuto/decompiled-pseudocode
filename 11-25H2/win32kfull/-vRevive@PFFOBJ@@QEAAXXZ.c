@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?vRevive@PFFOBJ@@QEAAXXZ @ 0x1401CC1C4
+ * Callers:
+ *     ?chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z @ 0x1400B54CC (-chpfeIncrPFF@PFTOBJ@@QEAAKPEAVPFF@@PEAHKPEAU_EUDCLOAD@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall PFFOBJ::vRevive(PFFOBJ *this)
+{
+  __int64 v2; // rcx
+  int v3; // eax
+  __int64 v4; // rcx
+  __int64 i; // rdx
+  __int64 v6; // rax
+
+  v2 = *(_QWORD *)this;
+  v3 = *(_DWORD *)(v2 + 52);
+  if ( (v3 & 1) != 0 )
+  {
+    *(_DWORD *)(v2 + 52) = v3 & 0xFFFFFFFE;
+    v4 = 0LL;
+    for ( i = *(_QWORD *)this; (unsigned int)v4 < *(_DWORD *)(*(_QWORD *)this + 216LL); v4 = (unsigned int)(v4 + 1) )
+    {
+      v6 = *(_QWORD *)(i + 8 * v4 + 224);
+      if ( v6 )
+        *(_DWORD *)(v6 + 12) &= ~2u;
+      i = *(_QWORD *)this;
+    }
+  }
+}

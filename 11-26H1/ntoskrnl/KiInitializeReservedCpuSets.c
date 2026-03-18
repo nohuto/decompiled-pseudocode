@@ -1,0 +1,81 @@
+/*
+ * XREFs of KiInitializeReservedCpuSets @ 0x140CCB790
+ * Callers:
+ *     KeInitSystem @ 0x140CC82B8 (KeInitSystem.c)
+ * Callees:
+ *     KiValidateCpuSetMasks @ 0x140462E9C (KiValidateCpuSetMasks.c)
+ *     KeModifySystemAllowedCpuSets @ 0x1405F3CC8 (KeModifySystemAllowedCpuSets.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ZwClose @ 0x1407235D0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140723630 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1407236D0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14073D480 (memmove.c)
+ *     memset_0 @ 0x14073D880 (memset_0.c)
+ */
+
+NTSTATUS KiInitializeReservedCpuSets()
+{
+  NTSTATUS result; // eax
+  __int64 v1; // r8
+  unsigned int v2; // r10d
+  int i; // ebx
+  unsigned __int8 Length; // [rsp+20h] [rbp-E0h]
+  ULONG ResultLength; // [rsp+30h] [rbp-D0h] BYREF
+  HANDLE KeyHandle; // [rsp+38h] [rbp-C8h] BYREF
+  _QWORD v7[2]; // [rsp+40h] [rbp-C0h] BYREF
+  UNICODE_STRING ValueName; // [rsp+50h] [rbp-B0h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+60h] [rbp-A0h] BYREF
+  _BYTE KeyValueInformation[4]; // [rsp+90h] [rbp-70h] BYREF
+  int v11; // [rsp+94h] [rbp-6Ch]
+  unsigned int v12; // [rsp+98h] [rbp-68h]
+  _BYTE Src[260]; // [rsp+9Ch] [rbp-64h] BYREF
+
+  memset_0(KeyValueInformation, 0, 0x110uLL);
+  *(_QWORD *)&ObjectAttributes.Length = 48LL;
+  ResultLength = 0;
+  *(_QWORD *)&ObjectAttributes.Attributes = 576LL;
+  v7[1] = L"\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\kernel";
+  v7[0] = 9699474LL;
+  ValueName.Buffer = L"ReservedCpuSets";
+  *(_QWORD *)&ValueName.Length = 2097182LL;
+  KeyHandle = 0LL;
+  memset_0(&KiReservedCpuSets, 0, 0x100uLL);
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.ObjectName = (PUNICODE_STRING)v7;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  result = ZwOpenKey(&KeyHandle, 1u, &ObjectAttributes);
+  if ( result < 0 )
+    goto LABEL_13;
+  result = ZwQueryValueKey(
+             KeyHandle,
+             &ValueName,
+             KeyValuePartialInformation,
+             KeyValueInformation,
+             0x110u,
+             &ResultLength);
+  if ( result < 0 )
+    goto LABEL_13;
+  if ( v11 != 3 )
+    goto LABEL_13;
+  if ( (v12 & 7) != 0 )
+    goto LABEL_13;
+  result = KiValidateCpuSetMasks((__int64)Src, v12 >> 3);
+  if ( result < 0 )
+    goto LABEL_13;
+  if ( v2 >= 0x20 )
+  {
+    v2 = 32;
+  }
+  else if ( !v2 )
+  {
+    goto LABEL_11;
+  }
+  memmove(&KiReservedCpuSets, Src, 8LL * v2);
+LABEL_11:
+  for ( i = 0; i < 2; ++i )
+    result = KeModifySystemAllowedCpuSets(0, 0, v1, i, Length);
+LABEL_13:
+  if ( KeyHandle )
+    return ZwClose(KeyHandle);
+  return result;
+}

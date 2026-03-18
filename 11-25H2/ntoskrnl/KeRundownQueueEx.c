@@ -1,0 +1,55 @@
+/*
+ * XREFs of KeRundownQueueEx @ 0x14041E338
+ * Callers:
+ *     KeRundownQueue @ 0x14041E250 (KeRundownQueue.c)
+ *     IopDeleteIoCompletionInternal @ 0x14041E268 (IopDeleteIoCompletionInternal.c)
+ *     EtwpDeleteRegistrationObject @ 0x14089CEA0 (EtwpDeleteRegistrationObject.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140287200 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x140287260 (KiExitDispatcher.c)
+ *     KeRundownQueueCommon @ 0x14041E8C4 (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14041ECE0 (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F1018 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+char *__fastcall KeRundownQueueEx(char *SystemArgument1, char a2)
+{
+  char *v3; // rbx
+  unsigned __int8 CurrentIrql; // si
+  char *v5; // rax
+  char *v6; // rdi
+  char **v8; // rcx
+
+  v3 = SystemArgument1;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags )
+  {
+    LOBYTE(SystemArgument1) = CurrentIrql;
+    KiRaiseIrqlProcessIrqlFlags(SystemArgument1);
+  }
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)v3);
+  v5 = v3 + 24;
+  v6 = (char *)*((_QWORD *)v3 + 3);
+  if ( v6 == v3 + 24 )
+  {
+    v6 = 0LL;
+  }
+  else
+  {
+    *((_DWORD *)v3 + 1) = 0;
+    v8 = (char **)*((_QWORD *)v3 + 4);
+    if ( *((char **)v6 + 1) != v5 || *v8 != v5 )
+      __fastfail(3u);
+    *v8 = v6;
+    *((_QWORD *)v6 + 1) = v8;
+    *((_QWORD *)v3 + 4) = v3 + 24;
+    *(_QWORD *)v5 = v5;
+  }
+  KeRundownQueueCommon(v3, a2);
+  _InterlockedAnd((volatile signed __int32 *)v3, 0xFFFFFF7F);
+  if ( a2 )
+    KiAcquireReleaseObjectRundownLockExclusive(v3);
+  KiExitDispatcher(KeGetCurrentPrcb(), 0LL, 1u, 0, CurrentIrql);
+  return v6;
+}

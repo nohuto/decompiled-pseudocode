@@ -1,0 +1,29 @@
+/*
+ * XREFs of xxxMoveWindow @ 0x1C00ED36C
+ * Callers:
+ *     NtUserMoveWindow @ 0x1C00ED1E0 (NtUserMoveWindow.c)
+ *     xxxSBWndProc @ 0x1C0233E70 (xxxSBWndProc.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C00665E0 (_GetDesktopWindow.c)
+ *     xxxSetWindowPosAndBand @ 0x1C00850A0 (xxxSetWindowPosAndBand.c)
+ *     xxxValidateRect @ 0x1C00FAD30 (xxxValidateRect.c)
+ */
+
+__int64 __fastcall xxxMoveWindow(struct tagWND *a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)
+{
+  int v7; // edx
+  int v8; // r8d
+  int v9; // r9d
+  unsigned int v11; // edi
+
+  if ( a1 == (struct tagWND *)GetDesktopWindow((__int64)a1)
+    || (*((_BYTE *)a1 + 45) & 1) != 0
+    || *((_QWORD *)a1 + 11) != GetDesktopWindow((__int64)a1) )
+  {
+    return xxxSetWindowPosAndBand(a1, 0LL, v7, v8, v9, a5, a6 != 0 ? 20 : 28, 0);
+  }
+  v11 = xxxSetWindowPosAndBand(a1, 0LL, v7, v8, v9, a5, 20, 0);
+  if ( !a6 )
+    xxxValidateRect(a1, 0LL);
+  return v11;
+}

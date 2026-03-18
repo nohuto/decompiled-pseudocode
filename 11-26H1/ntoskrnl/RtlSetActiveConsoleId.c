@@ -1,0 +1,25 @@
+/*
+ * XREFs of RtlSetActiveConsoleId @ 0x140800500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x1402150C0 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140450FF0 (PsIsCurrentThreadInServerSilo.c)
+ */
+
+struct _LIST_ENTRY *__fastcall RtlSetActiveConsoleId(int a1)
+{
+  struct _LIST_ENTRY *result; // rax
+
+  if ( PsIsCurrentThreadInServerSilo() )
+  {
+    result = PsGetCurrentServerSiloGlobals();
+    HIDWORD(result[80].Blink->Flink) = a1;
+  }
+  else
+  {
+    result = (struct _LIST_ENTRY *)MmWriteableSharedUserData;
+    *(_DWORD *)(MmWriteableSharedUserData + 728) = a1;
+  }
+  return result;
+}

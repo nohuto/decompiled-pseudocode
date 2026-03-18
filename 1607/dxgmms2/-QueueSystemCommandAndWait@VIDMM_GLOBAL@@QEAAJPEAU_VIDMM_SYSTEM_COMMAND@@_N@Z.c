@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C00547B0
+ * Callers:
+ *     ?Unlock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z @ 0x1C0059790 (-Unlock@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@@Z.c)
+ *     ?SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z @ 0x1C005B89C (-SuspendResume@VIDMM_DEVICE@@QEAAX_N0@Z.c)
+ *     ?UnpinOneAllocation@VIDMM_GLOBAL@@QEAA_NPEAUVIDMM_ALLOC@@W4VIDMM_UNPIN_ACTION@@_N@Z @ 0x1C0068FCC (-UnpinOneAllocation@VIDMM_GLOBAL@@QEAA_NPEAUVIDMM_ALLOC@@W4VIDMM_UNPIN_ACTION@@_N@Z.c)
+ *     ?PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z @ 0x1C006A4A0 (-PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z.c)
+ *     ?RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C006A524 (-RestoreFromPurge@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?AllocatePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x1C006D680 (-AllocatePagingBufferResources@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@@Z.c)
+ *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C006F124 (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
+ *     ?InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C008954C (-InvalidateAllVirtualAddresses@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?PageInDevice@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@@Z @ 0x1C008A3AC (-PageInDevice@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@@Z.c)
+ *     ?PerformDefragmentationEscape@VIDMM_GLOBAL@@QEAAXW4_D3DKMT_DEFRAG_ESCAPE_OPERATION@@IPEA_K111@Z @ 0x1C008A468 (-PerformDefragmentationEscape@VIDMM_GLOBAL@@QEAAXW4_D3DKMT_DEFRAG_ESCAPE_OPERATION@@IPEA_K111@Z.c)
+ *     ?ReportVidMmState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C008AAC4 (-ReportVidMmState@VIDMM_GLOBAL@@QEAAXXZ.c)
+ *     ?SuspendMemorySegmentAccess@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C008AEF0 (-SuspendMemorySegmentAccess@VIDMM_GLOBAL@@QEAAJXZ.c)
+ *     ?VidMmTrimOfferCommitment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@_KPEA_K@Z @ 0x1C008C990 (-VidMmTrimOfferCommitment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKM.c)
+ *     ?VidMmUpdateContextAllocationCb@VIDMM_GLOBAL@@QEAAJPEBU_DXGKARGCB_UPDATECONTEXTALLOCATION@@E@Z @ 0x1C008CAE8 (-VidMmUpdateContextAllocationCb@VIDMM_GLOBAL@@QEAAJPEBU_DXGKARGCB_UPDATECONTEXTALLOCATION@@E@Z.c)
+ *     ?DeferredSetVprCallback@@YAXPEAX@Z @ 0x1C0097C70 (-DeferredSetVprCallback@@YAXPEAX@Z.c)
+ *     ?CheckFreeVPRReserve@VIDMM_SEGMENT@@QEAA_NPEAU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z @ 0x1C0098518 (-CheckFreeVPRReserve@VIDMM_SEGMENT@@QEAA_NPEAU_DXGKARG_SETVIDEOPROTECTEDREGION@@@Z.c)
+ * Callees:
+ *     ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1C0054610 (-QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAVVIDMM_PAGIN.c)
+ */
+
+__int64 __fastcall VIDMM_GLOBAL::QueueSystemCommandAndWait(VIDMM_GLOBAL *this, struct _VIDMM_SYSTEM_COMMAND *a2)
+{
+  __int64 v3; // rcx
+  __int64 v4; // rax
+  __int64 v5; // r9
+  __int64 v6; // r8
+  unsigned int v8; // [rsp+20h] [rbp-18h]
+
+  v3 = *((unsigned int *)a2 + 1);
+  v4 = *((_QWORD *)this + 5041);
+  v5 = *(_QWORD *)(v4 + 72);
+  if ( (_DWORD)v3 == -1 )
+    v6 = *(_QWORD *)(v4 + 72);
+  else
+    v6 = v5 + 168 * v3;
+  return VIDMM_GLOBAL::QueueSystemCommandAndWaitInternal(
+           this,
+           a2,
+           (PVOID *)v6,
+           *(struct _VIDSCH_SYNC_OBJECT **)(168LL * *(unsigned int *)(v6 + 152) + v5 + 160),
+           v8);
+}

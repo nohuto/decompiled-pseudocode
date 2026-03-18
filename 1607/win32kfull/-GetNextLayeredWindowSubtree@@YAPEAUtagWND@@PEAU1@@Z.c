@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C006361C
+ * Callers:
+ *     ?GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C00631C8 (-GetNextLayeredWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C006361C (-GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z.c)
+ * Callees:
+ *     ?GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C006361C (-GetNextLayeredWindowSubtree@@YAPEAUtagWND@@PEAU1@@Z.c)
+ */
+
+struct tagWND *__fastcall GetNextLayeredWindowSubtree(struct tagWND *a1)
+{
+  struct tagWND *result; // rax
+  struct tagWND *i; // rbx
+
+  result = 0LL;
+  for ( i = a1; i; i = (struct tagWND *)*((_QWORD *)i + 9) )
+  {
+    result = GetNextLayeredWindowSubtree(*((struct tagWND **)i + 12));
+    if ( result )
+      break;
+    if ( (*((_BYTE *)i + 50) & 8) != 0 )
+      return i;
+  }
+  return result;
+}

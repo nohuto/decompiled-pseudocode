@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?DestroyContext@DXGDEVICE@@QEAAXPEAVDXGCONTEXT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1C01209A8
+ * Callers:
+ *     ??1ENSURE_CONTEXT_DEREFERENCE@@QEAA@XZ @ 0x1C000C0F8 (--1ENSURE_CONTEXT_DEREFERENCE@@QEAA@XZ.c)
+ *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C000D348 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
+ *     ??1DXGHWQUEUEBYHANDLE@@QEAA@XZ @ 0x1C0017688 (--1DXGHWQUEUEBYHANDLE@@QEAA@XZ.c)
+ *     ?ReleaseReference@DXGCONTEXT@@QEAAXXZ @ 0x1C0023884 (-ReleaseReference@DXGCONTEXT@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGHWQUEUE@@QEAAXXZ @ 0x1C0024098 (-ReleaseReference@DXGHWQUEUE@@QEAAXXZ.c)
+ *     ??1ENSURE_CONTEXT_ARRAY_DEREFERENCE@@QEAA@XZ @ 0x1C0044964 (--1ENSURE_CONTEXT_ARRAY_DEREFERENCE@@QEAA@XZ.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C00C3E20 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     ?DxgkCddDestroy@@YAJIIIQEAXE@Z @ 0x1C00C8C80 (-DxgkCddDestroy@@YAJIIIQEAXE@Z.c)
+ *     DxgkSignalSynchronizationObjectFromGpuByReference @ 0x1C00F66B0 (DxgkSignalSynchronizationObjectFromGpuByReference.c)
+ *     ?DxgkCddSubmitPresentHistory@@YAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAD@Z @ 0x1C010FA90 (-DxgkCddSubmitPresentHistory@@YAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAD@Z.c)
+ *     ?DxgkCddGdiCommand@@YAJPEAU_DXGKCDD_SUBMITRENDERTOHWQUEUE@@PEAD@Z @ 0x1C01160D0 (-DxgkCddGdiCommand@@YAJPEAU_DXGKCDD_SUBMITRENDERTOHWQUEUE@@PEAD@Z.c)
+ *     ?DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C0121B54 (-DestroyAllDeviceState@DXGDEVICE@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ *     ?DestroyAllContexts@DXGDEVICE@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z @ 0x1C01230C4 (-DestroyAllContexts@DXGDEVICE@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z.c)
+ *     ?DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C01446B4 (-DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?DxgkCddCreate@@YAJQEAX0PEBXPEAI22PEAU_CDDDXGK_DRIVERINFO@@3PEAPEAU_OBJECT_TYPE@@@Z @ 0x1C0148A80 (-DxgkCddCreate@@YAJQEAX0PEBXPEAI22PEAU_CDDDXGK_DRIVERINFO@@3PEAPEAU_OBJECT_TYPE@@@Z.c)
+ *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C01F1820 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ *     ?DestroyAllHwQueues@DXGCONTEXT@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z @ 0x1C0246E74 (-DestroyAllHwQueues@DXGCONTEXT@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z.c)
+ *     ??1DXGTRACKEDWORKLOAD@@QEAA@XZ @ 0x1C0296D40 (--1DXGTRACKEDWORKLOAD@@QEAA@XZ.c)
+ * Callees:
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00070E4 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000C448 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C000C500 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??_GDXGCONTEXT@@QEAAPEAXI@Z @ 0x1C000C95C (--_GDXGCONTEXT@@QEAAPEAXI@Z.c)
+ *     ?DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z @ 0x1C0120EC8 (-DestroyContext@DXGCONTEXT@@QEAAXPEAVCOREDEVICEACCESS@@@Z.c)
+ */
+
+void __fastcall DXGDEVICE::DestroyContext(DXGDEVICE *this, struct DXGCONTEXT ***a2, struct COREDEVICEACCESS *a3)
+{
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  struct DXGCONTEXT **v10; // rcx
+  struct DXGCONTEXT **v11; // rax
+  __int64 v12; // rax
+  __int64 v13; // rax
+  __int64 v14; // rax
+  _BYTE v15[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  if ( !a2 )
+  {
+    v12 = WdLogNewEntry5_WdAssertion(this, 0LL);
+    *(_QWORD *)(v12 + 24) = 1831LL;
+    WdLogEvent5_WdAssertion(v12);
+  }
+  if ( !*((_DWORD *)this + 18) && !ExIsResourceAcquiredExclusiveLite(*((PERESOURCE *)this + 13)) )
+  {
+    v13 = WdLogNewEntry5_WdAssertion(v7, v6);
+    *(_QWORD *)(v13 + 24) = 1832LL;
+    WdLogEvent5_WdAssertion(v13);
+  }
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*((_QWORD *)this + 2) + 16LL)) )
+  {
+    v14 = WdLogNewEntry5_WdAssertion(v9, v8);
+    *(_QWORD *)(v14 + 24) = 1833LL;
+    WdLogEvent5_WdAssertion(v14);
+  }
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v15, (struct _KTHREAD **)this + 38);
+  v10 = *a2;
+  if ( (*a2)[1] != (struct DXGCONTEXT *)a2 || (v11 = a2[1], *v11 != (struct DXGCONTEXT *)a2) )
+    __fastfail(3u);
+  *v11 = (struct DXGCONTEXT *)v10;
+  v10[1] = (struct DXGCONTEXT *)v11;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v15);
+  DXGCONTEXT::DestroyContext((DXGCONTEXT *)a2, a3);
+  DXGCONTEXT::`scalar deleting destructor'((DXGCONTEXT *)a2);
+}

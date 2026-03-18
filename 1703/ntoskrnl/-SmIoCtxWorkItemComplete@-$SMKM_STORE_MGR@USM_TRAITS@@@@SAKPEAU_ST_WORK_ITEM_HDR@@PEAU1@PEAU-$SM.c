@@ -1,0 +1,103 @@
+/*
+ * XREFs of ?SmIoCtxWorkItemComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU_ST_WORK_ITEM_HDR@@PEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x1400533F8
+ * Callers:
+ *     ?SmWorkItemFree@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_WORK_ITEM_HDR@@PEAJ@Z @ 0x14005327C (-SmWorkItemFree@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@PEAU_ST_W.c)
+ * Callees:
+ *     ?SmFeEvictComplete@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z @ 0x14002AEB8 (-SmFeEvictComplete@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAT_SM_PAGE_KEY@@KK@Z.c)
+ *     SmIoRequestComplete @ 0x140054C54 (SmIoRequestComplete.c)
+ *     SmFpFree @ 0x140054CF0 (SmFpFree.c)
+ *     ?SmProcessAddCompletion@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU?$SMKM_STORE@USM_TRAITS@@@@J@Z @ 0x140054F60 (-SmProcessAddCompletion@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SM_WORK_ITEM@1@KPEAU-$SMKM_.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1400F8330 (MmMapLockedPagesSpecifyCache.c)
+ *     SmAcquireReleaseResAvailForRead @ 0x1401213C0 (SmAcquireReleaseResAvailForRead.c)
+ */
+
+__int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmIoCtxWorkItemComplete(__int64 a1, __int64 a2, __int64 a3, int a4)
+{
+  __int64 *v4; // rbx
+  int v5; // r10d
+  unsigned int v7; // esi
+  __int64 v8; // r14
+  __int64 v9; // rcx
+  __int64 v10; // rbp
+  unsigned int v11; // r8d
+  int v13; // eax
+
+  v4 = *(__int64 **)(a1 + 32);
+  v5 = a3;
+  v7 = 1;
+  if ( (unsigned __int64)v4 <= 1 )
+    v8 = 0LL;
+  else
+    v8 = *v4;
+  v9 = *(_DWORD *)(a3 + 5984) & 0x3FF;
+  if ( (*(_DWORD *)a1 & 5) != 0 )
+  {
+    v10 = 0LL;
+    v11 = 0;
+  }
+  else
+  {
+    v10 = *(_QWORD *)(a1 + 16);
+    v11 = *(_DWORD *)(v10 + 40) >> 12;
+    if ( (*(_DWORD *)a1 & 7) == 2 )
+      v4[1] = 0LL;
+  }
+  if ( (*(_DWORD *)a1 & 7) != 0 )
+  {
+    switch ( *(_DWORD *)a1 & 7 )
+    {
+      case 1:
+        if ( (*(_DWORD *)(a1 + 16) & 1) == 0 )
+        {
+          SMKM_STORE_MGR<SM_TRAITS>::SmFeEvictComplete(
+            (__int64)&SmGlobals,
+            (unsigned int *)(a1 + 8),
+            *(_DWORD *)(a1 + 12),
+            v9);
+          *(_DWORD *)v4 = 0;
+          goto LABEL_8;
+        }
+        return 0;
+      case 2:
+        v13 = *(_DWORD *)(a1 + 8);
+        v9 = *(_QWORD *)(a1 + 32);
+        if ( (_BYTE)v13 )
+        {
+          *(_WORD *)(v9 + 8) = (unsigned __int8)v13;
+          if ( (xmmword_1403FA108 & 8) != 0 )
+            a4 = 0;
+        }
+        *(_DWORD *)v9 = a4;
+        if ( (xmmword_1403FA108 & 0x10) != 0 )
+          SmAcquireReleaseResAvailForRead(v4, v11, 1LL);
+        goto LABEL_8;
+      case 3:
+        *(_DWORD *)v4 = a4;
+        v4[1] = *(unsigned int *)(a1 + 12);
+        goto LABEL_8;
+      case 4:
+        if ( (*(_DWORD *)(a1 + 8) & 7) == 0 )
+          return 0;
+        break;
+      case 5:
+        break;
+      default:
+        goto LABEL_8;
+    }
+    *(_DWORD *)v4 = a4;
+    v4[1] = 0LL;
+    goto LABEL_8;
+  }
+  SMKM_STORE_MGR<SM_TRAITS>::SmProcessAddCompletion((unsigned int)&SmGlobals, a1, v11, v5, a4);
+LABEL_8:
+  if ( v10 )
+  {
+    if ( (*(_BYTE *)(v10 + 10) & 5) == 0 )
+      MmMapLockedPagesSpecifyCache((PMDL)v10, 0, MmCached, 0LL, 0, 0x40000010u);
+    if ( (xmmword_1403FA108 & 2) != 0 )
+      SmFpFree(&dword_1403F9FE8, 5LL, v4, v10);
+  }
+  if ( v8 )
+    SmIoRequestComplete(v9, a1, v8, v4);
+  return v7;
+}

@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?UnfaultCommitment@VIDMM_DEVICE@@QEAAXPEAUVIDMM_ALLOC@@@Z @ 0x140101AD4
+ * Callers:
+ *     ?CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAUVIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1400B85FC (-CloseOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@PEAPEAUVIDMM_LOCAL_ALLOC@@EU_D3DDDICB_DE.c)
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1400DD034 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1400E2D80 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NP.c)
+ *     ?CleanupPrimaryAllocation@VIDMM_GLOBAL@@QEAAEPEAUVIDMM_GLOBAL_ALLOC@@@Z @ 0x14011144C (-CleanupPrimaryAllocation@VIDMM_GLOBAL@@QEAAEPEAUVIDMM_GLOBAL_ALLOC@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VIDMM_DEVICE::UnfaultCommitment(VIDMM_DEVICE *this, struct VIDMM_ALLOC *a2)
+{
+  _QWORD *v2; // rax
+  __int64 v3; // r8
+  _QWORD *v4; // rcx
+
+  v2 = (_QWORD *)((char *)a2 + 56);
+  v3 = *((_QWORD *)a2 + 7);
+  if ( *(struct VIDMM_ALLOC **)(v3 + 8) != (struct VIDMM_ALLOC *)((char *)a2 + 56)
+    || (v4 = (_QWORD *)*((_QWORD *)a2 + 8), (_QWORD *)*v4 != v2) )
+  {
+    __fastfail(3u);
+  }
+  *v4 = v3;
+  *(_QWORD *)(v3 + 8) = v4;
+  *((_DWORD *)a2 + 7) &= 0xFFFFFFFC;
+  *((_QWORD *)a2 + 8) = 0LL;
+  *v2 = 0LL;
+}

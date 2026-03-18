@@ -1,0 +1,99 @@
+/*
+ * XREFs of CmpDoReadTxRBigLogRecord @ 0x1407E0568
+ * Callers:
+ *     CmpRmReDoPhase @ 0x1407E09C4 (CmpRmReDoPhase.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x14046B8D0 (CmSiFreeMemory.c)
+ *     memmove @ 0x1406BFC40 (memmove.c)
+ *     CmpVerifyBigLogRecordChunk @ 0x1407E0D2C (CmpVerifyBigLogRecordChunk.c)
+ */
+
+__int64 __fastcall CmpDoReadTxRBigLogRecord(void *a1, void *a2, ULONG a3, struct _PRIVILEGE_SET **a4, unsigned int *a5)
+{
+  _DWORD *v5; // rdi
+  NTSTATUS v6; // ebx
+  unsigned int v7; // r15d
+  struct _PRIVILEGE_SET *Pool; // rax
+  struct _PRIVILEGE_SET *v9; // rsi
+  int v10; // r13d
+  unsigned int v11; // r14d
+  __int64 v12; // r12
+  unsigned int v14; // [rsp+40h] [rbp-38h]
+  struct _PRIVILEGE_SET *v15; // [rsp+48h] [rbp-30h]
+  PVOID ppvBuffer; // [rsp+50h] [rbp-28h] BYREF
+  CLFS_LSN plsnRecord; // [rsp+58h] [rbp-20h] BYREF
+  CLFS_LSN plsnPrevious; // [rsp+60h] [rbp-18h] BYREF
+  CLFS_LSN plsnUndoNext; // [rsp+68h] [rbp-10h] BYREF
+  ULONG pcbBuffer; // [rsp+C8h] [rbp+50h] BYREF
+  CLS_RECORD_TYPE peRecordType; // [rsp+D0h] [rbp+58h] BYREF
+  struct _PRIVILEGE_SET **v23; // [rsp+D8h] [rbp+60h]
+
+  v23 = a4;
+  ppvBuffer = a2;
+  v5 = a2;
+  plsnUndoNext.ullOffset = 0LL;
+  plsnPrevious.ullOffset = 0LL;
+  plsnRecord.ullOffset = 0LL;
+  peRecordType = 0;
+  pcbBuffer = a3;
+  v6 = CmpVerifyBigLogRecordChunk(a2, a3);
+  if ( v6 >= 0 )
+  {
+    v7 = v5[1];
+    v14 = v5[12];
+    Pool = (struct _PRIVILEGE_SET *)CmpAllocatePool(0x100uLL);
+    v9 = Pool;
+    if ( Pool )
+    {
+      v10 = 0;
+      v15 = Pool;
+      v11 = v7;
+      while ( v5[13] == v10 )
+      {
+        v12 = (unsigned int)v5[14];
+        if ( (unsigned int)v12 > v11 )
+          break;
+        memmove(Pool, v5 + 16, (unsigned int)v12);
+        v15 = (struct _PRIVILEGE_SET *)((char *)v15 + v12);
+        v11 -= v12;
+        if ( ++v10 >= v14 )
+        {
+          if ( !v11 )
+          {
+            v6 = 0;
+            *v23 = v9;
+            *a5 = v7;
+            return (unsigned int)v6;
+          }
+          break;
+        }
+        peRecordType = 1;
+        v6 = ClfsReadNextLogRecord(
+               a1,
+               &ppvBuffer,
+               &pcbBuffer,
+               &peRecordType,
+               0LL,
+               &plsnUndoNext,
+               &plsnPrevious,
+               &plsnRecord);
+        if ( v6 < 0 )
+          goto LABEL_14;
+        v5 = ppvBuffer;
+        v6 = CmpVerifyBigLogRecordChunk(ppvBuffer, pcbBuffer);
+        if ( v6 < 0 )
+          goto LABEL_14;
+        Pool = v15;
+      }
+      v6 = -1073741762;
+LABEL_14:
+      CmSiFreeMemory(v9);
+    }
+    else
+    {
+      return (unsigned int)-1073741670;
+    }
+  }
+  return (unsigned int)v6;
+}

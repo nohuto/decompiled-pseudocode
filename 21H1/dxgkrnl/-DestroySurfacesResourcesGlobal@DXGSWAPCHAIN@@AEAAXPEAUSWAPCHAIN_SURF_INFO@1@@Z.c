@@ -1,0 +1,53 @@
+/*
+ * XREFs of ?DestroySurfacesResourcesGlobal@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_SURF_INFO@1@@Z @ 0x1C02A5E28
+ * Callers:
+ *     ?AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z @ 0x1C02A5880 (-AddSurface@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@HPEAXPEAI@Z.c)
+ *     ?ConsumerCheckForSurfacesToFree@DXGSWAPCHAIN@@AEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@@Z @ 0x1C02A5C54 (-ConsumerCheckForSurfacesToFree@DXGSWAPCHAIN@@AEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@@Z.c)
+ *     ?DestroySwapchainGlobal@DXGSWAPCHAIN@@QEAAXXZ @ 0x1C02A6010 (-DestroySwapchainGlobal@DXGSWAPCHAIN@@QEAAXXZ.c)
+ *     ?RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z @ 0x1C02A7BC0 (-RemoveSurface@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_REMOVESURFACEFROMSWAPCHAIN@@@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000A650 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000CF20 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C000D070 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGGLOBALSHAREMUTEX@@QEAA@XZ @ 0x1C000DB94 (--0DXGGLOBALSHAREMUTEX@@QEAA@XZ.c)
+ *     ??_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z @ 0x1C00190F4 (--_GAUTOEXPANDALLOCATION@@QEAAPEAXI@Z.c)
+ *     ?GetObjectA@DXGGLOBAL@@QEAAPEAXIW4_HMGRENTRY_TYPE@@_N@Z @ 0x1C001BDD8 (-GetObjectA@DXGGLOBAL@@QEAAPEAXIW4_HMGRENTRY_TYPE@@_N@Z.c)
+ *     ?DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z @ 0x1C0116AA0 (-DestroySyncObject@DXGGLOBAL@@QEAAXPEAVDXGSYNCOBJECT@@I@Z.c)
+ */
+
+void __fastcall DXGSWAPCHAIN::DestroySurfacesResourcesGlobal(
+        DXGSWAPCHAIN *this,
+        struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *a2)
+{
+  AUTOEXPANDALLOCATION *v2; // rcx
+  __int64 v4; // rdx
+  __int64 v5; // rcx
+  struct DXGGLOBAL *Global; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  struct DXGSYNCOBJECT *ObjectA; // rdi
+  PERESOURCE *v10; // rax
+  _BYTE v11[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  v2 = (AUTOEXPANDALLOCATION *)*((_QWORD *)a2 + 2);
+  if ( v2 )
+  {
+    AUTOEXPANDALLOCATION::`scalar deleting destructor'(v2);
+    *((_QWORD *)a2 + 2) = 0LL;
+  }
+  if ( *((_DWORD *)a2 + 7) )
+  {
+    DXGGLOBALSHAREMUTEX::DXGGLOBALSHAREMUTEX((DXGGLOBALSHAREMUTEX *)v11, (__int64)a2);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v11);
+    Global = DXGGLOBAL::GetGlobal(v5, v4);
+    ObjectA = (struct DXGSYNCOBJECT *)DXGGLOBAL::GetObjectA((__int64)Global, *((unsigned int *)a2 + 7), 8);
+    if ( v11[8] )
+      DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v11, v7);
+    if ( ObjectA )
+    {
+      v10 = (PERESOURCE *)DXGGLOBAL::GetGlobal(v8, v7);
+      DXGGLOBAL::DestroySyncObject(v10, ObjectA, 0);
+    }
+    *((_DWORD *)a2 + 7) = 0;
+  }
+}

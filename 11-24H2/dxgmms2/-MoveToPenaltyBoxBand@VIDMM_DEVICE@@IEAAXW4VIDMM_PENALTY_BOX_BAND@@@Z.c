@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?MoveToPenaltyBoxBand@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x1400D6D28
+ * Callers:
+ *     ?PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ @ 0x1400D5C50 (-PartiallySuspend@VIDMM_DEVICE@@IEAAXXZ.c)
+ *     ?Yield@VIDMM_DEVICE@@QEAAXPEAV1@@Z @ 0x1400D6BC4 (-Yield@VIDMM_DEVICE@@QEAAXPEAV1@@Z.c)
+ * Callees:
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140031710 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x140031A2C (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ?MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z @ 0x140100988 (-MoveToPenaltyBoxBandNoLock@VIDMM_DEVICE@@IEAAXW4VIDMM_PENALTY_BOX_BAND@@@Z.c)
+ */
+
+void __fastcall VIDMM_DEVICE::MoveToPenaltyBoxBand(__int64 a1, __int64 a2)
+{
+  char v2; // di
+  __int64 v4; // rdx
+  _BYTE v5[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v2 = a2;
+  if ( *(struct _KTHREAD **)(*(_QWORD *)a1 + 44560LL) == KeGetCurrentThread() )
+  {
+    VIDMM_DEVICE::MoveToPenaltyBoxBandNoLock(a1, a2);
+  }
+  else
+  {
+    DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+      (DXGAUTOPUSHLOCKEXCLUSIVE *)v5,
+      (struct _KTHREAD **)(*(_QWORD *)a1 + 44552LL));
+    LOBYTE(v4) = v2;
+    VIDMM_DEVICE::MoveToPenaltyBoxBandNoLock(a1, v4);
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v5);
+  }
+}

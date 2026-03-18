@@ -1,0 +1,44 @@
+/*
+ * XREFs of PnpRecordBlackbox @ 0x14096E5E8
+ * Callers:
+ *     PnpWatchdogFirstChanceCallback @ 0x140716340 (PnpWatchdogFirstChanceCallback.c)
+ *     PnpDisableWatchdog @ 0x14096E4C0 (PnpDisableWatchdog.c)
+ * Callees:
+ *     PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140729428 (PnpRecordBlackboxDelayedRemoveWorkerInformation.c)
+ *     PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x14096E3E0 (PnpRecordBlackboxDeviceCompletionQueueInformation.c)
+ *     PnpRecordBlackboxPnpEventWorkerInformation @ 0x14096E698 (PnpRecordBlackboxPnpEventWorkerInformation.c)
+ */
+
+void __fastcall PnpRecordBlackbox(_QWORD *a1, int a2)
+{
+  int v2; // edx
+  int v3; // edx
+  int v4; // edx
+
+  v2 = a2 - 1;
+  if ( v2 )
+  {
+    v3 = v2 - 1;
+    if ( v3 )
+    {
+      v4 = v3 - 1;
+      if ( v4 )
+      {
+        if ( (unsigned int)(v4 - 1) > 1 )
+          __fastfail(5u);
+      }
+      else
+      {
+        PnpRecordBlackboxDelayedRemoveWorkerInformation(a1);
+      }
+    }
+    else
+    {
+      PnpRecordBlackboxDeviceCompletionQueueInformation((__int64)a1);
+    }
+  }
+  else
+  {
+    PnpRecordBlackboxPnpEventWorkerInformation();
+  }
+}

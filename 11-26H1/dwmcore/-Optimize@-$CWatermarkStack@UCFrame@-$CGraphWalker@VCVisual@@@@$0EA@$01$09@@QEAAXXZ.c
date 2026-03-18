@@ -1,0 +1,63 @@
+/*
+ * XREFs of ?Optimize@?$CWatermarkStack@UCFrame@?$CGraphWalker@VCVisual@@@@$0EA@$01$09@@QEAAXXZ @ 0x18009F6A0
+ * Callers:
+ *     ??$WalkSubtree@VCInputSinkContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCInputSinkContext@@W4WalkReason@@@Z @ 0x18009F2E0 (--$WalkSubtree@VCInputSinkContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCInputSinkContex.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x180081990 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+void __fastcall CWatermarkStack<CGraphWalker<CVisual>::CFrame,64,2,10>::Optimize(__int64 a1)
+{
+  int v1; // eax
+  __int64 v3; // rdi
+  HANDLE ProcessHeap; // rax
+  LPVOID v5; // rbp
+  int v6; // r9d
+  void *v7; // rsi
+  HANDLE v8; // rax
+
+  v1 = *(_DWORD *)(a1 + 16);
+  if ( v1 != 10 )
+  {
+    *(_DWORD *)(a1 + 16) = v1 + 1;
+    return;
+  }
+  v3 = 64LL;
+  if ( *(_DWORD *)(a1 + 20) > 0x40u )
+    v3 = *(unsigned int *)(a1 + 20);
+  if ( (unsigned __int64)(3 * v3) <= 0xFFFFFFFF )
+  {
+    if ( (unsigned int)(3 * v3) <= *(_DWORD *)(a1 + 12) )
+    {
+      if ( (_DWORD)v3 && 0xFFFFFFFFFFFFFFFFuLL / (unsigned int)v3 > 0x10 )
+      {
+        ProcessHeap = GetProcessHeap();
+        v5 = HeapAlloc(ProcessHeap, 0, 16LL * (unsigned int)v3);
+        if ( v5 )
+        {
+          v7 = *(void **)a1;
+          if ( *(_QWORD *)a1 )
+          {
+            v8 = GetProcessHeap();
+            HeapFree(v8, 0, v7);
+          }
+          *(_QWORD *)a1 = v5;
+          *(_DWORD *)(a1 + 12) = v3;
+          goto LABEL_7;
+        }
+        v6 = -2147024882;
+      }
+      else
+      {
+        v6 = -2147024809;
+      }
+      MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v6, 0x11Eu, 0LL);
+    }
+  }
+  else
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, -2147024362, 0x10Eu, 0LL);
+  }
+LABEL_7:
+  *(_QWORD *)(a1 + 16) = 0LL;
+}

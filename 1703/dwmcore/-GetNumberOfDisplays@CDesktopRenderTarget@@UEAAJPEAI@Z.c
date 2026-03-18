@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?GetNumberOfDisplays@CDesktopRenderTarget@@UEAAJPEAI@Z @ 0x180069600
+ * Callers:
+ *     ?CheckStereoState@CComposition@@QEAAJXZ @ 0x18005B7C0 (-CheckStereoState@CComposition@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CDesktopRenderTarget::GetNumberOfDisplays(CDesktopRenderTarget *this, unsigned int *a2)
+{
+  int v2; // eax
+  unsigned int v3; // ecx
+  __int64 result; // rax
+
+  v2 = *((_DWORD *)this + 8);
+  v3 = -1;
+  if ( v2 >= 0 )
+    v3 = v2;
+  result = (v2 >> 31) & 0x80070216;
+  *a2 = v3;
+  return result;
+}

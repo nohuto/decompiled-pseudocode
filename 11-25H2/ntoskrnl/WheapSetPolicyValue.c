@@ -1,0 +1,43 @@
+/*
+ * XREFs of WheapSetPolicyValue @ 0x1407B967C
+ * Callers:
+ *     WheapScanRegistryForPolicyChanges @ 0x1407B9598 (WheapScanRegistryForPolicyChanges.c)
+ * Callees:
+ *     WheaInitializeRegChangeNotify @ 0x1407B91FC (WheaInitializeRegChangeNotify.c)
+ *     WheapOpenPolicyRegistryKey @ 0x140C33A68 (WheapOpenPolicyRegistryKey.c)
+ */
+
+__int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
+{
+  unsigned int v2; // ebx
+  __int64 v3; // rdi
+  unsigned int v5; // eax
+  __int64 v6; // rcx
+  unsigned int *v7; // rdx
+
+  v2 = 0;
+  v3 = a1;
+  if ( !WheapDispatchPtr.NextDevice )
+    WheapOpenPolicyRegistryKey();
+  if ( _InterlockedCompareExchange((volatile signed __int32 *)&WheapDispatchPtr.DriverObject, 0, 1) == 1 )
+    WheaInitializeRegChangeNotify();
+  if ( (unsigned int)v3 >= 0x16 )
+    return (unsigned int)-1073741811;
+  v5 = *a2;
+  v6 = 32 * v3;
+  if ( *a2 < *((_DWORD *)&unk_140E09460 + 8 * v3) || v5 > *(_DWORD *)((char *)&unk_140E09464 + v6) )
+  {
+    return (unsigned int)-1073741811;
+  }
+  else
+  {
+    _mm_lfence();
+    v7 = *(unsigned int **)((char *)&off_140E09458 + v6);
+    if ( *v7 != v5 )
+    {
+      *v7 = v5;
+      WheapRegPolicyTableChanged[v3] = 1;
+    }
+  }
+  return v2;
+}

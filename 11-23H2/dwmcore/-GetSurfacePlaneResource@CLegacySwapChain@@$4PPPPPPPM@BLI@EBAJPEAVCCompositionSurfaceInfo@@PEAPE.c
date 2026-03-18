@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?GetSurfacePlaneResource@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAJPEAVCCompositionSurfaceInfo@@PEAPEAUIUnknown@@PEAI@Z @ 0x1801206B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CLegacySwapChain::GetSurfacePlaneResource(
+        __int64 a1,
+        struct CCompositionSurfaceInfo *a2,
+        struct IUnknown **a3,
+        unsigned int *a4)
+{
+  return CLegacySwapChain::GetSurfacePlaneResource((CLegacySwapChain *)(a1 - *(int *)(a1 - 4) - 440), a2, a3, a4);
+}

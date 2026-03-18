@@ -1,0 +1,93 @@
+/*
+ * XREFs of PopAndFreeAlwaysW32ThreadLock @ 0x1C005B560
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C003A8E0 (xxxSystemParametersInfo.c)
+ *     xxxSwitchDesktop @ 0x1C0041C84 (xxxSwitchDesktop.c)
+ *     xxxKeyEvent @ 0x1C00485C0 (xxxKeyEvent.c)
+ *     xxxBroadcastMessageEx @ 0x1C004D864 (xxxBroadcastMessageEx.c)
+ *     xxxSendNotifyMessage @ 0x1C004DCF0 (xxxSendNotifyMessage.c)
+ *     NtUserGetClassInfoEx @ 0x1C00578B0 (NtUserGetClassInfoEx.c)
+ *     NtUserCreateWindowEx @ 0x1C0057F00 (NtUserCreateWindowEx.c)
+ *     ClientLoadLibrary @ 0x1C0058508 (ClientLoadLibrary.c)
+ *     SfnINDEVICECHANGE @ 0x1C0058740 (SfnINDEVICECHANGE.c)
+ *     SfnINSTRINGNULL @ 0x1C0059F90 (SfnINSTRINGNULL.c)
+ *     SfnOUTSTRING @ 0x1C005A340 (SfnOUTSTRING.c)
+ *     SfnINLPCREATESTRUCT @ 0x1C005A840 (SfnINLPCREATESTRUCT.c)
+ *     NtUserRegisterClassExWOW @ 0x1C005AF90 (NtUserRegisterClassExWOW.c)
+ *     xxxCallHook2 @ 0x1C006C0B0 (xxxCallHook2.c)
+ *     NtUserRegisterRawInputDevices @ 0x1C0078480 (NtUserRegisterRawInputDevices.c)
+ *     xxxClientLoadMenu @ 0x1C007E4F8 (xxxClientLoadMenu.c)
+ *     NtUserToUnicodeEx @ 0x1C00D9F10 (NtUserToUnicodeEx.c)
+ *     SfnGETDBCSTEXTLENGTHS @ 0x1C00E2BA0 (SfnGETDBCSTEXTLENGTHS.c)
+ *     fnHkINLPCBTCREATESTRUCT @ 0x1C00E8704 (fnHkINLPCBTCREATESTRUCT.c)
+ *     NtUserfnINDEVICECHANGE @ 0x1C00EDB20 (NtUserfnINDEVICECHANGE.c)
+ *     SfnPOWERBROADCAST @ 0x1C00EE930 (SfnPOWERBROADCAST.c)
+ *     SfnINCNTOUTSTRING @ 0x1C00F0960 (SfnINCNTOUTSTRING.c)
+ *     SfnCOPYDATA @ 0x1C00F1580 (SfnCOPYDATA.c)
+ *     UserProcessDwmInput @ 0x1C00F1FE0 (UserProcessDwmInput.c)
+ *     NtUserfnPOWERBROADCAST @ 0x1C00F3870 (NtUserfnPOWERBROADCAST.c)
+ *     xxxDrawMenuBarUnderlines @ 0x1C00F8334 (xxxDrawMenuBarUnderlines.c)
+ *     xxxAddShadow @ 0x1C0104418 (xxxAddShadow.c)
+ *     SfnINSTRING @ 0x1C0115880 (SfnINSTRING.c)
+ *     ClientGetListboxString @ 0x1C0118DA0 (ClientGetListboxString.c)
+ *     SfnINLPMDICREATESTRUCT @ 0x1C011EC40 (SfnINLPMDICREATESTRUCT.c)
+ *     xxxClientExtTextOutW @ 0x1C0123184 (xxxClientExtTextOutW.c)
+ *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01247E4 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     xxxClientGetTextExtentPointW @ 0x1C0126A38 (xxxClientGetTextExtentPointW.c)
+ *     NtUserQueryInformationThread @ 0x1C012B1A0 (NtUserQueryInformationThread.c)
+ *     xxxRestoreDesktopsMonitorsAndWindowsRects @ 0x1C012EC2C (xxxRestoreDesktopsMonitorsAndWindowsRects.c)
+ *     xxxClientLoadImage @ 0x1C0136A30 (xxxClientLoadImage.c)
+ *     xxxClientExpandStringW @ 0x1C0136CC0 (xxxClientExpandStringW.c)
+ *     xxxClientLoadStringW @ 0x1C0137008 (xxxClientLoadStringW.c)
+ *     xxxPSMGetTextExtent @ 0x1C013821C (xxxPSMGetTextExtent.c)
+ *     NtUserCreateWindowStation @ 0x1C0138AC0 (NtUserCreateWindowStation.c)
+ *     ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C013AE4C (-xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z.c)
+ *     ?xxxFreeImeKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C013AEF8 (-xxxFreeImeKeyboardLayouts@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHKIPEBG0@Z @ 0x1C013B638 (-xxxbEnumerateRegistryFontsInternal@@YAHKIPEBG0@Z.c)
+ *     xxxClientAddFontResourceW @ 0x1C013B7E4 (xxxClientAddFontResourceW.c)
+ *     xxxImmLoadLayout @ 0x1C013C690 (xxxImmLoadLayout.c)
+ *     ?WaitForRitToCompleteLastCommand@@YAXHHPEAK@Z @ 0x1C0155600 (-WaitForRitToCompleteLastCommand@@YAXHHPEAK@Z.c)
+ *     xxxGetDeviceChangeInfo @ 0x1C01E0760 (xxxGetDeviceChangeInfo.c)
+ *     xxxDeferredDesktopRotation @ 0x1C01EFB80 (xxxDeferredDesktopRotation.c)
+ *     ?xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C01F0810 (-xxxGetRenderData@@YAPEAXPEAUtagWINDOWSTATION@@I@Z.c)
+ *     ClientEventCallback @ 0x1C020DC44 (ClientEventCallback.c)
+ *     SfnCOPYGLOBALDATA @ 0x1C020E100 (SfnCOPYGLOBALDATA.c)
+ *     SfnIMECONTROL @ 0x1C020E620 (SfnIMECONTROL.c)
+ *     SfnINCNTOUTSTRINGNULL @ 0x1C020EF40 (SfnINCNTOUTSTRINGNULL.c)
+ *     SfnINLPHELPINFOSTRUCT @ 0x1C020FA50 (SfnINLPHELPINFOSTRUCT.c)
+ *     SfnINLPHLPSTRUCT @ 0x1C020FD60 (SfnINLPHLPSTRUCT.c)
+ *     SfnINLPKDRAWSWITCHWND @ 0x1C0210070 (SfnINLPKDRAWSWITCHWND.c)
+ *     SfnINPGESTURENOTIFYSTRUCT @ 0x1C0211000 (SfnINPGESTURENOTIFYSTRUCT.c)
+ *     SfnPOPTINLPUINT @ 0x1C0212320 (SfnPOPTINLPUINT.c)
+ *     SfnPOUTLPINT @ 0x1C0212680 (SfnPOUTLPINT.c)
+ *     SfnTOUCHHITTESTING @ 0x1C0213540 (SfnTOUCHHITTESTING.c)
+ *     xxxClientCallManipulationThread @ 0x1C0213E2C (xxxClientCallManipulationThread.c)
+ *     xxxClientFindMnemChar @ 0x1C02148B4 (xxxClientFindMnemChar.c)
+ *     xxxClientLpkDrawTextEx @ 0x1C0214D78 (xxxClientLpkDrawTextEx.c)
+ *     xxxClientPSMTextOut @ 0x1C02150E4 (xxxClientPSMTextOut.c)
+ *     NtUserCtxDisplayIOCtl @ 0x1C02189B0 (NtUserCtxDisplayIOCtl.c)
+ *     NtUserDrawCaptionTemp @ 0x1C02192C0 (NtUserDrawCaptionTemp.c)
+ *     NtUserResolveDesktopForWOW @ 0x1C021F600 (NtUserResolveDesktopForWOW.c)
+ *     NtUserSetManipulationInputTarget @ 0x1C0220200 (NtUserSetManipulationInputTarget.c)
+ *     NtUserfnIMECONTROL @ 0x1C02221D0 (NtUserfnIMECONTROL.c)
+ *     NtUserfnINLPHLPSTRUCT @ 0x1C02227E0 (NtUserfnINLPHLPSTRUCT.c)
+ *     xxxCsEvent @ 0x1C02392D4 (xxxCsEvent.c)
+ *     xxxMessageEvent @ 0x1C0239504 (xxxMessageEvent.c)
+ *     xxxDragObject @ 0x1C023C89C (xxxDragObject.c)
+ *     ?xxxDrawMenuItemText@@YAXPEAUtagMENU@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C023ECF4 (-xxxDrawMenuItemText@@YAXPEAUtagMENU@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PopAndFreeAlwaysW32ThreadLock(__int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 *ThreadWin32Thread; // rax
+
+  v2 = 0LL;
+  ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(KeGetCurrentThread());
+  if ( ThreadWin32Thread )
+    v2 = *ThreadWin32Thread;
+  *(_QWORD *)(v2 + 16) = *(_QWORD *)a1;
+  return (*(__int64 (__fastcall **)(_QWORD))(a1 + 16))(*(_QWORD *)(a1 + 8));
+}

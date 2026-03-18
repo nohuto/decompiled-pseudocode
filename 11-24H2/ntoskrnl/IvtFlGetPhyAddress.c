@@ -1,0 +1,12 @@
+/*
+ * XREFs of IvtFlGetPhyAddress @ 0x1405742D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall IvtFlGetPhyAddress(_QWORD *a1)
+{
+  return *a1 & 0xFFFFFFFFFF000LL;
+}

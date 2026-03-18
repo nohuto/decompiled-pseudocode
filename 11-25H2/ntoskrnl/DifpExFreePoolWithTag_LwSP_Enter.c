@@ -1,0 +1,12 @@
+/*
+ * XREFs of DifpExFreePoolWithTag_LwSP_Enter @ 0x140B94220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DifpLwSPProcessPostPoolAlloc @ 0x140B9425C (DifpLwSPProcessPostPoolAlloc.c)
+ */
+
+__int64 __fastcall DifpExFreePoolWithTag_LwSP_Enter(__int64 a1)
+{
+  return DifpLwSPProcessPostPoolAlloc(*(_QWORD *)(a1 + 16));
+}

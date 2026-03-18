@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_PRESENTALLOCATIONINFO@@$03@@QEAAPEAU_DXGK_PRESENTALLOCATIONINFO@@I@Z @ 0x1C016F088
+ * Callers:
+ *     ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C0106090 (-PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUV.c)
+ *     ?SubmitPresentLda@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT@@IPEAPEAV1@PEAVDXGALLOCATION@@PEAU_DXGKARG_PRESENT@@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C02819B4 (-SubmitPresentLda@DXGCONTEXT@@QEAAJPEBU_D3DKMT_PRESENT@@IPEAPEAV1@PEAVDXGALLOCATION@@PEAU_DXGKAR.c)
+ *     ?SubmitPresentMultiPlaneOverlays3@DXGCONTEXT@@AEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@EEEPEBVDXGALLOCATIONREFERENCE@@PEAEPEAU_DXGKARG_PRESENT@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAPEAV1@@Z @ 0x1C02A5DDC (-SubmitPresentMultiPlaneOverlays3@DXGCONTEXT@@AEAAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY3@@EEEP.c)
+ * Callees:
+ *     memset @ 0x1C00274C0 (memset.c)
+ */
+
+PVOID __fastcall PagedPoolZeroedArray<_DXGK_PRESENTALLOCATIONINFO,4>::AllocateElements(_DWORD *a1, unsigned int a2)
+{
+  __int64 v4; // rbx
+  PVOID result; // rax
+
+  v4 = a2;
+  if ( a2 > 4 )
+  {
+    if ( 0xFFFFFFFFFFFFFFFFuLL / a2 < 0x20 )
+      return 0LL;
+    result = ExAllocatePoolWithTag(PagedPool, 32LL * a2, 0x4B677844u);
+  }
+  else
+  {
+    result = a1 + 2;
+  }
+  *(_QWORD *)a1 = result;
+  a1[34] = a2;
+  if ( result )
+  {
+    memset(result, 0, 32 * v4);
+    return *(PVOID *)a1;
+  }
+  return result;
+}

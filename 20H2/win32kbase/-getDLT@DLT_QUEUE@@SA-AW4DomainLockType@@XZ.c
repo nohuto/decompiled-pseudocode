@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?getDLT@DLT_QUEUE@@SA?AW4DomainLockType@@XZ @ 0x1C0076B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 DLT_QUEUE::getDLT()
+{
+  return 5LL;
+}

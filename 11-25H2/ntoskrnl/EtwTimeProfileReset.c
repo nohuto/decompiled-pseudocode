@@ -1,0 +1,21 @@
+/*
+ * XREFs of EtwTimeProfileReset @ 0x14079A1DC
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140BFB048 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KeStopProfile @ 0x1405BB340 (KeStopProfile.c)
+ *     EtwpTimeProfileStart @ 0x1406EACF8 (EtwpTimeProfileStart.c)
+ */
+
+__int64 EtwTimeProfileReset()
+{
+  __int64 result; // rax
+
+  result = DWORD1(PerfGlobalGroupMask);
+  if ( (BYTE4(PerfGlobalGroupMask) & 2) != 0 )
+  {
+    KeStopProfile((ULONG_PTR)&EtwpProfileObject);
+    return EtwpTimeProfileStart();
+  }
+  return result;
+}

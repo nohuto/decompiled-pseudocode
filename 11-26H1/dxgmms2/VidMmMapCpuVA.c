@@ -1,0 +1,12 @@
+/*
+ * XREFs of VidMmMapCpuVA @ 0x1400430C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAXK@Z @ 0x14011787C (-MapCpuVA@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAPEAXK@Z.c)
+ */
+
+int __fastcall VidMmMapCpuVA(VIDMM_GLOBAL **a1, struct VIDMM_DEVICE *a2, void **a3, unsigned int a4)
+{
+  return VIDMM_GLOBAL::MapCpuVA(*a1, a2, a2, a3, a4);
+}

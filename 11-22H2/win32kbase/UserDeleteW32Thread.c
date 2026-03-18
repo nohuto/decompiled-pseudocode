@@ -1,0 +1,81 @@
+/*
+ * XREFs of UserDeleteW32Thread @ 0x1C0038040
+ * Callers:
+ *     DereferenceW32Thread @ 0x1C0037F20 (DereferenceW32Thread.c)
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C00385C4 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     FreeQueue @ 0x1C0038668 (FreeQueue.c)
+ *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C003869C (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
+ *     IsFreeMessageListSupported @ 0x1C00386BC (IsFreeMessageListSupported.c)
+ *     UnlockObjectAssignment @ 0x1C0038710 (UnlockObjectAssignment.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004CE30 (UserSessionSwitchLeaveCrit.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C008C460 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00D66B4 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall UserDeleteW32Thread(__int64 *a1)
+{
+  __int64 v1; // rsi
+  void *v3; // rcx
+  void *v4; // rdx
+  void *v5; // rdx
+  __int64 v6; // rax
+  tagQ *v7; // rcx
+  _QWORD *ThreadWin32Thread; // rax
+  NSInstrumentation::CLeakTrackingAllocator *v9; // rcx
+  void *v10; // rbx
+  char v11; // [rsp+40h] [rbp+8h] BYREF
+  int v12; // [rsp+48h] [rbp+10h]
+
+  v1 = *a1;
+  ReEnterLeaveCrit::ReEnterLeaveCrit((ReEnterLeaveCrit *)&v11);
+  if ( *((_DWORD *)a1 + 2) )
+  {
+    v12 = 0x20000;
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2118LL);
+  }
+  else
+  {
+    v3 = (void *)a1[92];
+    if ( v3 )
+      ObfDereferenceObject(v3);
+    v4 = (void *)a1[111];
+    if ( v4 )
+      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v4);
+    v5 = (void *)a1[62];
+    if ( v5 )
+      NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, v5);
+    a1[92] = MmUserProbeAddress;
+    a1[111] = MmUserProbeAddress;
+    a1[62] = MmUserProbeAddress;
+    v6 = a1[54];
+    if ( v6 )
+    {
+      if ( !*(_DWORD *)(v6 + 400) )
+      {
+        v12 = 0x20000;
+        MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000LL, 2066LL);
+      }
+      --*(_DWORD *)(a1[54] + 400);
+      v7 = (tagQ *)a1[54];
+      if ( !*((_DWORD *)v7 + 100) && !tagQ::IsAnyThreadAttached(v7) )
+      {
+        if ( (int)IsFreeMessageListSupported() >= 0 && qword_1C02955B8 )
+          qword_1C02955B8(a1[54] + 24);
+        FreeQueue((void *)a1[54]);
+      }
+    }
+    if ( a1[57] )
+      UnlockObjectAssignment();
+    ThreadWin32Thread = (_QWORD *)PsGetThreadWin32Thread(v1);
+    v9 = gpLeakTrackingAllocator;
+    v10 = ThreadWin32Thread;
+    *ThreadWin32Thread = 0LL;
+    NSInstrumentation::CLeakTrackingAllocator::Free(v9, a1);
+    PsSetThreadWin32Thread(v1, 0LL, v10);
+    ExFreePoolWithTag(v10, 0);
+  }
+  if ( !v11 )
+    UserSessionSwitchLeaveCrit();
+}

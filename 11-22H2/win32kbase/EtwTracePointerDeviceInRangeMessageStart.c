@@ -1,0 +1,16 @@
+/*
+ * XREFs of EtwTracePointerDeviceInRangeMessageStart @ 0x1C013ADD0
+ * Callers:
+ *     ApiSetPostPointerDeviceInRangeMessage @ 0x1C020804C (ApiSetPostPointerDeviceInRangeMessage.c)
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00DF278 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
+NTSTATUS __fastcall EtwTracePointerDeviceInRangeMessageStart(__int64 a1)
+{
+  NTSTATUS result; // eax
+
+  if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
+    return McTemplateK0_EtwWriteTransfer(a1, &PointerDeviceInRangeMessageStart, &W32kControlGuid);
+  return result;
+}

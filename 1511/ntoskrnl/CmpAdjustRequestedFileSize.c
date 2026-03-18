@@ -1,0 +1,72 @@
+/*
+ * XREFs of CmpAdjustRequestedFileSize @ 0x1404BC3D4
+ * Callers:
+ *     CmpDoFileSetSizeEx @ 0x1404BC2A4 (CmpDoFileSetSizeEx.c)
+ * Callees:
+ *     HvGetEffectiveLogSizeCapForHive @ 0x1403D4388 (HvGetEffectiveLogSizeCapForHive.c)
+ */
+
+unsigned __int64 __fastcall CmpAdjustRequestedFileSize(
+        unsigned int *a1,
+        int a2,
+        unsigned __int64 a3,
+        unsigned __int64 a4)
+{
+  unsigned __int64 v4; // r10
+  int v5; // r11d
+  unsigned __int64 EffectiveLogSizeCapForHive; // r8
+  char v7; // si
+
+  v4 = a3;
+  v5 = 0;
+  EffectiveLogSizeCapForHive = 0LL;
+  v7 = 0;
+  if ( v4 == a4 )
+    return a4;
+  if ( a2 )
+  {
+    if ( (unsigned int)(a2 - 4) <= 1 || a2 == 1 )
+      EffectiveLogSizeCapForHive = (unsigned int)HvGetEffectiveLogSizeCapForHive(a1);
+LABEL_5:
+    if ( !v4 )
+      goto LABEL_14;
+    goto LABEL_6;
+  }
+  v5 = 0x40000;
+  EffectiveLogSizeCapForHive = 0x40000LL;
+  if ( (a1[1340] & 0x80u) != 0 )
+  {
+LABEL_22:
+    v7 = 1;
+    v5 = 4096;
+    goto LABEL_5;
+  }
+  if ( !v4 )
+  {
+    if ( a4 > 0x40000 )
+      goto LABEL_5;
+    goto LABEL_22;
+  }
+LABEL_6:
+  if ( a4 <= EffectiveLogSizeCapForHive && v4 < a4 && !v7 )
+  {
+    if ( !a2 )
+      v5 = 4096;
+    while ( 1 )
+    {
+      v4 *= 2LL;
+      if ( v4 > EffectiveLogSizeCapForHive )
+        break;
+      if ( v4 >= a4 )
+        goto LABEL_15;
+    }
+    v4 = EffectiveLogSizeCapForHive;
+    goto LABEL_15;
+  }
+LABEL_14:
+  v4 = a4;
+LABEL_15:
+  if ( v5 )
+    return ~(v5 - 1) & (unsigned int)(v5 + v4 - 1);
+  return v4;
+}

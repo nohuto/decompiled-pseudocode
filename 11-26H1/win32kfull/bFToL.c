@@ -1,0 +1,69 @@
+/*
+ * XREFs of bFToL @ 0x140111E60
+ * Callers:
+ *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x140076840 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     bCvtPts1 @ 0x14007822C (bCvtPts1.c)
+ *     ?ExtTextOutRect@@YA?AV?$ReturnValueTracer@H@@AEAVXDCOBJ@@PEAUtagRECT@@@Z @ 0x14007B620 (-ExtTextOutRect@@YA-AV-$ReturnValueTracer@H@@AEAVXDCOBJ@@PEAUtagRECT@@@Z.c)
+ *     GreFrameRgn @ 0x140080F30 (GreFrameRgn.c)
+ *     GreFillRgn @ 0x140081834 (GreFillRgn.c)
+ *     ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x140082158 (-cjGetBrushOrPen@@YAJPEAXH0@Z.c)
+ *     ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1400CA26C (-bCalculateWishCell@MAPPER@@AEAAHXZ.c)
+ *     ?lfOrientation@IFIOBJ@@QEAAJXZ @ 0x140100D48 (-lfOrientation@IFIOBJ@@QEAAJXZ.c)
+ *     ?bIFIMetricsToTextMetricW2@@YAHAEAUPARAMETERS@EFSTATE@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOATEXT@@JJ@Z @ 0x140100E0C (-bIFIMetricsToTextMetricW2@@YAHAEAUPARAMETERS@EFSTATE@@PEAU_NTMW_INTERNAL@@AEAVPFEOBJ@@HKVEFLOAT.c)
+ *     ?vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z @ 0x14010764C (-vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z.c)
+ *     ?vCharPos_G2@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z @ 0x14010C304 (-vCharPos_G2@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z.c)
+ *     ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x14010C710 (-bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z.c)
+ *     ?lGetDefaultWorldHeight@@YAJAEAVXDCOBJ@@@Z @ 0x14010CA0C (-lGetDefaultWorldHeight@@YAJAEAVXDCOBJ@@@Z.c)
+ *     ?ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z @ 0x14010D384 (-ComputeEUDCLogfont@RFONTOBJ@@QEAAXPEAU_EUDCLOGFONT@@AEAVXDCOBJ@@@Z.c)
+ *     ?vIFIMetricsToTextMetricWStrict@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAUtagTEXTMETRICW@@PEAU_IFIMETRICS@@@Z @ 0x14010F068 (-vIFIMetricsToTextMetricWStrict@@YAXAEAVRFONTOBJ@@AEAVDCOBJ@@PEAUtagTEXTMETRICW@@PEAU_IFIMETRICS.c)
+ *     ?vInitPageToDevice@DC@@QEAAXPEAUMATRIX@@@Z @ 0x140110EB0 (-vInitPageToDevice@DC@@QEAAXPEAUMATRIX@@@Z.c)
+ *     ?GrepScaleValues@@YAHAEAVXDCOBJ@@PEAJI@Z @ 0x1401114C4 (-GrepScaleValues@@YAHAEAVXDCOBJ@@PEAJI@Z.c)
+ *     ?ptlXform@EBOX@@QEAA?AU_POINTL@@AEAVEPOINTFL@@@Z @ 0x14011184C (-ptlXform@EBOX@@QEAA-AU_POINTL@@AEAVEPOINTFL@@@Z.c)
+ *     ?bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z @ 0x140111928 (-bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z.c)
+ *     ?bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z @ 0x140111980 (-bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z.c)
+ *     ?bWiden@pathwide@@YA_NAEAVEPATHOBJ@@0AEBVEXFORMOBJ@@AEBU_LINEATTRS@@@Z @ 0x140119278 (-bWiden@pathwide@@YA_NAEAVEPATHOBJ@@0AEBVEXFORMOBJ@@AEBU_LINEATTRS@@@Z.c)
+ *     ?bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x14019BA1C (-bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z.c)
+ *     ?bTextExtent@RFONTOBJ@@QEAAHAEAVDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1401C4E90 (-bTextExtent@RFONTOBJ@@QEAAHAEAVDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z.c)
+ *     ?vCharPos_G4@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAJ@Z @ 0x14022788C (-vCharPos_G4@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAJ@Z.c)
+ *     ?GrepGetCharWidthInfo@@YAHAEAVDCOBJ@@PEAU_CHWIDTHINFO@@@Z @ 0x14024A92C (-GrepGetCharWidthInfo@@YAHAEAVDCOBJ@@PEAU_CHWIDTHINFO@@@Z.c)
+ *     GreGetBitmapDpiScaleValue @ 0x14029582C (GreGetBitmapDpiScaleValue.c)
+ *     ?vIFIMetricsToETM@@YAXPEAU_EXTTEXTMETRIC@@AEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_IFIMETRICS@@@Z @ 0x14031C35C (-vIFIMetricsToETM@@YAXPEAU_EXTTEXTMETRIC@@AEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_IFIMETRICS@@@Z.c)
+ *     ?bSplitTriangle@@YAHPEAU_TRIVERTEX@@PEAKPEAU_GRADIENT_TRIANGLE@@1PEAE@Z @ 0x14031C640 (-bSplitTriangle@@YAHPEAU_TRIVERTEX@@PEAKPEAU_GRADIENT_TRIANGLE@@1PEAE@Z.c)
+ *     ?vCharPos_G3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEBJPEAJ@Z @ 0x140335178 (-vCharPos_G3@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEBJPEAJ@Z.c)
+ *     ?vScale@EPOINTL@@QEAAXAEBVPOINTFL@@@Z @ 0x140336C18 (-vScale@EPOINTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+__int64 __fastcall bFToL(double a1, int *a2, unsigned int a3)
+{
+  int v3; // r9d
+  signed int v5; // ecx
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 result; // rax
+  __int64 v10; // rdx
+  int v11; // ecx
+
+  v3 = _mm_cvtsi128_si32(*(__m128i *)&a1);
+  v5 = (unsigned __int8)(v3 >> 23) + ((a3 >> 1) & 4 | 0xFFFFFF8A);
+  if ( v5 > 40 )
+    return 0LL;
+  v6 = v3 & 0x7FFFFF | 0x800000LL;
+  if ( v5 < 0 )
+    v7 = v6 >> -(char)v5;
+  else
+    v7 = v6 << v5;
+  v8 = v7 + 0x80000000LL;
+  if ( (a3 & 1) != 0 )
+    v8 = v7;
+  result = 1LL;
+  v10 = v8 >> 32;
+  v11 = -(int)v10;
+  if ( v3 >= 0 )
+    v11 = v10;
+  *a2 = v11;
+  return result;
+}

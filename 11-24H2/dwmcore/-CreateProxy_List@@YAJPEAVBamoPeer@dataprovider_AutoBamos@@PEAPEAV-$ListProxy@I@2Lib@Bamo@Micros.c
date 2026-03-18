@@ -1,0 +1,47 @@
+/*
+ * XREFs of ?CreateProxy_List@@YAJPEAVBamoPeer@dataprovider_AutoBamos@@PEAPEAV?$ListProxy@I@2Lib@Bamo@Microsoft@@@Z @ 0x18027D0CC
+ * Callers:
+ *     ?CreateList_uint_Proxy@dataprovider_AutoBamos@BamoImpl@Lib@Bamo@Microsoft@@YAXPEAVBaseBamoConnectionImpl@25@PEAVBamoPeer@1@PEAPEAVBamoProxy@45@@Z @ 0x18026E18C (-CreateList_uint_Proxy@dataprovider_AutoBamos@BamoImpl@Lib@Bamo@Microsoft@@YAXPEAVBaseBamoConnec.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x18001DF0C (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180041E40 (--2@YAPEAX_K@Z.c)
+ *     memset_0 @ 0x180251AD8 (memset_0.c)
+ */
+
+__int64 __fastcall CreateProxy_List(__int64 a1, _QWORD *a2)
+{
+  _DWORD *v3; // rax
+  _DWORD *v4; // rbx
+  __int64 result; // rax
+  wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]
+
+  v3 = operator new(0x48uLL);
+  v4 = v3;
+  if ( v3 )
+  {
+    memset_0(v3, 0, 0x48uLL);
+    v4[6] = 0;
+    *((_QWORD *)v4 + 4) = 0LL;
+    v4[10] = 0;
+    v4[11] = 0;
+    *((_QWORD *)v4 + 2) = &Microsoft::Bamo::Lib::BamoImpl::dataprovider_AutoBamos::BamoList_uint_ProxyImpl::`vftable';
+    *((_QWORD *)v4 + 6) = 0LL;
+    *((_QWORD *)v4 + 7) = 0LL;
+    *((_QWORD *)v4 + 8) = 0LL;
+    *(_QWORD *)v4 = &Microsoft::Bamo::Lib::dataprovider_AutoBamos::ListProxy<unsigned int>::`vftable'{for `Microsoft::Bamo::BamoProxy'};
+    *((_QWORD *)v4 + 1) = &Microsoft::Bamo::Lib::dataprovider_AutoBamos::ListProxy<unsigned int>::`vftable'{for `Microsoft::Bamo::Lib::dataprovider_AutoBamos::IList_uint_Proxy'};
+    result = 0LL;
+    *a2 = v4;
+  }
+  else
+  {
+    *a2 = 0LL;
+    wil::details::in1diag3::Return_Hr(
+      retaddr,
+      (void *)0x2F,
+      (int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\dataproviderfactory.cpp",
+      (const char *)0x8007000ELL);
+    return 2147942414LL;
+  }
+  return result;
+}

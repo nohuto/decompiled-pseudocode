@@ -1,0 +1,35 @@
+/*
+ * XREFs of ??1COREACCESS@@QEAA@XZ @ 0x1C0008680
+ * Callers:
+ *     ??1COREOVERLAYACCESS@@QEAA@XZ @ 0x1C0011BF0 (--1COREOVERLAYACCESS@@QEAA@XZ.c)
+ *     DxgkUnlock @ 0x1C006E9D0 (DxgkUnlock.c)
+ *     OutputDuplProcessTerminate @ 0x1C0074920 (OutputDuplProcessTerminate.c)
+ *     ?Unlock@DXGDEVICE@@QEAAJPEBU_D3DKMT_UNLOCK@@E@Z @ 0x1C009656C (-Unlock@DXGDEVICE@@QEAAJPEBU_D3DKMT_UNLOCK@@E@Z.c)
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00A2328 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     DxgkEscape @ 0x1C00B5410 (DxgkEscape.c)
+ *     DxgkGetPresentHistory @ 0x1C00CA740 (DxgkGetPresentHistory.c)
+ *     DxgkGetPresentHistoryReadyEvent @ 0x1C00D81F0 (DxgkGetPresentHistoryReadyEvent.c)
+ *     ?CleanupPresentHistoryTokenQueueAdapter@DXGPRESENTHISTORYTOKENQUEUE@@CAJPEAVDXGADAPTER@@PEAX@Z @ 0x1C00DBAA0 (-CleanupPresentHistoryTokenQueueAdapter@DXGPRESENTHISTORYTOKENQUEUE@@CAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?Unlock2@DXGDEVICE@@QEAAJPEAVDXGALLOCATION@@H@Z @ 0x1C0143A3C (-Unlock2@DXGDEVICE@@QEAAJPEAVDXGALLOCATION@@H@Z.c)
+ *     DxgkDestroyOverlay @ 0x1C016DAF0 (DxgkDestroyOverlay.c)
+ *     ??1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ @ 0x1C018D364 (--1DXGSWAPCHAINLOCKWITHDEVICE@@QEAA@XZ.c)
+ *     ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C018D390 (-Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z.c)
+ *     ?Release@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAXXZ @ 0x1C018EC18 (-Release@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAXXZ.c)
+ * Callees:
+ *     ?Release@COREACCESS@@QEAAXXZ @ 0x1C00085E0 (-Release@COREACCESS@@QEAAXXZ.c)
+ *     ?DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C0168F1C (-DestroyAdapter@DXGGLOBAL@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ */
+
+void __fastcall COREACCESS::~COREACCESS(COREACCESS *this)
+{
+  __int64 v2; // rcx
+
+  if ( *((_QWORD *)this + 2) )
+  {
+    if ( *((_BYTE *)this + 24) )
+      COREACCESS::Release(this);
+    v2 = *((_QWORD *)this + 2);
+    if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v2 + 24), 0xFFFFFFFFFFFFFFFFuLL) == 1 )
+      DXGGLOBAL::DestroyAdapter(*(DXGGLOBAL **)(v2 + 16), (struct DXGADAPTER *)v2);
+  }
+}

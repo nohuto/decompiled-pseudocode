@@ -1,0 +1,19 @@
+/*
+ * XREFs of Feature_AsyncKeyStateRecentDown_Removal2__private_IsEnabledDeviceUsageNoInline @ 0x1401B7518
+ * Callers:
+ *     NtUserGetAsyncKeyState @ 0x14016C610 (NtUserGetAsyncKeyState.c)
+ *     UpdateAsyncKeyState @ 0x140189B10 (UpdateAsyncKeyState.c)
+ *     _GetAsyncKeyState @ 0x140189CF0 (_GetAsyncKeyState.c)
+ * Callees:
+ *     Feature_AsyncKeyStateRecentDown_Removal2__private_IsEnabledFallback @ 0x1401B7550 (Feature_AsyncKeyStateRecentDown_Removal2__private_IsEnabledFallback.c)
+ */
+
+__int64 Feature_AsyncKeyStateRecentDown_Removal2__private_IsEnabledDeviceUsageNoInline()
+{
+  if ( (Feature_AsyncKeyStateRecentDown_Removal2__private_featureState & 0x10) != 0 )
+    return Feature_AsyncKeyStateRecentDown_Removal2__private_featureState & 1;
+  else
+    return Feature_AsyncKeyStateRecentDown_Removal2__private_IsEnabledFallback(
+             (unsigned int)Feature_AsyncKeyStateRecentDown_Removal2__private_featureState,
+             3LL);
+}

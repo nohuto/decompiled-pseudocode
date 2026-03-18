@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??0MAPIDCOBJ@@QEAA@PEAUHDC__@@0@Z @ 0x1400196D0
+ * Callers:
+ *     NtGdiPlgBlt @ 0x140305D30 (NtGdiPlgBlt.c)
+ * Callees:
+ *     ??0APIDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x14001A490 (--0APIDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??0OPTAPIDCOBJ@@QEAA@PEAUHDC__@@AEAVXDCOBJ@@@Z @ 0x14001A56C (--0OPTAPIDCOBJ@@QEAA@PEAUHDC__@@AEAVXDCOBJ@@@Z.c)
+ */
+
+MAPIDCOBJ *__fastcall MAPIDCOBJ::MAPIDCOBJ(MAPIDCOBJ *this, HDC a2, HDC a3)
+{
+  APIDCOBJ::APIDCOBJ(this, a2);
+  OPTAPIDCOBJ::OPTAPIDCOBJ((MAPIDCOBJ *)((char *)this + 112), a3, this);
+  return this;
+}

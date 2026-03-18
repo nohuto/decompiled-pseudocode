@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??0?$HmgShareLockResult@VBRUSH@@@@QEAA@PEAU_BASEOBJECT@@@Z @ 0x1401C9158
+ * Callers:
+ *     bDynamicModeChange @ 0x1401793D8 (bDynamicModeChange.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x14017A4B0 (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x14017C714 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ * Callees:
+ *     PushThreadGuardedObject @ 0x1400988E0 (PushThreadGuardedObject.c)
+ */
+
+__int64 __fastcall HmgShareLockResult<BRUSH>::HmgShareLockResult<BRUSH>(__int64 a1, __int64 a2)
+{
+  *(_QWORD *)a1 = a2;
+  *(_OWORD *)(a1 + 8) = 0LL;
+  *(_OWORD *)(a1 + 24) = 0LL;
+  PushThreadGuardedObject(
+    (_QWORD *)(a1 + 8),
+    a1 & ((unsigned __int128)-(__int128)(unsigned __int64)(a1 + 8) >> 64),
+    (__int64)UnexpectedThreadTerminationHandler<HmgShareLockResult<BRUSH>>::OnUnexpectedThreadTerminationStatic);
+  return a1;
+}

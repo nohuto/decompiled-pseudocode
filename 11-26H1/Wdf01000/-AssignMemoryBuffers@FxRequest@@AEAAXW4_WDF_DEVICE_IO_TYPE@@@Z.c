@@ -1,0 +1,74 @@
+/*
+ * XREFs of ?AssignMemoryBuffers@FxRequest@@AEAAXW4_WDF_DEVICE_IO_TYPE@@@Z @ 0x140053D90
+ * Callers:
+ *     ?DispatchStep2@FxPkgIo@@QEAAJPEAU_IRP@@PEAVFxIoInCallerContext@@PEAVFxIoQueue@@@Z @ 0x14000BD20 (-DispatchStep2@FxPkgIo@@QEAAJPEAU_IRP@@PEAVFxIoInCallerContext@@PEAVFxIoQueue@@@Z.c)
+ *     ?DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z @ 0x14000D2C0 (-DispatchStep1@FxPkgIo@@QEAAJPEAU_IRP@@PEAX@Z.c)
+ *     imp_WdfDeviceWdmDispatchIrpToIoQueue @ 0x14000EBE0 (imp_WdfDeviceWdmDispatchIrpToIoQueue.c)
+ *     ?Release@FxRequest@@UEAAKPEAXJPEBD@Z @ 0x14002DF70 (-Release@FxRequest@@UEAAKPEAXJPEBD@Z.c)
+ *     ?GetReservedRequest@FxIoQueue@@QEAAJPEAU_IRP@@PEAPEAVFxRequest@@@Z @ 0x14007FF50 (-GetReservedRequest@FxIoQueue@@QEAAJPEAU_IRP@@PEAPEAVFxRequest@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall FxRequest::AssignMemoryBuffers(FxRequest *this, _WDF_DEVICE_IO_TYPE IoType)
+{
+  _IRP *m_Irp; // r9
+  _IO_STACK_LOCATION *CurrentStackLocation; // r8
+  int MajorFunction; // r10d
+  int v5; // eax
+  void *UserBuffer; // rax
+  int v7; // edx
+  void *MasterIrp; // rax
+
+  m_Irp = this->m_Irp.m_Irp;
+  CurrentStackLocation = m_Irp->Tail.Overlay.CurrentStackLocation;
+  MajorFunction = CurrentStackLocation->MajorFunction;
+  if ( MajorFunction != 15 )
+  {
+    if ( MajorFunction == 3 || MajorFunction == 4 )
+    {
+      v7 = IoType - 1;
+      if ( v7 )
+      {
+        if ( v7 != 1 )
+          return;
+        MasterIrp = m_Irp->AssociatedIrp.MasterIrp;
+      }
+      else
+      {
+        if ( m_Irp->RequestorMode )
+          return;
+        MasterIrp = m_Irp->UserBuffer;
+      }
+      this->m_SystemBuffer.m_Buffer = MasterIrp;
+      goto LABEL_6;
+    }
+    if ( MajorFunction != 14 )
+      return;
+  }
+  v5 = CurrentStackLocation->Parameters.Read.ByteOffset.LowPart & 3;
+  if ( v5 == 3 )
+  {
+    if ( (_BYTE)MajorFunction != 15 && m_Irp->RequestorMode )
+      return;
+    this->m_SystemBuffer.m_Buffer = CurrentStackLocation->Parameters.CreatePipe.Parameters;
+    UserBuffer = m_Irp->UserBuffer;
+  }
+  else
+  {
+    if ( v5 )
+    {
+      if ( (unsigned int)(v5 - 1) <= 1 )
+        this->m_SystemBuffer.m_Buffer = m_Irp->AssociatedIrp.MasterIrp;
+      goto LABEL_6;
+    }
+    this->m_SystemBuffer.m_Buffer = m_Irp->AssociatedIrp.MasterIrp;
+    UserBuffer = m_Irp->AssociatedIrp.MasterIrp;
+  }
+  this->m_OutputBuffer.m_Buffer = UserBuffer;
+LABEL_6:
+  if ( this->m_SystemBuffer.m_Buffer )
+    this->m_RequestBaseStaticFlags |= 1u;
+  if ( this->m_OutputBuffer.m_Buffer )
+    this->m_RequestBaseStaticFlags |= 2u;
+}

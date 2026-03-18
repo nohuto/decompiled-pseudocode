@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?UMPDServer@@YAHPEAVSURFACE@@@Z @ 0x1403357D4
+ * Callers:
+ *     ?bEndDocInternal@@YAHAEAVXDCOBJ@@K@Z @ 0x140268328 (-bEndDocInternal@@YAHAEAVXDCOBJ@@K@Z.c)
+ * Callees:
+ *     ??1XUMPDOBJ@@QEAA@XZ @ 0x1400D8298 (--1XUMPDOBJ@@QEAA@XZ.c)
+ *     ??0XUMPDOBJ@@QEAA@XZ @ 0x1400D8380 (--0XUMPDOBJ@@QEAA@XZ.c)
+ *     ?vServer@UMPDOBJ@@QEAAXPEAX@Z @ 0x1400D9358 (-vServer@UMPDOBJ@@QEAAXPEAX@Z.c)
+ */
+
+__int64 __fastcall UMPDServer(struct SURFACE *a1)
+{
+  UMPDOBJ *v2; // rcx
+  UMPDOBJ *v4; // [rsp+38h] [rbp+10h] BYREF
+
+  XUMPDOBJ::XUMPDOBJ((XUMPDOBJ *)&v4);
+  if ( v4 && *((_BYTE *)v4 + 456) )
+  {
+    UMPDOBJ::vServer(v2, (_QWORD *)(((unsigned __int64)a1 + 24) & -(__int64)(a1 != 0LL)));
+    XUMPDOBJ::~XUMPDOBJ(&v4);
+    return 1LL;
+  }
+  else
+  {
+    XUMPDOBJ::~XUMPDOBJ(&v4);
+    return 0LL;
+  }
+}

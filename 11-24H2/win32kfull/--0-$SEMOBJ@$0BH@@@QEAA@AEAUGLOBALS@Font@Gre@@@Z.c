@@ -1,0 +1,50 @@
+/*
+ * XREFs of ??0?$SEMOBJ@$0BH@@@QEAA@AEAUGLOBALS@Font@Gre@@@Z @ 0x1401B1B20
+ * Callers:
+ *     UnmapPrintKView @ 0x1401B1A3C (UnmapPrintKView.c)
+ *     ?bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x14030E174 (-bAddPrintKView@@YAH_KPEAXK0PEAU_FONTFILE_PRINTKVIEW@@@Z.c)
+ *     ?bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x14030E2D4 (-bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z.c)
+ *     ?vClosePrintKView@@YAXXZ @ 0x14030E654 (-vClosePrintKView@@YAXXZ.c)
+ * Callees:
+ *     ?GreGetCurrentThreadCrossSessionCheck@@YAPEAU_GRETHREAD@@XZ @ 0x140060D30 (-GreGetCurrentThreadCrossSessionCheck@@YAPEAU_GRETHREAD@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1400A4334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
+HSEMAPHORE *__fastcall SEMOBJ<23>::SEMOBJ<23>(HSEMAPHORE *a1, __int64 a2)
+{
+  HSEMAPHORE v3; // rcx
+  struct _GRETHREAD *v4; // rax
+  unsigned __int64 v5; // r8
+  struct _GRETHREAD *v6; // rbx
+  __int64 v7; // rdx
+  int v9; // ecx
+  int v10; // eax
+
+  v3 = *(HSEMAPHORE *)(a2 + 19168);
+  *a1 = v3;
+  GreAcquireSemaphoreInternal(v3);
+  v4 = GreGetCurrentThreadCrossSessionCheck();
+  v5 = 0LL;
+  v6 = v4;
+  if ( v4 )
+  {
+    v7 = *(_QWORD *)v4;
+    if ( (*(_QWORD *)v4 & 0xFFFFFFFFFF800000uLL) != 0 && (v7 & 0x800000) == 0 )
+    {
+      v9 = 37;
+      do
+      {
+        v10 = v5;
+        if ( !_bittest64(&v7, v5) )
+          v10 = v9;
+        ++v5;
+        v9 = v10;
+      }
+      while ( v5 < 0x40 );
+      if ( v10 > 23 )
+        MicrosoftTelemetryAssertTriggeredNoArgsKM();
+    }
+    *(_QWORD *)v6 |= 0x800000uLL;
+  }
+  return a1;
+}

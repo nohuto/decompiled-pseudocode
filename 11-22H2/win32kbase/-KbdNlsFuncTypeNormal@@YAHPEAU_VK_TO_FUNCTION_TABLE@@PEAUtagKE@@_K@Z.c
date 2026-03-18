@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?KbdNlsFuncTypeNormal@@YAHPEAU_VK_TO_FUNCTION_TABLE@@PEAUtagKE@@_K@Z @ 0x1C01EBCA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetModifierBits @ 0x1C00039B0 (GetModifierBits.c)
+ *     ?GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z @ 0x1C01EBB4C (-GenerateNlsVkKey@@YAHPEAU_VK_TO_FUNCTION_TABLE@@GPEAUtagKE@@_K@Z.c)
+ */
+
+__int64 __fastcall KbdNlsFuncTypeNormal(struct _VK_TO_FUNCTION_TABLE *a1, struct tagKE *a2, __int64 a3, __int64 a4)
+{
+  __int64 v7; // rax
+  unsigned __int16 ModifierBits; // ax
+  int v9; // edx
+
+  if ( !a2 )
+    return 0LL;
+  v7 = SGDGetUserSessionState(a1, a2, a3, a4);
+  ModifierBits = GetModifierBits((unsigned __int8 **)&off_1C0246630, v7 + 14056);
+  if ( ModifierBits > 7u )
+    return 0LL;
+  v9 = *((unsigned __int8 *)&off_1C0246630 + ModifierBits + 10);
+  if ( v9 == 15 )
+    return 0LL;
+  else
+    return GenerateNlsVkKey(a1, v9, a2, a3);
+}

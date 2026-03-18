@@ -1,0 +1,36 @@
+/*
+ * XREFs of PiDevCfgFreeDeviceMigrationNode @ 0x1408311D4
+ * Callers:
+ *     PiDevCfgFindDeviceMigrationNode @ 0x140729484 (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x140831268 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     PiDevCfgMigrateDevice @ 0x14099A6AC (PiDevCfgMigrateDevice.c)
+ * Callees:
+ *     ZwClose @ 0x1406A65F0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall PiDevCfgFreeDeviceMigrationNode(char *P)
+{
+  void *v2; // rcx
+  UNICODE_STRING *v3; // rdi
+  __int64 v4; // rsi
+
+  v2 = (void *)*((_QWORD *)P + 5);
+  if ( v2 )
+    ZwClose(v2);
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 24));
+  v3 = (UNICODE_STRING *)(P + 48);
+  v4 = 2LL;
+  do
+  {
+    RtlFreeAnsiString(v3++);
+    --v4;
+  }
+  while ( v4 );
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 104));
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 120));
+  RtlFreeAnsiString((PUNICODE_STRING)(P + 136));
+  RtlFreeAnsiString((PUNICODE_STRING)P + 10);
+  ExFreePoolWithTag(P, 0);
+}

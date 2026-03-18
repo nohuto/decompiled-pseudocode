@@ -1,0 +1,23 @@
+/*
+ * XREFs of CmpAllocate @ 0x14048DD10
+ * Callers:
+ *     CmpInitializeHive @ 0x1404395AC (CmpInitializeHive.c)
+ * Callees:
+ *     ExAllocatePoolWithTag @ 0x140285010 (ExAllocatePoolWithTag.c)
+ *     CmpClaimGlobalQuota @ 0x14048DD74 (CmpClaimGlobalQuota.c)
+ *     CmpReleaseGlobalQuota @ 0x1404D2918 (CmpReleaseGlobalQuota.c)
+ */
+
+PVOID __fastcall CmpAllocate(SIZE_T NumberOfBytes, char a2, ULONG a3)
+{
+  unsigned int v4; // ebx
+  PVOID PoolWithTag; // rdi
+
+  v4 = NumberOfBytes;
+  if ( !(unsigned __int8)CmpClaimGlobalQuota() )
+    return 0LL;
+  PoolWithTag = ExAllocatePoolWithTag((POOL_TYPE)(a2 != 0 ? PagedPoolCacheAligned : PagedPool), v4, a3);
+  if ( !PoolWithTag )
+    CmpReleaseGlobalQuota(v4);
+  return PoolWithTag;
+}

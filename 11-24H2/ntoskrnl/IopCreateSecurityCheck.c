@@ -1,0 +1,86 @@
+/*
+ * XREFs of IopCreateSecurityCheck @ 0x14046DA5C
+ * Callers:
+ *     IopParseDevice @ 0x14089F880 (IopParseDevice.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x1402595A0 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseResourceLite @ 0x14025A450 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140341E80 (ExAcquireResourceSharedLite.c)
+ *     SeAccessCheck @ 0x14035A5B0 (SeAccessCheck.c)
+ *     SeOpenObjectAuditAlarm @ 0x1408520E0 (SeOpenObjectAuditAlarm.c)
+ *     SeLockSubjectContext @ 0x140868470 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x1408684D0 (SeUnlockSubjectContext.c)
+ *     SeAppendPrivileges @ 0x1409D2470 (SeAppendPrivileges.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+BOOLEAN __fastcall IopCreateSecurityCheck(
+        __int64 a1,
+        void *a2,
+        struct _ACCESS_STATE *a3,
+        int a4,
+        int a5,
+        PPRIVILEGE_SET Privileges,
+        PACCESS_MASK GrantedAccess,
+        PUNICODE_STRING AbsoluteObjectName,
+        PUNICODE_STRING ObjectTypeName,
+        __int64 a10,
+        char a11)
+{
+  int v11; // ebx
+  PACCESS_MASK v16; // rsi
+  BOOLEAN v17; // bp
+  int v19; // eax
+  NTSTATUS AccessStatus; // [rsp+98h] [rbp+20h] BYREF
+
+  AccessStatus = 0;
+  v11 = 0;
+  if ( a5 != 1 )
+  {
+    v19 = *(_DWORD *)(a1 + 52);
+    if ( (v19 & 0x40001) != 0 || IopRequireDeviceAccessCheck && (v19 & 0x100000) != 0 )
+      v11 = 2;
+  }
+  --*(_WORD *)(a10 + 484);
+  ExAcquireResourceSharedLite(&IopSecurityResource, 1u);
+  SeLockSubjectContext(&a3->SubjectSecurityContext);
+  v16 = GrantedAccess;
+  v17 = SeAccessCheck(
+          *(PSECURITY_DESCRIPTOR *)(a1 + 272),
+          &a3->SubjectSecurityContext,
+          1u,
+          a4 | v11,
+          0,
+          &Privileges,
+          (PGENERIC_MAPPING)((char *)IoFileObjectType + 76),
+          1,
+          GrantedAccess,
+          &AccessStatus);
+  if ( Privileges )
+  {
+    SeAppendPrivileges(a3, Privileges);
+    ExFreePoolWithTag(Privileges, 0);
+  }
+  if ( v11 && (v11 & a4) == 0 )
+    *v16 &= ~v11;
+  if ( a11 && v17 )
+  {
+    a3->PreviouslyGrantedAccess |= *v16;
+    a3->RemainingDesiredAccess &= ~(*v16 | 0x2000000);
+  }
+  if ( a2 )
+    SeOpenObjectAuditAlarm(
+      ObjectTypeName,
+      a2,
+      AbsoluteObjectName,
+      *(PSECURITY_DESCRIPTOR *)(a1 + 272),
+      a3,
+      0,
+      v17,
+      1,
+      &a3->GenerateOnClose);
+  SeUnlockSubjectContext(&a3->SubjectSecurityContext);
+  ExReleaseResourceLite(&IopSecurityResource);
+  KeLeaveCriticalRegionThread();
+  return v17;
+}

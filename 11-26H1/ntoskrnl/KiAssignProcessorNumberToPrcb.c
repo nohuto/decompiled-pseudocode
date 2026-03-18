@@ -1,0 +1,77 @@
+/*
+ * XREFs of KiAssignProcessorNumberToPrcb @ 0x1405EF448
+ * Callers:
+ *     KiConfigureInitialNodes @ 0x1405EF678 (KiConfigureInitialNodes.c)
+ *     KiInitializeProcessorState @ 0x1407BB330 (KiInitializeProcessorState.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x140211EA0 (KeQueryActiveProcessorCountEx.c)
+ *     KiFindSubNodeForProcessorNumber @ 0x1405EF964 (KiFindSubNodeForProcessorNumber.c)
+ */
+
+struct _KTHREAD *__fastcall KiAssignProcessorNumberToPrcb(__int64 a1, char *a2, int a3)
+{
+  __int64 v6; // rbp
+  char v7; // dl
+  bool v8; // zf
+  bool v9; // cc
+  __int64 v10; // r8
+  __int64 v11; // rdx
+  struct _KTHREAD *result; // rax
+  int v13; // r8d
+  unsigned int v14; // edi
+  int i; // edx
+  unsigned int j; // r11d
+  __int64 v17; // r10
+  __int64 v18; // [rsp+40h] [rbp+8h] BYREF
+
+  v18 = 0LL;
+  KiFindSubNodeForProcessorNumber(a2, 0LL, 0LL, &v18);
+  v6 = v18;
+  *(_QWORD *)(a1 + 192) = v18;
+  v7 = *a2;
+  *(_BYTE *)(a1 + 208) = *a2;
+  *(_BYTE *)(a1 + 209) = a2[2];
+  v8 = KeForceGroupAwareness == 0;
+  *(_QWORD *)(a1 + 200) = 1LL << a2[2];
+  if ( v8 )
+  {
+    if ( v7 )
+      *(_BYTE *)(a1 + 4) = (unsigned __int8)a2[2] % KeQueryActiveProcessorCountEx(0);
+    else
+      *(_BYTE *)(a1 + 4) = a2[2];
+  }
+  else
+  {
+    v9 = *(_DWORD *)(a1 + 36) <= 0xFFu;
+    *(_BYTE *)(a1 + 4) = *(_BYTE *)(a1 + 36);
+    if ( !v9 )
+      *(_BYTE *)(a1 + 4) = -1;
+  }
+  v10 = *(unsigned int *)(a1 + 36);
+  v11 = *(unsigned __int8 *)(a1 + 209) + (*(unsigned __int8 *)(a1 + 208) << 6);
+  *(_DWORD *)(*(_QWORD *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[112] + 4 * v10) = v11;
+  result = KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread;
+  *(&KiSupervisorXStateFeaturesLock.WaitBlock[2].Thread->Header.LockNV + v11) = v10;
+  v13 = 0;
+  v14 = *(unsigned __int8 *)(v6 + 185);
+  do
+  {
+    for ( i = 0; i < 2; ++i )
+    {
+      for ( j = 0; j < v14; ++j )
+      {
+        v17 = *(_QWORD *)(v6 + 192);
+        result = (struct _KTHREAD *)(j + (i + 2 * v13) * *(unsigned __int8 *)(v6 + 185));
+        *(_QWORD *)(v17 + 24LL * (_QWORD)result + 16) |= *(_QWORD *)(a1 + 200);
+        if ( !a3 )
+        {
+          *(_QWORD *)(v17 + 24LL * (_QWORD)result) |= *(_QWORD *)(a1 + 200);
+          *(_QWORD *)(v17 + 24LL * (_QWORD)result + 8) |= *(_QWORD *)(a1 + 200);
+        }
+      }
+    }
+    ++v13;
+  }
+  while ( v13 < 7 );
+  return result;
+}

@@ -1,0 +1,92 @@
+/*
+ * XREFs of KiAcquireThreadLockRaiseToDpc @ 0x1402C4710
+ * Callers:
+ *     KeCleanupThreadState @ 0x140201FC8 (KeCleanupThreadState.c)
+ *     KeSetIdealProcessorThreadEx @ 0x140204850 (KeSetIdealProcessorThreadEx.c)
+ *     KeQueryTotalCycleTimeThread @ 0x14021AB70 (KeQueryTotalCycleTimeThread.c)
+ *     KiUnstackDetachProcess @ 0x1402307C0 (KiUnstackDetachProcess.c)
+ *     KiDetachProcess @ 0x140246EA0 (KiDetachProcess.c)
+ *     MiUnlockStealVm @ 0x140294D10 (MiUnlockStealVm.c)
+ *     KiUpdateTebSchedulingPropertiesCurrentThread @ 0x1402C3B18 (KiUpdateTebSchedulingPropertiesCurrentThread.c)
+ *     KeSetThreadPpmPolicy @ 0x1402C4470 (KeSetThreadPpmPolicy.c)
+ *     KiFlushQueueApc @ 0x1402C4618 (KiFlushQueueApc.c)
+ *     KeUpdateThreadTag @ 0x1402C4800 (KeUpdateThreadTag.c)
+ *     KeRequestTerminationThread @ 0x1402C5B58 (KeRequestTerminationThread.c)
+ *     KeAttachProcess @ 0x1402C6510 (KeAttachProcess.c)
+ *     KeForceDetachProcess @ 0x1402C6C30 (KeForceDetachProcess.c)
+ *     KeUnstackDetachProcess @ 0x1402C7110 (KeUnstackDetachProcess.c)
+ *     KeSetThreadSchedulerAssist @ 0x1403BFAB8 (KeSetThreadSchedulerAssist.c)
+ *     KeTestAlertThread @ 0x1403D7210 (KeTestAlertThread.c)
+ *     KeRemoveQueueApc @ 0x140467790 (KeRemoveQueueApc.c)
+ *     KiSchedulerApc @ 0x1404A1BE0 (KiSchedulerApc.c)
+ *     PspSynchronizeThreadIsolationDomains @ 0x1404C6128 (PspSynchronizeThreadIsolationDomains.c)
+ *     KeQueryPrimaryGroupAffinityThread @ 0x1404E6E10 (KeQueryPrimaryGroupAffinityThread.c)
+ *     KiUpdateVpBackingThreadPriorityOnPriorityQuery @ 0x1404F9024 (KiUpdateVpBackingThreadPriorityOnPriorityQuery.c)
+ *     KeQueryCpuSetsThread @ 0x140507A18 (KeQueryCpuSetsThread.c)
+ *     KeEnumerateQueueApc @ 0x1405F13B0 (KeEnumerateQueueApc.c)
+ *     KeSetCpuSetWorkloadClassThread @ 0x1405F3EB8 (KeSetCpuSetWorkloadClassThread.c)
+ *     KeQueryCurrentWaitInformationThread @ 0x1405F6330 (KeQueryCurrentWaitInformationThread.c)
+ *     KiRequestSchedulerApcThread @ 0x1405F6A2C (KiRequestSchedulerApcThread.c)
+ *     ?KiAbpCrossThreadDelete@LegacyAutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z @ 0x1405FD95C (-KiAbpCrossThreadDelete@LegacyAutoBoost@@YAXPEAXPEAU_KTHREAD@@@Z.c)
+ * Callees:
+ *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+__int64 __fastcall KiAcquireThreadLockRaiseToDpc(__int64 a1, unsigned __int8 *a2)
+{
+  unsigned __int8 *v2; // rsi
+  unsigned __int8 CurrentIrql; // di
+  __int64 result; // rax
+  unsigned int v6; // edi
+  __int64 i; // rcx
+  __int64 v8; // rdx
+  __int64 v9; // r9
+
+  v2 = a2;
+  CurrentIrql = KeGetCurrentIrql();
+  if ( CurrentIrql != 2 )
+  {
+    result = 2LL;
+    __writecr8(2uLL);
+  }
+  if ( KiIrqlFlags )
+  {
+    LOBYTE(a2) = 2;
+    result = KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
+  }
+  *v2 = CurrentIrql;
+  v6 = 0;
+LABEL_6:
+  if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 64), 0LL) )
+  {
+    while ( 1 )
+    {
+      if ( (++v6 & HvlLongSpinCountMask) == 0 && (HvlEnlightenments & 0x40) != 0 )
+      {
+        if ( KeGetCurrentIrql() < 2u || !KeGetCurrentPrcb()->SchedulerAssist )
+        {
+LABEL_21:
+          HvlNotifyLongSpinWait(v6);
+          goto LABEL_9;
+        }
+        for ( i = 0LL; (unsigned int)i < (unsigned int)KeNumberProcessors_0; i = (unsigned int)(i + 1) )
+        {
+          v8 = KiProcessorBlock[i];
+          if ( (*(_BYTE *)(v8 + 35) & 1) != 0 )
+          {
+            v9 = *(_QWORD *)(v8 + 36600);
+            if ( !v9 || !*(_BYTE *)(v9 + 65) || !*(_BYTE *)(v9 + 64) )
+              goto LABEL_21;
+          }
+        }
+      }
+      _mm_pause();
+LABEL_9:
+      result = *(_QWORD *)(a1 + 64);
+      if ( !result )
+        goto LABEL_6;
+    }
+  }
+  return result;
+}

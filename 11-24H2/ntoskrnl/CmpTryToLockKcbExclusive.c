@@ -1,0 +1,31 @@
+/*
+ * XREFs of CmpTryToLockKcbExclusive @ 0x1409E1B30
+ * Callers:
+ *     CmpCreateKeyControlBlock @ 0x1408717C0 (CmpCreateKeyControlBlock.c)
+ *     CmpCreateRegistryRoot @ 0x140C46D74 (CmpCreateRegistryRoot.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x14025CCE0 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ */
+
+char __fastcall CmpTryToLockKcbExclusive(__int64 a1)
+{
+  _QWORD *v2; // rax
+  char result; // al
+
+  v2 = KeAbPreAcquire(a1 + 48, 0LL);
+  if ( _interlockedbittestandset64((volatile signed __int32 *)(a1 + 48), 0LL) )
+  {
+    if ( v2 )
+      KeAbPostReleaseEx(a1 + 48, (ULONG_PTR)v2);
+    return 0;
+  }
+  else
+  {
+    if ( v2 )
+      *((_BYTE *)v2 + 10) = 1;
+    result = 1;
+    *(_QWORD *)(a1 + 56) = KeGetCurrentThread();
+  }
+  return result;
+}

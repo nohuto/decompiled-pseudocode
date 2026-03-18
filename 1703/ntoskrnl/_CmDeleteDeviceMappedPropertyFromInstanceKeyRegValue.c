@@ -1,0 +1,64 @@
+/*
+ * XREFs of _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x14073F090
+ * Callers:
+ *     _CmSetDeviceMappedProperty @ 0x1404435D8 (_CmSetDeviceMappedProperty.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x14004C0A0 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x14017E120 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x14017F900 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x14048307C (_CmOpenDeviceRegKey.c)
+ */
+
+__int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a1, __int64 a2, void *a3, __int64 a4)
+{
+  HANDLE v4; // rdi
+  DEVPROPKEY **v5; // r10
+  int v6; // ebx
+  unsigned int i; // r11d
+  DEVPROPKEY *v11; // rdx
+  DEVPROPKEY **v12; // rsi
+  __int64 v13; // rcx
+  NTSTATUS inited; // eax
+  HANDLE Handle; // [rsp+40h] [rbp-38h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+48h] [rbp-30h] BYREF
+
+  v4 = 0LL;
+  v5 = &off_14074A8B0;
+  v6 = 0;
+  Handle = 0LL;
+  for ( i = 0; i < 2; ++i )
+  {
+    v11 = *v5;
+    v12 = v5;
+    if ( *(_DWORD *)(a4 + 16) == (*v5)->pid )
+    {
+      v13 = *(_QWORD *)a4 - *(_QWORD *)&v11->fmtid.Data1;
+      if ( *(_QWORD *)a4 == *(_QWORD *)&v11->fmtid.Data1 )
+        v13 = *(_QWORD *)(a4 + 8) - *(_QWORD *)v11->fmtid.Data4;
+      if ( !v13 )
+        break;
+    }
+    v12 = 0LL;
+    v5 += 4;
+  }
+  if ( !v12 )
+    return (unsigned int)-1073741264;
+  if ( a3 )
+    goto LABEL_12;
+  v6 = CmOpenDeviceRegKey(a1, a2, 0x10u, 0, 2, 0, (__int64)&Handle, 0LL);
+  if ( v6 >= 0 )
+  {
+    v4 = Handle;
+LABEL_12:
+    if ( a3 )
+      v4 = a3;
+    inited = RtlInitUnicodeStringEx(&DestinationString, (PCWSTR)v12[2]);
+    if ( inited >= 0 )
+      inited = ZwDeleteValueKey(v4, &DestinationString);
+    if ( inited != -1073741772 && inited != -1073741444 && inited < 0 )
+      v6 = inited;
+  }
+  if ( Handle )
+    ZwClose(Handle);
+  return (unsigned int)v6;
+}

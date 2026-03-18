@@ -1,0 +1,78 @@
+/*
+ * XREFs of AlpcpLookasidePacketCallbackRoutine @ 0x1400EC7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14003DC40 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14003F810 (ObReferenceObjectSafeWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x14003F860 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1400447C0 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoSetIoCompletionEx2 @ 0x1400E8DA8 (IoSetIoCompletionEx2.c)
+ *     AlpcpDeferredFreeCompletionPacketLookaside @ 0x1400EBD00 (AlpcpDeferredFreeCompletionPacketLookaside.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BF308 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+void __fastcall AlpcpLookasidePacketCallbackRoutine(__int64 a1, _QWORD *a2)
+{
+  __int64 v2; // rbx
+  int v3; // esi
+  __int64 v6; // r15
+  int v7; // eax
+  int v8; // eax
+  unsigned __int8 OldIrql; // bp
+  struct _KPRCB *CurrentPrcb; // rcx
+  void *v11; // rdi
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-38h] BYREF
+
+  v2 = a2[2];
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v3 = 0;
+  while ( 1 )
+  {
+    v6 = 0LL;
+    KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)v2, &LockHandle);
+    v7 = *(_DWORD *)(v2 + 16);
+    if ( v7 )
+    {
+      *(_DWORD *)(v2 + 16) = v7 - 1;
+    }
+    else
+    {
+      v8 = *(_DWORD *)(v2 + 20);
+      if ( v8 )
+      {
+        v6 = -1LL;
+        *(_DWORD *)(v2 + 20) = v8 - 1;
+      }
+      else
+      {
+        --*(_DWORD *)(v2 + 12);
+        a1 = 0LL;
+        *a2 = *(_QWORD *)(v2 + 32);
+        *(_QWORD *)(v2 + 32) = a2;
+        if ( !*(_DWORD *)(v2 + 12) && *(_DWORD *)(v2 + 24) )
+          v3 = 1;
+      }
+    }
+    KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+    OldIrql = LockHandle.OldIrql;
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      _InterlockedAnd((volatile signed __int32 *)CurrentPrcb->SchedulerAssist, 0xFFFEFFFF);
+      KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    }
+    __writecr8(OldIrql);
+    if ( !a1 )
+      break;
+    if ( ObReferenceObjectSafeWithTag(*(_QWORD *)(v2 + 40)) )
+    {
+      v11 = *(void **)(v2 + 40);
+      IoSetIoCompletionEx2((__int64)v11, *(_QWORD *)(v2 + 48), v6, 0, 0LL, 0, a1, 0);
+      ObfDereferenceObjectWithTag(v11, 0x746C6644u);
+      break;
+    }
+  }
+  if ( v3 )
+    AlpcpDeferredFreeCompletionPacketLookaside((_QWORD *)v2);
+}

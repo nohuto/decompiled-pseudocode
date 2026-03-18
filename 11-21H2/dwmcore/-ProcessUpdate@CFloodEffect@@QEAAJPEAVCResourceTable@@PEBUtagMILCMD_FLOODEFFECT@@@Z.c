@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?ProcessUpdate@CFloodEffect@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_FLOODEFFECT@@@Z @ 0x1802063AC
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1800C0A08 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CFloodEffect::ProcessUpdate(
+        CFloodEffect *this,
+        struct CResourceTable *a2,
+        const struct tagMILCMD_FLOODEFFECT *a3)
+{
+  __int64 v3; // rax
+
+  v3 = *(_QWORD *)this;
+  *((_OWORD *)this + 10) = *(_OWORD *)((char *)a3 + 8);
+  (*(void (__fastcall **)(CFloodEffect *, _QWORD, _QWORD))(v3 + 72))(this, 0LL, 0LL);
+  return 0LL;
+}

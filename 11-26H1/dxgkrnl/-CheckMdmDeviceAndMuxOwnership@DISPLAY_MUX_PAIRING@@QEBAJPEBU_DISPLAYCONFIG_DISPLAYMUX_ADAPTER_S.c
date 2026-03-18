@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?CheckMdmDeviceAndMuxOwnership@DISPLAY_MUX_PAIRING@@QEBAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPORT@@PEAE1@Z @ 0x14008B29C
+ * Callers:
+ *     ?CheckMdmDeviceAndMuxOwnership@DISPLAY_MUX_MGR@@QEBAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPORT@@PEAE1@Z @ 0x14008B138 (-CheckMdmDeviceAndMuxOwnership@DISPLAY_MUX_MGR@@QEBAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPO.c)
+ * Callees:
+ *     ?DoesGpuChildMatchMuxTargets@DISPLAY_MUX_DEVICE@@QEAA?AW4MUX_GPU_CHILD@@PEBU_UNICODE_STRING@@@Z @ 0x14008BCA0 (-DoesGpuChildMatchMuxTargets@DISPLAY_MUX_DEVICE@@QEAA-AW4MUX_GPU_CHILD@@PEBU_UNICODE_STRING@@@Z.c)
+ *     ?IsOperational@DISPLAY_MUX_PAIRING@@AEBA_NXZ @ 0x14008CDA8 (-IsOperational@DISPLAY_MUX_PAIRING@@AEBA_NXZ.c)
+ */
+
+__int64 __fastcall DISPLAY_MUX_PAIRING::CheckMdmDeviceAndMuxOwnership(
+        DISPLAY_MUX_PAIRING *this,
+        const struct _DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPORT *a2,
+        unsigned __int8 *a3,
+        bool *a4)
+{
+  __int64 v7; // rdx
+  NTSTATUS v8; // ebx
+  int DoesGpuChildMatchMuxTargets; // eax
+  struct _UNICODE_STRING UnicodeString; // [rsp+20h] [rbp-28h] BYREF
+  struct _STRING DestinationString; // [rsp+30h] [rbp-18h] BYREF
+
+  *a3 = 0;
+  *a4 = 0;
+  if ( DISPLAY_MUX_PAIRING::IsOperational(this) )
+  {
+    DestinationString = 0LL;
+    UnicodeString = 0LL;
+    RtlInitAnsiString(&DestinationString, (PCSZ)(v7 + 224));
+    v8 = RtlAnsiStringToUnicodeString(&UnicodeString, &DestinationString, 1u);
+    if ( v8 >= 0 )
+    {
+      DoesGpuChildMatchMuxTargets = DISPLAY_MUX_DEVICE::DoesGpuChildMatchMuxTargets(
+                                      *((_QWORD *)this + 1),
+                                      &UnicodeString);
+      if ( (unsigned int)(DoesGpuChildMatchMuxTargets - 1) <= 1 )
+        *a3 = 1;
+      v8 = 0;
+      *a4 = DoesGpuChildMatchMuxTargets == *(_DWORD *)(*((_QWORD *)this + 1) + 72LL);
+    }
+    else
+    {
+      WdLogSingleEntry1(2LL);
+      WdLogGlobalForLineNumber = 2409;
+    }
+    RtlFreeUnicodeString(&UnicodeString);
+  }
+  else
+  {
+    v8 = -1073741823;
+    WdLogSingleEntry1(2LL);
+    WdLogGlobalForLineNumber = 2394;
+  }
+  return (unsigned int)v8;
+}

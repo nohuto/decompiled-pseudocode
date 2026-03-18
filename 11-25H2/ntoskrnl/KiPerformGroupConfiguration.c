@@ -1,0 +1,46 @@
+/*
+ * XREFs of KiPerformGroupConfiguration @ 0x140C17CD0
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140BFB048 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     strstr @ 0x1404FB230 (strstr.c)
+ *     HvlIsSingleGroupRequired @ 0x14057F084 (HvlIsSingleGroupRequired.c)
+ *     KiFinalizeGroupAssignment @ 0x1405B7664 (KiFinalizeGroupAssignment.c)
+ *     KiAssignAllSubNodesToGroup0 @ 0x140C178B8 (KiAssignAllSubNodesToGroup0.c)
+ *     KiPerformAutomaticGroupConfiguration @ 0x140C178FC (KiPerformAutomaticGroupConfiguration.c)
+ *     KiPerformExplicitGroupAssignment @ 0x140C17ADC (KiPerformExplicitGroupAssignment.c)
+ *     KiPopulateNodeInformation @ 0x140C17D9C (KiPopulateNodeInformation.c)
+ *     KiPopulateSubNodes @ 0x140C180B0 (KiPopulateSubNodes.c)
+ */
+
+__int64 __fastcall KiPerformGroupConfiguration(__int64 a1)
+{
+  int v3; // [rsp+38h] [rbp+10h] BYREF
+  unsigned int v4; // [rsp+40h] [rbp+18h] BYREF
+
+  v4 = 0;
+  v3 = 0;
+  KiPopulateNodeInformation(&v4, &v3);
+  KiPopulateSubNodes();
+  if ( HvlIsSingleGroupRequired() )
+    goto LABEL_11;
+  if ( !KiPerformExplicitGroupAssignment(*(_DWORD **)(*(_QWORD *)(a1 + 240) + 304LL), v3) )
+  {
+    if ( strstr(*(const char **)(a1 + 216), "MAXGROUP=OFF") )
+    {
+      KiMaximizeGroupsCreated = 0;
+    }
+    else if ( strstr(*(const char **)(a1 + 216), "MAXGROUP") )
+    {
+      KiMaximizeGroupsCreated = 1;
+    }
+    if ( KiSubNodeCount != 1 && (KiMaximizeGroupsCreated || v4 > KiMaximumGroupSize) )
+    {
+      KiPerformAutomaticGroupConfiguration();
+      return KiFinalizeGroupAssignment();
+    }
+LABEL_11:
+    KiAssignAllSubNodesToGroup0();
+  }
+  return KiFinalizeGroupAssignment();
+}

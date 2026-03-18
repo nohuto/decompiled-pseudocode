@@ -1,0 +1,37 @@
+/*
+ * XREFs of EtwTraceDisplayChange @ 0x1C00A3790
+ * Callers:
+ *     ?UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z @ 0x1C00A34BC (-UpdateDisplayState@@YAXW4_MONITOR_DISPLAY_STATE@@W4POWER_MONITOR_REQUEST_REASON@@HH@Z.c)
+ *     ?UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C00DCBF4 (-UpdateSessionPowerState@@YAXHW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ * Callees:
+ *     McTemplateK0qqhhh @ 0x1C00E3528 (McTemplateK0qqhhh.c)
+ */
+
+char __fastcall EtwTraceDisplayChange(int a1, __int64 a2, int a3)
+{
+  char result; // al
+
+  if ( (*(_QWORD *)&WPP_MAIN_CB.SectorSize & 0x2000000000008000LL) != 0 )
+  {
+    result = byte_1C0188DA8 - 1;
+    if ( (unsigned __int8)(byte_1C0188DA8 - 1) > 2u && (qword_1C0188D90 & 0x2000000000008000LL) != 0 )
+    {
+      result = 0;
+      if ( (qword_1C0188D98 & 0x2000000000008000LL) == qword_1C0188D98 )
+      {
+        result = (char)Microsoft_Windows_Win32kEnableBits;
+        if ( ((unsigned __int8)Microsoft_Windows_Win32kEnableBits & 8) != 0 )
+          return McTemplateK0qqhhh(
+                   a1,
+                   0x8000,
+                   a3,
+                   gPowerDisplayState,
+                   qword_1C0190F38,
+                   dword_1C0190F6C,
+                   dword_1C0190F70,
+                   word_1C0190F74);
+      }
+    }
+  }
+  return result;
+}

@@ -1,0 +1,49 @@
+/*
+ * XREFs of IommupDeviceGetPasidDevice @ 0x14050E0CC
+ * Callers:
+ *     IommuDomainAttachDeviceEx @ 0x140525910 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x140525D50 (IommuDomainDetachDeviceEx.c)
+ *     IommupDeviceDisableSvm @ 0x140933C1C (IommupDeviceDisableSvm.c)
+ *     IommuDeviceDelete @ 0x140935490 (IommuDeviceDelete.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140231030 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140231260 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1402BD960 (ExfTryToWakePushLock.c)
+ */
+
+char __fastcall IommupDeviceGetPasidDevice(__int64 a1, __int64 a2, char a3, _QWORD *a4)
+{
+  volatile signed __int64 *v4; // rsi
+  char v6; // di
+  _QWORD *v9; // rbx
+  _QWORD *i; // rax
+  _QWORD *v11; // rdx
+  _QWORD *v12; // rcx
+
+  v4 = (volatile signed __int64 *)(a1 + 376);
+  v6 = 0;
+  *a4 = 0LL;
+  ExAcquirePushLockExclusiveEx(a1 + 376, 0LL);
+  v9 = (_QWORD *)(a1 + 360);
+  for ( i = (_QWORD *)*v9; i != v9; i = (_QWORD *)*i )
+  {
+    if ( !*((_DWORD *)i + 12) )
+    {
+      if ( a3 )
+      {
+        v11 = (_QWORD *)*i;
+        if ( *(_QWORD **)(*i + 8LL) != i || (v12 = (_QWORD *)i[1], (_QWORD *)*v12 != i) )
+          __fastfail(3u);
+        *v12 = v11;
+        v11[1] = v12;
+      }
+      v6 = 1;
+      *a4 = i;
+      break;
+    }
+  }
+  if ( (_InterlockedExchangeAdd64(v4, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock(v4);
+  KeAbPostRelease((ULONG_PTR)v4);
+  return v6;
+}

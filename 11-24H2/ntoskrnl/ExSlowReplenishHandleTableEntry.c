@@ -1,0 +1,30 @@
+/*
+ * XREFs of ExSlowReplenishHandleTableEntry @ 0x140445670
+ * Callers:
+ *     PsLookupThreadByThreadId @ 0x14084A4B0 (PsLookupThreadByThreadId.c)
+ *     ObWaitForMultipleObjects @ 0x14084AF80 (ObWaitForMultipleObjects.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14084B7E0 (ObpReferenceObjectByHandleWithTag.c)
+ *     PsOpenProcess @ 0x140854350 (PsOpenProcess.c)
+ *     NtWriteFile @ 0x1408C1170 (NtWriteFile.c)
+ *     PspThreadFromTicket @ 0x140912E70 (PspThreadFromTicket.c)
+ *     PsLookupProcessByProcessId @ 0x14094DC80 (PsLookupProcessByProcessId.c)
+ *     ObReferenceFileObjectForWrite @ 0x140988C30 (ObReferenceFileObjectForWrite.c)
+ *     NtAlertThreadByThreadIdEx @ 0x1409A5CD0 (NtAlertThreadByThreadIdEx.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ExSlowReplenishHandleTableEntry(unsigned __int64 *a1)
+{
+  unsigned __int64 v1; // r8
+  __int64 result; // rax
+
+  v1 = *a1;
+  result = 0LL;
+  if ( (*a1 & 0x1FFFE) < 0xFFFE && !ExpHandleTableFastRefsDisabled )
+  {
+    result = 0x7FFF - (unsigned int)(unsigned __int16)(v1 >> 1);
+    *a1 = v1 & 0xFFFFFFFFFFFE0001uLL | 0xFFFE;
+  }
+  return result;
+}

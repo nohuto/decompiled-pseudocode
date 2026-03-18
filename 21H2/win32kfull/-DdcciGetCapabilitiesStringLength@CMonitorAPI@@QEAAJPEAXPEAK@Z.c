@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z @ 0x1C026F078
+ * Callers:
+ *     NtGdiDDCCIGetCapabilitiesStringLength @ 0x1C026FD80 (NtGdiDDCCIGetCapabilitiesStringLength.c)
+ * Callees:
+ *     ?DdcciGetCapabilitiesStringLength@CPhysicalMonitorHandle@@QEAAJPEAK@Z @ 0x1C026F104 (-DdcciGetCapabilitiesStringLength@CPhysicalMonitorHandle@@QEAAJPEAK@Z.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026F9D4 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ */
+
+__int64 __fastcall CMonitorAPI::DdcciGetCapabilitiesStringLength(CMonitorAPI *this, void *a2, unsigned int *a3)
+{
+  char *v3; // rbx
+  int HandleObject; // ebx
+  CPhysicalMonitorHandle *v8; // [rsp+30h] [rbp+8h] BYREF
+  char v9; // [rsp+48h] [rbp+20h] BYREF
+
+  v8 = this;
+  v3 = (char *)P;
+  OPM::CAutoMutex::CAutoMutex((OPM::CAutoMutex *)&v9, (struct OPM::CMutex *)P);
+  v8 = 0LL;
+  HandleObject = OPM::CMonitorHandleTable<CPhysicalMonitorHandle,void *>::GetHandleObject(v3 + 8, a2, &v8);
+  if ( HandleObject >= 0 )
+    HandleObject = CPhysicalMonitorHandle::DdcciGetCapabilitiesStringLength(v8, a3);
+  OPM::CAutoMutex::~CAutoMutex((OPM::CAutoMutex *)&v9);
+  return (unsigned int)HandleObject;
+}

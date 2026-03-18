@@ -1,0 +1,134 @@
+/*
+ * XREFs of ?EnsureDDisplayManager@CDDisplayManager@@QEAAJXZ @ 0x18021BFE4
+ * Callers:
+ *     ?CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJPEAVCD3DDevice@@AEBVRenderTargetInfo@@IAEBUPixelFormatInfo@@AEBUD2D_SIZE_U@@IPEAXPEAPEAVCDDisplaySwapChain@@@Z @ 0x1802CBB7C (-CreateDDisplaySwapchainForSource@CDDisplayManager@@QEAAJPEAVCD3DDevice@@AEBVRenderTargetInfo@@I.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002F800 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800E7950 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??1last_error_context@wil@@QEAA@XZ @ 0x1802273D8 (--1last_error_context@wil@@QEAA@XZ.c)
+ *     ??0last_error_context@wil@@QEAA@XZ @ 0x1802273FC (--0last_error_context@wil@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x18025BF00 (__security_check_cookie.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAUHSTRING__@@P6AJPEAU1@@Z$1?WindowsDeleteString@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@QEAA@XZ @ 0x1802CA928 (--1-$unique_storage@U-$resource_policy@PEAUHSTRING__@@P6AJPEAU1@@Z$1-WindowsDeleteString@@YAJ0@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CDDisplayManager::EnsureDDisplayManager(CDDisplayManager *this)
+{
+  unsigned int v1; // ebx
+  HRESULT v3; // eax
+  int ActivationFactory; // eax
+  __int64 v5; // rcx
+  _QWORD *v6; // rbx
+  __int64 v7; // rax
+  __int64 (__fastcall *v8)(_QWORD *, __int64, void *); // rdi
+  int v9; // eax
+  HRESULT v10; // eax
+  __int64 v11; // rcx
+  int v12; // eax
+  HRESULT v13; // eax
+  __int64 v14; // rcx
+  int v15; // eax
+  HSTRING v16; // [rsp+38h] [rbp-29h] BYREF
+  HSTRING v17; // [rsp+40h] [rbp-21h] BYREF
+  _QWORD *v18; // [rsp+48h] [rbp-19h] BYREF
+  HSTRING string; // [rsp+50h] [rbp-11h] BYREF
+  HSTRING_HEADER hstringHeader; // [rsp+60h] [rbp-1h] BYREF
+  HSTRING_HEADER v21; // [rsp+78h] [rbp+17h] BYREF
+  HSTRING_HEADER v22; // [rsp+90h] [rbp+2Fh] BYREF
+
+  v1 = 0;
+  if ( !g_DDisplayManager )
+  {
+    v18 = 0LL;
+    v17 = 0LL;
+    v16 = 0LL;
+    string = 0LL;
+    memset(&hstringHeader, 0, sizeof(hstringHeader));
+    memset(&v21, 0, sizeof(v21));
+    memset(&v22, 0, sizeof(v22));
+    v3 = WindowsCreateStringReference(L"Windows.Devices.Display.Core.DisplayManager", 0x2Bu, &hstringHeader, &string);
+    v1 = v3;
+    if ( v3 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v3, 0x5Eu, 0LL);
+    }
+    else
+    {
+      ActivationFactory = RoGetActivationFactory(string, &GUID_2b6b9446_b999_5535_9d69_53f092c780a1, &v18);
+      v1 = ActivationFactory;
+      if ( ActivationFactory < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, ActivationFactory, 0x5Fu, 0LL);
+      }
+      else
+      {
+        v5 = g_DDisplayManager;
+        v6 = v18;
+        v7 = *v18;
+        g_DDisplayManager = 0LL;
+        v8 = *(__int64 (__fastcall **)(_QWORD *, __int64, void *))(v7 + 48);
+        if ( v5 )
+          (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+        v9 = v8(v6, 2LL, &g_DDisplayManager);
+        v1 = v9;
+        if ( v9 < 0 )
+        {
+          MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v9, 0x60u, 0LL);
+        }
+        else
+        {
+          v17 = 0LL;
+          v10 = WindowsCreateStringReference(
+                  L"Windows.Devices.Display.Core.DisplayPrimaryDescription",
+                  0x36u,
+                  &v21,
+                  &v17);
+          v1 = v10;
+          if ( v10 < 0 )
+          {
+            MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v10, 0x66u, 0LL);
+          }
+          else
+          {
+            v11 = qword_180406BD8;
+            qword_180406BD8 = 0LL;
+            if ( v11 )
+              (*(void (__fastcall **)(__int64))(*(_QWORD *)v11 + 16LL))(v11);
+            v12 = RoGetActivationFactory(v17, &GUID_e60e4cfb_36c9_56dd_8fa1_6ff8c4e0ff07, &qword_180406BD8);
+            v1 = v12;
+            if ( v12 < 0 )
+            {
+              MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v12, 0x67u, 0LL);
+            }
+            else
+            {
+              v16 = 0LL;
+              v13 = WindowsCreateStringReference(L"Windows.Devices.Display.Core.DisplayHdrMetadata", 0x2Fu, &v22, &v16);
+              v1 = v13;
+              if ( v13 < 0 )
+              {
+                MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v13, 0x6Du, 0LL);
+              }
+              else
+              {
+                v14 = qword_180406BE0;
+                qword_180406BE0 = 0LL;
+                if ( v14 )
+                  (*(void (__fastcall **)(__int64))(*(_QWORD *)v14 + 16LL))(v14);
+                v15 = RoGetActivationFactory(v16, &GUID_028d1ebd_933a_5cba_97d8_fe808844d45d, &qword_180406BE0);
+                v1 = v15;
+                if ( v15 < 0 )
+                  MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v15, 0x6Eu, 0LL);
+              }
+            }
+          }
+        }
+      }
+    }
+    wil::details::unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>(&v16);
+    wil::details::unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>(&v17);
+    wil::details::unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>::~unique_storage<wil::details::resource_policy<HSTRING__ *,long (*)(HSTRING__ *),&long WindowsDeleteString(HSTRING__ *),wistd::integral_constant<unsigned __int64,0>,HSTRING__ *,HSTRING__ *,0,std::nullptr_t>>(&string);
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)&v18);
+  }
+  return v1;
+}

@@ -1,0 +1,41 @@
+/*
+ * XREFs of HalpArtDiscover @ 0x1403A46D8
+ * Callers:
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A434C (HalpTimerRegisterBuiltinPlugins.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14022E1B0 (RtlInitUnicodeString.c)
+ *     HalpArtAvailable @ 0x140377FF0 (HalpArtAvailable.c)
+ *     HalpTimerRegister @ 0x140378AB4 (HalpTimerRegister.c)
+ *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     memset @ 0x140435A00 (memset.c)
+ */
+
+__int64 HalpArtDiscover()
+{
+  UNICODE_STRING DestinationString; // [rsp+20h] [rbp-69h] BYREF
+  _QWORD v2[18]; // [rsp+30h] [rbp-59h] BYREF
+  __int64 v3; // [rsp+C0h] [rbp+37h] BYREF
+  unsigned int v4; // [rsp+C8h] [rbp+3Fh] BYREF
+
+  v3 = 0LL;
+  v4 = 0;
+  DestinationString = 0LL;
+  if ( HalpArtAvailable(&v3, &v4) )
+  {
+    memset(v2, 0, sizeof(v2));
+    v2[13] = 0LL;
+    v2[11] = &v3;
+    v2[0] = 0x9000000001LL;
+    v2[1] = HalpArtInitialize;
+    v2[2] = HalpArtQueryCounter;
+    LODWORD(v2[17]) = 14;
+    HIDWORD(v2[14]) = 1081347;
+    v2[12] = 0x400000000CLL;
+    RtlInitUnicodeString(
+      &DestinationString,
+      L"VEN_vvvv&DEV_dddd&SUBVEN_ssss&SUBDEV_yyyy&REV_rrrr&INST_iiii&UID_uuuuuuuu");
+    HalpTimerRegister((__int64)v2, &DestinationString);
+    HalpTimerAuxiliaryClockEnabled = 1;
+  }
+  return 0LL;
+}

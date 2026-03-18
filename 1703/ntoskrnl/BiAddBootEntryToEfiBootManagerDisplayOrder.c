@@ -1,0 +1,89 @@
+/*
+ * XREFs of BiAddBootEntryToEfiBootManagerDisplayOrder @ 0x140735EE8
+ * Callers:
+ *     BiExportBcdObjects @ 0x14073753C (BiExportBcdObjects.c)
+ * Callees:
+ *     memmove @ 0x140192A40 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140285010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140286010 (ExFreePoolWithTag.c)
+ *     BcdOpenObject @ 0x14058B110 (BcdOpenObject.c)
+ *     BcdCloseObject @ 0x14058B28C (BcdCloseObject.c)
+ *     BcdSetElementDataWithFlags @ 0x14058B49C (BcdSetElementDataWithFlags.c)
+ *     BiGetElement @ 0x1407351D4 (BiGetElement.c)
+ */
+
+__int64 __fastcall BiAddBootEntryToEfiBootManagerDisplayOrder(__int64 a1, __int64 a2)
+{
+  int v3; // ebx
+  int Element; // eax
+  unsigned int v5; // ebx
+  _QWORD *v6; // r8
+  int v7; // r9d
+  __int64 v8; // rcx
+  _OWORD *PoolWithTag; // rax
+  void *v10; // rbp
+  void *v11; // rdx
+  __int64 v12; // r8
+  HANDLE Handle[5]; // [rsp+30h] [rbp-28h] BYREF
+  unsigned int v15; // [rsp+70h] [rbp+18h] BYREF
+  void *Src; // [rsp+78h] [rbp+20h] BYREF
+
+  Src = 0LL;
+  Handle[0] = 0LL;
+  v3 = BcdOpenObject(a1, &GUID_FIRMWARE_BOOTMGR.Data1, Handle);
+  if ( v3 < 0 )
+    goto LABEL_17;
+  Element = BiGetElement((__int64)Handle[0], 0x24000001u, &Src, &v15);
+  v3 = Element;
+  if ( Element == -1073741275 )
+  {
+    v5 = 0;
+    goto LABEL_6;
+  }
+  if ( Element >= 0 )
+  {
+    v5 = v15;
+LABEL_6:
+    v6 = Src;
+    v7 = 0;
+    if ( v5 >> 4 )
+    {
+      while ( 1 )
+      {
+        v8 = *(_QWORD *)(a2 + 16) - *v6;
+        if ( !v8 )
+          v8 = *(_QWORD *)(a2 + 24) - v6[1];
+        if ( !v8 )
+          break;
+        v6 += 2;
+        if ( ++v7 >= v5 >> 4 )
+          goto LABEL_11;
+      }
+      v3 = 0;
+    }
+    else
+    {
+LABEL_11:
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v5 + 16LL, 0x4B444342u);
+      v10 = PoolWithTag;
+      if ( PoolWithTag )
+      {
+        v11 = Src;
+        *PoolWithTag = *(_OWORD *)(a2 + 16);
+        memmove(PoolWithTag + 1, v11, v5);
+        v3 = BcdSetElementDataWithFlags(Handle[0], 0x24000001u, v12, (__int64)v10, v5 + 16);
+        ExFreePoolWithTag(v10, 0x4B444342u);
+      }
+      else
+      {
+        v3 = -1073741801;
+      }
+    }
+  }
+  if ( Src )
+    ExFreePoolWithTag(Src, 0x4B444342u);
+LABEL_17:
+  if ( Handle[0] )
+    BcdCloseObject(Handle[0]);
+  return (unsigned int)v3;
+}

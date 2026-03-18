@@ -1,0 +1,71 @@
+/*
+ * XREFs of ?OnReadNotification@CBaseInput@@AEAAJXZ @ 0x14018A660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreDeleteFastMutex @ 0x14001E920 (GreDeleteFastMutex.c)
+ *     ??0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z @ 0x140039464 (--0ThreadLockedPerfRegion@InputTraceLogging@@QEAA@PEBDPEBU01@@Z.c)
+ *     ??1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ @ 0x14003B014 (--1ThreadLockedPerfRegion@InputTraceLogging@@QEAA@XZ.c)
+ *     ?IsInputSuppressRequested@CBaseInput@@IEBA_NXZ @ 0x140040B68 (-IsInputSuppressRequested@CBaseInput@@IEBA_NXZ.c)
+ *     ??1MaybeEnterLeaveCrit@@QEAA@XZ @ 0x140047520 (--1MaybeEnterLeaveCrit@@QEAA@XZ.c)
+ *     ?OnReadNotification@Win32k@InputTraceLogging@@SAXPEAXK@Z @ 0x140079EA0 (-OnReadNotification@Win32k@InputTraceLogging@@SAXPEAXK@Z.c)
+ *     ??0MaybeEnterLeaveCrit@@QEAA@_N@Z @ 0x1400E4F64 (--0MaybeEnterLeaveCrit@@QEAA@_N@Z.c)
+ *     ?OnInputSuppressed@CBaseInput@@AEBAXXZ @ 0x1400FF860 (-OnInputSuppressed@CBaseInput@@AEBAXXZ.c)
+ *     ?Read@CBaseInput@@QEAAJXZ @ 0x14014A440 (-Read@CBaseInput@@QEAAJXZ.c)
+ *     _guard_dispatch_icall @ 0x140242EE0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall CBaseInput::OnReadNotification(void **this)
+{
+  char v2; // si
+  __int64 v3; // rdx
+  int v4; // r8d
+  int v5; // r9d
+  CBaseInput *v6; // rcx
+  char *v7; // rcx
+  unsigned int v8; // edi
+  char v10; // [rsp+40h] [rbp+8h] BYREF
+  __int64 *v11; // [rsp+48h] [rbp+10h] BYREF
+
+  InputTraceLogging::ThreadLockedPerfRegion::ThreadLockedPerfRegion(&v11, "OnReadNotification", 0LL);
+  if ( *((int *)this + 8) < 0 )
+  {
+    v2 = 0;
+  }
+  else
+  {
+    v2 = 1;
+    LOBYTE(v3) = (*((__int64 (__fastcall **)(void **))*this + 6))(this);
+    MaybeEnterLeaveCrit::MaybeEnterLeaveCrit((MaybeEnterLeaveCrit *)&v10, v3);
+    InputTraceLogging::Win32k::OnReadNotification(this[6], *((_DWORD *)this + 10), v4, v5);
+    (*((void (__fastcall **)(void **, void *, _QWORD, _QWORD, void *))*this + 7))(
+      this,
+      this[8],
+      *((unsigned int *)this + 6),
+      *((unsigned int *)this + 10),
+      this[6]);
+    if ( CBaseInput::IsInputSuppressRequested(v6) )
+      CBaseInput::OnInputSuppressed(this);
+    else
+      (*((void (__fastcall **)(void **, void *, _QWORD, _QWORD, void *))*this + 8))(
+        this,
+        this[8],
+        *((unsigned int *)this + 6),
+        *((unsigned int *)this + 10),
+        this[6]);
+    v7 = (char *)this[9];
+    if ( this[8] != v7 )
+    {
+      if ( v7 != (char *)(this + 10) )
+        GreDeleteFastMutex(v7);
+      this[9] = this[8];
+      *((_DWORD *)this + 14) = *((_DWORD *)this + 10);
+    }
+    MaybeEnterLeaveCrit::~MaybeEnterLeaveCrit((MaybeEnterLeaveCrit *)&v10);
+  }
+  v8 = CBaseInput::Read((CBaseInput *)this);
+  if ( v2 )
+    (*((void (__fastcall **)(void **))*this + 9))(this);
+  InputTraceLogging::ThreadLockedPerfRegion::~ThreadLockedPerfRegion((InputTraceLogging::ThreadLockedPerfRegion *)&v11);
+  return v8;
+}

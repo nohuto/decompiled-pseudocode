@@ -1,0 +1,16 @@
+/*
+ * XREFs of NeedsApertureForLock @ 0x1400399DC
+ * Callers:
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1400CFED0 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@@@Z @ 0x1400D09E8 (-ProcessSystemCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N_KPEAU_VIDSCH_SYNC_OBJECT@.c)
+ *     ?LockCommon@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@_NKPEAPEAXPEA_N@Z @ 0x1400E7D78 (-LockCommon@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@_NKPEAPEAXPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall NeedsApertureForLock(__int64 a1, _DWORD *a2)
+{
+  return (a2[6] & 0xD000) == 0
+      && (*(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 40320) + 8LL * ((*(_DWORD *)(*(_QWORD *)a2 + 52LL) >> 2) & 0x3F))
+                   + 558LL) & 0x40) != 0;
+}

@@ -1,0 +1,53 @@
+/*
+ * XREFs of DpiQueryBusInterface @ 0x140423E24
+ * Callers:
+ *     ?Init@DISPLAY_MUX_DEVICE@@QEAAJPEBU_UNICODE_STRING@@@Z @ 0x14008C758 (-Init@DISPLAY_MUX_DEVICE@@QEAAJPEBU_UNICODE_STRING@@@Z.c)
+ *     DpiAddDevice @ 0x14023C1E0 (DpiAddDevice.c)
+ *     DpiFdoInitializeFdo @ 0x140243960 (DpiFdoInitializeFdo.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DpiQueryBusInterface(PDEVICE_OBJECT DeviceObject, ULONG_PTR a2, USHORT a3, USHORT a4, __int64 a5)
+{
+  PIRP v9; // rax
+  unsigned int v10; // ebx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rcx
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+40h] [rbp-38h] BYREF
+  struct _KEVENT Object; // [rsp+50h] [rbp-28h] BYREF
+
+  memset(&Object, 0, sizeof(Object));
+  IoStatusBlock = 0LL;
+  KeInitializeEvent(&Object, SynchronizationEvent, 0);
+  v9 = IoBuildSynchronousFsdRequest(0x1Bu, DeviceObject, 0LL, 0, 0LL, &Object, &IoStatusBlock);
+  if ( v9 )
+  {
+    CurrentStackLocation = v9->Tail.Overlay.CurrentStackLocation;
+    CurrentStackLocation[-1].MinorFunction = 8;
+    CurrentStackLocation[-1].Parameters.WMI.ProviderId = a2;
+    CurrentStackLocation[-1].Parameters.QueryInterface.Size = a3;
+    CurrentStackLocation[-1].Parameters.QueryInterface.Version = a4;
+    CurrentStackLocation[-1].Parameters.Read.ByteOffset.QuadPart = a5;
+    CurrentStackLocation[-1].Parameters.CreatePipe.Parameters = 0LL;
+    v9->IoStatus.Status = -1073741637;
+    v10 = IofCallDriver(DeviceObject, v9);
+    if ( v10 == 259 )
+    {
+      v10 = KeWaitForSingleObject(&Object, Executive, 0, 0, 0LL);
+      if ( v10 )
+      {
+        WdLogSingleEntry1(2LL);
+        WdLogGlobalForLineNumber = 2450;
+      }
+      else
+      {
+        return (unsigned int)IoStatusBlock.Status;
+      }
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741670;
+  }
+  return v10;
+}

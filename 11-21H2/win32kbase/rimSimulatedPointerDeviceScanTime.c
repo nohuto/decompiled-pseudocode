@@ -1,0 +1,34 @@
+/*
+ * XREFs of rimSimulatedPointerDeviceScanTime @ 0x1C00E7494
+ * Callers:
+ *     rimUpdatePointerDeviceFrameScanTime @ 0x1C01B2A14 (rimUpdatePointerDeviceFrameScanTime.c)
+ * Callees:
+ *     ?UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z @ 0x1C00E6F1A (-UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z.c)
+ */
+
+void __fastcall rimSimulatedPointerDeviceScanTime(__int64 a1, __int64 a2, __int64 *a3, int *a4)
+{
+  __int64 v4; // r8
+  __int64 v6; // rcx
+  int v7; // edx
+  int v8; // eax
+
+  v4 = *a3;
+  v6 = a2 + 832;
+  if ( ++*(_DWORD *)(a2 + 856) == 1 )
+  {
+    v7 = *a4;
+    *(_DWORD *)v6 = *a4;
+    *(_QWORD *)(v6 + 40) = v4;
+  }
+  else
+  {
+    v7 = (unsigned __int64)(1000 * (v4 - *(_QWORD *)(a2 + 872))) / *(_QWORD *)(a1 + 744) + *(_DWORD *)v6;
+    *a4 = v7;
+  }
+  v8 = *(_DWORD *)(v6 + 4);
+  *(_DWORD *)(v6 + 4) = v7;
+  *(_QWORD *)(v6 + 32) = v4;
+  *(_DWORD *)(v6 + 8) = v8;
+  InputTraceLogging::RIM::UpdateScantime((const struct tagHPD_FRAME_SCAN_TIME *)v6);
+}

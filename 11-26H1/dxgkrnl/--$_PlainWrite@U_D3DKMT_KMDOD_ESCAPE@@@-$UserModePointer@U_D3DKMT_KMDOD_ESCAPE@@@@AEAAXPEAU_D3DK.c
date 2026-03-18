@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??$_PlainWrite@U_D3DKMT_KMDOD_ESCAPE@@@?$UserModePointer@U_D3DKMT_KMDOD_ESCAPE@@@@AEAAXPEAU_D3DKMT_KMDOD_ESCAPE@@AEBU1@@Z @ 0x14009A518
+ * Callers:
+ *     ?Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x1403C5B84 (-Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVIC.c)
+ * Callees:
+ *     RtlCopyToUser @ 0x1401966EC (RtlCopyToUser.c)
+ */
+
+__int64 __fastcall UserModePointer<_D3DKMT_KMDOD_ESCAPE>::_PlainWrite<_D3DKMT_KMDOD_ESCAPE>(
+        __int64 a1,
+        void *a2,
+        void *a3)
+{
+  return RtlCopyToUser(a2, a3, 0x50uLL);
+}

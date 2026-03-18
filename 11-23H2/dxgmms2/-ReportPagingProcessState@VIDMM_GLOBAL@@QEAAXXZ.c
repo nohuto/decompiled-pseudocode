@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E6FC4
+ * Callers:
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E7160 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     memset @ 0x1C001AC00 (memset.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EB30 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00C3FE2 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::ReportPagingProcessState(VIDMM_GLOBAL *this)
+{
+  __int64 i; // rdi
+  __int64 v3; // [rsp+28h] [rbp-80h]
+  __int64 v4; // [rsp+30h] [rbp-78h]
+  _QWORD v5[10]; // [rsp+50h] [rbp-58h] BYREF
+
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 1754); i = (unsigned int)(i + 1) )
+  {
+    memset(v5, 0, sizeof(v5));
+    if ( bTracingEnabled && (byte_1C0076981 & 1) != 0 )
+    {
+      LODWORD(v4) = HIDWORD(v5[0]);
+      LODWORD(v3) = 4;
+      McTemplateK0ppqqpx_EtwWriteTransfer(
+        (__int64)&DxgkControlGuid_Context,
+        &EventReportMonitoredFence,
+        0LL,
+        *((_QWORD *)this + 3),
+        *((_QWORD *)this + i + 749),
+        v3,
+        v4,
+        0LL,
+        v5[1]);
+    }
+  }
+  VIDMM_DEVICE::ReportState(*((VIDMM_DEVICE **)this + 5049));
+}

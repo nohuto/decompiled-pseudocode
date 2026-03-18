@@ -1,0 +1,41 @@
+/*
+ * XREFs of ??4DDisplayTaskPoolResources@@QEAAAEAU0@$$QEAU0@@Z @ 0x1802CAD90
+ * Callers:
+ *     ?CreateTaskPool@CDDisplayManager@@AEAAJPEAVCD3DDevice@@AEBUDDisplayTargetResources@@PEAUDDisplayTaskPoolResources@@@Z @ 0x1801FB564 (-CreateTaskPool@CDDisplayManager@@AEAAJPEAVCD3DDevice@@AEBUDDisplayTargetResources@@PEAUDDisplay.c)
+ * Callees:
+ *     ??4?$unique_any_t@V?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@@wil@@QEAAAEAV01@$$QEAV01@@Z @ 0x1800FF12C (--4-$unique_any_t@V-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-Clo_ea_1800FF12C.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 *__fastcall DDisplayTaskPoolResources::operator=(__int64 *a1, __int64 *a2)
+{
+  __int64 v2; // rax
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  __int64 v8; // rax
+  __int64 v9; // rcx
+
+  v2 = *a2;
+  *a2 = 0LL;
+  v5 = *a1;
+  *a1 = v2;
+  if ( v5 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v5 + 16LL))(v5);
+  v6 = a2[1];
+  a2[1] = 0LL;
+  v7 = a1[1];
+  a1[1] = v6;
+  if ( v7 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v7 + 16LL))(v7);
+  wil::unique_any_t<wil::details::unique_storage<wil::details::handle_null_resource_policy<int (*)(void *),&int CloseHandle(void *)>>>::operator=(
+    a1 + 2,
+    a2 + 2);
+  v8 = a2[3];
+  a2[3] = 0LL;
+  v9 = a1[3];
+  a1[3] = v8;
+  if ( v9 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v9 + 16LL))(v9);
+  return a1;
+}

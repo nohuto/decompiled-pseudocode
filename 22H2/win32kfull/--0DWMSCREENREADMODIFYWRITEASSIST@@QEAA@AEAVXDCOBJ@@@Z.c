@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??0DWMSCREENREADMODIFYWRITEASSIST@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C013F338
+ * Callers:
+ *     NtGdiPolyPatBlt @ 0x1C002C310 (NtGdiPolyPatBlt.c)
+ * Callees:
+ *     <none>
+ */
+
+DWMSCREENREADMODIFYWRITEASSIST *__fastcall DWMSCREENREADMODIFYWRITEASSIST::DWMSCREENREADMODIFYWRITEASSIST(
+        DWMSCREENREADMODIFYWRITEASSIST *this,
+        struct XDCOBJ *a2)
+{
+  *((_QWORD *)this + 3) = a2;
+  return this;
+}

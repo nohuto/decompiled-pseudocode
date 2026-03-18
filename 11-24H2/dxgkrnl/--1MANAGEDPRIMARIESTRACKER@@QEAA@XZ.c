@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??1MANAGEDPRIMARIESTRACKER@@QEAA@XZ @ 0x1403924AC
+ * Callers:
+ *     ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1401B9E28 (-DisableDWMVirtualModeOnVidPnSource@@YAJII@Z.c)
+ *     ?DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1401BA340 (-DxgkReleaseVidPnSourceOwnerAndRestartCdds@@YAXPEAVDXGDEVICE@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1403C9B44 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ?ReleasePDevDwmStateAndWin32kLocks@MANAGEDPRIMARIESTRACKER@@QEAAXXZ @ 0x140392524 (-ReleasePDevDwmStateAndWin32kLocks@MANAGEDPRIMARIESTRACKER@@QEAAXXZ.c)
+ */
+
+void __fastcall MANAGEDPRIMARIESTRACKER::~MANAGEDPRIMARIESTRACKER(MANAGEDPRIMARIESTRACKER *this)
+{
+  if ( (*((_DWORD *)this + 104) & 4) != 0 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 270;
+    DxgkLogInternalTriageEvent(0LL, 262146LL, 0xFFFFFFFFLL, L"(FALSE == m_u.s.bStateSaved)", 270LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  MANAGEDPRIMARIESTRACKER::ReleasePDevDwmStateAndWin32kLocks(this);
+}

@@ -1,0 +1,54 @@
+/*
+ * XREFs of PpmEventCoreParkingStateChangeEx @ 0x1401C0148
+ * Callers:
+ *     PpmParkReportParkedCore @ 0x1402F850C (PpmParkReportParkedCore.c)
+ * Callees:
+ *     EtwWrite @ 0x140036670 (EtwWrite.c)
+ *     EtwEventEnabled @ 0x1400476B0 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14019EE20 (__security_check_cookie.c)
+ */
+
+char __fastcall PpmEventCoreParkingStateChangeEx(__int64 a1, char a2)
+{
+  _UNKNOWN **v2; // rax
+  REGHANDLE v5; // rbx
+  __int16 v7; // [rsp+38h] [rbp-9h] BYREF
+  BOOL v8; // [rsp+3Ch] [rbp-5h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+48h] [rbp+7h] BYREF
+  __int16 *v10; // [rsp+58h] [rbp+17h]
+  int v11; // [rsp+60h] [rbp+1Fh]
+  int v12; // [rsp+64h] [rbp+23h]
+  __int64 v13; // [rsp+68h] [rbp+27h]
+  int v14; // [rsp+70h] [rbp+2Fh]
+  int v15; // [rsp+74h] [rbp+33h]
+  BOOL *v16; // [rsp+78h] [rbp+37h]
+  int v17; // [rsp+80h] [rbp+3Fh]
+  int v18; // [rsp+84h] [rbp+43h]
+  _UNKNOWN *retaddr; // [rsp+A0h] [rbp+5Fh] BYREF
+
+  v2 = &retaddr;
+  if ( PpmEtwRegistered )
+  {
+    v5 = PpmEtwHandle;
+    LOBYTE(v2) = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_PARK_CORE);
+    if ( (_BYTE)v2 )
+    {
+      UserData.Reserved = 0;
+      v12 = 0;
+      v15 = 0;
+      UserData.Ptr = (ULONGLONG)&PpmCheckTime;
+      v7 = *(unsigned __int8 *)(a1 + 208);
+      v10 = &v7;
+      v13 = a1 + 209;
+      UserData.Size = 8;
+      v11 = 2;
+      v14 = 1;
+      v18 = 0;
+      v8 = a2 != 0;
+      v16 = &v8;
+      v17 = 4;
+      LOBYTE(v2) = EtwWrite(v5, &PPM_ETW_PARK_CORE, 0LL, 4u, &UserData);
+    }
+  }
+  return (char)v2;
+}

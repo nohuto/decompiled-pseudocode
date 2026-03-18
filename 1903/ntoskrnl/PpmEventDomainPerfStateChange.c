@@ -1,0 +1,144 @@
+/*
+ * XREFs of PpmEventDomainPerfStateChange @ 0x140177408
+ * Callers:
+ *     PpmPerfApplyDomainState @ 0x14010C980 (PpmPerfApplyDomainState.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140036300 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140047610 (EtwEventEnabled.c)
+ *     KeAndGroupAffinityEx @ 0x1401478E0 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x14019E700 (__security_check_cookie.c)
+ *     PpmFireWmiEvent @ 0x140301388 (PpmFireWmiEvent.c)
+ */
+
+BOOLEAN __fastcall PpmEventDomainPerfStateChange(__int64 a1)
+{
+  BOOLEAN result; // al
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  unsigned __int16 v5; // ax
+  unsigned __int16 v6; // bx
+  _OWORD *v7; // rdx
+  bool v8; // cf
+  __int64 v9; // rcx
+  bool v10; // zf
+  unsigned int v11; // r8d
+  _OWORD *v12; // rdx
+  __int64 v13; // r9
+  __int64 v14; // rcx
+  __int64 v15; // rcx
+  __int64 v16; // rcx
+  __int64 v17; // rcx
+  unsigned int v18; // r8d
+  __int64 v19; // rcx
+  __int64 v20; // rcx
+  int v21; // eax
+  __int64 v22; // rax
+  REGHANDLE v23; // rcx
+  int v24; // [rsp+48h] [rbp-C0h] BYREF
+  int v25; // [rsp+4Ch] [rbp-BCh] BYREF
+  unsigned int v26; // [rsp+50h] [rbp-B8h] BYREF
+  int v27; // [rsp+54h] [rbp-B4h] BYREF
+  _DWORD v28[2]; // [rsp+58h] [rbp-B0h] BYREF
+  __int64 v29; // [rsp+60h] [rbp-A8h]
+  __int64 v30; // [rsp+68h] [rbp-A0h]
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+78h] [rbp-90h] BYREF
+  unsigned int *v32; // [rsp+88h] [rbp-80h]
+  __int64 v33; // [rsp+90h] [rbp-78h]
+  int *v34; // [rsp+98h] [rbp-70h]
+  __int64 v35; // [rsp+A0h] [rbp-68h]
+  _OWORD v36[20]; // [rsp+378h] [rbp+270h] BYREF
+
+  v25 = *(_DWORD *)(a1 + 512);
+  v26 = *(_DWORD *)(a1 + 524);
+  result = WmiPerfStateDomainEventEnabled;
+  if ( WmiPerfStateDomainEventEnabled )
+  {
+    v28[0] = v25;
+    v3 = *(_QWORD *)(a1 + 32);
+    v4 = *(_QWORD *)(a1 + 16);
+    v30 = v3;
+    v29 = v26;
+    v28[1] = 0;
+    result = PpmFireWmiEvent(v4 + 24032, &PPM_PERFSTATE_DOMAIN_CHANGE_GUID, 24LL, v28);
+  }
+  if ( PpmEtwRegistered )
+  {
+    result = EtwEventEnabled(PpmEtwHandle, &PPM_ETW_DOMAIN_PERF_STATE_CHANGE);
+    if ( result )
+    {
+      v5 = 0;
+      v6 = 0;
+      LOWORD(v24) = 0;
+      do
+      {
+        v7 = &v36[v5];
+        v8 = v6 < LOWORD(KeActiveProcessors[0]);
+        *(_QWORD *)v7 = 0LL;
+        *((_QWORD *)v7 + 1) = 0LL;
+        *((_WORD *)v7 + 4) = v6;
+        if ( v8 )
+          v9 = qword_140572748[v6];
+        else
+          v9 = 0LL;
+        *(_QWORD *)v7 = v9;
+        v10 = (unsigned int)KeAndGroupAffinityEx((unsigned __int16 *)(a1 + 24), (__int64)v7, (char *)v7) == 0;
+        v5 = v24;
+        if ( !v10 )
+        {
+          v5 = v24 + 1;
+          LOWORD(v24) = v24 + 1;
+        }
+        ++v6;
+      }
+      while ( v6 < 0x14u );
+      *(_QWORD *)&UserData.Size = 4LL;
+      UserData.Ptr = (ULONGLONG)&v25;
+      v32 = &v26;
+      v33 = 4LL;
+      v34 = &v24;
+      v35 = 2LL;
+      v11 = 3;
+      if ( v5 )
+      {
+        v12 = v36;
+        v13 = v5;
+        do
+        {
+          v14 = 2LL * v11;
+          *(&UserData.Ptr + v14) = (ULONGLONG)v12 + 8;
+          *((_QWORD *)&UserData.Size + v14) = 2LL;
+          v15 = 2LL * (v11 + 1);
+          v11 += 2;
+          *(&UserData.Ptr + v15) = (ULONGLONG)v12++;
+          *((_QWORD *)&UserData.Size + v15) = 8LL;
+          --v13;
+        }
+        while ( v13 );
+      }
+      v16 = 2LL * v11;
+      *(&UserData.Ptr + v16) = a1 + 520;
+      *((_QWORD *)&UserData.Size + v16) = 4LL;
+      v17 = v11 + 1;
+      v18 = v11 + 2;
+      v17 *= 2LL;
+      *(&UserData.Ptr + v17) = a1 + 528;
+      *((_QWORD *)&UserData.Size + v17) = 4LL;
+      v19 = 2LL * v18;
+      *(&UserData.Ptr + v19) = a1 + 532;
+      *((_QWORD *)&UserData.Size + v19) = 4LL;
+      v20 = v18 + 1;
+      v18 += 2;
+      v20 *= 2LL;
+      *(&UserData.Ptr + v20) = a1 + 536;
+      v21 = *(unsigned __int8 *)(a1 + 548);
+      *((_QWORD *)&UserData.Size + v20) = 4LL;
+      v27 = v21;
+      v22 = 2LL * v18;
+      *(&UserData.Ptr + v22) = (ULONGLONG)&v27;
+      v23 = PpmEtwHandle;
+      *((_QWORD *)&UserData.Size + v22) = 4LL;
+      return EtwWriteEx(v23, &PPM_ETW_DOMAIN_PERF_STATE_CHANGE, 0LL, 0, 0LL, 0LL, v18 + 1, &UserData);
+    }
+  }
+  return result;
+}

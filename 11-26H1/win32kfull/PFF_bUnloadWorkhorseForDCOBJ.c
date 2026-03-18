@@ -1,0 +1,29 @@
+/*
+ * XREFs of PFF_bUnloadWorkhorseForDCOBJ @ 0x140329980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$GreAcquireSemaphore@$0BB@$$V@@YAXAEAUGLOBALS@Font@Gre@@@Z @ 0x1400FE100 (--$GreAcquireSemaphore@$0BB@$$V@@YAXAEAUGLOBALS@Font@Gre@@@Z.c)
+ *     ?bInPrivatePFT@PFFOBJ@@QEBAHXZ @ 0x140105C4C (-bInPrivatePFT@PFFOBJ@@QEBAHXZ.c)
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@IK@Z @ 0x14028B4D4 (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@IK@Z.c)
+ */
+
+_BOOL8 __fastcall PFF_bUnloadWorkhorseForDCOBJ(struct PFF *a1, __int64 a2)
+{
+  __int64 SessionState; // rax
+  __int64 v4; // rax
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  BOOL v7; // eax
+  struct PFF *v9; // [rsp+20h] [rbp-28h] BYREF
+  _QWORD v10[3]; // [rsp+30h] [rbp-18h] BYREF
+
+  SessionState = W32GetSessionState((_DWORD)a1, a2);
+  GreAcquireSemaphore<17,>(*(_QWORD *)(SessionState + 96) + 4864LL);
+  v4 = *((_QWORD *)a1 + 17);
+  --*((_DWORD *)a1 + 16);
+  v10[0] = v4;
+  v9 = a1;
+  v7 = PFFOBJ::bInPrivatePFT((PFFOBJ *)&v9, v5, v6);
+  return PFTOBJ::bUnloadWorkhorse((PFTOBJ *)v10, a1, 0xFFFFFFFF, v7 ? 64 : 32);
+}

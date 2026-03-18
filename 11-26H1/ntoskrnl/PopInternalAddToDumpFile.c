@@ -1,0 +1,46 @@
+/*
+ * XREFs of PopInternalAddToDumpFile @ 0x140600824
+ * Callers:
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14044A38C (IopAddBugcheckTriageDataFromParameters.c)
+ *     PopSetRange @ 0x1404AFFB4 (PopSetRange.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x1405E7B6C (KiCollectTriageDumpDataBlocks.c)
+ *     PopIrpWatchdogBugcheck @ 0x140600A58 (PopIrpWatchdogBugcheck.c)
+ *     PopPowerActionWatchdog @ 0x140607820 (PopPowerActionWatchdog.c)
+ *     PoShutdownBugCheck @ 0x1407D0FB0 (PoShutdownBugCheck.c)
+ *     PopThermalWorker @ 0x140AC3C50 (PopThermalWorker.c)
+ *     PopFreeHiberContext @ 0x140B1AB90 (PopFreeHiberContext.c)
+ *     PopAllocateHiberContext @ 0x140B71364 (PopAllocateHiberContext.c)
+ *     PopCreateDumpMdl @ 0x140BFA18C (PopCreateDumpMdl.c)
+ *     PopDecompressHiberBlocks @ 0x140BFA2A4 (PopDecompressHiberBlocks.c)
+ *     PopRequestRead @ 0x140BFB3E8 (PopRequestRead.c)
+ *     PopRequestWrite @ 0x140BFB804 (PopRequestWrite.c)
+ *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     PopRestoreHiberContext @ 0x140C03138 (PopRestoreHiberContext.c)
+ *     PopHiberReadChecksums @ 0x140C09444 (PopHiberReadChecksums.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14044AB54 (IoAddTriageDumpDataBlock.c)
+ *     PopInternalSaveStackToDumpFile @ 0x1406008E0 (PopInternalSaveStackToDumpFile.c)
+ */
+
+char __fastcall PopInternalAddToDumpFile(__int64 a1, unsigned int a2, __int64 a3)
+{
+  unsigned __int64 v4; // rdx
+
+  if ( a1 )
+  {
+    if ( a2 )
+      v4 = ((a1 & 0xFFF) + (unsigned __int64)a2 + 4095) >> 12;
+    else
+      LODWORD(v4) = 1;
+    IoAddTriageDumpDataBlock(a1 & 0xFFFFF000, (PVOID)(unsigned int)((_DWORD)v4 << 12));
+  }
+  if ( a3 )
+    PopInternalSaveStackToDumpFile(a3);
+  IoAddTriageDumpDataBlock((ULONG)&FileHandle, (PVOID)0xE8);
+  IoAddTriageDumpDataBlock((ULONG)&byte_140F0FB60, (PVOID)0x1E0);
+  if ( *(_QWORD *)&qword_140F0FBA8 )
+    IoAddTriageDumpDataBlock(qword_140F0FBA8, (PVOID)0x1D8);
+  if ( qword_140F0FBB0 )
+    IoAddTriageDumpDataBlock(qword_140F0FBB0, (PVOID)0x1F0);
+  return IoAddTriageDumpDataBlock((ULONG)&qword_140F0FE60, (PVOID)0x2B8);
+}

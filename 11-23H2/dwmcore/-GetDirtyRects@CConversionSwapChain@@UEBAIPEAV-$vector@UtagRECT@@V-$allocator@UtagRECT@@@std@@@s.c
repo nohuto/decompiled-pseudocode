@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?GetDirtyRects@CConversionSwapChain@@UEBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x1802A1DA0
+ * Callers:
+ *     ?GetDirtyRects@CConversionSwapChain@@$4PPPPPPPM@DFI@EBAIPEAV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@@Z @ 0x180120C90 (-GetDirtyRects@CConversionSwapChain@@$4PPPPPPPM@DFI@EBAIPEAV-$vector@UtagRECT@@V-$allocator@Utag.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CConversionSwapChain::GetDirtyRects(__int64 a1, _QWORD *a2)
+{
+  return CRegion::GetRectangles((FastRegion::Internal::CRgnData **)(a1 + 672), a2);
+}

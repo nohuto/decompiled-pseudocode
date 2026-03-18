@@ -1,0 +1,32 @@
+/*
+ * XREFs of MiKcsanPopulateHierarchy @ 0x14066E114
+ * Callers:
+ *     MmKcsanGetIgnoredRangeList @ 0x14066E370 (MmKcsanGetIgnoredRangeList.c)
+ * Callees:
+ *     MiFillPteHierarchy @ 0x14038B8B0 (MiFillPteHierarchy.c)
+ */
+
+__int64 __fastcall MiKcsanPopulateHierarchy(__int64 a1, unsigned __int64 a2)
+{
+  unsigned __int64 v2; // r10
+  _QWORD *v3; // r11
+  unsigned __int64 i; // rcx
+  __int64 v5; // rax
+  __int64 result; // rax
+  _OWORD v7[2]; // [rsp+20h] [rbp-48h] BYREF
+  _OWORD v8[2]; // [rsp+40h] [rbp-28h] BYREF
+
+  memset(v7, 0, sizeof(v7));
+  memset(v8, 0, sizeof(v8));
+  MiFillPteHierarchy(a2, (unsigned __int64 *)v7);
+  MiFillPteHierarchy(v2, (unsigned __int64 *)v8);
+  for ( i = 0LL; i < 0x20; i += 8LL )
+  {
+    *v3 = *(_QWORD *)((char *)v7 + i);
+    v3 += 2;
+    v5 = *(_QWORD *)((char *)v8 + i);
+    result = v5 + 8;
+    *(v3 - 1) = result;
+  }
+  return result;
+}

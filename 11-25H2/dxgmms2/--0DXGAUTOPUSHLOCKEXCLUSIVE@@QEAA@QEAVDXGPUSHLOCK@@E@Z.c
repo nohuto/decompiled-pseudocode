@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@E@Z @ 0x14003AD34
+ * Callers:
+ *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N@Z @ 0x1400BDBC4 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x140036BF0 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ */
+
+DXGAUTOPUSHLOCKEXCLUSIVE *__fastcall DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+        DXGAUTOPUSHLOCKEXCLUSIVE *this,
+        struct DXGPUSHLOCK *const a2,
+        char a3)
+{
+  *((_DWORD *)this + 4) = 0;
+  *((_QWORD *)this + 1) = a2;
+  if ( a3 )
+  {
+    DXGPUSHLOCK::AcquireExclusive(a2);
+    *((_DWORD *)this + 4) = 2;
+  }
+  return this;
+}

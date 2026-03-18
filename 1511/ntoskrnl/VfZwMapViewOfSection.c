@@ -1,0 +1,43 @@
+/*
+ * XREFs of VfZwMapViewOfSection @ 0x1406D26E8
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfCheckPageProtection @ 0x1406B818C (VfCheckPageProtection.c)
+ *     ViZwCheckVirtualAddress @ 0x1406D4C1C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x1406D4C58 (ViZwShouldCheck.c)
+ */
+
+NTSTATUS __fastcall VfZwMapViewOfSection(
+        HANDLE SectionHandle,
+        HANDLE ProcessHandle,
+        PVOID *a3,
+        ULONG_PTR ZeroBits,
+        SIZE_T a5,
+        PLARGE_INTEGER SectionOffset,
+        PSIZE_T ViewSize,
+        SECTION_INHERIT a8,
+        ULONG a9,
+        ULONG Win32Protect)
+{
+  __int64 retaddr; // [rsp+78h] [rbp+0h]
+
+  VfCheckPageProtection(Win32Protect, retaddr);
+  if ( (unsigned int)ViZwShouldCheck() )
+  {
+    ViZwCheckVirtualAddress((int)a3, retaddr);
+    ViZwCheckVirtualAddress((int)SectionOffset, retaddr);
+    ViZwCheckVirtualAddress((int)ViewSize, retaddr);
+  }
+  return pXdvZwMapViewOfSection(
+           SectionHandle,
+           ProcessHandle,
+           a3,
+           ZeroBits,
+           a5,
+           SectionOffset,
+           ViewSize,
+           a8,
+           a9,
+           Win32Protect);
+}

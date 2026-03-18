@@ -1,0 +1,56 @@
+/*
+ * XREFs of WPP_IFR_SF_qqcLq @ 0x1C0005D60
+ * Callers:
+ *     ?Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z @ 0x1C0007440 (-Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0005E30 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C0070684 (FxWmiTraceMessage.c)
+ */
+
+void __fastcall WPP_IFR_SF_qqcLq(
+        _FX_DRIVER_GLOBALS *globals,
+        unsigned __int8 _a1,
+        unsigned int _a2,
+        unsigned __int16 _a3,
+        const _GUID *_a4,
+        const void *_a5,
+        const void *globals_0,
+        char level,
+        unsigned int flags,
+        const void *id)
+{
+  if ( (WPP_GLOBAL_WDF_Control.Characteristics & 0x800) != 0 && BYTE1(WPP_GLOBAL_WDF_Control.Flags) >= 4u )
+    FxWmiTraceMessage(
+      (unsigned __int64)WPP_GLOBAL_WDF_Control.CurrentIrp,
+      0x2Bu,
+      WPP_FxPkgPnp_cpp_Traceguids,
+      0xFu,
+      &_a5,
+      8LL,
+      &globals_0,
+      8LL,
+      &level,
+      1LL,
+      &flags,
+      4LL,
+      &id,
+      8LL,
+      0LL);
+  FxIFR(
+    globals,
+    4u,
+    0xCu,
+    WPP_FxPkgPnp_cpp_Traceguids,
+    0xFu,
+    &_a5,
+    8LL,
+    &globals_0,
+    8LL,
+    &level,
+    1LL,
+    &flags,
+    4LL,
+    &id,
+    8LL,
+    0LL);
+}

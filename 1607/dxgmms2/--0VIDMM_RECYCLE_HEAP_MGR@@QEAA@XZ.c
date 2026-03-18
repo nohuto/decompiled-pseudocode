@@ -1,0 +1,148 @@
+/*
+ * XREFs of ??0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ @ 0x1C0060458
+ * Callers:
+ *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C005C75C (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+VIDMM_RECYCLE_HEAP_MGR *__fastcall VIDMM_RECYCLE_HEAP_MGR::VIDMM_RECYCLE_HEAP_MGR(char *DeferredContext)
+{
+  VIDMM_RECYCLE_HEAP_MGR *result; // rax
+
+  *(_QWORD *)DeferredContext = &VIDMM_RECYCLE_HEAP_MGR::`vftable';
+  *((_QWORD *)DeferredContext + 1) = 0LL;
+  *((_QWORD *)DeferredContext + 3) = DeferredContext;
+  DeferredContext[32] = 0;
+  *((_DWORD *)DeferredContext + 4) = 1;
+  *((_QWORD *)DeferredContext + 5) = 0LL;
+  *((_QWORD *)DeferredContext + 7) = DeferredContext + 48;
+  *((_QWORD *)DeferredContext + 6) = DeferredContext + 48;
+  *((_QWORD *)DeferredContext + 8) = 0LL;
+  *((_QWORD *)DeferredContext + 9) = 0LL;
+  *((_QWORD *)DeferredContext + 10) = 0LL;
+  *((_DWORD *)DeferredContext + 22) = 2;
+  *((_QWORD *)DeferredContext + 12) = DeferredContext;
+  DeferredContext[104] = 0;
+  *((_QWORD *)DeferredContext + 14) = 0LL;
+  *((_QWORD *)DeferredContext + 16) = DeferredContext + 120;
+  *((_QWORD *)DeferredContext + 15) = DeferredContext + 120;
+  *((_QWORD *)DeferredContext + 17) = 0LL;
+  *((_QWORD *)DeferredContext + 18) = 0LL;
+  *((_QWORD *)DeferredContext + 19) = 0LL;
+  *((_DWORD *)DeferredContext + 40) = 3;
+  *((_QWORD *)DeferredContext + 21) = DeferredContext;
+  DeferredContext[176] = 0;
+  *((_QWORD *)DeferredContext + 23) = 0LL;
+  *((_QWORD *)DeferredContext + 25) = DeferredContext + 192;
+  *((_QWORD *)DeferredContext + 24) = DeferredContext + 192;
+  *((_QWORD *)DeferredContext + 26) = 0LL;
+  *((_QWORD *)DeferredContext + 27) = 0LL;
+  *((_QWORD *)DeferredContext + 28) = 0LL;
+  *((_DWORD *)DeferredContext + 58) = 4;
+  *((_QWORD *)DeferredContext + 30) = DeferredContext;
+  DeferredContext[248] = 0;
+  *((_QWORD *)DeferredContext + 32) = 0LL;
+  *((_QWORD *)DeferredContext + 34) = DeferredContext + 264;
+  *((_QWORD *)DeferredContext + 33) = DeferredContext + 264;
+  *((_QWORD *)DeferredContext + 35) = 0LL;
+  *((_QWORD *)DeferredContext + 36) = 0LL;
+  *((_QWORD *)DeferredContext + 37) = 0LL;
+  *((_DWORD *)DeferredContext + 76) = 5;
+  *((_QWORD *)DeferredContext + 39) = DeferredContext;
+  DeferredContext[320] = 0;
+  *((_QWORD *)DeferredContext + 41) = 0LL;
+  *((_QWORD *)DeferredContext + 43) = DeferredContext + 336;
+  *((_QWORD *)DeferredContext + 42) = DeferredContext + 336;
+  *((_QWORD *)DeferredContext + 44) = 0LL;
+  *((_QWORD *)DeferredContext + 45) = 0LL;
+  *((_QWORD *)DeferredContext + 46) = 0LL;
+  *((_DWORD *)DeferredContext + 94) = 6;
+  *((_QWORD *)DeferredContext + 48) = DeferredContext;
+  DeferredContext[392] = 0;
+  *((_QWORD *)DeferredContext + 50) = 0LL;
+  *((_QWORD *)DeferredContext + 52) = DeferredContext + 408;
+  *((_QWORD *)DeferredContext + 51) = DeferredContext + 408;
+  *((_QWORD *)DeferredContext + 53) = 0LL;
+  *((_QWORD *)DeferredContext + 54) = 0LL;
+  *((_QWORD *)DeferredContext + 55) = 0LL;
+  *((_DWORD *)DeferredContext + 112) = 1;
+  *((_QWORD *)DeferredContext + 57) = DeferredContext;
+  DeferredContext[464] = 1;
+  *((_QWORD *)DeferredContext + 59) = 0LL;
+  *((_QWORD *)DeferredContext + 61) = DeferredContext + 480;
+  *((_QWORD *)DeferredContext + 60) = DeferredContext + 480;
+  *((_QWORD *)DeferredContext + 62) = 0LL;
+  *((_QWORD *)DeferredContext + 63) = 0LL;
+  *((_QWORD *)DeferredContext + 64) = 0LL;
+  *((_DWORD *)DeferredContext + 130) = 2;
+  *((_QWORD *)DeferredContext + 66) = DeferredContext;
+  DeferredContext[536] = 1;
+  *((_QWORD *)DeferredContext + 68) = 0LL;
+  *((_QWORD *)DeferredContext + 70) = DeferredContext + 552;
+  *((_QWORD *)DeferredContext + 69) = DeferredContext + 552;
+  *((_QWORD *)DeferredContext + 71) = 0LL;
+  *((_QWORD *)DeferredContext + 72) = 0LL;
+  *((_QWORD *)DeferredContext + 73) = 0LL;
+  *((_DWORD *)DeferredContext + 148) = 3;
+  *((_QWORD *)DeferredContext + 75) = DeferredContext;
+  DeferredContext[608] = 1;
+  *((_QWORD *)DeferredContext + 77) = 0LL;
+  *((_QWORD *)DeferredContext + 79) = DeferredContext + 624;
+  *((_QWORD *)DeferredContext + 78) = DeferredContext + 624;
+  *((_QWORD *)DeferredContext + 80) = 0LL;
+  *((_QWORD *)DeferredContext + 81) = 0LL;
+  *((_QWORD *)DeferredContext + 82) = 0LL;
+  *((_DWORD *)DeferredContext + 166) = 4;
+  *((_QWORD *)DeferredContext + 84) = DeferredContext;
+  DeferredContext[680] = 1;
+  *((_QWORD *)DeferredContext + 86) = 0LL;
+  *((_QWORD *)DeferredContext + 88) = DeferredContext + 696;
+  *((_QWORD *)DeferredContext + 87) = DeferredContext + 696;
+  *((_QWORD *)DeferredContext + 89) = 0LL;
+  *((_QWORD *)DeferredContext + 90) = 0LL;
+  *((_QWORD *)DeferredContext + 91) = 0LL;
+  *((_DWORD *)DeferredContext + 184) = 5;
+  *((_QWORD *)DeferredContext + 93) = DeferredContext;
+  DeferredContext[752] = 1;
+  *((_QWORD *)DeferredContext + 95) = 0LL;
+  *((_QWORD *)DeferredContext + 97) = DeferredContext + 768;
+  *((_QWORD *)DeferredContext + 96) = DeferredContext + 768;
+  *((_QWORD *)DeferredContext + 98) = 0LL;
+  *((_QWORD *)DeferredContext + 99) = 0LL;
+  *((_QWORD *)DeferredContext + 100) = 0LL;
+  *((_DWORD *)DeferredContext + 202) = 6;
+  *((_QWORD *)DeferredContext + 102) = DeferredContext;
+  DeferredContext[824] = 1;
+  *((_QWORD *)DeferredContext + 104) = 0LL;
+  *((_QWORD *)DeferredContext + 106) = DeferredContext + 840;
+  *((_QWORD *)DeferredContext + 105) = DeferredContext + 840;
+  *((_QWORD *)DeferredContext + 107) = 0LL;
+  *((_QWORD *)DeferredContext + 108) = 0LL;
+  *((_QWORD *)DeferredContext + 109) = 0LL;
+  *((_QWORD *)DeferredContext + 110) = 0LL;
+  *((_QWORD *)DeferredContext + 111) = 0LL;
+  *((_DWORD *)DeferredContext + 231) = -1;
+  *((_QWORD *)DeferredContext + 112) = 0LL;
+  *((_QWORD *)DeferredContext + 113) = 0LL;
+  *((_DWORD *)DeferredContext + 230) = 0;
+  *((_DWORD *)DeferredContext + 232) = 32;
+  *((_QWORD *)DeferredContext + 114) = 0LL;
+  *((_DWORD *)DeferredContext + 274) = 0;
+  *((_DWORD *)DeferredContext + 275) = 0;
+  *((_QWORD *)DeferredContext + 142) = 1LL;
+  *((_DWORD *)DeferredContext + 286) = 0;
+  KeInitializeTimer((PKTIMER)(DeferredContext + 936));
+  KeInitializeDpc((PRKDPC)(DeferredContext + 1000), (PKDEFERRED_ROUTINE)VidMmRangeCurationDpc, DeferredContext);
+  *((_QWORD *)DeferredContext + 136) = DeferredContext;
+  *((_QWORD *)DeferredContext + 135) = VidMmRangeCurationThread;
+  *((_QWORD *)DeferredContext + 133) = 0LL;
+  *((_QWORD *)DeferredContext + 139) = DeferredContext + 1104;
+  *((_QWORD *)DeferredContext + 138) = DeferredContext + 1104;
+  *((_QWORD *)DeferredContext + 141) = DeferredContext + 1120;
+  *((_QWORD *)DeferredContext + 140) = DeferredContext + 1120;
+  result = (VIDMM_RECYCLE_HEAP_MGR *)DeferredContext;
+  *((_QWORD *)DeferredContext + 145) = 0LL;
+  *((_QWORD *)DeferredContext + 146) = 0LL;
+  return result;
+}

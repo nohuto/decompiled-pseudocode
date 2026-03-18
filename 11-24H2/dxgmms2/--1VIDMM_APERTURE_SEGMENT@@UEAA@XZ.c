@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??1VIDMM_APERTURE_SEGMENT@@UEAA@XZ @ 0x1400A4650
+ * Callers:
+ *     ??_GVIDMM_APERTURE_SEGMENT@@UEAAPEAXI@Z @ 0x14004EAC0 (--_GVIDMM_APERTURE_SEGMENT@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x14009D9B0 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
+ *     ?FreeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAXXZ @ 0x1400A4840 (-FreeGuardPages@VIDMM_APERTURE_SEGMENT@@IEAAXXZ.c)
+ */
+
+void __fastcall VIDMM_APERTURE_SEGMENT::~VIDMM_APERTURE_SEGMENT(VIDMM_APERTURE_SEGMENT *this)
+{
+  *(_QWORD *)this = &VIDMM_APERTURE_SEGMENT::`vftable';
+  if ( g_IsInternalReleaseOrDbg )
+  {
+    *(_QWORD *)(WdLogNewEntry5_WdTrace(this) + 24) = this;
+    WdLogGlobalForLineNumber = 95;
+  }
+  VIDMM_APERTURE_SEGMENT::FreeGuardPages(this);
+  VIDMM_SEGMENT::~VIDMM_SEGMENT((void **)this);
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of imp_WdfRequestChangeTarget @ 0x140092B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtrAndGlobals@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAXPEAPEAU1@@Z @ 0x140016BF0 (-FxObjectHandleGetPtrAndGlobals@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAXPEAPEAU1@@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x140016CE0 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z @ 0x14004F230 (-ValidateTarget@FxRequestBase@@QEAAJPEAVFxIoTarget@@@Z.c)
+ */
+
+__int64 __fastcall imp_WdfRequestChangeTarget(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFREQUEST__ *Request,
+        WDFIOTARGET__ *IoTarget)
+{
+  FxRequest *pRequest; // [rsp+30h] [rbp-18h] BYREF
+  _FX_DRIVER_GLOBALS *pFxDriverGlobals; // [rsp+50h] [rbp+8h] BYREF
+  FxIoTarget *pTarget; // [rsp+68h] [rbp+20h] BYREF
+
+  pFxDriverGlobals = 0LL;
+  pRequest = 0LL;
+  pTarget = 0LL;
+  FxObjectHandleGetPtrAndGlobals(
+    (_FX_DRIVER_GLOBALS *)&DriverGlobals[-8],
+    (unsigned __int64)Request,
+    0x1008u,
+    (void **)&pRequest,
+    &pFxDriverGlobals);
+  FxObjectHandleGetPtr(pFxDriverGlobals, (unsigned __int64)IoTarget, 0x1200u, (void **)&pTarget);
+  return FxRequestBase::ValidateTarget(pRequest, (unsigned __int64)pTarget);
+}

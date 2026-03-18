@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?reset@?$unique_ptr@VDISPLAY_MUX_DEVICE@@U?$default_delete@VDISPLAY_MUX_DEVICE@@@wistd@@@wistd@@QEAAXPEAVDISPLAY_MUX_DEVICE@@@Z @ 0x140088974
+ * Callers:
+ *     ??1DISPLAY_MUX_PAIRING@@QEAA@XZ @ 0x1400826A8 (--1DISPLAY_MUX_PAIRING@@QEAA@XZ.c)
+ *     ?Init@DISPLAY_MUX_PAIRING@@QEAAJPEBU_UNICODE_STRING@@@Z @ 0x14008529C (-Init@DISPLAY_MUX_PAIRING@@QEAAJPEBU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ??1DISPLAY_MUX_DEVICE@@QEAA@XZ @ 0x1400825F4 (--1DISPLAY_MUX_DEVICE@@QEAA@XZ.c)
+ */
+
+void __fastcall wistd::unique_ptr<DISPLAY_MUX_DEVICE,wistd::default_delete<DISPLAY_MUX_DEVICE>>::reset(
+        struct _UNICODE_STRING **a1,
+        struct _UNICODE_STRING *a2)
+{
+  struct _UNICODE_STRING *v2; // rbx
+
+  v2 = *a1;
+  *a1 = a2;
+  if ( v2 )
+  {
+    DISPLAY_MUX_DEVICE::~DISPLAY_MUX_DEVICE(v2);
+    DXGQUOTAALLOCATOR<256,1835156294>::operator delete(v2);
+  }
+}

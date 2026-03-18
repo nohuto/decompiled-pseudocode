@@ -1,0 +1,114 @@
+/*
+ * XREFs of PfTSetTraceWorkerPriority @ 0x140138120
+ * Callers:
+ *     PfPowerActionNotify @ 0x140409780 (PfPowerActionNotify.c)
+ *     PfSetSuperfetchInformation @ 0x1405630D4 (PfSetSuperfetchInformation.c)
+ *     PfpLogScenarioEvent @ 0x1405760BC (PfpLogScenarioEvent.c)
+ * Callees:
+ *     KeSetPriorityThread @ 0x140043440 (KeSetPriorityThread.c)
+ *     KiAbEntryRemoveFromTree @ 0x140048030 (KiAbEntryRemoveFromTree.c)
+ *     KeLeaveCriticalRegion @ 0x1400EEB00 (KeLeaveCriticalRegion.c)
+ *     MiGetSystemRegionType @ 0x1400F0720 (MiGetSystemRegionType.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x1400F0760 (ExAcquirePushLockExclusiveEx.c)
+ *     KiAbThreadRemoveBoosts @ 0x1400F0AE0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x1400F0C40 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1401126F0 (ExfTryToWakePushLock.c)
+ *     KiCheckForKernelApcDelivery @ 0x14011C790 (KiCheckForKernelApcDelivery.c)
+ *     KeBugCheckEx @ 0x140181890 (KeBugCheckEx.c)
+ */
+
+__int64 __fastcall PfTSetTraceWorkerPriority(unsigned int Priority)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  unsigned int v3; // ebp
+  struct _KTHREAD *v4; // rbx
+  __int64 SessionId; // rdx
+  unsigned __int8 v6; // r14
+  __int64 v7; // r8
+  bool v8; // zf
+  __int64 v9; // rcx
+  int v10; // eax
+  __int64 v11; // rcx
+  _KLOCK_ENTRY *v12; // rdi
+  __int64 v13; // rdx
+  __int64 v14; // rcx
+  __int16 v15; // ax
+  int v17; // [rsp+60h] [rbp+8h] BYREF
+  int v18; // [rsp+68h] [rbp+10h]
+
+  if ( Priority > 0x1F )
+  {
+    return 32;
+  }
+  else
+  {
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    ExAcquirePushLockExclusiveEx((ULONG_PTR)&PfTGlobals, 0LL);
+    if ( Thread )
+      v3 = KeSetPriorityThread(Thread, Priority);
+    else
+      v3 = 33;
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&PfTGlobals, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&PfTGlobals);
+    v17 = 0;
+    v4 = KeGetCurrentThread();
+    if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&PfTGlobals) == 1 )
+      SessionId = (unsigned int)MmGetSessionIdEx(v4->ApcState.Process);
+    else
+      SessionId = 0xFFFFFFFFLL;
+    --v4->SpecialApcDisable;
+    v6 = ++v4->AbAllocationRegionCount;
+    LODWORD(v7) = ((char)v4->AbEntrySummary | (char)v4->AbOrphanedEntrySummary) ^ 0x3F;
+    while ( 1 )
+    {
+      v8 = !_BitScanReverse((unsigned int *)&v9, v7);
+      v18 = v9;
+      if ( v8 )
+        break;
+      v10 = 1 << v9;
+      v11 = v9;
+      v12 = &v4->LockEntries[v11];
+      v7 = ~v10 & (unsigned int)v7;
+      if ( (v12->AcquiredByte & 1) != 0
+        && (*(_DWORD *)&v12->LockState.0 & 1) == 0
+        && (*(_QWORD *)&v12->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&PfTGlobals & 0x7FFFFFFFFFFFFFFCLL)
+        && v12->LockState.SessionId == (_DWORD)SessionId )
+      {
+        v12->AcquiredByte &= ~1u;
+        if ( v12->LockState.0 )
+        {
+          if ( v12 )
+          {
+            v12->CrossThreadReleasableAndBusyByte |= 2u;
+            if ( (__int64)v12->LockState.LockState < 0 )
+              KiAbEntryRemoveFromTree((__int64)&v4->LockEntries[v11], SessionId, v7);
+            v17 = 0;
+            v17 = v12->BoostBitmap.AllFields & 0x1FFFF;
+            v12->BoostBitmap.AllFields &= 0xFFFE0000;
+            v12->ThreadLocalFlags &= ~1u;
+            v12->LockState.0 = 0LL;
+            v13 = ((char *)v12 - (char *)v4 - 800) / 96;
+            if ( v6 == 1 )
+              v4->AbEntrySummary |= 1 << v13;
+            else
+              _InterlockedOr8((volatile signed __int8 *)&v4->AbOrphanedEntrySummary, 1 << v13);
+            goto LABEL_20;
+          }
+          break;
+        }
+      }
+    }
+    if ( (*((_DWORD *)&v4->0 + 1) & 0x8000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)v4, (ULONG_PTR)&PfTGlobals, (unsigned int)SessionId, 0LL);
+LABEL_20:
+    --v4->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts(&v4->Header.Lock, (__int64)&PfTGlobals, (unsigned int *)&v17);
+    v15 = v4->SpecialApcDisable + 1;
+    v4->SpecialApcDisable = v15;
+    if ( !v15 && ($69CD3F157F9F39B6F7113F2231989901 *)v4->ApcState.ApcListHead[0].Flink != &v4->152 )
+      KiCheckForKernelApcDelivery(v14);
+    KeLeaveCriticalRegion();
+  }
+  return v3;
+}

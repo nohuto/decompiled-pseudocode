@@ -1,0 +1,33 @@
+/*
+ * XREFs of SdbGetFirstChild @ 0x1404AFFB4
+ * Callers:
+ *     InitOnceScanIndexes @ 0x1404AFD80 (InitOnceScanIndexes.c)
+ *     SdbFindFirstTag @ 0x1404AFF40 (SdbFindFirstTag.c)
+ *     SdbpMatchList @ 0x1405BB354 (SdbpMatchList.c)
+ *     SdbFindFirstNamedTag @ 0x14072CCF4 (SdbFindFirstNamedTag.c)
+ * Callees:
+ *     SdbGetTagFromTagID @ 0x140486FF0 (SdbGetTagFromTagID.c)
+ *     SdbpGetNextTagId @ 0x1404870EC (SdbpGetNextTagId.c)
+ */
+
+__int64 __fastcall SdbGetFirstChild(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // ebx
+  unsigned int NextTagId; // eax
+  unsigned int v5; // ecx
+
+  v2 = a2;
+  if ( !(_DWORD)a2 )
+  {
+    NextTagId = *(_DWORD *)(a1 + 20);
+    v5 = 12;
+    return v5 < NextTagId ? v5 : 0;
+  }
+  if ( (SdbGetTagFromTagID(a1, a2) & 0xF000) == 0x7000 )
+  {
+    NextTagId = SdbpGetNextTagId(a1, v2);
+    v5 = v2 + 6;
+    return v5 < NextTagId ? v5 : 0;
+  }
+  return 0LL;
+}

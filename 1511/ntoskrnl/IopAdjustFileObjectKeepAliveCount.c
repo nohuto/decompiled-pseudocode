@@ -1,0 +1,140 @@
+/*
+ * XREFs of IopAdjustFileObjectKeepAliveCount @ 0x1401BBE08
+ * Callers:
+ *     IoDecrementKeepAliveCount @ 0x1401BB9D0 (IoDecrementKeepAliveCount.c)
+ *     IoIncrementKeepAliveCount @ 0x1401BBABC (IoIncrementKeepAliveCount.c)
+ * Callees:
+ *     KeReleaseSpinLock @ 0x14002D960 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140038DA0 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAllocatePoolWithTagPriority @ 0x140041DC0 (ExAllocatePoolWithTagPriority.c)
+ *     IopGetFileObjectExtension @ 0x14007CDA0 (IopGetFileObjectExtension.c)
+ *     IopGetSetSpecificExtension @ 0x1400CC2E8 (IopGetSetSpecificExtension.c)
+ *     memset @ 0x140166CC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x140238380 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1402391D0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall IopAdjustFileObjectKeepAliveCount(__int64 a1, __int64 a2, int a3, _DWORD *a4, _QWORD *a5)
+{
+  _QWORD *v5; // rdi
+  PVOID v6; // rbx
+  __int64 result; // rax
+  unsigned int v10; // esi
+  _QWORD *PoolWithTagPriority; // rax
+  PVOID v12; // rax
+  __int64 FileObjectExtension; // r14
+  KIRQL v14; // al
+  __int64 *v15; // rdx
+  _DWORD *v16; // rax
+  bool v17; // al
+  __int64 v18[9]; // [rsp+30h] [rbp-48h] BYREF
+  KIRQL NewIrql; // [rsp+90h] [rbp+18h]
+
+  v5 = 0LL;
+  v6 = 0LL;
+  if ( a3 )
+  {
+    result = IopGetSetSpecificExtension(a1, 1u, 0x20u, 1, v18, 0LL);
+    v10 = result;
+    if ( (int)result < 0 )
+      return result;
+    if ( ViVerifierDriverAddedThunkListHead )
+      PoolWithTagPriority = ExAllocatePoolWithTagPriority(
+                              NonPagedPoolNx,
+                              0x20uLL,
+                              0x20206F49u,
+                              (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+    else
+      PoolWithTagPriority = ExAllocatePoolWithTag(NonPagedPoolNx, 0x20uLL, 0x20206F49u);
+    v5 = PoolWithTagPriority;
+    if ( PoolWithTagPriority )
+    {
+      v12 = ViVerifierDriverAddedThunkListHead
+          ? ExAllocatePoolWithTagPriority(
+              NonPagedPoolNx,
+              0x38uLL,
+              0x20206F49u,
+              (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1))
+          : ExAllocatePoolWithTag(NonPagedPoolNx, 0x38uLL, 0x20206F49u);
+      v6 = v12;
+      if ( !v12 )
+      {
+        ExFreePoolWithTag(v5, 0);
+        v5 = 0LL;
+      }
+    }
+    FileObjectExtension = v18[0];
+  }
+  else
+  {
+    v10 = 0;
+    FileObjectExtension = IopGetFileObjectExtension(a1, 1, 0LL);
+    if ( !FileObjectExtension )
+      return 3221225485LL;
+  }
+  v14 = KeAcquireSpinLockRaiseToDpc((PKSPIN_LOCK)(a1 + 184));
+  v15 = *(__int64 **)(FileObjectExtension + 24);
+  NewIrql = v14;
+  if ( v15 )
+  {
+    while ( v15[1] != a2 )
+    {
+      v15 = (__int64 *)*v15;
+      if ( !v15 )
+        goto LABEL_16;
+    }
+    if ( a3 )
+      ++*((_DWORD *)v15 + 4);
+    else
+      --*((_DWORD *)v15 + 4);
+    *a5 = v15[3];
+    *a4 = *((_DWORD *)v15 + 4);
+  }
+  else
+  {
+LABEL_16:
+    if ( a3 )
+    {
+      if ( v5 )
+      {
+        memset(v5, 0, 0x20uLL);
+        memset(v6, 0, 0x38uLL);
+        *v5 = *(_QWORD *)(FileObjectExtension + 24);
+        *(_QWORD *)(FileObjectExtension + 24) = v5;
+        v5[1] = a2;
+        *((_DWORD *)v5 + 4) = 1;
+        v5[3] = v6;
+        *((_QWORD *)v6 + 3) = a2;
+        *((_QWORD *)v6 + 5) = a1;
+        if ( (*(_DWORD *)(a1 + 80) & 0x20000000) != 0 )
+        {
+          v16 = *(_DWORD **)(a1 + 208);
+          v17 = !v16 || (*v16 & 8) == 0;
+          *((_BYTE *)v6 + 18) = v17;
+        }
+        else
+        {
+          *((_BYTE *)v6 + 18) = 0;
+        }
+        v5 = 0LL;
+        *a5 = v6;
+        v6 = 0LL;
+        *a4 = 1;
+      }
+      else
+      {
+        v10 = -1073741670;
+      }
+    }
+    else
+    {
+      v10 = -1073741811;
+    }
+  }
+  KeReleaseSpinLock((PKSPIN_LOCK)(a1 + 184), NewIrql);
+  if ( v5 )
+    ExFreePoolWithTag(v5, 0);
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
+  return v10;
+}

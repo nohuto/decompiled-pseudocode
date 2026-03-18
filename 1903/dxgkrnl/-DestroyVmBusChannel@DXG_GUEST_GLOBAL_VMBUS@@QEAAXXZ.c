@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?DestroyVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAXXZ @ 0x1C0217F6C
+ * Callers:
+ *     ?CreateVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C02177C0 (-CreateVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ @ 0x1C0243E60 (-HandleVirtualMachineReset@DXGGLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000C448 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C000C500 (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ?DestroyVmBusChannel@@YAXPEAUVMBCHANNEL__@@@Z @ 0x1C0217F30 (-DestroyVmBusChannel@@YAXPEAUVMBCHANNEL__@@@Z.c)
+ */
+
+void __fastcall DXG_GUEST_GLOBAL_VMBUS::DestroyVmBusChannel(struct _KTHREAD **this)
+{
+  _BYTE v2[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v2, this + 1);
+  if ( *this )
+  {
+    DestroyVmBusChannel(*this);
+    *this = 0LL;
+    *((_BYTE *)this + 48) = 0;
+  }
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v2);
+}

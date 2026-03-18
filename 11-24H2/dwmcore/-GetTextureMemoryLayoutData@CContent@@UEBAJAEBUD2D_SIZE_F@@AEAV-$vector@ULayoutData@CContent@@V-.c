@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetTextureMemoryLayoutData@CContent@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x18025BEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CContent::GetTextureMemoryLayoutData(__int64 a1, __int64 a2, _QWORD *a3)
+{
+  if ( *a3 != a3[1] )
+    a3[1] = *a3;
+  return 0LL;
+}

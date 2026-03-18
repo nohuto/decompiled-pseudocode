@@ -1,0 +1,17 @@
+/*
+ * XREFs of Feature_Bugfix_58999946__private_IsEnabledDeviceUsageNoInline @ 0x1402D0D08
+ * Callers:
+ *     ?xxxDestroyWindow_Prologue@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@PEAHPEA_N@Z @ 0x14027BDC8 (-xxxDestroyWindow_Prologue@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@PEAHPEA_N@Z.c)
+ * Callees:
+ *     Feature_Bugfix_58999946__private_IsEnabledFallback @ 0x1402D0D44 (Feature_Bugfix_58999946__private_IsEnabledFallback.c)
+ */
+
+__int64 Feature_Bugfix_58999946__private_IsEnabledDeviceUsageNoInline()
+{
+  if ( (Feature_Bugfix_58999946__private_featureState & 0x10) != 0 )
+    return Feature_Bugfix_58999946__private_featureState & 1;
+  else
+    return Feature_Bugfix_58999946__private_IsEnabledFallback(
+             (unsigned int)Feature_Bugfix_58999946__private_featureState,
+             3LL);
+}

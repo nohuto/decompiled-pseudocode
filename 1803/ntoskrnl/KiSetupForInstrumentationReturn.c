@@ -1,0 +1,29 @@
+/*
+ * XREFs of KiSetupForInstrumentationReturn @ 0x140144468
+ * Callers:
+ *     KiInitializeUserApc @ 0x1400C07EC (KiInitializeUserApc.c)
+ *     KiDispatchException @ 0x140130BA0 (KiDispatchException.c)
+ *     KeRaiseUserException @ 0x1402421A0 (KeRaiseUserException.c)
+ *     KiRaiseException @ 0x140249930 (KiRaiseException.c)
+ * Callees:
+ *     <none>
+ */
+
+struct _KTHREAD *__fastcall KiSetupForInstrumentationReturn(__int64 a1)
+{
+  struct _KTHREAD *result; // rax
+  void *InstrumentationCallback; // r8
+
+  result = KeGetCurrentThread();
+  InstrumentationCallback = result->ApcState.Process->InstrumentationCallback;
+  if ( InstrumentationCallback )
+  {
+    if ( *(_WORD *)(a1 + 368) == 51 )
+    {
+      result = *(struct _KTHREAD **)(a1 + 360);
+      *(_QWORD *)(a1 + 88) = result;
+      *(_QWORD *)(a1 + 360) = InstrumentationCallback;
+    }
+  }
+  return result;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?EligibleWindow@ShellWindowManagement@@YA_NPEBUtagWND@@@Z @ 0x1C00A418C
+ * Callers:
+ *     ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C00A42E4 (-_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z.c)
+ *     BuildHwndList @ 0x1C00B1DD0 (BuildHwndList.c)
+ *     ?InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z @ 0x1C00B2030 (-InternalBuildHwndList@@YAPEAUtagBWL@@PEAU1@PEAUtagWND@@I@Z.c)
+ * Callees:
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C005BCE4 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ *     _anonymous_namespace_::EligibleWindow @ 0x1C00A41D0 (_anonymous_namespace_--EligibleWindow.c)
+ */
+
+char __fastcall ShellWindowManagement::EligibleWindow(ShellWindowManagement **this, const struct tagWND *a2)
+{
+  struct tagWND *v2; // r9
+  char v3; // bl
+
+  if ( !ShellWindowManagement::BehaviorEnabled(this[3], (const struct tagDESKTOP *)0x1FF) )
+    return 0;
+  v3 = 1;
+  if ( !(unsigned __int8)anonymous_namespace_::EligibleWindow(v2) )
+    return 0;
+  return v3;
+}

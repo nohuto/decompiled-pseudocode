@@ -1,0 +1,56 @@
+/*
+ * XREFs of RtlReadULong64FromUser @ 0x1403E21C8
+ * Callers:
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagWND@@QEAU_FILE_IO_COMPLETION_INFORMATION@@_K@Z @ 0x14001F5B4 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagWND@@QEAU_FILE_IO_COMPLETION_INFORMATION@@_K@Z.c)
+ *     NtUserFindExistingCursorIcon @ 0x14001FB40 (NtUserFindExistingCursorIcon.c)
+ *     NtUserGetClassName @ 0x1400202B0 (NtUserGetClassName.c)
+ *     NtUserFindWindowEx @ 0x1400208F0 (NtUserFindWindowEx.c)
+ *     NtUserSetCursorIconDataEx @ 0x140027F50 (NtUserSetCursorIconDataEx.c)
+ *     NtUserThunkedMenuItemInfo @ 0x14004B410 (NtUserThunkedMenuItemInfo.c)
+ *     NtUserSetWinEventHook @ 0x14013BB00 (NtUserSetWinEventHook.c)
+ *     NtUserSetClassLongPtr @ 0x140151C30 (NtUserSetClassLongPtr.c)
+ *     ?CaptureAtomName@@YAHPEAU_UNICODE_STRING@@PEAG_K@Z @ 0x140156820 (-CaptureAtomName@@YAHPEAU_UNICODE_STRING@@PEAG_K@Z.c)
+ *     NtUserRegisterWindowMessage @ 0x140189D40 (NtUserRegisterWindowMessage.c)
+ *     NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1401A0CE0 (NtUserCompositionInputSinkViewInstanceIdFromPoint.c)
+ *     NtUserEnableIAMAccess @ 0x1401A2AC0 (NtUserEnableIAMAccess.c)
+ *     NtUserTransformPoint @ 0x1401BC2B0 (NtUserTransformPoint.c)
+ *     NtUserUnregisterClass @ 0x1401C4010 (NtUserUnregisterClass.c)
+ *     NtUserGetAtomName @ 0x1401E06F0 (NtUserGetAtomName.c)
+ *     NtUserGetIconInfo @ 0x1401E2A80 (NtUserGetIconInfo.c)
+ *     NtUserPhysicalToLogicalPoint @ 0x1401F1000 (NtUserPhysicalToLogicalPoint.c)
+ *     NtUserLogicalToPhysicalPoint @ 0x1401F1120 (NtUserLogicalToPhysicalPoint.c)
+ *     ?ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@AEAU_SECURITY_QUALITY_OF_SERVICE@@AEAPEAXAEAU_UNICODE_STRING@@AEAPEAG@Z @ 0x140200920 (-ProbeAndDeepCaptureWinStaDesktopObjectAttributes@@YAJHPEAU_OBJECT_ATTRIBUTES@@AEAY0BAA@GAEAU1@A.c)
+ *     NtUserGetKeyboardLayoutName @ 0x14021A480 (NtUserGetKeyboardLayoutName.c)
+ *     NtUserUpdateLayeredWindow @ 0x140234060 (NtUserUpdateLayeredWindow.c)
+ *     NtUserGetImeHotKey @ 0x1402373D0 (NtUserGetImeHotKey.c)
+ *     _RegisterUserApiHook @ 0x140237F88 (_RegisterUserApiHook.c)
+ *     _SetWatermarkStrings @ 0x140251AC0 (_SetWatermarkStrings.c)
+ *     ??$DuplicateUnicodeStringFromUser@$00@@YAJV?$UserModePointer@UUSERMODE_UNICODE_STRING@@@@KPEAU_UNICODE_STRING@@@Z @ 0x140254ED8 (--$DuplicateUnicodeStringFromUser@$00@@YAJV-$UserModePointer@UUSERMODE_UNICODE_STRING@@@@KPEAU_U.c)
+ *     NtUserCompositionInputSinkLuidFromPoint @ 0x14025F020 (NtUserCompositionInputSinkLuidFromPoint.c)
+ *     NtUserLogicalToPerMonitorDPIPhysicalPoint @ 0x140266CC0 (NtUserLogicalToPerMonitorDPIPhysicalPoint.c)
+ *     SetAppCompatFlags @ 0x140269460 (SetAppCompatFlags.c)
+ *     NtUserSetWindowsHookEx @ 0x14027A5A0 (NtUserSetWindowsHookEx.c)
+ *     ?TryGlyphSetHasSameContent@QueryFontTreeRequest@@CA_NPEAX0I@Z @ 0x1402872A0 (-TryGlyphSetHasSameContent@QueryFontTreeRequest@@CA_NPEAX0I@Z.c)
+ *     EditionCreateWindowStationEntryPoint @ 0x1402AEA80 (EditionCreateWindowStationEntryPoint.c)
+ *     NtUserCalculatePopupWindowPosition @ 0x1402AFF30 (NtUserCalculatePopupWindowPosition.c)
+ *     NtUserDrawCaptionTemp @ 0x1402B1520 (NtUserDrawCaptionTemp.c)
+ *     NtUserGetWOWClass @ 0x1402B5170 (NtUserGetWOWClass.c)
+ *     NtUserLogicalToPhysicalDpiPointForWindow @ 0x1402B7C20 (NtUserLogicalToPhysicalDpiPointForWindow.c)
+ *     NtUserMNDragOver @ 0x1402B7DC0 (NtUserMNDragOver.c)
+ *     NtUserPerMonitorDPIPhysicalToLogicalPoint @ 0x1402B8E30 (NtUserPerMonitorDPIPhysicalToLogicalPoint.c)
+ *     NtUserPhysicalToLogicalDpiPointForWindow @ 0x1402B8FD0 (NtUserPhysicalToLogicalDpiPointForWindow.c)
+ *     NtUserRegisterClassExWOW @ 0x1402B9700 (NtUserRegisterClassExWOW.c)
+ *     NtUserResolveDesktopForWOW @ 0x1402BADC0 (NtUserResolveDesktopForWOW.c)
+ *     NtUserSetInternalWindowPos @ 0x1402BCF60 (NtUserSetInternalWindowPos.c)
+ *     NtUserSetWindowStationUser @ 0x1402BEB90 (NtUserSetWindowStationUser.c)
+ *     NtUserUpdateWindowTrackingInfo @ 0x1402C0AF0 (NtUserUpdateWindowTrackingInfo.c)
+ *     RtlReadULong64FromUser$thunk$2147908448085668007 @ 0x140357050 (RtlReadULong64FromUser$thunk$2147908448085668007.c)
+ * Callees:
+ *     ProbeForRead_0 @ 0x140298384 (ProbeForRead_0.c)
+ */
+
+__int64 __fastcall RtlReadULong64FromUser(volatile void *a1)
+{
+  ProbeForRead_0(a1, 8uLL, 1u);
+  return *(_QWORD *)a1;
+}

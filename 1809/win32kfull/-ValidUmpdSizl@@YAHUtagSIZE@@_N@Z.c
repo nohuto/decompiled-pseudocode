@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?ValidUmpdSizl@@YAHUtagSIZE@@_N@Z @ 0x1C012DD0C
+ * Callers:
+ *     NtGdiEngCreateBitmap @ 0x1C012D9A0 (NtGdiEngCreateBitmap.c)
+ *     NtGdiEngCreateDeviceSurface @ 0x1C012DC90 (NtGdiEngCreateDeviceSurface.c)
+ *     NtGdiEngCreateDeviceBitmap @ 0x1C02964F0 (NtGdiEngCreateDeviceBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall ValidUmpdSizl(struct tagSIZE a1, char a2)
+{
+  return a1.cx > 0 && a1.cy > 0 && (!a2 || (unsigned __int64)(a1.cx * (__int64)a1.cy) <= 0xFFFFFFFF);
+}

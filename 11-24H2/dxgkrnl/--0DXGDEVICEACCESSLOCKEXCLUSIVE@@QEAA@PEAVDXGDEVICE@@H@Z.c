@@ -1,0 +1,21 @@
+/*
+ * XREFs of ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@H@Z @ 0x14002A31C
+ * Callers:
+ *     DxgkDisconnectDoorbellCB @ 0x1401DB180 (DxgkDisconnectDoorbellCB.c)
+ *     NtDxgkCreateNativeFenceInternal @ 0x1401F8C68 (NtDxgkCreateNativeFenceInternal.c)
+ *     ?DxgkOpenSyncObjectFromNtHandle2Impl@@YAJPEAU_D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2@@EEEPEAX@Z @ 0x1403EA4F0 (-DxgkOpenSyncObjectFromNtHandle2Impl@@YAJPEAU_D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2@@EEEPEAX@Z.c)
+ * Callees:
+ *     ?Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x14002A350 (-Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ */
+
+DXGDEVICEACCESSLOCKEXCLUSIVE *__fastcall DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE(
+        DXGDEVICEACCESSLOCKEXCLUSIVE *this,
+        struct DXGDEVICE *a2,
+        int a3)
+{
+  *((_DWORD *)this + 2) = 0;
+  *(_QWORD *)this = a2;
+  if ( a2 && a3 )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Acquire(this);
+  return this;
+}

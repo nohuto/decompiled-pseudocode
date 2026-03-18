@@ -1,0 +1,66 @@
+/*
+ * XREFs of NVMeGetNVMSetAttributeList @ 0x1C001EC38
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D910 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C00024B0 (ProcessCommand.c)
+ *     Feature_Servicing_StornvmeCustomTimeout__private_IsEnabledDeviceUsage @ 0x1C0004648 (Feature_Servicing_StornvmeCustomTimeout__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C0004A40 (memmove.c)
+ *     LocalCommandReuse @ 0x1C000C29C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025E80 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
+__int64 __fastcall NVMeGetNVMSetAttributeList(__int64 a1)
+{
+  __int64 v1; // rsi
+  __int64 result; // rax
+  _QWORD *v4; // rbp
+  unsigned __int16 i; // r14
+  int j; // edx
+  __int64 v7; // rcx
+  unsigned __int8 *v8; // rbx
+  int v9; // eax
+
+  v1 = *(_QWORD *)(a1 + 1840);
+  result = *(unsigned int *)(v1 + 96);
+  if ( (result & 4) != 0 && (result = *(unsigned __int16 *)(v1 + 338), (_WORD)result) )
+  {
+    v4 = (_QWORD *)(a1 + 4272);
+    result = StorPortExtendedFunction(0LL, a1, (unsigned int)((_DWORD)result << 7));
+    if ( !(_DWORD)result )
+    {
+      if ( *v4 )
+      {
+        for ( i = 0; i < *(_WORD *)(v1 + 338); i += result )
+        {
+          LocalCommandReuse(a1, a1 + 944);
+          for ( j = 0; j < 2; *(_BYTE *)(*(_QWORD *)(a1 + 1040) + 4253LL) |= j )
+            ++j;
+          *(_WORD *)(*(_QWORD *)(a1 + 1040) + 4244LL) = 0;
+          v7 = *(_QWORD *)(a1 + 1040);
+          *(_QWORD *)(v7 + 4120) = *(_QWORD *)(a1 + 1944);
+          *(_WORD *)(v7 + 4140) = i + 1;
+          *(_BYTE *)(v7 + 4096) = 6;
+          *(_DWORD *)(v7 + 4100) = 0;
+          *(_BYTE *)(v7 + 4136) = 4;
+          ProcessCommand(a1, a1 + 952);
+          Feature_Servicing_StornvmeCustomTimeout__private_IsEnabledDeviceUsage();
+          result = WaitForCommandCompleteWithCustomTimeout(a1);
+          if ( *(_BYTE *)(a1 + 955) != 1 )
+            break;
+          v8 = *(unsigned __int8 **)(a1 + 1936);
+          v9 = *v8;
+          if ( v9 >= *(unsigned __int16 *)(v1 + 338) - i )
+            v9 = *(unsigned __int16 *)(v1 + 338) - i;
+          memmove((void *)(*v4 + ((unsigned __int64)i << 7)), v8 + 128, (__int64)v9 << 7);
+          result = *v8;
+        }
+      }
+    }
+  }
+  else
+  {
+    *(_QWORD *)(a1 + 4272) = 0LL;
+  }
+  return result;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of NtRIMGetDevicePropertiesLockfree @ 0x1C01341D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMGetDevicePropertiesLockfree @ 0x1C0136630 (RIMGetDevicePropertiesLockfree.c)
+ */
+
+__int64 __fastcall NtRIMGetDevicePropertiesLockfree(__int64 a1, __int64 a2)
+{
+  return RIMGetDevicePropertiesLockfree(a1, a2, 1LL);
+}

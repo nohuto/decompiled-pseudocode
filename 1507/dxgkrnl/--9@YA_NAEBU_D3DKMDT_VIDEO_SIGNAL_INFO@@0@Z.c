@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??9@YA_NAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@0@Z @ 0x1C000A270
+ * Callers:
+ *     ?FindByValue@?$Set@VDMMVIDPNTARGETMODE@@@@QEBAPEAVDMMVIDPNTARGETMODE@@QEBV2@@Z @ 0x1C00081CC (-FindByValue@-$Set@VDMMVIDPNTARGETMODE@@@@QEBAPEAVDMMVIDPNTARGETMODE@@QEBV2@@Z.c)
+ *     ?AddMode@DMMVIDPNTARGETMODESET@@QEAAJV?$auto_ptr@VDMMVIDPNTARGETMODE@@@@@Z @ 0x1C008841C (-AddMode@DMMVIDPNTARGETMODESET@@QEAAJV-$auto_ptr@VDMMVIDPNTARGETMODE@@@@@Z.c)
+ *     ?IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z @ 0x1C00951B4 (-IsVidPnPathModeMatch@DMMVIDPNPRESENTPATH@@QEBA_NAEBV1@E@Z.c)
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C00D2CA4 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
+ *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C0139878 (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall operator!=(__int64 a1, __int64 a2)
+{
+  return *(_DWORD *)(a1 + 4) != *(_DWORD *)(a2 + 4)
+      || *(_DWORD *)(a1 + 8) != *(_DWORD *)(a2 + 8)
+      || *(_DWORD *)(a1 + 12) != *(_DWORD *)(a2 + 12)
+      || *(_DWORD *)(a1 + 16) != *(_DWORD *)(a2 + 16)
+      || *(_DWORD *)(a1 + 20) != *(_DWORD *)(a2 + 20)
+      || *(_DWORD *)(a1 + 24) != *(_DWORD *)(a2 + 24)
+      || *(_DWORD *)(a1 + 28) != *(_DWORD *)(a2 + 28)
+      || *(_DWORD *)(a1 + 32) != *(_DWORD *)(a2 + 32)
+      || *(_QWORD *)(a1 + 40) != *(_QWORD *)(a2 + 40)
+      || ((*(_BYTE *)(a2 + 48) ^ *(_BYTE *)(a1 + 48)) & 7) != 0;
+}

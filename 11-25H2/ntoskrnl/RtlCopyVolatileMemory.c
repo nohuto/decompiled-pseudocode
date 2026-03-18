@@ -1,0 +1,60 @@
+/*
+ * XREFs of RtlCopyVolatileMemory @ 0x1406AAA20
+ * Callers:
+ *     PoCopyDeepIdleMask @ 0x14026728C (PoCopyDeepIdleMask.c)
+ *     KeGetNodePrimarySubNode @ 0x1402676D4 (KeGetNodePrimarySubNode.c)
+ *     KiCheckPreferredHeteroProcessor @ 0x140274F90 (KiCheckPreferredHeteroProcessor.c)
+ *     ExpWorkerThread @ 0x1403047F0 (ExpWorkerThread.c)
+ *     KeQueryNodeActiveAffinityEx @ 0x140305020 (KeQueryNodeActiveAffinityEx.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x140305140 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiHeteroIdleSetReduction @ 0x1403121E0 (KiHeteroIdleSetReduction.c)
+ *     KiHeteroAttemptPreemptionSwapOnSubNode @ 0x14031280C (KiHeteroAttemptPreemptionSwapOnSubNode.c)
+ *     KiHeteroSelectIdleProcessorFromNode @ 0x14032E630 (KiHeteroSelectIdleProcessorFromNode.c)
+ *     ExpSetTimer2 @ 0x140370A80 (ExpSetTimer2.c)
+ *     KiSelectIdleProcessor @ 0x1403F74D0 (KiSelectIdleProcessor.c)
+ *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x1404206E0 (KeInitializeSchedulerSubNodeEnumerationContext.c)
+ *     PpmEventTraceHeteroSets @ 0x140427BB0 (PpmEventTraceHeteroSets.c)
+ *     KiInitializeSystemSubNodeEnumerationContext @ 0x1404287F0 (KiInitializeSystemSubNodeEnumerationContext.c)
+ *     KiUpdateProcessorClasses @ 0x140428894 (KiUpdateProcessorClasses.c)
+ *     PsQueryProcessCommandLine @ 0x140461E70 (PsQueryProcessCommandLine.c)
+ *     KeUpdateSoftParkRankList @ 0x14047B798 (KeUpdateSoftParkRankList.c)
+ *     PpmGetIdleConstrainedMask @ 0x1404B1924 (PpmGetIdleConstrainedMask.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x1404CCA50 (KeQueryNodeActiveAffinity2.c)
+ *     KiChooseTargetProcessor @ 0x1404E7040 (KiChooseTargetProcessor.c)
+ *     RtlCopyDeviceMemory @ 0x14051E79C (RtlCopyDeviceMemory.c)
+ *     AhcCacheQueryHwId @ 0x14081913C (AhcCacheQueryHwId.c)
+ *     NtCreateWnfStateName @ 0x1408973D0 (NtCreateWnfStateName.c)
+ *     NtAlpcOpenSenderProcess @ 0x1408AB690 (NtAlpcOpenSenderProcess.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x1408AE8AC (AlpcpCaptureSecurityAttribute32.c)
+ *     NtAlpcCreateSecurityContext @ 0x1408AFCC0 (NtAlpcCreateSecurityContext.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x1408B0460 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpSendMessage @ 0x1408B0BA0 (AlpcpSendMessage.c)
+ *     NtSetInformationProcess @ 0x1408BA860 (NtSetInformationProcess.c)
+ *     ExpCaptureWnfStateName @ 0x1408E29E0 (ExpCaptureWnfStateName.c)
+ *     NtGetCompleteWnfStateSubscription @ 0x1408E2AC0 (NtGetCompleteWnfStateSubscription.c)
+ *     NtQueryWnfStateData @ 0x1408E34F0 (NtQueryWnfStateData.c)
+ *     ExpNtUpdateWnfStateData @ 0x1408E4380 (ExpNtUpdateWnfStateData.c)
+ *     PspBuildCreateProcessContext @ 0x1408F0220 (PspBuildCreateProcessContext.c)
+ *     AlpcpConnectPort @ 0x140916470 (AlpcpConnectPort.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x14098D31C (AlpcpSendLegacySynchronousRequest.c)
+ *     NtSecureConnectPort @ 0x14098DB40 (NtSecureConnectPort.c)
+ *     NtQueryInformationThread @ 0x1409C32F0 (NtQueryInformationThread.c)
+ *     NtAlpcOpenSenderThread @ 0x1409CCE90 (NtAlpcOpenSenderThread.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x1409CD120 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     NtQueryInformationProcess @ 0x1409D2880 (NtQueryInformationProcess.c)
+ *     AlpcpCreateConnectionPort @ 0x1409DFF40 (AlpcpCreateConnectionPort.c)
+ *     ?RtlpFindFunctionOverrideDvrtRecord@@YAJV?$span@$$CBE$0?0@gsl@@PEAV12@@Z @ 0x1409F09AC (-RtlpFindFunctionOverrideDvrtRecord@@YAJV-$span@$$CBE$0-0@gsl@@PEAV12@@Z.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x1409F1EF0 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x1409F5B30 (AlpcpAcceptConnectPort.c)
+ *     ObpCaptureBoundaryDescriptor @ 0x140A06B28 (ObpCaptureBoundaryDescriptor.c)
+ *     NtCreateTimer2 @ 0x140A16540 (NtCreateTimer2.c)
+ *     WmipProbeAndCaptureGuidObjectAttributes @ 0x140A491D8 (WmipProbeAndCaptureGuidObjectAttributes.c)
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void *__cdecl RtlCopyVolatileMemory(void *a1, const void *Src, size_t Size)
+{
+  return memmove(a1, Src, Size);
+}

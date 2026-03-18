@@ -1,0 +1,40 @@
+/*
+ * XREFs of MiUpdatePartitionAgeTrimConfiguration @ 0x1404D3164
+ * Callers:
+ *     MiUpdatePartitionMemoryUsage @ 0x1402A6CA0 (MiUpdatePartitionMemoryUsage.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusive @ 0x140249CD0 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiPagesInChildPartitions @ 0x1404CF078 (MiPagesInChildPartitions.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1406F7A10 (MiInitializeWorkingSetManagerParameters.c)
+ */
+
+void __fastcall MiUpdatePartitionAgeTrimConfiguration(__int64 a1)
+{
+  unsigned __int64 v2; // rsi
+  KIRQL v3; // al
+  volatile LONG *v4; // rcx
+
+  if ( (ULONG *)a1 == &MiSystemPartition )
+  {
+    v2 = MiPagesInChildPartitions();
+    v3 = ExAcquireSpinLockExclusive((PEX_SPIN_LOCK)(a1 + 272));
+    if ( *(_QWORD *)(a1 + 22288) <= v2 )
+    {
+      *(_QWORD *)(a1 + 18608) = -1LL;
+    }
+    else if ( *(_QWORD *)(a1 + 18608) != v2 )
+    {
+      *(_QWORD *)(a1 + 18608) = v2;
+      *(_BYTE *)(a1 + 12) = 1;
+    }
+    v4 = (volatile LONG *)(a1 + 272);
+    if ( v3 == 17 )
+      ExReleaseSpinLockExclusiveFromDpcLevel(v4);
+    else
+      ExReleaseSpinLockExclusive(v4, v3);
+  }
+  if ( *(_BYTE *)(a1 + 12) )
+    MiInitializeWorkingSetManagerParameters(a1);
+}

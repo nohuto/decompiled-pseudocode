@@ -1,0 +1,93 @@
+/*
+ * XREFs of CiTaskIndexCreate @ 0x1C000A598
+ * Callers:
+ *     CiDispatchCreateMmThreadClient @ 0x1C0009760 (CiDispatchCreateMmThreadClient.c)
+ *     CiDispatchCreateTaskIndexClient @ 0x1C0009A30 (CiDispatchCreateTaskIndexClient.c)
+ * Callees:
+ *     WPP_SF_ @ 0x1C0001EC4 (WPP_SF_.c)
+ *     WPP_SF_d @ 0x1C00022D8 (WPP_SF_d.c)
+ *     CiAllocateMemory @ 0x1C0002824 (CiAllocateMemory.c)
+ *     CiFreeMemory @ 0x1C0002848 (CiFreeMemory.c)
+ *     CiTaskIndexLocate @ 0x1C000A778 (CiTaskIndexLocate.c)
+ */
+
+__int64 __fastcall CiTaskIndexCreate(__int64 a1, _QWORD *a2)
+{
+  _QWORD *Memory; // rax
+  char *v5; // rbx
+  _QWORD *v7; // rax
+  HANDLE CurrentThreadId; // rax
+  int v9; // edi
+  PKDEFERRED_ROUTINE **v10; // rax
+  struct _DEVICE_OBJECT **DeferredContext; // rcx
+  char v12; // [rsp+40h] [rbp+18h] BYREF
+
+  Memory = CiAllocateMemory(0xC0uLL);
+  v5 = (char *)Memory;
+  if ( Memory )
+  {
+    *(_DWORD *)Memory = 2;
+    Memory[6] = 1LL;
+    Memory[17] = a1;
+    Memory[1] = 0LL;
+    v7 = Memory + 4;
+    v7[1] = v7;
+    *v7 = v7;
+    *((_QWORD *)v5 + 19) = PsGetCurrentProcessId();
+    CurrentThreadId = PsGetCurrentThreadId();
+    *((_QWORD *)v5 + 10) = 0LL;
+    *((_QWORD *)v5 + 20) = CurrentThreadId;
+    *((_DWORD *)v5 + 22) = 1;
+    v9 = 0;
+    v5[92] = 0;
+    *((_QWORD *)v5 + 15) = 0LL;
+    *((_DWORD *)v5 + 32) = 1;
+    v5[132] = 0;
+    *((_DWORD *)v5 + 46) = 0;
+    ExAcquirePushLockExclusiveEx(&WPP_MAIN_CB.Dpc.DpcListEntry, 0LL);
+    WPP_MAIN_CB.Dpc.ProcessorHistory = (KAFFINITY)KeGetCurrentThread();
+    if ( (unsigned int)CiTaskIndicesCount < 0x80 )
+    {
+      do
+        ++CiTaskIndex;
+      while ( (int)CiTaskIndexLocate((unsigned int)CiTaskIndex, 0LL, &v12) >= 0 );
+      ++CiTaskIndicesCount;
+      *((_DWORD *)v5 + 36) = CiTaskIndex;
+      v10 = (PKDEFERRED_ROUTINE **)(v5 + 168);
+      DeferredContext = (struct _DEVICE_OBJECT **)WPP_MAIN_CB.Dpc.DeferredContext;
+      *a2 = v5;
+      if ( *DeferredContext != (struct _DEVICE_OBJECT *)&WPP_MAIN_CB.Dpc.DeferredRoutine )
+        __fastfail(3u);
+      *v10 = &WPP_MAIN_CB.Dpc.DeferredRoutine;
+      *((_QWORD *)v5 + 22) = DeferredContext;
+      *DeferredContext = (struct _DEVICE_OBJECT *)v10;
+      WPP_MAIN_CB.Dpc.DeferredContext = v5 + 168;
+    }
+    else
+    {
+      v9 = -1073741527;
+    }
+    WPP_MAIN_CB.Dpc.ProcessorHistory = 0LL;
+    ExReleasePushLockExclusiveEx(&WPP_MAIN_CB.Dpc.DpcListEntry, 0LL);
+    if ( v9 < 0 )
+    {
+      if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+        WPP_SF_(
+          (__int64)WPP_GLOBAL_Control->AttachedDevice,
+          0xBu,
+          (__int64)&WPP_f714a57ea03330519937f7bdec595f8f_Traceguids);
+      CiFreeMemory(v5);
+    }
+    return (unsigned int)v9;
+  }
+  else
+  {
+    if ( (HIDWORD(WPP_GLOBAL_Control->Timer) & 1) != 0 && BYTE1(WPP_GLOBAL_Control->Timer) >= 2u )
+      WPP_SF_d(
+        (__int64)WPP_GLOBAL_Control->AttachedDevice,
+        0xAu,
+        (__int64)&WPP_f714a57ea03330519937f7bdec595f8f_Traceguids,
+        -1073741801);
+    return 3221225495LL;
+  }
+}

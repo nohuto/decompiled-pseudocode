@@ -1,0 +1,23 @@
+/*
+ * XREFs of ??0CArithmeticCompositeEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016E5B0
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18007F9A8 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CFilterEffect@@IEAA@PEAVCComposition@@@Z @ 0x18016ED1C (--0CFilterEffect@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
+CArithmeticCompositeEffect *__fastcall CArithmeticCompositeEffect::CArithmeticCompositeEffect(
+        CArithmeticCompositeEffect *this,
+        struct CComposition *a2)
+{
+  __int64 v2; // rcx
+  CArithmeticCompositeEffect *result; // rax
+
+  CFilterEffect::CFilterEffect(this, a2);
+  *(_QWORD *)(v2 + 152) = 1065353216LL;
+  *(_QWORD *)(v2 + 160) = 0LL;
+  *(_DWORD *)(v2 + 168) = 0;
+  result = (CArithmeticCompositeEffect *)v2;
+  *(_QWORD *)v2 = &CArithmeticCompositeEffect::`vftable';
+  return result;
+}

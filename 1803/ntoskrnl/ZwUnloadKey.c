@@ -1,0 +1,19 @@
+/*
+ * XREFs of ZwUnloadKey @ 0x1401AACA0
+ * Callers:
+ *     BiUnloadHiveByName @ 0x1405EE3C0 (BiUnloadHiveByName.c)
+ *     BiLoadHive @ 0x140606838 (BiLoadHive.c)
+ *     VrpUnloadDifferencingHive @ 0x14070DA14 (VrpUnloadDifferencingHive.c)
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall ZwUnloadKey(POBJECT_ATTRIBUTES KeyObjectAttributes)
+{
+  __int64 v1; // rdx
+  __int64 v2; // r8
+
+  _disable();
+  __readeflags();
+  return KiServiceInternal(KeyObjectAttributes, v1, v2);
+}

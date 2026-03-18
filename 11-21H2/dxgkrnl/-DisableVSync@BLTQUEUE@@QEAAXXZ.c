@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?DisableVSync@BLTQUEUE@@QEAAXXZ @ 0x1C03BC100
+ * Callers:
+ *     ?SetVidPnSourceActive@ADAPTER_DISPLAY@@QEAAJI_NPEBU_DXGK_DISPLAYMODE_INFO@@00@Z @ 0x1C01C79D8 (-SetVidPnSourceActive@ADAPTER_DISPLAY@@QEAAJI_NPEBU_DXGK_DISPLAYMODE_INFO@@00@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000EE00 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C000EF08 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C000FABC (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z @ 0x1C03BF230 (-StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z.c)
+ */
+
+void __fastcall BLTQUEUE::DisableVSync(struct _KTHREAD **this)
+{
+  _BYTE v2[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v3; // [rsp+28h] [rbp-20h]
+  int v4; // [rsp+30h] [rbp-18h]
+
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v2, this + 51, 0);
+  DXGPUSHLOCK::AcquireExclusive(v3);
+  v4 = 2;
+  BLTQUEUE::StopVSync(this, 1LL, 10LL);
+  *((_DWORD *)this + 238) &= ~8u;
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v2);
+}

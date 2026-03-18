@@ -1,0 +1,116 @@
+/*
+ * XREFs of HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C001FA3C
+ * Callers:
+ *     HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration @ 0x1C001D190 (HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration.c)
+ *     HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency @ 0x1C001D280 (HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency.c)
+ *     HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure @ 0x1C001D900 (HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure.c)
+ *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C0021220 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C00019E4 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0001DD8 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C0009C48 (HUBSM_AddEvent.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C001F594 (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0038E70 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00391C0 (memset.c)
+ */
+
+void __fastcall HUBUCX_EnableDisableEndpointsUsingUCXIoctl(__int64 a1)
+{
+  int v2; // edx
+  __int64 *v3; // r9
+  __int64 i; // rcx
+  __int64 j; // rdx
+  __int64 v6; // rcx
+  _DWORD *v7; // rdi
+  __int64 k; // rdx
+  int v9; // eax
+  int v10; // [rsp+28h] [rbp-10h]
+
+  if ( !*(_DWORD *)(a1 + 128) )
+  {
+    if ( !*(_DWORD *)(a1 + 112) )
+    {
+      WPP_RECORDER_SF_(
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
+        4u,
+        5u,
+        0x16u,
+        (__int64)&WPP_3d53ed487f413aabe4c3ad9959a4b253_Traceguids);
+      (*(void (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 2560))(
+        WdfDriverGlobals,
+        *(_QWORD *)(a1 + 2416),
+        0LL);
+      v2 = 4028;
+LABEL_4:
+      HUBSM_AddEvent(a1 + 504, v2);
+      return;
+    }
+    if ( (*(_DWORD *)(a1 + 1636) & 0x8000) != 0 )
+    {
+      v3 = (__int64 *)(*(_QWORD *)(a1 + 48) + 16LL);
+      for ( i = *v3; ; i = *(_QWORD *)(v6 + 8) )
+      {
+        v6 = i - 8;
+        if ( v3 == (__int64 *)(v6 + 8) )
+          break;
+        for ( j = 0LL; (unsigned int)j < *(_DWORD *)(v6 + 24); j = (unsigned int)(j + 1) )
+        {
+          if ( *(_DWORD *)(v6 + 72 * j + 48) == 3 )
+            *(_DWORD *)(v6 + 72 * j + 48) = 6;
+        }
+      }
+      *(_DWORD *)(a1 + 1564) = -2147481856;
+      *(_DWORD *)(a1 + 1560) = -1073741823;
+      WPP_RECORDER_SF_(
+        *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
+        4u,
+        5u,
+        0x17u,
+        (__int64)&WPP_3d53ed487f413aabe4c3ad9959a4b253_Traceguids);
+      v2 = 4020;
+      goto LABEL_4;
+    }
+  }
+  v7 = (_DWORD *)(*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD, _QWORD))(WdfFunctions_01015 + 1552))(
+                   WdfDriverGlobals,
+                   *(_QWORD *)(a1 + 432),
+                   0LL);
+  memset(v7, 0, 0x60uLL);
+  *v7 = 96;
+  *((_QWORD *)v7 + 1) = *(_QWORD *)(*(_QWORD *)a1 + 240LL);
+  *((_QWORD *)v7 + 2) = *(_QWORD *)(a1 + 24);
+  if ( (*(_DWORD *)(a1 + 1636) & 0x8000) == 0 )
+  {
+    v7[6] = *(_DWORD *)(a1 + 112);
+    *((_QWORD *)v7 + 4) = *(_QWORD *)(a1 + 104);
+  }
+  v7[10] = *(_DWORD *)(a1 + 128);
+  *((_QWORD *)v7 + 6) = *(_QWORD *)(a1 + 120);
+  v7[14] = *(_DWORD *)(a1 + 144);
+  *((_QWORD *)v7 + 8) = *(_QWORD *)(a1 + 136);
+  if ( *(_QWORD *)(a1 + 48) != -32LL )
+  {
+    *((_BYTE *)v7 + 80) = *(_BYTE *)(*(_QWORD *)(a1 + 48) + 37LL);
+    if ( *(_QWORD *)(a1 + 64) )
+    {
+      for ( k = 0LL; k < 2; ++k )
+        *((_BYTE *)v7 + k + 81) = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)(a1 + 80) + 32LL) + k + 2);
+    }
+  }
+  v7[21] = *(_DWORD *)(a1 + 148);
+  *((_QWORD *)v7 + 11) = *(_QWORD *)(a1 + 152);
+  *(_DWORD *)(a1 + 148) = 0;
+  *(_QWORD *)(a1 + 152) = 0LL;
+  v9 = HUBUCX_SubmitUcxIoctl(a1, 0x491037u);
+  if ( v9 < 0 )
+  {
+    v10 = v9;
+    WPP_RECORDER_SF_d(
+      *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
+      2u,
+      5u,
+      0x18u,
+      (__int64)&WPP_3d53ed487f413aabe4c3ad9959a4b253_Traceguids,
+      v10);
+  }
+}

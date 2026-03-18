@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?InsertToDeviceList@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@@Z @ 0x1400319C0
+ * Callers:
+ *     ??0VIDMM_DEVICE@@QEAA@PEAVVIDMM_GLOBAL@@PEAVDXGDEVICE@@@Z @ 0x1400BF1F8 (--0VIDMM_DEVICE@@QEAA@PEAVVIDMM_GLOBAL@@PEAVDXGDEVICE@@@Z.c)
+ * Callees:
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140031710 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x140031A2C (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ */
+
+void __fastcall VIDMM_GLOBAL::InsertToDeviceList(VIDMM_GLOBAL *this, struct VIDMM_DEVICE *a2)
+{
+  char *v4; // rdi
+  _QWORD *v5; // rbx
+  __int64 v6; // rax
+  _BYTE v7[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+    (DXGAUTOPUSHLOCKEXCLUSIVE *)v7,
+    (VIDMM_GLOBAL *)((char *)this + 44552));
+  v4 = (char *)this + 44648;
+  v5 = (_QWORD *)((char *)a2 + 200);
+  v6 = *(_QWORD *)v4;
+  if ( *(char **)(*(_QWORD *)v4 + 8LL) != v4 )
+    __fastfail(3u);
+  *v5 = v6;
+  v5[1] = v4;
+  *(_QWORD *)(v6 + 8) = v5;
+  *(_QWORD *)v4 = v5;
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v7);
+}

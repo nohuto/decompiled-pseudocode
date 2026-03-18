@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?AcquireExclusive@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x140030100
+ * Callers:
+ *     ?MakeOneVirtualAddressRangeNotResidentSubrange@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_K1@Z @ 0x14009FD24 (-MakeOneVirtualAddressRangeNotResidentSubrange@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_ALLOC@@_K1@Z.c)
+ *     ?UpdateCurrentUpgradedGpuVaRange@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@_K1@Z @ 0x1400A270C (-UpdateCurrentUpgradedGpuVaRange@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@_K1@Z.c)
+ *     ?MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_VAD_OWNER_TYPE@@_K333IU_D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE@@1IPEAPEAUVIDMM_VAD_PENDING_OPERATION@@_N6@Z @ 0x1400CC7D4 (-MapVirtualAddressRange@CVirtualAddressAllocator@@QEAAPEAUVIDMM_MAPPED_VA_RANGE@@PEAX_KW4VIDMM_V.c)
+ *     ?PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NPEAPEAU2@I_K@Z @ 0x1400CEDF8 (-PageInOneAllocation@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_PLACEMENT_RESTRICTION@@_NPEA_NP.c)
+ *     ?VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@PEAVDXGPUSHLOCKBASE@@@Z @ 0x1400E3B90 (-VidMmCompleteAsyncUnpin@@YAXPEAVVIDMM_GLOBAL@@PEAPEAUVIDMM_ALLOC@@PEAVDXGPUSHLOCKBASE@@@Z.c)
+ *     ?ReferencePinnedAllocation@VIDMM_DEVICE@@QEAAJPEAUVIDMM_ALLOC@@PEA_N@Z @ 0x1400E4308 (-ReferencePinnedAllocation@VIDMM_DEVICE@@QEAAJPEAUVIDMM_ALLOC@@PEA_N@Z.c)
+ *     ?AsyncUnpinAllocation@VIDMM_GLOBAL@@QEAAJPEAVDXGALLOCATION@@@Z @ 0x1400F8114 (-AsyncUnpinAllocation@VIDMM_GLOBAL@@QEAAJPEAVDXGALLOCATION@@@Z.c)
+ *     ?ProcessReleaseResourceCommands@VIDMM_GLOBAL@@QEAAXXZ @ 0x1400FFB34 (-ProcessReleaseResourceCommands@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     ?LogEvent@DXGPUSHLOCK@@IEAAXXZ @ 0x140030174 (-LogEvent@DXGPUSHLOCK@@IEAAXXZ.c)
+ */
+
+void __fastcall DXGAUTOPUSHLOCK::AcquireExclusive(DXGAUTOPUSHLOCK *this)
+{
+  DXGPUSHLOCK *v1; // rbx
+
+  v1 = (DXGPUSHLOCK *)*((_QWORD *)this + 1);
+  KeEnterCriticalRegion();
+  if ( !(unsigned __int8)ExTryAcquirePushLockExclusiveEx(v1, 0LL) )
+  {
+    DXGPUSHLOCK::LogEvent(v1);
+    ExAcquirePushLockExclusiveEx(v1, 0LL);
+  }
+  *((_QWORD *)v1 + 1) = KeGetCurrentThread();
+  *((_DWORD *)this + 4) = 2;
+}

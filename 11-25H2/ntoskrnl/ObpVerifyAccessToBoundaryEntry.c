@@ -1,0 +1,120 @@
+/*
+ * XREFs of ObpVerifyAccessToBoundaryEntry @ 0x140999270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeAccessCheckWithHint @ 0x140362560 (SeAccessCheckWithHint.c)
+ *     RtlEqualSid @ 0x14036A6E0 (RtlEqualSid.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ *     RtlAddMandatoryAce @ 0x14092AE40 (RtlAddMandatoryAce.c)
+ *     RtlpAddKnownAce @ 0x14092B1E0 (RtlpAddKnownAce.c)
+ *     RtlCreateAcl @ 0x140968260 (RtlCreateAcl.c)
+ *     RtlIsPackageSid @ 0x140998B14 (RtlIsPackageSid.c)
+ *     RtlCreateSecurityDescriptor @ 0x1409EC7E0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140A061E0 (RtlSetSaclSecurityDescriptor.c)
+ */
+
+_BOOL8 __fastcall ObpVerifyAccessToBoundaryEntry(unsigned __int8 *a1, __int64 a2)
+{
+  int v4; // eax
+  unsigned __int8 **v5; // rax
+  unsigned __int8 *v6; // r9
+  __int16 v7; // ax
+  PSID *v10; // rdx
+  int v11; // eax
+  __int64 v12; // rdx
+  unsigned int v13; // [rsp+60h] [rbp-A0h] BYREF
+  __int128 SecurityDescriptor; // [rsp+68h] [rbp-98h] BYREF
+  __int128 v15; // [rsp+78h] [rbp-88h]
+  int *v16; // [rsp+88h] [rbp-78h]
+  ACL Acl; // [rsp+90h] [rbp-70h] BYREF
+  int v18[2]; // [rsp+F0h] [rbp-10h] BYREF
+  _BYTE v19[152]; // [rsp+F8h] [rbp-8h] BYREF
+
+  v13 = 0;
+  memset_0(&Acl, 0, 0x54uLL);
+  v16 = 0LL;
+  v4 = *(_DWORD *)a1;
+  SecurityDescriptor = 0LL;
+  v15 = 0LL;
+  if ( v4 != 2 )
+  {
+    if ( v4 != 3 )
+    {
+      if ( v4 != 1 )
+      {
+        *(_DWORD *)(a2 + 48) = -1073741595;
+        return 0LL;
+      }
+      return 1LL;
+    }
+    RtlCreateAcl(&Acl, 0x54u, 2u);
+    RtlAddMandatoryAce((__int64)&Acl, 2u, 0, a1 + 8, 17, 7);
+    RtlCreateSecurityDescriptor(&SecurityDescriptor, 1u);
+    LOBYTE(v12) = 1;
+    RtlSetSaclSecurityDescriptor(&SecurityDescriptor, v12, &Acl, 0LL);
+    return SeAccessCheckWithHint(
+             (__int64)&SecurityDescriptor,
+             1,
+             (int *)a2,
+             1u,
+             0xF000Fu,
+             0,
+             0LL,
+             &ObpDirectoryObjectType->TypeInfo.GenericMapping.GenericRead,
+             KeGetCurrentThread()->PreviousMode,
+             &v13,
+             (int *)(a2 + 48));
+  }
+  if ( !RtlIsPackageSid((__int64)(a1 + 8)) )
+  {
+    memset_0(v19, 0, sizeof(v19));
+    *(_QWORD *)v18 = 10485762LL;
+    RtlpAddKnownAce((__int64)v18, 2u, 0, 983055, a1 + 8, 0);
+    v5 = *(unsigned __int8 ***)(a2 + 32);
+    if ( v5 )
+      RtlpAddKnownAce((__int64)v18, 2u, 0, 983055, *v5, 0);
+    v6 = *(unsigned __int8 **)(a2 + 40);
+    Acl = (ACL)5505026LL;
+    RtlAddMandatoryAce((__int64)&Acl, 2u, 0, v6, 17, 7);
+    LOBYTE(SecurityDescriptor) = 1;
+    if ( (SWORD1(SecurityDescriptor) & 0x8000u) == 0 )
+    {
+      v16 = v18;
+      v7 = WORD1(SecurityDescriptor) & 0xFFF3 | 4;
+      WORD1(SecurityDescriptor) = v7;
+      if ( v7 >= 0 )
+      {
+        *((_QWORD *)&v15 + 1) = &Acl;
+        WORD1(SecurityDescriptor) = v7 & 0xFFCF | 0x10;
+      }
+    }
+    return SeAccessCheckWithHint(
+             (__int64)&SecurityDescriptor,
+             1,
+             (int *)a2,
+             1u,
+             0xF000Fu,
+             0,
+             0LL,
+             &ObpDirectoryObjectType->TypeInfo.GenericMapping.GenericRead,
+             KeGetCurrentThread()->PreviousMode,
+             &v13,
+             (int *)(a2 + 48));
+  }
+  v10 = *(PSID **)(a2 + 32);
+  if ( v10 && !RtlEqualSid(a1 + 8, *v10) )
+  {
+    *(_DWORD *)(a2 + 48) = -1073741790;
+    return 0LL;
+  }
+  v11 = *(_DWORD *)(a2 + 52);
+  if ( (v11 & 1) != 0 )
+  {
+    *(_DWORD *)(a2 + 48) = -1073741811;
+    return 0LL;
+  }
+  *(_DWORD *)(a2 + 52) = v11 | 1;
+  return 1LL;
+}

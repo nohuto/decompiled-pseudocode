@@ -1,0 +1,85 @@
+/*
+ * XREFs of DifKeWaitForSingleObjectWrapper @ 0x1404C0BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DifGetReturnAddressForWrappers @ 0x140260EA4 (DifGetReturnAddressForWrappers.c)
+ *     ExReleaseRundownProtection_0 @ 0x140266240 (ExReleaseRundownProtection_0.c)
+ *     KeWaitForSingleObject @ 0x140278560 (KeWaitForSingleObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x1402F0590 (ExAcquireRundownProtection_0.c)
+ *     DifGetAPIThunkContextById @ 0x1404C17A4 (DifGetAPIThunkContextById.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall DifKeWaitForSingleObjectWrapper(
+        void *a1,
+        KWAIT_REASON a2,
+        KPROCESSOR_MODE a3,
+        BOOLEAN a4,
+        LARGE_INTEGER *Timeout)
+{
+  __int64 APIThunkContextById; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r14
+  int v11; // ecx
+  BOOLEAN v12; // si
+  _QWORD *i; // rbx
+  __int64 v14; // rdx
+  BOOLEAN v15; // di
+  _QWORD *j; // rbx
+  __int128 v18; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v19; // [rsp+40h] [rbp-20h]
+  __int64 v20; // [rsp+50h] [rbp-10h]
+  _UNKNOWN *retaddr; // [rsp+88h] [rbp+28h]
+
+  v20 = 0LL;
+  v18 = 0LL;
+  v19 = 0LL;
+  APIThunkContextById = DifGetAPIThunkContextById(240LL);
+  v10 = APIThunkContextById;
+  if ( APIThunkContextById )
+  {
+    v11 = *(_DWORD *)(APIThunkContextById + 12);
+    if ( (v11 & 0x18) != 0 )
+    {
+      *(_QWORD *)&v18 = retaddr;
+    }
+    else if ( (v11 & 4) != 0 )
+    {
+      *(_QWORD *)&v18 = DifGetReturnAddressForWrappers();
+    }
+    v12 = 0;
+    *((_QWORD *)&v19 + 1) = a1;
+    *((_QWORD *)&v18 + 1) = Timeout;
+    DWORD1(v19) = a2;
+    BYTE1(v19) = a3;
+    LOBYTE(v19) = a4;
+    if ( !VfDifRunningWithoutReboot && (VfOptionFlags & 0x800) == 0
+      || (v12 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    {
+      for ( i = *(_QWORD **)(v10 + 32); i != (_QWORD *)(v10 + 32); i = (_QWORD *)*i )
+      {
+        if ( i != (_QWORD *)16 )
+          guard_dispatch_icall_no_overrides(&v18, v9);
+      }
+      if ( v12 )
+        ExReleaseRundownProtection_0(&DifRebootlessRundown);
+    }
+  }
+  LODWORD(v20) = KeWaitForSingleObject(a1, a2, a3, a4, Timeout);
+  if ( v10 )
+  {
+    if ( (v15 = 0, !VfDifRunningWithoutReboot) && (VfOptionFlags & 0x800) == 0
+      || (v15 = ExAcquireRundownProtection_0(&DifRebootlessRundown)) != 0 )
+    {
+      for ( j = *(_QWORD **)(v10 + 48); j != (_QWORD *)(v10 + 48); j = (_QWORD *)*j )
+      {
+        if ( j != (_QWORD *)16 )
+          guard_dispatch_icall_no_overrides(&v18, v14);
+      }
+      if ( v15 )
+        ExReleaseRundownProtection_0(&DifRebootlessRundown);
+    }
+  }
+  return (unsigned int)v20;
+}

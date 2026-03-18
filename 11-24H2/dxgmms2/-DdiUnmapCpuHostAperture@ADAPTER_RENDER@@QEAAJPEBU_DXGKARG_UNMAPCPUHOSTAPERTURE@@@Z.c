@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?DdiUnmapCpuHostAperture@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_UNMAPCPUHOSTAPERTURE@@@Z @ 0x140038EE4
+ * Callers:
+ *     ?UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1400B206C (-UnmapRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z.c)
+ *     ?FreeCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVVIDMM_GLOBAL@@PEAXPEAUVIDMM_DRIVER_UPDATE_ADDRESS_CONTEXT@@@Z @ 0x1400ECA10 (-FreeCpuVisibleAddress@VIDMM_PAGE_TABLE_BASE@@QEAAXPEAVVIDMM_GLOBAL@@PEAXPEAUVIDMM_DRIVER_UPDATE.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140055E60 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall ADAPTER_RENDER::DdiUnmapCpuHostAperture(
+        ADAPTER_RENDER *this,
+        const struct _DXGKARG_UNMAPCPUHOSTAPERTURE *a2)
+{
+  return ((__int64 (__fastcall *)(ADAPTER_RENDER *, const struct _DXGKARG_UNMAPCPUHOSTAPERTURE *))DxgCoreInterface[55])(
+           this,
+           a2);
+}

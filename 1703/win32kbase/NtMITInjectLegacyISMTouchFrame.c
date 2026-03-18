@@ -1,0 +1,81 @@
+/*
+ * XREFs of NtMITInjectLegacyISMTouchFrame @ 0x1C00DFA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EnterCritAvoidingDitHitTestHazard @ 0x1C002EAB0 (EnterCritAvoidingDitHitTestHazard.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C002EBD0 (UserSessionSwitchLeaveCrit.c)
+ *     Template_xqx @ 0x1C00DE1A8 (Template_xqx.c)
+ *     InjectLegacyISMTouch @ 0x1C01306F0 (InjectLegacyISMTouch.c)
+ */
+
+__int64 __fastcall NtMITInjectLegacyISMTouchFrame(__int64 a1, __int64 a2, __int64 a3)
+{
+  LARGE_INTEGER *CurrentThreadWin32Thread; // rbx
+  struct tagTHREADINFO *v5; // rbp
+  __int64 v6; // rdx
+  __int64 v7; // rcx
+  __int64 v8; // r8
+  __int64 v9; // rdi
+  LARGE_INTEGER v10; // rcx
+  LARGE_INTEGER v11; // rbx
+  LARGE_INTEGER v12; // r8
+  __int64 v13; // rdi
+  bool v14; // bl
+  unsigned int v15; // ebx
+  __int64 v17; // [rsp+20h] [rbp-18h]
+  int v18; // [rsp+20h] [rbp-18h]
+
+  CurrentThreadWin32Thread = (LARGE_INTEGER *)PsGetCurrentThreadWin32Thread(a1, a2, a3);
+  if ( CurrentThreadWin32Thread )
+    CurrentThreadWin32Thread[1] = KeQueryPerformanceCounter(0LL);
+  v5 = EnterCritAvoidingDitHitTestHazard(0, 1);
+  v9 = PsGetCurrentThreadWin32Thread(v7, v6, v8);
+  if ( v9 )
+  {
+    v11 = (LARGE_INTEGER)(*(_QWORD *)&KeQueryPerformanceCounter(0LL) - *(_QWORD *)(v9 + 8));
+    if ( (*(_QWORD *)&WPP_MAIN_CB.ActiveThreadCount & 0x200000010000000LL) != 0
+      && (unsigned __int8)(byte_1C0186D98 - 1) > 2u
+      && (qword_1C0186D80 & 0x200000010000000LL) != 0
+      && (qword_1C0186D88 & 0x200000010000000LL) == qword_1C0186D88
+      && (Microsoft_Windows_Win32kEnableBits & 0x800000) != 0 )
+    {
+      v18 = 0;
+      LOBYTE(v10.LowPart) = byte_1C0186D98 - 1;
+      Template_xqx(
+        v10.QuadPart,
+        &AcquiredExclusiveUserCritEvent,
+        v12.QuadPart,
+        v11.QuadPart,
+        v18,
+        gullUserCritAcquireToken);
+    }
+    if ( v11.QuadPart >= (__int64)WPP_MAIN_CB.Dpc.SystemArgument2
+      && (Microsoft_Windows_Win32kEnableBits & 0x8000000) != 0 )
+    {
+      LODWORD(v17) = 1000 * v11.QuadPart / gliQpcFreq.QuadPart;
+      Template_xqx(
+        (__int64)gullUserCritAcquireToken,
+        &AcquiredExclusiveUserCritTelemetryEvent,
+        v12.QuadPart,
+        0LL,
+        v17,
+        gullUserCritAcquireToken);
+    }
+    *(_QWORD *)(v9 + 16) = _InterlockedIncrement64((volatile signed __int64 *)&gullUserCritAcquireToken);
+  }
+  v13 = *(_QWORD *)&WPP_MAIN_CB.AlignmentRequirement;
+  gptiCurrent = v5;
+  gbValidateHandleForIL = 1;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockSharedEx(v13, 0LL);
+  v14 = (unsigned int)PsGetCurrentThreadId() == *(_DWORD *)(v13 + 40);
+  ExReleasePushLockSharedEx(v13, 0LL);
+  KeLeaveCriticalRegion();
+  if ( v14 )
+    v15 = InjectLegacyISMTouch(a1);
+  else
+    v15 = 5;
+  UserSessionSwitchLeaveCrit();
+  return v15;
+}

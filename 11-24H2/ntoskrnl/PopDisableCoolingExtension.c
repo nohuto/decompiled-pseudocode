@@ -1,0 +1,41 @@
+/*
+ * XREFs of PopDisableCoolingExtension @ 0x14074C2E8
+ * Callers:
+ *     PopCoolingExtensionPnpNotification @ 0x14074C210 (PopCoolingExtensionPnpNotification.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     PopReleaseRwLock @ 0x1403B5EC8 (PopReleaseRwLock.c)
+ *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     PopPropogateCoolingChange @ 0x14042796C (PopPropogateCoolingChange.c)
+ *     PopAcquireRwLockExclusive @ 0x1404283D4 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406B3DF0 (_guard_dispatch_icall_no_overrides.c)
+ *     PopDiagTraceCoolingExtension @ 0x140A38BFC (PopDiagTraceCoolingExtension.c)
+ */
+
+__int64 __fastcall PopDisableCoolingExtension(__int64 a1)
+{
+  signed __int64 *v1; // rsi
+  __int64 v4; // rbx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  __int64 v7; // r9
+  struct _KEVENT Event; // [rsp+30h] [rbp-28h] BYREF
+
+  v1 = (signed __int64 *)(a1 + 32);
+  memset(&Event, 0, sizeof(Event));
+  PopAcquireRwLockExclusive((unsigned __int64 *)(a1 + 32));
+  if ( !*(_BYTE *)(a1 + 64) )
+    return PopReleaseRwLock(v1);
+  *(_BYTE *)(a1 + 64) = 0;
+  PopDiagTraceCoolingExtension(a1, POP_ETW_EVENT_COOLING_EXTENSION_REMOVE);
+  KeInitializeEvent(&Event, NotificationEvent, 0);
+  *(_QWORD *)(a1 + 80) = &Event;
+  PopPropogateCoolingChange(a1);
+  PopReleaseRwLock(v1);
+  KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+  PopAcquireRwLockExclusive((unsigned __int64 *)v1);
+  *(_QWORD *)(a1 + 80) = 0LL;
+  v4 = *(_QWORD *)(a1 + 96);
+  PopReleaseRwLock(v1);
+  return guard_dispatch_icall_no_overrides(v4, v5, v6, v7);
+}

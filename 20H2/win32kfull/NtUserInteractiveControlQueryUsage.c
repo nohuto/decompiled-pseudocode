@@ -1,0 +1,38 @@
+/*
+ * XREFs of NtUserInteractiveControlQueryUsage @ 0x1C01FDCE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C000ACA4 (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     UserSetLastError @ 0x1C00D60E0 (UserSetLastError.c)
+ *     ?GetReportExtendedUsage@InteractiveControlManager@@QEAAJKKGGGPEAJ@Z @ 0x1C0251BDC (-GetReportExtendedUsage@InteractiveControlManager@@QEAAJKKGGGPEAJ@Z.c)
+ */
+
+__int64 __fastcall NtUserInteractiveControlQueryUsage(
+        unsigned int a1,
+        unsigned __int16 a2,
+        unsigned __int16 a3,
+        unsigned __int16 a4,
+        int *a5)
+{
+  int v9; // esi
+  _DWORD *v10; // rdx
+  InteractiveControlManager *v11; // rax
+  __int64 v12; // rcx
+  int v14[12]; // [rsp+40h] [rbp-48h] BYREF
+
+  v14[0] = 0;
+  v9 = 1;
+  EnterSharedCrit(0LL, 1LL);
+  v10 = a5;
+  if ( (unsigned __int64)a5 >= MmUserProbeAddress )
+    v10 = (_DWORD *)MmUserProbeAddress;
+  *v10 = *v10;
+  v11 = InteractiveControlManager::Instance();
+  if ( (int)InteractiveControlManager::GetReportExtendedUsage(v11, (unsigned __int16)a1, HIWORD(a1), a3, a2, a4, v14) < 0 )
+    v9 = 0;
+  else
+    *a5 = v14[0];
+  UserSessionSwitchLeaveCrit(v12);
+  return v9;
+}

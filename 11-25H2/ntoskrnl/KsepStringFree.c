@@ -1,0 +1,42 @@
+/*
+ * XREFs of KsepStringFree @ 0x14082BBBC
+ * Callers:
+ *     KsepLoadShimProvider @ 0x1405C5EF4 (KsepLoadShimProvider.c)
+ *     KsepCacheHwIdFree @ 0x1405C62E0 (KsepCacheHwIdFree.c)
+ *     KseSetDeviceFlags @ 0x140732220 (KseSetDeviceFlags.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x1407327B4 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepStringSplitMultiString @ 0x140734248 (KsepStringSplitMultiString.c)
+ *     KsepCacheDeviceInsertData @ 0x14073449C (KsepCacheDeviceInsertData.c)
+ *     KsepRegistryCreateKey @ 0x140734708 (KsepRegistryCreateKey.c)
+ *     KsepCacheDeviceFree @ 0x14082A3C0 (KsepCacheDeviceFree.c)
+ *     KseAddHardwareId @ 0x14082C174 (KseAddHardwareId.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x140A5054C (KsepEngineGetShimsFromRegistry.c)
+ *     KsepDbFreeDriverShims @ 0x140AB2B60 (KsepDbFreeDriverShims.c)
+ * Callees:
+ *     KsepPoolFreePaged @ 0x1404A64EC (KsepPoolFreePaged.c)
+ *     RtlAssert @ 0x1405DD1F0 (RtlAssert.c)
+ */
+
+void __fastcall KsepStringFree(__int64 a1)
+{
+  void *v2; // rcx
+  __int64 v3; // rax
+
+  if ( a1 )
+  {
+    v2 = *(void **)(a1 + 8);
+    if ( v2 )
+    {
+      KsepPoolFreePaged(v2);
+      *(_OWORD *)a1 = 0LL;
+    }
+  }
+  else
+  {
+    v3 = ((unsigned __int8)_InterlockedExchangeAdd(&KsepHistoryErrorsIndex, 1u) + 1) & 0x3F;
+    KsepHistoryErrors[2 * v3 + 1] = -1073740768;
+    KsepHistoryErrors[2 * v3] = 197451;
+    if ( (KsepDebugFlag & 4) != 0 )
+      RtlAssert("String != NULL", "minkernel\\ntos\\kshim\\ksemisc.c", 0x34Bu, 0LL);
+  }
+}

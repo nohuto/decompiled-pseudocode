@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??0VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO@@QEAA@XZ @ 0x140044F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO *__fastcall VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO::VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO(
+        VIDMM_PROCESS_PHYSICAL_ADAPTER_INFO *this)
+{
+  *(_QWORD *)this = 0LL;
+  return this;
+}

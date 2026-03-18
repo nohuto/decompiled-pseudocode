@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?Thunk_RemoteReplace_55@?$IList_uint_Proxy_Receive@VBamoList_uint_ProxyImpl@dataprovider_AutoBamos@BamoImpl@Lib@Bamo@Microsoft@@@dataprovider_AutoBamos@Lib@Bamo@Microsoft@@SAJPEAXPEAPEAX@Z @ 0x18027DE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBaseBamoConnectionImpl@12@PEAVCalloutWrapperObject@12@@Z @ 0x1801A89C4 (--0-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@PEAVBase.c)
+ *     ??1?$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ @ 0x1801A8E88 (--1-$CalloutWrapper@VCalloutWrapperObject@BamoImpl@Microsoft@@@BamoImpl@Microsoft@@QEAA@XZ.c)
+ *     ?AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ @ 0x1801A96C4 (-AckReference@BamoProxyImpl@BamoImpl@Microsoft@@QEAAXXZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1802F6010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall Microsoft::Bamo::Lib::dataprovider_AutoBamos::IList_uint_Proxy_Receive<Microsoft::Bamo::Lib::BamoImpl::dataprovider_AutoBamos::BamoList_uint_ProxyImpl>::Thunk_RemoteReplace_55(
+        Microsoft::BamoImpl::BamoProxyImpl *this,
+        unsigned int **a2)
+{
+  unsigned int v3; // edi
+  unsigned int v4; // ebx
+  unsigned int v5; // ebx
+  __int64 v6; // rdx
+  __int64 v7; // r8
+  const char *v8; // r9
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  _BYTE v12[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v3 = *a2[1];
+  v4 = **a2;
+  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+    (__int64)v12,
+    *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 32LL));
+  v5 = (*(__int64 (__fastcall **)(char *, _QWORD, _QWORD))(*((_QWORD *)this - 2) + 104LL))((char *)this - 16, v4, v3);
+  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+    (__int64)v12,
+    v6,
+    v7,
+    v8);
+  Microsoft::BamoImpl::BamoProxyImpl::AckReference(this, v9, v10);
+  return v5;
+}

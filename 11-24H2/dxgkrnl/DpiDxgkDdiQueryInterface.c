@@ -1,0 +1,62 @@
+/*
+ * XREFs of DpiDxgkDdiQueryInterface @ 0x1403B4AFC
+ * Callers:
+ *     DpiQueryMiniportInterface @ 0x14018AFAC (DpiQueryMiniportInterface.c)
+ *     DpiPdoDispatchPnp @ 0x1403B44D0 (DpiPdoDispatchPnp.c)
+ * Callees:
+ *     McTemplateK0pjq_EtwWriteTransfer @ 0x14008CF68 (McTemplateK0pjq_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1400A1BC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1400A1CA0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall DpiDxgkDdiQueryInterface(__int64 a1, __int64 a2, __int128 **a3)
+{
+  __int128 *v6; // rax
+  __int64 v7; // rdx
+  __int64 v8; // rcx
+  __int64 v9; // rbx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int128 *v12; // rax
+  _QWORD *v13; // rax
+  __int64 result; // rax
+  __int64 v15; // [rsp+28h] [rbp-50h]
+  int v16; // [rsp+28h] [rbp-50h]
+  __int128 v17; // [rsp+30h] [rbp-48h] BYREF
+  __int128 v18; // [rsp+40h] [rbp-38h] BYREF
+
+  if ( bTracingEnabled )
+  {
+    v6 = *a3;
+    v17 = 0LL;
+    if ( v6 )
+      v17 = *v6;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    {
+      v16 = 0;
+      McTemplateK0pjq_EtwWriteTransfer(a1, &EventEnterDdiQueryInterface, (__int64)a3, a2, &v17, v16);
+    }
+  }
+  v9 = (*(int (__fastcall **)(__int64, __int128 **))(a1 + 256))(a2, a3);
+  if ( bTracingEnabled )
+  {
+    v12 = *a3;
+    v18 = 0LL;
+    if ( v12 )
+      v18 = *v12;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x100) != 0 )
+    {
+      LODWORD(v15) = v9;
+      McTemplateK0pjq_EtwWriteTransfer(v8, &EventExitDdiQueryInterface, v10, a2, &v18, v15);
+    }
+  }
+  v13 = (_QWORD *)WdLogNewEntry5_WdTrace(v8, v7, v10, v11);
+  v13[5] = 0LL;
+  v13[6] = 0LL;
+  v13[7] = 0LL;
+  v13[3] = a1;
+  v13[4] = v9;
+  result = (unsigned int)v9;
+  WdLogGlobalForLineNumber = 471;
+  return result;
+}

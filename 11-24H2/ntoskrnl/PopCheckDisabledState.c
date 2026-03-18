@@ -1,0 +1,23 @@
+/*
+ * XREFs of PopCheckDisabledState @ 0x1409B9604
+ * Callers:
+ *     PopFilterCapabilities @ 0x1409B923C (PopFilterCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall PopCheckDisabledState(int a1)
+{
+  __int64 *v1; // r8
+  char v2; // dl
+
+  v1 = (__int64 *)PowerStateDisableReasonListHead;
+  v2 = 0;
+  while ( v1 != &PowerStateDisableReasonListHead )
+  {
+    if ( *((_BYTE *)v1 + a1 + 16) )
+      return 1;
+    v1 = (__int64 *)*v1;
+  }
+  return v2;
+}

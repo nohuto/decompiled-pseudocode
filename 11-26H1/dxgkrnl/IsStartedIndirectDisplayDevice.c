@@ -1,0 +1,22 @@
+/*
+ * XREFs of IsStartedIndirectDisplayDevice @ 0x1401B48B8
+ * Callers:
+ *     _lambda_85aa73a68ff66b421643f8c78198376d_::_lambda_invoker_cdecl_ @ 0x1401B3BF0 (_lambda_85aa73a68ff66b421643f8c78198376d_--_lambda_invoker_cdecl_.c)
+ *     _lambda_98a973f9db80c22b1740ef6057097b25_::_lambda_invoker_cdecl_ @ 0x1401B3C30 (_lambda_98a973f9db80c22b1740ef6057097b25_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x140017020 (--1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ.c)
+ *     ??0DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@PEAVDXGADAPTER@@E@Z @ 0x140018480 (--0DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@PEAVDXGADAPTER@@E@Z.c)
+ */
+
+bool __fastcall IsStartedIndirectDisplayDevice(struct DXGADAPTER *a1)
+{
+  int v3; // ebx
+  _BYTE v4[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  if ( (*((_DWORD *)a1 + 111) & 0x100) == 0 )
+    return 0;
+  DXGADAPTERSTOPRESETLOCKSHARED::DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v4, a1, 1);
+  v3 = *((_DWORD *)a1 + 50);
+  DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v4);
+  return v3 == 1;
+}

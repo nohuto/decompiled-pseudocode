@@ -1,0 +1,16 @@
+/*
+ * XREFs of VerifierEngCreateWnd @ 0x140330120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngCreateWnd @ 0x140301010 (EngCreateWnd.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x14032FB80 (-VerifierRandomFailure@@YAHK@Z.c)
+ */
+
+WNDOBJ *__fastcall VerifierEngCreateWnd(SURFOBJ *pso, HWND hwnd, WNDOBJCHANGEPROC pfn, FLONG fl, INT iPixelFormat)
+{
+  if ( (unsigned int)VerifierRandomFailure((int)pso, (__int64)hwnd) )
+    return 0LL;
+  else
+    return EngCreateWnd(pso, hwnd, pfn, fl, iPixelFormat);
+}

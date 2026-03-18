@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??_GMULTIDEVLOCKOBJ@@QEAAPEAXI@Z @ 0x1400C76CC
+ * Callers:
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXPEAU_MDEV@@PEAPEAU4@KU_CDS_INTERNAL_FLAGS@@PEAE@Z @ 0x14014E538 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x14019DDA0 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ * Callees:
+ *     GreDeleteFastMutex @ 0x140042F30 (GreDeleteFastMutex.c)
+ *     ??1MULTIDEVLOCKOBJ@@QEAA@XZ @ 0x1400C76F4 (--1MULTIDEVLOCKOBJ@@QEAA@XZ.c)
+ */
+
+MULTIDEVLOCKOBJ *__fastcall MULTIDEVLOCKOBJ::`scalar deleting destructor'(MULTIDEVLOCKOBJ *Buffer)
+{
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
+
+  MULTIDEVLOCKOBJ::~MULTIDEVLOCKOBJ(Buffer);
+  GreDeleteFastMutex((char *)Buffer, v2, v3, v4);
+  return Buffer;
+}

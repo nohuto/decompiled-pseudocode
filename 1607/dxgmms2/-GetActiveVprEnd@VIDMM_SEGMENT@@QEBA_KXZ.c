@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?GetActiveVprEnd@VIDMM_SEGMENT@@QEBA_KXZ @ 0x1C001DB6C
+ * Callers:
+ *     ?MoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_MOVE_RESOURCES_DEFRAG_STAGE@@22W4VIDMM_DEFRAGMENT_DIRECTION@@PEA_NPEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C008A120 (-MoveResources@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_ALLOC@@W4VIDMM_MOVE_RESOURCES_OPERATION@@I_KW4VIDMM_.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int64 __fastcall VIDMM_SEGMENT::GetActiveVprEnd(VIDMM_SEGMENT *this)
+{
+  if ( *((_DWORD *)this + 101) == 1 )
+    return *((_QWORD *)this + 52);
+  else
+    return *((_QWORD *)this + 47) + *((_QWORD *)this + 48);
+}

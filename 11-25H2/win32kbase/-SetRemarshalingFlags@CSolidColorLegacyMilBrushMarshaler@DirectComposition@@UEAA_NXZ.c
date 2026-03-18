@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CSolidColorLegacyMilBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x140230000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@UEAA_NXZ @ 0x14022F844 (-SetRemarshalingFlags@CLegacyMilBrushMarshaler@DirectComposition@@UEAA_NXZ.c)
+ */
+
+char __fastcall DirectComposition::CSolidColorLegacyMilBrushMarshaler::SetRemarshalingFlags(
+        DirectComposition::CSolidColorLegacyMilBrushMarshaler *this)
+{
+  bool v2; // al
+  char v3; // dl
+
+  *((_DWORD *)this + 4) |= 0x200u;
+  v2 = DirectComposition::CLegacyMilBrushMarshaler::SetRemarshalingFlags(this);
+  v3 = 0;
+  if ( v2 || (*((_DWORD *)this + 4) & 0x200) != 0 )
+    return 1;
+  return v3;
+}

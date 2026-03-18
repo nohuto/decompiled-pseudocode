@@ -1,0 +1,16 @@
+/*
+ * XREFs of VidMmCloseAllocation @ 0x1C0011290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@PEAPEAU_KEVENT@@@Z @ 0x1C0057654 (-CloseAllocation@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@EPEAPEAU_VIDMM_LOCAL_ALLOC@@U_D3DDDI.c)
+ */
+
+int __fastcall VidMmCloseAllocation(
+        VIDMM_GLOBAL *a1,
+        struct _VIDMM_MULTI_ALLOC *a2,
+        struct _VIDMM_LOCAL_ALLOC **a3,
+        struct _D3DDDICB_DESTROYALLOCATION2FLAGS a4)
+{
+  return VIDMM_GLOBAL::CloseAllocation(a1, a2, 0, a3, a4, 0LL);
+}

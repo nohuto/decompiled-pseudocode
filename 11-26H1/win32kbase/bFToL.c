@@ -1,0 +1,51 @@
+/*
+ * XREFs of bFToL @ 0x140038EBC
+ * Callers:
+ *     ?bMultiply@EXFORMOBJ@@QEAA_NAEBUMATRIX@@0K@Z @ 0x140037E10 (-bMultiply@EXFORMOBJ@@QEAA_NAEBUMATRIX@@0K@Z.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x14003828C (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ *     bCvtPts1 @ 0x140038594 (bCvtPts1.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x140038B40 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x140039A40 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     ?bInverse@EXFORMOBJ@@QEAA_NAEBUMATRIX@@@Z @ 0x14003A5C0 (-bInverse@EXFORMOBJ@@QEAA_NAEBUMATRIX@@@Z.c)
+ *     bCvtVts @ 0x14013C958 (bCvtVts.c)
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+__int64 __fastcall bFToL(double a1, int *a2, unsigned int a3)
+{
+  int v3; // r10d
+  unsigned int v5; // r9d
+  signed int v6; // ecx
+  __int64 v7; // rax
+  __int64 v8; // rax
+  __int64 v9; // rdx
+  __int64 v10; // rdx
+  int v11; // ecx
+
+  v3 = _mm_cvtsi128_si32(*(__m128i *)&a1);
+  v5 = 1;
+  v6 = (unsigned __int8)(v3 >> 23) + ((a3 >> 1) & 4 | 0xFFFFFF8A);
+  if ( v6 > 40 )
+  {
+    return 0;
+  }
+  else
+  {
+    v7 = v3 & 0x7FFFFF | 0x800000LL;
+    if ( v6 < 0 )
+      v8 = v7 >> -(char)v6;
+    else
+      v8 = v7 << v6;
+    v9 = v8 + 0x80000000LL;
+    if ( (a3 & 1) != 0 )
+      v9 = v8;
+    v10 = v9 >> 32;
+    v11 = -(int)v10;
+    if ( v3 >= 0 )
+      v11 = v10;
+    *a2 = v11;
+  }
+  return v5;
+}

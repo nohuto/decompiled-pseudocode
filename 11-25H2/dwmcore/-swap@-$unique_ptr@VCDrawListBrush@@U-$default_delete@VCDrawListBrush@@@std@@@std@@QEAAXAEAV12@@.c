@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?swap@?$unique_ptr@VCDrawListBrush@@U?$default_delete@VCDrawListBrush@@@std@@@std@@QEAAXAEAV12@@Z @ 0x180259308
+ * Callers:
+ *     ??$swap@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@$0A@@std@@YAXAEAV?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@0@0@Z @ 0x18025B814 (--$swap@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@std@@$0A@@std@@YAXAEAV-$unique_ptr@VC.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall std::unique_ptr<CDrawListBrush>::swap(__int64 *a1, __int64 *a2)
+{
+  __int64 result; // rax
+  __int64 v3; // r8
+
+  result = *a2;
+  v3 = *a1;
+  *a1 = *a2;
+  *a2 = v3;
+  return result;
+}

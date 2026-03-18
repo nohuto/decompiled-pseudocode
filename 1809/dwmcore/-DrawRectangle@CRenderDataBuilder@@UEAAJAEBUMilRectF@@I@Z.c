@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800764F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800AB370 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x1800C7F7C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CRenderDataBuilder::DrawRectangle(CRenderDataBuilder *this, const struct MilRectF *a2, int a3)
+{
+  int v6; // eax
+  unsigned int v7; // ecx
+  unsigned int v8; // ebx
+  __int64 v9; // rcx
+  __int128 v10; // xmm0
+
+  v6 = DynArrayImpl<0>::Grow((int)this + 16, 1, 28, 0, 0LL);
+  v8 = v6;
+  if ( v6 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v7, 0LL, 0, v6, 0xBDu);
+  }
+  else
+  {
+    v9 = *((_QWORD *)this + 2) + *((unsigned int *)this + 10);
+    *(_DWORD *)v9 = 28;
+    *(_QWORD *)(v9 + 4) = 0LL;
+    *(_QWORD *)(v9 + 12) = 0LL;
+    *(_QWORD *)(v9 + 20) = 0LL;
+    *(_DWORD *)(v9 + 4) = 464;
+    v10 = *(_OWORD *)a2;
+    *(_DWORD *)(v9 + 8) = a3;
+    *(_OWORD *)(v9 + 12) = v10;
+    *((_DWORD *)this + 10) += 28;
+  }
+  return v8;
+}

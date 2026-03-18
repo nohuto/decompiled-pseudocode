@@ -1,0 +1,68 @@
+/*
+ * XREFs of PopEtEnergyTrackerCleanupAggregates @ 0x1409050B0
+ * Callers:
+ *     PopEtEnergyTrackerCleanup @ 0x14075DA34 (PopEtEnergyTrackerCleanup.c)
+ *     PopEtEnergyTrackerQuery @ 0x140AC9770 (PopEtEnergyTrackerQuery.c)
+ * Callees:
+ *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PopEtAggregateKeyCleanup @ 0x1409051DC (PopEtAggregateKeyCleanup.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+_QWORD *__fastcall PopEtEnergyTrackerCleanupAggregates(__int64 a1)
+{
+  _QWORD **v1; // rdi
+  _QWORD *v3; // rbx
+  _QWORD *result; // rax
+  char *v5; // rbp
+  _QWORD *i; // rcx
+
+  v1 = *(_QWORD ***)(a1 + 56);
+  v3 = v1;
+  while ( v3 )
+  {
+    v3 = (_QWORD *)*v3;
+    if ( ((unsigned __int8)v3 & 1) != 0 )
+      break;
+LABEL_7:
+    result = v3;
+    if ( !v3 )
+      return result;
+    v5 = (char *)v3;
+    for ( i = v1; (*i & 1) == 0; i = (_QWORD *)*i )
+    {
+      if ( (_QWORD *)*i == v3 )
+      {
+        *i = *v3;
+        --*(_DWORD *)(a1 + 48);
+        *v3 |= 0x8000000000000002uLL;
+        v3 = i;
+        goto LABEL_12;
+      }
+    }
+    v5 = 0LL;
+LABEL_12:
+    if ( v5 == (char *)(a1 + 80) )
+    {
+      *(_DWORD *)(a1 + 644) &= ~4u;
+      memset_0((void *)(a1 + 128), 0, 0x1B8uLL);
+      *(_OWORD *)(a1 + 568) = 0LL;
+      *(_QWORD *)(a1 + 584) = 0LL;
+    }
+    else
+    {
+      PopEtAggregateKeyCleanup(v5 + 16);
+      ExFreePoolWithTag(v5, 0x54456F50u);
+    }
+  }
+  ++v1;
+  result = *(_QWORD **)(a1 + 56);
+  while ( v1 < &result[(unsigned __int64)*(unsigned int *)(a1 + 52) >> 5] )
+  {
+    v3 = *v1;
+    if ( ((unsigned __int8)*v1 & 1) == 0 )
+      goto LABEL_7;
+    ++v1;
+  }
+  return result;
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of MiGetWsAndMakePageTablesNx @ 0x140441A60
+ * Callers:
+ *     MmInitializeHandBuiltProcess2 @ 0x140964050 (MmInitializeHandBuiltProcess2.c)
+ * Callees:
+ *     MiIssueFlushTbEntire @ 0x140250040 (MiIssueFlushTbEntire.c)
+ *     MiLockPageTableInternal @ 0x1402B34E0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x1402D13E0 (MiUnlockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x1402EB6C0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x1402EDD60 (MiLockWorkingSetShared.c)
+ *     MiPerformSafePdeWrite @ 0x140441B30 (MiPerformSafePdeWrite.c)
+ */
+
+__int64 __fastcall MiGetWsAndMakePageTablesNx(__int64 a1, __int64 a2, __int64 a3)
+{
+  struct _LIST_ENTRY **p_Blink; // rsi
+  char v4; // di
+  __int64 v5; // rdx
+  unsigned __int64 v6; // r8
+
+  p_Blink = &KeGetCurrentThread()->ApcState.Process[2].ReadyListHead.Blink;
+  v4 = MiLockWorkingSetShared((__int64)p_Blink, a2, a3);
+  MiLockPageTableInternal((signed __int64)p_Blink, 0xFFFFF6FB7DBEDF68uLL, 0);
+  MiPerformSafePdeWrite(p_Blink, 0xFFFFF6FB7DBEDF68uLL, MEMORY[0xFFFFF6FB7DBEDF68], 2LL);
+  MiUnlockPageTableInternal((__int64)p_Blink, 0xFFFFF6FB7DBEDF68uLL);
+  LOBYTE(v5) = v4;
+  MiUnlockWorkingSetShared((__int64)p_Blink, v5);
+  return MiIssueFlushTbEntire((_KPROCESS *)1, (volatile _KAFFINITY_EX *)0xFFFFFFFFLL, v6);
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of ACPIIrpCompletionRoutineWorker @ 0x1C0091A40
+ * Callers:
+ *     ACPIIrpGenericFilterCompletionHandler @ 0x1C000E370 (ACPIIrpGenericFilterCompletionHandler.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C0002980 (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C000E3B8 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0031E80 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall ACPIIrpCompletionRoutineWorker(ULONG_PTR DeviceObject, PVOID Context)
+{
+  __int64 DeviceExtension; // rax
+  __int64 v5; // r9
+  IRP *v6; // rdi
+  __int64 v7; // r14
+  int v8; // esi
+  int Status; // edx
+  bool v10; // zf
+
+  DeviceExtension = ACPIInternalGetDeviceExtension(DeviceObject);
+  v6 = (IRP *)*((_QWORD *)Context + 1);
+  v7 = DeviceExtension;
+  v8 = -1073741637;
+  Status = v6->IoStatus.Status;
+  if ( Status >= 0 )
+  {
+    v10 = *((_BYTE *)Context + 24) == 0;
+    goto LABEL_3;
+  }
+  if ( Status == -1073741637 )
+  {
+    v10 = *((_BYTE *)Context + 25) == 0;
+    goto LABEL_3;
+  }
+  if ( *((_BYTE *)Context + 26) )
+  {
+LABEL_4:
+    LOBYTE(v5) = 1;
+    v8 = (*((__int64 (__fastcall **)(ULONG_PTR, IRP *, _QWORD, __int64))Context + 2))(
+           DeviceObject,
+           v6,
+           *((_QWORD *)Context + 5),
+           v5);
+    goto LABEL_5;
+  }
+  if ( v6->Cancel )
+  {
+    v10 = *((_BYTE *)Context + 27) == 0;
+LABEL_3:
+    if ( v10 )
+      goto LABEL_5;
+    goto LABEL_4;
+  }
+LABEL_5:
+  ACPIInternalDecrementIrpReferenceCount(v7);
+  IoFreeWorkItem(*((PIO_WORKITEM *)Context + 4));
+  ExFreePoolWithTag(Context, 0);
+  if ( v8 != 259 )
+  {
+    if ( v8 != -1073741637 )
+      v6->IoStatus.Status = v8;
+    IofCompleteRequest(v6, 0);
+  }
+}

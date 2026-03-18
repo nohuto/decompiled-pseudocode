@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?IsSimpleGeometry@CPathData@@QEBA_NXZ @ 0x18021CF1C
+ * Callers:
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x18021E7A4 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z @ 0x18021F368 (-Trim@CTrimPathOperation@@QEAAJPEBVCPathData@@MMMPEAPEAV2@@Z.c)
+ *     ?GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z @ 0x18021FA40 (-GetSimplifiedPathDataInternal@CPathSegmentsShape@@MEBAJPEAPEAVCPathData@@@Z.c)
+ * Callees:
+ *     ??Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ @ 0x18021C85C (--Econst_iterator@SegmentCollection@Path@@QEAAAEAV012@XZ.c)
+ */
+
+bool __fastcall CPathData::IsSimpleGeometry(CPathData *this)
+{
+  char v1; // al
+  char *v3; // rax
+  char *v4; // rbx
+  char *v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = *((_BYTE *)this + 80);
+  if ( !v1 )
+  {
+    v3 = (char *)*((_QWORD *)this + 3);
+    v4 = (char *)*((_QWORD *)this + 4);
+    v6 = v3;
+    while ( v3 != v4 )
+    {
+      if ( (unsigned __int8)(*v3 - 3) <= 1u )
+      {
+        v1 = -1;
+        goto LABEL_8;
+      }
+      Path::SegmentCollection::const_iterator::operator++(&v6);
+      v3 = v6;
+    }
+    v1 = 1;
+LABEL_8:
+    *((_BYTE *)this + 80) = v1;
+  }
+  return v1 == 1;
+}

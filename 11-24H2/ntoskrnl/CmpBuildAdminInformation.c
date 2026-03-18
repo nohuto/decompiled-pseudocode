@@ -1,0 +1,172 @@
+/*
+ * XREFs of CmpBuildAdminInformation @ 0x1409A773C
+ * Callers:
+ *     CmpCheckAdminAccess @ 0x1409A7658 (CmpCheckAdminAccess.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140364150 (RtlEqualSid.c)
+ *     RtlSidHashInitialize @ 0x140365780 (RtlSidHashInitialize.c)
+ *     CmpAllocatePool @ 0x1403E1834 (CmpAllocatePool.c)
+ *     RtlLengthSid @ 0x140456300 (RtlLengthSid.c)
+ *     SeQueryInformationToken @ 0x14090D870 (SeQueryInformationToken.c)
+ *     RtlCopySidAndAttributesArray @ 0x1409A7A90 (RtlCopySidAndAttributesArray.c)
+ *     RtlCopyLuidAndAttributesArray @ 0x1409A7B60 (RtlCopyLuidAndAttributesArray.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 a2)
+{
+  void *v2; // rcx
+  unsigned int v3; // r13d
+  unsigned int v4; // ebx
+  unsigned int v5; // r15d
+  unsigned int v6; // esi
+  unsigned int v7; // r12d
+  int v8; // edi
+  __int64 v9; // r14
+  PSE_EXPORTS v10; // r13
+  unsigned int v11; // ebx
+  unsigned int v12; // r12d
+  __int64 Pool; // rax
+  __int64 v14; // r14
+  unsigned int *v15; // rdi
+  unsigned int v16; // edx
+  __int64 v17; // rax
+  __int64 v18; // rbx
+  __int64 v19; // rcx
+  __int64 v21; // rdx
+  __int64 v22; // r12
+  int *v23; // r14
+  void *v24; // [rsp+40h] [rbp-38h] BYREF
+  PSID Sid2; // [rsp+48h] [rbp-30h]
+  int v26[2]; // [rsp+50h] [rbp-28h] BYREF
+  _DWORD v27[8]; // [rsp+58h] [rbp-20h]
+  __int64 v29; // [rsp+C8h] [rbp+50h] BYREF
+  NTSTATUS v30; // [rsp+D0h] [rbp+58h]
+  PVOID TokenInformation; // [rsp+D8h] [rbp+60h] BYREF
+
+  v2 = *(void **)a2;
+  v24 = 0LL;
+  LODWORD(v29) = 0;
+  TokenInformation = 0LL;
+  if ( !v2 )
+    v2 = *(void **)(a2 + 16);
+  v30 = SeQueryInformationToken(v2, TokenAccessInformation, &TokenInformation);
+  v3 = v30;
+  if ( v30 >= 0 )
+  {
+    v4 = 0;
+    v5 = -1;
+    v6 = -1;
+    v7 = **(_DWORD **)TokenInformation;
+    v8 = 16 * v7;
+    if ( v7 )
+    {
+      v9 = *(_QWORD *)(*(_QWORD *)TokenInformation + 8LL);
+      v10 = SeExports;
+      do
+      {
+        Sid2 = *(PSID *)v9;
+        v24 = Sid2;
+        v8 += RtlLengthSid(Sid2);
+        if ( v5 == -1 && RtlEqualSid(v10->SeAliasAdminsSid, Sid2) )
+        {
+          v5 = v4;
+        }
+        else if ( v6 == -1 && (*(_BYTE *)(v9 + 8) & 0x60) == 0x60 )
+        {
+          v6 = v4;
+        }
+        ++v4;
+        v9 += 16LL;
+      }
+      while ( v4 < v7 );
+      v3 = v30;
+    }
+    v11 = 0;
+    if ( v5 == -1 )
+    {
+      v11 = 1;
+      v27[0] = 7;
+      *(_QWORD *)v26 = SeExports->SeAliasAdminsSid;
+    }
+    if ( v6 == -1 )
+    {
+      v21 = 2LL * v11++;
+      *(_QWORD *)&v26[2 * v21] = SeExports->SeHighMandatorySid;
+      v27[2 * v21] = 96;
+    }
+    if ( v11 )
+    {
+      v22 = v11;
+      v23 = v26;
+      v8 += 16 * v11;
+      do
+      {
+        v8 += RtlLengthSid(*(PSID *)v23);
+        v23 += 4;
+        --v22;
+      }
+      while ( v22 );
+    }
+    v12 = (v8 + 7) & 0xFFFFFFF8;
+    Pool = CmpAllocatePool(0x100uLL);
+    v14 = Pool;
+    if ( Pool )
+    {
+      v15 = (unsigned int *)(Pool + 88);
+      *(_QWORD *)(Pool + 24) = *((_QWORD *)TokenInformation + 3);
+      *(_DWORD *)(Pool + 32) = *((_DWORD *)TokenInformation + 8);
+      *(_DWORD *)(Pool + 36) = *((_DWORD *)TokenInformation + 9);
+      *(_DWORD *)(Pool + 40) = *((_DWORD *)TokenInformation + 10);
+      *(_DWORD *)(Pool + 44) = *((_DWORD *)TokenInformation + 11) & 0xFFFF9FFF | 0x2000;
+      v16 = v11 + **(_DWORD **)TokenInformation;
+      *(_QWORD *)(Pool + 96) = Pool + 360;
+      *(_DWORD *)(Pool + 88) = v16;
+      RtlCopySidAndAttributesArray(
+        **(_DWORD **)TokenInformation,
+        *(_QWORD *)(*(_QWORD *)TokenInformation + 8LL),
+        v12 - 16 * v16,
+        Pool + 360,
+        (void *)(Pool + 360 + 16 * v16),
+        (__int64)&v24,
+        (__int64)&v29);
+      if ( v5 != -1 )
+        *(_DWORD *)(*(_QWORD *)(v14 + 96) + 16LL * v5 + 8) = 7;
+      if ( v6 != -1 )
+        *(_DWORD *)(*(_QWORD *)(v14 + 96) + 16LL * v6 + 8) = 96;
+      if ( v11 )
+        RtlCopySidAndAttributesArray(
+          v11,
+          (int)v26,
+          v29,
+          *(_DWORD *)(v14 + 96) + 16 * **(_DWORD **)TokenInformation,
+          v24,
+          (__int64)&v24,
+          (__int64)&v29);
+      RtlSidHashInitialize(*(__int64 **)(v14 + 96), *v15, (_QWORD *)(v14 + 88));
+      *(_QWORD *)v14 = v15;
+      v17 = *(_QWORD *)(v14 + 96) + v12;
+      *(_DWORD *)v17 = 0;
+      *(_QWORD *)(v17 + 8) = 0LL;
+      *(_QWORD *)(v14 + 8) = v17;
+      v17 += 272LL;
+      *(_DWORD *)v17 = 0;
+      v18 = v17 + 272;
+      *(_QWORD *)(v17 + 8) = 0LL;
+      *(_QWORD *)(v14 + 64) = v17;
+      *(_QWORD *)(v14 + 56) = 0LL;
+      v19 = **((unsigned int **)TokenInformation + 2);
+      *(_DWORD *)(v17 + 272) = v19;
+      RtlCopyLuidAndAttributesArray(v19, *((_QWORD *)TokenInformation + 2) + 4LL, v17 + 276);
+      *(_QWORD *)(v14 + 16) = v18;
+      *a1 = v14;
+    }
+    else
+    {
+      v3 = -1073741670;
+    }
+  }
+  if ( TokenInformation )
+    ExFreePoolWithTag(TokenInformation, 0);
+  return v3;
+}

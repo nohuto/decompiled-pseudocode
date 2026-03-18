@@ -1,0 +1,33 @@
+/*
+ * XREFs of UsbhSshPortsBusy @ 0x14001049C
+ * Callers:
+ *     UsbhSshSetPortsBusyState @ 0x14000FDA0 (UsbhSshSetPortsBusyState.c)
+ *     UsbhCreatePdo @ 0x140014360 (UsbhCreatePdo.c)
+ * Callees:
+ *     UsbhIncHubBusy @ 0x140007B90 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x140009560 (FdoExt.c)
+ *     UsbhDecHubBusy @ 0x14000A860 (UsbhDecHubBusy.c)
+ *     Log @ 0x14001C5D0 (Log.c)
+ */
+
+LONG __fastcall UsbhSshPortsBusy(__int64 a1, __int64 a2, int a3)
+{
+  volatile signed __int64 *v6; // rsi
+  signed __int64 v7; // rax
+  LONG result; // eax
+  __int64 v9; // r9
+  __int64 v10; // r10
+  int v11; // r11d
+  __int64 v12; // rdx
+  _QWORD *v13; // r10
+
+  v6 = (volatile signed __int64 *)FdoExt(a1);
+  v7 = UsbhIncHubBusy(a1, a2, a1, 1649439603, a3);
+  result = Log(a1, 0x10000, 1213419563, _InterlockedCompareExchange64(v6 + 414, v7, 0LL), v7);
+  if ( v9 )
+  {
+    Log(a1, v11, 1213419570, v9, v10);
+    return UsbhDecHubBusy(a1, v12, v13);
+  }
+  return result;
+}

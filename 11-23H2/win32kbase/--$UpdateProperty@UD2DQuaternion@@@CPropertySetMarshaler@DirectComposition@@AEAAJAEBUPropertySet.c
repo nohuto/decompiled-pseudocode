@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??$UpdateProperty@UD2DQuaternion@@@CPropertySetMarshaler@DirectComposition@@AEAAJAEBUPropertySetValue@@PEBUD2DQuaternion@@@Z @ 0x1C0225290
+ * Callers:
+ *     ?SetBufferProperty@CPropertySetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0029440 (-SetBufferProperty@CPropertySetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX.c)
+ * Callees:
+ *     ?GetLocalOffset@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAII@Z @ 0x1C0029898 (-GetLocalOffset@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@.c)
+ *     ?GetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAA?AW4MarshalStatus@@I@Z @ 0x1C0029B30 (-GetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ?GetDataType@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAA?AW4DCOMPOSITION_EXPRESSION_TYPE@@I@Z @ 0x1C0029B80 (-GetDataType@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@Q.c)
+ *     ?SetMarshalStatus@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAXIW4MarshalStatus@@@Z @ 0x1C0029BCC (-SetMarshalStatus@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator.c)
+ *     ??$GetPropertyValue@UD2DQuaternion@@@?$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySetKernelModeAllocator@@@@QEAAPEAUD2DQuaternion@@I@Z @ 0x1C0224FD4 (--$GetPropertyValue@UD2DQuaternion@@@-$PropertySetStorage@VCDynamicArrayDefaultTag@@VPropertySet.c)
+ */
+
+__int64 __fastcall DirectComposition::CPropertySetMarshaler::UpdateProperty<D2DQuaternion>(
+        __int64 a1,
+        unsigned int *a2,
+        _OWORD *a3)
+{
+  unsigned int v4; // esi
+  __int64 v5; // rdx
+  __int64 *v7; // rdi
+  __int64 v8; // r8
+  _OWORD *Property; // rax
+  __int64 v10; // rdx
+
+  v4 = 0;
+  v5 = *a2;
+  if ( (unsigned int)v5 < *(_DWORD *)(a1 + 80)
+    && (v7 = (__int64 *)(a1 + 72),
+        a2[1] == (unsigned int)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetLocalOffset(
+                                 a1 + 72,
+                                 v5))
+    && a2[2] == (unsigned int)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetDataType(
+                                (__int64)v7,
+                                *a2) )
+  {
+    Property = (_OWORD *)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetPropertyValue<D2DQuaternion>(
+                           (__int64)v7,
+                           *a2,
+                           v8);
+    v10 = *a2;
+    *Property = *a3;
+    if ( (unsigned int)PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::GetMarshalStatus(
+                         (__int64)v7,
+                         v10) != 1 )
+      PropertySetStorage<CDynamicArrayDefaultTag,PropertySetKernelModeAllocator>::SetMarshalStatus(v7, *a2, 2LL);
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return v4;
+}

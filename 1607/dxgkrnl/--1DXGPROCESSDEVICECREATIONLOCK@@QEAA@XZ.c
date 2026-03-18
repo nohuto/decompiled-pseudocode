@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??1DXGPROCESSDEVICECREATIONLOCK@@QEAA@XZ @ 0x1C001D2CC
+ * Callers:
+ *     ?DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z @ 0x1C0167C5C (-DxgEscapeEvict@@YAJPEAU_D3DKMT_VIDMM_ESCAPE@@@Z.c)
+ *     ?EvictAllResources@DXGPROCESS@@QEAAJPEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C0173790 (-EvictAllResources@DXGPROCESS@@QEAAJPEAU_D3DKMT_EVICTION_CRITERIA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGPROCESSDEVICECREATIONLOCK::~DXGPROCESSDEVICECREATIONLOCK(DXGPROCESSDEVICECREATIONLOCK *this)
+{
+  __int64 v1; // rcx
+
+  v1 = *(_QWORD *)this + 136LL;
+  *(_QWORD *)(v1 + 8) = 0LL;
+  ExReleasePushLockExclusiveEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+}

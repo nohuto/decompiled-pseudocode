@@ -1,0 +1,97 @@
+/*
+ * XREFs of MiZeroPageFile @ 0x1402BD2F0
+ * Callers:
+ *     MiZeroAllPageFiles @ 0x1405ABCD4 (MiZeroAllPageFiles.c)
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x14003DF00 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x140044720 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeSetEvent @ 0x140067720 (KeSetEvent.c)
+ *     MmZeroPageWrite @ 0x1400FCF78 (MmZeroPageWrite.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BE818 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x14036E0A0 (ExFreePoolWithTag.c)
+ */
+
+LONG __fastcall MiZeroPageFile(_QWORD *a1)
+{
+  _QWORD *v1; // r14
+  struct _KEVENT *v2; // r12
+  unsigned int v3; // edi
+  int v4; // ebx
+  unsigned int v5; // r15d
+  __int64 v6; // r8
+  unsigned int v7; // esi
+  unsigned __int64 v8; // rdx
+  unsigned int v9; // r9d
+  unsigned __int8 OldIrql; // bl
+  struct _KPRCB *CurrentPrcb; // rcx
+  __int64 v12; // rcx
+  unsigned __int8 v13; // bl
+  struct _KPRCB *v14; // rcx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-20h] BYREF
+  unsigned __int64 v17; // [rsp+80h] [rbp+40h] BYREF
+  unsigned __int64 v18; // [rsp+88h] [rbp+48h] BYREF
+
+  v1 = (_QWORD *)a1[4];
+  v2 = (struct _KEVENT *)a1[5];
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  ExFreePoolWithTag(a1, 0);
+  v3 = 0;
+  v4 = 0;
+  v5 = 0;
+  KeAcquireInStackQueuedSpinLock(v1 + 29, &LockHandle);
+  v6 = *v1;
+  v7 = 1;
+  if ( *v1 > 1uLL )
+  {
+    v8 = 1LL;
+    do
+    {
+      v9 = v5;
+      if ( _bittest64(*(const signed __int64 **)(v1[14] + 16LL), v8) )
+      {
+        if ( v3 )
+          v4 = 1;
+      }
+      else
+      {
+        v5 = v7;
+        if ( v3 )
+          v5 = v9;
+        if ( ++v3 == 16 || v8 == v6 - 1 )
+          v4 = 1;
+      }
+      if ( v4 )
+      {
+        KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+        OldIrql = LockHandle.OldIrql;
+        if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )
+        {
+          CurrentPrcb = KeGetCurrentPrcb();
+          _InterlockedAnd((volatile signed __int32 *)CurrentPrcb->SchedulerAssist, 0xFFFEFFFF);
+          KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+        }
+        __writecr8(OldIrql);
+        v12 = v1[7];
+        v18 = (unsigned __int64)v5 << 12;
+        v17 = (unsigned __int64)v3 << 12;
+        MmZeroPageWrite(v12, (__int64)&v18, (__int64 *)&v17, 0);
+        v4 = 0;
+        KeAcquireInStackQueuedSpinLock(v1 + 29, &LockHandle);
+        v3 = 0;
+      }
+      v6 = *v1;
+      v8 = ++v7;
+    }
+    while ( (unsigned __int64)v7 < *v1 );
+  }
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+  v13 = LockHandle.OldIrql;
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && LockHandle.OldIrql < 2u )
+  {
+    v14 = KeGetCurrentPrcb();
+    _InterlockedAnd((volatile signed __int32 *)v14->SchedulerAssist, 0xFFFEFFFF);
+    KiRemoveSystemWorkPriorityKick((__int64)v14);
+  }
+  __writecr8(v13);
+  return KeSetEvent(v2, 0, 0);
+}

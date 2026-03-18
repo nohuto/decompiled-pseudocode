@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?NotifyCaptureChangedIfCapturedDelegate@CTouchProcessor@@QEAAPEAUtagINPUTDEST@@_KPEAU2@PEAG@Z @ 0x1C0117D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnLock@CInpLockGuard@@QEAAXXZ @ 0x1C009F2C0 (-UnLock@CInpLockGuard@@QEAAXXZ.c)
+ *     ?LockExclusive@CInpLockGuard@@QEAAXXZ @ 0x1C009F300 (-LockExclusive@CInpLockGuard@@QEAAXXZ.c)
+ *     ?GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z @ 0x1C011406C (-GetPointerCapture@CTouchProcessor@@AEAAX_KHPEAPEAVCInputDest@@PEAH@Z.c)
+ *     ?SetDelegateAction@CTouchProcessor@@AEAAX_KW4tagDCPACTION@@@Z @ 0x1C011AF54 (-SetDelegateAction@CTouchProcessor@@AEAAX_KW4tagDCPACTION@@@Z.c)
+ *     ?SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z @ 0x1C011CC7C (-SetPointerInfoNodeFlag@CTouchProcessor@@AEAAHKGI@Z.c)
+ */
+
+struct tagINPUTDEST *__fastcall CTouchProcessor::NotifyCaptureChangedIfCapturedDelegate(
+        PERESOURCE *this,
+        __int64 a2,
+        struct tagINPUTDEST *a3,
+        unsigned __int16 *a4)
+{
+  struct tagINPUTDEST *v5; // rdi
+  struct CInputDest *v9; // rsi
+  __int128 v10; // xmm1
+  __int128 v12; // [rsp+50h] [rbp-B8h]
+  __int128 v13; // [rsp+60h] [rbp-A8h]
+  __int128 v14; // [rsp+70h] [rbp-98h]
+  __int128 v15; // [rsp+80h] [rbp-88h]
+  __int128 v16; // [rsp+90h] [rbp-78h]
+  __int128 v17; // [rsp+A0h] [rbp-68h]
+  __int128 v18; // [rsp+B0h] [rbp-58h]
+  __int128 v19; // [rsp+C0h] [rbp-48h]
+  __int128 v20; // [rsp+D0h] [rbp-38h]
+  struct CInputDest *v21; // [rsp+110h] [rbp+8h] BYREF
+
+  v5 = 0LL;
+  v21 = 0LL;
+  CInpLockGuard::LockExclusive(this + 9);
+  CTouchProcessor::GetPointerCapture((struct _KTHREAD **)this, a2, 0, &v21, 0LL);
+  v9 = v21;
+  if ( v21 )
+  {
+    CTouchProcessor::SetPointerInfoNodeFlag(
+      (CTouchProcessor *)this,
+      *(_DWORD *)(a2 + 28),
+      *(_WORD *)(a2 + 16),
+      0x200000u);
+    CTouchProcessor::SetDelegateAction(this, a2);
+    *a4 = *(_WORD *)(a2 + 16);
+    v5 = a3;
+    v12 = *((_OWORD *)v9 + 2);
+    v13 = *((_OWORD *)v9 + 3);
+    v14 = *((_OWORD *)v9 + 4);
+    v15 = *((_OWORD *)v9 + 5);
+    v16 = *((_OWORD *)v9 + 6);
+    v17 = *((_OWORD *)v9 + 7);
+    v18 = *((_OWORD *)v9 + 8);
+    v19 = *((_OWORD *)v9 + 9);
+    v20 = *((_OWORD *)v9 + 10);
+    v10 = *((_OWORD *)v9 + 1);
+    *(_OWORD *)a3 = *(_OWORD *)v9;
+    *((_OWORD *)a3 + 1) = v10;
+    *((_OWORD *)a3 + 2) = v12;
+    *((_OWORD *)a3 + 3) = v13;
+    *((_OWORD *)a3 + 4) = v14;
+    *((_OWORD *)a3 + 5) = v15;
+    *((_OWORD *)a3 + 6) = v16;
+    *((_OWORD *)a3 + 7) = v17;
+    *((_OWORD *)a3 + 8) = v18;
+    *((_OWORD *)a3 + 9) = v19;
+    *((_OWORD *)a3 + 10) = v20;
+  }
+  CInpLockGuard::UnLock(this + 9);
+  return v5;
+}

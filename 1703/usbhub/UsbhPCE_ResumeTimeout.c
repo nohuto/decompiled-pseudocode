@@ -1,0 +1,40 @@
+/*
+ * XREFs of UsbhPCE_ResumeTimeout @ 0x1C0040C8C
+ * Callers:
+ *     UsbhSshResumePort @ 0x1C0002B00 (UsbhSshResumePort.c)
+ *     UsbhWaitForPortResume @ 0x1C004452C (UsbhWaitForPortResume.c)
+ * Callees:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C000FBC0 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     Log @ 0x1C0013A00 (Log.c)
+ *     FdoExt @ 0x1C0014F60 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0016C70 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C003BE5C (WPP_RECORDER_SF_d.c)
+ */
+
+__int64 __fastcall UsbhPCE_ResumeTimeout(__int64 a1, __int64 a2, unsigned __int16 a3)
+{
+  __int64 result; // rax
+  int v7; // [rsp+28h] [rbp-20h]
+  __int64 v8; // [rsp+68h] [rbp+20h]
+
+  FdoExt(a1);
+  if ( LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    v7 = a3;
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      1u,
+      0x3Du,
+      (__int64)&WPP_7750967c46a832f629b3446543f02792_Traceguids,
+      v7);
+  }
+  Log(a1, 512, 1346711860, 0LL, a3);
+  result = UsbhGetPortData(a1, a3);
+  if ( result )
+  {
+    LODWORD(v8) = 0;
+    return UsbhDispatch_PortChangeQueueEventEx(a1, result, 14, a2, v8, 0, 0LL, 0LL);
+  }
+  return result;
+}

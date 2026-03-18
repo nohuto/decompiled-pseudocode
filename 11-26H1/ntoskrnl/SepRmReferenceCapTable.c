@@ -1,0 +1,42 @@
+/*
+ * XREFs of SepRmReferenceCapTable @ 0x1403BE498
+ * Callers:
+ *     SepRmReferenceFindCap @ 0x1403BE3D8 (SepRmReferenceFindCap.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ */
+
+void *__fastcall SepRmReferenceCapTable(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  LegacyAutoBoost *v5; // rbx
+  void *StackBase; // rbx
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v5 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&SepRmCapTableLock, 0LL, 0LL, a4);
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock, 17LL, 0LL) )
+    ExfAcquirePushLockSharedEx((signed __int64 *)&SepRmCapTableLock.Header.Lock, 0, v5, &SepRmCapTableLock);
+  if ( v5 )
+  {
+    if ( (KiAbpGlobalState & 1) != 0 )
+      *((_BYTE *)v5 + 33) |= 2u;
+    else
+      *((_BYTE *)v5 + 10) = 1;
+  }
+  StackBase = ExpPlatformBinaryLock.StackBase;
+  if ( ExpPlatformBinaryLock.StackBase
+    && _InterlockedIncrement64((volatile signed __int64 *)ExpPlatformBinaryLock.StackBase + 5) <= 1 )
+  {
+    __fastfail(0xEu);
+  }
+  if ( _InterlockedCompareExchange64((volatile signed __int64 *)&SepRmCapTableLock, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared((signed __int64 *)&SepRmCapTableLock.Header.Lock);
+  KeAbPostRelease((unsigned __int64)&SepRmCapTableLock);
+  KeLeaveCriticalRegion();
+  return StackBase;
+}

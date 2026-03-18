@@ -1,0 +1,91 @@
+/*
+ * XREFs of IopCreateSecurityDescriptorPerType @ 0x140702E88
+ * Callers:
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x140702DB0 (IopCreateDefaultDeviceSecurityDescriptor.c)
+ * Callees:
+ *     RtlCreateSecurityDescriptor @ 0x1405D8350 (RtlCreateSecurityDescriptor.c)
+ *     RtlAddMandatoryAce @ 0x140605780 (RtlAddMandatoryAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140615660 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140615800 (RtlCreateAcl.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x140703E80 (RtlSetSaclSecurityDescriptor.c)
+ *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
+ */
+
+NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        int a2,
+        __int64 *a3,
+        int *a4)
+{
+  char v4; // di
+  int v8; // edx
+  int v9; // edx
+  ACL *v10; // rbx
+  NTSTATUS result; // eax
+  int v12; // edx
+  int v13; // edx
+  unsigned __int16 v14; // bp
+  ACL *PoolWithTag; // rax
+  __int64 v16; // r15
+  __int64 v17; // rdx
+  __int64 v18; // rdx
+  int v19; // ecx
+  __int64 v20; // [rsp+20h] [rbp-28h]
+
+  v4 = 0;
+  v8 = a2 - 1;
+  if ( v8 )
+  {
+    v9 = v8 - 1;
+    if ( !v9 )
+    {
+      v10 = SePublicDefaultUnrestrictedDacl;
+      goto LABEL_4;
+    }
+    v12 = v9 - 1;
+    if ( !v12 )
+    {
+      v10 = SePublicOpenDacl;
+      goto LABEL_10;
+    }
+    v13 = v12 - 1;
+    if ( !v13 )
+    {
+      v10 = SePublicOpenUnrestrictedDacl;
+LABEL_10:
+      v4 = 1;
+      goto LABEL_4;
+    }
+    if ( v13 != 1 )
+      return -1073741811;
+    v10 = SeSystemDefaultDacl;
+  }
+  else
+  {
+    v10 = SePublicDefaultDacl;
+  }
+LABEL_4:
+  RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+  if ( v4 == 1 )
+  {
+    v14 = 4 * (*((unsigned __int8 *)SeLowMandatorySid + 1) + 6);
+    PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v14, 0x65536F49u);
+    v16 = (__int64)PoolWithTag;
+    if ( !PoolWithTag )
+      return -1073741670;
+    RtlCreateAcl(PoolWithTag, v14, 2u);
+    RtlAddMandatoryAce(v16, v17, 0, (__int64)SeLowMandatorySid, v20, 1);
+    LOBYTE(v18) = 1;
+    RtlSetSaclSecurityDescriptor(SecurityDescriptor, v18, v16, 0LL);
+    *a3 = v16;
+  }
+  result = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v10, 0);
+  if ( a4 )
+  {
+    v19 = *a4 | 4;
+    *a4 = v19;
+    if ( v4 )
+      *a4 = v19 | 0x10;
+  }
+  return result;
+}

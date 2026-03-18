@@ -1,0 +1,97 @@
+/*
+ * XREFs of BiResolveLocateDevice @ 0x1406D28CC
+ * Callers:
+ *     BiConvertRegistryDataToElement @ 0x14053E530 (BiConvertRegistryDataToElement.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x1400C3920 (RtlAppendUnicodeToString.c)
+ *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     ZwQueryAttributesFile @ 0x14015A420 (ZwQueryAttributesFile.c)
+ *     ExFreePoolWithTag @ 0x140254000 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x140254A50 (ExAllocatePoolWithTag.c)
+ *     BcdGetElementData @ 0x1406D2708 (BcdGetElementData.c)
+ */
+
+__int64 __fastcall BiResolveLocateDevice(__int64 a1, _DWORD *a2)
+{
+  __int64 v2; // r14
+  const WCHAR *v3; // r14
+  WCHAR *v6; // rsi
+  int v7; // eax
+  unsigned int v8; // edx
+  unsigned int ElementData; // ebx
+  WCHAR *PoolWithTag; // rax
+  const WCHAR *v11; // rdi
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  SIZE_T NumberOfBytes; // [rsp+20h] [rbp-49h] BYREF
+  UNICODE_STRING Destination; // [rsp+28h] [rbp-41h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+38h] [rbp-31h] BYREF
+  struct _FILE_BASIC_INFORMATION FileInformation; // [rsp+68h] [rbp-1h] BYREF
+
+  v2 = (unsigned int)a2[6];
+  *(_QWORD *)&Destination.Length = 0LL;
+  v3 = (const WCHAR *)((char *)a2 + v2);
+  Destination.Buffer = 0LL;
+  v6 = 0LL;
+  if ( *(_DWORD *)v3 != 2 )
+    goto LABEL_16;
+  v7 = a2[5];
+  if ( !v7 )
+  {
+    v8 = a2[7];
+    if ( (v8 & 0xF000000) == 0x2000000 )
+    {
+      LODWORD(NumberOfBytes) = 0;
+      ElementData = BcdGetElementData(a1, v8, 0LL, &NumberOfBytes);
+      if ( ElementData != -1073741789 )
+        goto LABEL_17;
+      PoolWithTag = (WCHAR *)ExAllocatePoolWithTag(PagedPool, (unsigned int)NumberOfBytes, 0x4B444342u);
+      v6 = PoolWithTag;
+      if ( !PoolWithTag )
+      {
+        ElementData = -1073741670;
+        goto LABEL_17;
+      }
+      BcdGetElementData(a1, a2[7], (__int64)PoolWithTag, &NumberOfBytes);
+      v11 = v6;
+      goto LABEL_10;
+    }
+LABEL_16:
+    ElementData = -1073741637;
+    goto LABEL_17;
+  }
+  if ( v7 != 1 )
+    goto LABEL_16;
+  v11 = (const WCHAR *)(a2 + 8);
+LABEL_10:
+  v12 = -1LL;
+  v13 = -1LL;
+  do
+    ++v13;
+  while ( v3[v13 + 10] );
+  do
+    ++v12;
+  while ( v11[v12] );
+  Destination.MaximumLength = 2 * (v12 + v13 + 1);
+  Destination.Buffer = (wchar_t *)ExAllocatePoolWithTag(PagedPool, Destination.MaximumLength, 0x4B444342u);
+  if ( !Destination.Buffer )
+  {
+    ElementData = -1073741670;
+    goto LABEL_19;
+  }
+  RtlAppendUnicodeToString(&Destination, v3 + 10);
+  RtlAppendUnicodeToString(&Destination, v11);
+  ObjectAttributes.Length = 48;
+  ObjectAttributes.ObjectName = &Destination;
+  ObjectAttributes.RootDirectory = 0LL;
+  ObjectAttributes.Attributes = 576;
+  *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+  ElementData = ZwQueryAttributesFile(&ObjectAttributes, &FileInformation);
+LABEL_17:
+  if ( Destination.Buffer )
+    ExFreePoolWithTag(Destination.Buffer, 0x4B444342u);
+LABEL_19:
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0x4B444342u);
+  return ElementData;
+}

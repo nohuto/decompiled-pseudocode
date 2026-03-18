@@ -1,0 +1,64 @@
+/*
+ * XREFs of ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1C0329070
+ * Callers:
+ *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1C019DC2C (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
+ *     ?DisableOverlays@ADAPTER_RENDER@@AEAAXXZ @ 0x1C01C5A1C (-DisableOverlays@ADAPTER_RENDER@@AEAAXXZ.c)
+ *     ??1DXGOVERLAY@@QEAA@XZ @ 0x1C0329034 (--1DXGOVERLAY@@QEAA@XZ.c)
+ *     ?Stop@DXGOVERLAY@@QEAAXXZ @ 0x1C0329BF8 (-Stop@DXGOVERLAY@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C000C10C (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ @ 0x1C0021A48 (-IsFullWDDMAdapter@DXGADAPTER@@QEBAEXZ.c)
+ *     ?ReleaseOverlayId@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C02C430C (-ReleaseOverlayId@ADAPTER_RENDER@@QEAAXI@Z.c)
+ *     ?DdiDestroyOverlay@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C02C8428 (-DdiDestroyOverlay@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
+ */
+
+void __fastcall DXGOVERLAY::Destroy(DXGOVERLAY *this)
+{
+  __int64 (__fastcall **v2)(void *const, const struct _DXGKARG_RELEASESWIZZLINGRANGE *); // rcx
+  __int64 v3; // r8
+  void *v4; // rdx
+  unsigned int v5; // edx
+
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL)) )
+  {
+    WdLogSingleEntry1(1LL, 188LL);
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      -1,
+      (__int64)L"GetAdapter()->IsCoreResourceSharedOwner()",
+      188LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  if ( !DXGADAPTER::IsFullWDDMAdapter(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL))
+    || v2[87] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v2[95] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v2[94] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange
+    || v2[93] == ADAPTER_RENDER::DefaultDdiReleaseSwizzlingRange )
+  {
+    WdLogSingleEntry1(1LL, 189LL);
+    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"GetAdapter()->IsOverlayEnabled()", 189LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  *((_QWORD *)this + 6) = 0LL;
+  v4 = (void *)*((_QWORD *)this + 5);
+  if ( v4 )
+  {
+    ADAPTER_RENDER::DdiDestroyOverlay(
+      *(ADAPTER_RENDER **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL) + 2800LL),
+      v4,
+      v3);
+    *((_QWORD *)this + 5) = 0LL;
+  }
+  v5 = *((_DWORD *)this + 8);
+  if ( v5 != -1 )
+  {
+    ADAPTER_RENDER::ReleaseOverlayId(
+      *(ADAPTER_RENDER **)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL) + 2800LL),
+      v5);
+    *((_DWORD *)this + 8) = -1;
+  }
+}

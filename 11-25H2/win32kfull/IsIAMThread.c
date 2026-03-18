@@ -1,0 +1,24 @@
+/*
+ * XREFs of IsIAMThread @ 0x140151CF0
+ * Callers:
+ *     IsAdaptiveQueueDetachExempted @ 0x140151C68 (IsAdaptiveQueueDetachExempted.c)
+ *     NtUserSetActivationFilter @ 0x14015C1B0 (NtUserSetActivationFilter.c)
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x140247CC0 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall IsIAMThread(__int64 a1)
+{
+  __int64 v1; // rdx
+  char result; // al
+
+  v1 = *(_QWORD *)(a1 + 496);
+  result = 0;
+  if ( v1 )
+  {
+    if ( *(_QWORD *)(v1 + 288) == a1 )
+      return 1;
+  }
+  return result;
+}

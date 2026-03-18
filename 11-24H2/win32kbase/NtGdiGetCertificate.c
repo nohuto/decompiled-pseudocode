@@ -1,0 +1,74 @@
+/*
+ * XREFs of NtGdiGetCertificate @ 0x1401C6250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCritWithNonPaged @ 0x140023070 (UserSessionSwitchLeaveCritWithNonPaged.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x14004C930 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     CallMonitor @ 0x14008C1A0 (CallMonitor.c)
+ *     ?OPMFreeMemory@OPM@@YAXPEAX@Z @ 0x14008C2B0 (-OPMFreeMemory@OPM@@YAXPEAX@Z.c)
+ *     GetCertificateLengthAndMonitorPDO @ 0x1401C605C (GetCertificateLengthAndMonitorPDO.c)
+ *     memmove @ 0x14023FA40 (memmove.c)
+ */
+
+__int64 __fastcall NtGdiGetCertificate(__int64 a1, unsigned int a2, volatile void *a3, unsigned int a4)
+{
+  __int64 result; // rax
+  unsigned int v8; // ebx
+  void *Pool2; // rsi
+  void *v10; // rdx
+  int CertificateLengthAndMonitorPDO; // edi
+  SIZE_T Length; // [rsp+30h] [rbp-38h] BYREF
+  PVOID Object[3]; // [rsp+38h] [rbp-30h] BYREF
+  unsigned int InputBuffer; // [rsp+78h] [rbp+10h] BYREF
+
+  InputBuffer = a2;
+  result = AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList();
+  v8 = 0;
+  if ( (int)result >= 0 )
+  {
+    LODWORD(Length) = 0;
+    Object[0] = 0LL;
+    Pool2 = 0LL;
+    CertificateLengthAndMonitorPDO = GetCertificateLengthAndMonitorPDO(a1, InputBuffer, &Length, Object);
+    if ( CertificateLengthAndMonitorPDO >= 0 )
+    {
+      if ( a4 >= (unsigned int)Length )
+      {
+        Pool2 = (void *)ExAllocatePool2(258LL, (unsigned int)Length, 1297108807LL);
+        Object[1] = Pool2;
+        if ( Pool2 )
+        {
+          CertificateLengthAndMonitorPDO = CallMonitor(
+                                             (PDEVICE_OBJECT)Object[0],
+                                             0x232487u,
+                                             &InputBuffer,
+                                             4u,
+                                             Pool2,
+                                             Length);
+          if ( CertificateLengthAndMonitorPDO >= 0 )
+          {
+            ProbeForWrite(a3, (unsigned int)Length, 1u);
+            memmove((void *)a3, Pool2, (unsigned int)Length);
+          }
+        }
+        else
+        {
+          CertificateLengthAndMonitorPDO = -1073741801;
+        }
+      }
+      else
+      {
+        CertificateLengthAndMonitorPDO = -1071774450;
+      }
+    }
+    if ( Object[0] )
+      ObfDereferenceObject(Object[0]);
+    OPM::OPMFreeMemory((OPM *)Pool2, v10);
+    UserSessionSwitchLeaveCritWithNonPaged();
+    if ( CertificateLengthAndMonitorPDO < 0 )
+      return (unsigned int)CertificateLengthAndMonitorPDO;
+    return v8;
+  }
+  return result;
+}

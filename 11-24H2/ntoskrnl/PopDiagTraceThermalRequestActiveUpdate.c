@@ -1,0 +1,37 @@
+/*
+ * XREFs of PopDiagTraceThermalRequestActiveUpdate @ 0x140758248
+ * Callers:
+ *     PoSetThermalActiveCooling @ 0x14074BEF0 (PoSetThermalActiveCooling.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x1402A1BD0 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x14041C1B0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ */
+
+void __fastcall PopDiagTraceThermalRequestActiveUpdate(__int64 a1)
+{
+  bool v2; // zf
+  BOOL v3; // [rsp+30h] [rbp-48h] BYREF
+  __int64 v4; // [rsp+38h] [rbp-40h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-38h] BYREF
+  __int64 *v6; // [rsp+50h] [rbp-28h]
+  int v7; // [rsp+58h] [rbp-20h]
+  int v8; // [rsp+5Ch] [rbp-1Ch]
+
+  if ( PopDiagHandleRegistered )
+  {
+    if ( EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_THERMAL_REQUEST_ACTIVE_UPDATE) )
+    {
+      v4 = a1;
+      v2 = *(_BYTE *)(a1 + 17) == 0;
+      UserData.Size = 4;
+      v7 = 8;
+      UserData.Reserved = 0;
+      v8 = 0;
+      v3 = !v2;
+      UserData.Ptr = (ULONGLONG)&v3;
+      v6 = &v4;
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_THERMAL_REQUEST_ACTIVE_UPDATE, 0LL, 2u, &UserData);
+    }
+  }
+}

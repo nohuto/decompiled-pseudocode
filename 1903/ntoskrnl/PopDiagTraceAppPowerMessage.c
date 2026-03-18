@@ -1,0 +1,59 @@
+/*
+ * XREFs of PopDiagTraceAppPowerMessage @ 0x140728108
+ * Callers:
+ *     NtPowerInformation @ 0x14067C840 (NtPowerInformation.c)
+ * Callees:
+ *     EtwWrite @ 0x140036280 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x14003FB20 (ObfDereferenceObjectWithTag.c)
+ *     EtwEventEnabled @ 0x140047610 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x14019E700 (__security_check_cookie.c)
+ *     PsLookupProcessByProcessId @ 0x1405D05D0 (PsLookupProcessByProcessId.c)
+ */
+
+void __fastcall PopDiagTraceAppPowerMessage(HANDLE *a1)
+{
+  NTSTATUS v2; // eax
+  PEPROCESS v3; // rbx
+  unsigned __int16 *v4; // r8
+  unsigned __int16 v5; // ax
+  __int64 v6; // rax
+  int v7; // ecx
+  __int16 v8; // [rsp+30h] [rbp-50h] BYREF
+  int v9; // [rsp+34h] [rbp-4Ch] BYREF
+  PEPROCESS Process; // [rsp+38h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
+  __int16 *v12; // [rsp+50h] [rbp-30h]
+  int v13; // [rsp+58h] [rbp-28h]
+  int v14; // [rsp+5Ch] [rbp-24h]
+  __int64 v15; // [rsp+60h] [rbp-20h]
+  int v16; // [rsp+68h] [rbp-18h]
+  int v17; // [rsp+6Ch] [rbp-14h]
+
+  Process = 0LL;
+  if ( PopDiagHandleRegistered && EtwEventEnabled(PopDiagHandle, &POP_ETW_EVENT_SUSPENDAPP) )
+  {
+    v2 = PsLookupProcessByProcessId(*a1, &Process);
+    v3 = Process;
+    if ( v2 >= 0 )
+    {
+      v4 = (unsigned __int16 *)Process[1].ActiveProcessors.Bitmap[14];
+      v9 = *(_DWORD *)a1;
+      v5 = *v4;
+      UserData.Reserved = 0;
+      v14 = 0;
+      v8 = v5 >> 1;
+      UserData.Ptr = (ULONGLONG)&v9;
+      v12 = &v8;
+      UserData.Size = 4;
+      v13 = 2;
+      v6 = *((_QWORD *)v4 + 1);
+      v7 = *v4;
+      v17 = 0;
+      v15 = v6;
+      v16 = v7;
+      EtwWrite(PopDiagHandle, &POP_ETW_EVENT_SUSPENDAPP, 0LL, 3u, &UserData);
+    }
+    if ( v3 )
+      ObfDereferenceObjectWithTag(v3, 0x746C6644u);
+  }
+}

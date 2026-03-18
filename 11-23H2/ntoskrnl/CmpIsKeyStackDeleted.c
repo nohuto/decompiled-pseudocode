@@ -1,0 +1,68 @@
+/*
+ * XREFs of CmpIsKeyStackDeleted @ 0x1406D3EAC
+ * Callers:
+ *     CmpGetSymbolicLinkTarget @ 0x14068FC80 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x140693570 (CmpDoWritethroughReparse.c)
+ *     CmpCreateChild @ 0x1406D0F70 (CmpCreateChild.c)
+ *     CmpDoParseKey @ 0x1406E9100 (CmpDoParseKey.c)
+ *     CmpCreateKeyBody @ 0x14072F810 (CmpCreateKeyBody.c)
+ *     CmpEnlistKeyBody @ 0x1407C026C (CmpEnlistKeyBody.c)
+ *     CmpIsKeyDeleted @ 0x1407CB1FC (CmpIsKeyDeleted.c)
+ *     CmRenameKey @ 0x140A143AC (CmRenameKey.c)
+ *     CmpPromoteKey @ 0x140A265AC (CmpPromoteKey.c)
+ * Callees:
+ *     CmpGetKcbAtLayerHeight @ 0x1406D57A0 (CmpGetKcbAtLayerHeight.c)
+ *     CmEqualTrans @ 0x1407691C0 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x140AF56A8 (CmListGetNextElement.c)
+ */
+
+bool __fastcall CmpIsKeyStackDeleted(__int64 a1)
+{
+  __int16 v1; // dx
+  __int64 v2; // r8
+  __int64 KcbAtLayerHeight; // rax
+  __int16 v4; // dx
+  __int64 v5; // r9
+  __int64 v7; // r10
+  __int64 v8; // r8
+  int v9; // ecx
+  __int64 NextElement; // rax
+  __int64 v11; // r9
+  __int64 v12; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = *(_WORD *)(a1 + 2);
+  v2 = a1;
+  v12 = 0LL;
+  if ( v1 >= 0 )
+  {
+    do
+    {
+      KcbAtLayerHeight = CmpGetKcbAtLayerHeight(v2);
+      if ( *(_WORD *)(KcbAtLayerHeight + 66) )
+      {
+        if ( *(_BYTE *)(KcbAtLayerHeight + 65) == 1 )
+          break;
+      }
+      if ( *(_DWORD *)(KcbAtLayerHeight + 40) != -1 )
+      {
+        if ( v5 )
+        {
+          v7 = *(_QWORD *)(v2 + 8);
+          v8 = 32LL;
+          while ( 1 )
+          {
+            NextElement = CmListGetNextElement(v7 + 208, &v12, v8);
+            if ( !NextElement )
+              break;
+            v9 = *(_DWORD *)(NextElement + 68);
+            if ( v9 == 2 || v9 == 11 )
+              return (unsigned __int8)CmEqualTrans(*(_QWORD *)(NextElement + 56), v11) != 0;
+          }
+        }
+        return 0;
+      }
+    }
+    while ( (__int16)(v4 - 1) >= 0 );
+  }
+  return 1;
+}

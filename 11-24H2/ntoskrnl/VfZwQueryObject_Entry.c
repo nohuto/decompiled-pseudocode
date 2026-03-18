@@ -1,0 +1,21 @@
+/*
+ * XREFs of VfZwQueryObject_Entry @ 0x140B93F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViZwCheckVirtualAddress @ 0x140B94D78 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B94DC4 (ViZwShouldCheck.c)
+ */
+
+__int64 __fastcall VfZwQueryObject_Entry(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 result; // rax
+
+  result = ViZwShouldCheck(a1, a2, a3);
+  if ( (_DWORD)result )
+  {
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 24), *(_QWORD *)a1);
+    return ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 8), *(_QWORD *)a1);
+  }
+  return result;
+}

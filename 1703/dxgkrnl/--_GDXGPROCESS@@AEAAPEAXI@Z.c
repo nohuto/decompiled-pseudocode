@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_GDXGPROCESS@@AEAAPEAXI@Z @ 0x1C0006CDC
+ * Callers:
+ *     ?ReleaseReference@DXGPROCESS@@AEAAXXZ @ 0x1C0006C40 (-ReleaseReference@DXGPROCESS@@AEAAXXZ.c)
+ *     ?Release@DXGPROCESSMUTEXBYHANDLE@@QEAAXXZ @ 0x1C009AFE8 (-Release@DXGPROCESSMUTEXBYHANDLE@@QEAAXXZ.c)
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@EPEAV1@@Z @ 0x1C009BE20 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@EPEAV1@@Z.c)
+ * Callees:
+ *     ??1DXGPROCESS@@AEAA@XZ @ 0x1C00D6914 (--1DXGPROCESS@@AEAA@XZ.c)
+ */
+
+DXGPROCESS *__fastcall DXGPROCESS::`scalar deleting destructor'(DXGPROCESS *P)
+{
+  DXGPROCESS::~DXGPROCESS(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

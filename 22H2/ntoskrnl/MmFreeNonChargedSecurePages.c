@@ -1,0 +1,101 @@
+/*
+ * XREFs of MmFreeNonChargedSecurePages @ 0x140657D28
+ * Callers:
+ *     PspIumAllocatePartitionState @ 0x1405A59A0 (PspIumAllocatePartitionState.c)
+ *     PspIumFreePartitionPages @ 0x1405A5EDC (PspIumFreePartitionPages.c)
+ *     PspIumFreePartitionState @ 0x1405A5FEC (PspIumFreePartitionState.c)
+ * Callees:
+ *     MiReturnCommit @ 0x1402DC250 (MiReturnCommit.c)
+ *     MiFreePagesFromMdl @ 0x1402EBB80 (MiFreePagesFromMdl.c)
+ *     MiPartitionObjectToPartition @ 0x1402F8AA4 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x1402F9C4C (PsDereferencePartition.c)
+ *     __security_check_cookie @ 0x1403D7680 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041E390 (KeBugCheckEx.c)
+ *     memset @ 0x140435400 (memset.c)
+ *     MiFreeSecureKernelPage @ 0x1406569F4 (MiFreeSecureKernelPage.c)
+ */
+
+void __fastcall MmFreeNonChargedSecurePages(void **BugCheckParameter2, int a2, unsigned int a3, ULONG_PTR *a4)
+{
+  __int64 v4; // r12
+  ULONG_PTR *v8; // r15
+  void ***v9; // rdi
+  unsigned __int64 v10; // rbx
+  struct _KPRCB *CurrentPrcb; // r8
+  __int64 CachedResidentAvailable; // rdx
+  bool v13; // zf
+  signed __int32 v14; // eax
+  _BYTE v15[4]; // [rsp+30h] [rbp-A9h] BYREF
+  ULONG_PTR v16; // [rsp+34h] [rbp-A5h] BYREF
+  ULONG_PTR BugCheckParameter2a[22]; // [rsp+40h] [rbp-99h] BYREF
+
+  v4 = a3;
+  v15[0] = 0;
+  memset(BugCheckParameter2a, 0, sizeof(BugCheckParameter2a));
+  LODWORD(v16) = 0;
+  v8 = &a4[v4];
+  v9 = MiPartitionObjectToPartition(BugCheckParameter2, 1, v15);
+  v10 = (unsigned int)v4;
+  if ( a4 < v8 )
+  {
+    do
+    {
+      MiFreeSecureKernelPage(*a4, (__int64)v9, 0, (ULONG_PTR)BugCheckParameter2a, &v16);
+      if ( !a2 && _InterlockedDecrement64((volatile signed __int64 *)v9 + 57) < 0 )
+        KeBugCheckEx(0x1Au, 0x42403uLL, (ULONG_PTR)v9, 0LL, 0LL);
+      ++a4;
+    }
+    while ( a4 < v8 );
+    if ( (_DWORD)v16 )
+    {
+      BugCheckParameter2a[0] = 0LL;
+      BugCheckParameter2a[4] = 0LL;
+      BugCheckParameter2a[5] = (unsigned int)((_DWORD)v16 << 12);
+      LOWORD(BugCheckParameter2a[1]) = 8 * ((BugCheckParameter2a[5] >> 12) + 6);
+      WORD1(BugCheckParameter2a[1]) = 2;
+      MiFreePagesFromMdl((ULONG_PTR)BugCheckParameter2a, 0);
+    }
+  }
+  if ( !a2 )
+    goto LABEL_20;
+  MiReturnCommit((__int64)v9, (unsigned int)v4);
+  if ( v9 != (void ***)MiSystemPartition
+    || (CurrentPrcb = KeGetCurrentPrcb(),
+        CachedResidentAvailable = (int)CurrentPrcb->CachedResidentAvailable,
+        (_DWORD)CachedResidentAvailable == -1) )
+  {
+LABEL_18:
+    if ( v10 )
+      _InterlockedExchangeAdd64((volatile signed __int64 *)v9 + 2160, v10);
+    goto LABEL_20;
+  }
+  if ( (unsigned __int64)(v4 + CachedResidentAvailable) > 0x100 || (unsigned int)v4 >= 0x80000uLL )
+  {
+LABEL_15:
+    if ( (int)CachedResidentAvailable > 192
+      && (_DWORD)CachedResidentAvailable == _InterlockedCompareExchange(
+                                              (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+                                              192,
+                                              CachedResidentAvailable) )
+    {
+      v10 = (int)CachedResidentAvailable - 192 + (unsigned __int64)(unsigned int)v4;
+    }
+    goto LABEL_18;
+  }
+  while ( 1 )
+  {
+    v14 = _InterlockedCompareExchange(
+            (volatile signed __int32 *)&CurrentPrcb->CachedResidentAvailable,
+            v4 + CachedResidentAvailable,
+            CachedResidentAvailable);
+    v13 = (_DWORD)CachedResidentAvailable == v14;
+    LODWORD(CachedResidentAvailable) = v14;
+    if ( v13 )
+      break;
+    if ( v14 == -1 || (unsigned __int64)(v4 + v14) > 0x100 )
+      goto LABEL_15;
+  }
+LABEL_20:
+  if ( v15[0] )
+    PsDereferencePartition((__int64)v9[25]);
+}

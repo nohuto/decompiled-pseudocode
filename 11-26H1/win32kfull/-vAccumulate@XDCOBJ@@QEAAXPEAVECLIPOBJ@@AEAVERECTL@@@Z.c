@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?vAccumulate@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1401D48F0
+ * Callers:
+ *     ?GrepExtTextOutWLocked@@YA?AV?$ReturnValueTracer@H@@AEAVXDCOBJ@@HHIPEBUtagRECT@@PEBGHPEBHKPEAXK@Z @ 0x1400BC904 (-GrepExtTextOutWLocked@@YA-AV-$ReturnValueTracer@H@@AEAVXDCOBJ@@HHIPEBUtagRECT@@PEBGHPEBHKPEAXK@.c)
+ *     NtGdiFastPolyPolyline @ 0x14027E1D0 (NtGdiFastPolyPolyline.c)
+ *     ??$NtGdiExtFloodFillImpl@$0A@@@YAHPEAUHDC__@@HHKI@Z @ 0x140331F58 (--$NtGdiExtFloodFillImpl@$0A@@@YAHPEAUHDC__@@HHKI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall XDCOBJ::vAccumulate(XDCOBJ *this, struct ECLIPOBJ *a2, __m128i *a3)
+{
+  __m128i v3; // xmm0
+  _DWORD *v4; // r8
+  __int64 v5; // rdx
+  int v6; // eax
+  int v7; // r11d
+  int v8; // r9d
+  int v9; // eax
+  int v10; // r10d
+  int v11; // edx
+  _DWORD *v12; // rcx
+
+  v3 = *a3;
+  v4 = *(_DWORD **)this;
+  v5 = *(_DWORD *)(*(_QWORD *)this + 40LL) & 1;
+  v6 = *(_DWORD *)(*(_QWORD *)this + 8 * v5 + 1016);
+  v7 = _mm_cvtsi128_si32(v3) - v6;
+  v8 = v3.m128i_i32[2] - v6;
+  v9 = *(_DWORD *)(*(_QWORD *)this + 8 * v5 + 1020);
+  v10 = v3.m128i_i32[1] - v9;
+  v11 = v3.m128i_i32[3] - v9;
+  if ( (*(_DWORD *)(*(_QWORD *)this + 36LL) & 0x20) != 0 )
+  {
+    if ( v7 < v4[266] )
+      v4[266] = v7;
+    if ( v10 < v4[267] )
+      v4[267] = v10;
+    if ( v8 > v4[268] )
+      v4[268] = v8;
+    if ( v11 > v4[269] )
+      v4[269] = v11;
+  }
+  v12 = *(_DWORD **)this;
+  if ( (v12[9] & 0x80u) != 0 )
+  {
+    if ( v7 < v12[274] )
+      v12[274] = v7;
+    if ( v10 < v12[275] )
+      v12[275] = v10;
+    if ( v8 > v12[276] )
+      v12[276] = v8;
+    if ( v11 > v12[277] )
+      v12[277] = v11;
+  }
+}

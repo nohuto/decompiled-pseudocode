@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?FindCopyProtection@ADAPTER_DISPLAY@@QEAAPEAVDXGCOPYPROTECTION@@IIPEAVDXGPROCESS@@@Z @ 0x140196BB8
+ * Callers:
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x14019663C (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x140198DF0 (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+struct DXGCOPYPROTECTION *__fastcall ADAPTER_DISPLAY::FindCopyProtection(
+        ADAPTER_DISPLAY *this,
+        int a2,
+        int a3,
+        struct DXGPROCESS *a4)
+{
+  struct DXGCOPYPROTECTION *v4; // rcx
+  struct DXGCOPYPROTECTION *result; // rax
+
+  v4 = (ADAPTER_DISPLAY *)((char *)this + 80);
+  for ( result = *(struct DXGCOPYPROTECTION **)v4; result != v4 && result; result = *(struct DXGCOPYPROTECTION **)result )
+  {
+    if ( *((_DWORD *)result + 12) == a3 && *((_DWORD *)result + 13) == a2 && *((struct DXGPROCESS **)result + 5) == a4 )
+      return result;
+  }
+  return 0LL;
+}

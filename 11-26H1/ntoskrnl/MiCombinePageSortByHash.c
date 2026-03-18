@@ -1,0 +1,20 @@
+/*
+ * XREFs of MiCombinePageSortByHash @ 0x140A33460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall MiCombinePageSortByHash(_QWORD *a1, _QWORD *a2)
+{
+  unsigned __int64 v2; // r8
+  unsigned __int64 v3; // rax
+
+  v2 = a2[1];
+  v3 = a1[1];
+  if ( v3 < v2 )
+    return 0xFFFFFFFFLL;
+  else
+    return v3 > v2;
+}

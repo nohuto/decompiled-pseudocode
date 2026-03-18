@@ -1,0 +1,13 @@
+/*
+ * XREFs of UnmapGpadl @ 0x14004D158
+ * Callers:
+ *     ?LockHeapAllocation@VIDMM_PARAVIRTUALIZATION_HEAP@@UEAAJPEAUVIDMM_HEAP_ALLOC@@PEAUVIDMM_GLOBAL_ALLOC@@_K2W4_LOCK_OPERATION@@PEAVVIDMM_GLOBAL@@_N@Z @ 0x1400B5310 (-LockHeapAllocation@VIDMM_PARAVIRTUALIZATION_HEAP@@UEAAJPEAUVIDMM_HEAP_ALLOC@@PEAUVIDMM_GLOBAL_A.c)
+ *     ?UnlockHeapAllocation@VIDMM_PARAVIRTUALIZATION_HEAP@@UEAAXPEAUVIDMM_HEAP_ALLOC@@_K1_N@Z @ 0x1400B57F0 (-UnlockHeapAllocation@VIDMM_PARAVIRTUALIZATION_HEAP@@UEAAXPEAUVIDMM_HEAP_ALLOC@@_K1_N@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14005B850 (_guard_dispatch_icall.c)
+ */
+
+__int64 UnmapGpadl()
+{
+  return ((__int64 (*)(void))DxgCoreInterface[81])();
+}

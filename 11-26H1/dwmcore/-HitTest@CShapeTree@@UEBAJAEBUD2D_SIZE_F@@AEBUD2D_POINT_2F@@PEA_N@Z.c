@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?HitTest@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180181BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x180081990 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetBounds@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@PEAV?$TMilRect_@MUD2D_RECT_F@@UD3D_RECT_F@@UD2D_POINTANDSIZE_F@@UNotNeeded@RectUniqueness@@@@@Z @ 0x180181C90 (-GetBounds@CShapeTree@@UEBAJAEBUD2D_SIZE_F@@PEAV-$TMilRect_@MUD2D_RECT_F@@UD3D_RECT_F@@UD2D_POIN.c)
+ */
+
+__int64 __fastcall CShapeTree::HitTest(
+        CShapeTree *this,
+        const struct D2D_SIZE_F *a2,
+        const struct D2D_POINT_2F *a3,
+        bool *a4)
+{
+  int Bounds; // ebx
+  bool v7; // al
+  float y; // xmm1_4
+  __int128 v10; // [rsp+30h] [rbp-18h] BYREF
+
+  v10 = 0LL;
+  Bounds = CShapeTree::GetBounds(this, a2, &v10);
+  v7 = 0;
+  if ( Bounds < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, Bounds, 0x50u, 0LL);
+  }
+  else
+  {
+    if ( a3->x >= *(float *)&v10 && *((float *)&v10 + 2) > a3->x )
+    {
+      y = a3->y;
+      if ( y >= *((float *)&v10 + 1) )
+        v7 = *((float *)&v10 + 3) > y;
+    }
+    *a4 = v7;
+  }
+  return (unsigned int)Bounds;
+}

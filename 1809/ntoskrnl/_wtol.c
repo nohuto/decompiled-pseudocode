@@ -1,0 +1,16 @@
+/*
+ * XREFs of _wtol @ 0x140195C80
+ * Callers:
+ *     _wtoi @ 0x140195C60 (_wtoi.c)
+ *     PfSnParsePrefetchParam @ 0x140667AA4 (PfSnParsePrefetchParam.c)
+ * Callees:
+ *     wcstolX @ 0x140197C64 (wcstolX.c)
+ */
+
+int __cdecl wtol(const wchar_t *Str)
+{
+  if ( Str )
+    return wcstolX(Str, 0LL, 10LL, 1LL);
+  else
+    return 0;
+}

@@ -1,0 +1,32 @@
+/*
+ * XREFs of _ImpersonateDdeClientWindow @ 0x1C01D0428
+ * Callers:
+ *     NtUserImpersonateDdeClientWindow @ 0x1C01F12D0 (NtUserImpersonateDdeClientWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003A8EC (UserSetLastError.c)
+ *     ?FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z @ 0x1C01CEF2C (-FindDdeConv@@YAPEAUtagDDECONV@@PEAUtagWND@@0@Z.c)
+ */
+
+__int64 __fastcall ImpersonateDdeClientWindow(struct tagWND *a1, struct tagWND *a2)
+{
+  struct tagDDECONV *DdeConv; // rax
+  __int64 v3; // rcx
+  int v4; // eax
+  ULONG v5; // eax
+  __int64 v6; // rdx
+
+  DdeConv = FindDdeConv(a1, a2);
+  if ( !DdeConv )
+    return 0LL;
+  v3 = *((_QWORD *)DdeConv + 11);
+  if ( !v3 )
+    return 0LL;
+  v4 = SeImpersonateClientEx((PSECURITY_CLIENT_CONTEXT)(v3 + 16), KeGetCurrentThread());
+  if ( v4 < 0 )
+  {
+    v5 = RtlNtStatusToDosError(v4);
+    UserSetLastError(v5, v6);
+    return 0LL;
+  }
+  return 1LL;
+}

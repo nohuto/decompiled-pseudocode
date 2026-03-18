@@ -1,0 +1,57 @@
+/*
+ * XREFs of ?CreatePageTable@@YAPEAVVIDMM_PAGE_TABLE@@PEAVCVirtualAddressAllocator@@IEE@Z @ 0x1400E7850
+ * Callers:
+ *     ?ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABLE_LEVEL_DESC@@E_KIPEAPEAUVIDMM_ALLOC@@@Z @ 0x1400CF084 (-ExpandLargePagePte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUVIDMM_PAGE_TABL.c)
+ *     ?ExpandZeroPte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_K222PEAPEAUVIDMM_ALLOC@@@Z @ 0x1400CF2F8 (-ExpandZeroPte@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@II_.c)
+ *     ?CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_VA_STATE@@_K222EPEAPEAUVIDMM_ALLOC@@@Z @ 0x1400D03C0 (-CommitVirtualAddressRange@VIDMM_PAGE_DIRECTORY@@QEAAJPEAVCVirtualAddressAllocator@@PEBUCOMMIT_V.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x140004FE8 (DxgkLogInternalTriageEvent.c)
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x140027B84 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z @ 0x1400B9124 (-DestroyPageTable@VIDMM_PAGE_TABLE@@QEAAXPEAVCVirtualAddressAllocator@@_K@Z.c)
+ *     ?InitializePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@IEE@Z @ 0x1400E79B4 (-InitializePageTable@VIDMM_PAGE_TABLE@@QEAAJPEAVCVirtualAddressAllocator@@IEE@Z.c)
+ */
+
+struct VIDMM_GLOBAL_ALLOC **__fastcall CreatePageTable(
+        struct CVirtualAddressAllocator *a1,
+        unsigned int a2,
+        unsigned __int8 a3,
+        char a4)
+{
+  __int64 v5; // rbp
+  __int64 v8; // rax
+  struct VIDMM_GLOBAL_ALLOC **v9; // rdi
+  unsigned int v10; // r8d
+  int v11; // eax
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+
+  v5 = a2;
+  v8 = operator new(56LL, 0x33356956u, 256LL);
+  v9 = (struct VIDMM_GLOBAL_ALLOC **)v8;
+  if ( v8 )
+  {
+    *(_OWORD *)v8 = 0LL;
+    *(_OWORD *)(v8 + 16) = 0LL;
+    *(_OWORD *)(v8 + 32) = 0LL;
+    *(_QWORD *)(v8 + 48) = 0LL;
+    *(_DWORD *)v8 = (v5 & 0x1F) << 7;
+    v10 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 11) + 40232LL) + 8 * v5) + 116LL) >> 4;
+    if ( !a3 )
+      v10 = *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(*((_QWORD *)a1 + 11) + 40232LL) + 8 * v5) + 116LL);
+    v11 = VIDMM_PAGE_TABLE::InitializePageTable((VIDMM_PAGE_TABLE *)v8, a1, v10, a3, a4);
+    if ( v11 >= 0 )
+      return v9;
+    WdLogSingleEntry1(1LL, v11);
+    WdLogGlobalForLineNumber = 4894;
+    DxgkLogInternalTriageEvent(v14, 0x40000LL);
+    VIDMM_PAGE_TABLE::DestroyPageTable(v9, a1, 0LL);
+  }
+  else
+  {
+    _InterlockedIncrement(&dword_1400817CC);
+    WdLogSingleEntry0(6LL);
+    WdLogGlobalForLineNumber = 4878;
+    DxgkLogInternalTriageEvent(v13, 262145LL);
+  }
+  return 0LL;
+}

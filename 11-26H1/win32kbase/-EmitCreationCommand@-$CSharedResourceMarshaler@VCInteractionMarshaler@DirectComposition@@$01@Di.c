@@ -1,0 +1,17 @@
+/*
+ * XREFs of ?EmitCreationCommand@?$CSharedResourceMarshaler@VCInteractionMarshaler@DirectComposition@@$01@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1400A60E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle@@@Z @ 0x1400A62C8 (-EmitDuplicateHelper@CResourceMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@VResourceHandle.c)
+ */
+
+__int64 __fastcall DirectComposition::CSharedResourceMarshaler<DirectComposition::CInteractionMarshaler,2>::EmitCreationCommand(
+        __int64 a1,
+        __int64 a2)
+{
+  return DirectComposition::CResourceMarshaler::EmitDuplicateHelper(
+           a1,
+           a2,
+           *(unsigned int *)(*(_QWORD *)(a1 + 336) + 16LL));
+}

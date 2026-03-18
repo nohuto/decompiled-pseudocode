@@ -1,0 +1,60 @@
+/*
+ * XREFs of MiGetCrossPartitionCharges @ 0x140215920
+ * Callers:
+ *     MiReferenceActiveSubsection @ 0x1402140B0 (MiReferenceActiveSubsection.c)
+ *     MiGetCloneCharges @ 0x1402CF39C (MiGetCloneCharges.c)
+ *     MiCreateLargePfnList @ 0x140405A3C (MiCreateLargePfnList.c)
+ *     MiGetSubsectionCharges @ 0x1404873D0 (MiGetSubsectionCharges.c)
+ *     MiAllocateUserPhysicalPages @ 0x1407E8638 (MiAllocateUserPhysicalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x1402BEA90 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x14031F3B0 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiReleaseSpinLockExclusive @ 0x140329B80 (MiReleaseSpinLockExclusive.c)
+ *     MiApplyCrossPartitionCharges @ 0x1404CC9AC (MiApplyCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharge @ 0x1404D2A3C (MiReturnCrossPartitionCharge.c)
+ */
+
+__int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, unsigned int a2, char a3, __int64 a4)
+{
+  __int64 v7; // rbp
+  __int64 v9; // r14
+  volatile LONG *v10; // rcx
+  KIRQL v11; // r15
+  __int64 v12; // rdx
+  __int64 v13; // rax
+  int v14; // edi
+  __int64 v15; // r8
+
+  v7 = 32LL * (int)a2;
+  v9 = a1 + 1728;
+  v10 = (volatile LONG *)(a1 + 1728);
+  if ( KeGetCurrentIrql() == 2 )
+  {
+    v11 = 17;
+    ExAcquireSpinLockExclusiveAtDpcLevel(v10);
+  }
+  else
+  {
+    v11 = ExAcquireSpinLockExclusive(v10);
+  }
+  if ( (*(_DWORD *)(a1 + 4) & 1) != 0 && a2 )
+  {
+    v13 = *(_QWORD *)(a1 + v7 + 2480);
+    v14 = -1073740640;
+    if ( v13 != -1 )
+      *(_QWORD *)(a1 + v7 + 2480) = v13 + 1;
+  }
+  else
+  {
+    v14 = MiApplyCrossPartitionCharges(a1, a2, a4);
+    if ( v14 >= 0 && (a3 & 1) != 0 )
+    {
+      v14 = MiApplyCrossPartitionCharges(a1, a2 + 1, v15);
+      if ( v14 < 0 )
+        MiReturnCrossPartitionCharge(a1, a2);
+    }
+  }
+  LOBYTE(v12) = v11;
+  MiReleaseSpinLockExclusive(v9, v12);
+  return (unsigned int)v14;
+}

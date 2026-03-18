@@ -1,0 +1,17 @@
+/*
+ * XREFs of HUBDSM_ClearingDeviceLostProgammingFlagOnRestart @ 0x140021020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall HUBDSM_ClearingDeviceLostProgammingFlagOnRestart(__int64 a1)
+{
+  volatile signed __int32 *v1; // roff
+
+  v1 = (volatile signed __int32 *)(*(_QWORD *)(a1 + 960) + 1644LL);
+  _InterlockedAnd(v1, 0xFFFFFFDF);
+  _InterlockedAnd(v1, 0xFFEFFFFF);
+  return 4077LL;
+}

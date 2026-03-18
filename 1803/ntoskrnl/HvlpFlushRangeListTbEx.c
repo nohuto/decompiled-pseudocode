@@ -1,0 +1,44 @@
+/*
+ * XREFs of HvlpFlushRangeListTbEx @ 0x14022E700
+ * Callers:
+ *     HvlFlushRangeListTb @ 0x140159D7C (HvlFlushRangeListTb.c)
+ * Callees:
+ *     HvlpCountFlushVaList @ 0x140159E70 (HvlpCountFlushVaList.c)
+ *     HvlpAllowFastFlushList @ 0x140159FB8 (HvlpAllowFastFlushList.c)
+ *     HvlpFastFlushListTbEx @ 0x14022E598 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x14022E97C (HvlpSlowFlushListTbEx.c)
+ */
+
+int __fastcall HvlpFlushRangeListTbEx(
+        __int64 a1,
+        __int64 a2,
+        char a3,
+        __int64 a4,
+        char a5,
+        unsigned int a6,
+        unsigned __int64 *a7)
+{
+  unsigned int v8; // r8d
+  __int64 v9; // rax
+  int v10; // edi
+  int v11; // r8d
+  int v12; // r9d
+  unsigned int v13; // r10d
+  char v14; // r11
+  __int64 v16[5]; // [rsp+40h] [rbp-28h] BYREF
+
+  if ( a5 )
+  {
+    v16[0] = a1;
+    v8 = a3 == 0 ? 4 : 0;
+    v9 = v8 | 2;
+    if ( a1 )
+      v9 = v8;
+    v16[1] = v9;
+  }
+  v10 = HvlpCountFlushVaList(a6, a7);
+  if ( v10 + (((unsigned int)HvlpFlags >> 8) & 0xF) + 5 <= 0xE && HvlpAllowFastFlushList(v14, v13) )
+    return HvlpFastFlushListTbEx(v16, a2, v14, v12, v13, a7, v10);
+  LOBYTE(v11) = v14;
+  return HvlpSlowFlushListTbEx((unsigned int)v16, a2, v11, v12, v13, (__int64)a7, v10);
+}

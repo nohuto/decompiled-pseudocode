@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?Own@?$AutoRelease@PEBU_D3DKMDT_VIDPN_TARGET_MODE@@P6AJPEAUD3DKMDT_HVIDPNTARGETMODESET__@@PEBU1@@ZPEAU2@@DXGDMM@@QEAAXPEBU_D3DKMDT_VIDPN_TARGET_MODE@@Q6AJPEAUD3DKMDT_HVIDPNTARGETMODESET__@@0@Z1@Z @ 0x1C000C8BC
+ * Callers:
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAIPEAUDXGK_STEREO_PARAMS@@01@Z @ 0x1C013E230 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAIPEAUDXGK_STEREO_PARAMS@@01@Z.c)
+ *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C013EEBC (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
+ *     ?ReclaimClonedVidPnTarget@@YAJPEBU_DXGDMM_INTERFACE@@QEAXQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGDMM_VIDPNTOPOLOGY_INTERFACE@@EQEAI4@Z @ 0x1C0141658 (-ReclaimClonedVidPnTarget@@YAJPEBU_DXGDMM_INTERFACE@@QEAXQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_DXGD.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00120A0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall DXGDMM::AutoRelease<_D3DKMDT_VIDPN_TARGET_MODE const *,long (*)(D3DKMDT_HVIDPNTARGETMODESET__ *,_D3DKMDT_VIDPN_TARGET_MODE const *),D3DKMDT_HVIDPNTARGETMODESET__ *>::Own(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4)
+{
+  __int64 result; // rax
+
+  if ( *(_BYTE *)a1 )
+    *(_DWORD *)(a1 + 32) = (*(__int64 (__fastcall **)(_QWORD, _QWORD))(a1 + 16))(
+                             *(_QWORD *)(a1 + 24),
+                             *(_QWORD *)(a1 + 8));
+  *(_QWORD *)(a1 + 8) = a2;
+  *(_QWORD *)(a1 + 24) = a4;
+  *(_BYTE *)a1 = a2 != 0;
+  *(_QWORD *)(a1 + 16) = a3;
+  result = a2 == 0 ? 0xC0000264 : 0;
+  *(_DWORD *)(a1 + 32) = result;
+  return result;
+}

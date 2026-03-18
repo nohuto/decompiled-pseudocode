@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??0DXGAUTOEXPUSHLOCKSHARED@@QEAA@QEAU_EX_PUSH_LOCK@@@Z @ 0x140036ED8
+ * Callers:
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x140092750 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@KI@Z @ 0x140093E90 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@KI@Z.c)
+ *     ?InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z @ 0x1400953B8 (-InitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAJPEAUVIDMM_PARTITION@@@Z.c)
+ *     ??1VIDMM_PARTITION@@QEAA@XZ @ 0x14009AC40 (--1VIDMM_PARTITION@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
+DXGAUTOEXPUSHLOCKSHARED *__fastcall DXGAUTOEXPUSHLOCKSHARED::DXGAUTOEXPUSHLOCKSHARED(
+        DXGAUTOEXPUSHLOCKSHARED *this,
+        struct _EX_PUSH_LOCK *const a2)
+{
+  DXGAUTOEXPUSHLOCKSHARED *result; // rax
+
+  *((_DWORD *)this + 4) = 0;
+  *((_QWORD *)this + 1) = a2;
+  ExAcquirePushLockSharedEx(a2, 0LL);
+  result = this;
+  *((_DWORD *)this + 4) = 1;
+  return result;
+}

@@ -1,0 +1,37 @@
+/*
+ * XREFs of CommonBuffer_RebalanceResources @ 0x14000B11C
+ * Callers:
+ *     Controller_WdfEvtWatchdogTimerFunc @ 0x14000A670 (Controller_WdfEvtWatchdogTimerFunc.c)
+ * Callees:
+ *     XilCoreCommonBuffer_RebalanceResources @ 0x14000B1D8 (XilCoreCommonBuffer_RebalanceResources.c)
+ *     Debug_FreAssertMsg @ 0x14000D87C (Debug_FreAssertMsg.c)
+ *     XilCoreCommonBuffer_FreeUnusedResources @ 0x140034C3C (XilCoreCommonBuffer_FreeUnusedResources.c)
+ *     _guard_dispatch_icall @ 0x1400596E0 (_guard_dispatch_icall.c)
+ */
+
+KIRQL __fastcall CommonBuffer_RebalanceResources(_QWORD *a1)
+{
+  KIRQL result; // al
+
+  if ( *(_BYTE *)(*a1 + 1001LL) && KeGetCurrentIrql() )
+    Debug_FreAssertMsg(
+      "Code Path Requires Passive Level",
+      0LL,
+      "onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\commonbuffer.c",
+      693LL);
+  result = KeGetCurrentIrql();
+  if ( !result || a1[9] )
+  {
+    result = XilCoreCommonBuffer_RebalanceResources(a1 + 11);
+    if ( result )
+    {
+      if ( KeGetCurrentIrql() )
+        return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, _QWORD))(WdfFunctions_01033 + 3040))(
+                 WdfDriverGlobals,
+                 a1[9]);
+      else
+        return XilCoreCommonBuffer_FreeUnusedResources(a1 + 11);
+    }
+  }
+  return result;
+}

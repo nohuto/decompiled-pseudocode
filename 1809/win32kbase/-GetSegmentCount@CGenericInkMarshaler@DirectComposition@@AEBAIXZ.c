@@ -1,0 +1,21 @@
+/*
+ * XREFs of ?GetSegmentCount@CGenericInkMarshaler@DirectComposition@@AEBAIXZ @ 0x1C016A708
+ * Callers:
+ *     ?EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C016A4C8 (-EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z @ 0x1C016A7AC (-RemoveSegmentsAtEnd@CGenericInkMarshaler@DirectComposition@@AEAAJIPEA_N@Z.c)
+ *     ?SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C016A890 (-SetIntegerProperty@CGenericInkMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPE.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int64 __fastcall DirectComposition::CGenericInkMarshaler::GetSegmentCount(
+        DirectComposition::CGenericInkMarshaler *this)
+{
+  unsigned __int64 v1; // r8
+
+  v1 = *((_QWORD *)this + 15);
+  if ( v1 )
+    return *((_QWORD *)this + 13) / v1;
+  else
+    return 0LL;
+}

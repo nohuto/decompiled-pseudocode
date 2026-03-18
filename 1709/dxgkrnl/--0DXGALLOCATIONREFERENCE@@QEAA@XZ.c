@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??0DXGALLOCATIONREFERENCE@@QEAA@XZ @ 0x1C00FC440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+DXGALLOCATIONREFERENCE *__fastcall DXGALLOCATIONREFERENCE::DXGALLOCATIONREFERENCE(DXGALLOCATIONREFERENCE *this)
+{
+  *(_QWORD *)this = 0LL;
+  return this;
+}

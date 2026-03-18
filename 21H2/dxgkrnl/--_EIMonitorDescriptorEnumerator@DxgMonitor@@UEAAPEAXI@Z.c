@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_EIMonitorDescriptorEnumerator@DxgMonitor@@UEAAPEAXI@Z @ 0x1C006C2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+DxgMonitor::IMonitorDescriptorEnumerator *__fastcall DxgMonitor::IMonitorDescriptorEnumerator::`vector deleting destructor'(
+        DxgMonitor::IMonitorDescriptorEnumerator *this,
+        char a2)
+{
+  *(_QWORD *)this = &DxgMonitor::IMonitorDescriptorEnumerator::`vftable';
+  if ( (a2 & 1) != 0 )
+    ExFreePoolWithTag(this, 0);
+  return this;
+}

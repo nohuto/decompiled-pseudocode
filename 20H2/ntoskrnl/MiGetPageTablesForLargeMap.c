@@ -1,0 +1,48 @@
+/*
+ * XREFs of MiGetPageTablesForLargeMap @ 0x1403B83C4
+ * Callers:
+ *     MiInsertInSystemSpace @ 0x14024C1E0 (MiInsertInSystemSpace.c)
+ *     MiMapContiguousMemoryLarge @ 0x1403B7E54 (MiMapContiguousMemoryLarge.c)
+ *     MiMapSystemImageWithLargePage @ 0x1408DCC10 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     MiMakeZeroedPageTablesEx @ 0x14024EC1C (MiMakeZeroedPageTablesEx.c)
+ *     MiReturnSystemVa @ 0x14024F3A8 (MiReturnSystemVa.c)
+ *     MiObtainSystemVa @ 0x1402518F4 (MiObtainSystemVa.c)
+ */
+
+unsigned __int64 __fastcall MiGetPageTablesForLargeMap(unsigned __int64 a1, int a2, int a3, unsigned int a4)
+{
+  int v5; // ecx
+  unsigned __int64 v7; // r12
+  __int64 v10; // rdi
+  unsigned __int64 v11; // rax
+  unsigned __int64 v12; // r14
+  __int64 v13; // rsi
+  unsigned int v14; // r8d
+  int v16; // [rsp+68h] [rbp+10h]
+
+  v5 = 13;
+  if ( a2 != 9 )
+    v5 = a2;
+  v16 = v5;
+  v7 = a1 & 0xFFFFFFFFFFFFFE00uLL;
+  v10 = (a1 >> 9) + 1;
+  if ( (a1 & 0x1FF) == 0 )
+    v10 = a1 >> 9;
+  v11 = MiObtainSystemVa((unsigned int)v10, v5);
+  v12 = v11;
+  if ( v11 )
+  {
+    v13 = ((v11 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v14 = 3 - (a2 != 12);
+    if ( !a3 )
+      v14 = 7 - (a2 != 12);
+    if ( (unsigned int)MiMakeZeroedPageTablesEx(v13, v13 + 8 * v7 - 8, v14, a2, a4)
+      && (a1 == v7 || (unsigned int)MiMakeZeroedPageTablesEx(v13 + 8 * v7, v13 + 8 * (a1 - 1), a2 == 12, a2, a4)) )
+    {
+      return v12;
+    }
+    MiReturnSystemVa(v12, v12 + (v10 << 21), v16);
+  }
+  return 0LL;
+}

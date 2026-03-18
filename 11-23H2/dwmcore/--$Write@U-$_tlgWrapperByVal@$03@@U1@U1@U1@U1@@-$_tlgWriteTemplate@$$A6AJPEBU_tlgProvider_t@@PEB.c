@@ -1,0 +1,52 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3333@Z @ 0x18024C780
+ * Callers:
+ *     ??$LogValueUpdate@UD2DVector4@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DVector4@@@Z @ 0x18001C7AC (--$LogValueUpdate@UD2DVector4@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DVect.c)
+ *     ??$LogValueUpdate@UD2DVector2@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DVector2@@@Z @ 0x18001E734 (--$LogValueUpdate@UD2DVector2@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DVect.c)
+ *     ??$LogValueUpdate@_N@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEB_N@Z @ 0x18001EB7C (--$LogValueUpdate@_N@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEB_N@Z.c)
+ *     ??$LogValueUpdate@UD2D_MATRIX_3X2_F@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2D_MATRIX_3X2_F@@@Z @ 0x1800C71F4 (--$LogValueUpdate@UD2D_MATRIX_3X2_F@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD.c)
+ *     ??$LogValueUpdate@M@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBM@Z @ 0x1800C7228 (--$LogValueUpdate@M@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBM@Z.c)
+ *     ??$LogValueUpdate@UD2DVector3@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DVector3@@@Z @ 0x1800C725C (--$LogValueUpdate@UD2DVector3@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DVect.c)
+ *     ??$LogValueUpdate@UD2DMatrix@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DMatrix@@@Z @ 0x1800C7748 (--$LogValueUpdate@UD2DMatrix@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DMatri.c)
+ *     ??$LogValueUpdate@U_D3DCOLORVALUE@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBU_D3DCOLORVALUE@@@Z @ 0x1800C7B58 (--$LogValueUpdate@U_D3DCOLORVALUE@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBU_D3.c)
+ *     ??$LogValueUpdate@UD2DQuaternion@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DQuaternion@@@Z @ 0x18024BC7C (--$LogValueUpdate@UD2DQuaternion@@@CPropertySet@@AEAAXIW4DCOMPOSITION_EXPRESSION_TYPE@@IPEBUD2DQ.c)
+ * Callees:
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800D5FB8 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x18010EE30 (__security_check_cookie.c)
+ */
+
+ULONG __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EventWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        __int64 a1,
+        unsigned __int8 *a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9)
+{
+  struct _EVENT_DATA_DESCRIPTOR v10; // [rsp+30h] [rbp-51h] BYREF
+  __int64 v11; // [rsp+50h] [rbp-31h]
+  __int64 v12; // [rsp+58h] [rbp-29h]
+  __int64 v13; // [rsp+60h] [rbp-21h]
+  __int64 v14; // [rsp+68h] [rbp-19h]
+  __int64 v15; // [rsp+70h] [rbp-11h]
+  __int64 v16; // [rsp+78h] [rbp-9h]
+  __int64 v17; // [rsp+80h] [rbp-1h]
+  __int64 v18; // [rsp+88h] [rbp+7h]
+  __int64 v19; // [rsp+90h] [rbp+Fh]
+  __int64 v20; // [rsp+98h] [rbp+17h]
+
+  v19 = a9;
+  v17 = a8;
+  v15 = a7;
+  v13 = a6;
+  v11 = a5;
+  v20 = 4LL;
+  v18 = 4LL;
+  v16 = 4LL;
+  v14 = 4LL;
+  v12 = 4LL;
+  return tlgWriteTransfer_EventWriteTransfer((__int64)&dword_1803E37D0, a2, 0LL, 0LL, 7u, &v10);
+}

@@ -1,0 +1,176 @@
+/*
+ * XREFs of ExpRaiseHardError @ 0x140A4E894
+ * Callers:
+ *     ExRaiseHardError @ 0x140A4E2E0 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x140A4E620 (NtRaiseHardError.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140347D10 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x14042F240 (PsIsCurrentThreadInServerSilo.c)
+ *     ExpSystemErrorHandler @ 0x1404FD120 (ExpSystemErrorHandler.c)
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     memmove @ 0x1406BFC40 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x140853E90 (SeSinglePrivilegeCheck.c)
+ *     PsCaptureExceptionPort @ 0x140A2095C (PsCaptureExceptionPort.c)
+ *     LpcSendWaitReceivePort @ 0x140A30450 (LpcSendWaitReceivePort.c)
+ */
+
+__int64 __fastcall ExpRaiseHardError(
+        unsigned int a1,
+        unsigned int a2,
+        int a3,
+        const void *a4,
+        __int64 a5,
+        int a6,
+        unsigned int *a7)
+{
+  struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14
+  KPROCESSOR_MODE PreviousMode; // bl
+  unsigned int v12; // edx
+  char v13; // dl
+  _KPROCESS *Process; // r10
+  int v15; // r11d
+  void *Blink; // rbx
+  char v17; // di
+  const void *v18; // r14
+  struct _KTHREAD *CurrentThread; // rcx
+  _BYTE *Teb; // rax
+  int v22; // eax
+  int v23; // esi
+  unsigned int v24; // ecx
+  unsigned int v25; // eax
+  bool v26; // zf
+  unsigned int v27; // ecx
+  unsigned int v28; // ecx
+  __int64 v29; // [rsp+20h] [rbp-358h]
+  _QWORD v32[3]; // [rsp+68h] [rbp-310h] BYREF
+  _DWORD v33[12]; // [rsp+80h] [rbp-2F8h] BYREF
+  __int64 v34; // [rsp+B0h] [rbp-2C8h]
+  int v35; // [rsp+B8h] [rbp-2C0h]
+  unsigned int v36; // [rsp+BCh] [rbp-2BCh]
+  unsigned int v37; // [rsp+C0h] [rbp-2B8h]
+  int v38; // [rsp+C4h] [rbp-2B4h]
+  char v39[616]; // [rsp+C8h] [rbp-2B0h] BYREF
+
+  v32[0] = a4;
+  v32[1] = a7;
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  *a7 = 0;
+  if ( v12 > 0x4D )
+    return 3221225485LL;
+  v13 = 0;
+  if ( a6 == 6 )
+  {
+    if ( !SeSinglePrivilegeCheck(SeShutdownPrivilege, PreviousMode) )
+      return 3221225569LL;
+    if ( !PsIsCurrentThreadInServerSilo() )
+      ExReadyForErrors = 0;
+    LODWORD(CurrentServerSiloGlobals[54].Flink) = 2;
+    v13 = 1;
+  }
+  Process = KeGetCurrentThread()->ApcState.Process;
+  v15 = *(_DWORD *)(&KeGetCurrentThread()[1].SwapListEntry + 1) & 0x10;
+  if ( !v15 && (a1 & 0xC0000000) == 0xC0000000 && (!LODWORD(CurrentServerSiloGlobals[54].Flink) || v13) )
+  {
+    LOBYTE(v29) = PreviousMode != 0;
+    ExpSystemErrorHandler(a1, a2, a3, a5, v29);
+    return 0LL;
+  }
+  if ( Process == (_KPROCESS *)CurrentServerSiloGlobals[53].Flink )
+  {
+    if ( (a1 & 0xC0000000) == 0xC0000000 )
+    {
+      LOBYTE(v29) = PreviousMode != 0;
+      ExpSystemErrorHandler(a1, a2, a3, a5, v29);
+    }
+    goto LABEL_15;
+  }
+  Blink = 0LL;
+  v17 = 0;
+  if ( !v15 && (((__int64)Process[1].AvailableCpuState & 1) != 0 || (a1 & 0x10000000) != 0) )
+  {
+    Blink = PsCaptureExceptionPort((__int64)Process);
+    if ( Blink )
+      v17 = 1;
+    else
+      Blink = CurrentServerSiloGlobals[53].Blink;
+  }
+  if ( Blink
+    && ((CurrentThread = KeGetCurrentThread(), (CurrentThread->MiscFlags & 0x400) != 0)
+     || CurrentThread->ApcStateIndex == 1
+      ? (Teb = 0LL)
+      : (Teb = CurrentThread->Teb),
+        Teb) )
+  {
+    v26 = (Teb[5808] & 0x10) == 0;
+    v22 = 0;
+    if ( !v26 )
+      v22 = -1073741823;
+    v18 = a4;
+    if ( v22 < 0 )
+    {
+      if ( v17 == 1 )
+        ObfDereferenceObject(Blink);
+      Blink = 0LL;
+    }
+  }
+  else
+  {
+    v18 = a4;
+  }
+  if ( !Blink )
+  {
+LABEL_15:
+    *a7 = 0;
+    return 0LL;
+  }
+  v33[0] = 7340104;
+  v33[1] = 9;
+  v33[10] = a1 & 0xEFFFFFFF;
+  v35 = a6;
+  v38 = a3;
+  v37 = a2;
+  if ( v18 )
+    memmove(v39, v18, 8LL * a2);
+  v34 = MEMORY[0xFFFFF78000000014];
+  v32[0] = 688LL;
+  v23 = LpcSendWaitReceivePort((int)Blink, 0x20000, (int)v33, (__int64)v33, (__int64)v32, 0LL);
+  if ( v17 == 1 )
+    ObfDereferenceObject(Blink);
+  if ( v23 >= 0 )
+  {
+    v24 = v36;
+    v25 = v36;
+    if ( v36 > 5 )
+    {
+      v24 = v36 - 6;
+      v26 = v36 == 6;
+    }
+    else
+    {
+      if ( v36 == 5 )
+      {
+LABEL_52:
+        *a7 = v25;
+        return (unsigned int)v23;
+      }
+      v26 = v36 == 0;
+    }
+    if ( !v26 )
+    {
+      v27 = v24 - 1;
+      if ( v27 )
+      {
+        v28 = v27 - 1;
+        if ( v28 )
+        {
+          if ( v28 - 1 >= 2 )
+            v25 = 0;
+        }
+      }
+    }
+    goto LABEL_52;
+  }
+  return (unsigned int)v23;
+}

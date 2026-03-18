@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??$Is2DAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x1800713C4
+ * Callers:
+ *     ?TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z @ 0x18003620C (-TransformGeometry@CTransformedGeometryHelper@@SAJPEBVCMILMatrix@@PEAUID2D1Geometry@@PEAPEAU3@@Z.c)
+ *     ?Update@CpuClipRealization@CCpuClippingData@@QEAAJPEAVCVisual@@PEBVCShape@@AEBVCMILMatrix@@1W4D2D1_ANTIALIAS_MODE@@PEA_N@Z @ 0x180053BBC (-Update@CpuClipRealization@CCpuClippingData@@QEAAJPEAVCVisual@@PEBVCShape@@AEBVCMILMatrix@@1W4D2.c)
+ *     ?PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUNodeEffects@1@PEA_N@Z @ 0x180055810 (-PushLocalSpaceClipAndAlphaInternal@CDrawingContext@@AEAAJPEBV-$TMilRect_@MUMilRectF@@UMil3DRect.c)
+ *     ?Is2DAffineOrNaN@CMILMatrix@@QEBA_N_N@Z @ 0x180098474 (-Is2DAffineOrNaN@CMILMatrix@@QEBA_N_N@Z.c)
+ *     ??$IsPure2DUniformZ@$00@CMILMatrix@@AEBA_NXZ @ 0x1800DFEC8 (--$IsPure2DUniformZ@$00@CMILMatrix@@AEBA_NXZ.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x1801ADCE4 (_anonymous_namespace_--DecomposeMatrix.c)
+ *     TryFillRenderState @ 0x1801CC678 (TryFillRenderState.c)
+ *     ?D2DGeometryFromShape@CDrawingContext@@AEAAJPEBVCShape@@AEBVCMILMatrix@@PEAPEAUID2D1Geometry@@PEA_N@Z @ 0x1801D30A0 (-D2DGeometryFromShape@CDrawingContext@@AEAAJPEBVCShape@@AEBVCMILMatrix@@PEAPEAUID2D1Geometry@@PE.c)
+ *     ?AffectsVisual@CCompositionSpotLight@@UEAA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180225DC0 (-AffectsVisual@CCompositionSpotLight@@UEAA_NPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ * Callees:
+ *     ??$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x180070318 (--$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ */
+
+bool __fastcall CMILMatrix::Is2DAffine<1>(__int64 a1, char a2)
+{
+  bool result; // al
+  char v4; // al
+  char v5; // r11
+
+  if ( a2 )
+    return CMILMatrix::IsAffine<1>(a1, a2);
+  v4 = (char)(16 * *(_BYTE *)(a1 + 65)) >> 6;
+  if ( v4 )
+    return v4 == 1;
+  if ( CMILMatrix::IsAffine<1>(a1, 0)
+    && COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)(a1 + 32) - 0.0) & _xmm) < 0.000081380211
+    && COERCE_FLOAT(COERCE_UNSIGNED_INT(*(float *)(a1 + 36) - 0.0) & _xmm) < 0.000081380211 )
+  {
+    v5 = 1;
+  }
+  *(_BYTE *)(a1 + 65) &= 0xF3u;
+  result = v5;
+  *(_BYTE *)(a1 + 65) |= (-4 - 8 * v5) & 0xC;
+  return result;
+}

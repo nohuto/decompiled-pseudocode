@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??1CRedirectedVisualContent@@MEAA@XZ @ 0x18018CBCC
+ * Callers:
+ *     ??_ECRedirectedVisualContent@@MEAAPEAXI@Z @ 0x18018CB80 (--_ECRedirectedVisualContent@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180026BE0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180040010 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180134248 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
+void __fastcall CRedirectedVisualContent::~CRedirectedVisualContent(CRedirectedVisualContent *this)
+{
+  __int64 *v2; // rbx
+
+  v2 = (__int64 *)((char *)this + 72);
+  *(_QWORD *)this = &CRedirectedVisualContent::`vftable';
+  CResource::UnRegisterNotifierInternal(this, *((struct CResource **)this + 9));
+  wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(v2);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 10);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(v2);
+  CResource::~CResource(this);
+}

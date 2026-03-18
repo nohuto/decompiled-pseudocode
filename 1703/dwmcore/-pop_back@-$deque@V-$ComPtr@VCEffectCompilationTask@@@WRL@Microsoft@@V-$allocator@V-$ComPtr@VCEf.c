@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?pop_back@?$deque@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@QEAAXXZ @ 0x18000569C
+ * Callers:
+ *     ?erase@?$deque@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V?$allocator@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@QEAA?AV?$_Deque_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@@2@V?$_Deque_const_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@@2@0@Z @ 0x1800056F0 (-erase@-$deque@V-$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@V-$allocator@V-$ComPtr@VCEffec.c)
+ *     ??1CEffectCompilationService@@UEAA@XZ @ 0x180145508 (--1CEffectCompilationService@@UEAA@XZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x180005BBC (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
+__int64 __fastcall std::deque<Microsoft::WRL::ComPtr<CEffectCompilationTask>>::pop_back(_QWORD *a1)
+{
+  __int64 v2; // rcx
+  __int64 result; // rax
+
+  v2 = a1[4];
+  if ( v2 )
+  {
+    result = Microsoft::WRL::ComPtr<CBrushRenderingGraph>::InternalRelease(
+               *(_QWORD *)(a1[1] + 8 * (((unsigned __int64)(a1[3] + v2 - 1) >> 1) & (a1[2] - 1LL)))
+             + 8LL * ((*((_DWORD *)a1 + 6) + (_DWORD)v2 - 1) & 1));
+    if ( a1[4]-- == 1LL )
+      a1[3] = 0LL;
+  }
+  return result;
+}

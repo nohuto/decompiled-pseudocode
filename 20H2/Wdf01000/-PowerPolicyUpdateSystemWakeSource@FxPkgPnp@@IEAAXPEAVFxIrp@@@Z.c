@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?PowerPolicyUpdateSystemWakeSource@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z @ 0x1C008BCA4
+ * Callers:
+ *     ?_PowerPolicyWaitWakeCompletionRoutine@FxPkgPnp@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C00883A0 (-_PowerPolicyWaitWakeCompletionRoutine@FxPkgPnp@@KAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqq @ 0x1C0032328 (WPP_IFR_SF_qqq.c)
+ */
+
+void __fastcall FxPkgPnp::PowerPolicyUpdateSystemWakeSource(FxPkgPnp *this, FxIrp *Irp)
+{
+  const void *_a1; // rax
+  __int64 v5; // rdx
+
+  this->m_PowerPolicyMachine.m_Owner->m_SystemWakeSource = PoGetSystemWake(Irp->m_Irp);
+  if ( this->m_PowerPolicyMachine.m_Owner->m_SystemWakeSource )
+  {
+    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this->m_DeviceBase);
+    WPP_IFR_SF_qqq(
+      this->m_Globals,
+      4u,
+      0xCu,
+      0xAu,
+      (const _GUID *)&WPP_PowerPolicyStateMachineKM_cpp_Traceguids,
+      _a1,
+      *(const void **)(v5 + 144),
+      Irp->m_Irp);
+  }
+}

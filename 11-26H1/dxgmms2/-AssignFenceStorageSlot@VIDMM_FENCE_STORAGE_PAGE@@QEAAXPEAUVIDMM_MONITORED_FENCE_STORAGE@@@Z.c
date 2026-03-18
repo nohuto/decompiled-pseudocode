@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?AssignFenceStorageSlot@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x140036DB4
+ * Callers:
+ *     ?AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAVVIDMM_PROCESS@@@Z @ 0x14003683C (-AllocateSharedFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MO.c)
+ *     ?AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I@Z @ 0x1400369B8 (-AllocateFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORE.c)
+ *     ?FindAvailableFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x140036CC8 (-FindAvailableFenceStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUVIDMM_MO.c)
+ *     ?FindAvailableStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEAU_LIST_ENTRY@@W4VIDMM_NATIVE_FENCE_STORAGE_TYPE@@@Z @ 0x140037058 (-FindAvailableStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITOR.c)
+ *     ?FindAvailableCurrentValueStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x14004E7C4 (-FindAvailableCurrentValueStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUV.c)
+ *     ?FindAvailableMonitoredValueStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@@Z @ 0x14004E8B4 (-FindAvailableMonitoredValueStorageSlot@VIDMM_PROCESS_FENCE_STORAGE@@AEAA_NPEAVVIDMM_DEVICE@@PEA.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall VIDMM_FENCE_STORAGE_PAGE::AssignFenceStorageSlot(
+        VIDMM_FENCE_STORAGE_PAGE *this,
+        struct VIDMM_MONITORED_FENCE_STORAGE *a2)
+{
+  CCHAR LeastSignificantBit; // al
+  int v5; // ecx
+  __int64 v6; // r9
+  char v7; // al
+  unsigned int v8; // ecx
+
+  LeastSignificantBit = RtlFindLeastSignificantBit(~*((_QWORD *)this + 13));
+  v5 = LeastSignificantBit;
+  v6 = *((_QWORD *)this + 13) | (1LL << LeastSignificantBit);
+  v7 = *((_BYTE *)this + 225);
+  v8 = v5 << 6;
+  *((_QWORD *)this + 13) = v6;
+  *(_QWORD *)a2 = this;
+  *((_DWORD *)a2 + 4) = v8;
+  if ( !v7 || (*((_DWORD *)this + 40) & 8) == 0 )
+    *((_QWORD *)a2 + 1) = *((_QWORD *)this + 15) + v8;
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of ??0CCubeMapRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@PEAUID3D11ShaderResourceView@@@Z @ 0x18022A354
+ * Callers:
+ *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x1801906A4 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
+ * Callees:
+ *     ??0CDrawListBitmap@@QEAA@AEBV0@@Z @ 0x1800265D0 (--0CDrawListBitmap@@QEAA@AEBV0@@Z.c)
+ */
+
+__int64 __fastcall CCubeMapRenderingEffect::CCubeMapRenderingEffect(
+        __int64 a1,
+        const struct CDrawListBitmap *a2,
+        __int16 *a3,
+        __int64 a4)
+{
+  __int16 v7; // ax
+  __int64 result; // rax
+
+  *(_DWORD *)(a1 + 8) = 0;
+  *(_QWORD *)a1 = &CCubeMapRenderingEffect::`vftable';
+  CDrawListBitmap::CDrawListBitmap((CDrawListBitmap *)(a1 + 16), a2);
+  v7 = *a3;
+  *(_WORD *)(a1 + 40) = 257;
+  *(_BYTE *)(a1 + 42) = 1;
+  *(_WORD *)(a1 + 40) = v7;
+  *(_BYTE *)(a1 + 42) = *((_BYTE *)a3 + 2);
+  result = a1;
+  *(_QWORD *)(a1 + 48) = a4;
+  return result;
+}

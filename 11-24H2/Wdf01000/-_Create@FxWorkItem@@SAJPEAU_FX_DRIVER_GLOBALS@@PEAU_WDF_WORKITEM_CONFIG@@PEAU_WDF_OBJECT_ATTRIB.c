@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?_Create@FxWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAU_WDF_WORKITEM_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxObject@@PEAPEAUWDFWORKITEM__@@@Z @ 0x140039938
+ * Callers:
+ *     imp_WdfWorkItemCreate @ 0x140039AA0 (imp_WdfWorkItemCreate.c)
+ * Callees:
+ *     ?DeleteFromFailedCreate@FxObject@@QEAAXXZ @ 0x140011878 (-DeleteFromFailedCreate@FxObject@@QEAAXXZ.c)
+ *     ?FxObjectHandleAlloc2@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@_K1KPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObjectType@@@Z @ 0x14001189C (-FxObjectHandleAlloc2@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@_K1KPEAU_WDF_OBJECT_ATTRIBUTES@@GW4FxObject.c)
+ *     ??0FxWorkItem@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1400399EC (--0FxWorkItem@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Initialize@FxWorkItem@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WORKITEM_CONFIG@@PEAVFxObject@@PEAPEAUWDFWORKITEM__@@@Z @ 0x140039D20 (-Initialize@FxWorkItem@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_WORKITEM_CONFIG@@PEAVFxObject@.c)
+ */
+
+__int64 __fastcall FxWorkItem::_Create(
+        _FX_DRIVER_GLOBALS *FxDriverGlobals,
+        _WDF_WORKITEM_CONFIG *Config,
+        _WDF_OBJECT_ATTRIBUTES *Attributes,
+        FxObject *ParentObject,
+        WDFWORKITEM__ **WorkItem)
+{
+  FX_POOL **v9; // rax
+  FxWorkItem *v10; // rax
+  FxObject *v11; // rbx
+  int v12; // edi
+
+  v9 = FxObjectHandleAlloc2(
+         FxDriverGlobals,
+         (unsigned __int64)Config,
+         0xD0uLL,
+         (__int64)ParentObject,
+         Attributes,
+         0,
+         FxObjectTypeExternal);
+  if ( !v9 )
+    return 3221225626LL;
+  FxWorkItem::FxWorkItem((FxWorkItem *)v9, FxDriverGlobals);
+  v11 = v10;
+  if ( !v10 )
+    return 3221225626LL;
+  v12 = FxWorkItem::Initialize(v10, Attributes, Config, ParentObject, WorkItem);
+  if ( v12 < 0 )
+    FxObject::DeleteFromFailedCreate(v11);
+  return (unsigned int)v12;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of FWUPDATE_EvtDeviceD0Entry @ 0x1400419D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x14001CDA0 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall @ 0x1400467F0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall FWUPDATE_EvtDeviceD0Entry(__int64 a1)
+{
+  __int64 v2; // rax
+  __int64 v3; // rdi
+  int v4; // eax
+  __int64 v5; // rcx
+  int v7; // [rsp+28h] [rbp-20h]
+  int v8; // [rsp+30h] [rbp-18h]
+
+  v2 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *))(WdfFunctions_01015 + 1616))(
+         WdfDriverGlobals,
+         a1,
+         off_14006D248);
+  v3 = *(_QWORD *)v2;
+  *(_DWORD *)(v2 + 28) = 1;
+  v4 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64))(WdfFunctions_01015 + 3104))(WdfDriverGlobals, a1);
+  if ( (Microsoft_Windows_USB_USBHUB3EnableBits & 4) != 0 )
+  {
+    v8 = v4;
+    v7 = 1;
+    McTemplateK0ppqq_EtwWriteTransfer(
+      v5,
+      &USBHUB3_ETW_EVENT_FIRMWARE_UPDATE_D0_ENTRY,
+      (const GUID *)(v3 + 2292),
+      *(_QWORD *)(v3 + 248),
+      *(_QWORD *)(v3 + 2672),
+      v7,
+      v8);
+  }
+  return 0LL;
+}

@@ -1,0 +1,64 @@
+/*
+ * XREFs of HalpCmcInitializePolling @ 0x1403B4448
+ * Callers:
+ *     HalpInitializeCmc @ 0x140A8AD2C (HalpInitializeCmc.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpCmcInitializeErrorPacketContents @ 0x140380688 (HalpCmcInitializeErrorPacketContents.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall HalpCmcInitializePolling(__int64 a1)
+{
+  unsigned __int64 v2; // rbx
+  int v3; // ecx
+  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  bool v7; // zf
+
+  v2 = KeAcquireSpinLockRaiseToDpc(&HalpCmcFallbackLock);
+  if ( !HalpCmcPollingInitialized )
+  {
+    HalpCmcErrorPacket = (__int64)&HalpCmcReserveErrorPacket;
+    HalpCmcInitializeErrorPacketContents((GUID *)&HalpCmcReserveErrorPacket);
+    v3 = *(_DWORD *)(a1 + 52);
+    qword_140C6A860 = (__int64)HalpCmcDeferredRoutine;
+    qword_140C6A898 = (__int64)HalpCmcWorkerRoutine;
+    HalpCmcContext = v3;
+    qword_140C6A808 = 8LL;
+    qword_140C6A818 = (__int64)&qword_140C6A810;
+    qword_140C6A810 = (__int64)&qword_140C6A810;
+    dword_140C6A848 = 275;
+    qword_140C6A868 = (__int64)&HalpCmcContext;
+    qword_140C6A880 = 0LL;
+    qword_140C6A858 = 0LL;
+    qword_140C6A8A0 = (__int64)&HalpCmcContext;
+    qword_140C6A888 = 0LL;
+    qword_140C6A820 = 0LL;
+    dword_140C6A844 = 0;
+    word_140C6A840 = 0;
+    HalpCmcPollingInitialized = 1;
+  }
+  result = KxReleaseSpinLock((volatile signed __int64 *)&HalpCmcFallbackLock);
+  if ( KiIrqlFlags )
+  {
+    result = KeGetCurrentIrql();
+    if ( (KiIrqlFlags & 1) != 0
+      && (unsigned __int8)result <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && (unsigned __int8)result >= 2u )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+      v7 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= result;
+      if ( v7 )
+        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    }
+  }
+  __writecr8(v2);
+  return result;
+}

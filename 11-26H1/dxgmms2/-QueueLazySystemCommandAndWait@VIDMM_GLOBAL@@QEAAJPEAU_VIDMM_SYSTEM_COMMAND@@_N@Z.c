@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?QueueLazySystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1400E0F50
+ * Callers:
+ *     ?MapGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PEA_KI_N@Z @ 0x1400CB330 (-MapGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAJPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@PE.c)
+ *     ?UnmapGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I_N@Z @ 0x1400E1334 (-UnmapGpuVA@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAVVIDMM_DEVICE@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@.c)
+ *     ?VidMmTrimOfferCommitment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS@@_KPEA_K@Z @ 0x1401280F0 (-VidMmTrimOfferCommitment@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUDXGDECOMMITITERATOR@@T_D3DKM.c)
+ * Callees:
+ *     ?QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAUVIDMM_PAGING_QUEUE@@PEAU_VIDSCH_SYNC_OBJECT@@_N@Z @ 0x1400E49FC (-QueueSystemCommandAndWaitInternal@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@AEAUVIDMM_PAGIN.c)
+ */
+
+int __fastcall VIDMM_GLOBAL::QueueLazySystemCommandAndWait(VIDMM_GLOBAL *this, struct _VIDMM_SYSTEM_COMMAND *a2)
+{
+  __int64 v2; // r8
+  __int64 v3; // rax
+  struct VIDMM_PAGING_QUEUE **v4; // rax
+  struct VIDMM_PAGING_QUEUE **v5; // r8
+
+  v2 = *((unsigned int *)a2 + 1);
+  v3 = *((_QWORD *)this + 5065);
+  if ( (_DWORD)v2 == -1 )
+  {
+    v5 = *(struct VIDMM_PAGING_QUEUE ***)(v3 + 88);
+    v4 = v5;
+  }
+  else
+  {
+    v4 = *(struct VIDMM_PAGING_QUEUE ***)(v3 + 88);
+    v5 = &v4[4 * v2];
+  }
+  return VIDMM_GLOBAL::QueueSystemCommandAndWaitInternal(
+           this,
+           a2,
+           *v5,
+           v4[4 * ((*((_DWORD *)*v5 + 28) >> 5) & 0x1F) + 1],
+           1);
+}

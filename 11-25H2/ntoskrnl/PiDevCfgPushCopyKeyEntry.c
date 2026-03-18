@@ -1,0 +1,67 @@
+/*
+ * XREFs of PiDevCfgPushCopyKeyEntry @ 0x1404A5054
+ * Callers:
+ *     PiDevCfgCopyDeviceKeys @ 0x14094C678 (PiDevCfgCopyDeviceKeys.c)
+ *     PiDevCfgCopyDeviceKey @ 0x14094C804 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     ZwClose @ 0x14069B320 (ZwClose.c)
+ *     ZwOpenKey @ 0x14069B380 (ZwOpenKey.c)
+ *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B62CD0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PiDevCfgPushCopyKeyEntry(HANDLE *a1, void *a2, void *a3, int a4)
+{
+  NTSTATUS v7; // esi
+  __int64 Pool2; // rax
+  HANDLE *v10; // rbx
+  HANDLE *v12; // r14
+  HANDLE **v13; // rax
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+20h] [rbp-30h] BYREF
+
+  v7 = 0;
+  memset(&ObjectAttributes, 0, 44);
+  Pool2 = ExAllocatePool2(0x100uLL);
+  v10 = (HANDLE *)Pool2;
+  if ( !Pool2 )
+    return (unsigned int)-1073741670;
+  *(_DWORD *)(Pool2 + 32) = a4;
+  v12 = (HANDLE *)(Pool2 + 16);
+  if ( a4 < 0 )
+  {
+    ObjectAttributes.RootDirectory = a2;
+    ObjectAttributes.ObjectName = (PUNICODE_STRING)&PiDevCfgEmptyString;
+    ObjectAttributes.Attributes = 512;
+    ObjectAttributes.Length = 48;
+    *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+    v7 = ZwOpenKey(v12, 0x20019u, &ObjectAttributes);
+    if ( v7 >= 0 )
+    {
+      ObjectAttributes.Length = 48;
+      ObjectAttributes.ObjectName = (PUNICODE_STRING)&PiDevCfgEmptyString;
+      ObjectAttributes.RootDirectory = a3;
+      ObjectAttributes.Attributes = 512;
+      *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+      v7 = ZwOpenKey(v10 + 3, 0xF003Fu, &ObjectAttributes);
+      if ( v7 >= 0 )
+      {
+        *((_DWORD *)v10 + 8) |= 0x40000000u;
+        goto LABEL_6;
+      }
+      ZwClose(*v12);
+    }
+    ExFreePoolWithTag(v10, 0);
+    return (unsigned int)v7;
+  }
+  *v12 = a2;
+  *(_QWORD *)(Pool2 + 24) = a3;
+LABEL_6:
+  v13 = (HANDLE **)a1[1];
+  if ( *v13 != a1 )
+    __fastfail(3u);
+  *v10 = a1;
+  v10[1] = v13;
+  *v13 = v10;
+  a1[1] = v10;
+  return (unsigned int)v7;
+}

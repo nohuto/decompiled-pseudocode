@@ -1,0 +1,20 @@
+/*
+ * XREFs of ZwQueryInformationAtom @ 0x1401BA970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __stdcall ZwQueryInformationAtom(
+        RTL_ATOM Atom,
+        ATOM_INFORMATION_CLASS AtomInformationClass,
+        PVOID AtomInformation,
+        ULONG AtomInformationLength,
+        PULONG ReturnLength)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(Atom, *(_QWORD *)&AtomInformationClass, AtomInformation);
+}

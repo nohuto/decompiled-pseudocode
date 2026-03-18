@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?Initialize@CHolographicClient@@AEAAJXZ @ 0x18029DB14
+ * Callers:
+ *     ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x18029D52C (-Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x18029D810 (-EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ.c)
+ */
+
+__int64 __fastcall CHolographicClient::Initialize(LARGE_INTEGER *this)
+{
+  __int64 v2; // rcx
+  int AnalogExclusiveTokenEvent; // ebx
+  unsigned int v4; // ebx
+  int v5; // eax
+  __int64 v6; // rcx
+
+  AnalogExclusiveTokenEvent = NtTokenManagerGetAnalogExclusiveTokenEvent(&this[32]);
+  if ( AnalogExclusiveTokenEvent >= 0 )
+  {
+    v5 = CHolographicClient::EnsureHolographicCompositor((CHolographicClient *)this);
+    v4 = v5;
+    if ( v5 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x66u);
+    else
+      QueryPerformanceFrequency(this + 35);
+  }
+  else
+  {
+    v4 = AnalogExclusiveTokenEvent | 0x10000000;
+    MilInstrumentationCheckHR_MaybeFailFast(v2, 0LL, 0LL, v4, 0x64u);
+  }
+  return v4;
+}

@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?SetReferenceVisual@?$CCaptureControllerGeneratedT@VCCaptureController@@VCResource@@@@QEAAJPEAVCVisual@@@Z @ 0x180284958
+ * Callers:
+ *     ?ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18014D130 (-ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180023388 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800E7950 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180131C1C (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?SetReferenceVisual@CCaptureRenderTarget@@QEAAXPEAVCVisual@@@Z @ 0x1801F93C0 (-SetReferenceVisual@CCaptureRenderTarget@@QEAAXPEAVCVisual@@@Z.c)
+ */
+
+__int64 __fastcall CCaptureControllerGeneratedT<CCaptureController,CResource>::SetReferenceVisual(
+        struct CResource **this,
+        struct CResource *a2)
+{
+  unsigned int v2; // esi
+  int v5; // eax
+  struct CMILPoolResource ***v6; // rbp
+  struct CMILPoolResource ***i; // rdi
+
+  v2 = 0;
+  if ( a2 != this[15] )
+  {
+    v5 = CResource::RegisterNotifier((CResource *)this, a2);
+    v2 = v5;
+    if ( v5 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v5, 0x28Du, 0LL);
+    }
+    else
+    {
+      CResource::UnRegisterNotifierInternal((CResource *)this, this[15]);
+      this[15] = a2;
+      v6 = (struct CMILPoolResource ***)this[20];
+      for ( i = (struct CMILPoolResource ***)this[19]; i != v6; ++i )
+        CCaptureRenderTarget::SetReferenceVisual(*i, this[15]);
+    }
+  }
+  return v2;
+}

@@ -1,0 +1,44 @@
+/*
+ * XREFs of PspCaptureCreateInfo @ 0x1409BD3A4
+ * Callers:
+ *     NtCreateUserProcess @ 0x1409BC1D0 (NtCreateUserProcess.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x14085AF60 (ExRaiseDatatypeMisalignment.c)
+ */
+
+__int64 __fastcall PspCaptureCreateInfo(char a1, unsigned __int64 a2, __int64 a3)
+{
+  unsigned int v4; // r9d
+  __int64 v5; // rcx
+  char v6; // dl
+  char v7; // cl
+
+  v4 = 0;
+  if ( a1 )
+  {
+    if ( (a2 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    v5 = 0x7FFFFFFF0000LL;
+    if ( a2 < 0x7FFFFFFF0000LL )
+      v5 = a2;
+    *(_BYTE *)v5 = *(_BYTE *)v5;
+    *(_BYTE *)(v5 + 87) = *(_BYTE *)(v5 + 87);
+  }
+  if ( *(_DWORD *)(a2 + 8) || *(_QWORD *)a2 != 88LL )
+  {
+    return (unsigned int)-1073741811;
+  }
+  else
+  {
+    v6 = *(_BYTE *)(a3 + 16) & 0x7F | (32 * (*(_BYTE *)(a2 + 16) & 0xFC));
+    *(_BYTE *)(a3 + 16) = v6;
+    *(_BYTE *)(a3 + 17) ^= (*(_BYTE *)(a3 + 17) ^ (*(_BYTE *)(a2 + 16) >> 3)) & 1;
+    *(_DWORD *)(a3 + 172) = *(_DWORD *)(a2 + 20);
+    v7 = v6 ^ (v6 ^ (2 * *(_BYTE *)(a2 + 16))) & 2;
+    *(_BYTE *)(a3 + 16) = v7;
+    *(_BYTE *)(a3 + 16) = v7 ^ (v7 ^ (8 * *(_BYTE *)(a2 + 16))) & 0x10;
+    *(_WORD *)(a3 + 18) = *(_WORD *)(a2 + 18);
+    *(_QWORD *)(a3 + 48) = a2;
+  }
+  return v4;
+}

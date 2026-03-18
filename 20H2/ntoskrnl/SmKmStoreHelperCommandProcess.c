@@ -1,0 +1,144 @@
+/*
+ * XREFs of SmKmStoreHelperCommandProcess @ 0x140358420
+ * Callers:
+ *     SmKmStoreHelperWorker @ 0x140358340 (SmKmStoreHelperWorker.c)
+ *     SmKmStoreHelperCommandCleanup @ 0x14059C6E4 (SmKmStoreHelperCommandCleanup.c)
+ * Callees:
+ *     SmFpFree @ 0x1402580A4 (SmFpFree.c)
+ *     SmFpAllocate @ 0x140358D98 (SmFpAllocate.c)
+ *     SmSetThreadPagePriority @ 0x1403592A0 (SmSetThreadPagePriority.c)
+ *     SmKmUnlockMdl @ 0x1403592D0 (SmKmUnlockMdl.c)
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x140359334 (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ *     ZwUnlockVirtualMemory @ 0x1403FBAF0 (ZwUnlockVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x140405F40 (_guard_dispatch_icall.c)
+ *     SmKmVirtualLockCtxLockMemory @ 0x14059CE30 (SmKmVirtualLockCtxLockMemory.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x14059CF50 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     MmStoreAllocateVirtualMemory @ 0x1406D7768 (MmStoreAllocateVirtualMemory.c)
+ *     MmStoreFreeVirtualMemory @ 0x1406DEFDC (MmStoreFreeVirtualMemory.c)
+ */
+
+void __fastcall SmKmStoreHelperCommandProcess(__int64 a1, int a2, __int64 a3)
+{
+  int v5; // edx
+  int v6; // edx
+  int v7; // edx
+  struct _MDL *v8; // r14
+  __int64 v9; // rdx
+  unsigned int v10; // r15d
+  int v11; // ebx
+  void *v12; // rcx
+  void *v13; // rcx
+  int v14; // eax
+  ULONG_PTR v15; // rcx
+  int v16; // edx
+  struct _MDL *v17; // r12
+  int v18; // eax
+  _QWORD v19[2]; // [rsp+30h] [rbp-10h] BYREF
+  void *VirtualMemory; // [rsp+80h] [rbp+40h] BYREF
+  unsigned __int64 v21; // [rsp+88h] [rbp+48h] BYREF
+
+  VirtualMemory = 0LL;
+  v21 = 0LL;
+  v5 = a2 - 2;
+  if ( !v5 )
+  {
+    v21 = *(_QWORD *)(a3 + 8);
+    VirtualMemory = (void *)MmStoreAllocateVirtualMemory();
+    v12 = VirtualMemory;
+    if ( VirtualMemory )
+    {
+      if ( *(_QWORD *)(a1 + 112) )
+      {
+        if ( (*(_DWORD *)(a3 + 32) & 1) == 0 )
+        {
+          v18 = SmKmVirtualLockCtxLockMemory(*(_QWORD *)(a1 + 112));
+          v12 = VirtualMemory;
+          v11 = v18;
+          if ( v18 < 0 )
+          {
+            MmStoreFreeVirtualMemory(VirtualMemory);
+            goto LABEL_12;
+          }
+        }
+      }
+      *(_QWORD *)(a3 + 24) = v12;
+      goto LABEL_11;
+    }
+    goto LABEL_24;
+  }
+  v6 = v5 - 1;
+  if ( !v6 )
+  {
+    v13 = *(void **)a3;
+    v21 = *(_QWORD *)(a3 + 8);
+    v14 = *(_DWORD *)(a3 + 16);
+    VirtualMemory = v13;
+    if ( (v14 & 1) == 0 )
+    {
+      MmStoreFreeVirtualMemory(v13);
+      v15 = *(_QWORD *)(a1 + 112);
+      if ( v15 )
+        SmKmVirtualLockCtxMemoryUnlocked(v15);
+    }
+    goto LABEL_11;
+  }
+  v7 = v6 - 1;
+  if ( !v7 )
+  {
+    VirtualMemory = *(void **)a3;
+    v21 = *(_QWORD *)(a3 + 8);
+    v8 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), *(_DWORD *)(a3 + 20) & 1);
+    if ( v8 )
+    {
+      v9 = *(unsigned int *)(a3 + 16);
+      v19[0] = KeGetCurrentThread();
+      v10 = SmSetThreadPagePriority(v19, v9);
+      v11 = SmKmProbeAndLockAddress(VirtualMemory, v21, v8, 0);
+      if ( v11 == -1073741395 && (*(_DWORD *)(a3 + 20) & 1) != 0 )
+      {
+        v17 = (struct _MDL *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), 1);
+        v11 = SmKmProbeAndLockAddress(VirtualMemory, v21, v8, 1u);
+        if ( v11 >= 0 )
+          v8->Next = v17;
+        else
+          SmFpFree(*(_QWORD *)(a1 + 120), 4, a1, v17);
+      }
+      if ( v10 != *(_DWORD *)(a3 + 16) )
+        SmSetThreadPagePriority(v19, v10);
+      if ( v11 >= 0 )
+      {
+        VirtualMemory = (void *)SmFpAllocate(*(PEX_SPIN_LOCK *)(a1 + 120), *(_DWORD *)(a3 + 20) & 1);
+        if ( VirtualMemory )
+        {
+          *(_QWORD *)(a3 + 24) = v8;
+          goto LABEL_11;
+        }
+        v11 = -1073741670;
+        SmKmUnlockMdl(v8);
+      }
+      SmFpFree(*(_QWORD *)(a1 + 120), 2, a1, v8);
+      goto LABEL_12;
+    }
+LABEL_24:
+    v11 = -1073741670;
+    goto LABEL_12;
+  }
+  v16 = v7 - 1;
+  if ( !v16 )
+  {
+    v11 = (*(__int64 (__fastcall **)(__int64, _QWORD, _QWORD))a3)(a1, *(_QWORD *)(a3 + 8), 0LL);
+    goto LABEL_12;
+  }
+  if ( v16 != 1 )
+  {
+    v11 = -1073741811;
+    goto LABEL_12;
+  }
+  VirtualMemory = *(void **)a3;
+  v21 = *(_QWORD *)(a3 + 8);
+  ZwUnlockVirtualMemory(-1LL, &VirtualMemory, &v21, 1LL);
+LABEL_11:
+  v11 = 0;
+LABEL_12:
+  *(_DWORD *)(a3 + 40) = v11;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?DefaultDdiAcquireSwizzlingRange@ADAPTER_RENDER@@CAJQEAXPEAU_DXGKARG_ACQUIRESWIZZLINGRANGE@@@Z @ 0x1401B3810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ADAPTER_RENDER::DefaultDdiAcquireSwizzlingRange(
+        void *const a1,
+        struct _DXGKARG_ACQUIRESWIZZLINGRANGE *a2)
+{
+  __int64 result; // rax
+
+  WdLogSingleEntry5(0LL, 275LL, 7LL, 0LL, 0LL, 0LL);
+  result = 3221225659LL;
+  WdLogGlobalForLineNumber = 5602;
+  return result;
+}

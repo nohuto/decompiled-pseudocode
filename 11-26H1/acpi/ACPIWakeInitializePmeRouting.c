@@ -1,0 +1,48 @@
+/*
+ * XREFs of ACPIWakeInitializePmeRouting @ 0x14006B128
+ * Callers:
+ *     PcisuppAcquirePciInterfaces @ 0x1400BC4A4 (PcisuppAcquirePciInterfaces.c)
+ * Callees:
+ *     memset @ 0x140072740 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1400C27F8 (ACPIInternalSendSynchronousIrp.c)
+ */
+
+__int64 __fastcall ACPIWakeInitializePmeRouting(PDEVICE_OBJECT DeviceObject)
+{
+  void *Pool2; // rbx
+  int v4; // edi
+  KIRQL v5; // si
+  _QWORD v6[9]; // [rsp+20h] [rbp-58h] BYREF
+
+  memset(v6, 0, sizeof(v6));
+  if ( PciPmeInterface )
+    return 0LL;
+  Pool2 = (void *)ExAllocatePool2(64LL, 64LL, 1097884481LL);
+  if ( !Pool2 )
+    return 3221225626LL;
+  LOWORD(v6[0]) = 2075;
+  v6[1] = &GUID_PCI_PME_INTERFACE;
+  LODWORD(v6[2]) = 65600;
+  v6[3] = Pool2;
+  v6[4] = 0LL;
+  v4 = ACPIInternalSendSynchronousIrp(DeviceObject);
+  if ( v4 >= 0 )
+  {
+    v5 = KeAcquireSpinLockRaiseToDpc(&AcpiPowerLock);
+    if ( PciPmeInterfaceInstantiated )
+    {
+      ExFreePoolWithTag(Pool2, 0);
+    }
+    else
+    {
+      PciPmeInterfaceInstantiated = 1;
+      PciPmeInterface = Pool2;
+    }
+    KeReleaseSpinLock(&AcpiPowerLock, v5);
+  }
+  else
+  {
+    ExFreePoolWithTag(Pool2, 0);
+  }
+  return (unsigned int)v4;
+}

@@ -1,0 +1,38 @@
+/*
+ * XREFs of SdbpFindNextWildcardTagWithoutIndex @ 0x140884118
+ * Callers:
+ *     SdbGetDatabaseMatchEx @ 0x1409E57D4 (SdbGetDatabaseMatchEx.c)
+ * Callees:
+ *     SdbpFindNextNamedTagHelper @ 0x1408858D4 (SdbpFindNextNamedTagHelper.c)
+ *     SdbFindFirstTag @ 0x1409E8510 (SdbFindFirstTag.c)
+ *     AslLogCallPrintf @ 0x1409E8884 (AslLogCallPrintf.c)
+ */
+
+__int64 __fastcall SdbpFindNextWildcardTagWithoutIndex(__int64 a1, __int64 a2)
+{
+  int v3; // edi
+  __int64 result; // rax
+
+  v3 = a1;
+  if ( (unsigned int)SdbFindFirstTag(a1, 0LL, 28673LL) )
+  {
+    AslLogCallPrintf(
+      1,
+      (unsigned int)"SdbpFindNextWildcardTagWithoutIndex",
+      5749,
+      (unsigned int)"No DATABASE tag found");
+    return 0LL;
+  }
+  else
+  {
+    result = SdbpFindNextNamedTagHelper(
+               v3,
+               0,
+               *(_DWORD *)(a2 + 4),
+               *(unsigned __int16 *)(a2 + 12),
+               *(wchar_t **)(a2 + 32),
+               1);
+    *(_DWORD *)(a2 + 4) = result;
+  }
+  return result;
+}

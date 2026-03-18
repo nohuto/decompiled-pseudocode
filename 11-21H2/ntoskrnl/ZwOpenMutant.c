@@ -1,0 +1,14 @@
+/*
+ * XREFs of ZwOpenMutant @ 0x14041DCC0
+ * Callers:
+ *     BiGetCurrentBcdMutantHandle @ 0x1408136FC (BiGetCurrentBcdMutantHandle.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwOpenMutant(__int64 a1, __int64 a2)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(a1, a2);
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of CreateSharedReadRemoteAppRenderTargetMarshaler @ 0x1C01FA910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@CSharedReadRemoteAppRenderTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResource@2@PEAPEAV12@@Z @ 0x1C01FA730 (-Create@CSharedReadRemoteAppRenderTargetMarshaler@DirectComposition@@SAJPEBVCSharedSystemResourc.c)
+ */
+
+__int64 __fastcall CreateSharedReadRemoteAppRenderTargetMarshaler(
+        const struct DirectComposition::CSharedSystemResource *a1,
+        int a2,
+        struct DirectComposition::CSharedReadRemoteAppRenderTargetMarshaler **a3)
+{
+  __int64 result; // rax
+  struct DirectComposition::CSharedReadRemoteAppRenderTargetMarshaler *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  *a3 = 0LL;
+  if ( *((_DWORD *)a1 + 3) != a2 )
+    return 3221225485LL;
+  v5 = 0LL;
+  result = DirectComposition::CSharedReadRemoteAppRenderTargetMarshaler::Create(a1, &v5);
+  *a3 = v5;
+  return result;
+}

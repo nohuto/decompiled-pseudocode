@@ -1,0 +1,198 @@
+/*
+ * XREFs of ?SignalRecalcWork@CRecalcProp@@QEAAXW4SignalReason@DesktopRecalc@@@Z @ 0x14023DE70
+ * Callers:
+ *     ?s_OnWindowUncloak@CRecalcProp@@SAXPEAUtagWND@@@Z @ 0x14015D558 (-s_OnWindowUncloak@CRecalcProp@@SAXPEAUtagWND@@@Z.c)
+ *     ?StartRecalcForDesktop@DesktopRecalc@@YAXPEAUtagDESKTOP@@PEAVCMonitorTopology@@W4StartRecalcReason@@@Z @ 0x14015E754 (-StartRecalcForDesktop@DesktopRecalc@@YAXPEAUtagDESKTOP@@PEAVCMonitorTopology@@W4StartRecalcReas.c)
+ *     ?SetStateAfterProcessing@CRecalcProp@@AEAAXPEAVCMonitorTopology@@@Z @ 0x140261090 (-SetStateAfterProcessing@CRecalcProp@@AEAAXPEAVCMonitorTopology@@@Z.c)
+ *     ?BeginApplyWindowActionOld@CRecalcProp@@QEAA_NPEAUtagWND@@I@Z @ 0x1402DD234 (-BeginApplyWindowActionOld@CRecalcProp@@QEAA_NPEAUtagWND@@I@Z.c)
+ *     ?EndApplyWindowAction@CRecalcProp@@QEAAXPEAUtagWND@@PEBVCMonitorTopology@@_N@Z @ 0x1402DD64C (-EndApplyWindowAction@CRecalcProp@@QEAAXPEAUtagWND@@PEBVCMonitorTopology@@_N@Z.c)
+ *     ?OnApplyWindowActionReRunRequest@CRecalcProp@@QEAA_NPEAUtagWND@@@Z @ 0x1402DD9D8 (-OnApplyWindowActionReRunRequest@CRecalcProp@@QEAA_NPEAUtagWND@@@Z.c)
+ *     ?s_OnRecalcReenabled@CRecalcProp@@SAXPEAUtagWND@@@Z @ 0x1402DECA0 (-s_OnRecalcReenabled@CRecalcProp@@SAXPEAUtagWND@@@Z.c)
+ *     ?xxxEndApplyWindowActionOld@CRecalcProp@@QEAAXPEAUtagWND@@PEAVCMonitorTopology@@@Z @ 0x1402DF288 (-xxxEndApplyWindowActionOld@CRecalcProp@@QEAAXPEAUtagWND@@PEAVCMonitorTopology@@@Z.c)
+ *     ?ConvertToInterceptWindow@WindowActions@@YAXPEAUtagWND@@@Z @ 0x1402E1EAC (-ConvertToInterceptWindow@WindowActions@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1400932CC (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1401A4EE4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qds @ 0x1402E0C84 (WPP_RECORDER_AND_TRACE_SF_qds.c)
+ */
+
+__int64 __fastcall CRecalcProp::SignalRecalcWork(__int64 a1, int a2)
+{
+  __int64 result; // rax
+  __int64 v3; // rbx
+  unsigned __int64 v4; // r15
+  __int64 v5; // r14
+  char v6; // si
+  char v7; // r13
+  char v8; // r12
+  __int64 v9; // rdx
+  __int64 UserSessionState; // rax
+  int v11; // r8d
+  int v12; // edx
+  char v13; // r13
+  char v14; // di
+  char ThreadId; // bl
+  __int64 v16; // rdx
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  int v19; // r8d
+  int v20; // edx
+  char v21; // r12
+  char v22; // di
+  char v23; // bl
+  __int64 v24; // rdx
+  __int64 v25; // rcx
+  __int64 v26; // rax
+  int v27; // r8d
+  int v28; // edx
+  bool v29; // di
+  char v30; // bl
+  __int64 v31; // rdx
+  __int64 v32; // rcx
+  __int64 v33; // rax
+  int v34; // r8d
+  int v35; // edx
+  struct tagWND *v37; // [rsp+90h] [rbp+8h]
+
+  result = *(_QWORD *)(a1 + 16);
+  v3 = a1;
+  v4 = a2;
+  v5 = *(_QWORD *)(result + 16);
+  v6 = 1;
+  if ( WPP_GLOBAL_Control == (struct MOVESIZEDATA *)&WPP_GLOBAL_Control
+    || (result = *((unsigned int *)WPP_GLOBAL_Control + 11), (result & 0x40) == 0)
+    || (v7 = 1, *((_BYTE *)WPP_GLOBAL_Control + 41) < 5u) )
+  {
+    v7 = 0;
+  }
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED
+    || (v8 = 1, !*((_WORD *)WPP_GLOBAL_Control + 36)) )
+  {
+    v8 = 0;
+  }
+  if ( v7 || v8 )
+  {
+    PsGetThreadId(*(PETHREAD *)v5);
+    UserSessionState = W32GetUserSessionState(*(_QWORD *)(v3 + 16), v9);
+    LOBYTE(v11) = v8;
+    LOBYTE(v12) = v7;
+    result = WPP_RECORDER_AND_TRACE_SF_qds(
+               *((_QWORD *)WPP_GLOBAL_Control + 3),
+               v12,
+               v11,
+               *(_QWORD *)(UserSessionState + 69152),
+               5);
+    v3 = a1;
+  }
+  v37 = 0LL;
+  v13 = 0;
+  if ( (_DWORD)v4 )
+  {
+    if ( (unsigned int)(v4 - 1) <= 1 )
+    {
+      if ( _bittest64((const signed __int64 *)(v5 + 1360), 0x26u) )
+      {
+        if ( WPP_GLOBAL_Control == (struct MOVESIZEDATA *)&WPP_GLOBAL_Control
+          || (result = *((unsigned int *)WPP_GLOBAL_Control + 11), (result & 0x40) == 0)
+          || (v14 = 1, *((_BYTE *)WPP_GLOBAL_Control + 41) < 5u) )
+        {
+          v14 = 0;
+        }
+        if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED
+          || !*((_WORD *)WPP_GLOBAL_Control + 36) )
+        {
+          v6 = 0;
+        }
+        if ( v14 || v6 )
+        {
+          ThreadId = (unsigned __int8)PsGetThreadId(*(PETHREAD *)v5);
+          v18 = W32GetUserSessionState(v17, v16);
+          LOBYTE(v19) = v6;
+          LOBYTE(v20) = v14;
+          return WPP_RECORDER_AND_TRACE_SF_d(
+                   *((_QWORD *)WPP_GLOBAL_Control + 3),
+                   v20,
+                   v19,
+                   *(_QWORD *)(v18 + 69152),
+                   5,
+                   7,
+                   67,
+                   (__int64)&WPP_78206adbc0fc3667085fdf33c34682f8_Traceguids,
+                   ThreadId);
+        }
+        return result;
+      }
+      v13 = 1;
+    }
+  }
+  else
+  {
+    v37 = *(struct tagWND **)(v3 + 16);
+  }
+  if ( WPP_GLOBAL_Control == (struct MOVESIZEDATA *)&WPP_GLOBAL_Control
+    || (*((_DWORD *)WPP_GLOBAL_Control + 11) & 0x40) == 0
+    || (v21 = 1, *((_BYTE *)WPP_GLOBAL_Control + 41) < 5u) )
+  {
+    v21 = 0;
+  }
+  if ( *(unsigned int **)&WPP_RECORDER_INITIALIZED == &WPP_RECORDER_INITIALIZED
+    || (v22 = 1, !*((_WORD *)WPP_GLOBAL_Control + 36)) )
+  {
+    v22 = 0;
+  }
+  if ( v21 || v22 )
+  {
+    v23 = (unsigned __int8)PsGetThreadId(*(PETHREAD *)v5);
+    v26 = W32GetUserSessionState(v25, v24);
+    LOBYTE(v27) = v22;
+    LOBYTE(v28) = v21;
+    WPP_RECORDER_AND_TRACE_SF_d(
+      *((_QWORD *)WPP_GLOBAL_Control + 3),
+      v28,
+      v27,
+      *(_QWORD *)(v26 + 69152),
+      5,
+      7,
+      68,
+      (__int64)&WPP_78206adbc0fc3667085fdf33c34682f8_Traceguids,
+      v23);
+  }
+  result = PostEventMessageEx((struct tagTHREADINFO *)v5, *(struct tagQ **)(v5 + 464), 0x16u, v37, 0, v4, 0LL, 0LL);
+  if ( (_DWORD)result )
+  {
+    if ( v13 )
+    {
+      result = 0x4000000000LL;
+      *(_QWORD *)(v5 + 1360) |= 0x4000000000uLL;
+    }
+  }
+  else
+  {
+    if ( WPP_GLOBAL_Control == (struct MOVESIZEDATA *)&WPP_GLOBAL_Control
+      || (*((_DWORD *)WPP_GLOBAL_Control + 11) & 0x40) == 0
+      || *((_BYTE *)WPP_GLOBAL_Control + 41) < 2u )
+    {
+      v6 = 0;
+    }
+    result = (__int64)&WPP_RECORDER_INITIALIZED;
+    v29 = *(_QWORD *)&WPP_RECORDER_INITIALIZED != (_QWORD)&WPP_RECORDER_INITIALIZED;
+    if ( v6 || *(unsigned int **)&WPP_RECORDER_INITIALIZED != &WPP_RECORDER_INITIALIZED )
+    {
+      v30 = (unsigned __int8)PsGetThreadId(*(PETHREAD *)v5);
+      v33 = W32GetUserSessionState(v32, v31);
+      LOBYTE(v34) = v29;
+      LOBYTE(v35) = v6;
+      return WPP_RECORDER_AND_TRACE_SF_d(
+               *((_QWORD *)WPP_GLOBAL_Control + 3),
+               v35,
+               v34,
+               *(_QWORD *)(v33 + 69152),
+               2,
+               7,
+               69,
+               (__int64)&WPP_78206adbc0fc3667085fdf33c34682f8_Traceguids,
+               v30);
+    }
+  }
+  return result;
+}

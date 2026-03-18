@@ -1,0 +1,24 @@
+/*
+ * XREFs of PspIsSiloInSilo @ 0x1409BB234
+ * Callers:
+ *     PsIsThreadInSilo @ 0x14041A27C (PsIsThreadInSilo.c)
+ *     PsIsProcessInSilo @ 0x14041A2C0 (PsIsProcessInSilo.c)
+ *     PsRootSiloInformation @ 0x1407628F0 (PsRootSiloInformation.c)
+ *     NtSetInformationThread @ 0x1408B7970 (NtSetInformationThread.c)
+ *     NtCreateUserProcess @ 0x1409BC1D0 (NtCreateUserProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall PspIsSiloInSilo(__int64 a1, __int64 a2)
+{
+  if ( !a2 )
+    return 1;
+  while ( a1 )
+  {
+    if ( a1 == a2 )
+      return 1;
+    a1 = *(_QWORD *)(a1 + 1304);
+  }
+  return 0;
+}

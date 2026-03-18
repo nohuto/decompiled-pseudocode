@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?ConfigurationListContainsType@?$CInputTypeContext@UDwmTouchpadInteractionConfigurationPrimitive@@U?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@W4FlagsEnum@DwmInteractionTypeTouchpadPrimitiveType@@@@QEBAHIU?$TMILFlagsEnum@W4FlagsEnum@DwmInteractionTypeTouchPrimitiveType@@@@0@Z @ 0x180257F94
+ * Callers:
+ *     ?SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z @ 0x180092D20 (-SupportsInteractionType@CInteractionProcessor@@QEBAHW4InputType@@I_N@Z.c)
+ *     ?SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z @ 0x1801CE580 (-SupportsInteractionType@CInteraction@@UEBAHW4InputType@@I_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CInputTypeContext<DwmTouchpadInteractionConfigurationPrimitive,TMILFlagsEnum<enum DwmInteractionTypeTouchpadPrimitiveType::FlagsEnum>,enum DwmInteractionTypeTouchpadPrimitiveType::FlagsEnum>::ConfigurationListContainsType(
+        __int64 a1,
+        int a2,
+        int a3,
+        int a4)
+{
+  __int64 i; // r11
+
+  for ( i = 0LL; (unsigned int)i < *(_DWORD *)(a1 + 112); i = (unsigned int)(i + 1) )
+  {
+    if ( ((a4 & a3 | ~a4 & *(_DWORD *)(*(_QWORD *)(a1 + 88) + 12 * i + 8)) & a2) != 0 )
+      return 1LL;
+  }
+  return 0LL;
+}

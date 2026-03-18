@@ -1,0 +1,30 @@
+/*
+ * XREFs of _lambda_62c42852b2d8827a36f77ed1261f23ad_::operator() @ 0x1C007E4D8
+ * Callers:
+ *     ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C007E274 (-ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall lambda_62c42852b2d8827a36f77ed1261f23ad_::operator()(unsigned int ***a1, unsigned int a2)
+{
+  unsigned int *v2; // r8
+  __int64 v3; // r9
+  _WORD *v4; // rax
+
+  if ( a2 < 0xC0 )
+    return 0;
+  if ( (a2 & 1) != 0 )
+    return 0;
+  v2 = **a1;
+  v3 = *v2;
+  if ( a2 > (unsigned __int64)(v3 - 2) )
+    return 0;
+  v4 = (_WORD *)((char *)v2 + (int)a2);
+  while ( *v4 )
+  {
+    if ( ++v4 > (_WORD *)((char *)v2 + v3 - 2) )
+      return 0;
+  }
+  return 1;
+}

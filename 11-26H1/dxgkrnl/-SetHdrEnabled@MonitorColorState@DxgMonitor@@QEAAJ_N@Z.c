@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?SetHdrEnabled@MonitorColorState@DxgMonitor@@QEAAJ_N@Z @ 0x14027D500
+ * Callers:
+ *     ?MonitorEnableDisableHdr@@YAJPEAUHDXGMONITOR__@@_N@Z @ 0x14026E63C (-MonitorEnableDisableHdr@@YAJPEAUHDXGMONITOR__@@_N@Z.c)
+ *     ?OnFunctionDriverArrival@MonitorColorState@DxgMonitor@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x14027CF1C (-OnFunctionDriverArrival@MonitorColorState@DxgMonitor@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400A5A80 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall DxgMonitor::MonitorColorState::SetHdrEnabled(DxgMonitor::MonitorColorState *this, char a2)
+{
+  char v2; // si
+  __int64 v5; // r9
+
+  v2 = *((_BYTE *)this + 456);
+  *((_BYTE *)this + 456) = a2;
+  if ( !(*(unsigned __int8 (__fastcall **)(_QWORD))(**(_QWORD **)this + 72LL))(*(_QWORD *)this) )
+  {
+    LOBYTE(v5) = a2;
+    (*(void (__fastcall **)(_QWORD, __int64, const wchar_t *, __int64))(**((_QWORD **)this + 1) + 152LL))(
+      *((_QWORD *)this + 1),
+      4LL,
+      L"HDREnabled",
+      v5);
+  }
+  if ( v2 != a2 )
+    (*(void (__fastcall **)(_QWORD, __int64))(**(_QWORD **)this + 128LL))(*(_QWORD *)this, 3LL);
+  return 0LL;
+}

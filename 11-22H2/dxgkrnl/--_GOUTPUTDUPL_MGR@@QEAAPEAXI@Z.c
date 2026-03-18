@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GOUTPUTDUPL_MGR@@QEAAPEAXI@Z @ 0x1C005438C
+ * Callers:
+ *     ?CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C02226A4 (-CreateOutputDuplManager@@YAJIPEAVADAPTER_DISPLAY@@PEAU_LUID@@1PEAPEAVOUTPUTDUPL_MGR@@@Z.c)
+ *     ?DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z @ 0x1C032B2EC (-DestroyOutputDuplManager@@YAJPEAVOUTPUTDUPL_MGR@@@Z.c)
+ * Callees:
+ *     ??1OUTPUTDUPL_MGR@@QEAA@XZ @ 0x1C032A108 (--1OUTPUTDUPL_MGR@@QEAA@XZ.c)
+ */
+
+OUTPUTDUPL_MGR *__fastcall OUTPUTDUPL_MGR::`scalar deleting destructor'(OUTPUTDUPL_MGR *P)
+{
+  OUTPUTDUPL_MGR::~OUTPUTDUPL_MGR(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of PsGetWin32KFilterSet @ 0x1402032C0
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1405DBB20 (NtQueryInformationProcess.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 PsGetWin32KFilterSet()
+{
+  return LODWORD(KeGetCurrentThread()->ApcState.Process[2].AffinityPadding[0]);
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?vAddLeftNice@WIDENER@@IEAAXPEAVEVECTORFX@@H@Z @ 0x1C02C72D8
+ * Callers:
+ *     ?cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z @ 0x1C02C6F50 (-cptAddRound@WIDEPENOBJ@@QEAAKAEAVWIDENER@@AEAVLINEDATA@@1HHH@Z.c)
+ * Callees:
+ *     ?vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z @ 0x1C015D8A0 (-vAddNice@@YAXAEAVWIDEPATHOBJ@@PEAU_POINTFIX@@PEAVEVECTORFX@@H@Z.c)
+ */
+
+void __fastcall WIDENER::vAddLeftNice(WIDENER *this, struct EVECTORFX *a2, int a3)
+{
+  vAddNice((WIDENER *)((char *)this + 984), (struct _POINTFIX *)((char *)this + 692), a2, a3 == 0);
+}

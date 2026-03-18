@@ -1,0 +1,96 @@
+/*
+ * XREFs of ?Vf_VerifyForwardRequestToParent@FxIoQueue@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEAV1@PEAVFxRequest@@@Z @ 0x1C00C7300
+ * Callers:
+ *     ?ForwardRequestToParent@FxIoQueue@@QEAAJPEAV1@PEAVFxRequest@@PEAU_WDF_REQUEST_FORWARD_OPTIONS@@@Z @ 0x1C00761A0 (-ForwardRequestToParent@FxIoQueue@@QEAAJPEAV1@PEAVFxRequest@@PEAU_WDF_REQUEST_FORWARD_OPTIONS@@@.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qL @ 0x1C000B0E4 (WPP_IFR_SF_qL.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C000C8E0 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C000C960 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C002E65C (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qid @ 0x1C002FD7C (WPP_IFR_SF_qid.c)
+ *     ?Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C6814 (-Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00C69A4 (-Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
+__int64 __fastcall FxIoQueue::Vf_VerifyForwardRequestToParent(
+        FxIoQueue *this,
+        _FX_DRIVER_GLOBALS *FxDriverGlobals,
+        FxIoQueue *DestQueue,
+        FxRequest *Request)
+{
+  FxDeviceBase *m_DeviceBase; // rax
+  int IsDriverOwned; // ebx
+  const void *ObjectHandleUnchecked; // rax
+  unsigned int v11; // r10d
+  unsigned __int16 v12; // r9
+  unsigned __int8 v13; // r8
+  FxDeviceBase *v14; // rcx
+  const void *_a1; // rax
+  __int64 _a2; // rdx
+  int _a3; // r10d
+  __int64 v18; // rax
+  unsigned __int8 irql; // [rsp+60h] [rbp+8h] BYREF
+
+  m_DeviceBase = this->m_DeviceBase;
+  irql = 0;
+  if ( !*(_QWORD *)&m_DeviceBase[1].m_ObjectFlags )
+  {
+    IsDriverOwned = -1073741808;
+    ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(DestQueue->m_DeviceBase);
+    v12 = 32;
+LABEL_20:
+    WPP_IFR_SF_qL(FxDriverGlobals, 2u, 0xDu, v12, WPP_FxIoQueue_cpp_Traceguids, ObjectHandleUnchecked, v11);
+    goto LABEL_21;
+  }
+  FxNonPagedObject::Lock(Request, &irql, (unsigned __int8)DestQueue);
+  if ( FxDriverGlobals->FxVerifierOn )
+    IsDriverOwned = FxRequest::Vf_VerifyRequestIsDriverOwned(Request, FxDriverGlobals);
+  else
+    IsDriverOwned = 0;
+  if ( IsDriverOwned >= 0 )
+  {
+    if ( FxDriverGlobals->FxVerifierOn )
+      IsDriverOwned = FxRequest::Vf_VerifyRequestIsNotCancelable(Request, FxDriverGlobals);
+    else
+      IsDriverOwned = 0;
+  }
+  FxNonPagedObject::Unlock(Request, irql, v13);
+  if ( IsDriverOwned >= 0 )
+  {
+    if ( DestQueue == this )
+    {
+      IsDriverOwned = -1073741808;
+      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(this);
+      v12 = 33;
+      goto LABEL_20;
+    }
+    v14 = this->m_DeviceBase;
+    if ( *(FxDeviceBase **)&v14[1].m_ObjectFlags != DestQueue->m_DeviceBase )
+    {
+      IsDriverOwned = -1073741808;
+      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(DestQueue->m_DeviceBase);
+      v12 = 34;
+      goto LABEL_20;
+    }
+    if ( Request->m_Reserved )
+    {
+      IsDriverOwned = -1073741808;
+      FxObject::GetObjectHandleUnchecked(DestQueue->m_DeviceBase);
+      _a1 = (const void *)FxObject::GetObjectHandleUnchecked(Request);
+      WPP_IFR_SF_qid(FxDriverGlobals, 2u, 0xDu, 0x23u, WPP_FxIoQueue_cpp_Traceguids, _a1, _a2, _a3);
+LABEL_21:
+      FxVerifierDbgBreakPoint(FxDriverGlobals);
+      return (unsigned int)IsDriverOwned;
+    }
+    v18 = *(_QWORD *)&v14[3].m_SpinLock.m_DbgFlagIsInitialized;
+    if ( v18 && !*(_BYTE *)(v18 + 1779) )
+    {
+      IsDriverOwned = -1073741808;
+      ObjectHandleUnchecked = (const void *)FxObject::GetObjectHandleUnchecked(v14);
+      v12 = 36;
+      goto LABEL_20;
+    }
+  }
+  return (unsigned int)IsDriverOwned;
+}

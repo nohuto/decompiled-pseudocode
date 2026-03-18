@@ -1,0 +1,19 @@
+/*
+ * XREFs of ??0HANDLELOCK@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@_N@Z @ 0x1401C4BF4
+ * Callers:
+ *     ?DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT_FAST_OPT@@YAXAEAUSESSION_GLOBALS@Base@Gre@@PEAVLFONT@@@Z @ 0x1401C4D28 (-DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT_FAST_OPT@@YAXAEAUSESSION_GLOBALS@Base@Gre@@PEAVLFONT@@@Z.c)
+ *     ?DEC_SHARE_REF_CNT_LAZY0_FAST_OPT@@YAXAEAUSESSION_GLOBALS@Base@Gre@@PEAVBRUSH@@@Z @ 0x1401C8050 (-DEC_SHARE_REF_CNT_LAZY0_FAST_OPT@@YAXAEAUSESSION_GLOBALS@Base@Gre@@PEAVBRUSH@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+HANDLELOCK *__fastcall HANDLELOCK::HANDLELOCK(HANDLELOCK *this, struct Gre::Base::SESSION_GLOBALS *a2, char a3)
+{
+  *(_QWORD *)this = 0LL;
+  *((_DWORD *)this + 2) = 0;
+  *((_WORD *)this + 6) = 0;
+  if ( !a3 )
+    a2 = *(struct Gre::Base::SESSION_GLOBALS **)(W32GetSessionState(this) + 88);
+  *((_QWORD *)this + 2) = a2;
+  return this;
+}

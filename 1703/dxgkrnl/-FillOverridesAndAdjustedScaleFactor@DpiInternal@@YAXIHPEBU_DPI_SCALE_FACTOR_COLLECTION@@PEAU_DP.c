@@ -1,0 +1,55 @@
+/*
+ * XREFs of ?FillOverridesAndAdjustedScaleFactor@DpiInternal@@YAXIHPEBU_DPI_SCALE_FACTOR_COLLECTION@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0003CEC
+ * Callers:
+ *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0003BD0 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C00AC900 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHPEAU_GDIINFO@@PEAU_DPI_INFORMATION.c)
+ * Callees:
+ *     ?CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C000293C (-CalculateMinMaxOverride@DpiInternal@@YAXKUtagSIZE@@PEAJ1QEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z.c)
+ *     ?AdjustDesktopScaleFactorForOverride@DpiInternal@@YAKKUtagSIZE@@PEBU_DPI_SCALE_FACTOR_COLLECTION@@H@Z @ 0x1C0003D70 (-AdjustDesktopScaleFactorForOverride@DpiInternal@@YAKKUtagSIZE@@PEBU_DPI_SCALE_FACTOR_COLLECTION.c)
+ */
+
+void __fastcall DpiInternal::FillOverridesAndAdjustedScaleFactor(
+        DpiInternal *this,
+        __int64 a2,
+        int *a3,
+        const struct _DPI_SCALE_FACTOR_COLLECTION *a4)
+{
+  int v6; // edi
+  __int64 v7; // rax
+  __int64 v8; // rax
+  int v9; // [rsp+20h] [rbp-18h]
+
+  v6 = (int)this;
+  if ( !*((_DWORD *)a4 + 3) )
+  {
+    v7 = WdLogNewEntry5_WdAssertion(this, a2, a3, a4);
+    *(_QWORD *)(v7 + 24) = 512LL;
+    WdLogEvent5_WdAssertion(v7);
+  }
+  if ( !*((_DWORD *)a4 + 8) || !*((_DWORD *)a4 + 9) )
+  {
+    v8 = WdLogNewEntry5_WdAssertion(this, a2, a3, a4);
+    *(_QWORD *)(v8 + 24) = 513LL;
+    WdLogEvent5_WdAssertion(v8);
+  }
+  DpiInternal::CalculateMinMaxOverride(
+    (DpiInternal *)*((unsigned int *)a4 + 3),
+    *((_QWORD *)a4 + 4),
+    (struct tagSIZE)((char *)a4 + 80),
+    (int *)a4 + 22,
+    a3);
+  if ( v6 )
+  {
+    *((_DWORD *)a4 + 21) = 1234568;
+    *((_DWORD *)a4 + 2) = (100 * v6 + 48) / 0x60u;
+  }
+  else
+  {
+    *((_DWORD *)a4 + 2) = DpiInternal::AdjustDesktopScaleFactorForOverride(
+                            (DpiInternal *)*((unsigned int *)a4 + 3),
+                            *((_QWORD *)a4 + 4),
+                            (struct tagSIZE)a3,
+                            (const struct _DPI_SCALE_FACTOR_COLLECTION *)*((unsigned int *)a4 + 21),
+                            v9);
+  }
+}

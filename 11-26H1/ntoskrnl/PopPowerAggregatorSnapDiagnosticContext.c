@@ -1,0 +1,31 @@
+/*
+ * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x1407D6F78
+ * Callers:
+ *     PopIdlePhaseWatchdogCallback @ 0x1404EF560 (PopIdlePhaseWatchdogCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x14043630C (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x140436378 (PopAcquireRwLockExclusive.c)
+ *     memmove @ 0x14073D480 (memmove.c)
+ *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall PopPowerAggregatorSnapDiagnosticContext(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        struct _KLOCK_ENTRIES *a4)
+{
+  void *Pool2; // rax
+  void *v6; // rbx
+
+  *a1 = 0LL;
+  PopAcquireRwLockExclusive((unsigned __int64 *)&PopPowerAggregatorLock, a2, a3, a4);
+  Pool2 = (void *)ExAllocatePool2(0x100uLL);
+  v6 = Pool2;
+  if ( Pool2 )
+  {
+    memmove(Pool2, &PopPowerAggregatorLock.Header.WaitListHead.Blink, 0x15F8uLL);
+    *a1 = v6;
+  }
+  return PopReleaseRwLock(&PopPowerAggregatorLock);
+}

@@ -1,0 +1,28 @@
+/*
+ * XREFs of LdrResFindResource @ 0x1407DCFC0
+ * Callers:
+ *     sub_140B19730 @ 0x140B19730 (sub_140B19730.c)
+ * Callees:
+ *     LdrResSearchResource @ 0x140759C40 (LdrResSearchResource.c)
+ */
+
+__int64 __fastcall LdrResFindResource(
+        ULONGLONG a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned int **a5,
+        __int64 *a6,
+        void *a7,
+        __int64 a8,
+        int a9)
+{
+  _QWORD v10[5]; // [rsp+40h] [rbp-28h] BYREF
+
+  if ( (a9 & 0xC02) != 0 )
+    return 3221225485LL;
+  v10[2] = a4;
+  v10[0] = a2;
+  v10[1] = a3;
+  return LdrResSearchResource(a1, v10, 3u, a9, a5, a6, a7, a8);
+}

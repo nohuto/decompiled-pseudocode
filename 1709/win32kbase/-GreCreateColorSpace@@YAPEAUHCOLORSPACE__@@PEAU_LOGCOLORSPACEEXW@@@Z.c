@@ -1,0 +1,81 @@
+/*
+ * XREFs of ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C006EFA0
+ * Callers:
+ *     NtGdiCreateColorSpace @ 0x1C00FAF90 (NtGdiCreateColorSpace.c)
+ *     bInitICM @ 0x1C01DF194 (bInitICM.c)
+ * Callees:
+ *     HmgDecrementShareReferenceCountEx @ 0x1C003FE40 (HmgDecrementShareReferenceCountEx.c)
+ *     AllocateObject @ 0x1C0047B40 (AllocateObject.c)
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C0053E50 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ *     FreeObject @ 0x1C0054E50 (FreeObject.c)
+ *     EngSetLastError @ 0x1C008AC50 (EngSetLastError.c)
+ */
+
+struct HOBJ__ *__fastcall GreCreateColorSpace(struct _LOGCOLORSPACEEXW *a1)
+{
+  struct HOBJ__ *v2; // rsi
+  struct OBJECT *Object; // rax
+  __int64 v4; // rdi
+  __int64 v5; // rdx
+  _WORD *v6; // rcx
+  __int16 v7; // ax
+  _WORD *v8; // rax
+  __int64 v10; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = 0LL;
+  if ( *(_DWORD *)a1 == 1347637059 && *((_DWORD *)a1 + 1) == 1024 && *((_DWORD *)a1 + 2) == 588 )
+  {
+    Object = (struct OBJECT *)AllocateObject(0x268uLL, 9u, 0);
+    v4 = (__int64)Object;
+    if ( Object )
+    {
+      v10 = 0LL;
+      v2 = HmgInsertObjectHelper::Insert((HmgInsertObjectHelper *)&v10, Object, 1u, 0, 9);
+      if ( v2 )
+      {
+        *(_DWORD *)(v4 + 24) = *(_DWORD *)a1;
+        v5 = 260LL;
+        *(_DWORD *)(v4 + 28) = *((_DWORD *)a1 + 1);
+        *(_DWORD *)(v4 + 32) = *((_DWORD *)a1 + 2);
+        *(_DWORD *)(v4 + 36) = *((_DWORD *)a1 + 3);
+        *(_DWORD *)(v4 + 40) = *((_DWORD *)a1 + 4);
+        v6 = (_WORD *)(v4 + 92);
+        *(_OWORD *)(v4 + 44) = *(_OWORD *)((char *)a1 + 20);
+        *(_OWORD *)(v4 + 60) = *(_OWORD *)((char *)a1 + 36);
+        *(_DWORD *)(v4 + 76) = *((_DWORD *)a1 + 13);
+        *(_DWORD *)(v4 + 80) = *((_DWORD *)a1 + 14);
+        *(_DWORD *)(v4 + 84) = *((_DWORD *)a1 + 15);
+        *(_DWORD *)(v4 + 88) = *((_DWORD *)a1 + 16);
+        do
+        {
+          if ( v5 == -2147483386 )
+            break;
+          v7 = *(_WORD *)((char *)a1 + (_QWORD)v6 - v4 - 24);
+          if ( !v7 )
+            break;
+          *v6++ = v7;
+          --v5;
+        }
+        while ( v5 );
+        v8 = v6 - 1;
+        if ( v5 )
+          v8 = v6;
+        *v8 = 0;
+        *(_DWORD *)(v4 + 612) = *((_DWORD *)a1 + 147);
+        HmgDecrementShareReferenceCountEx((struct OBJECT *)v4, 0LL);
+      }
+      else
+      {
+        FreeObject(v4, 9);
+      }
+      if ( v10 )
+        _InterlockedDecrement((volatile signed __int32 *)(v10 + 12));
+    }
+    return v2;
+  }
+  else
+  {
+    EngSetLastError(0x57u);
+    return 0LL;
+  }
+}

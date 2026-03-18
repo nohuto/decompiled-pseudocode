@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?ClearPrimaryVidPnSource@DXGDEVICE@@QEAAXI@Z @ 0x140022EBC
+ * Callers:
+ *     ?DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z @ 0x14028FFE0 (-DisablePrimaryOnDevice@ADAPTER_DISPLAY@@QEAAXPEAVDXGDEVICE@@IE@Z.c)
+ *     ?UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z @ 0x1403823DC (-UnpinPrimaryAllocations@DXGDEVICE@@QEAAXI@Z.c)
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x140022D5C (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140022E00 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ */
+
+void __fastcall DXGDEVICE::ClearPrimaryVidPnSource(struct _KTHREAD **this, unsigned int a2)
+{
+  __int64 v3; // rbx
+  _BYTE v4[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v3 = a2;
+  *(_QWORD *)(WdLogNewEntry5_WdTrace() + 24) = a2;
+  WdLogGlobalForLineNumber = 912;
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v4, this + 42);
+  *((_DWORD *)this + v3 + 310) &= 0xFFFFFCFF;
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v4);
+}

@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ @ 0x1C00B2E4C
+ * Callers:
+ *     xxxCalcClientRect @ 0x1C004BFD0 (xxxCalcClientRect.c)
+ *     xxxMNCanClose @ 0x1C005BDA0 (xxxMNCanClose.c)
+ *     xxxGetMenuBarInfo @ 0x1C00B2E88 (xxxGetMenuBarInfo.c)
+ *     NtUserCreateWindowEx @ 0x1C00B92A0 (NtUserCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall SmartObjStackRefBase<tagMENU>::DecrementCountAndTryFree(__int64 *a1)
+{
+  __int64 result; // rax
+
+  result = *a1;
+  if ( *a1 != gSmartObjNullRef )
+  {
+    --*(_DWORD *)(*a1 + 8);
+    result = *a1;
+    if ( !*(_DWORD *)(*a1 + 8) )
+    {
+      result = *a1;
+      if ( *(_BYTE *)(*a1 + 12) )
+        return Win32FreeToPagedLookasideList(gpStackRefLookAside, *a1);
+    }
+  }
+  return result;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?QueryProbedBars@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_QUERYPROBEDBARS@@@Z @ 0x14021F110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiQueryProbedBars@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_QUERYPROBEDBARS@@@Z @ 0x14021A2A0 (-DdiQueryProbedBars@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_QUERYPROBEDBARS@@@Z.c)
+ */
+
+__int64 __fastcall DXGK_VIRTUAL_GPU_GPUP::QueryProbedBars(ADAPTER_RENDER **this, struct _DXGKARG_QUERYPROBEDBARS *a2)
+{
+  return ADAPTER_RENDER::DdiQueryProbedBars(this[1], a2);
+}

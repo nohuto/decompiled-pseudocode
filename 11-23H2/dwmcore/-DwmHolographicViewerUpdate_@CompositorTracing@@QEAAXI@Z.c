@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?DwmHolographicViewerUpdate_@CompositorTracing@@QEAAXI@Z @ 0x1802A4E10
+ * Callers:
+ *     ?UpdateHolographicViewer@CHolographicManager@@QEAAXPEAVCHolographicViewer@@@Z @ 0x1802A5FD4 (-UpdateHolographicViewer@CHolographicManager@@QEAAXPEAVCHolographicViewer@@@Z.c)
+ * Callees:
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800D5DD4 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800D5FB8 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1800D6054 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x18010EE30 (__security_check_cookie.c)
+ */
+
+void __fastcall CompositorTracing::DwmHolographicViewerUpdate_(CompositorTracing *this, int a2)
+{
+  _DWORD *v3; // rcx
+  __int64 v4; // rcx
+  int v5; // [rsp+30h] [rbp-48h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+38h] [rbp-40h] BYREF
+  int *v7; // [rsp+58h] [rbp-20h]
+  int v8; // [rsp+60h] [rbp-18h]
+  int v9; // [rsp+64h] [rbp-14h]
+
+  v3 = (_DWORD *)wil::details::static_lazy<CompositorTracing>::get(
+                   (__int64)this,
+                   (void (__cdecl *)())_lambda_54eb6a81c7e2c53bee8fa6139f2800b5_::_lambda_invoker_cdecl_)[1];
+  if ( *v3 > 4u )
+  {
+    if ( tlgKeywordOn((__int64)v3, 0x400000000000LL) )
+    {
+      v9 = 0;
+      v7 = &v5;
+      v5 = a2;
+      v8 = 4;
+      tlgWriteTransfer_EventWriteTransfer(v4, (unsigned __int8 *)dword_180382AB3, 0LL, 0LL, 3u, &v6);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?GetUserRegistryPath@DXGSESSIONDATA@@QEAAPEAU_UNICODE_STRING@@G@Z @ 0x1C0007F70
+ * Callers:
+ *     ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C00FA874 (-SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ.c)
+ * Callees:
+ *     ??2@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C00A3090 (--2@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ */
+
+struct _UNICODE_STRING *__fastcall DXGSESSIONDATA::GetUserRegistryPath(DXGSESSIONDATA *this, unsigned __int16 a2)
+{
+  SIZE_T v5; // rax
+
+  if ( !*((_QWORD *)this + 2328) && a2 )
+  {
+    *((_WORD *)this + 9308) = 0;
+    v5 = 2 * ((unsigned __int64)a2 >> 1);
+    if ( !is_mul_ok((unsigned __int64)a2 >> 1, 2uLL) )
+      v5 = -1LL;
+    *((_QWORD *)this + 2328) = operator new(v5, 0x4B677844u, PagedPool);
+    *((_WORD *)this + 9309) = a2;
+  }
+  return (struct _UNICODE_STRING *)((char *)this + 18616);
+}

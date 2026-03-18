@@ -1,0 +1,20 @@
+/*
+ * XREFs of WheapLogIpmiSELEventHighIrql @ 0x1406133E0
+ * Callers:
+ *     WheapLogIpmiSELEvent @ 0x140613340 (WheapLogIpmiSELEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x140613318 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ */
+
+void WheapLogIpmiSELEventHighIrql()
+{
+  if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink) && WheapHighIrqlLogSelEventHandlerAcquireLock(0) )
+  {
+    if ( LODWORD(WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink) )
+      (*(void (__fastcall **)(PDRIVER_CONTROL, ULONG *))&WheapDispatchPtr.Queue.Wcb.NumberOfChannels)(
+        WheapDispatchPtr.Queue.Wcb.DeviceRoutine,
+        &WheapDispatchPtr.AlignmentRequirement);
+    _InterlockedExchange((_DWORD *)&WheapDispatchPtr.Queue.Wcb.DmaWaitEntry.Blink + 1, 0);
+  }
+}

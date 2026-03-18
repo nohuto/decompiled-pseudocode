@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?bCalcEscapement@RFONTOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x14024F678
+ * Callers:
+ *     ?vInit@ESTROBJ@@QEAAXPEBGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z @ 0x1400BE594 (-vInit@ESTROBJ@@QEAAXPEBGJAEAVXDCOBJ@@AEAVRFONTOBJ@@AEAVEXFORMOBJ@@PEAJHJJJJJJK4PEAXK@Z.c)
+ * Callees:
+ *     ?bCalcEscapementP@RFONTOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z @ 0x14024F6A0 (-bCalcEscapementP@RFONTOBJ@@QEAAHAEAVEXFORMOBJ@@J@Z.c)
+ */
+
+__int64 __fastcall RFONTOBJ::bCalcEscapement(RFONTOBJ *this, struct EXFORMOBJ *a2, int a3)
+{
+  if ( a3 == *(_DWORD *)(*(_QWORD *)this + 428LL) )
+    return 1LL;
+  else
+    return RFONTOBJ::bCalcEscapementP(this, a2, a3);
+}

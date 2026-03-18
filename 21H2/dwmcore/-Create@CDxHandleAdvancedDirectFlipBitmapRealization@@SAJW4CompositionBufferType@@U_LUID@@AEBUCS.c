@@ -1,0 +1,85 @@
+/*
+ * XREFs of ?Create@CDxHandleAdvancedDirectFlipBitmapRealization@@SAJW4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@PEAPEAVISwapChainRealization@@@Z @ 0x180066B8C
+ * Callers:
+ *     ?CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@_NPEAPEAVISwapChainRealization@@@Z @ 0x180066C1C (-CreateNewRealization@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@A.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x18005007C (--2@YAPEAX_K@Z.c)
+ *     ?Initialize@CDxHandleBitmapRealization@@IEAAJXZ @ 0x180066E4C (-Initialize@CDxHandleBitmapRealization@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x1801051D0 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0CDxHandleAdvancedDirectFlipBitmapRealization@@IEAA@W4CompositionBufferType@@U_LUID@@AEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_REALIZATION_INFO@@PEAVCDecodeBitmap@@@Z @ 0x1802A320C (--0CDxHandleAdvancedDirectFlipBitmapRealization@@IEAA@W4CompositionBufferType@@U_LUID@@AEBUCSM_B.c)
+ *     ??4?$com_ptr_t@VCDxHandleAdvancedDirectFlipBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCDxHandleAdvancedDirectFlipBitmapRealization@@@Z @ 0x1802A3428 (--4-$com_ptr_t@VCDxHandleAdvancedDirectFlipBitmapRealization@@Uerr_returncode_policy@wil@@@wil@@.c)
+ */
+
+__int64 __fastcall CDxHandleAdvancedDirectFlipBitmapRealization::Create(
+        unsigned int a1,
+        __int64 a2,
+        _DWORD *a3,
+        __int64 a4,
+        __int64 a5,
+        __int64 *a6)
+{
+  CDxHandleBitmapRealization *v6; // rbx
+  bool v8; // zf
+  unsigned int v12; // edi
+  __int64 v13; // rdx
+  LPVOID v15; // rax
+  unsigned int v16; // ecx
+  int v17; // eax
+  unsigned int v18; // ecx
+  CDxHandleBitmapRealization *v19; // rcx
+  CDxHandleBitmapRealization *v20; // [rsp+70h] [rbp+18h] BYREF
+
+  v6 = 0LL;
+  v8 = (a3[34] & 0x100) == 0;
+  v20 = 0LL;
+  if ( v8 )
+  {
+    v12 = -2003292287;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, &dword_18032C6A8, 3u, -2003292287, 0x25u, 0LL);
+LABEL_3:
+    v13 = 0LL;
+    goto LABEL_4;
+  }
+  if ( a3[12] || *a3 != 3 )
+  {
+    v12 = -2003292288;
+    MilInstrumentationCheckHR_MaybeFailFast(a1, &dword_18032C6A8, 3u, -2003292288, 0x2Bu, 0LL);
+LABEL_17:
+    if ( v6 )
+      *((_QWORD *)v6 + 31) = 0LL;
+    goto LABEL_3;
+  }
+  v15 = operator new(0x228uLL);
+  if ( v15 )
+    v15 = (LPVOID)CDxHandleAdvancedDirectFlipBitmapRealization::CDxHandleAdvancedDirectFlipBitmapRealization(
+                    v15,
+                    a1,
+                    a2,
+                    a3,
+                    a4,
+                    a5);
+  wil::com_ptr_t<CDxHandleAdvancedDirectFlipBitmapRealization,wil::err_returncode_policy>::operator=(&v20, v15);
+  v6 = v20;
+  if ( !v20 )
+  {
+    v12 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(v16, &dword_18032C6A8, 3u, -2147024882, 0x33u, 0LL);
+    goto LABEL_3;
+  }
+  v17 = CDxHandleBitmapRealization::Initialize(v20);
+  v12 = v17;
+  if ( v17 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v18, &dword_18032C6A8, 3u, v17, 0x34u, 0LL);
+    goto LABEL_17;
+  }
+  v19 = v6;
+  v6 = 0LL;
+  v13 = ((unsigned __int64)v19 + 360) & -(__int64)(v19 != 0LL);
+LABEL_4:
+  *a6 = v13;
+  if ( v6 )
+    (*(void (__fastcall **)(CDxHandleBitmapRealization *))(*(_QWORD *)v6 + 16LL))(v6);
+  return v12;
+}

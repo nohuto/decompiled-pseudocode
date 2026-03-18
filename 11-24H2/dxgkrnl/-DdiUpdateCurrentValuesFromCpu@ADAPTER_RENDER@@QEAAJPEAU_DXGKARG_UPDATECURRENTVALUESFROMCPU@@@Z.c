@@ -1,0 +1,104 @@
+/*
+ * XREFs of ?DdiUpdateCurrentValuesFromCpu@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_UPDATECURRENTVALUESFROMCPU@@@Z @ 0x14006A064
+ * Callers:
+ *     ADAPTER_RENDER_DdiUpdateCurrentValuesFromCpu @ 0x14006BEA0 (ADAPTER_RENDER_DdiUpdateCurrentValuesFromCpu.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x140012444 (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x140015A70 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x140015B10 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     DXGETWPROFILER_BASE_PushProfilerEntry @ 0x140015D30 (DXGETWPROFILER_BASE_PushProfilerEntry.c)
+ *     ??1DXGVALIDATIONPROCESSATTACH@@QEAA@XZ @ 0x140030E00 (--1DXGVALIDATIONPROCESSATTACH@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1400A1BC0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1400A1CA0 (_guard_dispatch_icall.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1402AC1C0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ */
+
+__int64 __fastcall ADAPTER_RENDER::DdiUpdateCurrentValuesFromCpu(
+        ADAPTER_RENDER *this,
+        struct _DXGKARG_UPDATECURRENTVALUESFROMCPU *a2,
+        __int64 a3)
+{
+  KIRQL CurrentIrql; // al
+  __int64 v6; // r14
+  struct DXGTHREAD *v7; // rbx
+  struct DXGTHREAD *Current; // rax
+  int v9; // ebp
+  __int64 (__fastcall *v10)(struct _DXGKARG_UPDATECURRENTVALUESFROMCPU *); // rax
+  int v11; // edi
+  KIRQL v12; // al
+  __int64 v13; // rcx
+  __int64 v14; // rcx
+  __int64 v15; // r8
+  int v17; // [rsp+50h] [rbp-78h] BYREF
+  __int64 v18; // [rsp+58h] [rbp-70h]
+  char v19; // [rsp+60h] [rbp-68h]
+  _BYTE v20[56]; // [rsp+68h] [rbp-60h] BYREF
+
+  v17 = -1;
+  v18 = 0LL;
+  if ( (qword_14015E4B0 & 2) != 0 )
+  {
+    v19 = 1;
+    v17 = 5173;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)this, (__int64)&EventProfilerEnter, a3, 5173);
+  }
+  else
+  {
+    v19 = 0;
+  }
+  DXGETWPROFILER_BASE_PushProfilerEntry((__int64)&v17, 5173);
+  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4804LL));
+  CurrentIrql = KeGetCurrentIrql();
+  v6 = CurrentIrql;
+  v7 = 0LL;
+  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(), (v7 = Current) != 0LL) )
+    v9 = *((_DWORD *)Current + 12);
+  else
+    v9 = 0;
+  DXGVALIDATIONPROCESSATTACH::DXGVALIDATIONPROCESSATTACH(
+    (DXGVALIDATIONPROCESSATTACH *)v20,
+    *((struct DXGADAPTER **)this + 2));
+  v10 = *(__int64 (__fastcall **)(struct _DXGKARG_UPDATECURRENTVALUESFROMCPU *))(*((_QWORD *)this + 2) + 1520LL);
+  if ( v10 )
+    v11 = v10(a2);
+  else
+    v11 = -1073741822;
+  DXGVALIDATIONPROCESSATTACH::~DXGVALIDATIONPROCESSATTACH((DXGVALIDATIONPROCESSATTACH *)v20);
+  if ( (_BYTE)v6 != KeGetCurrentIrql() )
+  {
+    v12 = KeGetCurrentIrql();
+    WdLogSingleEntry5(0LL, 275LL, 16LL, this, v6, v12);
+    WdLogGlobalForLineNumber = 3825;
+  }
+  if ( v7 )
+  {
+    v13 = *((int *)v7 + 12);
+    if ( (_DWORD)v13 != v9 )
+    {
+      WdLogSingleEntry5(0LL, 275LL, 38LL, v13, v9, 0LL);
+      WdLogGlobalForLineNumber = 73;
+    }
+  }
+  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4804LL));
+  if ( v11 != -1073741822 && v11 )
+  {
+    WdLogSingleEntry1(2LL, v11);
+    WdLogGlobalForLineNumber = 3827;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000LL,
+      0xFFFFFFFFLL,
+      L"Driver returned an invalid NTSTATUS code: 0x%I64x",
+      v11,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v17);
+  if ( v19 && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v14, (__int64)&EventProfilerExit, v15, v17);
+  return (unsigned int)v11;
+}

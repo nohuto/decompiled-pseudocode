@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?CreateResourceHandleSafe@DXGPROCESS@@QEAAXPEAVDXGRESOURCE@@@Z @ 0x1C000A990
+ * Callers:
+ *     ?OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@EPEAU_EPROCESS@@PEAU_DXGSHAREDALLOCOBJECT@@PEAVDXGRESOURCEREFERENCE@@PEAEPEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVDXGAUTOMUTEX@@PEAVDXGAUTOPUSHLOCK@@@Z @ 0x1C00D31F4 (-OpenResourceObject@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@E.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C000A788 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z @ 0x1C0104280 (-AllocHandle@HMGRTABLE@@QEAAIPEAXW4_HMGRENTRY_TYPE@@IH@Z.c)
+ *     ?DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z @ 0x1C010EE30 (-DxgkReferenceDxgResource@@YAXPEAVDXGRESOURCE@@@Z.c)
+ */
+
+void __fastcall DXGPROCESS::CreateResourceHandleSafe(DXGPROCESS *this, struct DXGRESOURCE *a2)
+{
+  char *v2; // rsi
+
+  v2 = (char *)this + 208;
+  DXGPUSHLOCK::AcquireExclusive((DXGPROCESS *)((char *)this + 208));
+  *((_DWORD *)a2 + 4) = HMGRTABLE::AllocHandle((char *)this + 240, a2, 4LL);
+  DxgkReferenceDxgResource(a2);
+  *((_QWORD *)v2 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+}

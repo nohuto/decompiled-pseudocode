@@ -1,0 +1,27 @@
+/*
+ * XREFs of VfPtIoAllocateMdl_Exit @ 0x140C29ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfEnabledOnKernel @ 0x14047EA30 (VfEnabledOnKernel.c)
+ *     VfPtMiscPoolNotification @ 0x14050C738 (VfPtMiscPoolNotification.c)
+ */
+
+char __fastcall VfPtIoAllocateMdl_Exit(__int64 a1)
+{
+  char result; // al
+  __int64 v3; // rcx
+
+  result = VfEnabledOnKernel();
+  if ( !result )
+  {
+    v3 = *(_QWORD *)(a1 + 40);
+    if ( v3 )
+    {
+      result = VfRuleClasses;
+      if ( (VfRuleClasses & 1) == 0 )
+        return VfPtMiscPoolNotification(v3, *(__int16 *)(v3 + 8), 0x206C644Du, 0);
+    }
+  }
+  return result;
+}

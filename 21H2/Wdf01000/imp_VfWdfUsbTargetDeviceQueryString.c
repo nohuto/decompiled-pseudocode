@@ -1,0 +1,28 @@
+/*
+ * XREFs of imp_VfWdfUsbTargetDeviceQueryString @ 0x1C00C4540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0036BA0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall imp_VfWdfUsbTargetDeviceQueryString(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFUSBDEVICE__ *UsbDevice,
+        WDFREQUEST__ *Request,
+        _WDF_REQUEST_SEND_OPTIONS *RequestOptions,
+        wchar_t *String,
+        wchar_t *NumCharacters,
+        unsigned __int8 StringIndex,
+        unsigned __int16 LangID)
+{
+  return ((__int64 (__fastcall *)(_WDF_DRIVER_GLOBALS *, WDFUSBDEVICE__ *, WDFREQUEST__ *, _WDF_REQUEST_SEND_OPTIONS *, wchar_t *, wchar_t *, unsigned __int8, unsigned __int16))WdfVersion.Functions.pfnWdfUsbTargetDeviceQueryString)(
+           DriverGlobals,
+           UsbDevice,
+           Request,
+           RequestOptions,
+           String,
+           NumCharacters,
+           StringIndex,
+           LangID);
+}

@@ -1,0 +1,68 @@
+/*
+ * XREFs of NtGdiStrokePath @ 0x1C027E100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0078C50 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z @ 0x1C007BE98 (-bStrokeAndOrFill@EPATHOBJ@@QEAAHAEAVXDCOBJ@@PEAU_LINEATTRS@@PEAVEXFORMOBJ@@K@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C008FC84 (-vUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C009C134 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C011CF20 (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C011CF50 (--0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z.c)
+ *     ?bInactive@DC@@QEBAHXZ @ 0x1C011D5AC (-bInactive@DC@@QEBAHXZ.c)
+ */
+
+__int64 __fastcall NtGdiStrokePath(HDC a1)
+{
+  __int64 v1; // r8
+  ULONG v2; // ecx
+  __int64 v3; // rdx
+  DC *v4; // rcx
+  unsigned int v5; // ebx
+  unsigned int v6; // eax
+  DC *v7; // rcx
+  DC *v9[2]; // [rsp+30h] [rbp-49h] BYREF
+  struct _XFORMOBJ v10; // [rsp+40h] [rbp-39h] BYREF
+  PATHOBJ v11[16]; // [rsp+50h] [rbp-29h] BYREF
+
+  MDCOBJ::MDCOBJ((MDCOBJ *)v9, a1);
+  if ( !v9[0] || (*((_DWORD *)v9[0] + 9) & 0x10000) != 0 )
+  {
+    v2 = 87;
+    goto LABEL_12;
+  }
+  if ( !(unsigned int)DC::bInactive(v9[0]) )
+  {
+    v2 = 1003;
+LABEL_12:
+    EngSetLastError(v2);
+    v5 = 0;
+    goto LABEL_13;
+  }
+  v3 = *(_QWORD *)(v1 + 80);
+  if ( (*(_DWORD *)(v3 + 8) & 0x2000) != 0 )
+    GreDCSelectPen(v1, *(_QWORD *)(v3 + 24));
+  XEPATHOBJ::XEPATHOBJ((XEPATHOBJ *)v11, v9);
+  if ( v11[1] )
+  {
+    EXFORMOBJ::vQuickInit((EXFORMOBJ *)&v10, (struct XDCOBJ *)v9, 516);
+    v6 = EPATHOBJ::bStrokeAndOrFill(v11, (POINTL **)v9, (LINEATTRS *)((char *)v9[0] + 216), &v10, 1u);
+    v7 = v9[0];
+    v5 = v6;
+    *((_DWORD *)v9[0] + 64) &= ~1u;
+    DC::hpath(v7, 0LL);
+  }
+  else
+  {
+    EngSetLastError(8u);
+    v4 = v9[0];
+    *((_DWORD *)v9[0] + 64) &= ~1u;
+    DC::hpath(v4, 0LL);
+    v5 = 0;
+  }
+  XEPATHOBJ::~XEPATHOBJ((XEPATHOBJ *)v11);
+LABEL_13:
+  if ( v9[0] )
+    XDCOBJ::vUnlockFast((XDCOBJ *)v9);
+  return v5;
+}

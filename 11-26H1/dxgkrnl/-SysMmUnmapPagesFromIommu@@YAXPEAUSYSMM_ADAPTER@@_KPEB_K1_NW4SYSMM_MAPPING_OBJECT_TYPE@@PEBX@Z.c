@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?SysMmUnmapPagesFromIommu@@YAXPEAUSYSMM_ADAPTER@@_KPEB_K1_NW4SYSMM_MAPPING_OBJECT_TYPE@@PEBX@Z @ 0x14009C860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SmmUnmapPagesFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEB_K1_NW4SYSMM_MAPPING_OBJECT_TYPE@@PEBX@Z @ 0x140041524 (-SmmUnmapPagesFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEB_K1_NW4SYSMM_MAPPING_OBJECT_TYPE@@PEBX@Z.c)
+ *     ??0SYSMM_AUTO_DOMAIN_LOCK_SHARED@@QEAA@PEAUSYSMM_IOMMU@@@Z @ 0x1400531E0 (--0SYSMM_AUTO_DOMAIN_LOCK_SHARED@@QEAA@PEAUSYSMM_IOMMU@@@Z.c)
+ *     ??1SYSMM_AUTO_DOMAIN_LOCK_SHARED@@QEAA@XZ @ 0x140055278 (--1SYSMM_AUTO_DOMAIN_LOCK_SHARED@@QEAA@XZ.c)
+ */
+
+void __fastcall SysMmUnmapPagesFromIommu(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, int a6, __int64 a7)
+{
+  __int64 v7; // rbx
+  char v11; // cl
+  _BYTE v12[24]; // [rsp+40h] [rbp-18h] BYREF
+
+  v7 = a1 + 64;
+  SYSMM_AUTO_DOMAIN_LOCK_SHARED::SYSMM_AUTO_DOMAIN_LOCK_SHARED(
+    (SYSMM_AUTO_DOMAIN_LOCK_SHARED *)v12,
+    (struct SYSMM_IOMMU *)(a1 + 64));
+  v11 = 0;
+  if ( a5 || (dword_1401696C0 & 4) != 0 )
+    v11 = 1;
+  SmmUnmapPagesFromIommu(v7, a2, a3, a4, v11, a6, a7);
+  SYSMM_AUTO_DOMAIN_LOCK_SHARED::~SYSMM_AUTO_DOMAIN_LOCK_SHARED((SYSMM_AUTO_DOMAIN_LOCK_SHARED *)v12);
+}

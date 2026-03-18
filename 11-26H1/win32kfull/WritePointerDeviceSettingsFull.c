@@ -1,0 +1,98 @@
+/*
+ * XREFs of WritePointerDeviceSettingsFull @ 0x1402CA69C
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1401CB418 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1402C9E38 (-SetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ *     ?SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z @ 0x1402C9FDC (-SetFlickMap@@YAHPEAUtagFLICK_MAP@@H@Z.c)
+ *     ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1402CA1C0 (-WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z.c)
+ */
+
+__int64 __fastcall WritePointerDeviceSettingsFull(__int64 a1, __int64 a2, unsigned int a3)
+{
+  int v5; // edi
+  unsigned int v6; // esi
+  const unsigned __int16 **UserSessionState; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  const unsigned __int16 **v10; // rbp
+  int v11; // edi
+  int v12; // edi
+  int v13; // edi
+  int v14; // edi
+  unsigned int v15; // edi
+  unsigned int v16; // edi
+  int v17; // ebx
+  const unsigned __int16 *v18; // rdx
+  const unsigned __int16 *v19; // r8
+
+  v5 = a1;
+  v6 = 0;
+  UserSessionState = (const unsigned __int16 **)W32GetUserSessionState(a1, a2);
+  v10 = UserSessionState;
+  v11 = v5 - 149;
+  if ( v11 )
+  {
+    v12 = v11 - 2;
+    if ( v12 )
+    {
+      v13 = v12 - 2;
+      if ( !v13 )
+        return SetFlickMap((struct tagFLICK_MAP *)a2, a3);
+      v14 = v13 - 2;
+      if ( !v14 )
+        return SetCustomFlick((struct tagCUSTOM_FLICK *)a2);
+      if ( v14 == 2 )
+      {
+        v15 = *(_DWORD *)(a2 + 4);
+        if ( v15 <= 0x3C )
+        {
+          *((_DWORD *)UserSessionState + 4621) = v15;
+          *(_DWORD *)(W32GetUserSessionState(v9, v8) + 18968) = v15;
+        }
+        v16 = *(_DWORD *)(a2 + 8);
+        if ( v16 <= 0x3C )
+        {
+          *((_DWORD *)v10 + 4625) = v16;
+          *(_DWORD *)(W32GetUserSessionState(v9, v8) + 18972) = v16;
+        }
+        v17 = *(_DWORD *)(a2 + 12);
+        *((_DWORD *)v10 + 4629) = v17;
+        v6 = 1;
+        *(_DWORD *)(W32GetUserSessionState(v9, v8) + 18976) = v17;
+        if ( a3 )
+          return WritePredictionSettings(v10 + 2309, v18, v19);
+      }
+    }
+    else
+    {
+      *((_DWORD *)UserSessionState + 4493) = *(_DWORD *)a2;
+      v6 = 1;
+      *((_DWORD *)UserSessionState + 4497) = *(_DWORD *)(a2 + 4);
+      *((_DWORD *)UserSessionState + 4501) = *(_DWORD *)(a2 + 8);
+      *((_DWORD *)UserSessionState + 4505) = *(_DWORD *)(a2 + 12);
+      *((_DWORD *)UserSessionState + 4509) = *(_DWORD *)(a2 + 16);
+      *((_DWORD *)UserSessionState + 4513) = *(_DWORD *)(a2 + 20);
+      *((_DWORD *)UserSessionState + 4517) = *(_DWORD *)(a2 + 24);
+      if ( (!a3 || (v6 = WriteSettingValues(7LL, UserSessionState + 2245, 7LL)) != 0) && !*((_DWORD *)v10 + 4518) )
+        *((_DWORD *)v10 + 4518) = 1;
+    }
+  }
+  else
+  {
+    *((_DWORD *)UserSessionState + 4525) = *(_DWORD *)a2;
+    v6 = 1;
+    *((_DWORD *)UserSessionState + 4529) = *(_DWORD *)(a2 + 4);
+    *((_DWORD *)UserSessionState + 4533) = *(_DWORD *)(a2 + 8);
+    *((_DWORD *)UserSessionState + 4537) = *(_DWORD *)(a2 + 12);
+    *((_DWORD *)UserSessionState + 4541) = *(_DWORD *)(a2 + 16);
+    *((_DWORD *)UserSessionState + 4545) = *(_DWORD *)(a2 + 20);
+    *((_DWORD *)UserSessionState + 4549) = *(_DWORD *)(a2 + 24);
+    *((_DWORD *)UserSessionState + 4553) = *(_DWORD *)(a2 + 28);
+    *((_DWORD *)UserSessionState + 4557) = *(_DWORD *)(a2 + 32);
+    *((_DWORD *)UserSessionState + 4561) = *(_DWORD *)(a2 + 36);
+    if ( (!a3 || (v6 = WriteSettingValues(4LL, UserSessionState + 2261, 10LL)) != 0) && !*((_DWORD *)v10 + 4562) )
+      *((_DWORD *)v10 + 4562) = 1;
+  }
+  return v6;
+}

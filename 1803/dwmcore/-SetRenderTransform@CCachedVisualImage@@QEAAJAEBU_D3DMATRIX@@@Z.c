@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?SetRenderTransform@CCachedVisualImage@@QEAAJAEBU_D3DMATRIX@@@Z @ 0x180182900
+ * Callers:
+ *     ?ProcessSetTransformMatrix@CSnapshot@@UEAAJPEBVCResourceTable@@PEBUMILCMD_SNAPSHOT_SETTRANSFORMMATRIX@@@Z @ 0x1801A3ED0 (-ProcessSetTransformMatrix@CSnapshot@@UEAAJPEBVCResourceTable@@PEBUMILCMD_SNAPSHOT_SETTRANSFORMM.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180025210 (--2@YAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18005E450 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CCachedVisualImage::SetRenderTransform(CCachedVisualImage *this, const struct _D3DMATRIX *a2)
+{
+  _DWORD *v2; // r8
+  unsigned int v3; // ebx
+  _DWORD *v6; // rax
+  __int128 v7; // xmm8
+  D3DVALUE _11; // eax
+  __int128 v9; // xmm4
+  D3DVALUE _44; // xmm14_4
+  D3DVALUE _43; // xmm13_4
+  D3DVALUE _42; // xmm12_4
+
+  v2 = (_DWORD *)*((_QWORD *)this + 27);
+  v3 = 0;
+  if ( v2
+    || ((v6 = operator new(0x44uLL), (v2 = v6) == 0LL) ? (v2 = 0LL) : (_DWORD *)(v6[16] = 0),
+        (*((_QWORD *)this + 27) = v2) != 0LL) )
+  {
+    v7 = *(_OWORD *)&a2->_32;
+    _11 = a2->_11;
+    v9 = *(_OWORD *)&a2->_22;
+    _44 = a2->_44;
+    _43 = a2->_43;
+    _42 = a2->_42;
+    *(_OWORD *)(v2 + 1) = *(_OWORD *)&a2->_12;
+    *(D3DVALUE *)v2 = _11;
+    *(_OWORD *)(v2 + 5) = v9;
+    v2[16] = 0;
+    *(_OWORD *)(v2 + 9) = v7;
+    *((D3DVALUE *)v2 + 13) = _42;
+    *((D3DVALUE *)v2 + 14) = _43;
+    *((D3DVALUE *)v2 + 15) = _44;
+  }
+  else
+  {
+    v3 = -2147024882;
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, -2147024882, 0x876u);
+  }
+  return v3;
+}

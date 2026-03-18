@@ -1,0 +1,57 @@
+/*
+ * XREFs of HalpWheaInitDiscard @ 0x140BFEBD4
+ * Callers:
+ *     HalpWheaInitSystem @ 0x140B3D4E0 (HalpWheaInitSystem.c)
+ * Callees:
+ *     WheaConfigureErrorSource @ 0x140B51AB0 (WheaConfigureErrorSource.c)
+ *     HalpInitializeWheaPhysicalMappings @ 0x140C03744 (HalpInitializeWheaPhysicalMappings.c)
+ *     KeHwPolicyLocateResource @ 0x140C177A0 (KeHwPolicyLocateResource.c)
+ */
+
+__int64 __fastcall HalpWheaInitDiscard(int a1)
+{
+  __int64 (__fastcall *v1)(__int64, unsigned int, _DWORD *, _DWORD *, _DWORD *, _DWORD *); // rax
+  void *v2; // rdx
+  void *v3; // r8
+  __int64 v4; // rcx
+  _QWORD v6[3]; // [rsp+30h] [rbp-18h] BYREF
+  unsigned __int64 v7; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v8; // [rsp+60h] [rbp+18h] BYREF
+
+  v8 = 0LL;
+  v7 = 0LL;
+  if ( HalpHvWheaEnlightenedCpuManager )
+  {
+    v1 = HalpHvEpCpuid;
+    v2 = HalpHvEpWriteMsr;
+    v3 = HalpHvEpReadMsr;
+  }
+  else
+  {
+    v1 = HalpWheaNativeCpuid;
+    v2 = HalpWheaNativeWriteMsr;
+    v3 = HalpWheaNativeReadMsr;
+  }
+  HalpWheaWriteMsr = (__int64)v2;
+  HalpWheaCpuid = (__int64)v1;
+  HalpWheaReadMsr = (__int64)v3;
+  if ( (int)KeHwPolicyLocateResource(a1, 102, 1, (unsigned int)&v8, (__int64)&v7) >= 0 && v7 >= 0x18 )
+  {
+    v4 = *(_QWORD *)(v8 + 16);
+    if ( (v4 & 1) != 0 )
+      HalpMcaRecoveryPolicy |= 1uLL;
+    if ( (v4 & 2) != 0 )
+      HalpMcaRecoveryPolicy |= 2uLL;
+  }
+  v6[0] = HalpWheaReadMsr;
+  v6[1] = HalpWheaWriteMsr;
+  PshedSetHalEnlightenments(v6);
+  HalpInitializeWheaPhysicalMappings();
+  off_140E008F8[0] = (__int64 (__fastcall *)())HalpWheaInitProcessorGenericSection;
+  WheaConfigureErrorSource(0, (__int64)&HalpMachineCheckConfiguration);
+  WheaConfigureErrorSource(1, (__int64)&HalpMachineCheckConfiguration);
+  WheaConfigureErrorSource(3, (__int64)&HalpNmiConfiguration);
+  WheaConfigureErrorSource(5, (__int64)&HalpGenericConfiguration);
+  WheaConfigureErrorSource(12, (__int64)&HalpGenericConfiguration);
+  return 0LL;
+}

@@ -1,0 +1,66 @@
+/*
+ * XREFs of HalpTimerGetInternalData @ 0x1402C4570
+ * Callers:
+ *     EtwpReserveTraceBuffer @ 0x140234100 (EtwpReserveTraceBuffer.c)
+ *     KiRetireDpcList @ 0x1402459F0 (KiRetireDpcList.c)
+ *     KeStallExecutionProcessor @ 0x1402C3030 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x1402C3270 (KeQueryPerformanceCounter.c)
+ *     KiUpdateProcessConcurrencyCounts @ 0x1402C33C0 (KiUpdateProcessConcurrencyCounts.c)
+ *     KiUpdateTime @ 0x1402C36A0 (KiUpdateTime.c)
+ *     HalpTimerClockInterrupt @ 0x1402C4080 (HalpTimerClockInterrupt.c)
+ *     HalpTimerStallExecutionProcessor @ 0x1402C43B0 (HalpTimerStallExecutionProcessor.c)
+ *     PpmIdleExecuteTransition @ 0x1402C5320 (PpmIdleExecuteTransition.c)
+ *     HalpSetTimer @ 0x1403378E0 (HalpSetTimer.c)
+ *     HalpTimerClockStop @ 0x14034DF70 (HalpTimerClockStop.c)
+ *     HalpTimerClockInitialize @ 0x140350FB0 (HalpTimerClockInitialize.c)
+ *     HalpTimerDpcRoutine @ 0x14036A360 (HalpTimerDpcRoutine.c)
+ *     HalpTimerQueryCycleCounter @ 0x140379E00 (HalpTimerQueryCycleCounter.c)
+ *     HalpTimerMeasureFrequencies @ 0x140379ED8 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerReadTimerPairWithLatencyLimit @ 0x14037A1D0 (HalpTimerReadTimerPairWithLatencyLimit.c)
+ *     HalpTimerInitialize @ 0x14037A580 (HalpTimerInitialize.c)
+ *     HalpTimerCalibratePerformanceCounter @ 0x14037A618 (HalpTimerCalibratePerformanceCounter.c)
+ *     HalpTimerDetermineValidTimerPairReadLatency @ 0x14037A7D8 (HalpTimerDetermineValidTimerPairReadLatency.c)
+ *     HalpTimerInitializeProfiling @ 0x14037ACC0 (HalpTimerInitializeProfiling.c)
+ *     HalpInitializePnTimers @ 0x14037B12C (HalpInitializePnTimers.c)
+ *     HalpTimerClockActivate @ 0x14037B360 (HalpTimerClockActivate.c)
+ *     HalpTimerConfigureInterrupt @ 0x14037CF94 (HalpTimerConfigureInterrupt.c)
+ *     HalpTimerInitializeClockPn @ 0x14037D0BC (HalpTimerInitializeClockPn.c)
+ *     EtwpLogContextSwapEvent @ 0x14038A430 (EtwpLogContextSwapEvent.c)
+ *     HalpTimerClockInterruptStub @ 0x1403A1810 (HalpTimerClockInterruptStub.c)
+ *     HalpInitializeTimers @ 0x1403A4134 (HalpInitializeTimers.c)
+ *     HalpTimerCaptureCloestAuxiliaryQpcPair @ 0x1403AC8AC (HalpTimerCaptureCloestAuxiliaryQpcPair.c)
+ *     HalpTimerCaptureCurrentAuxiliaryQpcPair @ 0x1404FE230 (HalpTimerCaptureCurrentAuxiliaryQpcPair.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x1404FE83C (HalpTimerRestorePerformanceCounter.c)
+ *     HalpTimerSavePerformanceCounter @ 0x1404FE920 (HalpTimerSavePerformanceCounter.c)
+ *     HalpTimerSwitchStallSource @ 0x1404FEB9C (HalpTimerSwitchStallSource.c)
+ *     HalpInterruptRestoreClock @ 0x1405052E8 (HalpInterruptRestoreClock.c)
+ *     HalpTimerClockPowerChange @ 0x140508864 (HalpTimerClockPowerChange.c)
+ *     HalpTimerSwitchToNormalClock @ 0x1405089E4 (HalpTimerSwitchToNormalClock.c)
+ *     HalpTimerDelayedQueryCounter @ 0x140508E20 (HalpTimerDelayedQueryCounter.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x140509020 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpTimerSetupMessageInterruptRouting @ 0x1405097E8 (HalpTimerSetupMessageInterruptRouting.c)
+ *     HalpTimerStallCounterPowerChange @ 0x140509858 (HalpTimerStallCounterPowerChange.c)
+ *     HalpVpptAcknowledgeInterrupt @ 0x140509AB0 (HalpVpptAcknowledgeInterrupt.c)
+ *     HalpVpptInitializePhysicalTimer @ 0x140509E44 (HalpVpptInitializePhysicalTimer.c)
+ *     HalpVpptStop @ 0x140509F30 (HalpVpptStop.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x14050A200 (HalpVpptUpdatePhysicalTimer.c)
+ *     HalpTimerProfilePowerChange @ 0x14050A8FC (HalpTimerProfilePowerChange.c)
+ *     HalpTimerRestartProfileInterrupt @ 0x14050A958 (HalpTimerRestartProfileInterrupt.c)
+ *     HalpTimerStopProfileInterrupt @ 0x14050AB5C (HalpTimerStopProfileInterrupt.c)
+ *     HalpTimerWatchdogStart @ 0x14050BB30 (HalpTimerWatchdogStart.c)
+ *     HalpTimerWatchdogStop @ 0x14050BBC0 (HalpTimerWatchdogStop.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051E850 (HalpTimerAlwaysOnClockInterrupt.c)
+ *     HalpTimerHypervisorInterruptStub @ 0x14051EAB0 (HalpTimerHypervisorInterruptStub.c)
+ *     HalpTimerProfileInterrupt @ 0x14051EB00 (HalpTimerProfileInterrupt.c)
+ *     HalpTimerWatchdogPreResetInterrupt @ 0x14051EB40 (HalpTimerWatchdogPreResetInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall HalpTimerGetInternalData(__int64 a1)
+{
+  if ( (*(_DWORD *)(a1 + 224) & 0x10000) != 0 )
+    return *(_QWORD *)(a1 + 72) + *(_DWORD *)(a1 + 80) * KeGetPcr()->Prcb.Number;
+  else
+    return *(_QWORD *)(a1 + 72);
+}

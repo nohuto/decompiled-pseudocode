@@ -1,0 +1,147 @@
+/*
+ * XREFs of UsbhSyncSendCommandToDevice @ 0x1C0016E10
+ * Callers:
+ *     UsbhDisableDeviceForWake @ 0x1C0001418 (UsbhDisableDeviceForWake.c)
+ *     UsbhSetupDevice @ 0x1C0022C90 (UsbhSetupDevice.c)
+ *     UsbhGetStringFromDevice @ 0x1C0028988 (UsbhGetStringFromDevice.c)
+ *     UsbhGetMsOs20DescriptorSet @ 0x1C0040414 (UsbhGetMsOs20DescriptorSet.c)
+ *     UsbhGetMsOsFeatureDescriptor @ 0x1C00407D0 (UsbhGetMsOsFeatureDescriptor.c)
+ *     UsbhSendMsOs20AltEnumCommand @ 0x1C0040C94 (UsbhSendMsOs20AltEnumCommand.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C0048A44 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhEnableDeviceForWake @ 0x1C005539C (UsbhEnableDeviceForWake.c)
+ *     UsbhGetBosDescriptor @ 0x1C0055448 (UsbhGetBosDescriptor.c)
+ *     UsbhGetDeviceDescriptor @ 0x1C00555EC (UsbhGetDeviceDescriptor.c)
+ *     UsbhGetQualifierDescriptorFromDevice @ 0x1C00556C4 (UsbhGetQualifierDescriptorFromDevice.c)
+ * Callees:
+ *     Log @ 0x1C00155F0 (Log.c)
+ *     FdoExt @ 0x1C0015670 (FdoExt.c)
+ *     PdoExt @ 0x1C001B570 (PdoExt.c)
+ *     UsbhSyncSendInternalIoctl @ 0x1C0023F60 (UsbhSyncSendInternalIoctl.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0024DB0 (UsbhRefPdoDeviceHandle.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00294E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0029840 (memset.c)
+ */
+
+__int64 UsbhSyncSendCommandToDevice(__int64 a1, __int64 a2, _BYTE *a3, __int64 a4, _WORD *a5, ...)
+{
+  int *v6; // rbx
+  __int64 v7; // rdi
+  _DWORD *v10; // r15
+  __int64 v11; // rbp
+  int *PoolWithTag; // rax
+  PIRP v13; // rdx
+  int v14; // eax
+  bool v15; // zf
+  NTSTATUS v16; // eax
+  __int64 v17; // r10
+  __int64 v18; // r9
+  int v19; // r10d
+  KSPIN_LOCK *v20; // r14
+  KIRQL v21; // r15
+  __int64 v22; // r9
+  _DWORD *v23; // rax
+  __int64 v25; // [rsp+50h] [rbp-58h]
+  struct _IO_STATUS_BLOCK IoStatusBlock; // [rsp+58h] [rbp-50h] BYREF
+  struct _KEVENT Event; // [rsp+68h] [rbp-40h] BYREF
+  __int64 v29; // [rsp+D8h] [rbp+30h] BYREF
+  va_list va; // [rsp+D8h] [rbp+30h]
+  int *v31; // [rsp+E0h] [rbp+38h]
+  va_list va1; // [rsp+E8h] [rbp+40h] BYREF
+
+  va_start(va1, a5);
+  va_start(va, a5);
+  v29 = va_arg(va1, _QWORD);
+  v31 = va_arg(va1, int *);
+  memset(&Event, 0, sizeof(Event));
+  v6 = 0LL;
+  v7 = 0LL;
+  LODWORD(v29) = 0;
+  v10 = FdoExt(a1);
+  v25 = PdoExt(a2);
+  v11 = (int)UsbhSyncSendInternalIoctl(a1, 2228243LL, (__int64 *)va, 0LL);
+  Log(a1, 8, 1970303827, (unsigned int)v29, v11);
+  if ( (v11 & 0xC0000000) == 0xC0000000 )
+  {
+    v19 = -1073713152;
+    goto LABEL_12;
+  }
+  if ( !a5 )
+  {
+    LODWORD(v11) = -1073741811;
+    v19 = -1073713152;
+    goto LABEL_12;
+  }
+  PoolWithTag = (int *)ExAllocatePoolWithTag(ExDefaultNonPagedPoolType, 0x88uLL, 0x42554855u);
+  v6 = PoolWithTag;
+  if ( !PoolWithTag )
+    goto LABEL_25;
+  memset(PoolWithTag, 0, 0x88uLL);
+  v7 = UsbhRefPdoDeviceHandle(a1, a2, v6, 1145983859LL);
+  if ( !v7 || (v11 = *((_QWORD *)v10 + 152)) == 0 )
+  {
+    LODWORD(v11) = -1073741810;
+    v19 = -1073713152;
+    goto LABEL_12;
+  }
+  KeInitializeEvent(&Event, NotificationEvent, 0);
+  v13 = IoBuildDeviceIoControlRequest(0x220003u, (PDEVICE_OBJECT)v11, 0LL, 0, 0LL, 0, 1u, &Event, &IoStatusBlock);
+  if ( v13 )
+  {
+    *((_QWORD *)v6 + 1) = *(_QWORD *)(v25 + 1152);
+    v6[8] = 10;
+    v14 = v6[8];
+    *v6 = 3276936;
+    v15 = *a3 >= 0;
+    *((_QWORD *)v6 + 6) = 0LL;
+    if ( !v15 )
+      v14 = 11;
+    v6[14] = 2000;
+    v6[8] = v14;
+    v6[9] = (unsigned __int16)*a5;
+    *((_QWORD *)v6 + 5) = a4;
+    *((_QWORD *)v6 + 16) = *(_QWORD *)a3;
+    v13->Tail.Overlay.CurrentStackLocation[-1].Parameters.WMI.ProviderId = (unsigned __int64)v6;
+    v16 = IofCallDriver((PDEVICE_OBJECT)v11, v13);
+    LODWORD(v11) = v16;
+    if ( v16 == 259 )
+    {
+      KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+      LODWORD(v11) = IoStatusBlock.Status;
+    }
+    else
+    {
+      IoStatusBlock.Status = v16;
+    }
+    v17 = v6[1];
+    v18 = *((unsigned __int16 *)v6 + 18);
+    *a5 = v18;
+    Log(a1, 256, 1396925558, v18, v17);
+  }
+  else
+  {
+LABEL_25:
+    v19 = -1073737728;
+    LODWORD(v11) = -1073741670;
+  }
+LABEL_12:
+  if ( v31 )
+    *v31 = v19;
+  if ( v7 )
+  {
+    v20 = (KSPIN_LOCK *)(FdoExt(a1) + 930);
+    v21 = KeAcquireSpinLockRaiseToDpc(v20);
+    Log(a1, 256, 1146498353, v7, (__int64)v6);
+    Log(a1, 256, 1146498354, v22, 1145983859LL);
+    v23 = FdoExt(a1);
+    if ( *((_QWORD *)v23 + 559) )
+      (*((void (__fastcall **)(_QWORD, __int64, int *, __int64))v23 + 559))(
+        *((_QWORD *)v23 + 529),
+        v7,
+        v6,
+        1145983859LL);
+    KeReleaseSpinLock(v20, v21);
+  }
+  if ( v6 )
+    ExFreePoolWithTag(v6, 0);
+  return (unsigned int)v11;
+}

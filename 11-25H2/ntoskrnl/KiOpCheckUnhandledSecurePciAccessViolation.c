@@ -1,0 +1,44 @@
+/*
+ * XREFs of KiOpCheckUnhandledSecurePciAccessViolation @ 0x1405C0DC0
+ * Callers:
+ *     KiPreprocessFault @ 0x14025EAD0 (KiPreprocessFault.c)
+ * Callees:
+ *     KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress @ 0x1404B8010 (KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress.c)
+ */
+
+void __fastcall KiOpCheckUnhandledSecurePciAccessViolation(__int64 a1, __int64 a2)
+{
+  __int64 v3; // rcx
+  unsigned __int64 v5; // rcx
+  unsigned __int64 v6; // rcx
+  _WORD v7[2]; // [rsp+30h] [rbp-10h] BYREF
+  unsigned int v8[3]; // [rsp+34h] [rbp-Ch] BYREF
+  unsigned __int8 v9; // [rsp+60h] [rbp+20h] BYREF
+  unsigned __int8 v10; // [rsp+70h] [rbp+30h] BYREF
+  unsigned __int8 v11; // [rsp+78h] [rbp+38h] BYREF
+
+  v3 = *(_QWORD *)(a1 + 104);
+  v8[0] = 0;
+  v9 = 0;
+  v10 = 0;
+  v11 = 0;
+  v7[0] = 0;
+  if ( v3 != -1
+    && (int)KiOpGetPciConfigSpaceAccessInfoFromPhysicalAddress(
+              v3,
+              (__int64)v7,
+              (__int64)&v9,
+              (__int64)&v10,
+              (__int64)&v11,
+              (int *)v8) >= 0 )
+  {
+    v5 = (unsigned __int64)v7[0] << 8;
+    *(_DWORD *)a2 = 268435465;
+    *(_DWORD *)(a2 + 24) = 4;
+    *(_QWORD *)(a2 + 32) = *(unsigned __int8 *)(a1 + 56);
+    v6 = v11 | (8 * (v10 | (32 * (v9 | v5))));
+    *(_QWORD *)(a2 + 48) = v8[0];
+    *(_QWORD *)(a2 + 56) = *(_QWORD *)(a2 + 16);
+    *(_QWORD *)(a2 + 40) = v6;
+  }
+}

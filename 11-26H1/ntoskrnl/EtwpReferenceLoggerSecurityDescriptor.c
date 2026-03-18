@@ -1,0 +1,89 @@
+/*
+ * XREFs of EtwpReferenceLoggerSecurityDescriptor @ 0x140A6FBA4
+ * Callers:
+ *     EtwQueryPerformanceTraceInformation @ 0x14093E008 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140A6FAA4 (EtwpCheckLoggerControlAccess.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x140277CC0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x140278BD0 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     KeLeaveCriticalRegion @ 0x1402C3AE0 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140931DF0 (ObDereferenceSecurityDescriptor.c)
+ */
+
+unsigned __int64 __fastcall EtwpReferenceLoggerSecurityDescriptor(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        struct _KLOCK_ENTRIES *a4)
+{
+  signed __int64 v5; // rbx
+  signed __int64 v6; // rax
+  int v7; // eax
+  unsigned __int64 v8; // rbx
+  struct _KTHREAD *CurrentThread; // rax
+  LegacyAutoBoost *v11; // rbx
+  signed __int64 v12; // rdx
+  signed __int64 v13; // rax
+  signed __int64 v14; // rtt
+
+  _m_prefetchw((const void *)(a1 + 784));
+  v5 = *(_QWORD *)(a1 + 784);
+  if ( (v5 & 0xF) != 0 )
+  {
+    do
+    {
+      v6 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 784), v5 - 1, v5);
+      if ( v5 == v6 )
+        break;
+      v5 = v6;
+    }
+    while ( (v6 & 0xF) != 0 );
+  }
+  v7 = v5 & 0xF;
+  if ( (v5 & 0xF) != 0 )
+  {
+    v8 = v5 & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( v7 == 1 )
+    {
+      if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 - 24), 0xFuLL) <= 0 )
+        __fastfail(0xEu);
+      _m_prefetchw((const void *)(a1 + 784));
+      v13 = *(_QWORD *)(a1 + 784);
+      while ( (unsigned __int64)(v13 & 0xF) + 15 <= 0xF && v8 == (v13 & 0xFFFFFFFFFFFFFFF0uLL) )
+      {
+        v14 = v13;
+        v13 = _InterlockedCompareExchange64((volatile signed __int64 *)(a1 + 784), v13 + 15, v13);
+        if ( v14 == v13 )
+          return v8;
+      }
+      ObDereferenceSecurityDescriptor(v8, 0xFu, 15LL, a4);
+    }
+  }
+  else
+  {
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    v11 = (LegacyAutoBoost *)KeAbPreAcquire((__int64)&EtwpSecurityLock, 0LL, 0LL, a4);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&EtwpSecurityLock, 17LL, 0LL) )
+      ExfAcquirePushLockSharedEx((signed __int64 *)&EtwpSecurityLock.Header.Lock, 0, v11, &EtwpSecurityLock);
+    v12 = 0LL;
+    if ( v11 )
+    {
+      if ( (KiAbpGlobalState & 1) != 0 )
+        AutoBoost::KiAbpPostAcquire(v11, 0LL);
+      else
+        *((_BYTE *)v11 + 10) = 1;
+    }
+    v8 = *(_QWORD *)(a1 + 784) & 0xFFFFFFFFFFFFFFF0uLL;
+    if ( _InterlockedExchangeAdd64((volatile signed __int64 *)(v8 - 24), 1uLL) <= 0 )
+      __fastfail(0xEu);
+    if ( _InterlockedCompareExchange64((volatile signed __int64 *)&EtwpSecurityLock, v12, 17LL) != 17 )
+      ExfReleasePushLockShared((signed __int64 *)&EtwpSecurityLock.Header.Lock);
+    KeAbPostRelease((unsigned __int64)&EtwpSecurityLock);
+    KeLeaveCriticalRegion();
+  }
+  return v8;
+}

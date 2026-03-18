@@ -1,0 +1,70 @@
+/*
+ * XREFs of RtlImageNtHeader @ 0x140014238
+ * Callers:
+ *     MiLockPagableImageSection @ 0x140014884 (MiLockPagableImageSection.c)
+ *     PnpTraceStartDevice @ 0x1400B0C64 (PnpTraceStartDevice.c)
+ *     DbgLoadImageSymbols @ 0x1400B1044 (DbgLoadImageSymbols.c)
+ *     LdrpGetImageSize @ 0x1400FA298 (LdrpGetImageSize.c)
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x1400FA57C (LdrpGetAlternateResourceModuleHandleEx.c)
+ *     LdrpGetFromMUIMemCache @ 0x1400FAC9C (LdrpGetFromMUIMemCache.c)
+ *     IoGetDumpHiberRanges @ 0x140112DA8 (IoGetDumpHiberRanges.c)
+ *     IopLoadCrashdumpDriver @ 0x140131B48 (IopLoadCrashdumpDriver.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14014921C (LdrpSetAlternateResourceModuleHandle.c)
+ *     LdrpMapResourceFile @ 0x140149CC4 (LdrpMapResourceFile.c)
+ *     KiLockExtendedServiceTable @ 0x140156918 (KiLockExtendedServiceTable.c)
+ *     KiDumpParameterImages @ 0x1401D5490 (KiDumpParameterImages.c)
+ *     LdrpGetMappingFromCacheEntry @ 0x140211650 (LdrpGetMappingFromCacheEntry.c)
+ *     KiShadowProcessorAllocation @ 0x1403DE0E8 (KiShadowProcessorAllocation.c)
+ *     NtSetSystemInformation @ 0x1403E9F6C (NtSetSystemInformation.c)
+ *     PerfLogImageLoad @ 0x1404296DC (PerfLogImageLoad.c)
+ *     PerfLogImageUnload @ 0x14042AC2C (PerfLogImageUnload.c)
+ *     DbgkCreateThread @ 0x140459228 (DbgkCreateThread.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14045DBFC (EtwpQueryProcessOtherInfo.c)
+ *     PspMapSystemDll @ 0x14046BED8 (PspMapSystemDll.c)
+ *     MmCreatePeb @ 0x14046C0B8 (MmCreatePeb.c)
+ *     MiSnapDriverRange @ 0x14047D810 (MiSnapDriverRange.c)
+ *     MmResetDriverPaging @ 0x14047DB58 (MmResetDriverPaging.c)
+ *     MiCaptureImageExceptionValues @ 0x14048218C (MiCaptureImageExceptionValues.c)
+ *     MiConstructLoaderEntry @ 0x140482408 (MiConstructLoaderEntry.c)
+ *     MmLoadSystemImage @ 0x140482B2C (MmLoadSystemImage.c)
+ *     MmLockPagableDataSection @ 0x1404830A8 (MmLockPagableDataSection.c)
+ *     ExpCovGetSectionInfo @ 0x140483984 (ExpCovGetSectionInfo.c)
+ *     MiLockdownSections @ 0x1404839E0 (MiLockdownSections.c)
+ *     PiUpdateDriverDBCache @ 0x14049D278 (PiUpdateDriverDBCache.c)
+ *     PnpPrepareDriverLoading @ 0x14049D6CC (PnpPrepareDriverLoading.c)
+ *     PiLookupInDDBCache @ 0x14049D88C (PiLookupInDDBCache.c)
+ *     IopLoadDriver @ 0x14049E388 (IopLoadDriver.c)
+ *     DbgkMapViewOfSection @ 0x1404CAD90 (DbgkMapViewOfSection.c)
+ *     MiGetSystemAddressForImage @ 0x1404CCEDC (MiGetSystemAddressForImage.c)
+ *     RtlpWow64CreateUserStack @ 0x1404D29B8 (RtlpWow64CreateUserStack.c)
+ *     MiUseLargeDriverPage @ 0x1404ED9A4 (MiUseLargeDriverPage.c)
+ *     RtlCreateUserStack @ 0x14050B698 (RtlCreateUserStack.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x14051C6F4 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     MmGetSectionRange @ 0x14052FA70 (MmGetSectionRange.c)
+ *     MiUnlockDriverCode @ 0x14054480C (MiUnlockDriverCode.c)
+ *     IopUnloadDriver @ 0x140544E28 (IopUnloadDriver.c)
+ *     MiProtectSystemImage @ 0x140553CC4 (MiProtectSystemImage.c)
+ *     DbgkSendSystemDllMessages @ 0x140617E98 (DbgkSendSystemDllMessages.c)
+ *     DbgkpPostFakeThreadMessages @ 0x14061874C (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140618B20 (DbgkpPostModuleMessages.c)
+ *     IopIsNotNativeDriverImage @ 0x140621D68 (IopIsNotNativeDriverImage.c)
+ *     ApiSetpFindImageSection @ 0x1406BBF8C (ApiSetpFindImageSection.c)
+ *     VfCheckImageCompliance @ 0x140703D18 (VfCheckImageCompliance.c)
+ *     CcInitializeBcbProfiler @ 0x140777304 (CcInitializeBcbProfiler.c)
+ *     sub_140778D9C @ 0x140778D9C (sub_140778D9C.c)
+ *     IopInitializeBuiltinDriver @ 0x14079BB9C (IopInitializeBuiltinDriver.c)
+ *     MiLockPagableSections @ 0x1407A41E0 (MiLockPagableSections.c)
+ *     MiReloadBootLoadedDrivers @ 0x1407A57F0 (MiReloadBootLoadedDrivers.c)
+ *     MiLocateKernelSections @ 0x1407B16B4 (MiLocateKernelSections.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x140014260 (RtlImageNtHeaderEx.c)
+ */
+
+PIMAGE_NT_HEADERS __stdcall RtlImageNtHeader(PVOID BaseAddress)
+{
+  PIMAGE_NT_HEADERS NtHeader; // [rsp+38h] [rbp+10h] BYREF
+
+  NtHeader = 0LL;
+  RtlImageNtHeaderEx(1u, BaseAddress, 0LL, &NtHeader);
+  return NtHeader;
+}

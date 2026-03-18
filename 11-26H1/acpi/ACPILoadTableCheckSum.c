@@ -1,0 +1,63 @@
+/*
+ * XREFs of ACPILoadTableCheckSum @ 0x1400DD30C
+ * Callers:
+ *     ACPIInitializeDDB @ 0x1400DB558 (ACPIInitializeDDB.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x14003D714 (WPP_RECORDER_SF_qD.c)
+ *     ACPIAssert @ 0x140055C48 (ACPIAssert.c)
+ */
+
+char __fastcall ACPILoadTableCheckSum(_BYTE *a1, unsigned int a2, int a3, int a4)
+{
+  __int64 v4; // rdi
+  char v5; // si
+  char v6; // bl
+  _BYTE *v7; // rbp
+  __int64 v8; // rax
+  int v9; // edx
+  char v11; // [rsp+30h] [rbp-28h]
+
+  v4 = a2;
+  v5 = (char)a1;
+  v6 = 0;
+  v7 = a1;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v11 = (_BYTE)a1 + a2 - 1;
+    LOBYTE(a2) = 4;
+    WPP_RECORDER_SF_qD(
+      WPP_GLOBAL_Control->DeviceExtension,
+      a2,
+      6,
+      27,
+      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+      (char)a1,
+      v11);
+  }
+  if ( (_DWORD)v4 )
+  {
+    v8 = v4;
+    do
+    {
+      v6 += *v7++;
+      --v8;
+    }
+    while ( v8 );
+  }
+  ACPIAssert(v6 == 0, 8194, a3, a4);
+  if ( !v6 )
+    return 1;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v9) = 2;
+    WPP_RECORDER_SF_qD(
+      WPP_GLOBAL_Control->DeviceExtension,
+      v9,
+      6,
+      28,
+      (__int64)&WPP_e79443b43ad4376df2974b199a0dd63c_Traceguids,
+      v5,
+      v5 + v4 - 1);
+  }
+  return 0;
+}

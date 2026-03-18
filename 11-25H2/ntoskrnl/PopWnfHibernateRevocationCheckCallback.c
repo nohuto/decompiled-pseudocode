@@ -1,0 +1,20 @@
+/*
+ * XREFs of PopWnfHibernateRevocationCheckCallback @ 0x140747210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoDisableSleepStates @ 0x140740BA0 (PoDisableSleepStates.c)
+ *     PopValidateWinresume @ 0x140746DC4 (PopValidateWinresume.c)
+ */
+
+__int64 PopWnfHibernateRevocationCheckCallback()
+{
+  _BYTE v1[8]; // [rsp+20h] [rbp-18h] BYREF
+  __int64 v2; // [rsp+28h] [rbp-10h] BYREF
+
+  v1[0] = 0;
+  PopValidateWinresume(v1);
+  if ( v1[0] )
+    PoDisableSleepStates(4, 8, &v2);
+  return 0LL;
+}

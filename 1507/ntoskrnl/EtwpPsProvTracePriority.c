@@ -1,0 +1,69 @@
+/*
+ * XREFs of EtwpPsProvTracePriority @ 0x14025E094
+ * Callers:
+ *     EtwTracePriority @ 0x14025D438 (EtwTracePriority.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140014D70 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1401716B0 (__security_check_cookie.c)
+ */
+
+NTSTATUS __fastcall EtwpPsProvTracePriority(__int64 a1, int a2, int a3, int a4)
+{
+  int v4; // edx
+  int v5; // edx
+  int v6; // edx
+  const EVENT_DESCRIPTOR *v7; // rdx
+  NTSTATUS result; // eax
+  int v9; // [rsp+40h] [rbp-9h] BYREF
+  int v10; // [rsp+44h] [rbp-5h] BYREF
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+50h] [rbp+7h] BYREF
+  int *v12; // [rsp+60h] [rbp+17h]
+  __int64 v13; // [rsp+68h] [rbp+1Fh]
+  int *v14; // [rsp+70h] [rbp+27h]
+  __int64 v15; // [rsp+78h] [rbp+2Fh]
+  int *v16; // [rsp+80h] [rbp+37h]
+  __int64 v17; // [rsp+88h] [rbp+3Fh]
+  int v18; // [rsp+C0h] [rbp+77h] BYREF
+  int v19; // [rsp+C8h] [rbp+7Fh] BYREF
+
+  v19 = a4;
+  v18 = a3;
+  v4 = a2 - 1328;
+  if ( v4 )
+  {
+    v5 = v4 - 1;
+    if ( v5 )
+    {
+      v6 = v5 - 2;
+      if ( v6 )
+      {
+        if ( v6 != 1 )
+          return result;
+        v7 = (const EVENT_DESCRIPTOR *)&ThreadIoPriorityChange;
+      }
+      else
+      {
+        v7 = (const EVENT_DESCRIPTOR *)&ThreadPagePriorityChange;
+      }
+    }
+    else
+    {
+      v7 = (const EVENT_DESCRIPTOR *)&ThreadCpuBasePriorityChange;
+    }
+  }
+  else
+  {
+    v7 = &ThreadCpuPriorityChange;
+  }
+  v10 = *(_DWORD *)(a1 + 1576);
+  *(_QWORD *)&UserData.Size = 4LL;
+  UserData.Ptr = (ULONGLONG)&v10;
+  v9 = *(_DWORD *)(a1 + 1584);
+  v12 = &v9;
+  v14 = &v18;
+  v16 = &v19;
+  v13 = 4LL;
+  v15 = 1LL;
+  v17 = 1LL;
+  return EtwWriteEx(EtwpPsProvRegHandle, v7, 0LL, 1u, 0LL, 0LL, 4u, &UserData);
+}

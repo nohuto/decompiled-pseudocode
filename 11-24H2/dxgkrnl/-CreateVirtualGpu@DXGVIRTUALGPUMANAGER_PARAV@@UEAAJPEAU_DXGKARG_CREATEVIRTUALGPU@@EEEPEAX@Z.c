@@ -1,0 +1,240 @@
+/*
+ * XREFs of ?CreateVirtualGpu@DXGVIRTUALGPUMANAGER_PARAV@@UEAAJPEAU_DXGKARG_CREATEVIRTUALGPU@@EEEPEAX@Z @ 0x140215DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x140009940 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x14000C9A0 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEBD@Z @ 0x14000F940 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEBD@Z.c)
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x140022B90 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x140022D5C (--0DXGAUTOPUSHLOCKEXCLUSIVE@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140022E00 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x14002D590 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x14002DF18 (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     __security_check_cookie @ 0x1400A1BC0 (__security_check_cookie.c)
+ *     ?GetTargetPartitionId@DXGVIRTUALGPUMANAGER@@QEAAJIPEAI@Z @ 0x14020D950 (-GetTargetPartitionId@DXGVIRTUALGPUMANAGER@@QEAAJIPEAI@Z.c)
+ *     ?ReportState@DXGK_VIRTUAL_GPU@@QEAAXXZ @ 0x14020E9C4 (-ReportState@DXGK_VIRTUAL_GPU@@QEAAXXZ.c)
+ *     ??0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z @ 0x140215CC8 (--0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x14029C800 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
+__int64 __fastcall DXGVIRTUALGPUMANAGER_PARAV::CreateVirtualGpu(
+        DXGVIRTUALGPUMANAGER_PARAV *this,
+        struct _DXGKARG_CREATEVIRTUALGPU *a2,
+        char a3,
+        char a4,
+        unsigned __int8 a5,
+        void *a6)
+{
+  char v8; // r12
+  int TargetPartitionId; // ebx
+  struct DXGPROCESS *Current; // r15
+  ULONG PartitionId; // edx
+  NTSTATUS v12; // eax
+  __int64 v13; // rdi
+  _DWORD *v14; // r14
+  NTSTATUS v16; // eax
+  _QWORD *v17; // rdi
+  DXGK_VIRTUAL_GPU_PARAV *v18; // rax
+  DXGK_VIRTUAL_GPU_PARAV *v19; // rax
+  DXGK_VIRTUAL_GPU_PARAV *v20; // rbx
+  ULONG v21; // r12d
+  char *v22; // r15
+  char *v23; // rsi
+  _QWORD *v24; // rax
+  __int64 v25; // rcx
+  __int64 v26; // rdx
+  __int64 v27; // r8
+  unsigned int v30; // [rsp+54h] [rbp-ACh] BYREF
+  unsigned int v31; // [rsp+58h] [rbp-A8h] BYREF
+  PVOID Object; // [rsp+60h] [rbp-A0h] BYREF
+  struct _LUID Luid; // [rsp+68h] [rbp-98h] BYREF
+  HANDLE Handle; // [rsp+70h] [rbp-90h]
+  struct DXGADAPTER *v35; // [rsp+78h] [rbp-88h]
+  _BYTE v36[32]; // [rsp+80h] [rbp-80h] BYREF
+  __int64 v37; // [rsp+A0h] [rbp-60h] BYREF
+  int v38; // [rsp+A8h] [rbp-58h]
+  const wchar_t *v39; // [rsp+B0h] [rbp-50h]
+  unsigned int *v40; // [rsp+B8h] [rbp-48h]
+  int v41; // [rsp+C0h] [rbp-40h]
+  unsigned int *v42; // [rsp+C8h] [rbp-38h]
+  int v43; // [rsp+D0h] [rbp-30h]
+  __int64 v44; // [rsp+D8h] [rbp-28h]
+  int v45; // [rsp+E0h] [rbp-20h]
+  __int64 v46; // [rsp+E8h] [rbp-18h]
+  __int128 v47; // [rsp+F0h] [rbp-10h]
+  __int128 v48; // [rsp+100h] [rbp+0h]
+  _BYTE v49[144]; // [rsp+110h] [rbp+10h] BYREF
+
+  Handle = a6;
+  v8 = 0;
+  v35 = *(struct DXGADAPTER **)(*((_QWORD *)this + 4) + 16LL);
+  COREADAPTERACCESS::COREADAPTERACCESS((COREADAPTERACCESS *)v49, v35, 0LL);
+  TargetPartitionId = COREADAPTERACCESS::AcquireShared((COREADAPTERACCESS *)v49, 0LL);
+  if ( TargetPartitionId < 0 )
+    goto LABEL_25;
+  Current = DXGPROCESS::GetCurrent();
+  if ( !Current )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 907;
+    DxgkLogInternalTriageEvent(0LL, 262146LL, 0xFFFFFFFFLL, L"pProcess != nullptr", 907LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE((DXGAUTOPUSHLOCKEXCLUSIVE *)v36, (struct _KTHREAD **)this + 5);
+  PartitionId = a2->PartitionId;
+  v31 = 0xFFFF;
+  TargetPartitionId = DXGVIRTUALGPUMANAGER::GetTargetPartitionId(this, PartitionId, &v31);
+  if ( TargetPartitionId < 0 )
+  {
+LABEL_24:
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v36);
+LABEL_25:
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v49);
+    return (unsigned int)TargetPartitionId;
+  }
+  Luid = 0LL;
+  v12 = ZwAllocateLocallyUniqueId(&Luid);
+  v13 = v12;
+  if ( v12 < 0 )
+  {
+    WdLogSingleEntry1(2LL, v12);
+    WdLogGlobalForLineNumber = 922;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000LL,
+      0xFFFFFFFFLL,
+      L"Failed to allocate LUID for virtual GPU, Status: 0x%I64x",
+      v13,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+LABEL_9:
+    DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v36);
+    COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v49);
+    return (unsigned int)v13;
+  }
+  *((_DWORD *)Current + 102) |= 0x40u;
+  v14 = (_DWORD *)operator new(0x10uLL, 0x4B677844u, 256LL);
+  if ( !v14 )
+  {
+    WdLogSingleEntry0(6LL);
+    WdLogGlobalForLineNumber = 943;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262145LL,
+      0xFFFFFFFFLL,
+      L"Not enough memory to allocate the DXGSHAREDVGPUOBJECT for handle tracking.",
+      943LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    LODWORD(v13) = -1073741801;
+    goto LABEL_9;
+  }
+  Object = 0LL;
+  v16 = ObReferenceObjectByHandle(Handle, 0x20000u, (POBJECT_TYPE)IoFileObjectType, 0, &Object, 0LL);
+  v17 = Object;
+  TargetPartitionId = v16;
+  if ( v16 < 0 )
+  {
+    WdLogSingleEntry1(3LL, v16);
+    WdLogGlobalForLineNumber = 952;
+    goto LABEL_22;
+  }
+  v8 = 1;
+  if ( *((_QWORD *)Object + 4) )
+  {
+    WdLogSingleEntry0(2LL);
+    WdLogGlobalForLineNumber = 961;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000LL,
+      0xFFFFFFFFLL,
+      L"The device file handle to bind to the new vGPU has already been bound to some other object.",
+      961LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    TargetPartitionId = -1073741816;
+    goto LABEL_22;
+  }
+  v18 = (DXGK_VIRTUAL_GPU_PARAV *)operator new(0x188uLL, 0x4B677844u, 64LL);
+  if ( !v18
+    || (v19 = DXGK_VIRTUAL_GPU_PARAV::DXGK_VIRTUAL_GPU_PARAV(v18, *((struct ADAPTER_RENDER **)this + 4)),
+        (v20 = v19) == 0LL) )
+  {
+    WdLogSingleEntry0(6LL);
+    WdLogGlobalForLineNumber = 969;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262145LL,
+      0xFFFFFFFFLL,
+      L"Not enough memory to allocate the DXGK_VIRTUAL_GPU_PARAV for vGPU tracking.",
+      969LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    TargetPartitionId = -1073741801;
+LABEL_22:
+    DXGQUOTAALLOCATOR<256,1835156294>::operator delete(v14);
+    if ( v8 )
+      ObfDereferenceObject(v17);
+    goto LABEL_24;
+  }
+  v21 = v31;
+  *(_QWORD *)(*((_QWORD *)this + 3) + 8LL * v31) = v19;
+  *((_QWORD *)v19 + 11) = Current;
+  v22 = (char *)this + 72;
+  *((_BYTE *)v19 + 152) = 1;
+  *((_BYTE *)v19 + 153) = a3;
+  *((_BYTE *)v19 + 154) = a4;
+  *((_BYTE *)v19 + 155) = a5;
+  *((_DWORD *)v19 + 6) = v21;
+  *(_OWORD *)((char *)v19 + 36) = DXGK_VRD_UMED_CLASID;
+  *(struct _LUID *)((char *)v19 + 28) = Luid;
+  *(_QWORD *)v14 = v35;
+  v14[2] = v21;
+  ++*((_DWORD *)this + 4);
+  DXGPUSHLOCK::AcquireExclusive((DXGVIRTUALGPUMANAGER_PARAV *)((char *)this + 72));
+  v23 = (char *)this + 104;
+  v24 = (_QWORD *)((char *)v20 + 120);
+  v25 = *(_QWORD *)v23;
+  if ( *(char **)(*(_QWORD *)v23 + 8LL) != v23 )
+    __fastfail(3u);
+  *v24 = v25;
+  *((_QWORD *)v20 + 16) = v23;
+  *(_QWORD *)(v25 + 8) = v24;
+  *(_QWORD *)v23 = v24;
+  *((_QWORD *)v22 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v22, 0LL);
+  KeLeaveCriticalRegion();
+  v30 = 0x2000;
+  v37 = 0LL;
+  v39 = L"GuestIoSpaceSizeInMb";
+  v38 = 288;
+  v40 = &v30;
+  v41 = 67108868;
+  v42 = &v30;
+  v43 = 4;
+  v44 = 0LL;
+  v45 = 0;
+  v46 = 0LL;
+  v47 = 0LL;
+  v48 = 0LL;
+  if ( (int)RtlQueryRegistryValuesEx(2LL, L"GraphicsDrivers\\Paravirtualization", &v37, 0LL, 0LL) >= 0 )
+    *((_QWORD *)DXGGLOBAL::GetGlobal() + 216) = (unsigned __int64)v30 << 20;
+  a2->PartitionId = v21;
+  v17[4] = v14;
+  *((_QWORD *)v20 + 20) = v17;
+  ObfDereferenceObject(v17);
+  DXGK_VIRTUAL_GPU::ReportState(v20, v26, v27);
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v36);
+  COREADAPTERACCESS::~COREADAPTERACCESS((COREADAPTERACCESS *)v49);
+  return 0LL;
+}

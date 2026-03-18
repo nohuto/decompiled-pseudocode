@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?VerifyPreferredSegmentIsSubset@VIDMM_GLOBAL@@QEAAEU_D3DDDI_SEGMENTPREFERENCE@@K@Z @ 0x1400F68A0
+ * Callers:
+ *     ?ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYNC_OBJECT@@2PEAPEAUVIDMM_ALLOC@@@Z @ 0x1400DD034 (-ProcessDeferredCommand@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_DEFERRED_COMMAND@@PEA_N_N_KPEAU_VIDSCH_SYN.c)
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEBVDXGADAPTERALLOCATION@@PEAX6KE6PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAUVIDMM_CROSSADAPTER_ALLOC@@PEAPEAUVIDMM_GLOBAL_ALLOC@@@Z @ 0x1400E8A9C (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
+ *     ?UpdateAllocationProperty@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_PAGING_QUEUE@@PEAUVIDMM_MULTI_ALLOC@@PEBUVIDMM_UPDATEALLOCPROPERTY@@PEA_K@Z @ 0x14010EF94 (-UpdateAllocationProperty@VIDMM_GLOBAL@@QEAAJPEAUVIDMM_PAGING_QUEUE@@PEAUVIDMM_MULTI_ALLOC@@PEBU.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int8 __fastcall VIDMM_GLOBAL::VerifyPreferredSegmentIsSubset(
+        VIDMM_GLOBAL *this,
+        struct _D3DDDI_SEGMENTPREFERENCE a2,
+        int a3)
+{
+  unsigned int i; // r9d
+  UINT v4; // eax
+  unsigned __int8 v5; // cl
+  int v6; // eax
+
+  for ( i = 0; i < 0x1E; i += 6 )
+  {
+    v4 = (a2.Value >> i) & 0x1F;
+    if ( v4 )
+    {
+      v5 = v4 - 1;
+      v6 = ~a3;
+      if ( _bittest(&v6, v5) )
+        return 0;
+    }
+  }
+  return 1;
+}

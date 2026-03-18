@@ -1,0 +1,56 @@
+/*
+ * XREFs of UsbhTrapFatal_Dbg @ 0x14003A52C
+ * Callers:
+ *     PdoExt @ 0x140004330 (PdoExt.c)
+ *     UsbhHubDispatchPortEvent @ 0x140004D00 (UsbhHubDispatchPortEvent.c)
+ *     UsbhHubRunPortChangeQueue @ 0x140005E40 (UsbhHubRunPortChangeQueue.c)
+ *     UsbhQueryPortState @ 0x140007140 (UsbhQueryPortState.c)
+ *     UsbhLatchPdo @ 0x1400082B0 (UsbhLatchPdo.c)
+ *     UsbhFdoUrbPdoFilter @ 0x140008670 (UsbhFdoUrbPdoFilter.c)
+ *     UsbhPdoInternalDeviceControl @ 0x1400089B0 (UsbhPdoInternalDeviceControl.c)
+ *     FdoExt @ 0x140009560 (FdoExt.c)
+ *     UsbhFdoReturnPortStatus @ 0x140009E40 (UsbhFdoReturnPortStatus.c)
+ *     UsbhPostInterrupt @ 0x14000C308 (UsbhPostInterrupt.c)
+ *     UsbhUnlatchPdo @ 0x14000D730 (UsbhUnlatchPdo.c)
+ *     UsbhDecPdoIoCount @ 0x14000F830 (UsbhDecPdoIoCount.c)
+ *     UsbhDerefPdo @ 0x1400102D0 (UsbhDerefPdo.c)
+ *     UsbhIncPdoIoCount @ 0x140015EF0 (UsbhIncPdoIoCount.c)
+ *     UsbhIdleIrp_NoIrp @ 0x14001634C (UsbhIdleIrp_NoIrp.c)
+ *     UsbhRefPdo @ 0x140017710 (UsbhRefPdo.c)
+ *     UsbhRefPdoDeviceHandle @ 0x140017B50 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhSyncSendCommandToDevice @ 0x140019B80 (UsbhSyncSendCommandToDevice.c)
+ *     UsbhBusUnlatchPdo @ 0x14001CCB0 (UsbhBusUnlatchPdo.c)
+ *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x140020DC0 (UsbhIoctlGetDescriptorFromNodeConnection.c)
+ *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1400220E0 (UsbhIoctlGetNodeConnectionInfoExApi.c)
+ *     UsbhGetNodeConnectionInfoForPdo @ 0x140023560 (UsbhGetNodeConnectionInfoForPdo.c)
+ *     UsbhReferenceListRemove @ 0x14002B02C (UsbhReferenceListRemove.c)
+ *     UsbhIdleIrp_Event @ 0x140033A44 (UsbhIdleIrp_Event.c)
+ *     UsbhPdoPnp @ 0x140034700 (UsbhPdoPnp.c)
+ *     UsbhIdleIrp_CB_Pending @ 0x1400365C8 (UsbhIdleIrp_CB_Pending.c)
+ *     UsbhPeekNextPdoIdleIrp @ 0x140037650 (UsbhPeekNextPdoIdleIrp.c)
+ *     UsbhPeekNextPdoWakeIrp @ 0x140038720 (UsbhPeekNextPdoWakeIrp.c)
+ *     UsbhGetDeviceHandle @ 0x140039684 (UsbhGetDeviceHandle.c)
+ *     UsbhHubProcessTimeoutObj @ 0x140039CB0 (UsbhHubProcessTimeoutObj.c)
+ *     UsbhGetTtDeviceHandle @ 0x1400477AC (UsbhGetTtDeviceHandle.c)
+ *     UsbhResetPortTimerDpc @ 0x140048500 (UsbhResetPortTimerDpc.c)
+ *     UsbhAddDevice @ 0x14004F060 (UsbhAddDevice.c)
+ *     UsbhAsyncStop @ 0x14004F794 (UsbhAsyncStop.c)
+ *     Usbh_FDO_WaitPnpRemove @ 0x140051500 (Usbh_FDO_WaitPnpRemove.c)
+ *     Usbh_FDO_WaitPnpRestart @ 0x1400515A0 (Usbh_FDO_WaitPnpRestart.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x140051940 (Usbh_FDO_WaitPnpStop.c)
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x140051AB0 (Usbh_FDO_WaitPnpStop_CB.c)
+ *     UsbhPdoPnp_RemoveDevice @ 0x14005D220 (UsbhPdoPnp_RemoveDevice.c)
+ *     UsbhPdoPnp_StopDevice @ 0x14005D3D0 (UsbhPdoPnp_StopDevice.c)
+ *     UsbhIdleExIrp_IdleReady @ 0x14005DC64 (UsbhIdleExIrp_IdleReady.c)
+ *     UsbhIdleIrp_CB_Canceled @ 0x14005DDE8 (UsbhIdleIrp_CB_Canceled.c)
+ *     UsbhIdleIrp_WaitWorker @ 0x14005DEE4 (UsbhIdleIrp_WaitWorker.c)
+ * Callees:
+ *     USBHUB_TriggerCallBacks @ 0x14004EEC4 (USBHUB_TriggerCallBacks.c)
+ */
+
+void __fastcall __noreturn UsbhTrapFatal_Dbg(__int64 a1, ULONG_PTR a2)
+{
+  if ( a1 )
+    USBHUB_TriggerCallBacks(a1);
+  KeBugCheckEx(0xFEu, 8uLL, 4uLL, a2, 0LL);
+}

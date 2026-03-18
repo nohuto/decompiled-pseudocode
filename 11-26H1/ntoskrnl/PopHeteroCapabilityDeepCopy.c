@@ -1,0 +1,39 @@
+/*
+ * XREFs of PopHeteroCapabilityDeepCopy @ 0x140B1B81C
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140A9DA10 (PopInitializeHeteroProcessors.c)
+ *     PopIsSimulatedArchitecturalHeteroPresent @ 0x140B54530 (PopIsSimulatedArchitecturalHeteroPresent.c)
+ * Callees:
+ *     memmove @ 0x14073D480 (memmove.c)
+ */
+
+__int64 __fastcall PopHeteroCapabilityDeepCopy(__int64 a1, int *a2)
+{
+  unsigned int v2; // esi
+  unsigned int v5; // ebp
+  unsigned int v6; // r14d
+
+  v2 = 0;
+  if ( a2 )
+  {
+    if ( a1 )
+    {
+      if ( a2 != (int *)a1 )
+      {
+        v5 = *a2;
+        if ( *a2 == *(_DWORD *)a1 )
+        {
+          v6 = a2[1];
+          if ( v6 == *(_DWORD *)(a1 + 4) )
+          {
+            memmove(*(void **)(a1 + 8), *((const void **)a2 + 1), v5);
+            memmove(*(void **)(a1 + 16), *((const void **)a2 + 2), 2LL * v6);
+            v2 = v5 + v6 * (4 * v5 + 2);
+            memmove((void *)(a1 + 24), a2 + 6, 4LL * v6 * v5);
+          }
+        }
+      }
+    }
+  }
+  return v2;
+}

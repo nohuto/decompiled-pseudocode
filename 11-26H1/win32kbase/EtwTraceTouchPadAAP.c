@@ -1,0 +1,16 @@
+/*
+ * XREFs of EtwTraceTouchPadAAP @ 0x14013CE70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qqqtq_EtwWriteTransfer @ 0x14013CEAC (McTemplateK0qqqtq_EtwWriteTransfer.c)
+ */
+
+__int64 __fastcall EtwTraceTouchPadAAP(int a1, int a2, int a3, char a4, char a5)
+{
+  __int64 result; // rax
+
+  if ( (Microsoft_Windows_Win32kEnableBits & 0x8000000) != 0 )
+    return McTemplateK0qqqtq_EtwWriteTransfer(a1, a2, a3, a1, a2, a3, a4, a5);
+  return result;
+}

@@ -1,0 +1,126 @@
+/*
+ * XREFs of MmMapHotPatchTablePage @ 0x14064307C
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A4E64 (PsDispatchIumService.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x1402146B4 (MiGetAnyMultiplexedVm.c)
+ *     MiLockPageTableInternal @ 0x140237700 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C500 (MiUnlockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x140242E40 (KeYieldProcessorEx.c)
+ *     MiLockWorkingSetShared @ 0x140283C90 (MiLockWorkingSetShared.c)
+ *     MiGetSystemRegionType @ 0x140284870 (MiGetSystemRegionType.c)
+ *     MiUpdatePageFileHighInPte @ 0x14028563C (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x1402857A0 (MiSwizzleInvalidPte.c)
+ *     MiMakeValidPte @ 0x1402CF2B0 (MiMakeValidPte.c)
+ *     MiUnlockProtoPoolPage @ 0x1402DAEF0 (MiUnlockProtoPoolPage.c)
+ *     MiLockProtoPoolPage @ 0x1402DD200 (MiLockProtoPoolPage.c)
+ *     MiGetContainingPageTable @ 0x1402E1270 (MiGetContainingPageTable.c)
+ *     MiSetPfnPteFrame @ 0x1402E15A0 (MiSetPfnPteFrame.c)
+ *     MiUnlockPageTableInternal @ 0x1403195C0 (MiUnlockPageTableInternal.c)
+ *     MiLockNestedPageAtDpcInline @ 0x140348870 (MiLockNestedPageAtDpcInline.c)
+ */
+
+__int64 __fastcall MmMapHotPatchTablePage(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
+{
+  unsigned __int64 v4; // rbp
+  char *AnyMultiplexedVm; // r12
+  int v8; // r15d
+  __int64 v9; // rdi
+  int v10; // r13d
+  _QWORD *v11; // r14
+  __int64 v12; // r9
+  __int64 v13; // rsi
+  unsigned __int64 ContainingPageTable; // rdi
+  __int64 v15; // rdi
+  __int64 v16; // rcx
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  __int64 v19; // r9
+  __int16 v20; // r10
+  char v21; // r11
+  char v22; // al
+  __int64 v24; // rax
+  __int64 v25; // rcx
+  unsigned __int8 v26; // dl
+  int v27; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v28; // [rsp+28h] [rbp-40h]
+  unsigned __int8 v29; // [rsp+78h] [rbp+10h] BYREF
+  int v30; // [rsp+88h] [rbp+20h]
+
+  v30 = a4;
+  v4 = 0LL;
+  v29 = 0;
+  v28 = 0LL;
+  AnyMultiplexedVm = 0LL;
+  v8 = 1;
+  if ( a4 != 2 )
+    v8 = 3;
+  v9 = (a1 >> 9) & 0x7FFFFFFFF8LL;
+  if ( (unsigned int)MiGetSystemRegionType(a1) == 1 )
+  {
+    v10 = 1;
+    v11 = (_QWORD *)(*(_QWORD *)(a3 + 288)
+                   + 8
+                   * ((v9
+                     - 8LL * ((*(_DWORD *)(a3 + 64) >> 12) + (unsigned int)((*(_DWORD *)(a3 + 64) & 0xFFF) != 0))
+                     - ((*(_QWORD *)(a3 + 48) >> 9) & 0x7FFFFFFFF8LL)) >> 3));
+    v28 = MiLockProtoPoolPage((unsigned __int64)v11, &v29);
+  }
+  else
+  {
+    v10 = 0;
+    AnyMultiplexedVm = MiGetAnyMultiplexedVm(1);
+    v11 = (_QWORD *)(v9 - 0x98000000000LL);
+    v4 = (((unsigned __int64)(v9 - 0x98000000000LL) >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    v29 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
+    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v4, 0, v12);
+  }
+  v13 = 48 * a2 - 0x220000000000LL;
+  v27 = 0;
+  while ( _interlockedbittestandset64((volatile signed __int32 *)(v13 + 24), 0x3FuLL) )
+  {
+    do
+      KeYieldProcessorEx(&v27);
+    while ( *(__int64 *)(v13 + 24) < 0 );
+  }
+  *(_QWORD *)(v13 + 24) &= ~0x4000000000000000uLL;
+  *(_BYTE *)(v13 + 34) |= 0x10u;
+  ContainingPageTable = MiGetContainingPageTable((unsigned __int64)v11);
+  MiSetPfnPteFrame(48 * a2 - 0x220000000000LL, ContainingPageTable);
+  v15 = 48 * ContainingPageTable - 0x220000000000LL;
+  MiLockNestedPageAtDpcInline(v15);
+  *(_QWORD *)(v15 + 24) ^= (*(_QWORD *)(v15 + 24) ^ (*(_QWORD *)(v15 + 24) + 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
+  _InterlockedAnd64((volatile signed __int64 *)(v15 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  v16 = 32LL;
+  if ( v30 != 2 )
+    v16 = 96LL;
+  v17 = MiSwizzleInvalidPte(v16);
+  *(_QWORD *)(v13 + 16) = MiUpdatePageFileHighInPte(v17, v18);
+  *(_QWORD *)(v13 + 8) = v11;
+  if ( v10 )
+  {
+    *(_QWORD *)(v13 + 40) |= 0x8000000000000000uLL;
+    v22 = *(_BYTE *)(v13 + 34) & 0xFB;
+    *(_QWORD *)(v13 + 24) ^= (*(_QWORD *)(v13 + 24) ^ (*(_QWORD *)(v13 + 24) - 1LL)) & 0x3FFFFFFFFFFFFFFFLL;
+    *(_BYTE *)(v13 + 34) = v21 | v22;
+  }
+  else
+  {
+    *(_WORD *)(v13 + 32) += v20;
+  }
+  _InterlockedAnd64((volatile signed __int64 *)(v13 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  if ( v10 )
+  {
+    v24 = MiSwizzleInvalidPte(32 * (v19 | ((a2 & 0xFFFFFFFFFFLL) << 7) | 0x40));
+    v25 = v28;
+    v26 = v29;
+    *v11 = v24;
+    return MiUnlockProtoPoolPage(v25, v26);
+  }
+  else
+  {
+    *v11 = MiMakeValidPte((unsigned __int64)v11, a2, v8 | 0x20000000u);
+    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v4);
+    return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v29);
+  }
+}

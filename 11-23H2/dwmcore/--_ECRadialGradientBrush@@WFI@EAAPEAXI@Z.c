@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_ECRadialGradientBrush@@WFI@EAAPEAXI@Z @ 0x18011BA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall CRadialGradientBrush::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return CRadialGradientBrush::`scalar deleting destructor'((CRadialGradientBrush *)(a1 - 88), a2);
+}

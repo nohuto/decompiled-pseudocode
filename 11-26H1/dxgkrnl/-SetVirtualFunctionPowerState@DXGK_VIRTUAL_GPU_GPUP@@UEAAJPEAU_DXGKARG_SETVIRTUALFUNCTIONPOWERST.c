@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?SetVirtualFunctionPowerState@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAU_DXGKARG_SETVIRTUALFUNCTIONPOWERSTATE@@@Z @ 0x14021F4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiSetVirtualFunctionPowerState@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_SETVIRTUALFUNCTIONPOWERSTATE@@@Z @ 0x14021B590 (-DdiSetVirtualFunctionPowerState@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_SETVIRTUALFUNCTIONPOWERSTATE@.c)
+ */
+
+__int64 __fastcall DXGK_VIRTUAL_GPU_GPUP::SetVirtualFunctionPowerState(
+        ADAPTER_RENDER **this,
+        struct _DXGKARG_SETVIRTUALFUNCTIONPOWERSTATE *a2)
+{
+  return ADAPTER_RENDER::DdiSetVirtualFunctionPowerState(this[1], a2);
+}

@@ -1,0 +1,82 @@
+/*
+ * XREFs of UsbDevice_CompleteConfigureEndpointRequest @ 0x140039788
+ * Callers:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x14002A1C8 (UsbDevice_QueueConfigureEndpointEvent.c)
+ * Callees:
+ *     Debug_FreAssertMsg @ 0x140019AC8 (Debug_FreAssertMsg.c)
+ *     WPP_RECORDER_SF_dqqd @ 0x140030EB4 (WPP_RECORDER_SF_dqqd.c)
+ *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1400312F0 (McTemplateK0ppqqqq_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall @ 0x140058B00 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall UsbDevice_CompleteConfigureEndpointRequest(__int64 *a1)
+{
+  __int64 v2; // rdx
+  __int64 v3; // r8
+  __int64 v4; // r9
+  int v5; // edi
+  __int64 v6; // rbp
+  _BYTE *v7; // rcx
+  bool v8; // zf
+  unsigned int v9; // esi
+  int v11; // [rsp+20h] [rbp-48h]
+  int v12; // [rsp+28h] [rbp-40h]
+  __int64 v13; // [rsp+30h] [rbp-38h]
+  __int64 v14; // [rsp+38h] [rbp-30h]
+  int v15; // [rsp+40h] [rbp-28h]
+
+  Debug_FreAssertMsg(
+    (__int64)"Unexpected WdfRequest value",
+    a1[56] != 0,
+    (int)"onecore\\drivers\\wdm\\usb\\usb3\\usbxhci\\sys\\usbdevice.c",
+    2753);
+  v5 = *((_DWORD *)a1 + 114);
+  v6 = a1[56];
+  if ( v5 == 259 )
+    v5 = -1073741823;
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    v14 = *a1;
+    v13 = a1[56];
+    WPP_RECORDER_SF_dqqd(*(_QWORD *)(a1[1] + 72), *((unsigned __int8 *)a1 + 143), v3, v4, v11);
+  }
+  v7 = (_BYTE *)a1[75];
+  if ( v7 )
+  {
+    *((_BYTE *)a1 + 578) = v7[80];
+    *((_BYTE *)a1 + 579) = v7[81];
+    *((_BYTE *)a1 + 580) = v7[82];
+  }
+  v8 = *((_BYTE *)a1 + 440) == 0;
+  v9 = v5;
+  *((_DWORD *)a1 + 146) = v5;
+  if ( !v8 )
+    v9 = 0;
+  *((_DWORD *)a1 + 152) = 0;
+  a1[56] = 0LL;
+  a1[75] = 0LL;
+  *((_DWORD *)a1 + 114) = -1073741823;
+  *((_BYTE *)a1 + 440) = 0;
+  *((_BYTE *)a1 + 460) = 0;
+  if ( ((__int64)WPP_MAIN_CB.Queue.Wcb.BufferChainingDpc & 2) != 0 )
+  {
+    v15 = v5;
+    LODWORD(v14) = *((unsigned __int8 *)a1 + 580);
+    LODWORD(v13) = *((unsigned __int8 *)a1 + 579);
+    v12 = *((unsigned __int8 *)a1 + 578);
+    McTemplateK0ppqqqq_EtwWriteTransfer(
+      *((unsigned __int8 *)a1 + 579),
+      v2,
+      v3,
+      *(_QWORD *)(a1[1] + 8),
+      *a1,
+      v12,
+      v13,
+      v14,
+      v15);
+  }
+  return (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, _QWORD))(WdfFunctions_01033 + 2104))(
+           WdfDriverGlobals,
+           v6,
+           v9);
+}

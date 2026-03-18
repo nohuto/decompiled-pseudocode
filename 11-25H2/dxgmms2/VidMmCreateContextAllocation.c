@@ -1,0 +1,28 @@
+/*
+ * XREFs of VidMmCreateContextAllocation @ 0x1400403F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAUVIDMM_CONTEXT_ALLOC@@@Z @ 0x1400E736C (-CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@.c)
+ */
+
+__int64 __fastcall VidMmCreateContextAllocation(
+        VIDMM_GLOBAL *this,
+        unsigned int a2,
+        struct _DXGK_CREATECONTEXTALLOCATIONFLAGS a3,
+        struct DXGDEVICE *a4,
+        struct DXGCONTEXT *a5,
+        void *a6,
+        unsigned __int64 a7,
+        unsigned int a8,
+        unsigned int a9,
+        unsigned int a10,
+        struct _D3DDDI_SEGMENTPREFERENCE a11,
+        int a12,
+        struct _DXGK_ALLOCATIONINFOFLAGS a13,
+        struct VIDMM_CONTEXT_ALLOC **a14)
+{
+  struct _DXGK_SEGMENTBANKPREFERENCE v15; // [rsp+58h] [rbp-20h]
+
+  return VIDMM_GLOBAL::CreateContextAllocation(this, a3, a2, a4, a5, a6, a7, a8, a9, a10, a11, v15, a13, a14);
+}

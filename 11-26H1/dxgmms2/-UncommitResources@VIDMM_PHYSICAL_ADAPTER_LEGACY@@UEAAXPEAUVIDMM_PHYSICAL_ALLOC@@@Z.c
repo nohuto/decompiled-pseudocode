@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?UncommitResources@VIDMM_PHYSICAL_ADAPTER_LEGACY@@UEAAXPEAUVIDMM_PHYSICAL_ALLOC@@@Z @ 0x1400F8F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x1400F8F4C (-MarkResourcesForEviction@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z.c)
+ */
+
+void __fastcall VIDMM_PHYSICAL_ADAPTER_LEGACY::UncommitResources(
+        VIDMM_PHYSICAL_ADAPTER_LEGACY *this,
+        VIDMM_SEGMENT **a2)
+{
+  VIDMM_SEGMENT::MarkResourcesForEviction(a2[8], (struct VIDMM_PHYSICAL_ALLOC_LEGACY *)a2);
+}

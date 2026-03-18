@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??1AUTO_CCD_TOPOLOGY_CLEAR_RESERVED@@QEAA@XZ @ 0x14033BAA4
+ * Callers:
+ *     ?CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z @ 0x140269C0C (-CollectPathsFromLegacyVidPn@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJPEAVDMMVIDPN@@@Z.c)
+ *     ?CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z @ 0x14033D450 (-CollectActivePaths@CCD_BTL_ACTIVE_PATHS_COLLECTOR@@QEAAJ_N@Z.c)
+ * Callees:
+ *     ?ClearReservedFields@CCD_TOPOLOGY@@QEAAXXZ @ 0x14033C114 (-ClearReservedFields@CCD_TOPOLOGY@@QEAAXXZ.c)
+ */
+
+void __fastcall AUTO_CCD_TOPOLOGY_CLEAR_RESERVED::~AUTO_CCD_TOPOLOGY_CLEAR_RESERVED(CCD_TOPOLOGY **this)
+{
+  CCD_TOPOLOGY *v1; // rcx
+
+  v1 = *this;
+  if ( v1 )
+    CCD_TOPOLOGY::ClearReservedFields(v1);
+}

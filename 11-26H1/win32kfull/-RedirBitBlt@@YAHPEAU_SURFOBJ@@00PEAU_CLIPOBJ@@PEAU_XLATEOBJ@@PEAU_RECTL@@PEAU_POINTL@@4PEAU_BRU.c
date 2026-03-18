@@ -1,0 +1,98 @@
+/*
+ * XREFs of ?RedirBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x14030D0F0
+ * Callers:
+ *     ?RedirCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x14030D350 (-RedirCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ * Callees:
+ *     ??0DEVLOCKOBJ@@QEAA@AEAVPDEVOBJ@@@Z @ 0x14006BE08 (--0DEVLOCKOBJ@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ??1DEVLOCKOBJ@@QEAA@XZ @ 0x14006EFE0 (--1DEVLOCKOBJ@@QEAA@XZ.c)
+ *     EngBitBlt @ 0x1400DBF60 (EngBitBlt.c)
+ *     ??0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z @ 0x14020F95C (--0MARK_ACCDRV_NOTIFICATION@@QEAA@AEAVPDEVOBJ@@PEAU_SURFOBJ@@@Z.c)
+ *     ??1MARK_ACCDRV_NOTIFICATION@@QEAA@XZ @ 0x140213410 (--1MARK_ACCDRV_NOTIFICATION@@QEAA@XZ.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x14030C8B4 (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ *     ??0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z @ 0x14030CE9C (--0REDIROPEN@@QEAA@PEAU_SURFOBJ@@@Z.c)
+ *     ??1REDIROPEN@@QEAA@XZ @ 0x14030CEE8 (--1REDIROPEN@@QEAA@XZ.c)
+ *     _guard_dispatch_icall @ 0x14034FDB0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall RedirBitBlt(
+        struct _SURFOBJ *a1,
+        struct _SURFOBJ *a2,
+        struct _SURFOBJ *a3,
+        CLIPOBJ *pco,
+        XLATEOBJ *pxlo,
+        RECTL *prclTrg,
+        POINTL *pptlSrc,
+        POINTL *pptlMask,
+        BRUSHOBJ *pbo,
+        POINTL *pptlBrush,
+        ROP4 a11)
+{
+  ROP4 rop4; // r13d
+  struct _DISPSURF *i; // rbx
+  __int64 v17; // rdi
+  struct _SURFOBJ *DevBitmap; // rax
+  __int64 v19; // r11
+  unsigned int v20; // ebx
+  __int64 v22; // [rsp+68h] [rbp-A0h] BYREF
+  _BYTE v23[8]; // [rsp+70h] [rbp-98h] BYREF
+  struct SURFACE *v24; // [rsp+78h] [rbp-90h] BYREF
+  struct SURFACE *v25; // [rsp+80h] [rbp-88h] BYREF
+  struct SURFACE *v26[2]; // [rsp+88h] [rbp-80h] BYREF
+  _BYTE v27[160]; // [rsp+98h] [rbp-70h] BYREF
+  __int64 HDEV; // [rsp+168h] [rbp+60h] BYREF
+
+  REDIROPEN::REDIROPEN((REDIROPEN *)v26, a1);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v25, a2);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v24, a3);
+  rop4 = a11;
+  if ( a1 )
+  {
+    if ( ((__int64)a1[1].hsurf & 0x800) != 0 )
+    {
+      HDEV = UserGetHDEV();
+      if ( HDEV )
+      {
+        DEVLOCKOBJ::DEVLOCKOBJ((DEVLOCKOBJ *)v27, (struct PDEVOBJ *)&HDEV);
+        if ( (*(_DWORD *)(HDEV + 40) & 0x20000) != 0 )
+        {
+          for ( i = **(struct _DISPSURF ***)(HDEV + 1784); i; i = *(struct _DISPSURF **)i )
+          {
+            v17 = *((_QWORD *)i + 6);
+            v22 = v17;
+            if ( v17
+              && (*(_DWORD *)(v17 + 1808) & 0x8000000) != 0
+              && (*(_DWORD *)(v17 + 2112) & 0x8000) != 0
+              && *(_QWORD *)(*(_QWORD *)(v17 + 1776) + 216LL) )
+            {
+              MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
+                (MARK_ACCDRV_NOTIFICATION *)v23,
+                (struct PDEVOBJ *)&v22,
+                a1);
+              GetDevBitmap(i, a2);
+              DevBitmap = GetDevBitmap(i, a1);
+              (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _SURFOBJ *, CLIPOBJ *, XLATEOBJ *, RECTL *, POINTL *, POINTL *, BRUSHOBJ *, POINTL *, ROP4))(*(_QWORD *)(v17 + 1776) + 216LL))(
+                DevBitmap,
+                v19,
+                a3,
+                pco,
+                pxlo,
+                prclTrg,
+                pptlSrc,
+                pptlMask,
+                pbo,
+                pptlBrush,
+                rop4);
+              MARK_ACCDRV_NOTIFICATION::~MARK_ACCDRV_NOTIFICATION((MARK_ACCDRV_NOTIFICATION *)v23);
+            }
+          }
+        }
+        DEVLOCKOBJ::~DEVLOCKOBJ((DEVLOCKOBJ *)v27);
+      }
+    }
+  }
+  v20 = EngBitBlt(a1, a2, a3, pco, pxlo, prclTrg, pptlSrc, pptlMask, pbo, pptlBrush, rop4);
+  REDIROPEN::~REDIROPEN(&v24);
+  REDIROPEN::~REDIROPEN(&v25);
+  REDIROPEN::~REDIROPEN(v26);
+  return v20;
+}

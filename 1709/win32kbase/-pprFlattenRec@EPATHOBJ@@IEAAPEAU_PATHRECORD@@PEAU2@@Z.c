@@ -1,0 +1,156 @@
+/*
+ * XREFs of ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C001D300
+ * Callers:
+ *     ?bFlatten@EPATHOBJ@@QEAAHXZ @ 0x1C001CAB0 (-bFlatten@EPATHOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C001CB04 (-newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z.c)
+ *     ?bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C001D690 (-bNext@BEZIER32@@QEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C001D810 (-bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
+ *     __security_check_cookie @ 0x1C00A7160 (__security_check_cookie.c)
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C00F1430 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEA_J@Z @ 0x1C00F18E0 (-vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEA_J@Z.c)
+ */
+
+struct _PATHRECORD *__fastcall EPATHOBJ::pprFlattenRec(EPATHOBJ *this, struct _PATHRECORD *a2)
+{
+  struct _PATHRECORD *v4; // rdi
+  unsigned int *v5; // r12
+  struct _PATHRECORD **v6; // rax
+  char *v7; // rsi
+  __int64 v8; // rdx
+  struct _POINTFIX v9; // rax
+  struct _POINTFIX *v10; // r14
+  __int64 *v11; // r13
+  __int64 v12; // rax
+  struct _POINTFIX *v13; // rdx
+  int v14; // eax
+  __int64 v15; // rax
+  struct _PATHRECORD *v16; // r8
+  __int64 v17; // rax
+  struct _PATHRECORD *v19; // rcx
+  __int64 i; // rdx
+  struct _POINTFIX v21; // rax
+  unsigned int v22; // [rsp+20h] [rbp-E0h] BYREF
+  struct _PATHRECORD *v23; // [rsp+28h] [rbp-D8h] BYREF
+  struct _PATHRECORD *v24; // [rsp+30h] [rbp-D0h]
+  _BYTE v25[168]; // [rsp+40h] [rbp-C0h] BYREF
+  int v26; // [rsp+E8h] [rbp-18h]
+  struct _POINTFIX v27[4]; // [rsp+F0h] [rbp-10h] BYREF
+
+  v24 = 0LL;
+  if ( (unsigned int)EPATHOBJ::newpathrec(this, &v23, &v22, 0x7FFFFFFFu) != 1 )
+    return 0LL;
+  v4 = v23;
+  *((_QWORD *)v23 + 1) = *((_QWORD *)a2 + 1);
+  v5 = (unsigned int *)((char *)v4 + 20);
+  *((_DWORD *)v4 + 5) = 0;
+  *((_DWORD *)v4 + 4) = *((_DWORD *)a2 + 4) & 0xFFFFFFEF;
+  v6 = (struct _PATHRECORD **)*((_QWORD *)v4 + 1);
+  if ( v6 )
+    *v6 = v4;
+  else
+    *(_QWORD *)(*((_QWORD *)this + 1) + 32LL) = v4;
+  if ( (*((_DWORD *)a2 + 4) & 1) != 0 )
+  {
+    v10 = (struct _POINTFIX *)((char *)a2 + 24);
+    v7 = (char *)a2 + 56;
+    *((_QWORD *)v4 + (*v5)++ + 3) = *((_QWORD *)a2 + 3);
+  }
+  else
+  {
+    v7 = (char *)a2 + 24;
+    v8 = 1LL;
+    v27[0] = *(struct _POINTFIX *)(*((_QWORD *)a2 + 1)
+                                 + 8LL * (unsigned int)(*(_DWORD *)(*((_QWORD *)a2 + 1) + 20LL) - 1)
+                                 + 24);
+    do
+    {
+      if ( v7 >= (char *)a2 + 8 * *((unsigned int *)a2 + 5) + 24 )
+      {
+        a2 = *(struct _PATHRECORD **)a2;
+        v7 = (char *)a2 + 24;
+      }
+      v9 = *(struct _POINTFIX *)v7;
+      v7 += 8;
+      v27[v8++] = v9;
+    }
+    while ( v8 < 4 );
+LABEL_9:
+    v10 = v27;
+  }
+LABEL_10:
+  --*((_DWORD *)this + 1);
+  v11 = gpeqErrorLow;
+  if ( BEZIER32::bInit((BEZIER32 *)v25, v10, 0LL) )
+  {
+    v26 = 1;
+  }
+  else
+  {
+    v26 = 0;
+    BEZIER64::vInit((BEZIER64 *)v25, v10, 0LL, v11);
+  }
+  while ( *v5 < v22 )
+  {
+LABEL_13:
+    ++*((_DWORD *)this + 1);
+    v12 = *v5;
+    *v5 = v12 + 1;
+    v13 = (struct _POINTFIX *)((char *)v4 + 8 * v12 + 24);
+    if ( v26 )
+      v14 = BEZIER32::bNext((BEZIER32 *)v25, v13);
+    else
+      v14 = BEZIER64::bNext((BEZIER64 *)v25, v13);
+    if ( !v14 )
+    {
+      v15 = ((__int64)a2 + 8LL * *((unsigned int *)a2 + 5) + 24 - (__int64)v7) >> 3;
+      if ( !(_DWORD)v15 )
+      {
+        v16 = v4;
+        goto LABEL_18;
+      }
+      if ( (unsigned int)v15 >= 3 )
+      {
+        v10 = (struct _POINTFIX *)(v7 - 8);
+        v7 += 24;
+        goto LABEL_10;
+      }
+      v7 -= 8;
+      for ( i = 0LL; i < 4; ++i )
+      {
+        if ( v7 >= (char *)a2 + 8 * *((unsigned int *)a2 + 5) + 24 )
+        {
+          a2 = *(struct _PATHRECORD **)a2;
+          v7 = (char *)a2 + 24;
+        }
+        v21 = *(struct _POINTFIX *)v7;
+        v7 += 8;
+        v27[i] = v21;
+      }
+      goto LABEL_9;
+    }
+  }
+  *((_DWORD *)v4 + 4) &= 0xFFFFFFF5;
+  *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 8LL) = (char *)v4 + 8 * *v5 + 24;
+  if ( (unsigned int)EPATHOBJ::newpathrec(this, &v23, &v22, 0x7FFFFFFFu) == 1 )
+  {
+    v19 = v23;
+    *((_QWORD *)v23 + 1) = v4;
+    v5 = (unsigned int *)((char *)v19 + 20);
+    *(_QWORD *)v4 = v19;
+    v4 = v19;
+    *((_DWORD *)v19 + 5) = 0;
+    *((_DWORD *)v19 + 4) = *((_DWORD *)a2 + 4) & 0xFFFFFFEA;
+    goto LABEL_13;
+  }
+  v16 = v24;
+LABEL_18:
+  *(_QWORD *)(*(_QWORD *)(*((_QWORD *)this + 1) + 24LL) + 8LL) = (char *)v4 + 8 * *((unsigned int *)v4 + 5) + 24;
+  v17 = *(_QWORD *)a2;
+  *(_QWORD *)v4 = *(_QWORD *)a2;
+  if ( v17 )
+    *(_QWORD *)(v17 + 8) = v4;
+  else
+    *(_QWORD *)(*((_QWORD *)this + 1) + 40LL) = v4;
+  return v16;
+}

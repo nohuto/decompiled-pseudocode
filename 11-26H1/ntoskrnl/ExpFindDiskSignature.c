@@ -1,0 +1,95 @@
+/*
+ * XREFs of ExpFindDiskSignature @ 0x140A9578C
+ * Callers:
+ *     ExpConvertSignatureName @ 0x14083B0C4 (ExpConvertSignatureName.c)
+ *     ExpCreateOutputEFI @ 0x140A94368 (ExpCreateOutputEFI.c)
+ *     ExpTranslateEfiPath @ 0x140A9512C (ExpTranslateEfiPath.c)
+ * Callees:
+ *     swprintf_s @ 0x14053B0E0 (swprintf_s.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x140723AB0 (ZwQuerySystemInformation.c)
+ *     ExpGetPartitionTableInfo @ 0x140A9594C (ExpGetPartitionTableInfo.c)
+ *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
+{
+  __int64 result; // rax
+  wchar_t *Pool2; // rbp
+  unsigned int v8; // esi
+  int PartitionTableInfo; // edi
+  __int64 i; // rdx
+  _DWORD *v11; // rbx
+  __int64 v12; // rcx
+  bool v13; // zf
+  _DWORD *P; // [rsp+20h] [rbp-88h]
+  __int128 v19; // [rsp+48h] [rbp-60h] BYREF
+  __int64 v20; // [rsp+58h] [rbp-50h]
+
+  P = 0LL;
+  v20 = 0LL;
+  v19 = 0LL;
+  result = ZwQuerySystemInformation(7LL, (__int64)&v19);
+  if ( (int)result >= 0 )
+  {
+    Pool2 = (wchar_t *)ExAllocatePool2(0x40uLL);
+    if ( Pool2 )
+    {
+      v8 = 0;
+      if ( !(_DWORD)v19 )
+        goto LABEL_9;
+      do
+      {
+        swprintf_s(Pool2, 0x26uLL, L"\\Device\\Harddisk%lu\\Partition0", v8, P);
+        PartitionTableInfo = ExpGetPartitionTableInfo(Pool2);
+        if ( PartitionTableInfo >= 0 )
+        {
+          if ( *P == (a6 == 1) && (a6 == 1 || P[2] == *(_DWORD *)a1) )
+          {
+            for ( i = 0LL; (unsigned int)i < P[1]; i = (unsigned int)(i + 1) )
+            {
+              v11 = &P[36 * i];
+              if ( a6 == 1 )
+              {
+                v12 = *((_QWORD *)v11 + 12) - *a1;
+                if ( !v12 )
+                  v12 = *((_QWORD *)v11 + 13) - a1[1];
+                v13 = v12 == 0;
+              }
+              else
+              {
+                v13 = v11[18] == *a2;
+              }
+              if ( v13 )
+              {
+                *a2 = v11[18];
+                *a3 = v8;
+                if ( a4 )
+                  *a4 = *((_QWORD *)v11 + 7);
+                if ( a5 )
+                  *a5 = *((_QWORD *)v11 + 8);
+                ExFreePoolWithTag(P, 0);
+                goto LABEL_7;
+              }
+            }
+          }
+          ExFreePoolWithTag(P, 0);
+        }
+        ++v8;
+      }
+      while ( v8 < (unsigned int)v19 );
+      if ( PartitionTableInfo >= 0 )
+LABEL_9:
+        PartitionTableInfo = -1073741766;
+LABEL_7:
+      ExFreePoolWithTag(Pool2, 0);
+      return (unsigned int)PartitionTableInfo;
+    }
+    else
+    {
+      return 3221225626LL;
+    }
+  }
+  return result;
+}

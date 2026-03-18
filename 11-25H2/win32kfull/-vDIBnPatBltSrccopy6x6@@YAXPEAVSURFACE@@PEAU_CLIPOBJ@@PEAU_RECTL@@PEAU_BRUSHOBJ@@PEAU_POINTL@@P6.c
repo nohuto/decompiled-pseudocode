@@ -1,0 +1,143 @@
+/*
+ * XREFs of ?vDIBnPatBltSrccopy6x6@@YAXPEAVSURFACE@@PEAU_CLIPOBJ@@PEAU_RECTL@@PEAU_BRUSHOBJ@@PEAU_POINTL@@P6AXPEAU_PATBLTFRAME@@H@Z@Z @ 0x140315154
+ * Callers:
+ *     EngBitBlt @ 0x1400815E0 (EngBitBlt.c)
+ * Callees:
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x14006EF0C (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1400F596C (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?vPatCpyRect1_6x6@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1403154C0 (-vPatCpyRect1_6x6@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     __security_check_cookie @ 0x1403423B0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140342490 (_guard_dispatch_icall.c)
+ *     memset_0 @ 0x140342900 (memset_0.c)
+ */
+
+void __fastcall vDIBnPatBltSrccopy6x6(
+        struct SURFACE *a1,
+        struct _CLIPOBJ *a2,
+        struct _RECTL *a3,
+        struct _BRUSHOBJ *a4,
+        struct _POINTL *a5)
+{
+  LONG x; // r8d
+  LONG y; // ecx
+  int v11; // ebx
+  unsigned int v12; // ecx
+  LONG v13; // r8d
+  LONG v14; // r9d
+  LONG v15; // edx
+  LONG v16; // r10d
+  LONG *v17; // rax
+  LONG left; // r8d
+  LONG right; // eax
+  LONG top; // ecx
+  LONG bottom; // edx
+  _QWORD v22[2]; // [rsp+38h] [rbp-1F0h] BYREF
+  int v23; // [rsp+48h] [rbp-1E0h]
+  _BYTE v24[12]; // [rsp+4Ch] [rbp-1DCh] BYREF
+  int v25; // [rsp+58h] [rbp-1D0h]
+  int v26; // [rsp+5Ch] [rbp-1CCh]
+  __int128 v27; // [rsp+60h] [rbp-1C8h]
+  struct _CLIPOBJ *v28; // [rsp+70h] [rbp-1B8h]
+  struct _RECTL *v29; // [rsp+78h] [rbp-1B0h]
+  void (__fastcall *v30)(struct _PATBLTFRAME *, int); // [rsp+80h] [rbp-1A8h]
+  unsigned int v31; // [rsp+90h] [rbp-198h] BYREF
+  __m128i rclBounds; // [rsp+94h] [rbp-194h] BYREF
+
+  v28 = a2;
+  v29 = a3;
+  v30 = vPatCpyRect1_6x6;
+  memset(v24, 0, sizeof(v24));
+  v27 = 0LL;
+  memset_0(&v31, 0, 0x144uLL);
+  v22[0] = *((_QWORD *)a1 + 10);
+  v23 = *((_DWORD *)a1 + 22);
+  v22[1] = *((_QWORD *)a4[1].pvRbrush + 4);
+  x = a5->x;
+  if ( a5->x < 0 )
+    v25 = 5 - ~x % 6;
+  else
+    v25 = x % 6;
+  y = a5->y;
+  if ( y < 0 )
+    v26 = 5 - ~y % 6;
+  else
+    v26 = y % 6;
+  if ( a2 && a2->iDComplexity )
+  {
+    if ( a2->iDComplexity == 1 )
+    {
+      rclBounds = (__m128i)a2->rclBounds;
+      left = _mm_cvtsi128_si32(rclBounds);
+      if ( left <= a3->left )
+      {
+        left = a3->left;
+        rclBounds.m128i_i32[0] = a3->left;
+      }
+      right = rclBounds.m128i_i32[2];
+      if ( rclBounds.m128i_i32[2] >= a3->right )
+      {
+        right = a3->right;
+        rclBounds.m128i_i32[2] = right;
+      }
+      top = rclBounds.m128i_i32[1];
+      if ( rclBounds.m128i_i32[1] <= a3->top )
+      {
+        top = a3->top;
+        rclBounds.m128i_i32[1] = top;
+      }
+      bottom = rclBounds.m128i_i32[3];
+      if ( rclBounds.m128i_i32[3] >= a3->bottom )
+      {
+        bottom = a3->bottom;
+        rclBounds.m128i_i32[3] = bottom;
+      }
+      if ( left < right && top < bottom )
+      {
+        *(_QWORD *)&v24[4] = &rclBounds;
+        vPatCpyRect1_6x6((struct _PATBLTFRAME *)v22, 1);
+      }
+    }
+    else if ( a2->iDComplexity == 3 )
+    {
+      XCLIPOBJ::cEnumStart((XCLIPOBJ *)a2, 0, 0, 4u, 0x14u);
+      do
+      {
+        v11 = XCLIPOBJ::bEnum((XCLIPOBJ *)a2, 0x144u, (char *)&v31, 0LL);
+        if ( v31 - 1 <= 0x13 )
+        {
+          v12 = 0;
+          if ( v31 )
+          {
+            v13 = a3->left;
+            v14 = a3->right;
+            v15 = a3->top;
+            v16 = a3->bottom;
+            v17 = &rclBounds.m128i_i32[1];
+            do
+            {
+              if ( *(v17 - 1) < v13 )
+                *(v17 - 1) = v13;
+              if ( v17[1] > v14 )
+                v17[1] = v14;
+              if ( *v17 < v15 )
+                *v17 = v15;
+              if ( v17[2] > v16 )
+                v17[2] = v16;
+              ++v12;
+              v17 += 4;
+            }
+            while ( v12 < v31 );
+          }
+          *(_QWORD *)&v24[4] = &rclBounds;
+          vPatCpyRect1_6x6((struct _PATBLTFRAME *)v22, v31);
+        }
+      }
+      while ( v11 );
+    }
+  }
+  else
+  {
+    *(_QWORD *)&v24[4] = a3;
+    vPatCpyRect1_6x6((struct _PATBLTFRAME *)v22, 1);
+  }
+}

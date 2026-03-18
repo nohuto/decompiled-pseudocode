@@ -1,0 +1,27 @@
+/*
+ * XREFs of VfZwQueryDirectoryFile_Entry @ 0x140B948C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViZwCheckApcRequirement @ 0x140B94C28 (ViZwCheckApcRequirement.c)
+ *     ViZwCheckUnicodeString @ 0x140B94CE0 (ViZwCheckUnicodeString.c)
+ *     ViZwCheckVirtualAddress @ 0x140B94D78 (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140B94DC4 (ViZwShouldCheck.c)
+ */
+
+__int64 __fastcall VfZwQueryDirectoryFile_Entry(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 result; // rax
+
+  result = ViZwShouldCheck(a1, a2, a3);
+  if ( (_DWORD)result )
+  {
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 64), *(_QWORD *)a1);
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 56), *(_QWORD *)a1);
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 48), *(_QWORD *)a1);
+    ViZwCheckVirtualAddress(*(_QWORD *)(a1 + 40), *(_QWORD *)a1);
+    ViZwCheckUnicodeString(*(_QWORD *)(a1 + 16), *(_QWORD *)a1);
+    return ViZwCheckApcRequirement(*(_QWORD *)a1);
+  }
+  return result;
+}

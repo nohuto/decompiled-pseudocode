@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierExReleaseResourceLite @ 0x140AC0980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierExReleaseResourceLite()
+{
+  return ((__int64 (*)(void))pXdvExReleaseResourceLite)();
+}

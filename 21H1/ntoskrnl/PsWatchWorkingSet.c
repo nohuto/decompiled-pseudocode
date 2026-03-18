@@ -1,0 +1,98 @@
+/*
+ * XREFs of PsWatchWorkingSet @ 0x14057BAD0
+ * Callers:
+ *     KiPageFault @ 0x140403C00 (KiPageFault.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x1402486B0 (KeLeaveCriticalRegionThread.c)
+ *     KeSignalGate @ 0x1403247B0 (KeSignalGate.c)
+ */
+
+signed __int64 __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
+{
+  struct _KTHREAD *CurrentThread; // rbx
+  signed __int64 result; // rax
+  __int64 v7; // r9
+  unsigned __int64 v8; // rdi
+  signed __int32 v9; // ecx
+  unsigned __int8 CurrentIrql; // si
+  signed __int32 v11; // eax
+  int v12; // ecx
+  signed __int32 v13; // ett
+  unsigned __int64 v14; // rax
+  signed __int64 v15; // rdx
+  __int64 v16; // rcx
+  signed __int32 v17; // eax
+  bool v18; // zf
+
+  CurrentThread = KeGetCurrentThread();
+  result = (signed __int64)CurrentThread->ApcState.Process;
+  v7 = *(_QWORD *)(result + 1328);
+  if ( v7 )
+  {
+    v8 = 0x4000000000000000LL;
+    result = 0x8000000000000000uLL;
+    if ( a1 >= 276 )
+      v8 = 0x8000000000000000uLL;
+    _m_prefetchw((const void *)v7);
+    v9 = *(_DWORD *)v7;
+    CurrentIrql = KeGetCurrentIrql();
+    if ( !CurrentIrql )
+      --CurrentThread->KernelApcDisable;
+    if ( (v9 & 1) != 0 )
+      goto LABEL_19;
+    do
+    {
+      result = (unsigned __int16)v9 & 0xFFFE;
+      if ( (unsigned int)result >= 0x800 )
+        break;
+      v11 = v9;
+      v12 = ((unsigned __int16)v9 ^ (unsigned __int16)(v9 + 2)) & 0xFFFE ^ v9;
+      v13 = v11;
+      result = (unsigned int)_InterlockedCompareExchange(
+                               (volatile signed __int32 *)v7,
+                               (v12 ^ (v12 + 0x10000)) & 0x7FFF0000 ^ v12,
+                               v11);
+      v9 = result;
+      if ( v13 == (_DWORD)result )
+        break;
+    }
+    while ( (result & 1) == 0 );
+    if ( (v9 & 1) != 0 || (result = (unsigned __int16)v9 & 0xFFFE, (unsigned int)result >= 0x800) )
+    {
+LABEL_19:
+      _m_prefetchw((const void *)(v7 + 8));
+      v15 = *(_QWORD *)(v7 + 8);
+      if ( v15 != -1 )
+      {
+        do
+        {
+          result = _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 8), v15 + 1, v15);
+          v18 = v15 == result;
+          v15 = result;
+        }
+        while ( !v18 && result != -1 );
+      }
+    }
+    else
+    {
+      v14 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
+      v15 = (unsigned __int16)v9 >> 1;
+      a3 |= 1uLL;
+      if ( a1 >= 276 )
+        a3 = v14;
+      v16 = 3 * v15;
+      *(_QWORD *)(v7 + 8 * v16 + 40) = a2;
+      *(_QWORD *)(v7 + 24 * v15 + 48) = a3;
+      *(_QWORD *)(v7 + 8 * v16 + 56) = *(_QWORD *)&CurrentThread[1].CurrentRunTime;
+      v17 = _InterlockedExchangeAdd((volatile signed __int32 *)v7, 0xFFFF0000);
+      if ( (v17 & 1) != 0 && (v17 & 0x7FFF0000) == 0x10000 )
+        KeSignalGate(v7 + 16, 0LL, a3, (_DWORD *)v7);
+      result = (signed __int64)CurrentThread->WaitBlock[0].SparePtr;
+      if ( result )
+        _InterlockedOr64((volatile signed __int64 *)result, v8);
+    }
+    if ( !CurrentIrql )
+      return (signed __int64)KeLeaveCriticalRegionThread((__int64)CurrentThread, v15, a3, v7);
+  }
+  return result;
+}

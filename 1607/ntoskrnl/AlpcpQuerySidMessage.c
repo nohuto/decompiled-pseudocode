@@ -1,0 +1,29 @@
+/*
+ * XREFs of AlpcpQuerySidMessage @ 0x1403FEF88
+ * Callers:
+ *     NtAlpcQueryInformationMessage @ 0x1404089C0 (NtAlpcQueryInformationMessage.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     AlpcpGetEffectiveTokenMessage @ 0x1403FEECC (AlpcpGetEffectiveTokenMessage.c)
+ *     AlpcpQuerySidToken @ 0x1403FEFF4 (AlpcpQuerySidToken.c)
+ */
+
+__int64 __fastcall AlpcpQuerySidMessage(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
+{
+  __int64 result; // rax
+  unsigned int SidToken; // ebx
+  _BYTE v9[8]; // [rsp+30h] [rbp-68h] BYREF
+  __int64 v10; // [rsp+38h] [rbp-60h] BYREF
+  __int64 v11; // [rsp+40h] [rbp-58h] BYREF
+  PVOID Object; // [rsp+50h] [rbp-48h]
+
+  result = AlpcpGetEffectiveTokenMessage(a1, a2, &v10, (__int64)&v11, v9);
+  if ( (int)result >= 0 )
+  {
+    SidToken = AlpcpQuerySidToken(v10, a3, a4, a5);
+    if ( v9[0] )
+      ObfDereferenceObject(Object);
+    return SidToken;
+  }
+  return result;
+}

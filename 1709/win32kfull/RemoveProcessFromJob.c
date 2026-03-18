@@ -1,0 +1,42 @@
+/*
+ * XREFs of RemoveProcessFromJob @ 0x1C010A0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C01456C0 (memmove.c)
+ */
+
+__int64 __fastcall RemoveProcessFromJob(__int64 a1)
+{
+  __int64 v1; // rbx
+  unsigned int v3; // eax
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  __int64 v6; // r8
+
+  v1 = *(_QWORD *)(a1 + 728);
+  if ( !v1 )
+    return 0LL;
+  v3 = *(_DWORD *)(v1 + 28);
+  v4 = 0LL;
+  if ( !v3 )
+    return 0LL;
+  while ( a1 != *(_QWORD *)(*(_QWORD *)(v1 + 40) + 8 * v4) )
+  {
+    v4 = (unsigned int)(v4 + 1);
+    if ( (unsigned int)v4 >= v3 )
+      return 0LL;
+  }
+  *(_QWORD *)(a1 + 728) = 0LL;
+  memmove(
+    (void *)(*(_QWORD *)(v1 + 40) + 8 * v4),
+    (const void *)(*(_QWORD *)(v1 + 40) + 8 * v4 + 8),
+    8LL * (unsigned int)(*(_DWORD *)(v1 + 28) - v4 - 1));
+  if ( (*(_DWORD *)(v1 + 28))-- == 1 )
+  {
+    Win32FreePool(*(_QWORD *)(v1 + 40), v5, v6);
+    *(_QWORD *)(v1 + 40) = 0LL;
+    *(_DWORD *)(v1 + 32) = 0;
+  }
+  return 1LL;
+}

@@ -1,0 +1,53 @@
+/*
+ * XREFs of bFToL @ 0x1C00038EC
+ * Callers:
+ *     vConvertXformToMatrix @ 0x1C0001B20 (vConvertXformToMatrix.c)
+ *     efSin @ 0x1C0003A40 (efSin.c)
+ *     ?bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z @ 0x1C0003B50 (-bInverse@EXFORMOBJ@@QEAAHAEAVMATRIX@@@Z.c)
+ *     bCvtPts1 @ 0x1C0007EC4 (bCvtPts1.c)
+ *     ?bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z @ 0x1C000B300 (-bMultiply@EXFORMOBJ@@QEAAHPEAVMATRIX@@0K@Z.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0039250 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C0152214 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0157938 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C0157A10 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vMakeIso@DC@@QEAAXXZ @ 0x1C015F7EC (-vMakeIso@DC@@QEAAXXZ.c)
+ *     bCvtPts @ 0x1C023607C (bCvtPts.c)
+ *     bCvtVts @ 0x1C023623C (bCvtVts.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall bFToL(float a1, int *a2, unsigned int a3)
+{
+  signed int v4; // r9d
+  unsigned int v5; // r10d
+  __int64 v6; // rax
+  __int64 v7; // rax
+  __int64 v8; // rdx
+  __int64 v9; // rdx
+  int v10; // ecx
+
+  v4 = (unsigned __int8)(SLODWORD(a1) >> 23) + ((a3 >> 1) & 4 | 0xFFFFFF8A);
+  v5 = 1;
+  if ( v4 > 40 )
+  {
+    return 0;
+  }
+  else
+  {
+    v6 = LODWORD(a1) & 0x7FFFFF | 0x800000LL;
+    if ( v4 < 0 )
+      v7 = v6 >> -(char)v4;
+    else
+      v7 = v6 << v4;
+    v8 = v7 + 0x80000000LL;
+    if ( (a3 & 1) != 0 )
+      v8 = v7;
+    v9 = v8 >> 32;
+    v10 = -(int)v9;
+    if ( a1 >= 0.0 )
+      v10 = v9;
+    *a2 = v10;
+  }
+  return v5;
+}

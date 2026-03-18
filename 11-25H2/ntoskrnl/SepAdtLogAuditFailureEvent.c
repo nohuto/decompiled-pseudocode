@@ -1,0 +1,62 @@
+/*
+ * XREFs of SepAdtLogAuditFailureEvent @ 0x140782114
+ * Callers:
+ *     SepAdtLogAuditRecord @ 0x1403D67CC (SepAdtLogAuditRecord.c)
+ *     SepAuditFailed @ 0x140854DA0 (SepAuditFailed.c)
+ * Callees:
+ *     SepAdtLogAuditRecord @ 0x1403D67CC (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ */
+
+__int64 __fastcall SepAdtLogAuditFailureEvent(unsigned int a1, char a2)
+{
+  __int64 v3; // rdi
+  unsigned __int32 v4; // edx
+  unsigned __int8 *v5; // r8
+  __int64 v6; // rcx
+  _DWORD Src[2]; // [rsp+20h] [rbp-E0h] BYREF
+  int v9; // [rsp+28h] [rbp-D8h]
+  int v10; // [rsp+30h] [rbp-D0h]
+  int v11; // [rsp+34h] [rbp-CCh]
+  _DWORD v12[258]; // [rsp+38h] [rbp-C8h]
+
+  v3 = a1;
+  memset_0(Src, 0, 0x418uLL);
+  if ( !SepAdtAuditFailureEventLogged || a2 || (unsigned int)SepAdtAuditFailureCount >= 0x32 )
+  {
+    SepAdtAuditFailureEventLogged = 1;
+    v4 = _InterlockedExchange(&SepAdtAuditFailureCount, 0);
+    v5 = (unsigned __int8 *)SeLocalSystemSid;
+    Src[0] = 1;
+    v10 = 524390;
+    Src[1] = 521;
+    v11 = 2;
+    if ( a2 )
+    {
+      v11 = 18;
+LABEL_7:
+      v12[8 * v9] = 4;
+      v12[8 * v9 + 1] = 4 * v5[1] + 8;
+      *(_QWORD *)&v12[8 * v9++ + 6] = v5;
+      v12[8 * v9] = 1;
+      v12[8 * v9 + 1] = 32;
+      *(_QWORD *)&v12[8 * v9++ + 6] = &SeSubsystemName;
+      v12[8 * v9] = 10;
+      v12[8 * v9 + 1] = 4;
+      *(_QWORD *)&v12[8 * v9++ + 2] = v3;
+      v12[8 * v9] = 3;
+      v6 = (unsigned __int8)SepCrashOnAuditFail;
+      v12[8 * v9 + 1] = 1;
+      *(_QWORD *)&v12[8 * v9++ + 2] = v6;
+      v12[8 * v9] = 3;
+      v12[8 * v9 + 1] = 4;
+      *(_QWORD *)&v12[8 * v9++ + 2] = v4;
+      SepAdtLogAuditRecord(Src);
+      return 0LL;
+    }
+    if ( v4 )
+      goto LABEL_7;
+  }
+  return 0LL;
+}

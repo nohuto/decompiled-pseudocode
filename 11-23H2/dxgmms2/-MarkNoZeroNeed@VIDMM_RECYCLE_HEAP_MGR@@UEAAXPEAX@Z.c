@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?MarkNoZeroNeed@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C00C4590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0005888 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0005C1C (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0005CA4 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?AccessZeroTransition@VIDMM_RECYCLE_RANGE@@QEAAXXZ @ 0x1C00A1C68 (-AccessZeroTransition@VIDMM_RECYCLE_RANGE@@QEAAXXZ.c)
+ *     ?GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ @ 0x1C00A3758 (-GetNextRange@VIDMM_RECYCLE_RANGE@@QEAAPEAV1@XZ.c)
+ */
+
+void __fastcall VIDMM_RECYCLE_HEAP_MGR::MarkNoZeroNeed(VIDMM_RECYCLE_HEAP_MGR *this, _QWORD *a2)
+{
+  VIDMM_RECYCLE_RANGE *i; // rbx
+  _BYTE v4[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v4, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v4);
+  for ( i = (VIDMM_RECYCLE_RANGE *)a2[8]; ; i = VIDMM_RECYCLE_RANGE::GetNextRange(i) )
+  {
+    VIDMM_RECYCLE_RANGE::AccessZeroTransition(i);
+    if ( i == (VIDMM_RECYCLE_RANGE *)a2[9] )
+      break;
+  }
+  if ( v4[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v4);
+}

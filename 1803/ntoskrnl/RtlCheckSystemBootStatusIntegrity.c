@@ -1,0 +1,24 @@
+/*
+ * XREFs of RtlCheckSystemBootStatusIntegrity @ 0x140786CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwPowerInformation @ 0x1401A80A0 (ZwPowerInformation.c)
+ */
+
+NTSTATUS __fastcall RtlCheckSystemBootStatusIntegrity(__int64 a1)
+{
+  _QWORD InputBuffer[3]; // [rsp+30h] [rbp-38h] BYREF
+  char v3; // [rsp+48h] [rbp-20h] BYREF
+  __int64 v4; // [rsp+50h] [rbp-18h]
+  int v5; // [rsp+58h] [rbp-10h]
+
+  if ( !a1 )
+    return -1073741811;
+  v4 = a1;
+  v5 = 1;
+  InputBuffer[1] = 1LL;
+  InputBuffer[0] = 34LL;
+  InputBuffer[2] = &v3;
+  return ZwPowerInformation(SystemPowerStateLogging|0x40, InputBuffer, 0x18u, 0LL, 0);
+}

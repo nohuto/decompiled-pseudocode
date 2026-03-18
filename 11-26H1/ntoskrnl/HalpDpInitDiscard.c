@@ -1,0 +1,18 @@
+/*
+ * XREFs of HalpDpInitDiscard @ 0x140CAF06C
+ * Callers:
+ *     HalpDpInitSystem @ 0x140BEB0C0 (HalpDpInitSystem.c)
+ * Callees:
+ *     HalpGetHotPlugMemoryInfo @ 0x140CAE6B4 (HalpGetHotPlugMemoryInfo.c)
+ */
+
+struct _LIST_ENTRY *__fastcall HalpDpInitDiscard(__int64 a1)
+{
+  struct _LIST_ENTRY *result; // rax
+
+  HalpGetHotPlugMemoryInfo(a1);
+  result = HalpPmuArbiter.ApcState.ApcListHead[0].Blink;
+  if ( HalpPmuArbiter.ApcState.ApcListHead[0].Blink > (struct _LIST_ENTRY *)HalpMaximumPhysicalMemoryAddress )
+    HalpMaximumPhysicalMemoryAddress = (__int64)HalpPmuArbiter.ApcState.ApcListHead[0].Blink;
+  return result;
+}

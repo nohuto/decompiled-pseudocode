@@ -1,0 +1,17 @@
+/*
+ * XREFs of SepAuditingEnabledForSubcategory @ 0x1400150A0
+ * Callers:
+ *     SepAdtPrivilegedServiceAuditAlarm @ 0x140432E10 (SepAdtPrivilegedServiceAuditAlarm.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140432F30 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtClassifyObjectIntoSubCategory @ 0x1406D3E38 (SepAdtClassifyObjectIntoSubCategory.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall SepAuditingEnabledForSubcategory(int a1, char a2, char a3)
+{
+  __int64 v3; // rax
+
+  v3 = (unsigned int)(a1 - 100);
+  return SeAuditingState[2 * v3] && a2 || SeAuditingState[2 * v3 + 1] && a3;
+}

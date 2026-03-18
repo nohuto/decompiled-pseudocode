@@ -1,0 +1,55 @@
+/*
+ * XREFs of PopFxFindDeviceAndAllocateUniqueId @ 0x140461BC4
+ * Callers:
+ *     PoFxPrepareDevice @ 0x1400271E8 (PoFxPrepareDevice.c)
+ * Callees:
+ *     PopFxQueryBiosDeviceName @ 0x14002733C (PopFxQueryBiosDeviceName.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x1401671BC (PopFxFindAcpiDeviceByUniqueId.c)
+ *     ExFreePoolWithTag @ 0x140288010 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PopFxFindDeviceAndAllocateUniqueId(__int64 a1, __int64 **a2)
+{
+  __int64 *v3; // rsi
+  __int64 v5; // r8
+  __int64 v6; // r9
+  unsigned int v7; // ebx
+  __int64 result; // rax
+  int AcpiDeviceByUniqueId; // eax
+  __int128 v10; // xmm0
+  UNICODE_STRING P; // [rsp+20h] [rbp-18h] BYREF
+  __int64 *v12; // [rsp+48h] [rbp+10h] BYREF
+
+  v3 = 0LL;
+  v12 = 0LL;
+  if ( PopFxQueryBiosDeviceName(a1, (__int64)&P) >= 0 )
+  {
+    AcpiDeviceByUniqueId = PopFxFindAcpiDeviceByUniqueId(&P, &v12, v5, v6);
+    v3 = v12;
+    v7 = AcpiDeviceByUniqueId;
+    if ( AcpiDeviceByUniqueId >= 0 )
+    {
+      v10 = *((_OWORD *)v12 + 12);
+      *(_DWORD *)(a1 + 296) |= 0x2000u;
+      v7 = 0;
+      *(_OWORD *)(a1 + 280) = v10;
+    }
+    else if ( AcpiDeviceByUniqueId != -1073741738 )
+    {
+      v7 = 0;
+      *(UNICODE_STRING *)(a1 + 280) = P;
+      goto LABEL_3;
+    }
+    if ( P.Buffer )
+      ExFreePoolWithTag(P.Buffer, 0x4D584650u);
+  }
+  else
+  {
+    v7 = 0;
+    *(_OWORD *)(a1 + 280) = *(_OWORD *)(a1 + 40);
+  }
+LABEL_3:
+  result = v7;
+  *a2 = v3;
+  return result;
+}

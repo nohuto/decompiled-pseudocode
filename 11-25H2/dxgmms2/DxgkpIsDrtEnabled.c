@@ -1,0 +1,12 @@
+/*
+ * XREFs of DxgkpIsDrtEnabled @ 0x14004C074
+ * Callers:
+ *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@KI@Z @ 0x140093E90 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@KI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400562A0 (_guard_dispatch_icall.c)
+ */
+
+__int64 DxgkpIsDrtEnabled()
+{
+  return ((__int64 (*)(void))DxgCoreInterface[6])();
+}

@@ -1,0 +1,67 @@
+/*
+ * XREFs of IopFilterResourceRequirementsCall @ 0x14083168C
+ * Callers:
+ *     IopQueryDeviceResources @ 0x140832B48 (IopQueryDeviceResources.c)
+ * Callees:
+ *     IopQueueThreadIrp @ 0x140253BB0 (IopQueueThreadIrp.c)
+ *     KeWaitForSingleObject @ 0x14029C6A0 (KeWaitForSingleObject.c)
+ *     ObfDereferenceObject @ 0x140309490 (ObfDereferenceObject.c)
+ *     IoAllocateIrp @ 0x14035B6A0 (IoAllocateIrp.c)
+ *     IofCallDriver @ 0x14035D320 (IofCallDriver.c)
+ *     KeInitializeEvent @ 0x140401B80 (KeInitializeEvent.c)
+ *     IoGetAttachedDeviceReference @ 0x14041DD00 (IoGetAttachedDeviceReference.c)
+ *     IovUtilWatermarkIrp @ 0x140482194 (IovUtilWatermarkIrp.c)
+ */
+
+__int64 __fastcall IopFilterResourceRequirementsCall(struct _DEVICE_OBJECT *a1, ULONG_PTR a2, _QWORD *a3)
+{
+  PDEVICE_OBJECT AttachedDeviceReference; // rsi
+  PIRP Irp; // rax
+  IRP *v7; // rbx
+  unsigned int v8; // ebx
+  struct _IO_STACK_LOCATION *CurrentStackLocation; // rax
+  __int128 v11; // [rsp+30h] [rbp-38h] BYREF
+  struct _KEVENT Event; // [rsp+40h] [rbp-28h] BYREF
+
+  memset(&Event, 0, sizeof(Event));
+  v11 = 0LL;
+  AttachedDeviceReference = IoGetAttachedDeviceReference(a1);
+  Irp = IoAllocateIrp(AttachedDeviceReference->StackSize, 0);
+  v7 = Irp;
+  if ( Irp )
+  {
+    IovUtilWatermarkIrp((__int64)Irp, 1LL);
+    if ( a2 )
+    {
+      v7->IoStatus.Status = 0;
+      *((_QWORD *)&v11 + 1) = a2;
+      v7->IoStatus.Information = a2;
+    }
+    else
+    {
+      LODWORD(v11) = -1073741637;
+      v7->IoStatus.Status = -1073741637;
+    }
+    KeInitializeEvent(&Event, SynchronizationEvent, 0);
+    v7->UserIosb = (PIO_STATUS_BLOCK)&v11;
+    v7->UserEvent = &Event;
+    v7->Tail.Overlay.Thread = KeGetCurrentThread();
+    IopQueueThreadIrp((__int64)v7);
+    CurrentStackLocation = v7->Tail.Overlay.CurrentStackLocation;
+    *(_WORD *)&CurrentStackLocation[-1].MajorFunction = 3355;
+    CurrentStackLocation[-1].Parameters.WMI.ProviderId = a2;
+    v8 = IofCallDriver(AttachedDeviceReference, v7);
+    if ( v8 == 259 )
+    {
+      KeWaitForSingleObject(&Event, Executive, 0, 0, 0LL);
+      v8 = v11;
+    }
+    *a3 = *((_QWORD *)&v11 + 1);
+  }
+  else
+  {
+    v8 = -1073741670;
+  }
+  ObfDereferenceObject(AttachedDeviceReference);
+  return v8;
+}

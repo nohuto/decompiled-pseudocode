@@ -1,0 +1,25 @@
+/*
+ * XREFs of VidSchiPropagateCrossAdapterSignal @ 0x1C002ECD0
+ * Callers:
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0001218 (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     VidSchiCompleteSignalSyncObject @ 0x1C0008D60 (VidSchiCompleteSignalSyncObject.c)
+ *     ?VidSchiSignalSyncObjectsFromCpu@@YAJPEAVHwQueueStagingList@@IPEAPEAU_VIDSCH_SYNC_OBJECT@@U_D3DDDICB_SIGNALFLAGS@@PEB_K@Z @ 0x1C00315C0 (-VidSchiSignalSyncObjectsFromCpu@@YAJPEAVHwQueueStagingList@@IPEAPEAU_VIDSCH_SYNC_OBJECT@@U_D3DD.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A670 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall VidSchiPropagateCrossAdapterSignal(_QWORD *a1)
+{
+  _QWORD **v2; // rdi
+  _QWORD *i; // rbx
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(a1[26] + 8LL), &LockHandle);
+  v2 = (_QWORD **)(a1[26] + 16LL);
+  for ( i = *v2; i != v2; i = (_QWORD *)*i )
+  {
+    if ( i - 18 != a1 )
+      ((void (*)(void))i[9])();
+  }
+  KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+}

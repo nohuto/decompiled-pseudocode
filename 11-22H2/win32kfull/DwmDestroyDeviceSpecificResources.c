@@ -1,0 +1,43 @@
+/*
+ * XREFs of DwmDestroyDeviceSpecificResources @ 0x1C00BC9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreDwmHasSoftwareCursor @ 0x1C005B2AC (GreDwmHasSoftwareCursor.c)
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C00CD064 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C00D544C (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ *     ?vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z @ 0x1C0135018 (-vSpDwmDestroyCursorSprites@@YAXPEAUHDEV__@@@Z.c)
+ */
+
+void __fastcall DwmDestroyDeviceSpecificResources(Gre::Base *a1)
+{
+  struct Gre::Base::SESSION_GLOBALS *v2; // rbx
+  struct PDEVOBJ *v3; // rdx
+  HDEV v4; // rax
+  HDEV v5; // rcx
+  HDEV *v6; // rdx
+  __int64 v7; // rcx
+  char v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = Gre::Base::Globals(a1);
+  DWMSPRITELOCK::DWMSPRITELOCK((DWMSPRITELOCK *)&v8, v3, 0, 0);
+  GreAcquireSemaphore(*((_QWORD *)v2 + 9));
+  EtwTraceGreLockAcquireSemaphoreExclusive(L"GreBaseGlobals.hsemDwmState", *((_QWORD *)v2 + 9), 7LL);
+  if ( (unsigned int)GreDwmHasSoftwareCursor((__int64)a1, 1) )
+  {
+    v4 = (HDEV)((char *)a1 + 3504);
+    v5 = (HDEV)*((_QWORD *)a1 + 438);
+    if ( *((Gre::Base **)v5 + 1) != (Gre::Base *)((char *)a1 + 3504) || (v6 = (HDEV *)*((_QWORD *)a1 + 439), *v6 != v4) )
+      __fastfail(3u);
+    *v6 = v5;
+    *((_QWORD *)v5 + 1) = v6;
+    *((_QWORD *)a1 + 439) = (char *)a1 + 3504;
+    *(_QWORD *)v4 = v4;
+    v7 = *((_QWORD *)v2 + 38);
+    if ( *(_QWORD *)(v7 + 104) == v7 + 104 && *(_QWORD *)(v7 + 120) == v7 + 120 )
+      vSpDwmDestroyCursorSprites((HDEV)a1);
+  }
+  EtwTraceGreLockReleaseSemaphore(L"GreBaseGlobals.hsemDwmState");
+  GreReleaseSemaphoreInternal(*((_QWORD *)v2 + 9));
+  DWMSPRITELOCK::~DWMSPRITELOCK((DWMSPRITELOCK *)&v8);
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GCPathData@@MEAAPEAXI@Z @ 0x1800CE360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CPathData@@MEAA@XZ @ 0x1800CE39C (--1CPathData@@MEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x180100BF8 (--3@YAXPEAX_K@Z.c)
+ */
+
+CPathData *__fastcall CPathData::`scalar deleting destructor'(CPathData *this, char a2)
+{
+  CPathData::~CPathData(this);
+  if ( (a2 & 1) != 0 )
+    operator delete(this, 0x50uLL);
+  return this;
+}

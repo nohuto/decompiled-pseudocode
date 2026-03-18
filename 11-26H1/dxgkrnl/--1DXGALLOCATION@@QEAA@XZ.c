@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??1DXGALLOCATION@@QEAA@XZ @ 0x14038F610
+ * Callers:
+ *     ??_GDXGALLOCATION@@QEAAPEAXI@Z @ 0x140045D5C (--_GDXGALLOCATION@@QEAAPEAXI@Z.c)
+ *     ?DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U_D3DDDICB_DESTROYALLOCATION2FLAGS@@@Z @ 0x1402EAC9C (-DestroyAllocations@DXGDEVICE@@QEAAXPEAVDXGRESOURCE@@HPEAVDXGALLOCATION@@PEAVCOREDEVICEACCESS@@U.c)
+ *     ?DestroyDeferredAllocations@DXGDEVICE@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z @ 0x14037B640 (-DestroyDeferredAllocations@DXGDEVICE@@QEAAXPEAVDXGTERMINATIONTRACKER@@@Z.c)
+ * Callees:
+ *     ?UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z @ 0x1401BA9AC (-UnlockParavirtualizedAllocationOnGuest@@YAXPEAVDXGALLOCATION@@E@Z.c)
+ */
+
+void __fastcall DXGALLOCATION::~DXGALLOCATION(DXGALLOCATION *this)
+{
+  if ( (*((_DWORD *)this + 18) & 0x40000) != 0 )
+    UnlockParavirtualizedAllocationOnGuest(this, 1);
+  if ( (*((_DWORD *)this + 18) & 0x100000) != 0 )
+    ExReleaseRundownProtection((PEX_RUNDOWN_REF)(*((_QWORD *)this + 5) + 72LL));
+}

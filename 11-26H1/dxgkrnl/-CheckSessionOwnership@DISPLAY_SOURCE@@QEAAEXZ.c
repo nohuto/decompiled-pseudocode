@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?CheckSessionOwnership@DISPLAY_SOURCE@@QEAAEXZ @ 0x1403EC920
+ * Callers:
+ *     ?CreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IAEBU_D3DKMT_DISPLAYMODE@@PEAVCOREDEVICEACCESS@@@Z @ 0x1401A1558 (-CreateCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@IAEBU_D3DKMT_DISPLAYMODE@@PEAVCOREDEV.c)
+ *     ?DestroyCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@I@Z @ 0x1403EC5CC (-DestroyCddAllocations@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@I@Z.c)
+ *     ?AcquireVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@PEBW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@PEBIIU_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@@Z @ 0x140430DD8 (-AcquireVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@PEBW4_D3DKMT_VIDPNSOURCEOWNER_TYPE.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1404348A4 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DISPLAY_SOURCE::CheckSessionOwnership(DISPLAY_SOURCE *this, __int64 a2, __int64 a3, __int64 a4)
+{
+  char v4; // di
+  int **v5; // rax
+  int v6; // ebx
+
+  v4 = 0;
+  if ( *((_QWORD *)this + 3) )
+  {
+    v5 = (int **)*((_QWORD *)this + 3);
+    v6 = **v5;
+    return v6 == (unsigned int)PsGetCurrentProcessSessionId(*v5, a2, a3, a4);
+  }
+  return v4;
+}

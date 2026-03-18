@@ -1,0 +1,76 @@
+/*
+ * XREFs of ??0CVidSchSubmitData@@QEAA@PEAVADAPTER_RENDER@@_N@Z @ 0x140033350
+ * Callers:
+ *     ?BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAVDXGHWQUEUE@@UtagRECT@@2IPEBU3@PEAVCOREDEVICEACCESS@@@Z @ 0x1401F37FC (-BltFromVm@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAVDXGHWQUEUE@@UtagRECT@@2IPEBU3@PEAVCOREDEVICEACCESS@@.c)
+ *     ?RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCATION@@PEAPEAVDXGHWQUEUE@@@Z @ 0x140297258 (-RenderKmLda@DXGCONTEXT@@SAJPEAU_D3DKMT_RENDER@@PEAVCOREDEVICEACCESS@@PEAPEAV1@PEAPEAVDXGALLOCAT.c)
+ *     ?Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@Z @ 0x1402B3814 (-Blt@DXGCONTEXT@@QEAAJIIIPEAPEAV1@PEAUtagRECT@@IPEBU2@PEAVCOREDEVICEACCESS@@PEAPEAVDXGHWQUEUE@@@.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1402BBFE4 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ *     DxgkPresentRedirected @ 0x140330FD0 (DxgkPresentRedirected.c)
+ *     ?SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@HPEAT_LARGE_INTEGER@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEBD@Z @ 0x140333368 (-SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADA.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1403358AC (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ *     ?HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@IPEAIPEAPEAV1@@Z @ 0x1403C9104 (-HandleVistaBltStub@DXGCONTEXT@@QEAAJ_KHPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@.c)
+ * Callees:
+ *     memset @ 0x1400A5E00 (memset.c)
+ */
+
+CVidSchSubmitData *__fastcall CVidSchSubmitData::CVidSchSubmitData(
+        CVidSchSubmitData *this,
+        struct ADAPTER_RENDER *a2,
+        char a3)
+{
+  PVOID v4; // rax
+  int v5; // edi
+  __int64 v6; // rdx
+  int v7; // ecx
+  unsigned int v8; // edx
+  __int64 v9; // rcx
+  __int64 v10; // rdx
+  int v11; // eax
+  int v12; // eax
+  CVidSchSubmitData *result; // rax
+
+  *(_QWORD *)this = 0LL;
+  *((_QWORD *)this + 1) = a2;
+  if ( !a3 )
+    return this;
+  v4 = ExAllocateFromLookasideListEx((PLOOKASIDE_LIST_EX)((char *)a2 + 1424));
+  *(_QWORD *)this = v4;
+  if ( !v4 )
+    return this;
+  v5 = 1;
+  v6 = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+  if ( *(int *)(v6 + 2776) >= 0x2000 )
+  {
+    v7 = *(_DWORD *)(v6 + 296);
+LABEL_5:
+    v8 = *(_DWORD *)(v6 + 2984) * (72 * v7 + 224) + 8 * (v7 + 78);
+    goto LABEL_6;
+  }
+  v7 = 1;
+  if ( *(_BYTE *)(v6 + 3076) )
+    goto LABEL_5;
+  v8 = 1304;
+LABEL_6:
+  memset(v4, 0, v8);
+  v9 = *(_QWORD *)this;
+  v10 = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+  v11 = *(_DWORD *)(v10 + 2984);
+  if ( *(int *)(v10 + 2776) >= 0x2000 )
+  {
+    v5 = *(_DWORD *)(v10 + 296);
+LABEL_8:
+    *(_BYTE *)(v9 + 356) = 1;
+    *(_DWORD *)(v9 + 604) = v11;
+    *(_DWORD *)(v9 + 608) = v5;
+    *(_DWORD *)(v9 + 612) = v11 * (72 * v5 + 224) + 24;
+    v12 = v11 * (72 * v5 + 224) + 624;
+    *(_DWORD *)(v9 + 552) = v12;
+    *(_DWORD *)(v9 + 556) = v12 + 8 * v5;
+    return this;
+  }
+  if ( *(_BYTE *)(v10 + 3076) )
+    goto LABEL_8;
+  result = this;
+  *(_BYTE *)(v9 + 356) = 0;
+  return result;
+}

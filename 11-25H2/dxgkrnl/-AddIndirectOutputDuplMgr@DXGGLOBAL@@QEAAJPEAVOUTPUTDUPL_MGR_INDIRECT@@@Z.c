@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?AddIndirectOutputDuplMgr@DXGGLOBAL@@QEAAJPEAVOUTPUTDUPL_MGR_INDIRECT@@@Z @ 0x1401CDF40
+ * Callers:
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x140382BE0 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1400196D0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x14001AFC0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140028800 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ */
+
+__int64 __fastcall DXGGLOBAL::AddIndirectOutputDuplMgr(DXGGLOBAL *this, struct OUTPUTDUPL_MGR_INDIRECT *a2)
+{
+  char *v4; // rbx
+  char **v5; // rax
+  _BYTE v7[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v7, (DXGGLOBAL *)((char *)this + 1488), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v7);
+  v4 = (char *)this + 1536;
+  v5 = (char **)*((_QWORD *)v4 + 1);
+  if ( *v5 != v4 )
+    __fastfail(3u);
+  *(_QWORD *)a2 = v4;
+  *((_QWORD *)a2 + 1) = v5;
+  *v5 = (char *)a2;
+  *((_QWORD *)v4 + 1) = a2;
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v7);
+  return 0LL;
+}

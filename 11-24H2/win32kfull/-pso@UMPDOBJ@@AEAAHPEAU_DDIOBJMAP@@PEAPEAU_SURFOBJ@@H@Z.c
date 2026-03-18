@@ -1,0 +1,133 @@
+/*
+ * XREFs of ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1400D875C
+ * Callers:
+ *     ?UMPDDrvBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_BRUSHOBJ@@4K@Z @ 0x1400D7950 (-UMPDDrvBitBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@4PEAU_B.c)
+ *     ?UMPDDrvFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z @ 0x1400D8000 (-UMPDDrvFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@KK@Z.c)
+ *     ?Dereference@UMPDOBJ@@QEAAXXZ @ 0x1400D8B68 (-Dereference@UMPDOBJ@@QEAAXXZ.c)
+ *     ?UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRUSHOBJ@@5PEAU_POINTL@@K@Z @ 0x1400D9600 (-UMPDDrvTextOut@@YAHPEAU_SURFOBJ@@PEAU_STROBJ@@PEAU_FONTOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@4PEAU_BRU.c)
+ *     ?UMPDDrvStartBanding@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1401C0170 (-UMPDDrvStartBanding@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z @ 0x1401C0320 (-UMPDDrvEscape@@YAKPEAU_SURFOBJ@@KKPEAXK1@Z.c)
+ *     ?UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z @ 0x1401C0780 (-UMPDDrvQueryPerBandInfo@@YAKPEAU_SURFOBJ@@PEAU_PERBANDINFO@@@Z.c)
+ *     ?UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z @ 0x1401C0950 (-UMPDDrvNextBand@@YAHPEAU_SURFOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x1401C0AF0 (-UMPDDrvStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU.c)
+ *     ?UMPDDrvStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_LINEATTRS@@4PEAU_POINTL@@KK@Z @ 0x1401CF510 (-UMPDDrvStrokeAndFillPath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUS.c)
+ *     ?UMPDDrvStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@PEAU_LINEATTRS@@K@Z @ 0x1401CF830 (-UMPDDrvStrokePath@@YAHPEAU_SURFOBJ@@PEAU_PATHOBJ@@PEAU_CLIPOBJ@@PEAU_XFORMOBJ@@PEAU_BRUSHOBJ@@P.c)
+ *     ?UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z @ 0x140208200 (-UMPDDrvStartPage@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?UMPDDrvCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z @ 0x14025DB90 (-UMPDDrvCopyBits@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@@Z.c)
+ *     ?UMPDDrvAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x140332970 (-UMPDDrvAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@.c)
+ *     ?UMPDDrvDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z @ 0x140332DA0 (-UMPDDrvDrawEscape@@YAKPEAU_SURFOBJ@@KPEAU_CLIPOBJ@@PEAU_RECTL@@KPEAX@Z.c)
+ *     ?UMPDDrvEndDoc@@YAHPEAU_SURFOBJ@@K@Z @ 0x140332FB0 (-UMPDDrvEndDoc@@YAHPEAU_SURFOBJ@@K@Z.c)
+ *     ?UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x140333150 (-UMPDDrvFontManagement@@YAKPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ *     ?UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_RECTL@@PEAU_POINTL@@K@Z @ 0x140333450 (-UMPDDrvGradientFill@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAXKPEAU_R.c)
+ *     ?UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z @ 0x140333780 (-UMPDDrvIcmCheckBitmapBits@@YAHPEAUDHPDEV__@@PEAXPEAU_SURFOBJ@@PEAE@Z.c)
+ *     ?UMPDDrvLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z @ 0x140333B90 (-UMPDDrvLineTo@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@JJJJPEAU_RECTL@@K@Z.c)
+ *     ?UMPDDrvPaint@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z @ 0x140333DE0 (-UMPDDrvPaint@@YAHPEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_BRUSHOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?UMPDDrvPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_POINTFIX@@PEAU_RECTL@@4K@Z @ 0x140334000 (-UMPDDrvPlgBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
+ *     ?UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z @ 0x1403345F0 (-UMPDDrvQueryDeviceSupport@@YAHPEAU_SURFOBJ@@PEAU_XLATEOBJ@@PEAU_XFORMOBJ@@KKPEAXK3@Z.c)
+ *     ?UMPDDrvRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x140334990 (-UMPDDrvRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     ?UMPDDrvSendPage@@YAHPEAU_SURFOBJ@@@Z @ 0x140334CB0 (-UMPDDrvSendPage@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     ?UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z @ 0x140334E60 (-UMPDDrvStartDoc@@YAHPEAU_SURFOBJ@@PEAGK@Z.c)
+ *     ?UMPDDrvStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54KPEAU_BRUSHOBJ@@K@Z @ 0x140335050 (-UMPDDrvStretchBltROP@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@P.c)
+ *     ?UMPDDrvTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KI@Z @ 0x1403354C0 (-UMPDDrvTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KI@Z.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@33@Z @ 0x140007028 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@U1@@-$_tlgWriteTemplate@$$A6AJPEBU.c)
+ *     ??1SFMALTLOGICALSURFACEREF@@QEAA@XZ @ 0x14001487C (--1SFMALTLOGICALSURFACEREF@@QEAA@XZ.c)
+ *     ??0SURFREF@@QEAA@PEAVSURFACE@@@Z @ 0x140015140 (--0SURFREF@@QEAA@PEAVSURFACE@@@Z.c)
+ *     ?ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z @ 0x1400D89F0 (-ThunkMemBlock@UMPDOBJ@@QEAAHPEAPEAXK@Z.c)
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1400D8D1C (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ *     ?vServer@UMPDOBJ@@QEAAXPEAX@Z @ 0x1400D9358 (-vServer@UMPDOBJ@@QEAAXPEAX@Z.c)
+ *     _tlgKeywordOn @ 0x14017A844 (_tlgKeywordOn.c)
+ *     ?bNeedThunk@UMPDOBJ@@QEBAHPEAX@Z @ 0x1401C0748 (-bNeedThunk@UMPDOBJ@@QEBAHPEAX@Z.c)
+ */
+
+__int64 __fastcall UMPDOBJ::pso(UMPDOBJ *this, struct _DDIOBJMAP *a2, struct _SURFOBJ **a3, __int64 a4)
+{
+  struct _SURFOBJ *v4; // rbx
+  char *pvBits; // rdi
+  HDEV hdev; // rax
+  __int128 v10; // xmm1
+  __int128 v11; // xmm1
+  char *v12; // rcx
+  UMPDOBJ *v14; // rcx
+  char v15; // r9
+  int v16; // r10d
+  __int64 v17; // rcx
+  __int64 v18; // rax
+  __int128 v19; // [rsp+58h] [rbp-19h] BYREF
+  __int128 v20; // [rsp+68h] [rbp-9h]
+  __int128 v21; // [rsp+78h] [rbp+7h]
+  __int128 v22; // [rsp+88h] [rbp+17h]
+  __int128 v23; // [rsp+98h] [rbp+27h]
+  void *v24; // [rsp+E8h] [rbp+77h] BYREF
+
+  v4 = *a3;
+  if ( !*a3 )
+  {
+    if ( *((_BYTE *)this + 456) && *(_QWORD *)a2 )
+    {
+      DEC_SHARE_REF_CNT(*(_QWORD *)a2 - 24LL);
+      *(_QWORD *)a2 = 0LL;
+    }
+    return 1LL;
+  }
+  if ( v4->dhsurf >= MmSystemRangeStart )
+  {
+    if ( (unsigned int)dword_140398BB8 > 5 && (unsigned __int8)tlgKeywordOn(&dword_140398BB8, 0x400000000000LL, a3, a4) )
+    {
+      LODWORD(v24) = 0;
+      _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+        v17,
+        (__int64)&unk_14036A13A);
+    }
+    return 0LL;
+  }
+  UMPDOBJ::vServer((UMPDOBJ *)MmSystemRangeStart, *a3);
+  pvBits = (char *)v4->pvBits;
+  v24 = pvBits;
+  if ( pvBits
+    && !v4->iType
+    && (unsigned int)UMPDOBJ::bNeedThunk(this, pvBits)
+    && (!*((_BYTE *)this + 456) || !v16)
+    && !v15 )
+  {
+    if ( !(unsigned int)UMPDOBJ::ThunkMemBlock(v14, &v24, v4->cjBits) )
+      return 0LL;
+    pvBits = (char *)v24;
+  }
+  hdev = v4->hdev;
+  v10 = *(_OWORD *)&v4->dhpdev;
+  v19 = *(_OWORD *)&v4->dhsurf;
+  v20 = v10;
+  v11 = *(_OWORD *)&v4->pvBits;
+  v21 = *(_OWORD *)&v4->sizlBitmap.cx;
+  v22 = v11;
+  v23 = *(_OWORD *)&v4->lDelta;
+  if ( hdev )
+    *((_QWORD *)&v20 + 1) = *((_QWORD *)hdev + 2);
+  v12 = (char *)v4->pvBits;
+  if ( pvBits != v12 )
+  {
+    v18 = (char *)v4->pvScan0 - (char *)v12;
+    *(_QWORD *)&v22 = pvBits;
+    *((_QWORD *)&v22 + 1) = &pvBits[v18];
+  }
+  if ( (unsigned int)UMPDOBJ::ThunkDDIOBJ(this, a2, (void **)a3, 0x50u, &v19) )
+  {
+    if ( pvBits != v4->pvBits )
+    {
+      if ( !*((_BYTE *)this + 456) )
+        return 1LL;
+      v4->pvScan0 = (PVOID)*((_QWORD *)&v22 + 1);
+      v4->pvBits = pvBits;
+    }
+    if ( *((_BYTE *)this + 456) )
+    {
+      SURFREF::SURFREF((SURFREF *)&v19, (struct SURFACE *)&v4[-1].pvScan0);
+      INC_SHARE_REF_CNT(v21);
+      *(_WORD *)(v21 + 14) |= 0x40u;
+      SFMALTLOGICALSURFACEREF::~SFMALTLOGICALSURFACEREF((SFMALTLOGICALSURFACEREF *)&v19);
+    }
+    return 1LL;
+  }
+  return 0LL;
+}

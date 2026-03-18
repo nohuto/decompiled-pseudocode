@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?SetProperty@CViewBox@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802558B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV?$span@QEBUAnimatedProperty@AnimationHelper@@$0?0@gsl@@IW4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x180022748 (-FindAnimatablePropertyInfo@AnimationHelper@@YAPEBUAnimatedProperty@1@AEBV-$span@QEBUAnimatedPro.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CViewBox::SetProperty(__int64 a1, int a2, int a3)
+{
+  _DWORD *AnimatablePropertyInfo; // rax
+  __int64 v5; // rcx
+  __int64 v6; // r11
+  int v7; // eax
+  __int64 v8; // rcx
+  unsigned int v9; // ebx
+  _QWORD v11[3]; // [rsp+30h] [rbp-18h] BYREF
+
+  v11[0] = 4LL;
+  v11[1] = &CViewBox::k_rgAnimDef;
+  AnimatablePropertyInfo = AnimationHelper::FindAnimatablePropertyInfo(v11, a2, a3);
+  if ( AnimatablePropertyInfo )
+  {
+    v7 = (*((__int64 (__fastcall **)(__int64, _DWORD *, __int64))AnimatablePropertyInfo + 3))(
+           a1 + (int)AnimatablePropertyInfo[8],
+           AnimatablePropertyInfo,
+           v6);
+    v9 = v7;
+    if ( v7 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0x26u, 0LL);
+  }
+  else
+  {
+    v9 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast(v5, 0LL, 0, -2147024809, 0x2Bu, 0LL);
+  }
+  return v9;
+}

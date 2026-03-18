@@ -1,0 +1,28 @@
+/*
+ * XREFs of MiProcessHotPatchUndoTable @ 0x1408D03B4
+ * Callers:
+ *     MiPrepareToHotPatchImage @ 0x1408CFE78 (MiPrepareToHotPatchImage.c)
+ * Callees:
+ *     RtlClearBits @ 0x140268180 (RtlClearBits.c)
+ *     RtlDetermineHotPatchUndoExtent @ 0x14091D670 (RtlDetermineHotPatchUndoExtent.c)
+ */
+
+void __fastcall MiProcessHotPatchUndoTable(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // ebx
+  int i; // [rsp+48h] [rbp+10h] BYREF
+  ULONG StartingIndex; // [rsp+50h] [rbp+18h] BYREF
+
+  StartingIndex = 0;
+  v2 = 0;
+  for ( i = 0; v2 < *(_DWORD *)(a2 + 32); ++v2 )
+  {
+    if ( (unsigned __int8)RtlDetermineHotPatchUndoExtent(
+                            *(_QWORD *)(a2 + 40),
+                            0,
+                            v2,
+                            (unsigned int)&StartingIndex,
+                            (__int64)&i) )
+      RtlClearBits(*(PRTL_BITMAP *)(a1 + 48), StartingIndex, i - StartingIndex + 1);
+  }
+}

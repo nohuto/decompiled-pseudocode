@@ -1,0 +1,52 @@
+/*
+ * XREFs of RtlHeapZero @ 0x1403D8890
+ * Callers:
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A0B0 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
+ *     RtlpHpAllocVA @ 0x140286AC0 (RtlpHpAllocVA.c)
+ *     ExAllocateHeapPool @ 0x1402AD2E0 (ExAllocateHeapPool.c)
+ *     RtlpHpLfhSlotAllocate @ 0x1402ADCC0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpLargeAlloc @ 0x14032409C (RtlpHpLargeAlloc.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall RtlHeapZero(_OWORD *a1, unsigned __int64 a2)
+{
+  __int64 result; // rax
+  _OWORD *v3; // r8
+  unsigned __int64 v4; // rdx
+
+  if ( a2 < 0x40 )
+  {
+    if ( a2 )
+    {
+      *a1 = 0LL;
+      *(_OWORD *)((char *)a1 + a2 - 16) = 0LL;
+      *(_OWORD *)((char *)a1 + ((a2 & 0x20) >> 1)) = 0LL;
+    }
+  }
+  else if ( (qword_140C6B2F8 & 1) != 0 && a2 >= 0x320 )
+  {
+    return RtlpHeapZeroFastString();
+  }
+  else
+  {
+    v3 = (_OWORD *)((char *)a1 + a2 - 48);
+    v4 = (a2 & 0xFFFFFFFFFFFFFFC0uLL) >> 6;
+    do
+    {
+      *a1 = 0LL;
+      a1[1] = 0LL;
+      a1 += 4;
+      --v4;
+      *(a1 - 2) = 0LL;
+      *(a1 - 1) = 0LL;
+    }
+    while ( v4 );
+    *v3 = 0LL;
+    v3[1] = 0LL;
+    v3[2] = 0LL;
+  }
+  return result;
+}

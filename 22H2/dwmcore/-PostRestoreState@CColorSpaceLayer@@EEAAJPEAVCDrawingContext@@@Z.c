@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?PostRestoreState@CColorSpaceLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801F3610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FlushD2D@CDrawingContext@@QEAAJXZ @ 0x18001A1EC (-FlushD2D@CDrawingContext@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 __fastcall CColorSpaceLayer::PostRestoreState(CColorSpaceLayer *this, struct CDrawingContext *a2)
+{
+  int v2; // eax
+  __int64 v3; // rcx
+  unsigned int v4; // ebx
+
+  *((_BYTE *)a2 + 8171) = *((_BYTE *)this + 120);
+  v2 = CDrawingContext::FlushD2D(a2);
+  v4 = v2;
+  if ( v2 < 0 )
+    MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, v2, 0x3Cu, 0LL);
+  return v4;
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of EtwTracPowerOnMonitoreBegin @ 0x1C00714F8
+ * Callers:
+ *     PowerOnMonitor @ 0x1C0070E70 (PowerOnMonitor.c)
+ *     ?PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWERON_LOC@@@Z @ 0x1C011D2C0 (-PowerOnSession@@YAXW4POWER_MONITOR_REQUEST_REASON@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@W4_POWER.c)
+ * Callees:
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C0127D90 (McTemplateK0d_EtwWriteTransfer.c)
+ */
+
+__int64 __fastcall EtwTracPowerOnMonitoreBegin(__int64 a1, __int64 a2, __int64 a3)
+{
+  __int64 result; // rax
+
+  if ( (Microsoft_Windows_Win32kEnableBits & 8) != 0 )
+    return McTemplateK0d_EtwWriteTransfer(a1, &PowerOnMonitorBegin, a3, (unsigned int)a1);
+  return result;
+}

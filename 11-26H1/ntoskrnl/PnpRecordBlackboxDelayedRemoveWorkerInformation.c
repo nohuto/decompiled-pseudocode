@@ -1,0 +1,51 @@
+/*
+ * XREFs of PnpRecordBlackboxDelayedRemoveWorkerInformation @ 0x140B561C0
+ * Callers:
+ *     PnpRecordBlackbox @ 0x1409DE16C (PnpRecordBlackbox.c)
+ * Callees:
+ *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall PnpRecordBlackboxDelayedRemoveWorkerInformation(_QWORD *a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rdi
+  __int64 v4; // rbp
+  __int64 Pool2; // rax
+  _QWORD *v6; // rax
+  _QWORD InputBuffer[5]; // [rsp+30h] [rbp-28h] BYREF
+
+  v1 = 0LL;
+  v2 = 0LL;
+  v4 = MEMORY[0xFFFFF78000000008];
+  if ( a1 )
+  {
+    v2 = 64LL;
+    Pool2 = ExAllocatePool2(0x40uLL);
+    v1 = Pool2;
+    if ( Pool2 )
+    {
+      *(_DWORD *)Pool2 = 1;
+      *(_DWORD *)(Pool2 + 4) = 64;
+      *(_BYTE *)(Pool2 + 8) = 0;
+      v6 = (_QWORD *)a1[3];
+      if ( v6 )
+        *(_DWORD *)(v1 + 12) = (v4 - *v6) / 0x2710uLL;
+      *(_QWORD *)(v1 + 24) = a1[1];
+      *(_QWORD *)(v1 + 32) = a1[2];
+      *(_QWORD *)(v1 + 16) = *a1;
+      *(_QWORD *)(v1 + 40) = *(_QWORD *)&PnpDeviceEventThread;
+      *(_QWORD *)(v1 + 48) = *(_QWORD *)&PnpDeviceActionThread;
+      *(_QWORD *)(v1 + 56) = *(_QWORD *)&PnpDelayedRemoveWorkerThread;
+    }
+  }
+  InputBuffer[2] = 0LL;
+  InputBuffer[3] = 11LL;
+  InputBuffer[0] = v1;
+  InputBuffer[1] = v2;
+  NtPowerInformation(UpdateBlackBoxRecorder, InputBuffer, 0x20u, 0LL, 0);
+  if ( v1 )
+    ExFreePoolWithTag((PVOID)v1, 0x4B706E50u);
+}

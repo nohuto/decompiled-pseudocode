@@ -1,0 +1,32 @@
+/*
+ * XREFs of HalpIommuFreeRemappingTableEntry @ 0x140587DD0
+ * Callers:
+ *     HalpIrtFreeIndex @ 0x140784A78 (HalpIrtFreeIndex.c)
+ * Callees:
+ *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall HalpIommuFreeRemappingTableEntry(unsigned int a1)
+{
+  ULONG_PTR *v1; // rbx
+  unsigned int v3; // r8d
+  ULONG_PTR *v4; // rcx
+
+  v1 = (ULONG_PTR *)HalpIommuList;
+  v3 = 0;
+  while ( v1 != &HalpIommuList )
+  {
+    v4 = v1;
+    v1 = (ULONG_PTR *)*v1;
+    if ( (v4[58] & 0x40) != 0 )
+    {
+      if ( v4[21] )
+      {
+        v3 = guard_dispatch_icall_no_overrides(v4[2], a1);
+        if ( v3 != -1073741594 )
+          break;
+      }
+    }
+  }
+  return v3;
+}

@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?GetVidSchSyncObject@DXGDEVICESYNCOBJECT@@QEBAPEAU_VIDSCH_SYNC_OBJECT@@XZ @ 0x14032CE90
+ * Callers:
+ *     ?Initialize@DXGDEVICESYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@U_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@I@Z @ 0x140180884 (-Initialize@DXGDEVICESYNCOBJECT@@QEAAJPEAVDXGSYNCOBJECT@@U_D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS@@I.c)
+ *     ?Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z @ 0x140321478 (-Initialize@DXGHWQUEUE@@IEAAJPEAU_D3DKMT_CREATEHWQUEUE@@PEAX@Z.c)
+ *     ?ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x14032B2CC (-ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ *     DxgkUpdateGpuVirtualAddress @ 0x14032B360 (DxgkUpdateGpuVirtualAddress.c)
+ *     ?SynchronizeImplicitQueueWithRenderQueues@DXGCONTEXT@@QEAAJPEAPEAV1@K_NPEAUVIDSCH_SUBMIT_DATA_BASE@@1@Z @ 0x14032C7C4 (-SynchronizeImplicitQueueWithRenderQueues@DXGCONTEXT@@QEAAJPEAPEAV1@K_NPEAUVIDSCH_SUBMIT_DATA_BA.c)
+ *     ?EnsureKmSubmissionProgressSyncObject@DXGHWQUEUE@@QEAAJXZ @ 0x14032EA88 (-EnsureKmSubmissionProgressSyncObject@DXGHWQUEUE@@QEAAJXZ.c)
+ *     ?DestroyCoreState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x140334FFC (-DestroyCoreState@DXGDEVICESYNCOBJECT@@QEAAXXZ.c)
+ *     ?Initialize@DXGPAGINGQUEUE@@IEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@@Z @ 0x1403A0990 (-Initialize@DXGPAGINGQUEUE@@IEAAJIW4D3DDDI_PAGINGQUEUE_PRIORITY@@@Z.c)
+ *     ?SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYTOKENQUEUE@@PEAU_D3DKMT_PRESENTHISTORYTOKEN@@2PEAVCRefCountedBuffer@@II3K@Z @ 0x1403B4660 (-SubmitPresentHistoryTokenFromVm@DXGADAPTER@@QEAAJIU_VIDSCH_SUBMIT_FLAGS@@PEAVDXGPRESENTHISTORYT.c)
+ * Callees:
+ *     <none>
+ */
+
+struct _VIDSCH_SYNC_OBJECT *__fastcall DXGDEVICESYNCOBJECT::GetVidSchSyncObject(DXGDEVICESYNCOBJECT *this)
+{
+  __int64 v1; // rdx
+  __int64 v2; // r8
+  _QWORD **v4; // rdx
+  _QWORD *i; // rax
+  _QWORD *v6; // rcx
+
+  v1 = *((_QWORD *)this + 4);
+  v2 = *(_QWORD *)(*((_QWORD *)this + 2) + 16LL);
+  if ( (*(_DWORD *)(v1 + 408) & 4) == 0 )
+    return *(struct _VIDSCH_SYNC_OBJECT **)(v1 + 456);
+  v4 = (_QWORD **)(v1 + 424);
+  for ( i = *v4; i != v4; i = (_QWORD *)*i )
+  {
+    v6 = i - 14;
+    if ( !v2 || v6[2] == v2 )
+      return (struct _VIDSCH_SYNC_OBJECT *)v6[4];
+  }
+  v6 = 0LL;
+  return (struct _VIDSCH_SYNC_OBJECT *)v6[4];
+}

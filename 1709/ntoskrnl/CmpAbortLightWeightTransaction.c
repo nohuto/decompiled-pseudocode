@@ -1,0 +1,45 @@
+/*
+ * XREFs of CmpAbortLightWeightTransaction @ 0x140568928
+ * Callers:
+ *     CmpCommitLightWeightTransaction @ 0x14044B9BC (CmpCommitLightWeightTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x1405688D0 (CmpRollbackLightWeightTransaction.c)
+ * Callees:
+ *     _TlgWrite @ 0x1400AE914 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x1400BA32C (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x14015D720 (__security_check_cookie.c)
+ *     CmpCleanupLightWeightTransaction @ 0x1405689D4 (CmpCleanupLightWeightTransaction.c)
+ *     CmpTransMgrRollback @ 0x14056964C (CmpTransMgrRollback.c)
+ */
+
+void __fastcall CmpAbortLightWeightTransaction(__int64 a1)
+{
+  __int64 v2; // rbx
+  int v3; // [rsp+30h] [rbp-68h] BYREF
+  int v4; // [rsp+34h] [rbp-64h] BYREF
+  EVENT_DATA_DESCRIPTOR v5; // [rsp+38h] [rbp-60h] BYREF
+  int *v6; // [rsp+58h] [rbp-40h]
+  int v7; // [rsp+60h] [rbp-38h]
+  int v8; // [rsp+64h] [rbp-34h]
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+68h] [rbp-30h] BYREF
+
+  v3 = 0;
+  if ( stru_1403549F0.LevelPlus1 > 5 && TlgKeywordOn(&stru_1403549F0, 1uLL) )
+    TlgWrite(&stru_1403549F0, &unk_1402CEAF4, 0LL, 0LL, 2u, &pData);
+  v2 = *(_QWORD *)(a1 + 16);
+  if ( v2 )
+  {
+    CmpTransMgrRollback(v2, &v3);
+    CmpCleanupLightWeightTransaction(v2, 8LL);
+  }
+  if ( stru_1403549F0.LevelPlus1 > 5 )
+  {
+    if ( TlgKeywordOn(&stru_1403549F0, 1uLL) )
+    {
+      v8 = 0;
+      v4 = v3;
+      v6 = &v4;
+      v7 = 4;
+      TlgWrite(&stru_1403549F0, &unk_1402CEABE, 0LL, 0LL, 3u, &v5);
+    }
+  }
+}

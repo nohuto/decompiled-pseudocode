@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?IsOfType@CMatrixTransform3D@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18005F440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall CMatrixTransform3D::IsOfType(__int64 a1, unsigned int a2)
+{
+  int v2; // eax
+  _BOOL8 result; // rax
+
+  result = 0;
+  if ( a2 <= 0x1C )
+  {
+    v2 = 285212800;
+    if ( _bittest(&v2, a2) )
+      return 1;
+  }
+  return result;
+}

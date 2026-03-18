@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?SetAlignmentX@?$CImageLegacyMilBrushGeneratedT@VCImageLegacyMilBrush@@VCLegacyMilBrush@@@@QEAAJW4Enum@MilHorizontalAlignment@@@Z @ 0x1800FD72C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F1E8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall CImageLegacyMilBrushGeneratedT<CImageLegacyMilBrush,CLegacyMilBrush>::SetAlignmentX(
+        __int64 *a1,
+        int a2)
+{
+  __int64 v3; // rax
+
+  if ( a2 != *((_DWORD *)a1 + 36) )
+  {
+    v3 = *a1;
+    *((_DWORD *)a1 + 36) = a2;
+    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v3 + 72))(a1, 0LL, 0LL);
+  }
+  return 0LL;
+}

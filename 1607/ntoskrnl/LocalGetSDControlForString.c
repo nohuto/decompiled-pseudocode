@@ -1,0 +1,47 @@
+/*
+ * XREFs of LocalGetSDControlForString @ 0x1406CB618
+ * Callers:
+ *     LocalConvertStringSDToSD_Rev1 @ 0x1404D67F8 (LocalConvertStringSDToSD_Rev1.c)
+ * Callees:
+ *     _wcsnicmp @ 0x14014D8A0 (_wcsnicmp.c)
+ */
+
+__int64 __fastcall LocalGetSDControlForString(wchar_t *Str1, int a2, _WORD *a3, wchar_t **a4)
+{
+  wchar_t *v7; // rbx
+  unsigned int v8; // esi
+  const wchar_t **v9; // rdi
+
+  v7 = Str1;
+  if ( !Str1 || !a3 || !a4 )
+    return 87LL;
+  *a3 = 0;
+  do
+  {
+    if ( *v7 != 32 )
+      break;
+    ++v7;
+  }
+  while ( v7 );
+LABEL_7:
+  v8 = 0;
+  v9 = (const wchar_t **)&unk_14025D3F8;
+  do
+  {
+    if ( (a2 & (_DWORD)v9[1]) == a2 && !wcsnicmp(v7, *(v9 - 1), *(unsigned int *)v9) )
+    {
+      *a3 |= *((_WORD *)&ControlLookup + 12 * v8 + 6);
+      for ( v7 += *((unsigned int *)&ControlLookup + 6 * v8 + 2); v7; ++v7 )
+      {
+        if ( *v7 != 32 )
+          break;
+      }
+      goto LABEL_7;
+    }
+    ++v8;
+    v9 += 3;
+  }
+  while ( v8 < 6 );
+  *a4 = v7;
+  return 0LL;
+}

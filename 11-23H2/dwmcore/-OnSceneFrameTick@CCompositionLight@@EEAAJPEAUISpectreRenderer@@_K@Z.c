@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?OnSceneFrameTick@CCompositionLight@@EEAAJPEAUISpectreRenderer@@_K@Z @ 0x180107000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CCompositionLight::OnSceneFrameTick(CCompositionLight *this, struct ISpectreRenderer *a2)
+{
+  return 0LL;
+}

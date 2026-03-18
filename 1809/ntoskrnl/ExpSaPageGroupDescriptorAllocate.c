@@ -1,0 +1,236 @@
+/*
+ * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x140167D80
+ * Callers:
+ *     ExpSaAllocatorAllocate @ 0x1401677E8 (ExpSaAllocatorAllocate.c)
+ * Callees:
+ *     KiAbEntryRemoveFromTree @ 0x140004530 (KiAbEntryRemoveFromTree.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x140005760 (ExfAcquirePushLockExclusiveEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x140005A50 (KiCheckForKernelApcDelivery.c)
+ *     KeAbPreAcquire @ 0x14004E270 (KeAbPreAcquire.c)
+ *     MiGetSystemRegionType @ 0x14004EC30 (MiGetSystemRegionType.c)
+ *     KiAbThreadRemoveBoosts @ 0x14004EFD0 (KiAbThreadRemoveBoosts.c)
+ *     MmGetSessionIdEx @ 0x14004F060 (MmGetSessionIdEx.c)
+ *     ExfTryToWakePushLock @ 0x1400915C0 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1400A6A60 (KeQueryMaximumProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400D6E70 (KeSetSystemGroupAffinityThread.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400D81F0 (KeRevertToUserGroupAffinityThread.c)
+ *     ExpSaBinaryArrayInsert @ 0x14016813C (ExpSaBinaryArrayInsert.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x1401BBBA0 (KeBugCheckEx.c)
+ *     memset @ 0x1401D1780 (memset.c)
+ *     ExpSaBinaryArrayRemove @ 0x14031F474 (ExpSaBinaryArrayRemove.c)
+ *     ExAllocatePoolWithTag @ 0x14034B010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x14034BC60 (ExFreePoolWithTag.c)
+ */
+
+char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
+{
+  __int64 v4; // rdi
+  ULONG v5; // r12d
+  POOL_TYPE v6; // r14d
+  char *result; // rax
+  char *v8; // rsi
+  __int64 v9; // rax
+  signed __int8 v10; // cf
+  __int64 v11; // rbx
+  int v12; // eax
+  unsigned int SessionId; // r15d
+  unsigned int v14; // ecx
+  __int64 v15; // r12
+  int *v16; // r13
+  unsigned int v17; // ecx
+  struct _GROUP_AFFINITY *p_PreviousAffinity; // rdx
+  PVOID PoolWithTag; // rax
+  void *v20; // rbx
+  char v21; // r14
+  struct _KTHREAD *CurrentThread; // rbx
+  unsigned __int8 v23; // r14
+  __int64 v24; // rdx
+  bool v25; // zf
+  __int64 v26; // rcx
+  int v27; // eax
+  __int64 v28; // rcx
+  _KLOCK_ENTRY *v29; // rdi
+  __int64 v30; // rdx
+  __int64 v31; // rcx
+  __int64 v32; // rdx
+  __int64 v33; // rbx
+  unsigned int v34; // eax
+  unsigned int v35; // ecx
+  int v36; // edx
+  __int64 v37; // rcx
+  char v38; // [rsp+30h] [rbp-50h]
+  int v39; // [rsp+34h] [rbp-4Ch] BYREF
+  ULONG MaximumProcessorCount; // [rsp+38h] [rbp-48h]
+  unsigned int v41; // [rsp+3Ch] [rbp-44h]
+  int v42; // [rsp+40h] [rbp-40h]
+  struct _GROUP_AFFINITY Affinity; // [rsp+48h] [rbp-38h] BYREF
+  int v44; // [rsp+58h] [rbp-28h]
+  __int64 v45; // [rsp+60h] [rbp-20h]
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+68h] [rbp-18h] BYREF
+
+  v38 = 0;
+  LODWORD(v4) = 0;
+  MaximumProcessorCount = KeQueryMaximumProcessorCountEx(0xFFFFu);
+  v5 = MaximumProcessorCount;
+  v6 = a2 != 0 ? PagedPool : NonPagedPoolNx;
+  result = (char *)ExAllocatePoolWithTag(v6, 0x80uLL, 0x61537845u);
+  v8 = result;
+  if ( result )
+  {
+    memset(result, 0, 0x80uLL);
+    *((_QWORD *)v8 + 3) = 0LL;
+    *((_QWORD *)v8 + 7) = v8 + 64;
+    *((_QWORD *)v8 + 6) = 512LL;
+    *((_QWORD *)v8 + 2) = a1;
+    *((_DWORD *)v8 + 9) = 512;
+    v9 = KeAbPreAcquire((ULONG_PTR)&ExSaPageGroupDescriptorArrayLock, 0LL, 0);
+    v10 = _interlockedbittestandset64((volatile signed __int32 *)&ExSaPageGroupDescriptorArrayLock, 0LL);
+    v11 = v9;
+    if ( v10 )
+      ExfAcquirePushLockExclusiveEx(&ExSaPageGroupDescriptorArrayLock, v9, (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock);
+    if ( v11 )
+      *(_BYTE *)(v11 + 26) |= 1u;
+    v12 = ExpSaBinaryArrayInsert(ExSaPageGroupDescriptorArray, v8);
+    SessionId = -1;
+    *((_DWORD *)v8 + 8) = v12;
+    if ( v12 == -1 )
+      goto LABEL_47;
+    v14 = KeNumberProcessors_0;
+    v41 = KeNumberProcessors_0;
+    if ( v5 )
+    {
+      v15 = 0LL;
+      v16 = KiProcessorIndexToNumberMappingTable;
+      while ( 1 )
+      {
+        v45 = *(_QWORD *)(v15 + ExSaPageArrays);
+        if ( (unsigned int)v4 < v14 )
+        {
+          v17 = *v16;
+          Affinity.Reserved[1] = 0;
+          Affinity.Reserved[2] = 0;
+          *(_DWORD *)&Affinity.Group = (unsigned __int16)(v17 >> 6);
+          Affinity.Mask = 1LL << (v17 & 0x3F);
+          if ( v38 )
+          {
+            p_PreviousAffinity = 0LL;
+          }
+          else
+          {
+            v38 = 1;
+            p_PreviousAffinity = &PreviousAffinity;
+          }
+          KeSetSystemGroupAffinityThread(&Affinity, p_PreviousAffinity);
+        }
+        PoolWithTag = ExAllocatePoolWithTag(v6, 0x1000uLL, 0x61537845u);
+        v20 = PoolWithTag;
+        if ( !PoolWithTag || (unsigned int)ExpSaBinaryArrayInsert(v45, PoolWithTag) == -1 )
+          break;
+        v14 = v41;
+        LODWORD(v4) = v4 + 1;
+        v15 += 8LL;
+        ++v16;
+        if ( (unsigned int)v4 >= MaximumProcessorCount )
+          goto LABEL_16;
+      }
+      v21 = 0;
+    }
+    else
+    {
+LABEL_16:
+      v20 = 0LL;
+      v21 = 1;
+    }
+    if ( v38 )
+      KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+    if ( v20 )
+      ExFreePoolWithTag(v20, 0);
+    if ( !v21 )
+    {
+LABEL_47:
+      v32 = *((unsigned int *)v8 + 8);
+      if ( (_DWORD)v32 != -1 )
+      {
+        if ( (_DWORD)v4 )
+        {
+          do
+          {
+            v4 = (unsigned int)(v4 - 1);
+            v33 = *(_QWORD *)(ExSaPageArrays + 8 * v4);
+            v34 = *((_DWORD *)v8 + 8);
+            _BitScanReverse(&v35, v34);
+            v36 = 1 << v35;
+            v37 = v35 - 2;
+            v44 = v37;
+            ExFreePoolWithTag(*(PVOID *)(*(_QWORD *)(v33 + 8 * v37) + 8LL * (v36 ^ v34) + 8), 0);
+            ExpSaBinaryArrayRemove(v33, *((unsigned int *)v8 + 8));
+          }
+          while ( (_DWORD)v4 );
+          v32 = *((unsigned int *)v8 + 8);
+        }
+        ExpSaBinaryArrayRemove(ExSaPageGroupDescriptorArray, v32);
+      }
+      ExFreePoolWithTag(v8, 0);
+      v8 = 0LL;
+    }
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)&ExSaPageGroupDescriptorArrayLock);
+    v39 = 0;
+    CurrentThread = KeGetCurrentThread();
+    if ( (unsigned int)MiGetSystemRegionType((unsigned __int64)&ExSaPageGroupDescriptorArrayLock) == 1 )
+      SessionId = MmGetSessionIdEx((__int64)CurrentThread->ApcState.Process);
+    --CurrentThread->SpecialApcDisable;
+    v23 = ++CurrentThread->AbAllocationRegionCount;
+    LODWORD(v24) = ((char)CurrentThread->AbEntrySummary | (char)CurrentThread->AbOrphanedEntrySummary) ^ 0x3F;
+    while ( 1 )
+    {
+      v25 = !_BitScanReverse((unsigned int *)&v26, v24);
+      v42 = v26;
+      if ( v25 )
+        break;
+      v27 = 1 << v26;
+      v28 = v26;
+      v29 = &CurrentThread->LockEntries[v28];
+      v24 = ~v27 & (unsigned int)v24;
+      if ( (v29->AcquiredByte & 1) != 0
+        && (*(_DWORD *)&v29->LockState.0 & 1) == 0
+        && (*(_QWORD *)&v29->LockState.0 & 0x7FFFFFFFFFFFFFFCLL) == ((unsigned __int64)&ExSaPageGroupDescriptorArrayLock & 0x7FFFFFFFFFFFFFFCLL)
+        && v29->LockState.SessionId == SessionId )
+      {
+        v29->AcquiredByte &= ~1u;
+        if ( v29->LockState.0 )
+        {
+          if ( v29 )
+          {
+            v29->CrossThreadReleasableAndBusyByte |= 2u;
+            if ( (__int64)v29->LockState.LockState < 0 )
+              KiAbEntryRemoveFromTree((__int64)&CurrentThread->LockEntries[v28], v24);
+            v39 = 0;
+            v39 = v29->BoostBitmap.AllFields & 0x1FFFF;
+            v29->BoostBitmap.AllFields &= 0xFFFE0000;
+            v29->ThreadLocalFlags &= ~1u;
+            v29->LockState.0 = 0LL;
+            v30 = ((char *)v29 - (char *)CurrentThread - 800) / 96;
+            if ( v23 == 1 )
+              CurrentThread->AbEntrySummary |= 1 << v30;
+            else
+              _InterlockedOr8((volatile signed __int8 *)&CurrentThread->AbOrphanedEntrySummary, 1 << v30);
+            goto LABEL_38;
+          }
+          break;
+        }
+      }
+    }
+    if ( (*((_DWORD *)&CurrentThread->0 + 1) & 0x10000) == 0 )
+      KeBugCheckEx(0x162u, (ULONG_PTR)CurrentThread, (ULONG_PTR)&ExSaPageGroupDescriptorArrayLock, SessionId, 0LL);
+LABEL_38:
+    --CurrentThread->AbAllocationRegionCount;
+    KiAbThreadRemoveBoosts((ULONG_PTR)CurrentThread, (__int64)&ExSaPageGroupDescriptorArrayLock, (__int64)&v39);
+    v25 = CurrentThread->SpecialApcDisable++ == -1;
+    if ( v25 && ($FFD56A4B518EFE5E17FDE2C5CC486782 *)CurrentThread->ApcState.ApcListHead[0].Flink != &CurrentThread->152 )
+      KiCheckForKernelApcDelivery(v31);
+    return v8;
+  }
+  return result;
+}

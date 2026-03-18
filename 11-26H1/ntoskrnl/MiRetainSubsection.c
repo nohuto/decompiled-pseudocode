@@ -1,0 +1,50 @@
+/*
+ * XREFs of MiRetainSubsection @ 0x1406FF8C8
+ * Callers:
+ *     MiFaultGetFileExtents @ 0x14050CBDC (MiFaultGetFileExtents.c)
+ *     MiFaultRedirectToProto @ 0x140511920 (MiFaultRedirectToProto.c)
+ *     MiResetVirtualMemory @ 0x140AB1600 (MiResetVirtualMemory.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusive @ 0x14021AA80 (ExReleaseSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x1402DECD0 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x1402DED10 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIncrementSubsectionViewCount @ 0x14030BE90 (MiIncrementSubsectionViewCount.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+__int64 __fastcall MiRetainSubsection(__int64 *BugCheckParameter2, char a2)
+{
+  __int64 v2; // rbx
+  unsigned int v3; // esi
+  unsigned __int8 CurrentIrql; // di
+  volatile LONG *v7; // rcx
+
+  v2 = *BugCheckParameter2;
+  v3 = 0;
+  if ( (a2 & 1) != 0 )
+  {
+    CurrentIrql = 17;
+  }
+  else
+  {
+    CurrentIrql = KeGetCurrentIrql();
+    if ( CurrentIrql != 2 )
+      __writecr8(2uLL);
+    if ( KiIrqlFlags )
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
+  }
+  ExAcquireSpinLockExclusiveAtDpcLevel((PEX_SPIN_LOCK)(v2 + 72));
+  if ( (a2 & 2) == 0 || *(_QWORD *)(v2 + 40) != 1LL )
+  {
+    ++*(_QWORD *)(v2 + 40);
+    if ( (*(_DWORD *)(v2 + 56) & 0x20) == 0 && *(_QWORD *)(v2 + 64) && (*(_DWORD *)(v2 + 56) & 0x400) == 0 )
+      MiIncrementSubsectionViewCount(BugCheckParameter2, 2);
+    v3 = 1;
+  }
+  v7 = (volatile LONG *)(v2 + 72);
+  if ( CurrentIrql == 17 )
+    ExReleaseSpinLockExclusiveFromDpcLevel(v7);
+  else
+    ExReleaseSpinLockExclusive(v7, CurrentIrql);
+  return v3;
+}

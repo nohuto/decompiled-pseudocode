@@ -1,0 +1,27 @@
+/*
+ * XREFs of AcpiUnregisterDeviceFirmwareLockHandler @ 0x14009C394
+ * Callers:
+ *     ACPIIoctlUnregisterDeviceFirmwareLockHandler @ 0x140062848 (ACPIIoctlUnregisterDeviceFirmwareLockHandler.c)
+ * Callees:
+ *     DereferenceDeviceFirmwareLockHandlerEntry @ 0x14005C558 (DereferenceDeviceFirmwareLockHandlerEntry.c)
+ *     FindDeviceFirmwareLockHandlerEntry @ 0x14005C79C (FindDeviceFirmwareLockHandlerEntry.c)
+ */
+
+__int64 __fastcall AcpiUnregisterDeviceFirmwareLockHandler(int a1, __int64 a2)
+{
+  __int64 DeviceFirmwareLockHandlerEntry; // rax
+  unsigned int v3; // ebx
+
+  DeviceFirmwareLockHandlerEntry = FindDeviceFirmwareLockHandlerEntry(a1, a2, 0LL);
+  v3 = 0;
+  if ( DeviceFirmwareLockHandlerEntry )
+  {
+    _InterlockedDecrement((volatile signed __int32 *)(DeviceFirmwareLockHandlerEntry + 64));
+    DereferenceDeviceFirmwareLockHandlerEntry((PVOID **)DeviceFirmwareLockHandlerEntry, 1);
+  }
+  else
+  {
+    return (unsigned int)-1073741275;
+  }
+  return v3;
+}

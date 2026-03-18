@@ -1,0 +1,175 @@
+/*
+ * XREFs of _CmCreateOrdinalInstanceKey @ 0x140A60638
+ * Callers:
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1409095F0 (_CmGetDeviceSoftwareKeyPath.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x14045AA10 (RtlInitUnicodeStringEx.c)
+ *     wcstoul @ 0x1405007D0 (wcstoul.c)
+ *     swprintf_s @ 0x140502E50 (swprintf_s.c)
+ *     _ultow_s @ 0x140503260 (_ultow_s.c)
+ *     ZwClose @ 0x1406A65F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1406A67B0 (ZwCreateKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x1408210F4 (_RegRtlOpenPredefinedKey.c)
+ *     _RegRtlCreateKeyTransacted @ 0x140926504 (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlIsPredefinedKey @ 0x140926654 (_RegRtlIsPredefinedKey.c)
+ */
+
+__int64 __fastcall CmCreateOrdinalInstanceKey(
+        __int64 a1,
+        void *a2,
+        wchar_t *a3,
+        __int64 a4,
+        unsigned int a5,
+        HANDLE *a6)
+{
+  unsigned int v6; // ebx
+  __int64 v9; // rdi
+  unsigned int v10; // r13d
+  unsigned int v11; // ecx
+  unsigned int i; // esi
+  int v13; // r14d
+  wchar_t *j; // rdx
+  unsigned int v15; // eax
+  bool v16; // zf
+  unsigned int v17; // ecx
+  unsigned int v18; // ecx
+  unsigned int v19; // ecx
+  unsigned int v20; // ecx
+  unsigned int v21; // ecx
+  __int64 v22; // rax
+  int inited; // edi
+  __int64 v24; // rcx
+  HANDLE v25; // rax
+  __int64 v27; // rdx
+  int v28; // eax
+  HANDLE Handle; // [rsp+58h] [rbp-39h] BYREF
+  HANDLE v30; // [rsp+60h] [rbp-31h] BYREF
+  UNICODE_STRING DestinationString; // [rsp+68h] [rbp-29h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+78h] [rbp-19h] BYREF
+  ULONG Disposition; // [rsp+100h] [rbp+6Fh] BYREF
+
+  v6 = 0;
+  Disposition = 0;
+  v9 = a1;
+  Handle = 0LL;
+  v10 = wcstoul(L"999A", 0LL, 36);
+  v11 = wcstoul(L"ZZZZ", 0LL, 36);
+  a5 = v11;
+  if ( v10 - 1 > 0xFFFFFFFD || v11 - 1 > 0xFFFFFFFD )
+    return (unsigned int)-1073741595;
+  for ( i = 0; ; i = v10 )
+  {
+LABEL_4:
+    if ( i <= 0x270F )
+    {
+      if ( swprintf_s(a3, 5uLL, L"%04u", i) < 0 )
+        return (unsigned int)-1073741595;
+      goto LABEL_6;
+    }
+    if ( i >= v10 )
+      break;
+  }
+  if ( i > v11 )
+    return (unsigned int)-2147483622;
+  if ( ultow_s(i, a3, 5uLL, 36) )
+    return (unsigned int)-1073741595;
+LABEL_6:
+  v13 = 1;
+  for ( j = a3; ; ++j )
+  {
+    v15 = *j;
+    if ( !(_WORD)v15 )
+      break;
+    if ( v15 > 0x61 )
+    {
+      v17 = v15 - 101;
+      v16 = v15 == 101;
+    }
+    else
+    {
+      if ( v15 == 97 || v15 == 65 )
+      {
+LABEL_40:
+        v27 = j - a3;
+        v28 = 3 - v27;
+        if ( (_DWORD)v27 != 3 )
+        {
+          do
+          {
+            v13 *= 36;
+            --v28;
+          }
+          while ( v28 );
+        }
+        goto LABEL_27;
+      }
+      v17 = v15 - 69;
+      v16 = v15 == 69;
+    }
+    if ( v16 )
+      goto LABEL_40;
+    v18 = v17 - 4;
+    if ( !v18 )
+      goto LABEL_40;
+    v19 = v18 - 6;
+    if ( !v19 )
+      goto LABEL_40;
+    v20 = v19 - 6;
+    if ( !v20 )
+      goto LABEL_40;
+    v21 = v20 - 1;
+    if ( !v21 || v21 == 3 )
+      goto LABEL_40;
+  }
+  if ( v9 && (v22 = *(_QWORD *)(v9 + 224)) != 0 )
+  {
+    inited = RegRtlCreateKeyTransacted(a2, a3, 0, 1u, 0LL, 0, &Handle, &Disposition, *(_QWORD *)(v22 + 8));
+  }
+  else
+  {
+    v30 = 0LL;
+    memset(&ObjectAttributes, 0, 44);
+    DestinationString = 0LL;
+    if ( !RegRtlIsPredefinedKey((__int64)a2) || (inited = RegRtlOpenPredefinedKey(v24, (__int64)&v30), inited >= 0) )
+    {
+      inited = RtlInitUnicodeStringEx(&DestinationString, a3);
+      if ( inited >= 0 )
+      {
+        ObjectAttributes.Length = 48;
+        v25 = a2;
+        ObjectAttributes.Attributes = 704;
+        if ( v30 )
+          v25 = v30;
+        ObjectAttributes.RootDirectory = v25;
+        ObjectAttributes.ObjectName = &DestinationString;
+        *(_OWORD *)&ObjectAttributes.SecurityDescriptor = 0LL;
+        inited = ZwCreateKey(&Handle, 1u, &ObjectAttributes, 0, 0LL, 0, &Disposition);
+      }
+    }
+    if ( v30 )
+      ZwClose(v30);
+  }
+  if ( inited == -1073741444 )
+  {
+    return (unsigned int)-1073741595;
+  }
+  else if ( inited < 0 )
+  {
+    return (unsigned int)inited;
+  }
+  else
+  {
+    if ( Disposition != 1 )
+    {
+      ZwClose(Handle);
+      v9 = a1;
+      Handle = 0LL;
+LABEL_27:
+      v11 = a5;
+      i += v13;
+      goto LABEL_4;
+    }
+    *a6 = Handle;
+  }
+  return v6;
+}

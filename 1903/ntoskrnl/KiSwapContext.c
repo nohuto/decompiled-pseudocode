@@ -1,0 +1,50 @@
+/*
+ * XREFs of KiSwapContext @ 0x1401CA7F0
+ * Callers:
+ *     ExpApplyPriorityBoost @ 0x14000EA10 (ExpApplyPriorityBoost.c)
+ *     KeSetPriorityThread @ 0x140010B30 (KeSetPriorityThread.c)
+ *     KiQuantumEnd @ 0x140010F00 (KiQuantumEnd.c)
+ *     KeSetBasePriorityThread @ 0x140012110 (KeSetBasePriorityThread.c)
+ *     KeSetActualBasePriorityThread @ 0x140012650 (KeSetActualBasePriorityThread.c)
+ *     KeSetPriorityBoost @ 0x140013D60 (KeSetPriorityBoost.c)
+ *     KiFastReadyThread @ 0x14001577C (KiFastReadyThread.c)
+ *     KeDelayExecutionThread @ 0x14003B180 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14003FDD0 (KeWaitForSingleObject.c)
+ *     KiSwapThread @ 0x140040E00 (KiSwapThread.c)
+ *     KeRemoveQueueEx @ 0x140044B60 (KeRemoveQueueEx.c)
+ *     PsImpersonateContainerOfThread @ 0x1400471A0 (PsImpersonateContainerOfThread.c)
+ *     KeClearSystemPriority @ 0x1400478B0 (KeClearSystemPriority.c)
+ *     KeRemovePriQueue @ 0x140059F90 (KeRemovePriQueue.c)
+ *     KiExitDispatcher @ 0x140067BE0 (KiExitDispatcher.c)
+ *     KiReadyOutSwappedThreads @ 0x1400746F0 (KiReadyOutSwappedThreads.c)
+ *     KeWaitForMultipleObjects @ 0x14007C530 (KeWaitForMultipleObjects.c)
+ *     KiSchedulerApc @ 0x1400816F0 (KiSchedulerApc.c)
+ *     KiAbApplyWakeupBoost @ 0x14009E94C (KiAbApplyWakeupBoost.c)
+ *     KiBeginThreadWait @ 0x1400BA600 (KiBeginThreadWait.c)
+ *     KeSetPriorityAndQuantumProcess @ 0x1400E40B8 (KeSetPriorityAndQuantumProcess.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1400E86A4 (KeSetSchedulingGroupRankBias.c)
+ *     KeSetLegacyAffinityThread @ 0x1400F7C30 (KeSetLegacyAffinityThread.c)
+ *     KeGenericProcessorCallback @ 0x1400F820C (KeGenericProcessorCallback.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1400F85B0 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1400F8850 (KeSetSystemGroupAffinityThread.c)
+ *     KeCpuSetReportParkedProcessors @ 0x1400F9898 (KeCpuSetReportParkedProcessors.c)
+ *     KeBoostPriorityThread @ 0x1401064BC (KeBoostPriorityThread.c)
+ *     KeYieldExecution @ 0x140109BD0 (KeYieldExecution.c)
+ *     KiExitThreadWait @ 0x14011B080 (KiExitThreadWait.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x140121FCC (KiAbThreadUnboostCpuPriority.c)
+ *     KeSetAffinityThread @ 0x14015A184 (KeSetAffinityThread.c)
+ *     KiAbForceProcessLockEntry @ 0x14016B534 (KiAbForceProcessLockEntry.c)
+ *     KeSetCpuSetsProcess @ 0x1401962BC (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x1401964C4 (KeUpdateThreadCpuSets.c)
+ *     KeSetAffinityProcess @ 0x14019A6D8 (KeSetAffinityProcess.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x1402AD014 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x1402AD280 (KeSetSelectedCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1402B0040 (KiSetHeteroPolicyThread.c)
+ * Callees:
+ *     SwapContext @ 0x1401CAB40 (SwapContext.c)
+ */
+
+__int64 __fastcall KiSwapContext(__int64 a1, __int64 a2, unsigned int a3)
+{
+  return SwapContext(a3);
+}

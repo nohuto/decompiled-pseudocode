@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?ReleaseStablePowerReferenceWithoutLock@ADAPTER_RENDER@@QEAAXXZ @ 0x14006F5CC
+ * Callers:
+ *     ?DisableStablePowerState@DXGADAPTER@@QEAAXXZ @ 0x1401983AC (-DisableStablePowerState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@@Z @ 0x1402E75F4 (-DestroyAdapterInfo@DXGPROCESS@@QEAAXPEAUDXGPROCESS_RENDER_ADAPTER_INFO@@@Z.c)
+ * Callees:
+ *     ?ReleaseStablePowerReference@ADAPTER_RENDER@@QEAAXXZ @ 0x1401A9A80 (-ReleaseStablePowerReference@ADAPTER_RENDER@@QEAAXXZ.c)
+ */
+
+void __fastcall ADAPTER_RENDER::ReleaseStablePowerReferenceWithoutLock(ADAPTER_RENDER *this)
+{
+  char *v2; // rdi
+
+  v2 = (char *)this + 1800;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx(v2, 0LL);
+  *((_QWORD *)v2 + 1) = KeGetCurrentThread();
+  ADAPTER_RENDER::ReleaseStablePowerReference(this);
+  *((_QWORD *)v2 + 1) = 0LL;
+  ExReleasePushLockExclusiveEx(v2, 0LL);
+  KeLeaveCriticalRegion();
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of xHalTranslateBusAddress @ 0x14053F500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ */
+
+void __noreturn xHalTranslateBusAddress()
+{
+  KeBugCheckEx(0x5Cu, 0LL, 0LL, 0LL, 7uLL);
+}

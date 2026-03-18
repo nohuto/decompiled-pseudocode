@@ -1,0 +1,69 @@
+/*
+ * XREFs of WheapAttemptPhysicalPageOffline @ 0x140723688
+ * Callers:
+ *     WheaAttemptPhysicalPageOffline @ 0x140723340 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapAttemptPhysicalPageOfflineWorker @ 0x140723790 (WheapAttemptPhysicalPageOfflineWorker.c)
+ * Callees:
+ *     MmMarkPhysicalMemoryAsBad @ 0x14020DC20 (MmMarkPhysicalMemoryAsBad.c)
+ *     WheaPersistOfflinedPage @ 0x14025FD34 (WheaPersistOfflinedPage.c)
+ *     WheapLogPageOfflineAttemptEvent @ 0x140260598 (WheapLogPageOfflineAttemptEvent.c)
+ *     WheapCallInUsePageNotificationCallbacks @ 0x1407237C4 (WheapCallInUsePageNotificationCallbacks.c)
+ *     WheapSqmAddToStream @ 0x140724A38 (WheapSqmAddToStream.c)
+ */
+
+__int64 __fastcall WheapAttemptPhysicalPageOffline(__int64 a1, char a2, char a3)
+{
+  __int64 v3; // rbp
+  char v4; // di
+  int v8; // r15d
+  int v9; // eax
+  __int64 v10; // rdx
+  unsigned int v11; // esi
+  bool v12; // bl
+  __int64 v13; // r8
+  int v14; // eax
+  _DWORD v16[22]; // [rsp+30h] [rbp-58h] BYREF
+  __int64 v17; // [rsp+90h] [rbp+8h] BYREF
+  __int64 v18; // [rsp+A8h] [rbp+20h] BYREF
+
+  v18 = 4096LL;
+  v3 = a1 << 12;
+  v4 = 0;
+  v17 = a1 << 12;
+  if ( a3 )
+  {
+    v8 = 2;
+  }
+  else
+  {
+    v8 = 1;
+    v17 = (a1 << 12) | 1;
+  }
+  v9 = MmMarkPhysicalMemoryAsBad(&v17, &v18);
+  v11 = v9;
+  if ( v9 >= 0 )
+  {
+    v12 = v9 == 0;
+    v16[2] = v8;
+    v16[6] = v9 == 0;
+    v16[0] = 1;
+    v16[4] = 1;
+    WheapSqmAddToStream(7212LL, 2LL, v16);
+    if ( !v12 )
+    {
+      LOBYTE(v13) = a3;
+      LOBYTE(v10) = a2;
+      WheapCallInUsePageNotificationCallbacks(a1, v10, v13);
+    }
+  }
+  if ( WheapPolicyMemPersistOffline )
+  {
+    v14 = WheaPersistOfflinedPage(a1, v10);
+    if ( v14 >= 0 )
+      v4 = 1;
+    else
+      v11 = v14;
+  }
+  WheapLogPageOfflineAttemptEvent(v3, v11 == 259, a3, v4, a2);
+  return v11;
+}

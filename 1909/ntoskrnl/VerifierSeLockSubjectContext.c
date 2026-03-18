@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierSeLockSubjectContext @ 0x1409718C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1401CD170 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierSeLockSubjectContext()
+{
+  return ((__int64 (*)(void))pXdvSeLockSubjectContext)();
+}

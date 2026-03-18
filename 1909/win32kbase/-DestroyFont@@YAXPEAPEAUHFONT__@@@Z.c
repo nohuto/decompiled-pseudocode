@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C00B4570
+ * Callers:
+ *     CleanupGDI @ 0x1C00B4220 (CleanupGDI.c)
+ *     ?DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z @ 0x1C00B4800 (-DestroyAllDPIMETRICSFonts@@YAXPEAUtagDPIMETRICS@@@Z.c)
+ * Callees:
+ *     GreDeleteObject @ 0x1C0018180 (GreDeleteObject.c)
+ */
+
+void __fastcall DestroyFont(HFONT *a1, __int64 a2)
+{
+  struct HOBJ__ *v3; // rcx
+
+  v3 = (struct HOBJ__ *)*a1;
+  if ( v3 )
+  {
+    GreDeleteObject(v3, a2);
+    *a1 = 0LL;
+  }
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?VidSchGetNumUnorderedWaitsInDevice@VIDSCH_EXPORT@@QEAAKPEAU_VIDSCH_DEVICE@@@Z @ 0x1400503D0
+ * Callers:
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x140326BC0 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400A5A80 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall VIDSCH_EXPORT::VidSchGetNumUnorderedWaitsInDevice(VIDSCH_EXPORT *this, struct _VIDSCH_DEVICE *a2)
+{
+  return (*(__int64 (__fastcall **)(struct _VIDSCH_DEVICE *))(*((_QWORD *)this + 1) + 1040LL))(a2);
+}

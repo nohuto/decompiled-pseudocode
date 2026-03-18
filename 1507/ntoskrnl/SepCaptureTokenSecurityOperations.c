@@ -1,0 +1,63 @@
+/*
+ * XREFs of SepCaptureTokenSecurityOperations @ 0x140128A58
+ * Callers:
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140547B70 (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14002CBD4 (RtlULongLongMult.c)
+ *     ExFreePoolWithTag @ 0x140288010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x140288E60 (ExAllocatePoolWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1406F78A0 (ExRaiseDatatypeMisalignment.c)
+ */
+
+NTSTATUS __fastcall SepCaptureTokenSecurityOperations(_DWORD *a1, unsigned int a2, char a3, _QWORD *a4)
+{
+  unsigned int v5; // esi
+  unsigned int v7; // ebx
+  NTSTATUS result; // eax
+  SIZE_T v9; // rax
+  _DWORD *PoolWithTag; // rdx
+  SIZE_T NumberOfBytes[2]; // [rsp+28h] [rbp-10h] BYREF
+
+  v5 = a2;
+  v7 = 0;
+  if ( !a3 )
+  {
+    *a4 = a1;
+    return 0;
+  }
+  if ( *a1 == 1 )
+  {
+    v9 = 4LL;
+    NumberOfBytes[0] = 4LL;
+    v5 = 1;
+  }
+  else
+  {
+    if ( !a2 )
+      return -1073741811;
+    result = RtlULongLongMult(4uLL, a2, NumberOfBytes);
+    if ( result < 0 )
+      return result;
+    v9 = NumberOfBytes[0];
+  }
+  if ( v9 )
+  {
+    if ( ((unsigned __int8)a1 & 3) != 0 )
+      ExRaiseDatatypeMisalignment();
+    if ( (unsigned __int64)a1 + v9 > MmUserProbeAddress || (_DWORD *)((char *)a1 + v9) < a1 )
+      *(_BYTE *)MmUserProbeAddress = 0;
+  }
+  PoolWithTag = ExAllocatePoolWithTag(PagedPool, v9, 0x704F6553u);
+  NumberOfBytes[0] = (SIZE_T)PoolWithTag;
+  if ( PoolWithTag )
+  {
+    while ( v7 < v5 )
+    {
+      PoolWithTag[v7] = a1[v7];
+      ++v7;
+    }
+    *a4 = PoolWithTag;
+    return 0;
+  }
+  return -1073741801;
+}

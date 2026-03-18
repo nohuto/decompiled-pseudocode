@@ -1,0 +1,56 @@
+/*
+ * XREFs of PopDecrementPowerSettingPendingUpdates @ 0x14031D688
+ * Callers:
+ *     PopDispatchPowerSettingCallbacks @ 0x140782750 (PopDispatchPowerSettingCallbacks.c)
+ *     PopSetPowerSettingValue @ 0x1407829F8 (PopSetPowerSettingValue.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x140250500 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140250E80 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepClearDisengageReason @ 0x14028E75C (PopDeepSleepClearDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+__int64 __fastcall PopDecrementPowerSettingPendingUpdates(char a1)
+{
+  unsigned __int64 v2; // rdi
+  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // r9
+  _DWORD *SchedulerAssist; // r8
+  bool v6; // zf
+
+  v2 = KeAcquireSpinLockRaiseToDpc(&PopPendingPowerSettingUpdateLock);
+  if ( a1 )
+  {
+    _InterlockedExchangeAdd(&PopPendingPowerSettingUpdates, -PopPendingPowerSettingUpdatesQueued);
+    PopPendingPowerSettingUpdatesQueued = 0;
+  }
+  else
+  {
+    _InterlockedAdd(&PopPendingPowerSettingUpdates, 0xFFFFFFFF);
+  }
+  if ( !PopPendingPowerSettingUpdates )
+  {
+    PopPendingPowerSettingUpdateTime = 0LL;
+    PopDeepSleepClearDisengageReason(3u);
+  }
+  result = KxReleaseSpinLock((volatile signed __int64 *)&PopPendingPowerSettingUpdateLock);
+  if ( KiIrqlFlags )
+  {
+    result = KeGetCurrentIrql();
+    if ( (KiIrqlFlags & 1) != 0
+      && (unsigned __int8)result <= 0xFu
+      && (unsigned __int8)v2 <= 0xFu
+      && (unsigned __int8)result >= 2u )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v2 + 1));
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      v6 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= result;
+      if ( v6 )
+        result = KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+    }
+  }
+  __writecr8(v2);
+  return result;
+}

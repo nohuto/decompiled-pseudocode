@@ -1,0 +1,26 @@
+/*
+ * XREFs of ?UnmapViewOfAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAXPEAX@Z @ 0x1C00C35F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0004124 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0004150 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0011AF4 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Unmap@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ @ 0x1C00C3528 (-Unmap@VIDMM_RECYCLE_MULTIRANGE@@QEAAXXZ.c)
+ */
+
+void __fastcall VIDMM_RECYCLE_HEAP_MGR::UnmapViewOfAllocation(
+        VIDMM_RECYCLE_HEAP_MGR *this,
+        VIDMM_RECYCLE_MULTIRANGE *a2,
+        __int64 a3)
+{
+  __int64 v4; // rdx
+  __int64 v5; // rdx
+  _BYTE v6[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v6, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328), a3);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v6, v4);
+  VIDMM_RECYCLE_MULTIRANGE::Unmap(a2);
+  if ( v6[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v6, v5);
+}

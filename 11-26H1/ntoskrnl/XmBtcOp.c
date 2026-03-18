@@ -1,0 +1,23 @@
+/*
+ * XREFs of XmBtcOp @ 0x1405ADF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XmStoreResult @ 0x1404A8E3C (XmStoreResult.c)
+ */
+
+_WORD *__fastcall XmBtcOp(_DWORD *a1)
+{
+  int v1; // r8d
+  int v3; // ecx
+  int v4; // edx
+  int v5; // eax
+
+  v1 = a1[4];
+  v3 = a1[27];
+  v4 = a1[26] ^ (1 << v3);
+  v5 = v1 ^ (v1 ^ (a1[26] >> v3)) & 1;
+  a1[26] = v4;
+  a1[4] = v5;
+  return XmStoreResult((__int64)a1, v4);
+}

@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?Execute@VIDMM_TASK_PAGING_QUEUE@@UEAAJPEAUVIDMM_WORKER_THREAD2@@PEAUVIDMM_TASK_CONTEXT@@@Z @ 0x1400A0770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x140034220 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x140034280 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ *     ExecutePagingCommand @ 0x1400A0AE0 (ExecutePagingCommand.c)
+ *     ShouldPreemptTask @ 0x1400A0C48 (ShouldPreemptTask.c)
+ *     ?VidMmSelectReadyPacket@@YAPEAUVIDMM_PAGING_QUEUE_PACKET@@PEBUVIDMM_WORKER_THREAD@@PEAUVIDMM_PAGING_QUEUE@@@Z @ 0x1400F55A8 (-VidMmSelectReadyPacket@@YAPEAUVIDMM_PAGING_QUEUE_PACKET@@PEBUVIDMM_WORKER_THREAD@@PEAUVIDMM_PAG.c)
+ */
+
+__int64 __fastcall VIDMM_TASK_PAGING_QUEUE::Execute(
+        VIDMM_TASK_PAGING_QUEUE *this,
+        struct VIDMM_WORKER_THREAD2 *a2,
+        struct VIDMM_TASK_CONTEXT *a3)
+{
+  struct VIDMM_PAGING_QUEUE *v3; // rdi
+  _QWORD *v5; // rbp
+  const struct VIDMM_WORKER_THREAD *v7; // rcx
+  _BYTE v9[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v3 = (VIDMM_TASK_PAGING_QUEUE *)((char *)this - 120);
+  v5 = (_QWORD *)((char *)this - 88);
+  while ( 1 )
+  {
+    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
+      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9,
+      (struct VIDMM_WORKER_THREAD2 *)((char *)a2 + 184),
+      1);
+    if ( (_QWORD *)*v5 == v5 )
+      break;
+    if ( *((_DWORD *)v3 + 26) == 2 || (unsigned __int8)ShouldPreemptTask(a2, a3) )
+    {
+      DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9);
+      return 3221226029LL;
+    }
+    VidMmSelectReadyPacket(v7, v3);
+    DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9);
+    ExecutePagingCommand(a2);
+  }
+  DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v9);
+  return 0LL;
+}

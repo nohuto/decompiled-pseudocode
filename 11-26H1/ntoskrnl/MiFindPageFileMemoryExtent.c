@@ -1,0 +1,73 @@
+/*
+ * XREFs of MiFindPageFileMemoryExtent @ 0x14070CB30
+ * Callers:
+ *     MiTransferMemoryPagefileData @ 0x140503118 (MiTransferMemoryPagefileData.c)
+ * Callees:
+ *     ExReleaseSpinLockShared @ 0x14026CEE0 (ExReleaseSpinLockShared.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x1402DC6D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x1402EDF10 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x1402EDFB0 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiComparePageFileMemoryExtents @ 0x14070C884 (MiComparePageFileMemoryExtents.c)
+ */
+
+__int64 __fastcall MiFindPageFileMemoryExtent(__int64 a1, int a2, int a3)
+{
+  volatile LONG *v3; // rdi
+  volatile LONG *v5; // rcx
+  KIRQL v7; // bp
+  __int64 v8; // rdx
+  bool v9; // zf
+  __int64 v10; // rbx
+  int v11; // esi
+  int v12; // eax
+  __int64 v13; // rax
+  int v15; // [rsp+48h] [rbp+10h] BYREF
+
+  v15 = a2;
+  v3 = (volatile LONG *)(a1 + 200);
+  v5 = (volatile LONG *)(a1 + 200);
+  if ( a3 )
+  {
+    v7 = 17;
+    ExAcquireSpinLockSharedAtDpcLevel(v5);
+  }
+  else
+  {
+    v7 = ExAcquireSpinLockShared(v5);
+  }
+  v8 = a1 + 232;
+  v9 = (*(_BYTE *)(a1 + 240) & 1) == 0;
+  v10 = *(_QWORD *)(a1 + 232);
+  if ( !v9 && v10 )
+    v10 ^= v8;
+  v11 = *(_BYTE *)(v8 + 8) & 1;
+  if ( !v10 )
+    goto LABEL_18;
+  do
+  {
+    v12 = MiComparePageFileMemoryExtents(&v15, v10);
+    if ( v12 >= 0 )
+    {
+      if ( v12 <= 0 )
+        break;
+      v13 = *(_QWORD *)(v10 + 8);
+    }
+    else
+    {
+      v13 = *(_QWORD *)v10;
+    }
+    if ( v11 && v13 )
+      v10 ^= v13;
+    else
+      v10 = v13;
+  }
+  while ( v10 );
+  if ( !v10 )
+LABEL_18:
+    NT_ASSERT("Node != ((void *)0)");
+  if ( a3 || v7 == 17 )
+    ExReleaseSpinLockSharedFromDpcLevel(v3);
+  else
+    ExReleaseSpinLockShared(v3, v7);
+  return v10;
+}

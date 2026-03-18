@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?Stop@DXGOVERLAY@@QEAAXXZ @ 0x1401E80A8
+ * Callers:
+ *     ?Stop@DXGDEVICE@@QEAAXE@Z @ 0x1401BBA38 (-Stop@DXGDEVICE@@QEAAXE@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x140029C50 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?Destroy@DXGOVERLAY@@QEAAXXZ @ 0x1401E74B0 (-Destroy@DXGOVERLAY@@QEAAXXZ.c)
+ */
+
+void __fastcall DXGOVERLAY::Stop(DXGOVERLAY *this)
+{
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(*(PERESOURCE **)(*(_QWORD *)(*((_QWORD *)this + 2) + 16LL) + 16LL)) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 250;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146LL,
+      0xFFFFFFFFLL,
+      L"GetAdapter()->IsCoreResourceExclusiveOwner()",
+      250LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  DXGOVERLAY::Destroy(this);
+  *((_DWORD *)this + 7) = 3;
+}

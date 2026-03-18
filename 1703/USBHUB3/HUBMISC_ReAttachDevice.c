@@ -1,0 +1,14 @@
+/*
+ * XREFs of HUBMISC_ReAttachDevice @ 0x1C00283C0
+ * Callers:
+ *     HUBPSM30_IssuingReAttachDeviceToBootDevice @ 0x1C000E930 (HUBPSM30_IssuingReAttachDeviceToBootDevice.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C0009BF8 (HUBSM_AddEvent.c)
+ */
+
+void __fastcall HUBMISC_ReAttachDevice(__int64 a1)
+{
+  HUBSM_AddEvent(*(_QWORD *)(a1 + 1328) + 488LL, 4050);
+  _InterlockedOr((volatile signed __int32 *)(a1 + 1336), 1u);
+  *(_DWORD *)(a1 + 1424) = 9;
+}

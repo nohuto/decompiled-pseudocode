@@ -1,0 +1,50 @@
+/*
+ * XREFs of ?ProcessSetTransform@CMagnifierRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_MAGNIFIERRENDERTARGET_SETTRANSFORM@@@Z @ 0x1802203E0
+ * Callers:
+ *     ?ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1801114F0 (-ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@.c)
+ * Callees:
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x180036D70 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800822D0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x180134248 (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x180134738 (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     ?UpdateTransformAndTreeBounds@COffScreenRenderTarget@@MEAAXXZ @ 0x1801592B0 (-UpdateTransformAndTreeBounds@COffScreenRenderTarget@@MEAAXXZ.c)
+ */
+
+__int64 __fastcall CMagnifierRenderTarget::ProcessSetTransform(
+        struct CResource **this,
+        struct CResourceTable *a2,
+        const struct tagMILCMD_MAGNIFIERRENDERTARGET_SETTRANSFORM *a3)
+{
+  unsigned int v4; // ebx
+  unsigned int v5; // edx
+  struct CResource *Resource; // rsi
+  int v9; // eax
+
+  v4 = 0;
+  v5 = *((_DWORD *)a3 + 2);
+  Resource = 0LL;
+  if ( !v5 || (Resource = (struct CResource *)CResourceTable::GetResource((__int64)a2, v5, 0xAEu)) != 0LL )
+  {
+    if ( Resource != this[25] )
+    {
+      v9 = CResource::RegisterNotifier((CResource *)this, Resource);
+      v4 = v9;
+      if ( v9 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, v9, 0xBFu, 0LL);
+      }
+      else
+      {
+        CResource::UnRegisterNotifierInternal((CResource *)this, this[25]);
+        this[25] = Resource;
+        COffScreenRenderTarget::UpdateTransformAndTreeBounds((COffScreenRenderTarget *)this);
+      }
+    }
+  }
+  else
+  {
+    v4 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(20, 0LL, 0, -2003303421, 0xB6u, 0LL);
+  }
+  return v4;
+}

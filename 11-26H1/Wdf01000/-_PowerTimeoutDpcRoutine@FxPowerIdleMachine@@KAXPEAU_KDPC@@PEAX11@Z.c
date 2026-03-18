@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?_PowerTimeoutDpcRoutine@FxPowerIdleMachine@@KAXPEAU_KDPC@@PEAX11@Z @ 0x140066090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z @ 0x1400326D0 (-ProcessEventLocked@FxPowerIdleMachine@@IEAAXW4FxPowerIdleEvents@@@Z.c)
+ *     _guard_dispatch_icall @ 0x1400ACF10 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall FxPowerIdleMachine::_PowerTimeoutDpcRoutine(
+        _KDPC *Dpc,
+        FxPowerIdleMachine *Context,
+        void *SystemArgument1,
+        void *SystemArgument2)
+{
+  void (__fastcall *v5)(int (__fastcall **)(WDFDRIVER__ *, WDFDEVICE_INIT *), __int64, __int64, __int64, char); // rax
+  char v6; // [rsp+20h] [rbp-18h]
+  int (__fastcall *pDriverDeviceAdd)(WDFDRIVER__ *, WDFDEVICE_INIT *); // [rsp+48h] [rbp+10h] BYREF
+
+  KeAcquireSpinLockAtDpcLevel(&Context->m_Lock.m_Lock);
+  FxPowerIdleMachine::ProcessEventLocked(Context, PowerIdleEventTimerExpired);
+  pDriverDeviceAdd = (int (__fastcall *)(WDFDRIVER__ *, WDFDEVICE_INIT *))Context[2].m_TagTracker->m_OwningObject->m_ChildEntry.Blink[11].Flink;
+  v5 = *(void (__fastcall **)(int (__fastcall **)(WDFDRIVER__ *, WDFDEVICE_INIT *), __int64, __int64, __int64, char))(unk_1400C90A8 + 8LL);
+  if ( v5 )
+  {
+    v6 = 2;
+    v5(&pDriverDeviceAdd, 8LL, 2164260864LL, 3938LL, v6);
+  }
+  KeReleaseSpinLockFromDpcLevel(&Context->m_Lock.m_Lock);
+}

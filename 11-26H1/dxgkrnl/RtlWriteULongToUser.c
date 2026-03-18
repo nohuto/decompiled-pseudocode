@@ -1,0 +1,56 @@
+/*
+ * XREFs of RtlWriteULongToUser @ 0x140196858
+ * Callers:
+ *     RtlWriteULongToUser$thunk$10400971452996433967 @ 0x1400A7070 (RtlWriteULongToUser$thunk$10400971452996433967.c)
+ *     ?DxgkReadPnPRegistryPath@@YAJPEAVDXGADAPTER@@IW4_DXGK_PNP_KEY_TYPE@@PEAGPEAI@Z @ 0x14018FCF0 (-DxgkReadPnPRegistryPath@@YAJPEAVDXGADAPTER@@IW4_DXGK_PNP_KEY_TYPE@@PEAGPEAI@Z.c)
+ *     DxgkGetSharedPrimaryHandle @ 0x1401B5F10 (DxgkGetSharedPrimaryHandle.c)
+ *     DxgkNetDispGetNextChunkInfo @ 0x1401B7180 (DxgkNetDispGetNextChunkInfo.c)
+ *     DxgkNetDispQueryMiracastDisplayDeviceStatus @ 0x1401B74E0 (DxgkNetDispQueryMiracastDisplayDeviceStatus.c)
+ *     NtDxgkDisplayMuxSwitchExecute @ 0x1401B9650 (NtDxgkDisplayMuxSwitchExecute.c)
+ *     NtDxgkGetProcessList @ 0x1401B9AC0 (NtDxgkGetProcessList.c)
+ *     ?QueryAllocationResidency@DXGDEVICE@@QEAAJPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@E@Z @ 0x1401BA4F4 (-QueryAllocationResidency@DXGDEVICE@@QEAAJPEAU_D3DKMT_QUERYALLOCATIONRESIDENCY@@E@Z.c)
+ *     DxgkCheckMultiPlaneOverlaySupport @ 0x1401C4730 (DxgkCheckMultiPlaneOverlaySupport.c)
+ *     DxgkCheckMultiPlaneOverlaySupport2 @ 0x1401C4E00 (DxgkCheckMultiPlaneOverlaySupport2.c)
+ *     DxgkCheckSinglePlaneForMultiPlaneOverlaySupport @ 0x1401C54F0 (DxgkCheckSinglePlaneForMultiPlaneOverlaySupport.c)
+ *     DxgkExtractBundleObjectInternal @ 0x1401EAE74 (DxgkExtractBundleObjectInternal.c)
+ *     DxgkOpenKeyedMutexFromNtHandle @ 0x1401EBA30 (DxgkOpenKeyedMutexFromNtHandle.c)
+ *     DxgkCreateOutputDupl @ 0x1401EF110 (DxgkCreateOutputDupl.c)
+ *     DxgkGetMemoryBudgetTarget @ 0x1401F7D40 (DxgkGetMemoryBudgetTarget.c)
+ *     DxgkGetYieldPercentage @ 0x1401F86A0 (DxgkGetYieldPercentage.c)
+ *     DxgkCreateKeyedMutex @ 0x1401FEF00 (DxgkCreateKeyedMutex.c)
+ *     DxgkCreateKeyedMutex2 @ 0x1401FF290 (DxgkCreateKeyedMutex2.c)
+ *     DxgkOpenKeyedMutex @ 0x1401FF7A0 (DxgkOpenKeyedMutex.c)
+ *     DxgkOpenKeyedMutex2 @ 0x1401FFAE0 (DxgkOpenKeyedMutex2.c)
+ *     NtDxgkCreateNativeFenceInternal @ 0x140200CD8 (NtDxgkCreateNativeFenceInternal.c)
+ *     DxgkGetScanLine @ 0x1402A3580 (DxgkGetScanLine.c)
+ *     ?DxgkOpenAdapterFromLuidImpl@@YAJPEAU_D3DKMT_OPENADAPTERFROMLUID@@E@Z @ 0x1402AFBA8 (-DxgkOpenAdapterFromLuidImpl@@YAJPEAU_D3DKMT_OPENADAPTERFROMLUID@@E@Z.c)
+ *     DxgkQueryVidPnExclusiveOwnership @ 0x14033BBA0 (DxgkQueryVidPnExclusiveOwnership.c)
+ *     ?DxgkOpenSynchronizationObjectInternal@@YAJPEAU_D3DKMT_OPENSYNCHRONIZATIONOBJECT@@H@Z @ 0x140350D18 (-DxgkOpenSynchronizationObjectInternal@@YAJPEAU_D3DKMT_OPENSYNCHRONIZATIONOBJECT@@H@Z.c)
+ *     DxgkOpenResourceFromNtHandleInternal @ 0x140353BE0 (DxgkOpenResourceFromNtHandleInternal.c)
+ *     ??$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCEFROMNTHANDLE@@@@YAJPEAU_D3DKMT_OPENRESOURCEFROMNTHANDLE@@IPEAU_DXGSHAREDALLOCOBJECT@@H@Z @ 0x14035450C (--$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCEFROMNTHANDLE@@@@YAJPEAU_D3DKMT_OP.c)
+ *     ?DxgkCreateAllocationInternal@@YAJPEAU_D3DKMT_CREATEALLOCATION@@PEAIPEA_K@Z @ 0x14035BAD8 (-DxgkCreateAllocationInternal@@YAJPEAU_D3DKMT_CREATEALLOCATION@@PEAIPEA_K@Z.c)
+ *     ?CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEBU_D3DKM_CREATESTANDARDALLOCATION@@PEAVCOREDEVICEACCESS@@IPEAU_EPROCESS@@PEAIPEA_K6PEAU_D3DKMT_CREATESTANDARDALLOCATION@@PEAXI@Z @ 0x14035CE20 (-CreateAllocation@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@EEPEAU_DXGSHAREDALLOCOBJECT@@PEB.c)
+ *     DxgkGetDeviceStateInternal @ 0x14036A470 (DxgkGetDeviceStateInternal.c)
+ *     ?DxgkCreateDeviceImpl@@YAJPEAU_D3DKMT_CREATEDEVICE@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_GUEST_DATA@@E@Z @ 0x14036EF20 (-DxgkCreateDeviceImpl@@YAJPEAU_D3DKMT_CREATEDEVICE@@PEAUDXGK_VIRTUAL_GPU_PARAV@@PEAPEAUDXG_SET_G.c)
+ *     ?ReclaimAllocations@DXGDEVICE@@QEAAJPEAVDXGPAGINGQUEUE@@PEAU_D3DKMT_RECLAIMALLOCATIONS2@@E@Z @ 0x14038E5C0 (-ReclaimAllocations@DXGDEVICE@@QEAAJPEAVDXGPAGINGQUEUE@@PEAU_D3DKMT_RECLAIMALLOCATIONS2@@E@Z.c)
+ *     DxgkGetMultiPlaneOverlayCaps @ 0x140391CA0 (DxgkGetMultiPlaneOverlayCaps.c)
+ *     DxgkCheckMultiPlaneOverlaySupport3 @ 0x14039DDC0 (DxgkCheckMultiPlaneOverlaySupport3.c)
+ *     DxgkOpenAdapterFromDeviceName @ 0x1403A0BD0 (DxgkOpenAdapterFromDeviceName.c)
+ *     DxgkCreateContext @ 0x1403A3C90 (DxgkCreateContext.c)
+ *     ?DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z @ 0x1403A6E48 (-DxgkCreateContextVirtualImpl@@YAJPEAU_D3DKMT_CREATECONTEXTVIRTUAL@@E@Z.c)
+ *     NtDxgkEnumProcesses @ 0x1403C1BB0 (NtDxgkEnumProcesses.c)
+ *     ?DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC_OBJECT_CLIENTHINT@@HPEAX2@Z @ 0x1403C442C (-DxgkCreateSynchronizationObjectImpl@@YAJPEAU_D3DKMT_CREATESYNCHRONIZATIONOBJECT2@@U_VIDSCH_SYNC.c)
+ *     ??$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCE@@@@YAJPEAU_D3DKMT_OPENRESOURCE@@IPEAU_DXGSHAREDALLOCOBJECT@@H@Z @ 0x1403CDBFC (--$OpenResourceFromGlobalHandleOrNtObject@U_D3DKMT_OPENRESOURCE@@@@YAJPEAU_D3DKMT_OPENRESOURCE@@.c)
+ *     DxgkOutputDuplReleaseFrame @ 0x1403E6630 (DxgkOutputDuplReleaseFrame.c)
+ *     DxgkGetResourcePresentPrivateDriverData @ 0x1403EFF10 (DxgkGetResourcePresentPrivateDriverData.c)
+ *     ?GetAllocationPriority@DXGDEVICE@@QEAAJPEBU_D3DKMT_GETALLOCATIONPRIORITY@@E@Z @ 0x140408124 (-GetAllocationPriority@DXGDEVICE@@QEAAJPEBU_D3DKMT_GETALLOCATIONPRIORITY@@E@Z.c)
+ *     DxgkGetDisplayModeList @ 0x140438C50 (DxgkGetDisplayModeList.c)
+ * Callees:
+ *     ProbeForRead_0 @ 0x14006E455 (ProbeForRead_0.c)
+ */
+
+void __fastcall RtlWriteULongToUser(_DWORD *a1, int a2)
+{
+  ProbeForRead_0(a1, 4uLL, 1u);
+  *a1 = a2;
+}

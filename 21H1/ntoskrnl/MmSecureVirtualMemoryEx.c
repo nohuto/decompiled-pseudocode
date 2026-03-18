@@ -1,0 +1,63 @@
+/*
+ * XREFs of MmSecureVirtualMemoryEx @ 0x1406BA960
+ * Callers:
+ *     MmSecureVirtualMemory @ 0x1406BA930 (MmSecureVirtualMemory.c)
+ *     PspAllocateThread @ 0x14070559C (PspAllocateThread.c)
+ *     VmSecureBackingMemory @ 0x14092A8E0 (VmSecureBackingMemory.c)
+ *     AslpFileLargeMapCreate @ 0x140967B7C (AslpFileLargeMapCreate.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14021A7A0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x140267570 (MiObtainReferencedVadEx.c)
+ *     MiSecureVad @ 0x1406BAAC8 (MiSecureVad.c)
+ */
+
+__int64 __fastcall MmSecureVirtualMemoryEx(unsigned __int64 a1, __int64 a2, int a3, int a4)
+{
+  int v6; // ebp
+  int v7; // r14d
+  unsigned __int64 v8; // rsi
+  volatile signed __int32 *v9; // rax
+  char *v10; // rdi
+  unsigned int v11; // ecx
+  unsigned int v12; // eax
+  unsigned int v13; // r9d
+  int v14; // ebx
+  _QWORD v16[5]; // [rsp+30h] [rbp-28h] BYREF
+  int v17; // [rsp+78h] [rbp+20h] BYREF
+
+  v16[0] = 0LL;
+  v6 = a2;
+  v7 = a1;
+  if ( (a4 & 0xFFFFFFF0) == 0 )
+  {
+    v8 = a1 + a2;
+    if ( a1 + a2 > a1
+      && v8 <= 0x7FFFFFFF0000LL
+      && ((unsigned int)(a3 - 1) <= 1 || a3 == 4 || a3 == -2147483647)
+      && a3 >= 0 )
+    {
+      v9 = MiObtainReferencedVadEx(a1 & 0xFFFFFFFFFFFFF000uLL, 0, &v17);
+      v10 = (char *)v9;
+      if ( v9 )
+      {
+        if ( (v8 - 1) >> 12 > (*((unsigned int *)v9 + 7) | ((unsigned __int64)*((unsigned __int8 *)v9 + 33) << 32))
+          || (v11 = *((_DWORD *)v9 + 12), (v9[12] & 0x70) == 0x30)
+          || (v11 & 0x100000) != 0 && ((v12 = (v11 >> 18) & 3, (v11 & 0x400000) != 0) || v12 >= 2) && v12 >= 2 )
+        {
+          MiUnlockAndDereferenceVad(v10);
+        }
+        else
+        {
+          v13 = a3 | 0x80000000;
+          if ( (a4 & 2) == 0 )
+            v13 = a3;
+          v14 = MiSecureVad((_DWORD)v10, v7, v6, v13, a4, (__int64)v16);
+          MiUnlockAndDereferenceVad(v10);
+          if ( v14 >= 0 )
+            return qword_140C4DD90 ^ (__int64)KeGetCurrentThread()->ApcState.Process ^ v16[0];
+        }
+      }
+    }
+  }
+  return 0LL;
+}

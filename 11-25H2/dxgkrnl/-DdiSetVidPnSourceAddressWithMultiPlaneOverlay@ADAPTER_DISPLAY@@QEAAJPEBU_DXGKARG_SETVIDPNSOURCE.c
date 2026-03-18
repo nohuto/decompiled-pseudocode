@@ -1,0 +1,127 @@
+/*
+ * XREFs of ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY@@@Z @ 0x1400200E8
+ * Callers:
+ *     ADAPTER_DISPLAY_DdiSetVidPnSourceAddressWithMultiPlaneOverlay @ 0x1400200D0 (ADAPTER_DISPLAY_DdiSetVidPnSourceAddressWithMultiPlaneOverlay.c)
+ * Callees:
+ *     McTemplateK0q_EtwWriteTransfer @ 0x140015644 (McTemplateK0q_EtwWriteTransfer.c)
+ *     DxgkLogInternalTriageEvent @ 0x140019E90 (DxgkLogInternalTriageEvent.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x140021A60 (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ??0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z @ 0x140021B00 (--0DXGVALIDATIONPROCESSATTACH@@QEAA@PEAVDXGADAPTER@@@Z.c)
+ *     DXGETWPROFILER_BASE_PushProfilerEntry @ 0x140021D20 (DXGETWPROFILER_BASE_PushProfilerEntry.c)
+ *     __security_check_cookie @ 0x14009F860 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x14009F940 (_guard_dispatch_icall.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1402A5D70 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ */
+
+__int64 __fastcall ADAPTER_DISPLAY::DdiSetVidPnSourceAddressWithMultiPlaneOverlay(
+        ADAPTER_DISPLAY *this,
+        const struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY *a2,
+        __int64 a3)
+{
+  KIRQL CurrentIrql; // al
+  __int64 v6; // r15
+  struct DXGTHREAD *v7; // rbx
+  int v8; // esi
+  __int64 v9; // rdi
+  __int64 v10; // rcx
+  __int64 v11; // r8
+  struct DXGTHREAD *Current; // rax
+  KIRQL v14; // al
+  int v15; // [rsp+50h] [rbp-29h] BYREF
+  __int64 v16; // [rsp+58h] [rbp-21h]
+  char v17; // [rsp+60h] [rbp-19h]
+  _BYTE v18[8]; // [rsp+68h] [rbp-11h] BYREF
+  struct _KAPC_STATE ApcState; // [rsp+70h] [rbp-9h] BYREF
+
+  v15 = -1;
+  v16 = 0LL;
+  if ( (qword_14015B4C0 & 2) != 0 )
+  {
+    v17 = 1;
+    v15 = 5120;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)this, (__int64)&EventProfilerEnter, a3, 5120);
+  }
+  else
+  {
+    v17 = 0;
+  }
+  DXGETWPROFILER_BASE_PushProfilerEntry(&v15, 5120LL);
+  if ( KeGetCurrentIrql() <= 2u )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 1017;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      0xFFFFFFFFLL,
+      L"KeGetCurrentIrql() > DISPATCH_LEVEL",
+      1017LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  if ( KeGetCurrentIrql() >= 0xFu )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 1018;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262146,
+      0xFFFFFFFFLL,
+      L"KeGetCurrentIrql() < PROFILE_LEVEL",
+      1018LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  _InterlockedIncrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4804LL));
+  CurrentIrql = KeGetCurrentIrql();
+  v6 = CurrentIrql;
+  v7 = 0LL;
+  if ( CurrentIrql < 2u && (Current = DXGTHREAD::GetCurrent(), (v7 = Current) != 0LL) )
+    v8 = *((_DWORD *)Current + 12);
+  else
+    v8 = 0;
+  DXGVALIDATIONPROCESSATTACH::DXGVALIDATIONPROCESSATTACH(
+    (DXGVALIDATIONPROCESSATTACH *)v18,
+    *((struct DXGADAPTER **)this + 2));
+  v9 = (*(int (__fastcall **)(_QWORD, const struct _DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY *))(*((_QWORD *)this + 2) + 872LL))(
+         *(_QWORD *)(*((_QWORD *)this + 2) + 288LL),
+         a2);
+  if ( v18[0] )
+    KeUnstackDetachProcess(&ApcState);
+  if ( (_BYTE)v6 != KeGetCurrentIrql() )
+  {
+    v14 = KeGetCurrentIrql();
+    WdLogSingleEntry5(0LL, 275LL, 16LL, this, v6, v14);
+    WdLogGlobalForLineNumber = 1028;
+  }
+  if ( v7 && *((_DWORD *)v7 + 12) != v8 )
+  {
+    WdLogSingleEntry5(0LL, 275LL, 38LL, *((int *)v7 + 12), v8, 0LL);
+    WdLogGlobalForLineNumber = 73;
+  }
+  _InterlockedDecrement((volatile signed __int32 *)(*((_QWORD *)this + 2) + 4804LL));
+  if ( (_DWORD)v9 )
+  {
+    WdLogSingleEntry1(2LL, v9);
+    WdLogGlobalForLineNumber = 1031;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000,
+      0xFFFFFFFFLL,
+      L"Driver returned an invalid NTSTATUS code: 0x%I64x",
+      v9,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v15);
+  if ( v17 && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(v10, (__int64)&EventProfilerExit, v11, v15);
+  return (unsigned int)v9;
+}

@@ -1,0 +1,32 @@
+/*
+ * XREFs of IpmiLibpHandleReadInterrupt @ 0x1406954C4
+ * Callers:
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x140694E88 (IpmiLibpKcsReceiveResponseFromBmc.c)
+ * Callees:
+ *     IpmiLibWriteOneByte @ 0x1406947E8 (IpmiLibWriteOneByte.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall IpmiLibpHandleReadInterrupt(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, _WORD *a5)
+{
+  int v6; // edi
+  __int64 result; // rax
+  __int64 v8; // rdx
+
+  v6 = a4;
+  if ( !qword_140EF98B0 )
+    return 3221225485LL;
+  result = guard_dispatch_icall_no_overrides(qword_140EF98B8);
+  if ( (int)result >= 0 )
+  {
+    IpmiLibWriteOneByte(0LL, 0, 0x68u);
+    v8 = (unsigned __int16)*a5;
+    if ( (int)v8 <= v6 - 1 )
+    {
+      *(_BYTE *)(v8 + a3) = 0;
+      *a5 = v8 + 1;
+    }
+    return 261LL;
+  }
+  return result;
+}

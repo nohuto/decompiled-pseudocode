@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?SetLegacyDeviceFlags@@YAXPEAUtagPROCESS_HID_TABLE@@PEBUtagRAWINPUTDEVICE@@@Z @ 0x1C00C82F0
+ * Callers:
+ *     ?SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KW4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C00C7C04 (-SetProcDeviceRequest@@YAHPEAUtagPROCESSINFO@@PEAUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall SetLegacyDeviceFlags(struct tagPROCESS_HID_TABLE *a1, const struct tagRAWINPUTDEVICE *a2)
+{
+  int v3; // eax
+  int v4; // ecx
+  unsigned int v5; // ecx
+  int v6; // eax
+  unsigned int v7; // ecx
+  int v8; // eax
+  int v9; // ecx
+
+  v3 = *((_DWORD *)a2 + 1) & 0xF0;
+  if ( (!v3 || v3 == 48) && *(_WORD *)a2 == 1 )
+  {
+    if ( *((_WORD *)a2 + 1) == 6 )
+    {
+      v4 = 0;
+      if ( v3 == 48 )
+        v4 = 32;
+      v5 = *((_DWORD *)a1 + 25) & 0xFFFFFFDF | v4;
+      *((_DWORD *)a1 + 25) = v5;
+      v6 = v5 ^ (*((_DWORD *)a2 + 1) ^ v5) & 0x200;
+      *((_DWORD *)a1 + 25) = v6;
+      v7 = v6 ^ (*((_DWORD *)a2 + 1) ^ v6) & 0x400;
+      *((_DWORD *)a1 + 25) = v7;
+      v8 = ((unsigned __int16)v7 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 3)) & 0x800;
+LABEL_7:
+      *((_DWORD *)a1 + 25) = v7 ^ v8;
+      return;
+    }
+    if ( *((_WORD *)a2 + 1) == 2 )
+    {
+      v9 = 0;
+      if ( v3 == 48 )
+        v9 = 2;
+      v7 = *((_DWORD *)a1 + 25) & 0xFFFFFFFD | v9;
+      *((_DWORD *)a1 + 25) = v7;
+      v8 = ((unsigned __int16)v7 ^ (unsigned __int16)(*((_DWORD *)a2 + 1) >> 1)) & 0x100;
+      goto LABEL_7;
+    }
+  }
+}

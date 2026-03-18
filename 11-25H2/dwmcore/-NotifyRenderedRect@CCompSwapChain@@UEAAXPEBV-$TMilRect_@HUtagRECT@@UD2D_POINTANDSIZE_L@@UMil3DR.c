@@ -1,0 +1,65 @@
+/*
+ * XREFs of ?NotifyRenderedRect@CCompSwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UD2D_POINTANDSIZE_L@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x1802D1000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Subtract@CRegion@@QEAAXAEBV1@@Z @ 0x1800668C0 (-Subtract@CRegion@@QEAAXAEBV1@@Z.c)
+ *     ?Union@CRegion@@QEAAXAEBV1@@Z @ 0x1800996C0 (-Union@CRegion@@QEAAXAEBV1@@Z.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x180099AE0 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z @ 0x1800C6230 (--0CRegion@FastRegion@@QEAA@AEBUtagRECT@@@Z.c)
+ *     ?IntersectUnsafe@?$TMilRect@HUtagRECT@@UD2D_POINTANDSIZE_L@@U_CMilRectL_@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x1801D6420 (-IntersectUnsafe@-$TMilRect@HUtagRECT@@UD2D_POINTANDSIZE_L@@U_CMilRectL_@RectUniqueness@@@@QEAA_.c)
+ *     __security_check_cookie @ 0x18025BF00 (__security_check_cookie.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+void __fastcall CCompSwapChain::NotifyRenderedRect(__int64 a1, int *a2)
+{
+  int v4; // eax
+  int v5; // r10d
+  _DWORD *v6; // r8
+  __int64 v7; // [rsp+20h] [rbp-29h] BYREF
+  struct tagRECT v8; // [rsp+28h] [rbp-21h] BYREF
+  FastRegion::CRegion *v9[10]; // [rsp+40h] [rbp-9h] BYREF
+
+  (*(void (__fastcall **)(_QWORD, __int64 *))(**(_QWORD **)(a1 + 80) + 88LL))(*(_QWORD *)(a1 + 80), &v7);
+  v8.left = 0;
+  v8.top = 0;
+  v4 = v7;
+  v5 = HIDWORD(v7);
+  *(_QWORD *)&v8.right = v7;
+  if ( a2 )
+  {
+    if ( TMilRect<int,tagRECT,D2D_POINTANDSIZE_L,RectUniqueness::_CMilRectL_>::IntersectUnsafe(&v8.left, a2) )
+    {
+      FastRegion::CRegion::CRegion((FastRegion::CRegion *)v9, &v8);
+      CRegion::Union((const struct FastRegion::Internal::CRgnData **)(a1 + 152), v9);
+      CRegion::Subtract((const struct FastRegion::Internal::CRgnData **)(a1 + 224), v9);
+      if ( *(_DWORD *)(a1 + 144) == 3 )
+        CRegion::Subtract((const struct FastRegion::Internal::CRgnData **)(a1 + 296), v9);
+      FastRegion::CRegion::FreeMemory(v9);
+    }
+  }
+  else
+  {
+    if ( (int)v7 <= 0 || SHIDWORD(v7) <= 0 )
+    {
+      **(_DWORD **)(a1 + 152) = 0;
+    }
+    else
+    {
+      v6 = *(_DWORD **)(a1 + 152);
+      v6[1] = 0;
+      v6[2] = v4;
+      v6[3] = 0;
+      *v6 = 2;
+      v6[4] = 16;
+      v6[7] = 0;
+      v6[8] = v4;
+      v6[5] = v5;
+      v6[6] = 16;
+    }
+    **(_DWORD **)(a1 + 224) = 0;
+    if ( *(_DWORD *)(a1 + 144) == 3 )
+      **(_DWORD **)(a1 + 296) = 0;
+  }
+}

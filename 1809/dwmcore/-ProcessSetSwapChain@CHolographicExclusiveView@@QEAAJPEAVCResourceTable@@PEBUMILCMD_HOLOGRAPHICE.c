@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?ProcessSetSwapChain@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN@@@Z @ 0x18020CCAC
+ * Callers:
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z @ 0x1800D0FD0 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@PEAI@Z.c)
+ * Callees:
+ *     ?GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z @ 0x1800BDA68 (-GetResourceWithoutType@CResourceTable@@QEBAPEAVCResource@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x1800C7F7C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1800F00A0 (_guard_dispatch_icall_nop.c)
+ *     ?AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z @ 0x18020C854 (-AttachSwapChain@CHolographicExclusiveView@@AEAAJPEAVCResource@@@Z.c)
+ *     ?ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x18020CE88 (-ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
+ */
+
+__int64 __fastcall CHolographicExclusiveView::ProcessSetSwapChain(
+        CHolographicExclusiveView *this,
+        struct CResourceTable *a2,
+        const struct MILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETSWAPCHAIN *a3)
+{
+  unsigned int v6; // edx
+  struct CResource *v7; // rbx
+  struct CResource *ResourceWithoutType; // rax
+  __int64 v9; // rcx
+  unsigned int v10; // ebx
+  int v11; // eax
+  __int64 v12; // rcx
+
+  if ( *((_BYTE *)this + 75) )
+    return 2147942487LL;
+  v6 = *((_DWORD *)a3 + 2);
+  v7 = 0LL;
+  if ( v6
+    && (ResourceWithoutType = CResourceTable::GetResourceWithoutType(a2, v6), (v7 = ResourceWithoutType) != 0LL)
+    && !(*(unsigned __int8 (__fastcall **)(struct CResource *, __int64))(*(_QWORD *)ResourceWithoutType + 48LL))(
+          ResourceWithoutType,
+          37LL) )
+  {
+    v10 = -2003303421;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, -2003303421, 0x84u);
+  }
+  else
+  {
+    CHolographicExclusiveView::ReleaseSwapChain(this);
+    v11 = CHolographicExclusiveView::AttachSwapChain((RTL_SRWLOCK *)this, v7);
+    v10 = v11;
+    if ( v11 < 0 )
+      MilInstrumentationCheckHR_MaybeFailFast(v12, 0LL, 0, v11, 0x8Bu);
+  }
+  return v10;
+}

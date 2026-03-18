@@ -1,0 +1,183 @@
+/*
+ * XREFs of FixupGrayScan @ 0x1C00055FC
+ * Callers:
+ *     GetFixupScan @ 0x1C003CB9C (GetFixupScan.c)
+ *     RepDIB_CY @ 0x1C00F8400 (RepDIB_CY.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C01664D0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0166500 (memmove.c)
+ */
+
+void *__fastcall FixupGrayScan(__int64 a1, void *a2)
+{
+  __int64 v2; // r12
+  __int64 v3; // rbx
+  unsigned int v4; // ecx
+  void *v5; // rsi
+  __m128i v6; // xmm1
+  int v7; // edi
+  unsigned __int8 *v8; // r13
+  __m128i v9; // xmm1
+  _BYTE *v10; // xmm0_8
+  unsigned int v11; // r9d
+  unsigned int v12; // r11d
+  int v13; // edx
+  unsigned __int64 v14; // r10
+  int v15; // r12d
+  unsigned __int8 *v16; // r8
+  unsigned int v17; // ebx
+  _BYTE *v18; // rsi
+  __int64 v19; // r15
+  int v20; // r10d
+  unsigned __int8 *v21; // r13
+  int v22; // r14d
+  unsigned int v23; // ecx
+  unsigned int v24; // eax
+  void *result; // rax
+  unsigned int v26; // edx
+  unsigned int v27; // [rsp+20h] [rbp-89h]
+  int v28; // [rsp+24h] [rbp-85h]
+  int v29; // [rsp+28h] [rbp-81h]
+  int v30; // [rsp+2Ch] [rbp-7Dh]
+  unsigned int v31; // [rsp+30h] [rbp-79h]
+  int v32; // [rsp+34h] [rbp-75h]
+  int v33; // [rsp+38h] [rbp-71h]
+  unsigned int v34; // [rsp+40h] [rbp-69h]
+  _BYTE v35[40]; // [rsp+50h] [rbp-59h]
+  size_t Size; // [rsp+78h] [rbp-31h]
+  __m128i v37; // [rsp+80h] [rbp-29h]
+  __int64 v38; // [rsp+80h] [rbp-29h]
+  __m128i v39; // [rsp+90h] [rbp-19h]
+  __int64 v40; // [rsp+A0h] [rbp-9h]
+  __int128 v41; // [rsp+A8h] [rbp-1h]
+  unsigned int v44; // [rsp+120h] [rbp+77h]
+  int v45; // [rsp+128h] [rbp+7Fh]
+
+  v2 = *(unsigned int *)(a1 + 56);
+  v3 = a1;
+  v4 = *(_DWORD *)(a1 + 56);
+  v5 = a2;
+  v34 = v4;
+  v6 = *(__m128i *)(v3 + 512);
+  v41 = *(_OWORD *)(v3 + 480);
+  *(_QWORD *)v35 = *(_QWORD *)(v3 + 488);
+  v37 = v6;
+  v39 = *(__m128i *)(v3 + 496);
+  *(__m128i *)&v35[8] = v39;
+  Size = *(_QWORD *)(v3 + 528);
+  v7 = HIDWORD(Size);
+  *(__m128i *)&v35[24] = v6;
+  if ( (*(_DWORD *)v3 & 0x20) != 0 )
+  {
+    v14 = v6.m128i_i64[0];
+    *(_DWORD *)v3 &= ~0x20u;
+    v7 = HIDWORD(Size) + 1;
+  }
+  else if ( SHIDWORD(Size) <= 1 )
+  {
+    v14 = _mm_srli_si128(v6, 8).m128i_u64[0];
+  }
+  else
+  {
+    v8 = *(unsigned __int8 **)(v3 + 480);
+    v9 = *(__m128i *)&v35[16];
+    v41 = *(_OWORD *)v35;
+    *(_QWORD *)&v35[24] = *(_QWORD *)&v35[32];
+    v39 = v9;
+    *(_QWORD *)&v35[32] = v8;
+    memmove(v8, *(const void **)&v35[16], (unsigned int)Size);
+    v10 = (_BYTE *)_mm_srli_si128(v9, 8).m128i_u64[0];
+    if ( *(int *)(v3 + 60) <= 0 )
+    {
+      memmove(v10, *(const void **)&v35[8], (unsigned int)Size);
+    }
+    else
+    {
+      (*(void (__fastcall **)(__int64, _BYTE *))(v3 + 24))(v3 + 8, v10 + 1);
+      *v10 = v10[2];
+      v10[v2 + 1] = v10[v2 - 1];
+    }
+    v11 = *(unsigned __int8 *)(*(_QWORD *)&v35[8] + 1LL);
+    v12 = (unsigned __int8)**(_BYTE **)&v35[8];
+    v13 = *(unsigned __int8 *)(*(_QWORD *)&v35[16] + 1LL);
+    v14 = *(_QWORD *)&v35[24];
+    v44 = v11;
+    v15 = v2 - 1;
+    if ( v15 )
+    {
+      v16 = (unsigned __int8 *)(*(_QWORD *)&v35[16] + 3LL);
+      v17 = *(unsigned __int8 *)(*(_QWORD *)&v35[8] + 2LL);
+      v38 = *(_QWORD *)v35 - *(_QWORD *)&v35[16];
+      v18 = &v10[-*(_QWORD *)&v35[16]];
+      v19 = *(_QWORD *)&v35[8] - *(_QWORD *)&v35[16];
+      v20 = *(unsigned __int8 *)(*(_QWORD *)&v35[16] + 2LL);
+      v21 = v8 + 1;
+      v22 = (unsigned __int8)**(_BYTE **)&v35[16];
+      v40 = *(_QWORD *)&v35[24] - *(_QWORD *)&v35[16];
+      do
+      {
+        v23 = v17;
+        v24 = v11;
+        v27 = v12;
+        v30 = v22;
+        v12 = v11;
+        v31 = v44;
+        v11 = v17;
+        v17 = v16[v19];
+        v22 = v13;
+        v13 = v20;
+        v20 = *v16;
+        v33 = v13;
+        v44 = v11;
+        if ( v24 != v23 && !(v12 ^ v13 | v22 ^ v23) )
+        {
+          if ( v12 ^ v17 | v22 ^ v20 | v11 ^ v27 | v13 ^ v30
+            && (v28 = v16[v38 - 2],
+                v29 = v16[v38 - 1],
+                v45 = v16[(_QWORD)v18 - 2],
+                v32 = v16[(_QWORD)v18 - 1],
+                v12 ^ v45 | v22 ^ v28 | v11 ^ v32 | v13 ^ v29) )
+          {
+            if ( v31 < v11 )
+            {
+              v16[v40 - 1] = (v12 + v13 + v27 + v32 + 12 * v16[v40 - 1] + 8) >> 4;
+              *v21 = (v12 + v13 + v20 + v28 + 12 * *v21 + 8) >> 4;
+            }
+            else
+            {
+              v16[v40 - 2] = (v22 + v11 + v17 + v45 + 12 * v16[v40 - 2] + 8) >> 4;
+              v21[1] = (v22 + v11 + v30 + v29 + 12 * v21[1] + 8) >> 4;
+            }
+          }
+          else
+          {
+            v26 = (v16[v19 - 2] + (unsigned int)v16[v19 - 1] + 1) >> 1;
+            v21[1] = v26;
+            *v21 = v26;
+            v16[v40 - 1] = v26;
+            v16[v40 - 2] = v26;
+            v13 = v33;
+          }
+        }
+        ++v16;
+        ++v21;
+        --v15;
+      }
+      while ( v15 );
+      v3 = a1;
+      v14 = *(_QWORD *)&v35[24];
+    }
+    v5 = a2;
+    v4 = v34;
+    v37 = *(__m128i *)&v35[24];
+  }
+  if ( v5 )
+    memmove(v5, (const void *)(v14 + 1), v4);
+  result = v5;
+  HIDWORD(Size) = v7 - 1;
+  *(_OWORD *)(v3 + 480) = v41;
+  *(__m128i *)(v3 + 496) = v39;
+  *(__m128i *)(v3 + 512) = v37;
+  *(_QWORD *)(v3 + 528) = Size;
+  return result;
+}

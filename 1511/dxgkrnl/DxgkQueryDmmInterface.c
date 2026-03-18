@@ -1,0 +1,63 @@
+/*
+ * XREFs of DxgkQueryDmmInterface @ 0x1C00AD984
+ * Callers:
+ *     ?SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_D3DDDI_ROTATION@@U_D3DKMT_SETDISPLAYMODE_FLAGS@@PEAI@Z @ 0x1C006C7E8 (-SetDisplayMode@DXGDEVICE@@QEAAJPEBVDXGALLOCATION@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@W4_.c)
+ *     DxgkUpdateGdiInfo @ 0x1C00AD640 (DxgkUpdateGdiInfo.c)
+ *     ??ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z @ 0x1C013EEBC (--ROBTAIN_PREFERRED_MODES_ON_PATH@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI@Z.c)
+ *     ?GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1PEAUDXGK_STEREO_PARAMS@@@Z @ 0x1C0140988 (-GetActiveVidPnBasedDisplayModeList@@YAJQEAXEPEAU_D3DKMT_GETDISPLAYMODELIST@@1PEAUDXGK_STEREO_PA.c)
+ *     ?DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C0168994 (-DxgkUpdateGdiInfo@Win81@@YAJPEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00031F4 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?QueryDxgDmmInterface@VIDPN_MGR@@QEAAXPEAPEBU_DXGDMM_INTERFACE@@@Z @ 0x1C008FCC4 (-QueryDxgDmmInterface@VIDPN_MGR@@QEAAXPEAPEBU_DXGDMM_INTERFACE@@@Z.c)
+ */
+
+__int64 __fastcall DxgkQueryDmmInterface(DXGADAPTER *this, __int64 a2, const struct _DXGDMM_INTERFACE **a3)
+{
+  __int64 v5; // rcx
+  __int64 v6; // rax
+  VIDPN_MGR *v7; // rcx
+  __int64 v9; // rax
+  __int64 v10; // rax
+  __int64 v11; // rax
+  __int64 v12; // rax
+
+  if ( !a3 )
+  {
+    v10 = WdLogNewEntry5_WdAssertion(this);
+    WdLogEvent5_WdAssertion(v10);
+  }
+  *a3 = 0LL;
+  if ( !this )
+  {
+    v9 = WdLogNewEntry5_WdError(this);
+    *(_QWORD *)(v9 + 24) = 0LL;
+    goto LABEL_10;
+  }
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
+  {
+    v11 = WdLogNewEntry5_WdAssertion(v5);
+    WdLogEvent5_WdAssertion(v11);
+  }
+  v6 = *((_QWORD *)this + 248);
+  if ( !v6 )
+  {
+    v9 = WdLogNewEntry5_WdError(v5);
+    *(_QWORD *)(v9 + 24) = this;
+LABEL_10:
+    WdLogEvent5_WdError(v9);
+    return 3223191554LL;
+  }
+  v7 = *(VIDPN_MGR **)(v6 + 112);
+  if ( v7 )
+  {
+    VIDPN_MGR::QueryDxgDmmInterface(v7, a3);
+    return 0LL;
+  }
+  else
+  {
+    v12 = WdLogNewEntry5_WdError(0LL);
+    *(_QWORD *)(v12 + 24) = this;
+    WdLogEvent5_WdError(v12);
+    return 3223192385LL;
+  }
+}

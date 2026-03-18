@@ -1,0 +1,82 @@
+/*
+ * XREFs of HUBHTX_CheckAndSelectIfAny20PortChangeSet @ 0x140002B80
+ * Callers:
+ *     HUBPSM20_CheckIfThereIsAPortChangeOnPortStatusWhileWaitingForReconnect @ 0x140012510 (HUBPSM20_CheckIfThereIsAPortChangeOnPortStatusWhileWaitingForReconnect.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1400024E0 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1400341F4 (HUBMISC_VerifierDbgBreak.c)
+ */
+
+__int64 __fastcall HUBHTX_CheckAndSelectIfAny20PortChangeSet(__int64 a1)
+{
+  __int16 v2; // cx
+  unsigned __int16 v3; // ax
+  int v4; // edx
+  __int16 v5; // ax
+  __int16 v6; // cx
+  unsigned int v7; // edi
+
+  v2 = *(_WORD *)(a1 + 194);
+  v3 = *(_WORD *)(a1 + 186) & ~v2;
+  *(_WORD *)(a1 + 186) = v3;
+  if ( (v3 & 1) != 0 )
+  {
+    v4 = 16;
+    v5 = v3 & 0xFFFE;
+    v6 = v2 | 1;
+LABEL_11:
+    *(_WORD *)(a1 + 186) = v5;
+    *(_WORD *)(a1 + 194) = v6;
+    goto LABEL_12;
+  }
+  if ( (v3 & 8) != 0 )
+  {
+    v4 = 19;
+    *(_WORD *)(a1 + 186) = v3 & 0xFFF7;
+    *(_WORD *)(a1 + 194) = v2 | 8;
+    *(_DWORD *)(a1 + 1424) = 4;
+LABEL_12:
+    *(_DWORD *)(a1 + 12) = v4;
+    return 3089;
+  }
+  if ( (v3 & 0x10) != 0 )
+  {
+    v4 = 20;
+    v5 = v3 & 0xFFEF;
+    v6 = v2 | 0x10;
+    goto LABEL_11;
+  }
+  if ( (v3 & 4) != 0 )
+  {
+    v4 = 18;
+    v5 = v3 & 0xFFFB;
+    v6 = v2 | 4;
+    goto LABEL_11;
+  }
+  if ( (v3 & 2) != 0 )
+  {
+    v4 = 17;
+    v5 = v3 & 0xFFFD;
+    v6 = v2 | 2;
+    goto LABEL_11;
+  }
+  if ( v3 )
+  {
+    v7 = 3041;
+    if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+      WPP_RECORDER_SF_d(
+        *(_QWORD *)(a1 + 1432),
+        2u,
+        4u,
+        0x52u,
+        (__int64)&WPP_70469c384dd13630d566350a6f2705ad_Traceguids,
+        v3);
+    if ( (*(_DWORD *)(*(_QWORD *)a1 + 2608LL) & 0x10) != 0 )
+      HUBMISC_VerifierDbgBreak("HubHwVerifierInvalidPortStatus", *(_QWORD *)a1 + 1280LL);
+  }
+  else
+  {
+    return 3005;
+  }
+  return v7;
+}

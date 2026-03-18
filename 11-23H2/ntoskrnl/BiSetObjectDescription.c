@@ -1,0 +1,25 @@
+/*
+ * XREFs of BiSetObjectDescription @ 0x1408024C4
+ * Callers:
+ *     BiCreateObject @ 0x140803298 (BiCreateObject.c)
+ * Callees:
+ *     BiSetRegistryValue @ 0x140803A1C (BiSetRegistryValue.c)
+ *     BiCreateKey @ 0x140803E04 (BiCreateKey.c)
+ *     BiCloseKey @ 0x14080525C (BiCloseKey.c)
+ */
+
+__int64 __fastcall BiSetObjectDescription(__int64 a1)
+{
+  __int64 result; // rax
+  __int64 v3; // [rsp+50h] [rbp+18h] BYREF
+  __int64 v4; // [rsp+58h] [rbp+20h] BYREF
+
+  v4 = 0LL;
+  result = BiCreateKey(a1, L"Description", 131097LL, 1LL, &v4, &v3);
+  if ( (int)result >= 0 )
+  {
+    BiCloseKey(v4);
+    return BiSetRegistryValue(a1, L"Type", L"Description");
+  }
+  return result;
+}

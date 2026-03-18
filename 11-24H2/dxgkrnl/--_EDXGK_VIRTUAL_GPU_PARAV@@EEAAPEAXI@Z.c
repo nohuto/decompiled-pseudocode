@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??_EDXGK_VIRTUAL_GPU_PARAV@@EEAAPEAXI@Z @ 0x14007AB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ??1DXGK_VIRTUAL_GPU_PARAV@@EEAA@XZ @ 0x140215DA0 (--1DXGK_VIRTUAL_GPU_PARAV@@EEAA@XZ.c)
+ */
+
+DXGK_VIRTUAL_GPU_PARAV *__fastcall DXGK_VIRTUAL_GPU_PARAV::`vector deleting destructor'(
+        DXGK_VIRTUAL_GPU_PARAV *this,
+        char a2)
+{
+  DXGK_VIRTUAL_GPU_PARAV::~DXGK_VIRTUAL_GPU_PARAV(this);
+  if ( (a2 & 1) != 0 )
+    DXGQUOTAALLOCATOR<256,1835156294>::operator delete(this);
+  return this;
+}

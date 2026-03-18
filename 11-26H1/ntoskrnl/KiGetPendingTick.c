@@ -1,0 +1,18 @@
+/*
+ * XREFs of KiGetPendingTick @ 0x1405EE5FC
+ * Callers:
+ *     KeResumeClockTimerFromIdle @ 0x1405EDA84 (KeResumeClockTimerFromIdle.c)
+ * Callees:
+ *     <none>
+ */
+
+char KiGetPendingTick()
+{
+  struct _KPRCB *CurrentPrcb; // rax
+
+  if ( KiClockTimerPerCpu )
+    CurrentPrcb = KeGetCurrentPrcb();
+  else
+    CurrentPrcb = (struct _KPRCB *)KiProcessorBlock[(unsigned int)KiClockTimerOwner];
+  return CurrentPrcb->PendingTickFlags & 1;
+}

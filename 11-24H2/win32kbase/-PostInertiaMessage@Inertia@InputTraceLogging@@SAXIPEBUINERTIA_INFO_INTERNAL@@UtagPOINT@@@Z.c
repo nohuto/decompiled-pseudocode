@@ -1,0 +1,75 @@
+/*
+ * XREFs of ?PostInertiaMessage@Inertia@InputTraceLogging@@SAXIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@@Z @ 0x14020EF84
+ * Callers:
+ *     ?PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z @ 0x14014D108 (-PostInertiaMessage@CInertiaManager@@QEBA_NIPEBUINERTIA_INFO_INTERNAL@@UtagPOINT@@1@Z.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@U2@U1@U?$_tlgWrapperByVal@$07@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@43AEBU?$_tlgWrapperByVal@$07@@4444@Z @ 0x14000937C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@U2@U1@U-$_tlgWrapperByVal@$07@@U2@U2@U2@U2@@-.c)
+ *     _tlgKeywordOn @ 0x140096080 (_tlgKeywordOn.c)
+ *     ?InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z @ 0x14020EF2C (-InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z.c)
+ */
+
+void __fastcall InputTraceLogging::Inertia::PostInertiaMessage(
+        __int64 a1,
+        const struct INERTIA_INFO_INTERNAL *a2,
+        struct tagPOINT a3)
+{
+  __int64 v3; // r10
+  int v4; // ecx
+  __int64 v5; // rax
+  int v6; // ecx
+  __int64 v7; // r8
+  int v8; // r9d
+  __int64 v9; // r9
+  const char *v10; // rax
+  int v11; // [rsp+70h] [rbp+27h] BYREF
+  int v12; // [rsp+74h] [rbp+2Bh] BYREF
+  int v13; // [rsp+78h] [rbp+2Fh] BYREF
+  int v14; // [rsp+7Ch] [rbp+33h] BYREF
+  int v15; // [rsp+80h] [rbp+37h] BYREF
+  __int64 v16; // [rsp+88h] [rbp+3Fh] BYREF
+  const char *v17; // [rsp+90h] [rbp+47h] BYREF
+  const char *v18; // [rsp+98h] [rbp+4Fh] BYREF
+  int v19; // [rsp+C8h] [rbp+7Fh] BYREF
+
+  if ( (unsigned int)dword_14029AE30 > 4 && tlgKeywordOn((__int64)&dword_14029AE30, 2LL) )
+  {
+    v4 = *(_DWORD *)(v3 + 184);
+    v19 = -__CFSHR__(v4, 4);
+    v11 = -__CFSHR__(v4, 3);
+    v12 = -__CFSHR__(v4, 5);
+    v5 = *(_QWORD *)(v3 + 120);
+    v13 = -__CFSHR__(v4, 2);
+    v6 = *(_DWORD *)(v3 + 24);
+    v16 = v5;
+    v17 = InputTraceLogging::InertiaSourceToString(v6);
+    v14 = HIDWORD(v7);
+    v15 = v7;
+    v9 = (unsigned int)(v8 - 571);
+    if ( (_DWORD)v9 )
+    {
+      if ( (_DWORD)v9 == 1 )
+        v10 = "EndInertia";
+      else
+        v10 = "UNKNOWN";
+    }
+    else
+    {
+      v10 = "StopInertia";
+    }
+    v18 = v10;
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (__int64)&dword_14029AE30,
+      (__int64)&unk_14027D99B,
+      v7,
+      v9,
+      (void **)&v18,
+      (__int64)&v15,
+      (__int64)&v14,
+      (void **)&v17,
+      (__int64)&v16,
+      (__int64)&v13,
+      (__int64)&v12,
+      (__int64)&v11,
+      (__int64)&v19);
+  }
+}

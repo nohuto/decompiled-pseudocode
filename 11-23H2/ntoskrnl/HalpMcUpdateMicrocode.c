@@ -1,0 +1,25 @@
+/*
+ * XREFs of HalpMcUpdateMicrocode @ 0x14037FF58
+ * Callers:
+ *     HalpMcLoadMicrocodeWorker @ 0x14051BAA0 (HalpMcLoadMicrocodeWorker.c)
+ *     HalpLoadMicrocodeSerialized @ 0x140934CD8 (HalpLoadMicrocodeSerialized.c)
+ *     HalpProcInitSystem @ 0x140A8A680 (HalpProcInitSystem.c)
+ *     HalpPostSleepMP @ 0x140A96FA8 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A975F4 (HalpDpPostReplaceInitialization.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140429C20 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall HalpMcUpdateMicrocode(__int64 a1, __int64 a2, __int64 a3)
+{
+  unsigned int v3; // ecx
+
+  LODWORD(a2) = KeGetPcr()->Prcb.Number;
+  v3 = 0;
+  if ( HalpMcUpdateMicrocodeFuncEx )
+  {
+    LOBYTE(a3) = HalpMcUpdateSelfHosting;
+    return (unsigned int)((__int64 (__fastcall *)(__int64, __int64, __int64))HalpMcUpdateMicrocodeFuncEx)(1LL, a2, a3);
+  }
+  return v3;
+}

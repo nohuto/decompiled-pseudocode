@@ -1,0 +1,52 @@
+/*
+ * XREFs of HvlNotifyLongSpinWait @ 0x14015AFE0
+ * Callers:
+ *     ExpGetPoolTagInfoTarget @ 0x1400046A0 (ExpGetPoolTagInfoTarget.c)
+ *     MiMakeHyperRangeAccessible @ 0x14000D2C0 (MiMakeHyperRangeAccessible.c)
+ *     MiWalkPageTablesRecursively @ 0x14000F720 (MiWalkPageTablesRecursively.c)
+ *     MiUserFault @ 0x14001B870 (MiUserFault.c)
+ *     MiFastLockLeafPageTable @ 0x140021880 (MiFastLockLeafPageTable.c)
+ *     MiDeleteSystemPagableVm @ 0x140026510 (MiDeleteSystemPagableVm.c)
+ *     MiZeroPage @ 0x1400299B0 (MiZeroPage.c)
+ *     MiLockOwnedProtoPage @ 0x1400322A0 (MiLockOwnedProtoPage.c)
+ *     KiIpiWaitForRequestBarrier @ 0x140038E00 (KiIpiWaitForRequestBarrier.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x140069440 (KxWaitForSpinLockAndAcquire.c)
+ *     KxWaitForLockChainValid @ 0x1400889A0 (KxWaitForLockChainValid.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140089F80 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExAcquireSpinLockExclusive @ 0x14008EE90 (ExAcquireSpinLockExclusive.c)
+ *     MiMapPagesToZero @ 0x14009D760 (MiMapPagesToZero.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x1400A22F0 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KxWaitForLockOwnerShip @ 0x1400E0660 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireKobjectLockSafe @ 0x1400EA710 (KiAcquireKobjectLockSafe.c)
+ *     KxWaitForLockOwnerShipWithIrql @ 0x1400EAFD0 (KxWaitForLockOwnerShipWithIrql.c)
+ *     KeYieldProcessorEx @ 0x1400ECA40 (KeYieldProcessorEx.c)
+ *     KiRemoveBoostThread @ 0x1400EE080 (KiRemoveBoostThread.c)
+ *     MiFinishVadDeletion @ 0x1400F0F10 (MiFinishVadDeletion.c)
+ *     MiDeleteVad @ 0x1400F1A40 (MiDeleteVad.c)
+ *     ExpAcquireSpinLockExclusive @ 0x1400F3540 (ExpAcquireSpinLockExclusive.c)
+ *     KeRemoveQueueEx @ 0x1400F5070 (KeRemoveQueueEx.c)
+ *     KeWaitForSingleObject @ 0x1400F5B20 (KeWaitForSingleObject.c)
+ *     KiSwapThread @ 0x1400F6B40 (KiSwapThread.c)
+ *     KiSearchForNewThreadOnProcessor @ 0x1400F7A90 (KiSearchForNewThreadOnProcessor.c)
+ *     KiSelectReadyThread @ 0x1400F8040 (KiSelectReadyThread.c)
+ *     KiChooseTargetProcessor @ 0x1400FC8B0 (KiChooseTargetProcessor.c)
+ *     MiGetVadWakeList @ 0x1400FD750 (MiGetVadWakeList.c)
+ *     MiSetProtectionOnSection @ 0x1401147F0 (MiSetProtectionOnSection.c)
+ *     MiFlushTbList @ 0x140116C90 (MiFlushTbList.c)
+ *     MiCommitExistingVad @ 0x140117630 (MiCommitExistingVad.c)
+ *     MmCheckCachedPageStates @ 0x14011E3C0 (MmCheckCachedPageStates.c)
+ *     MiLockPageTableInternal @ 0x140120C90 (MiLockPageTableInternal.c)
+ *     KeRemovePriQueue @ 0x1401264C0 (KeRemovePriQueue.c)
+ *     MiZeroPageThread @ 0x140173040 (MiZeroPageThread.c)
+ *     KiIdleLoop @ 0x1401AE5C0 (KiIdleLoop.c)
+ *     KxDispatchInterrupt @ 0x1401B1CB0 (KxDispatchInterrupt.c)
+ *     SwapContext @ 0x1401B1E80 (SwapContext.c)
+ *     PopHandleNextState @ 0x140473200 (PopHandleNextState.c)
+ * Callees:
+ *     HvcallpNoHypervisorPresent @ 0x140140870 (HvcallpNoHypervisorPresent.c)
+ */
+
+__int64 HvlNotifyLongSpinWait()
+{
+  return HvcallCodeVa();
+}

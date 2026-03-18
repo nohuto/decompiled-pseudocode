@@ -1,0 +1,91 @@
+/*
+ * XREFs of RtlpHpAcquireQueuedLockExclusive @ 0x14027E960
+ * Callers:
+ *     RtlpHpVsChunkSplit @ 0x14024B9E0 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsChunkFree @ 0x1403532B0 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x140467958 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x140485F58 (RtlpHpVsSubsegmentCommitPages.c)
+ * Callees:
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x1402474C0 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140249B40 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     HvlNotifyLongSpinWait @ 0x1402BBF00 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1402BC760 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+void __fastcall RtlpHpAcquireQueuedLockExclusive(int *a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+{
+  unsigned __int8 CurrentIrql; // si
+  unsigned int v7; // ebp
+  __int64 v8; // rdx
+  unsigned __int64 v9; // rcx
+  struct _KTHREAD *CurrentThread; // rax
+  AutoBoost *v11; // rax
+  void *v12; // rdx
+  AutoBoost *v13; // rdi
+
+  *(_QWORD *)(a3 + 8) = a1;
+  if ( (_DWORD)a2 )
+  {
+    CurrentIrql = KeGetCurrentIrql();
+    if ( CurrentIrql != 2 )
+      __writecr8(2uLL);
+    if ( KiIrqlFlags )
+    {
+      LOBYTE(a2) = 2;
+      KiRaiseIrqlProcessIrqlFlags(CurrentIrql, a2);
+    }
+    if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || LODWORD(stru_140F11D08.WaitStatus) )
+    {
+      v7 = 0;
+      if ( _interlockedbittestandset(a1, 0x1Fu) )
+        v7 = ExpWaitForSpinLockExclusiveAndAcquire(a1, CurrentIrql);
+      v8 = (unsigned int)*a1;
+      v9 = v8 & 0xFFFFFFFFBFFFFFFFuLL;
+      if ( (v8 & 0xBFFFFFFF) != 0x80000000 )
+      {
+        do
+        {
+          if ( (v8 & 0x40000000) == 0 )
+            _InterlockedOr(a1, 0x40000000u);
+          if ( (++v7 & HvlLongSpinCountMask) == 0
+            && (HvlEnlightenments & 0x40) != 0
+            && (unsigned __int8)KiCheckVpBackingLongSpinWaitHypercall(v9, v8, a3) )
+          {
+            HvlNotifyLongSpinWait(v7);
+          }
+          else
+          {
+            _mm_pause();
+          }
+          v8 = (unsigned int)*a1;
+        }
+        while ( (*a1 & 0xBFFFFFFF) != 0x80000000 );
+      }
+    }
+    else
+    {
+      ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented(a1, CurrentIrql);
+    }
+    *(_QWORD *)(a3 + 16) = CurrentIrql;
+  }
+  else
+  {
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->SpecialApcDisable;
+    v11 = (AutoBoost *)KeAbPreAcquire((__int64)a1, 0LL, 0LL, a4);
+    v13 = v11;
+    if ( _interlockedbittestandset64(a1, 0LL) )
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)a1, v11, (__int64)a1);
+    if ( v13 )
+    {
+      if ( (KiAbpGlobalState & 1) != 0 )
+        AutoBoost::KiAbpPostAcquire(v13, v12);
+      else
+        *((_BYTE *)v13 + 10) = 1;
+    }
+  }
+}

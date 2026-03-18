@@ -1,0 +1,16 @@
+/*
+ * XREFs of VIDMM_PROCESS_COMMITMENT_INFO::_unnamed_type__Policy_::_unnamed_type__Policy_ @ 0x140042F00
+ * Callers:
+ *     ??0VIDMM_PROCESS_COMMITMENT_INFO@@QEAA@XZ @ 0x140042ED0 (--0VIDMM_PROCESS_COMMITMENT_INFO@@QEAA@XZ.c)
+ *     ??0VIDMM_PROCESS_ADAPTER_INFO_PAGED@@QEAA@XZ @ 0x140044D54 (--0VIDMM_PROCESS_ADAPTER_INFO_PAGED@@QEAA@XZ.c)
+ * Callees:
+ *     ??0VIDMM_POLICY@@QEAA@XZ @ 0x14011BAB4 (--0VIDMM_POLICY@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall VIDMM_PROCESS_COMMITMENT_INFO::_unnamed_type__Policy_::_unnamed_type__Policy_(VIDMM_POLICY *a1)
+{
+  __int64 v1; // rcx
+
+  VIDMM_POLICY::VIDMM_POLICY(a1);
+  return v1;
+}

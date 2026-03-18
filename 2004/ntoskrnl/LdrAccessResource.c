@@ -1,0 +1,13 @@
+/*
+ * XREFs of LdrAccessResource @ 0x1407B34C0
+ * Callers:
+ *     InitBootProcessor @ 0x140A36F64 (InitBootProcessor.c)
+ *     FindBitmapResource @ 0x140A67F94 (FindBitmapResource.c)
+ * Callees:
+ *     LdrpAccessResourceData @ 0x1407129CC (LdrpAccessResourceData.c)
+ */
+
+__int64 __fastcall LdrAccessResource(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
+{
+  return LdrpAccessResourceData(a1, a2, a3, a4);
+}

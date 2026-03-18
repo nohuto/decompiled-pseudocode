@@ -1,0 +1,61 @@
+/*
+ * XREFs of MiLockWorkingSetForLargeMapping @ 0x140650148
+ * Callers:
+ *     MiCommitExistingVad @ 0x140276A30 (MiCommitExistingVad.c)
+ *     MiMapUserLargePages @ 0x140668DC0 (MiMapUserLargePages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024D360 (ExAcquireSpinLockExclusive.c)
+ *     MiGetSharedVm @ 0x140286E74 (MiGetSharedVm.c)
+ *     MiUnlockWorkingSetExclusive @ 0x14028A2F0 (MiUnlockWorkingSetExclusive.c)
+ *     ExAllocatePoolMm @ 0x1402E26E0 (ExAllocatePoolMm.c)
+ *     memset @ 0x140435A00 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
+ */
+
+KIRQL __fastcall MiLockWorkingSetForLargeMapping(__int64 a1, __int64 a2, int a3)
+{
+  void *v4; // rsi
+  unsigned __int64 v5; // r14
+  PVOID PoolMm; // rax
+  volatile LONG *v7; // rbx
+  KIRQL v8; // al
+  __int64 v9; // r8
+  __int64 v10; // r9
+  KIRQL v11; // r15
+  volatile LONG *SharedVm; // rbx
+
+  if ( (*(_BYTE *)(a1 + 184) & 7) != 0 )
+  {
+    SharedVm = (volatile LONG *)MiGetSharedVm(a1);
+    v11 = ExAcquireSpinLockExclusive(SharedVm);
+    goto LABEL_10;
+  }
+  v4 = 0LL;
+  v5 = KeGetCurrentThread()->ApcState.Process[1].ActiveProcessors.StaticBitmap[28];
+  if ( !*(_QWORD *)(v5 + 624) )
+  {
+    PoolMm = ExAllocatePoolMm(64, 0x800uLL, 0x6C53694Du, a3 | 0x80000000);
+    v4 = PoolMm;
+    if ( PoolMm )
+      memset(PoolMm, 0, 0x800uLL);
+  }
+  v7 = (volatile LONG *)MiGetSharedVm(a1);
+  v8 = ExAcquireSpinLockExclusive(v7);
+  *((_DWORD *)v7 + 1) = 0;
+  v11 = v8;
+  if ( v4 )
+  {
+    if ( !*(_QWORD *)(v5 + 624) )
+    {
+      *(_QWORD *)(v5 + 624) = v4;
+      return v11;
+    }
+    MiUnlockWorkingSetExclusive(a1, v8, v9, v10);
+    ExFreePoolWithTag(v4, 0);
+    SharedVm = (volatile LONG *)MiGetSharedVm(a1);
+    ExAcquireSpinLockExclusive(SharedVm);
+LABEL_10:
+    *((_DWORD *)SharedVm + 1) = 0;
+  }
+  return v11;
+}

@@ -1,0 +1,348 @@
+/*
+ * XREFs of ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C005FD10
+ * Callers:
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C005FC28 (-Win32kNtUserCleanup@@YAHXZ.c)
+ * Callees:
+ *     Win32FreeToPagedLookasideList @ 0x1C001D8A0 (Win32FreeToPagedLookasideList.c)
+ *     Win32FreePool @ 0x1C001D8F0 (Win32FreePool.c)
+ *     HMAssignmentUnlock @ 0x1C002FD40 (HMAssignmentUnlock.c)
+ *     Win32FreePagedLookasideList @ 0x1C00608E0 (Win32FreePagedLookasideList.c)
+ *     _lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator() @ 0x1C0060914 (_lambda_2ad0db6ebdddb84bde70c96348b25c2b_--operator().c)
+ *     ?CSTPop@@YAHPEAIPEAPEAX@Z @ 0x1C0060AF8 (-CSTPop@@YAHPEAIPEAPEAX@Z.c)
+ *     ?Assign@DispBrokerClientReference@DispBroker@@QEAAXPEAVDispBrokerClientHandle@2@@Z @ 0x1C00951B0 (-Assign@DispBrokerClientReference@DispBroker@@QEAAXPEAVDispBrokerClientHandle@2@@Z.c)
+ */
+
+void Win32kNtUserCleanupInternal(void)
+{
+  _QWORD *v0; // rbx
+  void *v1; // rcx
+  __int64 v2; // rcx
+  char *v3; // rdi
+  __int64 v4; // rbx
+  _QWORD *v5; // rbx
+  __int64 v6; // rcx
+  __int64 v7; // rdi
+  __int64 v8; // rcx
+  __int64 v9; // rcx
+  __int64 v10; // rax
+  __int64 *v11; // [rsp+50h] [rbp+20h] BYREF
+  void *v12; // [rsp+58h] [rbp+28h] BYREF
+
+  ZwPowerInformation(PowerInformationLevelMaximum|ProcessorInformation, 0LL, 0, 0LL, 0);
+  if ( (int)IsFreeImeHotKeysSupported() >= 0 )
+    FreeImeHotKeys();
+  if ( gpvwplHungRedraw )
+  {
+    Win32FreePool((__int64)gpvwplHungRedraw);
+    gpvwplHungRedraw = 0LL;
+  }
+  if ( (int)IsGetgpastrSetupExeSupported() >= 0 )
+  {
+    GetgpastrSetupExe(&v11);
+    if ( *v11 )
+    {
+      Win32FreePool(*v11);
+      *v11 = 0LL;
+    }
+  }
+  if ( (int)IsGetglpSetupProgramsSupported() >= 0 )
+  {
+    GetglpSetupPrograms(&v11);
+    if ( *v11 )
+    {
+      Win32FreePool(*v11);
+      *v11 = 0LL;
+    }
+  }
+  if ( (int)IsGetpbwlCacheSupported() >= 0 )
+  {
+    GetpbwlCache(&v11);
+    if ( *v11 )
+    {
+      Win32FreePool(*v11);
+      *v11 = 0LL;
+    }
+  }
+  while ( (__int64 *)gtmrListHead != &gtmrListHead )
+  {
+    v4 = gtmrListHead - 72;
+    if ( (int)IsFreeTimerSupported() >= 0 )
+      FreeTimer(v4);
+  }
+  if ( gptmrWD )
+  {
+    KeCancelTimer(gptmrWD);
+    Win32FreePool((__int64)gptmrWD);
+    gptmrWD = 0LL;
+  }
+  if ( gptmrMaster )
+  {
+    KeCancelTimer(gptmrMaster);
+    Win32FreePool((__int64)gptmrMaster);
+    gptmrMaster = 0LL;
+  }
+  if ( gpClipFormatExceptionList )
+    Win32FreePool(gpClipFormatExceptionList);
+  if ( (int)IsCleanupDesktopsMonitorsAndWindowsSnapShotSupported() >= 0 )
+    CleanupDesktopsMonitorsAndWindowsSnapShot(&gWndsMonitorSnapshotHead);
+  if ( (int)IsCleanupModuleAllocationsSupported() >= 0 )
+    CleanupModuleAllocations();
+  if ( gpEventPnPWainting )
+  {
+    Win32FreePool(gpEventPnPWainting);
+    gpEventPnPWainting = 0LL;
+  }
+  if ( gpresUser )
+  {
+    while ( (unsigned int)CSTPop((unsigned int *)&v11, &v12) )
+    {
+      if ( (_DWORD)v11 == 2 || (_DWORD)v11 == 4 )
+      {
+        v5 = v12;
+        v6 = *((_QWORD *)v12 + 1);
+        if ( v6 )
+        {
+          Win32FreePool(v6);
+          v5[1] = 0LL;
+        }
+      }
+    }
+  }
+  gfRecordPnpNotification = 0;
+  if ( gpPnpNotificationRecord )
+  {
+    Win32FreePool((__int64)gpPnpNotificationRecord);
+    gpPnpNotificationRecord = 0LL;
+  }
+  if ( gpresDitTouchInjection )
+  {
+    ExDeleteResourceLite(gpresDitTouchInjection);
+    ExFreePoolWithTag(gpresDitTouchInjection, 0);
+  }
+  if ( gpresDitMouseInjectionFlush )
+  {
+    ExDeleteResourceLite(gpresDitMouseInjectionFlush);
+    ExFreePoolWithTag(gpresDitMouseInjectionFlush, 0);
+  }
+  if ( gpresDitCompositionInputSinkQuery )
+  {
+    ExDeleteResourceLite(gpresDitCompositionInputSinkQuery);
+    ExFreePoolWithTag(gpresDitCompositionInputSinkQuery, 0);
+  }
+  if ( gpHidInterfaceGuid )
+  {
+    Win32FreePool(gpHidInterfaceGuid);
+    gpHidInterfaceGuid = 0LL;
+  }
+  if ( gThinwireFileObject )
+    ObfDereferenceObject(gThinwireFileObject);
+  if ( gVideoFileObject )
+    ObfDereferenceObject(gVideoFileObject);
+  if ( gpRemoteBeepDevice )
+    ObfDereferenceObject(gpRemoteBeepDevice);
+  if ( gpresPTPEventQueue )
+  {
+    ExDeleteResourceLite(gpresPTPEventQueue);
+    ExFreePoolWithTag(gpresPTPEventQueue, 0);
+    gpresPTPEventQueue = 0LL;
+  }
+  if ( gpEventDiconnectDesktop )
+  {
+    Win32FreePool(gpEventDiconnectDesktop);
+    gpEventDiconnectDesktop = 0LL;
+  }
+  if ( gpevtDesktopDestroyed )
+  {
+    Win32FreePool(gpevtDesktopDestroyed);
+    gpevtDesktopDestroyed = 0LL;
+  }
+  if ( gpevtVideoInitialized )
+  {
+    Win32FreePool((__int64)gpevtVideoInitialized);
+    gpevtVideoInitialized = 0LL;
+  }
+  if ( gpevtQueueReadyForCallout )
+  {
+    Win32FreePool((__int64)gpevtQueueReadyForCallout);
+    gpevtQueueReadyForCallout = 0LL;
+  }
+  if ( gpevtVideoportCallout )
+  {
+    Win32FreePool((__int64)gpevtVideoportCallout);
+    gpevtVideoportCallout = 0LL;
+  }
+  if ( gpevtRitReadyForCallOut )
+  {
+    Win32FreePool(gpevtRitReadyForCallOut);
+    gpevtRitReadyForCallOut = 0LL;
+  }
+  if ( gpevtMonitorPowerWaiter )
+  {
+    Win32FreePool((__int64)gpevtMonitorPowerWaiter);
+    gpevtMonitorPowerWaiter = 0LL;
+  }
+  if ( gpsemSwitchInProgressWaiters )
+  {
+    Win32FreePool((__int64)gpsemSwitchInProgressWaiters);
+    gpsemSwitchInProgressWaiters = 0LL;
+  }
+  if ( gpsemDITHitTestWaiters )
+  {
+    Win32FreePool((__int64)gpsemDITHitTestWaiters);
+    gpsemDITHitTestWaiters = 0LL;
+  }
+  if ( gpsemDITLuidHitTestWaiters )
+  {
+    Win32FreePool(gpsemDITLuidHitTestWaiters);
+    gpsemDITLuidHitTestWaiters = 0LL;
+  }
+  if ( (int)IsCleanupFeedbackDataSupported() >= 0 )
+    CleanupFeedbackData();
+  if ( gpevtPTPOperation )
+  {
+    Win32FreePool(gpevtPTPOperation);
+    gpevtPTPOperation = 0LL;
+  }
+  if ( UserAtomTableHandle )
+  {
+    RtlDestroyAtomTable(UserAtomTableHandle);
+    UserAtomTableHandle = 0LL;
+  }
+  if ( UserLibmgmtAtomTableHandle )
+  {
+    RtlDestroyAtomTable(UserLibmgmtAtomTableHandle);
+    UserLibmgmtAtomTableHandle = 0LL;
+  }
+  v0 = (_QWORD *)gpJobsList;
+  if ( gpJobsList )
+  {
+    do
+    {
+      v7 = (__int64)v0;
+      v0 = (_QWORD *)*v0;
+      v8 = *(_QWORD *)(v7 + 56);
+      if ( v8 )
+      {
+        Win32FreePool(v8);
+        *(_QWORD *)(v7 + 56) = 0LL;
+      }
+      v9 = *(_QWORD *)(v7 + 40);
+      if ( v9 )
+      {
+        Win32FreePool(v9);
+        *(_QWORD *)(v7 + 40) = 0LL;
+      }
+      RtlDestroyAtomTable(*(PRTL_ATOM_TABLE *)(v7 + 16));
+      Win32FreePool(v7);
+    }
+    while ( v0 );
+    gpJobsList = 0LL;
+  }
+  if ( (int)IsFreeSMSSupported() >= 0 )
+  {
+    if ( gsmsList )
+    {
+      while ( 1 )
+      {
+        v1 = gsmsList;
+        if ( gsmsList == &gsmsList )
+          break;
+        if ( *((void ***)gsmsList + 1) != &gsmsList
+          || (v10 = *(_QWORD *)gsmsList, *(void **)(*(_QWORD *)gsmsList + 8LL) != gsmsList) )
+        {
+          __fastfail(3u);
+        }
+        gsmsList = *(void **)gsmsList;
+        *(_QWORD *)(v10 + 8) = &gsmsList;
+        FreeSMS(v1, 0LL);
+      }
+    }
+    qword_1C01CFC00 = (__int64)&gsmsList;
+    gsmsList = &gsmsList;
+  }
+  if ( (int)IsGetSMSLookasideSupported() >= 0 )
+  {
+    GetSMSLookaside(&v11);
+    if ( *v11 )
+    {
+      Win32FreePagedLookasideList();
+      *v11 = 0LL;
+    }
+  }
+  if ( qword_1C01CC608 )
+  {
+    if ( (int)IsFreeMessageListSupported() >= 0 )
+      FreeMessageList(qword_1C01CC608 + 24);
+    Win32FreeToPagedLookasideList((__int64)QLookaside, qword_1C01CC608);
+    qword_1C01CC608 = 0LL;
+  }
+  if ( QLookaside )
+  {
+    Win32FreePagedLookasideList();
+    QLookaside = 0LL;
+  }
+  if ( QEntryLookaside )
+  {
+    Win32FreePagedLookasideList();
+    QEntryLookaside = 0LL;
+  }
+  if ( gspklGlobalActive )
+    HMAssignmentUnlock(&gspklGlobalActive);
+  if ( gspklWinstaLessSessionLayouts )
+    lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator()();
+  if ( gspklBaseLayout )
+    lambda_2ad0db6ebdddb84bde70c96348b25c2b_::operator()();
+  while ( 1 )
+  {
+    v2 = gpwtiFirst;
+    if ( !gpwtiFirst )
+      break;
+    gpwtiFirst = *(_QWORD *)gpwtiFirst;
+    Win32FreePool(v2);
+  }
+  if ( qword_1C01CFC40 )
+    Win32FreePool(qword_1C01CFC40);
+  if ( gpsdInitWinSta )
+  {
+    Win32FreePool(gpsdInitWinSta);
+    gpsdInitWinSta = 0LL;
+  }
+  if ( gpHandleFlagsMutex )
+  {
+    ExFreePoolWithTag(gpHandleFlagsMutex, 0);
+    gpHandleFlagsMutex = 0LL;
+  }
+  if ( gpPowerRequestMutex )
+  {
+    Win32FreePool((__int64)gpPowerRequestMutex);
+    gpPowerRequestMutex = 0LL;
+  }
+  if ( gpresRender )
+  {
+    ExDeleteResourceLite(gpresRender);
+    ExFreePoolWithTag(gpresRender, 0);
+    gpresRender = 0LL;
+  }
+  if ( gpRemoteSessionOcclusionEvent )
+  {
+    ObfDereferenceObject(gpRemoteSessionOcclusionEvent);
+    gpRemoteSessionOcclusionEvent = 0LL;
+  }
+  if ( (int)IsUninitRotationManagerSupported() >= 0 )
+    UninitRotationManager();
+  if ( DispBroker::DispBrokerClient::s_pSessionLock )
+  {
+    ExDeleteResourceLite(DispBroker::DispBrokerClient::s_pSessionLock);
+    ExFreePoolWithTag(DispBroker::DispBrokerClient::s_pSessionLock, 0);
+  }
+  v3 = (char *)DispBroker::DispBrokerClient::s_pSessionBroker;
+  if ( DispBroker::DispBrokerClient::s_pSessionBroker )
+  {
+    DispBroker::DispBrokerClientReference::Assign(
+      (DispBroker::DispBrokerClientReference *)((char *)DispBroker::DispBrokerClient::s_pSessionBroker + 16),
+      0LL);
+    DispBroker::DispBrokerClientReference::Assign((DispBroker::DispBrokerClientReference *)(v3 + 16), 0LL);
+    ExFreePoolWithTag(v3, 0x44535042u);
+  }
+  DispBroker::DispBrokerClient::s_pSessionBroker = 0LL;
+}

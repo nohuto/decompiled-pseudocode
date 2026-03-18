@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??1ADAPTER_RENDER@@QEAA@XZ @ 0x1C02C060C
+ * Callers:
+ *     ??_GADAPTER_RENDER@@QEAAPEAXI@Z @ 0x1C003F774 (--_GADAPTER_RENDER@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C00083F8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C000A450 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00282B0 (_guard_dispatch_icall_nop.c)
+ *     ??1?$DXGNODELIST@VADAPTER_DISPLAY@@VDXGPROTECTEDSESSION@@@@AEAA@XZ @ 0x1C0041974 (--1-$DXGNODELIST@VADAPTER_DISPLAY@@VDXGPROTECTEDSESSION@@@@AEAA@XZ.c)
+ *     ?DestroyFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ @ 0x1C0042A5C (-DestroyFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ.c)
+ */
+
+void __fastcall ADAPTER_RENDER::~ADAPTER_RENDER(ADAPTER_RENDER *this)
+{
+  void (__fastcall ***v2)(_QWORD, __int64); // rcx
+  void (__fastcall ***v3)(_QWORD, __int64); // rcx
+
+  if ( *((_BYTE *)this + 968) )
+    ADAPTER_RENDER::DestroyFormattingBuffer(this);
+  if ( *((_BYTE *)this + 1369) )
+    ExDeleteLookasideListEx((PLOOKASIDE_LIST_EX)((char *)this + 1424));
+  operator delete(*((void **)this + 158));
+  v2 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 234);
+  if ( v2 )
+    (**v2)(v2, 1LL);
+  v3 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 233);
+  if ( v3 )
+    (**v3)(v3, 1LL);
+  ExDeletePagedLookasideList((PPAGED_LOOKASIDE_LIST)this + 13);
+  ExDeletePagedLookasideList((PPAGED_LOOKASIDE_LIST)this + 12);
+  DXGFASTMUTEX::~DXGFASTMUTEX((ADAPTER_RENDER *)((char *)this + 856));
+  DXGFASTMUTEX::~DXGFASTMUTEX((ADAPTER_RENDER *)((char *)this + 776));
+  DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>::~DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>((_QWORD *)this + 30);
+  DXGFASTMUTEX::~DXGFASTMUTEX((ADAPTER_RENDER *)((char *)this + 192));
+  DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>::~DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>((_QWORD *)this + 20);
+  DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>::~DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>((_QWORD *)this + 18);
+  *((_QWORD *)this + 2) = 0LL;
+}

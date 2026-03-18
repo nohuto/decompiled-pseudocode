@@ -1,0 +1,34 @@
+/*
+ * XREFs of DpiFdoGetVirtualGpuType @ 0x140405578
+ * Callers:
+ *     ?DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z @ 0x140062028 (-DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z.c)
+ *     ?DpiSetPartitionFlexIovVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z @ 0x14007D03C (-DpiSetPartitionFlexIovVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z.c)
+ *     DpiLiveMigrationWaitForFence @ 0x14007D884 (DpiLiveMigrationWaitForFence.c)
+ *     DpiFdoDispatchIoctl @ 0x14023DB30 (DpiFdoDispatchIoctl.c)
+ *     DpiFlexIovMitigationUpdate @ 0x140248DF4 (DpiFlexIovMitigationUpdate.c)
+ *     DpiSriovAttach @ 0x1402493B8 (DpiSriovAttach.c)
+ *     DpiSriovNotification @ 0x140249844 (DpiSriovNotification.c)
+ *     DpiFdoDispatchCleanupAndClose @ 0x1402C7DC0 (DpiFdoDispatchCleanupAndClose.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DpiFdoGetVirtualGpuType(__int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v2; // r8
+  __int64 v3; // rcx
+  unsigned int v4; // ebx
+  struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF
+
+  v1 = *(_QWORD *)(a1 + 184);
+  DestinationString = 0LL;
+  RtlInitUnicodeString(&DestinationString, L"\\GPUPARAV");
+  v3 = *(_QWORD *)(v1 + 48);
+  v4 = 0;
+  if ( !v3 )
+    return 0LL;
+  LOBYTE(v2) = 1;
+  LOBYTE(v4) = RtlFindUnicodeSubstring(v3 + 88, &DestinationString, v2) != 0;
+  return v4;
+}

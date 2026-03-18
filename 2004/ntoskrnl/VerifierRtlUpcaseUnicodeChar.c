@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierRtlUpcaseUnicodeChar @ 0x1409E2B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1403FFC70 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierRtlUpcaseUnicodeChar()
+{
+  return ((__int64 (*)(void))pXdvRtlUpcaseUnicodeChar)();
+}

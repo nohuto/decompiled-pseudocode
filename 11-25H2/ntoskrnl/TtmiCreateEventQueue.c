@@ -1,0 +1,63 @@
+/*
+ * XREFs of TtmiCreateEventQueue @ 0x140760DF4
+ * Callers:
+ *     TtmpDispatchCreateEventQueue @ 0x14075BAF8 (TtmpDispatchCreateEventQueue.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x1402D6540 (ExInitializeResourceLite.c)
+ *     KeInitializeEvent @ 0x140401B80 (KeInitializeEvent.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ *     TtmiLogQueueCreated @ 0x14075DD20 (TtmiLogQueueCreated.c)
+ *     ObCreateObjectEx @ 0x14085BE20 (ObCreateObjectEx.c)
+ *     TtmiLogError @ 0x140A2DC20 (TtmiLogError.c)
+ */
+
+__int64 __fastcall TtmiCreateEventQueue(__int64 a1, _QWORD *a2)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  char PreviousMode; // r9
+  int Object; // eax
+  unsigned int v7; // ebx
+  _QWORD *v8; // rcx
+  _QWORD v10[3]; // [rsp+50h] [rbp-30h] BYREF
+  int v11; // [rsp+68h] [rbp-18h]
+  int v12; // [rsp+6Ch] [rbp-14h]
+  __int128 v13; // [rsp+70h] [rbp-10h]
+
+  CurrentThread = KeGetCurrentThread();
+  *a2 = 0LL;
+  PreviousMode = CurrentThread->PreviousMode;
+  v12 = 0;
+  v10[1] = 0LL;
+  v10[2] = 0LL;
+  v10[0] = 48LL;
+  v11 = 32;
+  v13 = 0LL;
+  Object = ObCreateObjectEx(0, (_DWORD)TtmpQueueObjectType, (unsigned int)v10, PreviousMode);
+  v7 = Object;
+  if ( Object >= 0 )
+  {
+    memset_0(0LL, 0, 0xB0uLL);
+    MEMORY[0xA0] = 152LL;
+    MEMORY[0x98] = 152LL;
+    ExInitializeResourceLite((PERESOURCE)0x18);
+    KeInitializeEvent((PRKEVENT)0x80, NotificationEvent, 0);
+    MEMORY[0xA8] = 1;
+    _InterlockedIncrement((volatile signed __int32 *)(a1 + 8));
+    MEMORY[0x10] = a1;
+    v8 = *(_QWORD **)(a1 + 88);
+    if ( *v8 != a1 + 80 )
+      __fastfail(3u);
+    MEMORY[8] = *(_QWORD *)(a1 + 88);
+    MEMORY[0] = a1 + 80;
+    *v8 = 0LL;
+    *(_QWORD *)(a1 + 88) = 0LL;
+    TtmiLogQueueCreated(0LL);
+    *a2 = 0LL;
+    return 0;
+  }
+  else
+  {
+    TtmiLogError("TtmiCreateEventQueue", 566LL, (unsigned int)Object, (unsigned int)Object);
+  }
+  return v7;
+}

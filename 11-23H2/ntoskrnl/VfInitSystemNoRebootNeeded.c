@@ -1,0 +1,71 @@
+/*
+ * XREFs of VfInitSystemNoRebootNeeded @ 0x140AC2D18
+ * Callers:
+ *     VfAddVerifierEntry @ 0x140ADD660 (VfAddVerifierEntry.c)
+ *     VfSetVerifierInformation @ 0x140ADD818 (VfSetVerifierInformation.c)
+ *     ViInitSystemPhase0 @ 0x140B69A68 (ViInitSystemPhase0.c)
+ * Callees:
+ *     ExSetPoolFlags @ 0x140607A98 (ExSetPoolFlags.c)
+ *     ExDisableAllLookasideLists @ 0x14060B238 (ExDisableAllLookasideLists.c)
+ *     MmLockPagableDataSection @ 0x1406AD5B0 (MmLockPagableDataSection.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x140842F20 (PsSetCreateProcessNotifyRoutine.c)
+ *     IoVerifierInit @ 0x140AC0CAC (IoVerifierInit.c)
+ *     VfInitVerifierComponents @ 0x140AC2E70 (VfInitVerifierComponents.c)
+ *     VfPendingInitPhase1 @ 0x140AD1890 (VfPendingInitPhase1.c)
+ *     VfFaultsInitPhase0 @ 0x140AD5E48 (VfFaultsInitPhase0.c)
+ *     VfPoolInitPhase1 @ 0x140ADA148 (VfPoolInitPhase1.c)
+ *     VfSettingsMiscellaneousChecksInitPhase1 @ 0x140ADAEB8 (VfSettingsMiscellaneousChecksInitPhase1.c)
+ */
+
+void __fastcall VfInitSystemNoRebootNeeded(__int64 a1, int a2, __int64 a3, __int64 a4)
+{
+  int v5; // edi
+  int v6; // eax
+
+  v5 = KernelVerifier;
+  if ( !ViFullyInitialized )
+  {
+    if ( !a2 )
+    {
+      VfInitializedWithoutReboot = 1;
+      ViCodeSectionHandle = MmLockPagableDataSection(VfInitVerifierComponents);
+      ViDataSectionHandle = MmLockPagableDataSection(&ViLoadedDriversCount);
+      MmLockPagableDataSection((PVOID)&ViShortTime);
+    }
+    if ( v5 || !a2 )
+      ExDisableAllLookasideLists();
+    VerifierModifyableOptions = 0x1FFF;
+    v6 = MmVerifyDriverLevel;
+    if ( MmVerifyDriverLevel == -1 )
+      v6 = 2491;
+    MmVerifierData = v6;
+    if ( v5 == 1 )
+    {
+      ViVerifyAllDrivers = 1;
+      MmVerifyDriverLevel &= ~0x20u;
+      MmVerifierData = v6 & 0xFFFFFFDF;
+      ExSetPoolFlags(8u);
+    }
+    *((_QWORD *)&ViVerifierDriverAddedThunkListHead + 1) = &ViVerifierDriverAddedThunkListHead;
+    *(_QWORD *)&ViVerifierDriverAddedThunkListHead = &ViVerifierDriverAddedThunkListHead;
+    *(&ViVerifierDriverAddedSpecialThunkListHead + 1) = &ViVerifierDriverAddedSpecialThunkListHead;
+    ViVerifierDriverAddedSpecialThunkListHead = &ViVerifierDriverAddedSpecialThunkListHead;
+    if ( !a2 )
+    {
+      LOBYTE(a4) = 1;
+      VfInitVerifierComponents(
+        (unsigned int)MmVerifierData,
+        (unsigned int)ViVerifyAllDrivers,
+        (unsigned int)KernelVerifier,
+        a4);
+      VfFaultsInitPhase0();
+      VfPoolInitPhase1();
+      VfSettingsMiscellaneousChecksInitPhase1();
+      VfPendingInitPhase1();
+      IoVerifierInit(MmVerifierData);
+      PsSetCreateProcessNotifyRoutine((PCREATE_PROCESS_NOTIFY_ROUTINE)ViCreateProcessCallback, 0);
+      ViFaultsProcessNotifyRoutineSet = 1;
+    }
+    ViFullyInitialized = 1;
+  }
+}

@@ -1,0 +1,54 @@
+/*
+ * XREFs of GreConvertRedirectionToMemDC @ 0x1C02AD224
+ * Callers:
+ *     ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C00103B8 (-BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z.c)
+ *     UpdateSpriteArea @ 0x1C00836B4 (UpdateSpriteArea.c)
+ * Callees:
+ *     ??0DCOBJA@@QEAA@PEAUHDC__@@@Z @ 0x1C0083A90 (--0DCOBJA@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1?$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ @ 0x1C013D7D0 (--1-$UnexpectedThreadTerminationHandler@VDLODCOBJ@@@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall GreConvertRedirectionToMemDC(HDC a1, int a2)
+{
+  unsigned int v3; // ebx
+  __int64 *v4; // r8
+  __int64 v5; // rax
+  __int64 v6; // rdi
+  __int64 v8; // [rsp+20h] [rbp-38h] BYREF
+  _BYTE v9[40]; // [rsp+30h] [rbp-28h] BYREF
+  int v10; // [rsp+70h] [rbp+18h] BYREF
+
+  v3 = 0;
+  DCOBJA::DCOBJA((DCOBJA *)&v8, a1);
+  v4 = (__int64 *)v8;
+  if ( v8 )
+  {
+    if ( !*(_DWORD *)(v8 + 32) )
+    {
+      v5 = *(_QWORD *)(v8 + 48);
+      if ( v5 )
+      {
+        if ( (*(_DWORD *)(v5 + 2096) & 0x400) != 0 )
+        {
+          *(_DWORD *)(v8 + 36) &= ~0x4000u;
+          v3 = 1;
+          *(_DWORD *)(v8 + 36) &= ~1u;
+          *(_DWORD *)(v8 + 32) = 1;
+          if ( a2 )
+            *(_DWORD *)(*(_QWORD *)(v8 + 496) + 112LL) &= ~0x800u;
+          v4 = (__int64 *)v8;
+        }
+      }
+    }
+    if ( v4 )
+    {
+      v10 = 0;
+      v6 = *v4;
+      HmgDecrementShareReferenceCountEx(v4, &v10);
+      if ( v10 )
+        GrepDeleteDC(v6, 0x2000000LL);
+    }
+  }
+  UnexpectedThreadTerminationHandler<DLODCOBJ>::~UnexpectedThreadTerminationHandler<DLODCOBJ>((__int64)v9);
+  return v3;
+}

@@ -1,0 +1,62 @@
+/*
+ * XREFs of TtmiLogExitProximity @ 0x1406DBC40
+ * Callers:
+ *     TtmpExitProximity @ 0x1406D8884 (TtmpExitProximity.c)
+ * Callees:
+ *     PsGetProcessSessionIdEx @ 0x140072E20 (PsGetProcessSessionIdEx.c)
+ *     _TlgWrite @ 0x14007FE94 (_TlgWrite.c)
+ *     _TlgKeywordOn @ 0x140082CE0 (_TlgKeywordOn.c)
+ *     __security_check_cookie @ 0x140169210 (__security_check_cookie.c)
+ */
+
+char __fastcall TtmiLogExitProximity(int a1, int a2, char a3)
+{
+  _UNKNOWN **v3; // rax
+  int ProcessSessionId; // eax
+  char v9; // [rsp+38h] [rbp-39h] BYREF
+  int v10; // [rsp+3Ch] [rbp-35h] BYREF
+  int v11; // [rsp+40h] [rbp-31h] BYREF
+  int v12; // [rsp+44h] [rbp-2Dh] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+48h] [rbp-29h] BYREF
+  int *v14; // [rsp+68h] [rbp-9h]
+  int v15; // [rsp+70h] [rbp-1h]
+  int v16; // [rsp+74h] [rbp+3h]
+  int *v17; // [rsp+78h] [rbp+7h]
+  int v18; // [rsp+80h] [rbp+Fh]
+  int v19; // [rsp+84h] [rbp+13h]
+  int *v20; // [rsp+88h] [rbp+17h]
+  int v21; // [rsp+90h] [rbp+1Fh]
+  int v22; // [rsp+94h] [rbp+23h]
+  char *v23; // [rsp+98h] [rbp+27h]
+  int v24; // [rsp+A0h] [rbp+2Fh]
+  int v25; // [rsp+A4h] [rbp+33h]
+  _UNKNOWN *retaddr; // [rsp+D0h] [rbp+5Fh] BYREF
+
+  v3 = &retaddr;
+  if ( stru_1407AC710.LevelPlus1 > 5 )
+  {
+    LOBYTE(v3) = TlgKeywordOn(&stru_1407AC710, 0x400000000001uLL);
+    if ( (_BYTE)v3 )
+    {
+      ProcessSessionId = PsGetProcessSessionIdEx((__int64)KeGetCurrentThread()->ApcState.Process);
+      v16 = 0;
+      v19 = 0;
+      v22 = 0;
+      v25 = 0;
+      v10 = ProcessSessionId;
+      v14 = &v10;
+      v17 = &v11;
+      v20 = &v12;
+      v23 = &v9;
+      v11 = a1;
+      v12 = a2;
+      v9 = a3;
+      v15 = 4;
+      v18 = 4;
+      v21 = 4;
+      v24 = 1;
+      LOBYTE(v3) = TlgWrite(&stru_1407AC710, &unk_1402AE9E3, 0LL, 0LL, 6u, &pData);
+    }
+  }
+  return (char)v3;
+}

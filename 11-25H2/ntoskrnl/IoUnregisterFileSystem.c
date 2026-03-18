@@ -1,0 +1,47 @@
+/*
+ * XREFs of IoUnregisterFileSystem @ 0x140708C40
+ * Callers:
+ *     RawShutdown @ 0x14076D710 (RawShutdown.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140206F00 (KeLeaveCriticalRegion.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14028A9E0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x140296E10 (ExReleaseResourceLite.c)
+ *     IopDecrementDeviceObjectRefCount @ 0x14041F5D0 (IopDecrementDeviceObjectRefCount.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1406A8B20 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+void __stdcall IoUnregisterFileSystem(PDEVICE_OBJECT DeviceObject)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *p_Queue; // r8
+  struct _LIST_ENTRY *Flink; // rdx
+  struct _LIST_ENTRY *Blink; // rax
+  PVOID *v6; // rbx
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&IopDatabaseResource, 1u);
+  p_Queue = &DeviceObject->Queue;
+  Flink = DeviceObject->Queue.ListEntry.Flink;
+  if ( Flink )
+  {
+    if ( (union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *)Flink->Blink != p_Queue
+      || (Blink = DeviceObject->Queue.ListEntry.Blink,
+          (union _DEVICE_OBJECT::$3ABEFC84562B0417329DFE2AD83813CB *)Blink->Flink != p_Queue) )
+    {
+      __fastfail(3u);
+    }
+    Blink->Flink = Flink;
+    Flink->Blink = Blink;
+  }
+  v6 = (PVOID *)IopFsNotifyChangeQueueHead;
+  while ( v6 != &IopFsNotifyChangeQueueHead )
+  {
+    v6 = (PVOID *)*v6;
+    guard_dispatch_icall_no_overrides(DeviceObject);
+  }
+  ++IopFsRegistrationOps;
+  ExReleaseResourceLite(&IopDatabaseResource);
+  KeLeaveCriticalRegion();
+  IopDecrementDeviceObjectRefCount((ULONG_PTR)DeviceObject, 1);
+}

@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??_EMONITOR_MGR@@UEAAPEAXI@Z @ 0x140091160
+ * Callers:
+ *     ?Destroy@ADAPTER_DISPLAY@@QEAAXXZ @ 0x140198680 (-Destroy@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x140369FB0 (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ??1MONITOR_MGR@@UEAA@XZ @ 0x140272CE4 (--1MONITOR_MGR@@UEAA@XZ.c)
+ */
+
+MONITOR_MGR *__fastcall MONITOR_MGR::`vector deleting destructor'(MONITOR_MGR *this, char a2)
+{
+  MONITOR_MGR::~MONITOR_MGR(this);
+  if ( (a2 & 1) != 0 )
+    DXGQUOTAALLOCATOR<256,1835156294>::operator delete(this);
+  return this;
+}

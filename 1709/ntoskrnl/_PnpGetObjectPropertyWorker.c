@@ -1,0 +1,77 @@
+/*
+ * XREFs of _PnpGetObjectPropertyWorker @ 0x140523FE8
+ * Callers:
+ *     _PnpGetObjectProperty @ 0x140523128 (_PnpGetObjectProperty.c)
+ * Callees:
+ *     ZwClose @ 0x14017DAA0 (ZwClose.c)
+ *     _PnpGetGenericStoreProperty @ 0x14051F7DC (_PnpGetGenericStoreProperty.c)
+ *     _PnpGetMappedPropertyDispatch @ 0x140524178 (_PnpGetMappedPropertyDispatch.c)
+ *     _PnpOpenObjectRegKey @ 0x1405264F8 (_PnpOpenObjectRegKey.c)
+ *     _PnpValidatePropertyData @ 0x14052FC20 (_PnpValidatePropertyData.c)
+ */
+
+__int64 __fastcall PnpGetObjectPropertyWorker(
+        __int64 a1,
+        int a2,
+        int a3,
+        void *a4,
+        const wchar_t *a5,
+        __int64 a6,
+        _DWORD *a7,
+        unsigned __int64 a8,
+        int a9,
+        ULONG *a10,
+        int a11)
+{
+  HANDLE v12; // rbp
+  void *v14; // rdi
+  int v15; // esi
+  int MappedPropertyDispatch; // ebx
+  HANDLE Handle[2]; // [rsp+60h] [rbp-38h] BYREF
+
+  v12 = a4;
+  Handle[0] = 0LL;
+  if ( (_WORD)a11 )
+    return (unsigned int)-1073741811;
+  v14 = (void *)a8;
+  if ( a8 )
+  {
+    v15 = a9;
+    v14 = (void *)(-(__int64)(a9 != 0) & a8);
+  }
+  else
+  {
+    v15 = 0;
+  }
+  *a7 = 0;
+  *a10 = 0;
+  MappedPropertyDispatch = PnpGetMappedPropertyDispatch(
+                             a1,
+                             a2,
+                             a3,
+                             (_DWORD)a4,
+                             (__int64)a5,
+                             a6,
+                             (__int64)a7,
+                             (__int64)v14,
+                             v15,
+                             (__int64)a10,
+                             a11);
+  if ( MappedPropertyDispatch == -1073741802 )
+  {
+    if ( v12 )
+      goto LABEL_6;
+    MappedPropertyDispatch = PnpOpenObjectRegKey(a1, a2, a3, 33554433, 0, (__int64)Handle, 0LL, 0);
+    if ( MappedPropertyDispatch >= 0 )
+    {
+      v12 = Handle[0];
+LABEL_6:
+      MappedPropertyDispatch = PnpGetGenericStoreProperty(a1, (__int64)v12, a5, a6, a7, (__int64)v14, v15, a10);
+      if ( MappedPropertyDispatch >= 0 )
+        MappedPropertyDispatch = PnpValidatePropertyData(v14, *a10);
+    }
+  }
+  if ( Handle[0] )
+    ZwClose(Handle[0]);
+  return (unsigned int)MappedPropertyDispatch;
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of VerifierIoReuseIrp @ 0x140742038
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void __stdcall VerifierIoReuseIrp(PIRP Irp, NTSTATUS Iostatus)
+{
+  pXdvIoReuseIrp(Irp, Iostatus);
+}

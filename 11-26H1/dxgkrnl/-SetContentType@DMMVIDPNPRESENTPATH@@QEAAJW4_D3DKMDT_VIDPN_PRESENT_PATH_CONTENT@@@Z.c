@@ -1,0 +1,30 @@
+/*
+ * XREFs of ?SetContentType@DMMVIDPNPRESENTPATH@@QEAAJW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x140096850
+ * Callers:
+ *     ??0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x140097080 (--0DMMVIDPNPRESENTPATH@@QEAA@PEAVDMMVIDPNSOURCE@@PEAVDMMVIDPNTARGET@@AEBU_D3DKMDT_VIDPN_PRESENT_.c)
+ *     ?DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@@@Z @ 0x14025C238 (-DmmUpdateContentOnAllClientVidPnPathsFromSource@@YAJQEAXIW4_D3DKMDT_VIDPN_PRESENT_PATH_CONTENT@.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DMMVIDPNPRESENTPATH::SetContentType(
+        DMMVIDPNPRESENTPATH *this,
+        enum _D3DKMDT_VIDPN_PRESENT_PATH_CONTENT a2)
+{
+  __int64 result; // rax
+
+  if ( a2 == D3DKMDT_VPPC_GRAPHICS || a2 == D3DKMDT_VPPC_VIDEO || a2 == D3DKMDT_VPPC_NOTSPECIFIED )
+  {
+    *((_DWORD *)this + 41) = a2;
+    return 0LL;
+  }
+  else
+  {
+    WdLogSingleEntry1(2LL);
+    WdLogGlobalForLineNumber = 1028;
+    WdLogSingleEntry1(3LL);
+    result = 3223192398LL;
+    WdLogGlobalForLineNumber = 1038;
+  }
+  return result;
+}

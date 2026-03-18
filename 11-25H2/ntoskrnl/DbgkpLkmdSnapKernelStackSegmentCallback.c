@@ -1,0 +1,20 @@
+/*
+ * XREFs of DbgkpLkmdSnapKernelStackSegmentCallback @ 0x14057B560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DbgkpLkmdSnapDataEx @ 0x14057B304 (DbgkpLkmdSnapDataEx.c)
+ */
+
+__int64 __fastcall DbgkpLkmdSnapKernelStackSegmentCallback(__int64 a1, __int64 a2, __int64 *a3)
+{
+  __int64 result; // rax
+
+  result = DbgkpLkmdSnapDataEx(*a3);
+  if ( (int)result >= 0 )
+  {
+    result = a3[3];
+    *(_DWORD *)(result + 4) |= 2u;
+  }
+  return result;
+}

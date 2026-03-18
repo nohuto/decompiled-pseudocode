@@ -1,0 +1,29 @@
+/*
+ * XREFs of McTemplateK0tqq @ 0x1C0027434
+ * Callers:
+ *     ?SetWorkingSetInformation@VIDMM_PROCESS@@QEAAJPEAU_D3DKMT_WORKINGSETINFO@@@Z @ 0x1C00B5840 (-SetWorkingSetInformation@VIDMM_PROCESS@@QEAAJPEAU_D3DKMT_WORKINGSETINFO@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0018050 (__security_check_cookie.c)
+ *     McGenEventWrite @ 0x1C0025A44 (McGenEventWrite.c)
+ */
+
+ULONG __fastcall McTemplateK0tqq(__int64 a1, __int64 a2, const GUID *a3, int a4, char a5, char a6)
+{
+  EVENT_DATA_DESCRIPTOR EventData; // [rsp+30h] [rbp-50h] BYREF
+  int *v8; // [rsp+40h] [rbp-40h]
+  __int64 v9; // [rsp+48h] [rbp-38h]
+  char *v10; // [rsp+50h] [rbp-30h]
+  __int64 v11; // [rsp+58h] [rbp-28h]
+  char *v12; // [rsp+60h] [rbp-20h]
+  __int64 v13; // [rsp+68h] [rbp-18h]
+  int v14; // [rsp+A8h] [rbp+28h] BYREF
+
+  v14 = a4;
+  v8 = &v14;
+  v9 = 4LL;
+  v10 = &a5;
+  v11 = 4LL;
+  v12 = &a6;
+  v13 = 4LL;
+  return McGenEventWrite((PMCGEN_TRACE_CONTEXT)&DxgkControlGuid_Context, &EventSetProcessWorkingSet, a3, 4u, &EventData);
+}

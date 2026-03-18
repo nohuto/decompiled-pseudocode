@@ -1,0 +1,173 @@
+/*
+ * XREFs of CcSetDirtyPinnedData @ 0x1402AB6C0
+ * Callers:
+ *     CcZeroDataInCache @ 0x140267564 (CcZeroDataInCache.c)
+ *     CcFlushCachePostProcessOneRange @ 0x1402AACA0 (CcFlushCachePostProcessOneRange.c)
+ *     CcReleaseByteRangeFromWrite @ 0x1402AB220 (CcReleaseByteRangeFromWrite.c)
+ *     CcUnpinRepinnedBcb @ 0x140494980 (CcUnpinRepinnedBcb.c)
+ *     CcPreparePinWrite @ 0x140A3EE70 (CcPreparePinWrite.c)
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x1402D6990 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x1402D85F0 (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KeReleaseGuardedMutex @ 0x14031E470 (KeReleaseGuardedMutex.c)
+ *     KiSetTimerEx @ 0x1403347A0 (KiSetTimerEx.c)
+ *     ExAcquireFastMutex @ 0x14033E850 (ExAcquireFastMutex.c)
+ *     CcInsertIntoDirtySharedCacheMapList @ 0x140446E98 (CcInsertIntoDirtySharedCacheMapList.c)
+ *     CcChargeDirtyPagesInternal @ 0x14044B950 (CcChargeDirtyPagesInternal.c)
+ *     CcSetDirtyInMask @ 0x1404614E0 (CcSetDirtyInMask.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KeBugCheckEx @ 0x1404FB990 (KeBugCheckEx.c)
+ */
+
+void __stdcall CcSetDirtyPinnedData(PVOID BcbVoid, PLARGE_INTEGER Lsn)
+{
+  char *v2; // r8
+  __int16 v3; // ax
+  __int64 *v5; // rsi
+  __int64 v6; // rcx
+  __int64 v7; // r13
+  _BYTE *v8; // r12
+  __int64 i; // rbx
+  __int64 v10; // rdi
+  int v11; // r15d
+  unsigned __int8 CurrentIrql; // bp
+  __int64 v13; // rax
+  unsigned int v14; // r15d
+  unsigned __int64 v15; // rax
+  LONGLONG v16; // rcx
+  LONGLONG QuadPart; // rax
+  LONGLONG v18; // rcx
+  __int64 v19; // rax
+  _QWORD v20[2]; // [rsp+30h] [rbp-58h] BYREF
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+40h] [rbp-48h] BYREF
+
+  v2 = (char *)BcbVoid;
+  v3 = *(_WORD *)BcbVoid;
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  if ( v3 != 765 && v3 != 762 )
+    KeBugCheckEx(0x34u, 0xF1DuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+  v5 = v20;
+  v20[0] = BcbVoid;
+  v20[1] = 0LL;
+  if ( v3 == 762 )
+  {
+    BcbVoid = (PVOID)*((_QWORD *)BcbVoid + 2);
+    v5 = (__int64 *)(v2 + 16);
+  }
+  v6 = *((_QWORD *)BcbVoid + 22);
+  v7 = *(_QWORD *)(v6 + 536);
+  if ( CcEnablePerVolumeLazyWriter )
+    v8 = *(_BYTE **)(v6 + 600);
+  else
+    v8 = 0LL;
+  if ( (*(_DWORD *)(v6 + 152) & 0x1000000) != 0 && *(_QWORD *)(*(_QWORD *)(v6 + 248) + 136LL) == -1LL )
+    *(_QWORD *)(*(_QWORD *)(v6 + 248) + 136LL) = MEMORY[0xFFFFF78000000320];
+  if ( (*(_DWORD *)(v6 + 152) & 0x200) != 0 )
+  {
+    for ( i = *v5; *v5; i = *v5 )
+    {
+      ++v5;
+      v20[0] = i;
+      if ( (i & 1) != 0 )
+        KeBugCheckEx(0x34u, 0xF7FuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+      v10 = *(_QWORD *)(i + 176);
+      ExAcquireFastMutex((PKGUARDED_MUTEX)(v10 + 288));
+      if ( !*(_BYTE *)(i + 2) )
+      {
+        v11 = *(_DWORD *)(i + 4) >> 12;
+        *(_BYTE *)(i + 2) = 1;
+        if ( Lsn )
+        {
+          *(LARGE_INTEGER *)(i + 40) = *Lsn;
+          *(LARGE_INTEGER *)(i + 48) = *Lsn;
+        }
+        LockHandle.LockQueue.Next = 0LL;
+        LockHandle.LockQueue.Lock = (unsigned __int64 *volatile)(v7 + 768);
+        CurrentIrql = KeGetCurrentIrql();
+        __writecr8(2uLL);
+        if ( KiIrqlFlags )
+          KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2LL);
+        LockHandle.OldIrql = CurrentIrql;
+        if ( (BYTE6(PerfGlobalGroupMask) & 0x21) == 0 || PopHibernateInProgress )
+        {
+          if ( _InterlockedExchange64((volatile __int64 *)(v7 + 768), (__int64)&LockHandle) )
+            KxWaitForLockOwnerShip(&LockHandle);
+        }
+        else
+        {
+          KiAcquireQueuedSpinLockInstrumented(&LockHandle, v7 + 768);
+        }
+        if ( !*(_DWORD *)(v10 + 112) && (*(_DWORD *)(v10 + 152) & 2) == 0 )
+        {
+          if ( CcEnablePerVolumeLazyWriter )
+          {
+            if ( !v8[1172] )
+            {
+              if ( !v8[985] )
+              {
+                if ( !v8[984] )
+                  KeBugCheckEx(0x34u, 0x7CBuLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+                KiSetTimerEx((_DWORD)v8 + 920, CcFirstDelay, 0, 0, 0LL);
+              }
+              if ( !v8[1172] )
+                v8[985] = 1;
+            }
+          }
+          else if ( !*(_BYTE *)(v7 + 1292) )
+          {
+            if ( !*(_BYTE *)(v7 + 1049) )
+            {
+              if ( !*(_BYTE *)(v7 + 1048) )
+                KeBugCheckEx(0x34u, 0x371uLL, 0xFFFFFFFFC0000420uLL, 0LL, 0LL);
+              KiSetTimerEx(v7 + 984, CcFirstDelay, 0, 0, 0LL);
+            }
+            if ( !*(_BYTE *)(v7 + 1292) )
+              *(_BYTE *)(v7 + 1049) = 1;
+          }
+          CcInsertIntoDirtySharedCacheMapList(v10);
+        }
+        if ( CcEnablePerVolumeLazyWriter )
+          v13 = *(_QWORD *)(v10 + 600);
+        else
+          v13 = 0LL;
+        CcChargeDirtyPagesInternal(v10, 0, 0, v11, *(_QWORD *)(v10 + 536), v13);
+        KeReleaseInStackQueuedSpinLock(&LockHandle);
+        if ( (*(_DWORD *)(v10 + 152) & 0x10000000) != 0 )
+        {
+          v14 = v11 << 12;
+          v15 = KeGetCurrentThread()->Process[3].Padding[4];
+          if ( v15 )
+          {
+            if ( v14 )
+              _InterlockedAdd64((volatile signed __int64 *)(v15 + 8), v14);
+            _InterlockedIncrement64((volatile signed __int64 *)(v15 + 24));
+          }
+        }
+      }
+      if ( Lsn )
+      {
+        v16 = *(_QWORD *)(i + 40);
+        QuadPart = Lsn->QuadPart;
+        if ( !v16 || QuadPart < v16 )
+        {
+          *(_QWORD *)(i + 40) = QuadPart;
+          QuadPart = Lsn->QuadPart;
+        }
+        v18 = *(_QWORD *)(i + 48);
+        if ( !v18 || QuadPart > v18 )
+          *(_QWORD *)(i + 48) = QuadPart;
+        if ( Lsn->QuadPart > *(_QWORD *)(v10 + 264) )
+          *(LARGE_INTEGER *)(v10 + 264) = *Lsn;
+      }
+      v19 = *(_QWORD *)(i + 32);
+      if ( v19 > *(_QWORD *)(v10 + 48) )
+        *(_QWORD *)(v10 + 48) = v19;
+      KeReleaseGuardedMutex((PKGUARDED_MUTEX)(v10 + 288));
+    }
+  }
+  else
+  {
+    CcSetDirtyInMask(v6, v2 + 8, *((unsigned int *)v2 + 1), 0LL);
+  }
+}

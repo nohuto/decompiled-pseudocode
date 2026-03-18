@@ -1,0 +1,27 @@
+/*
+ * XREFs of ??4?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@QEAAAEAV012@$$QEAV012@@Z @ 0x18001A19C
+ * Callers:
+ *     ??$_Move_unchecked1@V?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@@0@V10@00U_General_ptr_iterator_tag@0@@Z @ 0x180019F9C (--$_Move_unchecked1@V-$_Deque_unchecked_iterator@V-$_Deque_val@U-$_Deque_simple_types@V-$ComPtr@.c)
+ *     ??$_Move_backward_unchecked1@V?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@@std@@V12@@std@@YA?AV?$_Deque_unchecked_iterator@V?$_Deque_val@U?$_Deque_simple_types@V?$ComPtr@VCEffectCompilationTask@@@WRL@Microsoft@@@std@@@std@@@0@V10@00U_General_ptr_iterator_tag@0@@Z @ 0x18001A0F0 (--$_Move_backward_unchecked1@V-$_Deque_unchecked_iterator@V-$_Deque_val@U-$_Deque_simple_types@V.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800DD420 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 *__fastcall Microsoft::WRL::ComPtr<CEffectCompilationTask>::operator=(__int64 *a1, char *a2)
+{
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  char v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = 0LL;
+  if ( &v6 != a2 )
+  {
+    v3 = *(_QWORD *)a2;
+    *(_QWORD *)a2 = 0LL;
+  }
+  v4 = *a1;
+  *a1 = v3;
+  if ( v4 )
+    (*(void (__fastcall **)(__int64))(*(_QWORD *)v4 + 8LL))(v4);
+  return a1;
+}

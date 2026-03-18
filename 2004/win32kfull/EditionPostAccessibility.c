@@ -1,0 +1,17 @@
+/*
+ * XREFs of EditionPostAccessibility @ 0x1C0213D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C00B029C (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ */
+
+__int64 __fastcall EditionPostAccessibility(unsigned int a1)
+{
+  __int64 v1; // rcx
+  __int64 v3; // [rsp+30h] [rbp-18h]
+
+  v3 = a1;
+  v1 = *(_QWORD *)(*(_QWORD *)(*(_QWORD *)(grpdeskRitInput + 40LL) + 56LL) + 16LL);
+  return PostEventMessageEx((struct tagTHREADINFO *)v1, *(struct tagQ **)(v1 + 424), 0xDu, 0LL, 0, 0xBuLL, v3, 0LL);
+}

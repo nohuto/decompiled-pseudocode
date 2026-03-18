@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?GetTextureMemoryLayoutData@CSurfaceBrush@@UEBAJAEBUD2D_SIZE_F@@AEAV?$vector@ULayoutData@CContent@@V?$allocator@ULayoutData@CContent@@@std@@@std@@@Z @ 0x1802A6B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1802F6010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CSurfaceBrush::GetTextureMemoryLayoutData(__int64 a1, __int64 a2, __int64 a3)
+{
+  return (*(__int64 (__fastcall **)(_QWORD, __int64, __int64, __int64))(**(_QWORD **)(a1 + 136) + 80LL))(
+           *(_QWORD *)(a1 + 136),
+           a1,
+           a2,
+           a3);
+}

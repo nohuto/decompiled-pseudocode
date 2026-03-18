@@ -1,0 +1,12 @@
+/*
+ * XREFs of NotifyAllocationReclaimed @ 0x1400DC5A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyAllocationReclaimed@VIDMM_PHYSICAL_ADAPTER@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC@@_N@Z @ 0x1400DC6E0 (-NotifyAllocationReclaimed@VIDMM_PHYSICAL_ADAPTER@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC@@_N@Z.c)
+ */
+
+void __fastcall NotifyAllocationReclaimed(VIDMM_PHYSICAL_ADAPTER *a1, struct VIDMM_PHYSICAL_ALLOC *a2)
+{
+  VIDMM_PHYSICAL_ADAPTER::NotifyAllocationReclaimed(a1, a2, 1);
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ??_GDXGCOPYPROTECTION@@QEAAPEAXI@Z @ 0x1C001ECDC
+ * Callers:
+ *     ?CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z @ 0x1C01470C4 (-CreateCopyProtection@ADAPTER_DISPLAY@@QEAAJIIPEAI@Z.c)
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C0147588 (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C007F918 (--3@YAXPEAX@Z.c)
+ *     ??1DXGCOPYPROTECTION@@QEAA@XZ @ 0x1C015AB24 (--1DXGCOPYPROTECTION@@QEAA@XZ.c)
+ */
+
+DXGCOPYPROTECTION *__fastcall DXGCOPYPROTECTION::`scalar deleting destructor'(DXGCOPYPROTECTION *this)
+{
+  DXGCOPYPROTECTION::~DXGCOPYPROTECTION(this);
+  operator delete(this);
+  return this;
+}

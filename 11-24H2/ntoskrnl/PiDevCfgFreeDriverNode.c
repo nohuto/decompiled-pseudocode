@@ -1,0 +1,107 @@
+/*
+ * XREFs of PiDevCfgFreeDriverNode @ 0x140A9EB68
+ * Callers:
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x14072897C (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PiDevCfgQueryIncludedDriverNode @ 0x14072AC78 (PiDevCfgQueryIncludedDriverNode.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14072C8FC (PpDevCfgProcessDeviceExtensions.c)
+ *     PiDevCfgFindDeviceDriver @ 0x140995E90 (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgQueryDriverNode @ 0x140996564 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgProcessDevice @ 0x140996E44 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x140A7E6CC (PiDevCfgQueryIncludedDriverConfigurations.c)
+ *     PiDevCfgFreeDriverNode @ 0x140A9EB68 (PiDevCfgFreeDriverNode.c)
+ * Callees:
+ *     ZwClose @ 0x1406A65F0 (ZwClose.c)
+ *     RtlFreeAnsiString @ 0x1408A4990 (RtlFreeAnsiString.c)
+ *     PiDevCfgFreeDriverNode @ 0x140A9EB68 (PiDevCfgFreeDriverNode.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall PiDevCfgFreeDriverNode(__int64 a1)
+{
+  _QWORD **v2; // rdi
+  _QWORD *v3; // rcx
+  _QWORD *v4; // rax
+  _QWORD **v5; // rdi
+  _QWORD *v6; // rcx
+  _QWORD *v7; // rax
+  _QWORD **v8; // rdi
+  _QWORD *v9; // rcx
+  _QWORD *v10; // rax
+  void *v11; // rcx
+  void *v12; // rcx
+  void *v13; // rcx
+  void *v14; // rcx
+
+  v2 = (_QWORD **)(a1 + 224);
+  while ( 1 )
+  {
+    v3 = *v2;
+    if ( *v2 == v2 )
+      break;
+    if ( (_QWORD **)v3[1] != v2 || (v4 = (_QWORD *)*v3, *(_QWORD **)(*v3 + 8LL) != v3) )
+LABEL_16:
+      __fastfail(3u);
+    *v2 = v4;
+    v4[1] = v2;
+    PiDevCfgFreeDriverNode(v3);
+  }
+  v5 = (_QWORD **)(a1 + 208);
+  while ( 1 )
+  {
+    v6 = *v5;
+    if ( *v5 == v5 )
+      break;
+    if ( (_QWORD **)v6[1] != v5 )
+      goto LABEL_16;
+    v7 = (_QWORD *)*v6;
+    if ( *(_QWORD **)(*v6 + 8LL) != v6 )
+      goto LABEL_16;
+    *v5 = v7;
+    v7[1] = v5;
+    PiDevCfgFreeDriverNode(v6);
+  }
+  v8 = (_QWORD **)(a1 + 384);
+  while ( 1 )
+  {
+    v9 = *v8;
+    if ( *v8 == v8 )
+      break;
+    if ( (_QWORD **)v9[1] != v8 )
+      goto LABEL_16;
+    v10 = (_QWORD *)*v9;
+    if ( *(_QWORD **)(*v9 + 8LL) != v9 )
+      goto LABEL_16;
+    *v8 = v10;
+    v10[1] = v8;
+    PiDevCfgFreeDriverNode(v9);
+  }
+  v11 = *(void **)(a1 + 144);
+  if ( v11 )
+    ExFreePoolWithTag(v11, 0);
+  v12 = *(void **)(a1 + 16);
+  if ( v12 )
+    ZwClose(v12);
+  v13 = *(void **)(a1 + 24);
+  if ( v13 )
+    ZwClose(v13);
+  v14 = *(void **)(a1 + 32);
+  if ( v14 )
+    ZwClose(v14);
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 56));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 40));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 72));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 88));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 128));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 160));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 256));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 272));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 288));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 304));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 320));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 336));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 352));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 368));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 424));
+  RtlFreeAnsiString((PUNICODE_STRING)(a1 + 400));
+  ExFreePoolWithTag((PVOID)a1, 0);
+}

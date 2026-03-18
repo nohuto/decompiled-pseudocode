@@ -1,0 +1,125 @@
+/*
+ * XREFs of ?CreateVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14021B7CC
+ * Callers:
+ *     ?EnsureVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJXZ @ 0x14021DEE8 (-EnsureVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x140009940 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x14002D590 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     __security_check_cookie @ 0x1400A1BC0 (__security_check_cookie.c)
+ *     ?CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHANNEL_STATE_CHANGE_CALLBACKS@@P6AXPEAUVMBCHANNEL__@@PEAUVMBPACKETCOMPLETION__@@0II@ZP6AX5I@ZPEAPEAU5@@Z @ 0x14021B130 (-CreateClientVmBusChannel@@YAJPEAXPEAU_DEVICE_OBJECT@@U_GUID@@2PEBU_UNICODE_STRING@@PEAU_VMB_CHA.c)
+ *     ?DestroyVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAXXZ @ 0x14021C124 (-DestroyVmBusChannel@DXG_GUEST_GLOBAL_VMBUS@@QEAAXXZ.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x14029AE64 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ */
+
+__int64 __fastcall DXG_GUEST_GLOBAL_VMBUS::CreateVmBusChannel(struct VMBCHANNEL__ **this, struct _DEVICE_OBJECT *a2)
+{
+  struct _DEVICE_OBJECT *v2; // rbx
+  struct _KEVENT *v4; // rcx
+  struct VMBCHANNEL__ *v5; // rax
+  int v7; // eax
+  __int64 v8; // rdi
+  struct VMBCHANNEL__ *v9; // rcx
+  NTSTATUS v10; // eax
+  struct DXGGLOBAL *Global; // rax
+  void (*v12)(struct VMBCHANNEL__ *, unsigned int); // [rsp+40h] [rbp-61h]
+  char v13[8]; // [rsp+58h] [rbp-49h] BYREF
+  struct _UNICODE_STRING v14; // [rsp+60h] [rbp-41h] BYREF
+  union _LARGE_INTEGER Timeout; // [rsp+70h] [rbp-31h] BYREF
+  _DWORD v16[2]; // [rsp+78h] [rbp-29h] BYREF
+  __int64 (__fastcall *v17)(struct VMBCHANNEL__ *); // [rsp+80h] [rbp-21h]
+  void (__fastcall *v18)(struct VMBCHANNEL__ *); // [rsp+88h] [rbp-19h]
+  void (__fastcall *v19)(struct VMBCHANNEL__ *); // [rsp+90h] [rbp-11h]
+  void (__fastcall *v20)(struct VMBCHANNEL__ *); // [rsp+98h] [rbp-9h]
+  void (__fastcall *v21)(struct VMBCHANNEL__ *); // [rsp+A0h] [rbp-1h]
+  struct _GUID v22; // [rsp+A8h] [rbp+7h] BYREF
+  struct _GUID v23; // [rsp+B8h] [rbp+17h] BYREF
+  _OWORD v24[2]; // [rsp+C8h] [rbp+27h] BYREF
+  wchar_t v25; // [rsp+E8h] [rbp+47h]
+
+  v2 = g_pDeviceObject;
+  v4 = (struct _KEVENT *)this[7];
+  if ( v4 )
+  {
+    KeClearEvent(v4);
+  }
+  else
+  {
+    v5 = (struct VMBCHANNEL__ *)operator new(0x18uLL, 0x4B677844u, 64LL);
+    this[7] = v5;
+    if ( !v5 )
+      return 3221225495LL;
+    KeInitializeEvent((PRKEVENT)v5, NotificationEvent, 0);
+  }
+  v25 = aDxgkGlobalgues[16];
+  v14.Buffer = (wchar_t *)v24;
+  v17 = DXG_GUEST_GLOBAL_VMBUS::VmBusChannelOpened;
+  *(_QWORD *)&v14.Length = 2228256LL;
+  v18 = DXG_GUEST_GLOBAL_VMBUS::VmBusChannelClosed;
+  v16[0] = 1;
+  v19 = DXG_GUEST_GLOBAL_VMBUS::VmBusChannelSuspend;
+  v20 = DXG_GUEST_GLOBAL_VMBUS::VmBusChannelStarted;
+  v21 = DXG_GUEST_GLOBAL_VMBUS::VmBusChannelPostStarted;
+  v24[0] = *(_OWORD *)L"DXGK_GlobalGuest";
+  v16[1] = 48;
+  v24[1] = *(_OWORD *)L"balGuest";
+  v22 = (struct _GUID)DxgkPerVmVmBusChanelInstanceId;
+  v23 = (struct _GUID)DxgkPerVmVmBusChannelType;
+  v7 = CreateClientVmBusChannel(
+         (__int64)this,
+         v2,
+         &v23,
+         &v22,
+         &v14,
+         (struct _VMB_CHANNEL_STATE_CHANGE_CALLBACKS *)v16,
+         (void (*)(struct VMBCHANNEL__ *, struct VMBPACKETCOMPLETION__ *, void *, unsigned int, unsigned int))DXG_GUEST_GLOBAL_VMBUS::VmBusChannelProcessPacket,
+         v12,
+         this);
+  v8 = v7;
+  if ( v7 < 0 )
+  {
+    WdLogSingleEntry1(2LL, v7);
+    WdLogGlobalForLineNumber = 13662;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000LL,
+      0xFFFFFFFFLL,
+      L"Failed to create the guest VM bus channel. Status: 0x%I64x",
+      v8,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+LABEL_12:
+    DXG_GUEST_GLOBAL_VMBUS::DestroyVmBusChannel((DXG_GUEST_GLOBAL_VMBUS *)this);
+    return (unsigned int)v8;
+  }
+  v9 = this[7];
+  Timeout.QuadPart = -80000000LL;
+  v10 = KeWaitForSingleObject(v9, Executive, 0, 0, &Timeout);
+  v8 = v10;
+  if ( v10 )
+  {
+    WdLogSingleEntry1(2LL, v10);
+    WdLogGlobalForLineNumber = 13656;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000LL,
+      0xFFFFFFFFLL,
+      L"Failed waiting for VM bus channel to start: 0x%I64x",
+      v8,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    LODWORD(v8) = -1073741823;
+  }
+  if ( (int)v8 < 0 )
+    goto LABEL_12;
+  this[1] = *this;
+  *((_BYTE *)this + 68) = 1;
+  v13[0] = 1;
+  Global = DXGGLOBAL::GetGlobal();
+  DXGGLOBAL::IterateAdaptersWithCallback(Global, GlobalVmBusStatChangeCallback, v13, 1LL);
+  return (unsigned int)v8;
+}

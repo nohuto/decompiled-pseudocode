@@ -1,0 +1,189 @@
+/*
+ * XREFs of RIMAddInjectionDeviceOfType @ 0x1C00C0E60
+ * Callers:
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C00C55DC (RIMIDECreatePseudoHIDDevice.c)
+ *     RIMIDECreatePseudoMouseOrKeyboardDevice @ 0x1C00C57E8 (RIMIDECreatePseudoMouseOrKeyboardDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C001A90C (WPP_RECORDER_SF_D.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C001A9C0 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_SF_ @ 0x1C001AA20 (WPP_RECORDER_SF_.c)
+ *     Win32FreePool @ 0x1C0033BB0 (Win32FreePool.c)
+ *     Win32AllocPool @ 0x1C004C2C0 (Win32AllocPool.c)
+ *     RIMUnlockExclusive @ 0x1C00523F0 (RIMUnlockExclusive.c)
+ *     RIMLockExclusive @ 0x1C0052410 (RIMLockExclusive.c)
+ *     RIMFreeDev @ 0x1C00759DC (RIMFreeDev.c)
+ *     RIMCreateDev @ 0x1C0076274 (RIMCreateDev.c)
+ *     DeviceTypeToRimInputType @ 0x1C0077280 (DeviceTypeToRimInputType.c)
+ *     __security_check_cookie @ 0x1C0085840 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall RIMAddInjectionDeviceOfType(
+        void *a1,
+        struct _UNICODE_STRING *a2,
+        int a3,
+        __int64 a4,
+        char a5,
+        _QWORD *a6)
+{
+  _QWORD *v10; // r14
+  int v12; // ebx
+  PVOID v13; // rdi
+  char v14; // dl
+  int v15; // ecx
+  WCHAR *Buffer; // rdx
+  unsigned __int64 v17; // r8
+  __int64 v18; // rdx
+  unsigned __int16 v19; // r9
+  __int64 v20; // [rsp+28h] [rbp-150h]
+  char v21; // [rsp+44h] [rbp-134h]
+  PVOID Object; // [rsp+48h] [rbp-130h] BYREF
+  struct _UNICODE_STRING *p_DestinationString; // [rsp+50h] [rbp-128h]
+  int v24; // [rsp+58h] [rbp-120h]
+  __int64 v25; // [rsp+60h] [rbp-118h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+68h] [rbp-110h] BYREF
+  int v27; // [rsp+78h] [rbp-100h]
+  _QWORD *v28; // [rsp+80h] [rbp-F8h]
+  UNICODE_STRING SourceString; // [rsp+88h] [rbp-F0h] BYREF
+  _OWORD v30[8]; // [rsp+A0h] [rbp-D8h] BYREF
+  __int64 v31; // [rsp+120h] [rbp-58h]
+
+  v21 = a3;
+  v24 = a3;
+  v10 = a6;
+  v28 = a6;
+  WPP_RECORDER_SF_(
+    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+    3u,
+    4u,
+    0x26u,
+    (__int64)&WPP_dd9f0c7a0f42e4329fa71b586c89d33f_Traceguids);
+  if ( !a4 )
+  {
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      3u,
+      3u,
+      0x27u,
+      (__int64)&WPP_dd9f0c7a0f42e4329fa71b586c89d33f_Traceguids);
+    WPP_RECORDER_SF_D(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      3u,
+      4u,
+      0x28u,
+      (__int64)&WPP_dd9f0c7a0f42e4329fa71b586c89d33f_Traceguids,
+      -1073741811);
+    return 3221225485LL;
+  }
+  v12 = RawInputManagerObjectResolveHandle(a1, 3u, 0, &Object);
+  if ( v12 >= 0 )
+  {
+    v13 = Object;
+    RIMLockExclusive((__int64)Object + 96);
+    if ( *((_BYTE *)v13 + 73) || *((_BYTE *)v13 + 74) )
+    {
+      v12 = -1073741637;
+      v19 = 42;
+    }
+    else
+    {
+      if ( ((unsigned int)DeviceTypeToRimInputType(a3) & *((_DWORD *)v13 + 19)) != 0 )
+      {
+        p_DestinationString = 0LL;
+        *(_QWORD *)&DestinationString.Length = 0LL;
+        DestinationString.Buffer = 0LL;
+        if ( a5 )
+        {
+          if ( a2 >= W32UserProbeAddress )
+            a2 = (struct _UNICODE_STRING *)W32UserProbeAddress;
+          v15 = *(_DWORD *)&a2->Length;
+          v27 = v15;
+          *(_DWORD *)&SourceString.Length = v15;
+          Buffer = a2->Buffer;
+          SourceString.Buffer = Buffer;
+          if ( ((unsigned __int8)Buffer & 1) != 0 )
+            ExRaiseDatatypeMisalignment();
+          v17 = (unsigned __int64)Buffer + (unsigned __int16)v15 + 2;
+          if ( v17 >= (unsigned __int64)W32UserProbeAddress
+            || (unsigned __int16)v15 > HIWORD(v27)
+            || (v15 & 1) != 0
+            || v17 <= (unsigned __int64)Buffer )
+          {
+            *(_BYTE *)W32UserProbeAddress = 0;
+          }
+          DestinationString.MaximumLength = SourceString.Length;
+          DestinationString.Length = SourceString.Length;
+          DestinationString.Buffer = (PWSTR)Win32AllocPool();
+          if ( DestinationString.Buffer )
+          {
+            RtlCopyUnicodeString(&DestinationString, &SourceString);
+            p_DestinationString = &DestinationString;
+          }
+          else
+          {
+            v12 = -1073741801;
+          }
+          v13 = Object;
+          v14 = v21;
+        }
+        else
+        {
+          p_DestinationString = a2;
+          v30[0] = *(_OWORD *)a4;
+          v30[1] = *(_OWORD *)(a4 + 16);
+          v30[2] = *(_OWORD *)(a4 + 32);
+          v30[3] = *(_OWORD *)(a4 + 48);
+          v30[4] = *(_OWORD *)(a4 + 64);
+          v30[5] = *(_OWORD *)(a4 + 80);
+          v30[6] = *(_OWORD *)(a4 + 96);
+          v30[7] = *(_OWORD *)(a4 + 112);
+          v31 = *(_QWORD *)(a4 + 128);
+          v14 = v21;
+        }
+        if ( v12 >= 0 )
+        {
+          v12 = RIMCreateDev(v13, v14, (__int64)p_DestinationString, 0, 1, (__int64)v30, &v25);
+          if ( v12 >= 0 )
+          {
+            if ( a5 )
+            {
+              v18 = v25;
+              if ( a6 >= W32UserProbeAddress )
+                v10 = W32UserProbeAddress;
+              *v10 = *(_QWORD *)(v25 + 16);
+            }
+            else
+            {
+              v18 = v25;
+              *a6 = *(_QWORD *)(v25 + 16);
+            }
+            if ( *((_QWORD *)v13 + 95) )
+              *(_DWORD *)(v18 + 184) |= 0x8000u;
+          }
+        }
+        if ( DestinationString.Buffer )
+          Win32FreePool();
+        goto LABEL_36;
+      }
+      v12 = -1073741637;
+      v19 = 41;
+    }
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      3u,
+      3u,
+      v19,
+      (__int64)&WPP_dd9f0c7a0f42e4329fa71b586c89d33f_Traceguids);
+LABEL_36:
+    RIMUnlockExclusive((__int64)v13 + 96);
+    ObfDereferenceObject(v13);
+  }
+  LODWORD(v20) = v12;
+  WPP_RECORDER_SF_D(
+    (__int64)WPP_GLOBAL_Control->DeviceExtension,
+    3u,
+    4u,
+    0x2Bu,
+    (__int64)&WPP_dd9f0c7a0f42e4329fa71b586c89d33f_Traceguids,
+    v20);
+  return (unsigned int)v12;
+}

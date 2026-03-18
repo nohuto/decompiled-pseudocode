@@ -1,0 +1,128 @@
+/*
+ * XREFs of KiSegmentNotPresentFault @ 0x140736500
+ * Callers:
+ *     KiSegmentNotPresentFaultShadow @ 0x140C596C0 (KiSegmentNotPresentFaultShadow.c)
+ * Callees:
+ *     KiSynchronizeUserIsolationDomainExit @ 0x140446060 (KiSynchronizeUserIsolationDomainExit.c)
+ *     KiSaveDebugRegisterState @ 0x140533CB0 (KiSaveDebugRegisterState.c)
+ *     KiSegmentNotPresentFault @ 0x140736500 (KiSegmentNotPresentFault.c)
+ *     KiBugCheckDispatch @ 0x14073C4C0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x14073C540 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14073CF80 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
+void __fastcall __noreturn KiSegmentNotPresentFault(__int64 a1, __int64 _RDX)
+{
+  struct _KTHREAD *CurrentThread; // r10
+  unsigned __int16 BpbKernelSpecCtrl; // ax
+  unsigned __int64 v5; // rax
+  __int64 v6; // rax
+  __int64 v7; // r9
+  unsigned __int64 v8; // r8
+  _UNKNOWN *retaddr; // [rsp+160h] [rbp+E0h]
+  __int64 v10; // [rsp+168h] [rbp+E8h]
+  char v11; // [rsp+170h] [rbp+F0h]
+  _BYTE v12[3]; // [rsp+178h] [rbp+F8h]
+
+  if ( (v11 & 1) != 0 )
+  {
+    if ( (KiTrapFeatures & 1) == 0 )
+      __asm { swapgs }
+    _mm_lfence();
+    if ( KeGetPcr()->Prcb.KernelShadowStackInitial )
+    {
+      __asm { rdsspq  rdx }
+      if ( _RDX == KeGetPcr()->Prcb.TransitionShadowStack + 8 )
+      {
+        __asm
+        {
+          rstorssp qword ptr [rcx]
+          saveprevssp
+        }
+      }
+    }
+    CurrentThread = KeGetCurrentThread();
+    a1 = *(_QWORD *)&CurrentThread->Process[4].ProcessLock;
+    __writegsqword(0x890u, a1);
+    LOWORD(a1) = KeGetPcr()->Prcb.BpbRetpolineExitSpecCtrl;
+    __writegsword(0x8A4u, a1);
+    LOBYTE(a1) = KeGetPcr()->Prcb.PrcbPad12a[1];
+    __writegsbyte(0x89Au, a1);
+    BpbKernelSpecCtrl = KeGetPcr()->Prcb.BpbKernelSpecCtrl;
+    if ( KeGetPcr()->Prcb.BpbCurrentSpecCtrl != BpbKernelSpecCtrl )
+    {
+      __writegsword(0x8A6u, BpbKernelSpecCtrl);
+      a1 = 72LL;
+      HIDWORD(_RDX) = 0;
+      __writemsr(0x48u, BpbKernelSpecCtrl);
+    }
+    LODWORD(_RDX) = LOBYTE(KeGetPcr()->Prcb.PrcbPad12a[1]);
+    if ( (_RDX & 8) != 0 )
+    {
+      a1 = 73LL;
+      __writemsr(0x49u, 1uLL);
+      _RDX = LOBYTE(KeGetPcr()->Prcb.PrcbPad12a[1]);
+      LODWORD(_RDX) = (unsigned __int8)_RDX;
+    }
+    if ( (_RDX & 2) != 0 )
+      JUMPOUT(0x140736761LL);
+    if ( (_RDX & 0x80) != 0 )
+    {
+      _mm_lfence();
+      KiFlushBhbDuringTrapEntryOrExit(a1);
+    }
+    _mm_lfence();
+    __writegsbyte(0x89Eu, 0);
+    if ( KiUserCetPl3SspCanonicalizeUpperMask )
+    {
+      a1 = 1703LL;
+      v5 = __readmsr(0x6A7u);
+      _RDX = HIDWORD(v5);
+      if ( HIDWORD(v5) )
+      {
+        a1 = HIDWORD(v5);
+        _RDX = (unsigned int)KiUserCetPl3SspCanonicalizeUpperMask & HIDWORD(v5);
+        if ( (_DWORD)_RDX != HIDWORD(v5) )
+        {
+          a1 = 1703LL;
+          __writemsr(0x6A7u, __PAIR64__(_RDX, v5));
+        }
+      }
+    }
+    if ( (CurrentThread->Header.Reserved1 & 3) != 0 )
+      KiSaveDebugRegisterState(a1);
+  }
+  else
+  {
+    __asm { rdsspq  rdx }
+    _mm_lfence();
+    if ( (KeGetPcr()->Prcb.PrcbPad12a[1] & 1) != 0 )
+    {
+      a1 = 72LL;
+      _RDX = 0LL;
+      __writemsr(0x48u, KeGetPcr()->Prcb.BpbCurrentSpecCtrl);
+    }
+    else
+    {
+      _mm_lfence();
+    }
+  }
+  _mm_getcsr();
+  _mm_setcsr(KeGetPcr()->Prcb.MxCsr);
+  if ( (v11 & 1) != 0 && (KeGetCurrentThread()->Header.Reserved1 & 0x80u) != 0 )
+    KiSynchronizeUserIsolationDomainExit(a1, _RDX);
+  if ( (KiTrapFeatures & 8) != 0 && ((v11 & 1) != 0 || (KiTrapFeatures & 2) != 0 && (*(_DWORD *)v12 & 0x40000) != 0) )
+    __asm { stac }
+  LOBYTE(v6) = (_BYTE)retaddr;
+  if ( ((unsigned __int8)retaddr & 4) != 0 )
+    a1 = _InterlockedExchange64(MK_FP(__GS__, 38312LL), 0LL);
+  if ( (*(_WORD *)v12 & 0x200) != 0 )
+    _enable();
+  if ( (v6 & 4) != 0 )
+    KiExceptionDispatch(268435462LL, 3LL, v10, a1);
+  if ( (v11 & 1) != 0 )
+    KiExceptionDispatch(268435463LL, 2LL, v10, (unsigned __int16)retaddr | 3u);
+  v7 = (unsigned int)retaddr;
+  v8 = __readcr0();
+  KiBugCheckDispatch(127LL, 11LL, v8, v7);
+}

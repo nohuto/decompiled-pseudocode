@@ -1,0 +1,35 @@
+/*
+ * XREFs of PopDirectedDripsSendSessionData @ 0x140B089C0
+ * Callers:
+ *     PopDirectedDripsNotify @ 0x140B08694 (PopDirectedDripsNotify.c)
+ * Callees:
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x140B08A3C (PopDirectedDripsDiagNotifySessionStop.c)
+ */
+
+__int64 PopDirectedDripsSendSessionData()
+{
+  unsigned __int32 v0; // eax
+  unsigned __int32 v1; // ett
+  __int64 v2; // r8
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+
+  _m_prefetchw(dword_140F12AC0);
+  v0 = dword_140F12AC0[0];
+  do
+  {
+    v1 = v0;
+    v0 = _InterlockedCompareExchange(dword_140F12AC0, v0, v0);
+  }
+  while ( v1 != v0 );
+  v2 = (v0 >> 10) & 1 | 2;
+  if ( (v0 & 0x800) == 0 )
+    v2 = (v0 >> 10) & 1;
+  v3 = (v0 >> 12) & 1 | 2;
+  if ( (v0 & 0x2000) == 0 )
+    v3 = (v0 >> 12) & 1;
+  v4 = dword_140F12AF0 & 1 | 2;
+  if ( (dword_140F12AF0 & 2) == 0 )
+    v4 = dword_140F12AF0 & 1;
+  return PopDirectedDripsDiagNotifySessionStop(v4, v3, v2);
+}

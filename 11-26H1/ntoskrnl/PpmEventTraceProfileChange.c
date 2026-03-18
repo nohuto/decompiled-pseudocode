@@ -1,0 +1,35 @@
+/*
+ * XREFs of PpmEventTraceProfileChange @ 0x140946068
+ * Callers:
+ *     PpmApplyProfile @ 0x140945C68 (PpmApplyProfile.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x140212EF0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ */
+
+void __fastcall PpmEventTraceProfileChange(__int64 a1, __int64 a2)
+{
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-38h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-28h]
+  __int64 v6; // [rsp+48h] [rbp-20h]
+
+  if ( PpmEtwRegistered )
+  {
+    if ( EtwEventEnabled(
+           (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
+           &PPM_ETW_PROCESSOR_PROFILE_CHANGE) )
+    {
+      UserData.Ptr = a1 + 8;
+      *(_QWORD *)&UserData.Size = 1LL;
+      v5 = a2 + 8;
+      v6 = 1LL;
+      EtwWrite(
+        (REGHANDLE)PopModernStandbyStateNotify.ApcState.ApcListHead[1].Blink,
+        &PPM_ETW_PROCESSOR_PROFILE_CHANGE,
+        0LL,
+        2u,
+        &UserData);
+    }
+  }
+}

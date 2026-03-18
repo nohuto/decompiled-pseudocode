@@ -1,0 +1,26 @@
+/*
+ * XREFs of Feature_BamQosGrouping__private_IsEnabled @ 0x1401BE204
+ * Callers:
+ *     KeInitializeVelocity @ 0x1405B0A28 (KeInitializeVelocity.c)
+ * Callees:
+ *     wil_details_FeaturePropertyCache_ReportUsageToService @ 0x1400AF880 (wil_details_FeaturePropertyCache_ReportUsageToService.c)
+ *     wil_details_FeaturePropertyCache_GetCachedFeatureEnabledState @ 0x1402A3880 (wil_details_FeaturePropertyCache_GetCachedFeatureEnabledState.c)
+ */
+
+__int64 Feature_BamQosGrouping__private_IsEnabled()
+{
+  unsigned int v0; // ebx
+
+  v0 = wil_details_FeaturePropertyCache_GetCachedFeatureEnabledState(
+         (unsigned int)&Feature_BamQosGrouping__private_propertyCache,
+         18384211,
+         1,
+         3) == 2;
+  wil_details_FeaturePropertyCache_ReportUsageToService(
+    (__int64)&Feature_BamQosGrouping__private_propertyCache,
+    18384211LL,
+    (__int64)&Feature_SoftCoreParking_Policy_logged_traits,
+    v0,
+    3);
+  return v0;
+}

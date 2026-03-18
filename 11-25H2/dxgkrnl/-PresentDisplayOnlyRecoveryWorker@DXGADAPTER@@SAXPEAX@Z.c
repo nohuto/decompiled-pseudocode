@@ -1,0 +1,80 @@
+/*
+ * XREFs of ?PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z @ 0x140191710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x14001428C (McTemplateK0p_EtwWriteTransfer.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x140015210 (McTemplateK0pt_EtwWriteTransfer.c)
+ *     ?Enter@DXGCRITICALREGION@@QEAAXXZ @ 0x140034810 (-Enter@DXGCRITICALREGION@@QEAAXXZ.c)
+ *     ??1DXGCRITICALREGION@@QEAA@XZ @ 0x140037274 (--1DXGCRITICALREGION@@QEAA@XZ.c)
+ *     DxgkInvalidateDeviceState @ 0x140062D20 (DxgkInvalidateDeviceState.c)
+ *     ?TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1401CA410 (-TdrCollectDbgInfoStage2@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrCompleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N1@Z @ 0x1401CA650 (-TdrCompleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N1@Z.c)
+ *     ?GetFirstProfilerInterface@DXGGLOBAL@@SA?AW4_DXGKETW_PROFILER_TYPE@@XZ @ 0x1402A5D10 (-GetFirstProfilerInterface@DXGGLOBAL@@SA-AW4_DXGKETW_PROFILER_TYPE@@XZ.c)
+ */
+
+void __fastcall DXGADAPTER::PresentDisplayOnlyRecoveryWorker(struct _TDR_RECOVERY_CONTEXT *StartContext)
+{
+  __int64 v1; // rbx
+  __int64 v3; // r8
+  void *v4; // rdi
+  __int64 v5; // r8
+  __int64 v6; // [rsp+20h] [rbp-28h]
+  char v7; // [rsp+50h] [rbp+8h] BYREF
+  char v8; // [rsp+51h] [rbp+9h]
+  union _LARGE_INTEGER Interval; // [rsp+58h] [rbp+10h] BYREF
+
+  v1 = *((_QWORD *)StartContext + 4);
+  v8 = 0;
+  DXGCRITICALREGION::Enter((DXGCRITICALREGION *)&v7);
+  if ( bTracingEnabled
+    && (qword_14015B4C0 & 0x1000000) != 0
+    && (qword_14015B4C0 & 0x2000) == 0
+    && (Microsoft_Windows_DxgKrnlEnableBits & 0x40000000000LL) != 0 )
+  {
+    McTemplateK0pt_EtwWriteTransfer((__int64)&DxgkControlGuid_Context, (__int64)&EventPreAcquireAdapterLock, v3, v1, 1);
+  }
+  while ( *(_QWORD *)(v1 + 168) && !ExAcquireResourceExclusiveLite(*(PERESOURCE *)(v1 + 168), 0) )
+  {
+    *(_DWORD *)(v1 + 4916) = 1;
+    *(_DWORD *)(v1 + 4920) = DXGGLOBAL::GetFirstProfilerInterface();
+    Interval.QuadPart = -100000LL;
+    KeDelayExecutionThread(0, 0, &Interval);
+  }
+  if ( bTracingEnabled
+    && (qword_14015B4C0 & 0x1000000) != 0
+    && (qword_14015B4C0 & 0x2000) == 0
+    && (Microsoft_Windows_DxgKrnlEnableBits & 0x40000000000LL) != 0 )
+  {
+    LODWORD(v6) = *(_QWORD *)(v1 + 168) != 0LL;
+    McTemplateK0pt_EtwWriteTransfer(
+      (__int64)&DxgkControlGuid_Context,
+      (__int64)&EventPostAcquireAdapterLock,
+      v3,
+      v1,
+      v6);
+  }
+  if ( *(_QWORD *)(v1 + 168) )
+  {
+    v4 = *(void **)(v1 + 216);
+    if ( v4 )
+      ObfReferenceObject(*(PVOID *)(v1 + 216));
+    TdrCollectDbgInfoStage2(StartContext);
+    if ( bTracingEnabled
+      && (qword_14015B4C0 & 0x1000000) != 0
+      && (qword_14015B4C0 & 0x2000) == 0
+      && (Microsoft_Windows_DxgKrnlEnableBits & 0x40000000000LL) != 0 )
+    {
+      McTemplateK0p_EtwWriteTransfer((__int64)&DxgkControlGuid_Context, (__int64)&EventReleaseAdapterLock, v5, v1);
+    }
+    ExReleaseResourceLite(*(PERESOURCE *)(v1 + 168));
+    if ( v4 )
+    {
+      if ( (*(_DWORD *)(v1 + 444) & 4) == 0 )
+        DxgkInvalidateDeviceState((__int64)v4);
+      ObfDereferenceObject(v4);
+    }
+  }
+  TdrCompleteRecoveryContext(StartContext, 1, 0);
+  DXGCRITICALREGION::~DXGCRITICALREGION((DXGCRITICALREGION *)&v7);
+}

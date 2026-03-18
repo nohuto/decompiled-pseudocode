@@ -1,0 +1,91 @@
+/*
+ * XREFs of ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C00DD270
+ * Callers:
+ *     ??0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z @ 0x1C00DD684 (--0VIDPN_MGR@@QEAA@QEAVADAPTER_DISPLAY@@@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0065F88 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0065FA0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ *     ?InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_INTERFACE@@@Z @ 0x1C00DE384 (-InitializeInterface@DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTARGETMODESET_.c)
+ *     ?InitializeInterface@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNSOURCEMODESET_INTERFACE@@@Z @ 0x1C00DE3F4 (-InitializeInterface@DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNSOURCEMODESET_.c)
+ *     ?InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@@@Z @ 0x1C00DE464 (-InitializeInterface@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPNTOPOLOGY_INTERFACE@.c)
+ *     ?InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C00DE500 (-InitializeInterface@DXGK_VIDPN_INTERFACE_V1_IMPL@@YAXPEAU_DXGK_VIDPN_INTERFACE@@@Z.c)
+ */
+
+__int64 __fastcall VIDPN_MGR::_InitializeVidPnMiniportInterfaces(VIDPN_MGR *this)
+{
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v2; // rax
+  struct _DXGK_VIDPN_INTERFACE *v3; // rdx
+  __int64 v4; // r8
+  __int64 v5; // r9
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v6; // rcx
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v7; // rdi
+  DXGK_VIDPN_INTERFACE_V1_IMPL *v8; // rcx
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v9; // rax
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v10; // rcx
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *v11; // rdi
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v12; // rax
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v13; // rcx
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *v14; // rdi
+  DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v15; // rax
+  DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v16; // rcx
+  DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *v17; // rdi
+  __int64 v19; // rcx
+  __int64 v20; // rdi
+  __int64 v21; // rax
+
+  v2 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)operator new[](0x58uLL, 0x4E506456u, PagedPool);
+  v6 = (DXGK_VIDPN_INTERFACE_V1_IMPL *)*((_QWORD *)this + 46);
+  v7 = v2;
+  if ( v2 != v6 )
+    operator delete(v6);
+  *((_QWORD *)this + 46) = v7;
+  v8 = v7;
+  if ( !v7 )
+    goto LABEL_14;
+  DXGK_VIDPN_INTERFACE_V1_IMPL::InitializeInterface(v7, v3);
+  v9 = (DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *)operator new[](0x60uLL, 0x4E506456u, PagedPool);
+  v10 = (DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL *)*((_QWORD *)this + 47);
+  v11 = v9;
+  if ( v9 != v10 )
+    operator delete(v10);
+  *((_QWORD *)this + 47) = v11;
+  v8 = v11;
+  if ( !v11 )
+    goto LABEL_14;
+  DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL::InitializeInterface(v11, (struct _DXGK_VIDPNTOPOLOGY_INTERFACE *)v3);
+  v12 = (DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *)operator new[](0x40uLL, 0x4E506456u, PagedPool);
+  v13 = (DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL *)*((_QWORD *)this + 48);
+  v14 = v12;
+  if ( v12 != v13 )
+    operator delete(v13);
+  *((_QWORD *)this + 48) = v14;
+  v8 = v14;
+  if ( !v14 )
+    goto LABEL_14;
+  DXGK_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL::InitializeInterface(v14, (struct _DXGK_VIDPNSOURCEMODESET_INTERFACE *)v3);
+  v15 = (DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *)operator new[](0x40uLL, 0x4E506456u, PagedPool);
+  v16 = (DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL *)*((_QWORD *)this + 49);
+  v17 = v15;
+  if ( v15 != v16 )
+    operator delete(v16);
+  *((_QWORD *)this + 49) = v17;
+  v8 = v17;
+  if ( v17 )
+  {
+    DXGK_VIDPNTARGETMODESET_INTERFACE_V1_IMPL::InitializeInterface(v17, (struct _DXGK_VIDPNTARGETMODESET_INTERFACE *)v3);
+    return 0LL;
+  }
+  else
+  {
+LABEL_14:
+    v20 = WdLogNewEntry5_WdLowResource(v8, v3, v4, v5);
+    if ( !*((_QWORD *)this + 1) )
+    {
+      v21 = WdLogNewEntry5_WdAssertion(v19);
+      WdLogEvent5_WdAssertion(v21);
+    }
+    *(_QWORD *)(v20 + 24) = *(_QWORD *)(*((_QWORD *)this + 1) + 16LL);
+    WdLogEvent5_WdLowResource(v20);
+    return 3221225495LL;
+  }
+}

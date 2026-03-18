@@ -1,0 +1,136 @@
+/*
+ * XREFs of DisplayBootBitmap @ 0x14018173C
+ * Callers:
+ *     DisplayFilter @ 0x1402688D0 (DisplayFilter.c)
+ *     Phase1InitializationDiscard @ 0x1409B3E10 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     InbvReleaseResources @ 0x140181794 (InbvReleaseResources.c)
+ *     InbvIsBootDriverInstalled @ 0x140181830 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x1401B8350 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ *     InbvAcquireLock @ 0x14027D1DC (InbvAcquireLock.c)
+ *     InbvGetResourceAddress @ 0x14027D2A0 (InbvGetResourceAddress.c)
+ *     InbvReleaseLock @ 0x14027D2F8 (InbvReleaseLock.c)
+ *     InbvSetTextColor @ 0x14027D390 (InbvSetTextColor.c)
+ *     InbvSolidColorFill @ 0x14027D3C0 (InbvSolidColorFill.c)
+ *     RotBarInit @ 0x14027D53C (RotBarInit.c)
+ *     PsCreateSystemThread @ 0x14066AA90 (PsCreateSystemThread.c)
+ */
+
+int __fastcall DisplayBootBitmap(char a1)
+{
+  int v1; // ebx
+  __int64 (__fastcall *v3)(_QWORD, _QWORD, _QWORD); // rax
+  __int64 ResourceAddress; // rsi
+  __int64 v5; // rcx
+  __int64 (__fastcall *v6)(_QWORD, _QWORD, _QWORD); // rdi
+  __int64 v7; // rsi
+  __int64 v8; // rax
+  __int64 v9; // rdi
+  void (__fastcall *v10)(__int64, _QWORD, _QWORD); // rax
+  void (__fastcall *v11)(__int64, _QWORD, _QWORD); // rax
+  HANDLE ThreadHandle; // [rsp+58h] [rbp+10h] BYREF
+
+  v1 = 0;
+  if ( byte_1404DC700 )
+  {
+    ((void (*)(void))InbvAcquireLock)();
+    RotBarSelection = 0;
+    InbvReleaseLock();
+  }
+  ShowProgressBar = 0;
+  if ( a1 )
+  {
+    InbvSetTextColor(15LL);
+    InbvSolidColorFill(0, 0, 639, 479, 0);
+    InbvSolidColorFill(0, 421, 639, 479, 0);
+    ResourceAddress = InbvGetResourceAddress(6LL);
+    v3 = (__int64 (__fastcall *)(_QWORD, _QWORD, _QWORD))InbvGetResourceAddress(7LL);
+    v5 = qword_14043C6F8;
+    v1 = 0;
+    v6 = v3;
+    if ( qword_14043C6F8 )
+    {
+      v3 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(qword_14043C6F8 + 72);
+      if ( v3 )
+      {
+        LODWORD(v3) = ((__int64 (__fastcall *)(__int64, __int64, __int64, __int64))v3)(32LL, 80LL, 631LL, 400LL);
+        v5 = qword_14043C6F8;
+      }
+    }
+    if ( v6 )
+    {
+      if ( v5 )
+      {
+        v3 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v5 + 96);
+        if ( v3 )
+        {
+          LODWORD(v3) = v3(v6, 0LL, 419LL);
+          v5 = qword_14043C6F8;
+        }
+      }
+    }
+    if ( ResourceAddress )
+    {
+      if ( v5 )
+      {
+        v3 = *(__int64 (__fastcall **)(_QWORD, _QWORD, _QWORD))(v5 + 96);
+        if ( v3 )
+          LODWORD(v3) = v3(ResourceAddress, 0LL, 0LL);
+      }
+    }
+LABEL_29:
+    if ( !byte_1404DC700 )
+      return (int)v3;
+    goto LABEL_30;
+  }
+  if ( !(unsigned __int8)InbvIsBootDriverInstalled() )
+  {
+    LODWORD(v3) = InbvReleaseResources();
+    return (int)v3;
+  }
+  qword_14043C700 = (__int64 (__fastcall *)(_QWORD))DisplayFilter;
+  v7 = InbvGetResourceAddress(1LL);
+  v8 = InbvGetResourceAddress(4LL);
+  v5 = qword_14043C6F8;
+  v9 = v8;
+  if ( v7 )
+  {
+    v1 = 1;
+    if ( qword_14043C6F8 )
+    {
+      v10 = *(void (__fastcall **)(__int64, _QWORD, _QWORD))(qword_14043C6F8 + 96);
+      if ( v10 )
+      {
+        v10(v7, 0LL, 0LL);
+        v5 = qword_14043C6F8;
+      }
+    }
+  }
+  if ( v9 )
+  {
+    if ( v5 )
+    {
+      v11 = *(void (__fastcall **)(__int64, _QWORD, _QWORD))(v5 + 96);
+      if ( v11 )
+        v11(v9, 0LL, 0LL);
+    }
+  }
+  if ( !byte_1404DC700 )
+  {
+    LODWORD(v3) = PsCreateSystemThread(&ThreadHandle, 0, 0LL, 0LL, 0LL, InbvRotateGuiBootDisplay, 0LL);
+    if ( (int)v3 >= 0 )
+    {
+      LODWORD(v3) = ZwClose(ThreadHandle);
+      byte_1404DC700 = 1;
+    }
+    goto LABEL_29;
+  }
+LABEL_30:
+  InbvAcquireLock(v5);
+  RotBarSelection = v1;
+  if ( v1 == 1 )
+    RotBarInit();
+  LODWORD(v3) = InbvReleaseLock();
+  return (int)v3;
+}

@@ -1,0 +1,78 @@
+/*
+ * XREFs of ??0DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAA@PEAVDXGDEVICE@@@Z @ 0x1C0003AA8
+ * Callers:
+ *     ??1DXGCONTEXTBYHANDLE@@QEAA@XZ @ 0x1C0008DD0 (--1DXGCONTEXTBYHANDLE@@QEAA@XZ.c)
+ *     ?ReleaseReference@DXGCONTEXT@@QEAAXXZ @ 0x1C0008E44 (-ReleaseReference@DXGCONTEXT@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGPAGINGQUEUE@@QEAAXXZ @ 0x1C0014274 (-ReleaseReference@DXGPAGINGQUEUE@@QEAAXXZ.c)
+ *     ??1ENSURE_CONTEXT_DEREFERENCE@@QEAA@XZ @ 0x1C0014CB8 (--1ENSURE_CONTEXT_DEREFERENCE@@QEAA@XZ.c)
+ *     ??1DXGPAGINGQUEUEBYHANDLE@@QEAA@XZ @ 0x1C0014DC8 (--1DXGPAGINGQUEUEBYHANDLE@@QEAA@XZ.c)
+ *     ?ReleaseReference@DXGHWQUEUE@@QEAAXXZ @ 0x1C0015860 (-ReleaseReference@DXGHWQUEUE@@QEAAXXZ.c)
+ *     ??1ENSURE_CONTEXT_ARRAY_DEREFERENCE@@QEAA@XZ @ 0x1C0015D34 (--1ENSURE_CONTEXT_ARRAY_DEREFERENCE@@QEAA@XZ.c)
+ *     ?DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z @ 0x1C007D550 (-DxgkCddPresentOnScreen@@YAJPEAU_DXGKCDD_PRESENT_ON_SCREEN@@@Z.c)
+ *     DxgkMarkDeviceAsError @ 0x1C007DD60 (DxgkMarkDeviceAsError.c)
+ *     ?SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z @ 0x1C0089240 (-SetProcessSchedulingPriorityClass@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULINGPRIORITYCLASS@@_N@Z.c)
+ *     ?ReleaseVidPnSourceOwners@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0089338 (-ReleaseVidPnSourceOwners@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?ProcessStatusChange@DXGPROCESS@@AEAAXXZ @ 0x1C0089EE4 (-ProcessStatusChange@DXGPROCESS@@AEAAXXZ.c)
+ *     DxgkDestroyContext @ 0x1C0090B10 (DxgkDestroyContext.c)
+ *     ?DestroyAllContexts@DXGDEVICE@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z @ 0x1C0093AC8 (-DestroyAllContexts@DXGDEVICE@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z.c)
+ *     DxgkSignalSynchronizationObjectFromGpuByReference @ 0x1C00AF600 (DxgkSignalSynchronizationObjectFromGpuByReference.c)
+ *     ?DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z @ 0x1C00B3394 (-DestroyCddDeviceAndContext@SESSION_ADAPTER@@QEAAXPEAVDXGDEVICE@@@Z.c)
+ *     ?DxgkCddGdiCommand@@YAJPEAU_D3DKMT_RENDER@@@Z @ 0x1C00BFD00 (-DxgkCddGdiCommand@@YAJPEAU_D3DKMT_RENDER@@@Z.c)
+ *     ?DxgkCddSubmitPresentHistory@@YAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C00CE6D0 (-DxgkCddSubmitPresentHistory@@YAJIPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ *     ?DxgkCddDestroy@@YAJIIQEAXE@Z @ 0x1C00E64A0 (-DxgkCddDestroy@@YAJIIQEAXE@Z.c)
+ *     DxgkSetDisplayMode @ 0x1C00E6690 (DxgkSetDisplayMode.c)
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00E795C (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ *     DxgkDestroyDevice @ 0x1C00F2970 (DxgkDestroyDevice.c)
+ *     DxgkConfigureSharedResource @ 0x1C00F2D00 (DxgkConfigureSharedResource.c)
+ *     DxgkSetContextInProcessSchedulingPriority @ 0x1C00F5F40 (DxgkSetContextInProcessSchedulingPriority.c)
+ *     DxgkSetContextSchedulingPriority @ 0x1C00F7F40 (DxgkSetContextSchedulingPriority.c)
+ *     DxgkPinDirectFlipResources @ 0x1C00FF160 (DxgkPinDirectFlipResources.c)
+ *     DxgkUnpinDirectFlipResources @ 0x1C00FF6D0 (DxgkUnpinDirectFlipResources.c)
+ *     ?DisableDWMVirtualModeOnVidPnSource@@YAJII@Z @ 0x1C01002FC (-DisableDWMVirtualModeOnVidPnSource@@YAJII@Z.c)
+ *     ?DxgkPresentVirtualFrameBuffer@@YAJIIPEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C011DA40 (-DxgkPresentVirtualFrameBuffer@@YAJIIPEBU_D3DKMT_DISPLAYMODE@@@Z.c)
+ *     ?DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C0174900 (-DxgkpDelayPresentCddPrimary@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z.c)
+ *     DxgkSetAllocationPriority @ 0x1C0185200 (DxgkSetAllocationPriority.c)
+ *     DxgkCreateContext @ 0x1C01886A0 (DxgkCreateContext.c)
+ *     ?VmBusBlt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C01908C0 (-VmBusBlt@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusFlushDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C01934F0 (-VmBusFlushDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusMakeResident@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0193A10 (-VmBusMakeResident@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?VmBusOpenSyncObject@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C01944A0 (-VmBusOpenSyncObject@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     ?EvictAllAllocations@DXGDEVICE@@QEAAJXZ @ 0x1C019D3A4 (-EvictAllAllocations@DXGDEVICE@@QEAAJXZ.c)
+ *     DxgkCheckMultiPlaneOverlaySupport @ 0x1C019F180 (DxgkCheckMultiPlaneOverlaySupport.c)
+ *     DxgkCheckMultiPlaneOverlaySupport2 @ 0x1C019F670 (DxgkCheckMultiPlaneOverlaySupport2.c)
+ *     DxgkCheckMultiPlaneOverlaySupport3 @ 0x1C019FB90 (DxgkCheckMultiPlaneOverlaySupport3.c)
+ *     DxgkSetDeviceLostSupport @ 0x1C01A08C0 (DxgkSetDeviceLostSupport.c)
+ *     DxgkSetGammaRamp @ 0x1C01A0AC0 (DxgkSetGammaRamp.c)
+ *     DxgkWaitForIdle @ 0x1C01A0F50 (DxgkWaitForIdle.c)
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C01A4544 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ *     ?DestroyAllHwQueues@DXGCONTEXT@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z @ 0x1C01ACABC (-DestroyAllHwQueues@DXGCONTEXT@@QEAAXPEAVDXGDEVICEACCESSLOCKEXCLUSIVE@@@Z.c)
+ *     DxgkCreateHwQueue @ 0x1C01AD050 (DxgkCreateHwQueue.c)
+ *     DxgkOpenSyncObjectFromNtHandle2 @ 0x1C01AFF10 (DxgkOpenSyncObjectFromNtHandle2.c)
+ *     DxgkCreateOverlay @ 0x1C01B13C0 (DxgkCreateOverlay.c)
+ *     DxgkDestroyOverlay @ 0x1C01B1A00 (DxgkDestroyOverlay.c)
+ *     DxgkFlipOverlay @ 0x1C01B1EF0 (DxgkFlipOverlay.c)
+ *     DxgkUpdateOverlay @ 0x1C01B2750 (DxgkUpdateOverlay.c)
+ *     ?EvictAllResources@DXGPROCESS@@QEAAJPEAU_D3DKMT_EVICTION_CRITERIA@@@Z @ 0x1C01B96C0 (-EvictAllResources@DXGPROCESS@@QEAAJPEAU_D3DKMT_EVICTION_CRITERIA@@@Z.c)
+ *     ?GetDeviceLostSupport@DXGPROCESS@@QEAAJPEBU_LUID@@PEAE@Z @ 0x1C01B9964 (-GetDeviceLostSupport@DXGPROCESS@@QEAAJPEBU_LUID@@PEAE@Z.c)
+ *     ?SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z @ 0x1C01B9E50 (-SetProcessSchedulingPriorityBand@DXGPROCESS@@QEAAJW4_D3DKMT_SCHEDULING_PRIORITYBAND@@@Z.c)
+ *     ?SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z @ 0x1C01BA040 (-SuspendResumeEscapeAllDevices@DXGPROCESS@@QEAAXPEBVDXGADAPTER@@_N1@Z.c)
+ *     OutputDuplPresent @ 0x1C01CA16C (OutputDuplPresent.c)
+ *     DxgkPresentMultiPlaneOverlay @ 0x1C01D3010 (DxgkPresentMultiPlaneOverlay.c)
+ *     DxgkPresentMultiPlaneOverlay2 @ 0x1C01D3630 (DxgkPresentMultiPlaneOverlay2.c)
+ *     DxgkPresentMultiPlaneOverlay3 @ 0x1C01D3B60 (DxgkPresentMultiPlaneOverlay3.c)
+ *     DxgkCreateSwapChain @ 0x1C01D7080 (DxgkCreateSwapChain.c)
+ *     DxgkOpenSwapChain @ 0x1C01D7820 (DxgkOpenSwapChain.c)
+ * Callees:
+ *     ?Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ @ 0x1C0003AD4 (-Acquire@DXGDEVICEACCESSLOCKEXCLUSIVE@@QEAAXXZ.c)
+ */
+
+DXGDEVICEACCESSLOCKEXCLUSIVE *__fastcall DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE(
+        DXGDEVICEACCESSLOCKEXCLUSIVE *this,
+        struct DXGDEVICE *a2)
+{
+  *((_DWORD *)this + 2) = 0;
+  *(_QWORD *)this = a2;
+  if ( a2 )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Acquire(this);
+  return this;
+}

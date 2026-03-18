@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??1VIDMM_PARTITION_ADAPTER_INFO@@QEAA@XZ @ 0x14004D6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Clear@?$NonPagedPoolZeroedArray@UVIDMM_SEGMENT_GROUP_STATE@@$00$0GCDBGJFG@@@QEAAXXZ @ 0x14004D6F4 (-Clear@-$NonPagedPoolZeroedArray@UVIDMM_SEGMENT_GROUP_STATE@@$00$0GCDBGJFG@@@QEAAXXZ.c)
+ */
+
+void __fastcall VIDMM_PARTITION_ADAPTER_INFO::~VIDMM_PARTITION_ADAPTER_INFO(VIDMM_PARTITION_ADAPTER_INFO *this)
+{
+  NonPagedPoolZeroedArray<VIDMM_SEGMENT_GROUP_STATE,1,1647405398>::Clear((char *)this + 24);
+}

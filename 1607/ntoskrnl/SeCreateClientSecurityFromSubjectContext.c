@@ -1,0 +1,65 @@
+/*
+ * XREFs of SeCreateClientSecurityFromSubjectContext @ 0x1404EA5F4
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObject @ 0x14006A060 (ObfReferenceObject.c)
+ *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     RtlSidDominatesForTrust @ 0x1400D3CA0 (RtlSidDominatesForTrust.c)
+ *     SepCreateClientSecurityEx @ 0x140412280 (SepCreateClientSecurityEx.c)
+ */
+
+NTSTATUS __stdcall SeCreateClientSecurityFromSubjectContext(
+        PSECURITY_SUBJECT_CONTEXT SubjectContext,
+        PSECURITY_QUALITY_OF_SERVICE ClientSecurityQos,
+        BOOLEAN ServerIsRemote,
+        PSECURITY_CLIENT_CONTEXT ClientContext)
+{
+  PACCESS_TOKEN ClientToken; // rbx
+  unsigned __int8 v5; // r12
+  __int64 v6; // r15
+  int v10; // r14d
+  int ClientSecurity; // edi
+  __int64 v13; // rbp
+  char v14; // [rsp+A0h] [rbp+8h] BYREF
+  BOOLEAN v15; // [rsp+B0h] [rbp+18h]
+
+  v15 = ServerIsRemote;
+  ClientToken = SubjectContext->ClientToken;
+  v5 = 0;
+  v6 = 0LL;
+  v14 = 0;
+  if ( !ClientToken )
+    ClientToken = SubjectContext->PrimaryToken;
+  ObfReferenceObject(ClientToken);
+  if ( SubjectContext->ClientToken )
+  {
+    v10 = 2;
+    v13 = *((_QWORD *)SubjectContext->PrimaryToken + 138);
+    RtlSidDominatesForTrust(v13, *((_QWORD *)SubjectContext->ClientToken + 138), &v14);
+    if ( !v14 )
+    {
+      v5 = 1;
+      v6 = v13;
+    }
+  }
+  else
+  {
+    v10 = 1;
+  }
+  ClientSecurity = SepCreateClientSecurityEx(
+                     (__int64)ClientToken,
+                     (__int64)ClientSecurityQos,
+                     v15,
+                     v10,
+                     0,
+                     SubjectContext->ImpersonationLevel,
+                     0,
+                     0LL,
+                     v5,
+                     v6,
+                     (__int64)ClientContext);
+  if ( ClientSecurity < 0 || !ClientSecurityQos->ContextTrackingMode )
+    ObfDereferenceObject(ClientToken);
+  return ClientSecurity;
+}

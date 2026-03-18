@@ -1,0 +1,26 @@
+/*
+ * XREFs of PspGetMemoryPartitionContext @ 0x1406B9120
+ * Callers:
+ *     NtCreateUserProcess @ 0x1406B82E0 (NtCreateUserProcess.c)
+ *     PsCreateMinimalProcess @ 0x140852EAC (PsCreateMinimalProcess.c)
+ * Callees:
+ *     PspGetMemoryPartitionImplicit @ 0x1407E6EE4 (PspGetMemoryPartitionImplicit.c)
+ *     PspGetMemoryPartitionFromJobList @ 0x1409B23F8 (PspGetMemoryPartitionFromJobList.c)
+ */
+
+__int64 __fastcall PspGetMemoryPartitionContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
+{
+  int MemoryPartitionImplicit; // r10d
+
+  MemoryPartitionImplicit = 0;
+  *a5 = 0LL;
+  if ( !a1
+    || !*(_QWORD *)(a1 + 1296)
+    || (MemoryPartitionImplicit = PspGetMemoryPartitionImplicit(*(_QWORD *)(a1 + 1296), a2, a5),
+        MemoryPartitionImplicit >= 0) )
+  {
+    if ( !*a5 && a4 )
+      return (unsigned int)PspGetMemoryPartitionFromJobList(a3, a4, a5);
+  }
+  return (unsigned int)MemoryPartitionImplicit;
+}

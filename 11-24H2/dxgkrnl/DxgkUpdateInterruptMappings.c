@@ -1,0 +1,41 @@
+/*
+ * XREFs of DxgkUpdateInterruptMappings @ 0x140211800
+ * Callers:
+ *     ?DpiIovUpdateInterruptMapping@@YAJPEAXU_LUID@@KPEAU_FIOV_MSI@@2@Z @ 0x14008B710 (-DpiIovUpdateInterruptMapping@@YAJPEAXU_LUID@@KPEAU_FIOV_MSI@@2@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x140054F44 (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?UpdateInterruptMappings@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@KPEAU_FIOV_MSI@@2@Z @ 0x14020F584 (-UpdateInterruptMappings@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@KPEAU_FIOV_MSI@.c)
+ */
+
+__int64 __fastcall DxgkUpdateInterruptMappings(
+        _QWORD *a1,
+        int a2,
+        struct _LUID *a3,
+        unsigned int a4,
+        __int64 a5,
+        __int64 a6)
+{
+  __int64 updated; // rbx
+  __int64 v10; // [rsp+28h] [rbp-30h]
+  DWORD LowPart; // [rsp+30h] [rbp-28h]
+
+  updated = (int)ADAPTER_RENDER::UpdateInterruptMappings(a1[391], a2, a3, a4, a5, a6);
+  if ( bTracingEnabled )
+  {
+    LowPart = a3->LowPart;
+    LODWORD(v10) = a3->HighPart;
+    VgpuTrace(1, updated, a1, L"DxgkUpdateInterruptMappings", (wchar_t *)L"LUID: %d %d", v10, LowPart);
+    DxgkLogInternalTriageEvent(
+      (__int64)a1,
+      196630LL,
+      0xFFFFFFFFLL,
+      L"UpdateInterruptMappings called with status %1",
+      updated,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  return (unsigned int)updated;
+}

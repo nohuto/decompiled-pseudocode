@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?GetNumBytesToTrim@VIDMM_PROCESS@@QEAAXKPEA_K@Z @ 0x1C0099A2C
+ * Callers:
+ *     ?Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z @ 0x1C0092C48 (-Escape@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_D3DKMT_VIDMM_ESCAPE@@H@Z.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001B5C (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCKSHARED@@QEAA@QEAVDXGPUSHLOCK@@@Z @ 0x1C0002144 (--0DXGAUTOPUSHLOCKSHARED@@QEAA@QEAVDXGPUSHLOCK@@@Z.c)
+ *     ?GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z @ 0x1C004EA80 (-GetNumBytesToTrim@VIDMM_PROCESS_ADAPTER_INFO@@QEAAXPEA_K_N1@Z.c)
+ */
+
+void __fastcall VIDMM_PROCESS::GetNumBytesToTrim(VIDMM_PROCESS *this, unsigned int a2, unsigned __int64 *a3)
+{
+  __int64 v4; // rsi
+  __int64 v6; // rdx
+  _BYTE v7[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v4 = a2;
+  v6 = *(_QWORD *)(*((_QWORD *)this + 2) + 8LL * a2);
+  if ( v6 )
+  {
+    DXGAUTOPUSHLOCKSHARED::DXGAUTOPUSHLOCKSHARED((DXGAUTOPUSHLOCKSHARED *)v7, (struct _KTHREAD **)(v6 + 328));
+    VIDMM_PROCESS_ADAPTER_INFO::GetNumBytesToTrim(*(struct VIDMM_GLOBAL ***)(*((_QWORD *)this + 2) + 8 * v4), a3, 0, 1);
+    DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v7);
+  }
+  else
+  {
+    *a3 = 0LL;
+  }
+}

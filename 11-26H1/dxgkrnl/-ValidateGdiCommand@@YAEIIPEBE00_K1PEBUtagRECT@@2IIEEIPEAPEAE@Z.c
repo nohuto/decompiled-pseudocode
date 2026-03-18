@@ -1,0 +1,121 @@
+/*
+ * XREFs of ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1402213C8
+ * Callers:
+ *     ?VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x140221FC0 (-VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14002BDA0 (DxgkLogInternalTriageEvent.c)
+ *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x140221668 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
+ *     ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1402216DC (-ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z.c)
+ *     ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1402217D4 (-ValidateSubRect@@YAEPEBUtagRECT@@0@Z.c)
+ */
+
+unsigned __int8 __fastcall ValidateGdiCommand(
+        unsigned int a1,
+        unsigned int a2,
+        const unsigned __int8 *a3,
+        unsigned __int8 *a4,
+        const unsigned __int8 *a5,
+        unsigned __int64 a6,
+        unsigned __int64 a7,
+        const struct tagRECT *a8,
+        const struct tagRECT *a9,
+        unsigned int a10,
+        unsigned int a11,
+        unsigned __int8 a12,
+        char a13,
+        unsigned int a14,
+        unsigned __int8 **a15)
+{
+  unsigned __int64 v15; // r10
+  unsigned int v16; // eax
+  __int64 v17; // rax
+  __int64 v18; // rdx
+  const unsigned __int8 *v19; // rcx
+  unsigned __int8 *v20; // rsi
+  const wchar_t *v21; // r9
+  unsigned int i; // edi
+
+  v15 = 16LL * a14;
+  if ( v15 > 0xFFFFFFFF )
+  {
+    WdLogSingleEntry0(2LL);
+    v17 = 2407LL;
+    goto LABEL_31;
+  }
+  v16 = v15 + a1;
+  if ( (unsigned int)v15 + a1 < a1 )
+  {
+    WdLogSingleEntry0(2LL);
+    v17 = 2413LL;
+    goto LABEL_31;
+  }
+  if ( v16 > a2 )
+  {
+    WdLogSingleEntry0(2LL);
+    v17 = 2418LL;
+LABEL_31:
+    v21 = L"Malformed packet";
+    goto LABEL_32;
+  }
+  v18 = (__int64)*a15;
+  if ( *a15 <= a5 )
+  {
+    WdLogSingleEntry0(2LL);
+    v17 = 2423LL;
+    goto LABEL_31;
+  }
+  v19 = &a4[v16];
+  v20 = (unsigned __int8 *)&a3[v18 - (_QWORD)a5];
+  *a15 = v20;
+  if ( v20 <= a4 || v20 >= v19 || (__int64)&a5[&v19[-v18] - a3] < (int)v15 )
+  {
+    WdLogSingleEntry0(2LL);
+    v17 = 2430LL;
+    goto LABEL_31;
+  }
+  if ( ValidateRect(a8) )
+  {
+    for ( i = 0; i < a14; ++i )
+    {
+      if ( !ValidateSubRect((const struct tagRECT *)&v20[16 * i], a8) )
+      {
+        WdLogSingleEntry0(2LL);
+        v17 = 2459LL;
+        goto LABEL_18;
+      }
+      if ( !ValidateRectBounds((const struct tagRECT *)&v20[16 * i], a10, a6) )
+      {
+        WdLogSingleEntry0(2LL);
+        v17 = 2464LL;
+LABEL_18:
+        v21 = L"Invalid subrect";
+        goto LABEL_32;
+      }
+    }
+    if ( a9 )
+    {
+      if ( !ValidateRect(a9) )
+      {
+        WdLogSingleEntry0(2LL);
+        v17 = 2472LL;
+LABEL_23:
+        v21 = L"Invalid SrcRect";
+        goto LABEL_32;
+      }
+      if ( a13 && !ValidateRectBounds(a9, a11, a7) )
+      {
+        WdLogSingleEntry0(2LL);
+        v17 = 2479LL;
+        goto LABEL_23;
+      }
+    }
+    return 1;
+  }
+  WdLogSingleEntry0(2LL);
+  v17 = 2444LL;
+  v21 = L"Invalid DstRect";
+LABEL_32:
+  WdLogGlobalForLineNumber = v17;
+  DxgkLogInternalTriageEvent(0LL, 0x40000, -1, (__int64)v21, v17, 0LL, 0LL, 0LL, 0LL);
+  return 0;
+}

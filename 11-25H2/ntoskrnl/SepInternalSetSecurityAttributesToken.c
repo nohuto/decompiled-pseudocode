@@ -1,0 +1,62 @@
+/*
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x1402914F4
+ * Callers:
+ *     SeSetSecurityAttributesTokenEx @ 0x1405FCDF0 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x140A60F10 (SeSetSecurityAttributesToken.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140206F00 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x140257820 (ObfDereferenceObjectWithTag.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14028A9E0 (ExAcquireResourceExclusiveLite.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x140291638 (AuthzBasepSetSecurityAttributesToken.c)
+ *     ExReleaseResourceLite @ 0x140296E10 (ExReleaseResourceLite.c)
+ *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
+ *     SepShouldSetDelinkFlags @ 0x140A418BC (SepShouldSetDelinkFlags.c)
+ */
+
+__int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, __int64 a4, __int64 a5)
+{
+  char v7; // si
+  NTSTATUS v8; // edi
+  struct _KTHREAD *CurrentThread; // rax
+  PERESOURCE *v11; // rbp
+  __int64 v12; // rdx
+  _DWORD *v13; // rbx
+  signed __int32 v14[12]; // [rsp+0h] [rbp-48h] BYREF
+  PVOID Object; // [rsp+30h] [rbp-18h] BYREF
+
+  Object = 0LL;
+  v7 = 0;
+  v8 = ObReferenceObjectByHandle(a1, 0x80u, (POBJECT_TYPE)SeTokenObjectType, a2, &Object, 0LL);
+  if ( v8 >= 0 )
+  {
+    if ( a4 )
+    {
+      if ( a3 || (unsigned __int8)SepShouldSetDelinkFlags(a4, a5) )
+        v7 = 1;
+      CurrentThread = KeGetCurrentThread();
+      v11 = (PERESOURCE *)Object;
+      --CurrentThread->KernelApcDisable;
+      ExAcquireResourceExclusiveLite(v11[6], 1u);
+      _InterlockedOr(v14, 0);
+      v12 = a4;
+      v13 = Object;
+      v8 = AuthzBasepSetSecurityAttributesToken(*((_QWORD *)Object + 97), v12, a5);
+      if ( v8 >= 0 )
+      {
+        if ( v7 )
+          v13[50] |= 0x20000u;
+        *((_QWORD *)v13 + 7) = ExpLuidIncrement + _InterlockedExchangeAdd64(&ExpLuid, ExpLuidIncrement);
+      }
+      _InterlockedOr(v14, 0);
+      ExReleaseResourceLite(v11[6]);
+      KeLeaveCriticalRegion();
+    }
+    else
+    {
+      v8 = -1073741811;
+    }
+  }
+  if ( Object )
+    ObfDereferenceObjectWithTag(Object, 0x746C6644u);
+  return (unsigned int)v8;
+}

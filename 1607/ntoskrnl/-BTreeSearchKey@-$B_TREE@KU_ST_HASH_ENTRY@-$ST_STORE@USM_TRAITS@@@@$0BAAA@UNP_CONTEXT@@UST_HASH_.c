@@ -1,0 +1,114 @@
+/*
+ * XREFs of ?BTreeSearchKey@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAJPEAU1@KPEAUSEARCH_RESULT@1@@Z @ 0x14011BC18
+ * Callers:
+ *     ?BTreeSearchResultDeref@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1400042B4 (-BTreeSearchResultDeref@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
+ *     ?StDmPageRemove@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z @ 0x140117D04 (-StDmPageRemove@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_WORK_ITEM@1@@Z.c)
+ *     ?StDmpSinglePageInsert@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_ST_PAGE_RECORD@1@@Z @ 0x14011A584 (-StDmpSinglePageInsert@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_ST_IO_PARAMS@1@PEAU_S.c)
+ *     ?StDmpCheckForCombine@?$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEADKKPEAK@Z @ 0x14011B938 (-StDmpCheckForCombine@-$ST_STORE@USM_TRAITS@@@@SAPEAU_ST_PAGE_RECORD@1@PEAU_ST_DATA_MGR@1@PEADKK.c)
+ *     ?BTreeIteratorFromSearchResult@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUITERATOR@1@PEAUSEARCH_RESULT@1@@Z @ 0x14011BB6C (-BTreeIteratorFromSearchResult@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CON.c)
+ *     ?BTreeFindLeafSibling@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAPEAUNODE@?$B_TREE_HEADER@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@PEAU1@PEAU23@K@Z @ 0x14021B80C (-BTreeFindLeafSibling@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST.c)
+ * Callees:
+ *     ?BTreeSearchResultDeref@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAXPEAU1@PEAUSEARCH_RESULT@1@@Z @ 0x1400042B4 (-BTreeSearchResultDeref@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@U.c)
+ *     ?BTreeNodeFindKey@?$B_TREE@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HASH_ENTRY_COMPARATOR@2@@@SAKPEAU1@PEAUNODE@?$B_TREE_HEADER@KU_ST_HASH_ENTRY@?$ST_STORE@USM_TRAITS@@@@@@K@Z @ 0x14011BD68 (-BTreeNodeFindKey@-$B_TREE@KU_ST_HASH_ENTRY@-$ST_STORE@USM_TRAITS@@@@$0BAAA@UNP_CONTEXT@@UST_HAS.c)
+ *     SmHpIdGetChunk @ 0x14011BEA0 (SmHpIdGetChunk.c)
+ *     SmArrayGrow @ 0x1401260EC (SmArrayGrow.c)
+ *     ?NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z @ 0x14021C538 (-NpLeafRefInternal@NP_CONTEXT@@SAPEAXPEAUNP_CTX@1@PEAPEAXK@Z.c)
+ */
+
+__int64 __fastcall B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_HASH_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_HASH_ENTRY_COMPARATOR>::BTreeSearchKey(
+        char **a1,
+        unsigned int a2,
+        __int64 a3)
+{
+  __int64 v6; // rdx
+  unsigned int v7; // esi
+  int v8; // ebp
+  __int64 v9; // rcx
+  _QWORD *v10; // rbx
+  char *v11; // rdi
+  unsigned int Key; // eax
+  char *v13; // r8
+  unsigned int v14; // ebp
+  __int64 Chunk; // rbx
+  __int64 v16; // rax
+  unsigned int v17; // ecx
+  unsigned int v18; // edx
+  void **v20; // rcx
+
+  B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_HASH_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_HASH_ENTRY_COMPARATOR>::BTreeSearchResultDeref(
+    (__int64 *)a1,
+    a3);
+  v7 = 0;
+  if ( *(_DWORD *)(a3 + 24) == -1 )
+  {
+    v8 = 0;
+    v10 = (_QWORD *)(a3 + 8);
+  }
+  else
+  {
+    v8 = 1;
+    v9 = 0LL;
+    if ( *a1 )
+      v9 = (unsigned __int8)(*a1)[2];
+    if ( *(_DWORD *)(a3 + 28) < (unsigned int)v9 && !(unsigned int)SmArrayGrow(v9, v6, a3 + 28, a3) )
+      return (unsigned int)-1073741670;
+    v10 = *(_QWORD **)a3;
+  }
+  v11 = *a1;
+  if ( !*a1 )
+  {
+    if ( !v8 )
+    {
+      *v10 = 0LL;
+      v10[1] = 0LL;
+    }
+    return (unsigned int)-1073741275;
+  }
+  while ( 1 )
+  {
+    Key = B_TREE<unsigned long,ST_STORE<SM_TRAITS>::_ST_HASH_ENTRY,4096,NP_CONTEXT,ST_STORE<SM_TRAITS>::ST_HASH_ENTRY_COMPARATOR>::BTreeNodeFindKey(
+            a1,
+            v11,
+            a2);
+    if ( v11[3] )
+      break;
+    if ( v8 )
+    {
+      *v10 = v11;
+      v10[1] = &v11[16 * Key + 16];
+      v10 += 2;
+    }
+    if ( Key )
+      v20 = (void **)&v11[16 * Key + 8];
+    else
+      v20 = (void **)(v11 + 8);
+    if ( *(_DWORD *)a1[2] == -1 || v11[2] != 2 )
+    {
+      v11 = (char *)*v20;
+    }
+    else
+    {
+      v11 = (char *)NP_CONTEXT::NpLeafRefInternal(
+                      (struct NP_CONTEXT::NP_CTX *)(a1 + 2),
+                      v20,
+                      2 * (*(_BYTE *)(a3 + 32) & 1u));
+      if ( !v11 )
+        return (unsigned int)-1073741818;
+    }
+  }
+  *v10 = v11;
+  v13 = &v11[4 * Key + 16];
+  v10[1] = v13;
+  if ( v8 )
+    *(_DWORD *)(a3 + 24) = (((__int64)v10 - *(_QWORD *)a3) >> 4) + 1;
+  if ( Key >= (unsigned __int16)*(_DWORD *)v11 )
+    return (unsigned int)-1073741275;
+  v14 = *(_DWORD *)v13;
+  Chunk = SmHpIdGetChunk(a1 + 8, *(unsigned int *)v13);
+  v16 = SmHpIdGetChunk(a1 + 8, a2);
+  v17 = *(_DWORD *)(Chunk + 8);
+  v18 = *(_DWORD *)(v16 + 8);
+  if ( v17 < v18 || v17 > v18 || v14 < a2 || v14 > a2 )
+    return (unsigned int)-1073741275;
+  return v7;
+}

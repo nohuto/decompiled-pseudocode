@@ -1,0 +1,98 @@
+/*
+ * XREFs of RtlpCopyLegacyContext @ 0x1403E7990
+ * Callers:
+ *     RtlCopyContext @ 0x1408FE830 (RtlCopyContext.c)
+ * Callees:
+ *     RtlpCopyLegacyContextX86 @ 0x1403E7BD0 (RtlpCopyLegacyContextX86.c)
+ *     RtlpCopyLegacyContextArm @ 0x1405EA3E4 (RtlpCopyLegacyContextArm.c)
+ *     RtlpCopyLegacyContextArm64 @ 0x1405EA548 (RtlpCopyLegacyContextArm64.c)
+ */
+
+void __fastcall RtlpCopyLegacyContext(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+{
+  __int128 *v4; // rcx
+  __int64 v5; // r10
+  __int128 *v6; // rax
+  __int128 v7; // xmm0
+
+  if ( (a3 & 0x10000) != 0 )
+  {
+    RtlpCopyLegacyContextX86(a1, a2, a3, a4);
+  }
+  else if ( (a3 & 0x100000) != 0 )
+  {
+    *(_DWORD *)(a2 + 48) = a3 & 0x67FFFFFF;
+    if ( (_BYTE)a1 )
+    {
+      if ( (a3 & 0x40000000) != 0 )
+        *(_DWORD *)(a2 + 48) = *(_DWORD *)(a4 + 48) ^ (a3 ^ *(_DWORD *)(a4 + 48)) & 0x67FFFFFF;
+      if ( (a3 & 0x100001) == 0x100001 )
+      {
+        *(_QWORD *)(a2 + 248) = *(_QWORD *)(a4 + 248);
+        *(_WORD *)(a2 + 56) = *(_WORD *)(a4 + 56);
+        *(_WORD *)(a2 + 66) = *(_WORD *)(a4 + 66);
+        *(_QWORD *)(a2 + 152) = *(_QWORD *)(a4 + 152);
+        *(_DWORD *)(a2 + 68) = *(_DWORD *)(a4 + 68);
+      }
+      if ( (a3 & 0x100002) == 0x100002 )
+      {
+        *(_OWORD *)(a2 + 120) = *(_OWORD *)(a4 + 120);
+        *(_OWORD *)(a2 + 136) = *(_OWORD *)(a4 + 136);
+        *(_OWORD *)(a2 + 160) = *(_OWORD *)(a4 + 160);
+        *(_OWORD *)(a2 + 176) = *(_OWORD *)(a4 + 176);
+        *(_OWORD *)(a2 + 192) = *(_OWORD *)(a4 + 192);
+        *(_OWORD *)(a2 + 208) = *(_OWORD *)(a4 + 208);
+        *(_OWORD *)(a2 + 224) = *(_OWORD *)(a4 + 224);
+        *(_QWORD *)(a2 + 240) = *(_QWORD *)(a4 + 240);
+      }
+      if ( (a3 & 0x100004) == 0x100004 )
+      {
+        *(_WORD *)(a2 + 64) = *(_WORD *)(a4 + 64);
+        *(_WORD *)(a2 + 62) = *(_WORD *)(a4 + 62);
+        *(_WORD *)(a2 + 60) = *(_WORD *)(a4 + 60);
+        *(_WORD *)(a2 + 58) = *(_WORD *)(a4 + 58);
+      }
+      if ( (a3 & 0x100008) == 0x100008 )
+      {
+        v4 = (__int128 *)(a4 + 256);
+        *(_DWORD *)(a2 + 52) = *(_DWORD *)(a4 + 52);
+        v5 = 3LL;
+        v6 = (__int128 *)(a2 + 256);
+        do
+        {
+          v6 += 8;
+          v7 = *v4;
+          v4 += 8;
+          *(v6 - 8) = v7;
+          *(v6 - 7) = *(v4 - 7);
+          *(v6 - 6) = *(v4 - 6);
+          *(v6 - 5) = *(v4 - 5);
+          *(v6 - 4) = *(v4 - 4);
+          *(v6 - 3) = *(v4 - 3);
+          *(v6 - 2) = *(v4 - 2);
+          *(v6 - 1) = *(v4 - 1);
+          --v5;
+        }
+        while ( v5 );
+        *v6 = *v4;
+        v6[1] = v4[1];
+      }
+      if ( (a3 & 0x100010) == 0x100010 )
+      {
+        *(_OWORD *)(a2 + 72) = *(_OWORD *)(a4 + 72);
+        *(_OWORD *)(a2 + 88) = *(_OWORD *)(a4 + 88);
+        *(_OWORD *)(a2 + 104) = *(_OWORD *)(a4 + 104);
+        *(_OWORD *)(a2 + 1200) = *(_OWORD *)(a4 + 1200);
+        *(_OWORD *)(a2 + 1216) = *(_OWORD *)(a4 + 1216);
+      }
+    }
+  }
+  else if ( (a3 & 0x200000) != 0 )
+  {
+    RtlpCopyLegacyContextArm(a1, a2, a3, a4);
+  }
+  else if ( (a3 & 0x400000) != 0 )
+  {
+    RtlpCopyLegacyContextArm64(a1, a2, a3, a4);
+  }
+}

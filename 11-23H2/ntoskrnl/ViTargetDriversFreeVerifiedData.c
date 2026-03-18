@@ -1,0 +1,14 @@
+/*
+ * XREFs of ViTargetDriversFreeVerifiedData @ 0x1405CF30C
+ * Callers:
+ *     VfTargetDriversDisableVerifier @ 0x140ACB440 (VfTargetDriversDisableVerifier.c)
+ *     VfTargetDriversEnableVerifier @ 0x140ACB4B0 (VfTargetDriversEnableVerifier.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall ViTargetDriversFreeVerifiedData(void *a1)
+{
+  if ( a1 )
+    ExFreePoolWithTag(a1, 0x44566656u);
+}

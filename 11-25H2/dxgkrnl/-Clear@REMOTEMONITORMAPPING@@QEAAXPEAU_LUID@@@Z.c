@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?Clear@REMOTEMONITORMAPPING@@QEAAXPEAU_LUID@@@Z @ 0x1401EE4F0
+ * Callers:
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x140193B2C (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ??1DXGGLOBAL@@EEAA@XZ @ 0x1401CD6B4 (--1DXGGLOBAL@@EEAA@XZ.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x140414B30 (DxgkIddHandleSetDisplayConfig.c)
+ * Callees:
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140013780 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x140013A20 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x140013BA0 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?RemoveMappingEntry@REMOTEMONITORMAPPING@@AEAAXPEAUREMOTE_MONITOR_MAPPING_ENTRY@1@@Z @ 0x1401EE68C (-RemoveMappingEntry@REMOTEMONITORMAPPING@@AEAAXPEAUREMOTE_MONITOR_MAPPING_ENTRY@1@@Z.c)
+ */
+
+void __fastcall REMOTEMONITORMAPPING::Clear(struct _KTHREAD **this, struct _LUID *a2)
+{
+  REMOTEMONITORMAPPING *v4; // rbx
+  REMOTEMONITORMAPPING *v5; // rdx
+  _BYTE v6[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v7; // [rsp+28h] [rbp-20h]
+  int v8; // [rsp+30h] [rbp-18h]
+
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v6, this + 2, 0);
+  DXGPUSHLOCK::AcquireExclusive(v7);
+  v4 = *this;
+  v8 = 2;
+  while ( v4 != (REMOTEMONITORMAPPING *)this )
+  {
+    v5 = v4;
+    v4 = *(REMOTEMONITORMAPPING **)v4;
+    if ( !a2 || *((_DWORD *)v5 + 7) == a2->LowPart && *((_DWORD *)v5 + 8) == a2->HighPart )
+      REMOTEMONITORMAPPING::RemoveMappingEntry((REMOTEMONITORMAPPING *)this, v5);
+  }
+  *((_BYTE *)this + 48) = 0;
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v6);
+}

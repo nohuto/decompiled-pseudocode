@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?ReleaseReferenceSafe@DXGPROCESS@@QEAAXXZ @ 0x1C003C7A0
+ * Callers:
+ *     ?DestroyVirtualGpu@DXGK_VIRTUAL_GPU_PARAV@@UEAAXXZ @ 0x1C02151F0 (-DestroyVirtualGpu@DXGK_VIRTUAL_GPU_PARAV@@UEAAXXZ.c)
+ *     ?ResetVirtualFunction@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z @ 0x1C02156E0 (-ResetVirtualFunction@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z.c)
+ *     ?DestroyVirtualGpu@DXGK_VIRTUAL_GPU_GPUP@@UEAAXXZ @ 0x1C0216900 (-DestroyVirtualGpu@DXGK_VIRTUAL_GPU_GPUP@@UEAAXXZ.c)
+ *     ?ResetVirtualFunction@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z @ 0x1C0216D40 (-ResetVirtualFunction@DXGK_VIRTUAL_GPU_GPUP@@UEAAJPEAPEAVDXGPROCESSVMWP@@E@Z.c)
+ *     ?DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ @ 0x1C025D840 (-DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ.c)
+ * Callees:
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C00073A4 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0008690 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C000874C (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C000C320 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ */
+
+void __fastcall DXGPROCESS::ReleaseReferenceSafe(DXGPROCESS *this, __int64 a2)
+{
+  DXGFASTMUTEX *v3; // rbx
+
+  v3 = (struct DXGGLOBAL *)((char *)DXGGLOBAL::GetGlobal((__int64)this, a2) + 208);
+  DXGFASTMUTEX::Acquire(v3);
+  DXGPROCESS::ReleaseReference(this);
+  DXGFASTMUTEX::Release((struct _KTHREAD **)v3);
+}

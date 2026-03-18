@@ -1,0 +1,42 @@
+/*
+ * XREFs of NewLocalHeap @ 0x1C0049A10
+ * Callers:
+ *     HeapAlloc @ 0x1C0003394 (HeapAlloc.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x1C0003CBC (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x1C0004540 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0006B18 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004905C (LogError.c)
+ *     PrintDebugMessage @ 0x1C0049830 (PrintDebugMessage.c)
+ */
+
+__int64 __fastcall NewLocalHeap(_QWORD *a1)
+{
+  unsigned int v2; // esi
+  _QWORD *v3; // rax
+  _QWORD *v4; // rdi
+  __int64 v5; // rbx
+
+  v2 = 0;
+  v3 = ExAllocateFromNPagedLookasideList(&AMLIContextLookAsideList);
+  *a1 = v3;
+  v4 = v3;
+  if ( v3 )
+  {
+    v5 = (unsigned int)gdwCtxtBlkSize;
+    memset(v3, 0, (unsigned int)gdwCtxtBlkSize);
+    *(_DWORD *)v4 = 1346454856;
+    v4[1] = (char *)v4 + v5;
+    v4[4] = v4 + 7;
+    v4[6] = v4 + 5;
+    v4[5] = v4 + 5;
+  }
+  else
+  {
+    LogError(-1073741670);
+    AcpiDiagTraceAmlError(0LL, -1073741670);
+    PrintDebugMessage(111, 0LL, 0LL, 0LL, 0LL);
+    return (unsigned int)-1073741670;
+  }
+  return v2;
+}

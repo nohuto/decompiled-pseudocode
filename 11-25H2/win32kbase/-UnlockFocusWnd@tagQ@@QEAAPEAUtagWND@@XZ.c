@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?UnlockFocusWnd@tagQ@@QEAAPEAUtagWND@@XZ @ 0x140110260
+ * Callers:
+ *     zzzDestroyQueue @ 0x1401667F0 (zzzDestroyQueue.c)
+ * Callees:
+ *     HMAssignmentUnlock @ 0x1400379C0 (HMAssignmentUnlock.c)
+ */
+
+struct tagWND *__fastcall tagQ::UnlockFocusWnd(tagQ *this)
+{
+  __int64 i; // rdx
+
+  for ( i = *((_QWORD *)this + 63); i; i = *(_QWORD *)(i + 1688) )
+    *(_QWORD *)(*(_QWORD *)(i + 488) + 32LL) = 0LL;
+  return (struct tagWND *)HMAssignmentUnlock((__int64 *)this + 15);
+}

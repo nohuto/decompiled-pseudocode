@@ -1,0 +1,13 @@
+/*
+ * XREFs of XmDecOp @ 0x1403B82A0
+ * Callers:
+ *     XmEmulateStream @ 0x1403BDE80 (XmEmulateStream.c)
+ * Callees:
+ *     XmSubOperands @ 0x1403B8818 (XmSubOperands.c)
+ */
+
+__int64 __fastcall XmDecOp(__int64 a1)
+{
+  *(_DWORD *)(a1 + 108) = 1;
+  return XmSubOperands(a1, 0LL);
+}

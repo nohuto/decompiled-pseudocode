@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?DXGADAPTER_AcquireCoreSync@@YAXPEAVDXGADAPTER@@W4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C003E180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C00D1B00 (-AcquireCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ */
+
+__int64 DXGADAPTER_AcquireCoreSync()
+{
+  return DXGADAPTER::AcquireCoreSync();
+}

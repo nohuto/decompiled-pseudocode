@@ -1,0 +1,46 @@
+/*
+ * XREFs of VslFillSecureAllocation @ 0x14040F0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1403685AC (VslpEnterIumSecureMode.c)
+ *     VslpLockPagesForTransfer @ 0x14040FF88 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x140410B74 (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ *     memset_0 @ 0x14073D880 (memset_0.c)
+ */
+
+__int64 __fastcall VslFillSecureAllocation(__int64 a1, __int64 a2, unsigned __int64 a3, int a4)
+{
+  int i; // ebx
+  unsigned int v9; // r14d
+  _QWORD v11[10]; // [rsp+30h] [rbp-F8h] BYREF
+  _BYTE v12[8]; // [rsp+80h] [rbp-A8h] BYREF
+  __int64 v13; // [rsp+88h] [rbp-A0h]
+  __int64 v14; // [rsp+90h] [rbp-98h]
+  __int64 v15; // [rsp+98h] [rbp-90h]
+  __int64 v16; // [rsp+A0h] [rbp-88h]
+
+  memset_0(v12, 0, 0x68uLL);
+  memset_0(v11, 0, 0x48uLL);
+  for ( i = 0; a3; a3 -= v9 )
+  {
+    v9 = a3;
+    if ( 2072576 - (a4 & 0xFFFu) <= a3 )
+      v9 = 2072576 - (a4 & 0xFFF);
+    i = VslpLockPagesForTransfer((unsigned int)v11, a4, v9, 0, 0);
+    if ( i < 0 )
+      break;
+    v15 = v11[0];
+    v16 = v11[7];
+    v13 = a1;
+    v14 = a2;
+    i = VslpEnterIumSecureMode(2u, 0x17u, 0, (__int64)v12);
+    VslpUnlockPagesForTransfer(v11);
+    if ( i < 0 )
+      break;
+    a4 += v9;
+    a2 += v9;
+  }
+  return (unsigned int)i;
+}

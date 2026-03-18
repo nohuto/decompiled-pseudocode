@@ -1,0 +1,88 @@
+/*
+ * XREFs of KeDisableInterrupts @ 0x1402BA170
+ * Callers:
+ *     KiUpdateTime @ 0x14021D690 (KiUpdateTime.c)
+ *     KiUpdateRunTime @ 0x14021F420 (KiUpdateRunTime.c)
+ *     KiCheckWaitNext @ 0x1402200D0 (KiCheckWaitNext.c)
+ *     KeRcuReadUnlock @ 0x1402206B0 (KeRcuReadUnlock.c)
+ *     KeClockInterruptNotify @ 0x1402216C0 (KeClockInterruptNotify.c)
+ *     KiRcuCheckQuiescent @ 0x140221E10 (KiRcuCheckQuiescent.c)
+ *     CcForceWriteThrough @ 0x140222070 (CcForceWriteThrough.c)
+ *     KiRcuReadLock @ 0x1402223BC (KiRcuReadLock.c)
+ *     KeDelayExecutionThread @ 0x140244840 (KeDelayExecutionThread.c)
+ *     KiSetAddressPolicy @ 0x140247450 (KiSetAddressPolicy.c)
+ *     PpmPerfApplyProcessorState @ 0x140252C88 (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportParkedCore @ 0x140253514 (PpmParkReportParkedCore.c)
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x1402759D0 (ExpAcquireFastResourceExclusiveSlow.c)
+ *     IopDecrementDeviceObjectRef @ 0x1402B2B50 (IopDecrementDeviceObjectRef.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x1402B98C0 (KeReleaseInStackQueuedSpinLock.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402B9F90 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeWakeAddressAll @ 0x1402BA1F0 (KeWakeAddressAll.c)
+ *     KiWakeAddressAll @ 0x1402BA5A8 (KiWakeAddressAll.c)
+ *     KeReleaseQueuedSpinLock @ 0x1402E2650 (KeReleaseQueuedSpinLock.c)
+ *     HvlpAcquireHypercallPage @ 0x14032B970 (HvlpAcquireHypercallPage.c)
+ *     PoSetProcessorQos @ 0x14032FA60 (PoSetProcessorQos.c)
+ *     KeCheckAndApplyBamQos @ 0x140330350 (KeCheckAndApplyBamQos.c)
+ *     KiCheckForPendingQosUpdate @ 0x140330CB0 (KiCheckForPendingQosUpdate.c)
+ *     KiResetForceIdle @ 0x140336934 (KiResetForceIdle.c)
+ *     KiSetNextClockTickDueTime @ 0x1403796D0 (KiSetNextClockTickDueTime.c)
+ *     ExpAcquireSpinLockDisabled @ 0x1403DE500 (ExpAcquireSpinLockDisabled.c)
+ *     HvlGetSparseGpaPagesAccessState @ 0x1403E6FCC (HvlGetSparseGpaPagesAccessState.c)
+ *     PpmPerfSetProcessorIdle @ 0x1403EAB34 (PpmPerfSetProcessorIdle.c)
+ *     IopDecrementVpbRefCount @ 0x1403EB430 (IopDecrementVpbRefCount.c)
+ *     PpmBeginActiveTimeAccumulation @ 0x1403ECAA4 (PpmBeginActiveTimeAccumulation.c)
+ *     PpmUpdatePerformanceFeedback @ 0x1403ECDF0 (PpmUpdatePerformanceFeedback.c)
+ *     KxReenterRetpolinedCode @ 0x1403F73A4 (KxReenterRetpolinedCode.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x140419438 (KiSetClockIntervalToMinimumRequested.c)
+ *     PpmParkSnapNodeStatistics @ 0x14041FFA4 (PpmParkSnapNodeStatistics.c)
+ *     PpmIdleSnapConcurrency @ 0x1404212F0 (PpmIdleSnapConcurrency.c)
+ *     KeRemoveQueueDpcEx @ 0x140423370 (KeRemoveQueueDpcEx.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x14042D820 (PpmIdleSnapConcurrencyIdleTime.c)
+ *     ExInterlockedRemoveHeadList @ 0x14045D770 (ExInterlockedRemoveHeadList.c)
+ *     KiSrcuCheckQuiescent @ 0x140462770 (KiSrcuCheckQuiescent.c)
+ *     PpmExecutePeriodicPerfCheck @ 0x14046A810 (PpmExecutePeriodicPerfCheck.c)
+ *     KiUpdateSystemTime @ 0x14046AA24 (KiUpdateSystemTime.c)
+ *     KdPollBreakIn @ 0x140487E90 (KdPollBreakIn.c)
+ *     KeExitRetpoline @ 0x14048D73C (KeExitRetpoline.c)
+ *     HvlMapSparseGpaPages @ 0x14048ED40 (HvlMapSparseGpaPages.c)
+ *     HvlMapGpaPages @ 0x14048FA54 (HvlMapGpaPages.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x1404A70C8 (IopLiveDumpProcessCorralStateChange.c)
+ *     PpmIdleUpdateConcurrency @ 0x1404A9700 (PpmIdleUpdateConcurrency.c)
+ *     RtlpFcWriteHighLowHigh @ 0x1404FDC3C (RtlpFcWriteHighLowHigh.c)
+ *     KeFreezeExecution @ 0x140508FA0 (KeFreezeExecution.c)
+ *     KiInitializeProcessorCycleAccumulation @ 0x1405E51A4 (KiInitializeProcessorCycleAccumulation.c)
+ *     KeSrcuReadLock @ 0x1405F50F0 (KeSrcuReadLock.c)
+ *     KeSrcuReadUnlock @ 0x1405F51C0 (KeSrcuReadUnlock.c)
+ *     KiSrcuNotifyWorkerDpcRoutine @ 0x1405F5700 (KiSrcuNotifyWorkerDpcRoutine.c)
+ *     KiSrcuQueueGracePeriodReport @ 0x1405F5940 (KiSrcuQueueGracePeriodReport.c)
+ *     KiFreezeTargetExecution @ 0x1405F5E50 (KiFreezeTargetExecution.c)
+ *     KiBugCheckRecoveryFreezeProcessorDpc @ 0x1405F9D90 (KiBugCheckRecoveryFreezeProcessorDpc.c)
+ *     KiBugCheckRecoveryPrepareForCrashDump @ 0x1405F9E44 (KiBugCheckRecoveryPrepareForCrashDump.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405FA874 (KiUpdateBugcheckRecoveryProgress.c)
+ *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x1405FAA78 (KiFixupControlProtectionKernelModeReturnMismatch.c)
+ *     KiAcquireReleaseDpcData @ 0x1405FAD5C (KiAcquireReleaseDpcData.c)
+ *     PpmInstallFeedbackCounters @ 0x140602A90 (PpmInstallFeedbackCounters.c)
+ *     MiReapplyImportOptimizationIsr @ 0x1406FB670 (MiReapplyImportOptimizationIsr.c)
+ *     PnprQuiesceProcessorDpc @ 0x140BF2260 (PnprQuiesceProcessorDpc.c)
+ *     PopSaveHiberContext @ 0x140BFBD50 (PopSaveHiberContext.c)
+ *     PopHandleNextState @ 0x140C02C90 (PopHandleNextState.c)
+ *     KeLoadMTRR @ 0x140C06D50 (KeLoadMTRR.c)
+ *     KiCalibrateTimeAdjustment @ 0x140C078A0 (KiCalibrateTimeAdjustment.c)
+ *     KiSetPageAttributesTable @ 0x140C0C54C (KiSetPageAttributesTable.c)
+ *     ExpComputeCyclesPerYield @ 0x140CAA424 (ExpComputeCyclesPerYield.c)
+ *     KiComputeDispatchInterruptCost @ 0x140CC90C0 (KiComputeDispatchInterruptCost.c)
+ * Callees:
+ *     <none>
+ */
+
+bool KeDisableInterrupts()
+{
+  volatile signed __int32 *SchedulerAssist; // rdx
+  __int16 v2; // [rsp+0h] [rbp-8h]
+
+  _disable();
+  SchedulerAssist = (volatile signed __int32 *)KeGetCurrentPrcb()->SchedulerAssist;
+  if ( SchedulerAssist )
+    _InterlockedOr(SchedulerAssist, 0x200000u);
+  return (v2 & 0x200) != 0;
+}

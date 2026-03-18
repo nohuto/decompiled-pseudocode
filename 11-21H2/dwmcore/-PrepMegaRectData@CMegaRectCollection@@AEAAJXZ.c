@@ -1,0 +1,39 @@
+/*
+ * XREFs of ?PrepMegaRectData@CMegaRectCollection@@AEAAJXZ @ 0x180084AA0
+ * Callers:
+ *     ?ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ @ 0x1800B57A0 (-ReplaceMegaRectsWithClippedRects@CMegaRectCollection@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x180084B28 (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ *     ?_Tidy@?$vector@EV?$allocator@E@std@@@std@@AEAAXXZ @ 0x1800E006C (-_Tidy@-$vector@EV-$allocator@E@std@@@std@@AEAAXXZ.c)
+ */
+
+__int64 __fastcall CMegaRectCollection::PrepMegaRectData(CMegaRectCollection *this)
+{
+  __int64 v1; // rbx
+  unsigned int v2; // edi
+  __int64 v4; // rbp
+  int v5; // eax
+  __int64 v6; // rcx
+  __int128 v8; // [rsp+30h] [rbp-28h] BYREF
+  __int64 v9; // [rsp+40h] [rbp-18h]
+
+  v1 = *((_QWORD *)this + 3);
+  v2 = 0;
+  v9 = 0LL;
+  v4 = v1 + *((_QWORD *)this + 4);
+  v8 = 0LL;
+  while ( v1 != v4 )
+  {
+    v5 = CMegaRect::PrepareData(*(_QWORD *)(*((_QWORD *)this + 1) + 8 * (v1 & (*((_QWORD *)this + 2) - 1LL))), &v8);
+    v2 = v5;
+    if ( v5 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v6, 0LL, 0LL, v5, 0x1DDu);
+      break;
+    }
+    ++v1;
+  }
+  std::vector<unsigned char>::_Tidy(&v8);
+  return v2;
+}

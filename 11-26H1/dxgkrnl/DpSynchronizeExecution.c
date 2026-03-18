@@ -1,0 +1,102 @@
+/*
+ * XREFs of DpSynchronizeExecution @ 0x14002F9D0
+ * Callers:
+ *     DpiProcessMiracastNotifyDpc @ 0x140037610 (DpiProcessMiracastNotifyDpc.c)
+ *     DpiMiracastChunkInfoCallbackDpc @ 0x140087BD0 (DpiMiracastChunkInfoCallbackDpc.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400A5A80 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall DpSynchronizeExecution(__int64 a1, KSYNCHRONIZE_ROUTINE *a2, void *a3, unsigned int a4, BOOLEAN *a5)
+{
+  NTSTATUS v5; // esi
+  char v6; // bp
+  __int64 v8; // rbx
+  __int64 v10; // rdi
+  int v11; // eax
+  struct _KINTERRUPT *v12; // rcx
+  int v13; // eax
+  __int64 v14; // r9
+  int v16; // ecx
+  KIRQL v17; // di
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-38h] BYREF
+
+  v5 = 0;
+  v6 = 0;
+  v8 = 0LL;
+  v10 = a4;
+  if ( a1 && a2 && a5 )
+  {
+    v8 = *(_QWORD *)(a1 + 64);
+    if ( !v8 || *(_DWORD *)(v8 + 16) != 1953656900 || (v11 = *(_DWORD *)(v8 + 20), v11 != 3) && v11 != 2 )
+    {
+      v5 = -1073741811;
+      WdLogSingleEntry1(2LL);
+      WdLogGlobalForLineNumber = 2891;
+      goto LABEL_31;
+    }
+    if ( KeGetCurrentIrql() > 2u )
+    {
+      v16 = *(_DWORD *)(v8 + 236);
+      if ( v16 == 2 || *(_DWORD *)(v8 + 240) == 2 && ((v16 - 3) & 0xFFFFFFFC) == 0 && v16 != 4 || v16 == 1 )
+      {
+LABEL_10:
+        v12 = *(struct _KINTERRUPT **)(v8 + 1392);
+        if ( !v12 )
+        {
+          v17 = KfRaiseIrql(3u);
+          memset(&LockHandle, 0, sizeof(LockHandle));
+          KeAcquireInStackQueuedSpinLockAtDpcLevel((PKSPIN_LOCK)(v8 + 1472), &LockHandle);
+          *a5 = ((__int64 (__fastcall *)(void *))a2)(a3);
+          KeReleaseInStackQueuedSpinLockFromDpcLevel(&LockHandle);
+          KeLowerIrql(v17);
+          goto LABEL_16;
+        }
+        v13 = *(_DWORD *)(v8 + 1384);
+        if ( v13 != 2 )
+        {
+          if ( v13 != 3 )
+            goto LABEL_16;
+          v14 = *(_QWORD *)(v8 + 1400);
+          if ( *(_DWORD *)(v14 + 4) <= (unsigned int)v10 )
+          {
+            v5 = -1073741811;
+            WdLogSingleEntry1(2LL);
+            WdLogGlobalForLineNumber = 2982;
+            goto LABEL_31;
+          }
+          v12 = *(struct _KINTERRUPT **)(v14 + 48 * v10 + 24);
+        }
+        *a5 = KeSynchronizeExecution(v12, a2, a3);
+        goto LABEL_16;
+      }
+      v5 = -1073741130;
+      WdLogSingleEntry1(2LL);
+      WdLogGlobalForLineNumber = 2920;
+    }
+    else
+    {
+      v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 64), &DpSynchronizeExecution, File, 1u, 0x20u);
+      if ( v5 >= 0 )
+      {
+        v6 = 1;
+        goto LABEL_10;
+      }
+      WdLogSingleEntry1(2LL);
+      WdLogGlobalForLineNumber = 2908;
+    }
+  }
+  else
+  {
+    v5 = -1073741811;
+    WdLogSingleEntry1(2LL);
+    WdLogGlobalForLineNumber = 2878;
+  }
+LABEL_31:
+  WdLogSingleEntry1(2LL);
+  WdLogGlobalForLineNumber = 2999;
+LABEL_16:
+  if ( v6 )
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v8 + 64), &DpSynchronizeExecution, 0x20u);
+  return (unsigned int)v5;
+}

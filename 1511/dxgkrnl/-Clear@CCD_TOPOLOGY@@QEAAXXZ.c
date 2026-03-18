@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?Clear@CCD_TOPOLOGY@@QEAAXXZ @ 0x1C00A4828
+ * Callers:
+ *     ?_FillTopology@CCD_BTL@@AEAAJPEAVCCD_TOPOLOGY@@PEAU_D3DKMT_AUGMENT_CDSJ@@K@Z @ 0x1C0060194 (-_FillTopology@CCD_BTL@@AEAAJPEAVCCD_TOPOLOGY@@PEAU_D3DKMT_AUGMENT_CDSJ@@K@Z.c)
+ *     ?RetrieveActiveTopology@CCD_BTL@@QEAAJ_N0PEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C006031C (-RetrieveActiveTopology@CCD_BTL@@QEAAJ_N0PEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ?RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C006043C (-RetrieveAllPaths@CCD_BTL@@QEAAJPEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ *     ?CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z @ 0x1C00A5694 (-CopyInheritScope@CCD_TOPOLOGY@@QEAAJAEBV1@@Z.c)
+ *     ?RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z @ 0x1C00C69B4 (-RetrieveActiveTopologyNoRetryNeeded@CCD_BTL@@SAJ_N00PEAVCCD_TOPOLOGY@@@Z.c)
+ *     ??RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJIPEAVCCD_TOPOLOGY@@PEAG@Z @ 0x1C01830C8 (--RBTL_TOPOLOGY_CONSTRUCTOR@@QEAAJIPEAVCCD_TOPOLOGY@@PEAG@Z.c)
+ * Callees:
+ *     ?ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ @ 0x1C00A44DC (-ClearModalitySetId@CCD_TOPOLOGY@@QEBAXXZ.c)
+ */
+
+void __fastcall CCD_TOPOLOGY::Clear(void **this)
+{
+  _WORD *v2; // rax
+
+  CCD_TOPOLOGY::ClearModalitySetId(this);
+  v2 = this[8];
+  if ( v2 )
+    v2[10] = 0;
+}

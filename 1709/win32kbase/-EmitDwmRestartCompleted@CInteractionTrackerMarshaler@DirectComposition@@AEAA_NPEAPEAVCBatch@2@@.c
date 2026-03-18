@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?EmitDwmRestartCompleted@CInteractionTrackerMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0144C3C
+ * Callers:
+ *     ?EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C01457B0 (-EmitUpdateCommands@CInteractionTrackerMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C002A65C (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
+char __fastcall DirectComposition::CInteractionTrackerMarshaler::EmitDwmRestartCompleted(
+        DirectComposition::CInteractionTrackerMarshaler *this,
+        struct DirectComposition::CBatch **a2)
+{
+  char v3; // bl
+  char *v4; // rcx
+  void *v6; // [rsp+30h] [rbp+8h] BYREF
+
+  v3 = 1;
+  if ( (*((_DWORD *)this + 4) & 0x4000000) == 0 )
+  {
+    if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0xCuLL, &v6) )
+    {
+      v4 = (char *)v6;
+      *(_DWORD *)v6 = 12;
+      *(_QWORD *)(v4 + 4) = 0LL;
+      *((_DWORD *)v4 + 1) = 192;
+      *((_DWORD *)v4 + 2) = *((_DWORD *)this + 6);
+      *((_DWORD *)this + 4) |= 0x4000000u;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+  return v3;
+}

@@ -1,0 +1,90 @@
+/*
+ * XREFs of ExFreeToNPagedLookasideList @ 0x140084098
+ * Callers:
+ *     IoSetOplockPrivateFoExt @ 0x140010A70 (IoSetOplockPrivateFoExt.c)
+ *     LZNT1DecompressChunkWorkItem @ 0x140083FF0 (LZNT1DecompressChunkWorkItem.c)
+ *     FsRtlUninitializeBaseMcb @ 0x140084060 (FsRtlUninitializeBaseMcb.c)
+ *     IopDeleteFileObjectExtension @ 0x1400840D0 (IopDeleteFileObjectExtension.c)
+ *     FsRtlEmptyFreePoolList @ 0x140102DE4 (FsRtlEmptyFreePoolList.c)
+ *     FsRtlFreeTunnelNode @ 0x140102E3C (FsRtlFreeTunnelNode.c)
+ *     FsRtlPrivateFastUnlockAll @ 0x140102F94 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlPrivateInsertLock @ 0x140103650 (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateInsertSharedLock @ 0x140103730 (FsRtlPrivateInsertSharedLock.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x140103950 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x140103AD4 (FsRtlFastUnlockSingleShared.c)
+ *     FsRtlPrivateCheckWaitingLocks @ 0x140104434 (FsRtlPrivateCheckWaitingLocks.c)
+ *     FsRtlAddEntry @ 0x14010C798 (FsRtlAddEntry.c)
+ *     CcDeleteMbcb @ 0x1401286C0 (CcDeleteMbcb.c)
+ *     CcExtendVacbArray @ 0x14012FC04 (CcExtendVacbArray.c)
+ *     CcFreeUnusedVacbLevels @ 0x140130090 (CcFreeUnusedVacbLevels.c)
+ *     CcDeallocateVacbLevel @ 0x14013016C (CcDeallocateVacbLevel.c)
+ *     FsRtlUninitializeLargeMcb @ 0x140137EF0 (FsRtlUninitializeLargeMcb.c)
+ *     FsRtlFreeFileLock @ 0x14013BB80 (FsRtlFreeFileLock.c)
+ *     FsRtlUninitializeFileLock @ 0x14013BBB0 (FsRtlUninitializeFileLock.c)
+ *     IoSetOplockKeyContext @ 0x14016CDE4 (IoSetOplockKeyContext.c)
+ *     PopFreeIrp @ 0x140172020 (PopFreeIrp.c)
+ *     PopAllocateIrp @ 0x140173114 (PopAllocateIrp.c)
+ *     WmipDeregisterRegEntry @ 0x140173FF8 (WmipDeregisterRegEntry.c)
+ *     PopIrpWorker @ 0x14017AEC0 (PopIrpWorker.c)
+ *     VfTargetDriversRemove @ 0x14017E660 (VfTargetDriversRemove.c)
+ *     PopCreateDynamicIrpWorker @ 0x14017FD40 (PopCreateDynamicIrpWorker.c)
+ *     sub_1401AC160 @ 0x1401AC160 (sub_1401AC160.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x140282E50 (FsRtlPrivateCancelFileLockIrp.c)
+ *     MiFreeMdlTracker @ 0x1402BFAE8 (MiFreeMdlTracker.c)
+ *     ViFlushZeroMapRegisterBaseWcbs @ 0x140327E28 (ViFlushZeroMapRegisterBaseWcbs.c)
+ *     ObWaitForMultipleObjects @ 0x14060AF40 (ObWaitForMultipleObjects.c)
+ *     AlpcConnectionDestroyProcedure @ 0x140616B30 (AlpcConnectionDestroyProcedure.c)
+ *     IopCreateFile @ 0x1406171A0 (IopCreateFile.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x140617DA0 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x140617E20 (FsRtlFreeExtraCreateParameter.c)
+ *     AlpcpDestroyPort @ 0x14064A498 (AlpcpDestroyPort.c)
+ *     AlpcpDereferenceBlobEx @ 0x14064B150 (AlpcpDereferenceBlobEx.c)
+ *     AlpcAddHandleTableEntry @ 0x14064BB94 (AlpcAddHandleTableEntry.c)
+ *     WmipUnreferenceEntry @ 0x140669758 (WmipUnreferenceEntry.c)
+ *     NtQueryAttributesFile @ 0x1406B1910 (NtQueryAttributesFile.c)
+ *     FsRtlDeleteTunnelCache @ 0x14072C670 (FsRtlDeleteTunnelCache.c)
+ *     RtlpFreeRangeListEntry @ 0x1407624B8 (RtlpFreeRangeListEntry.c)
+ *     IovCallDriver @ 0x140962E34 (IovCallDriver.c)
+ *     ViFreeContextTable @ 0x140966234 (ViFreeContextTable.c)
+ *     VfFastIoCheckState @ 0x1409675F4 (VfFastIoCheckState.c)
+ *     VfIoCompletionCheckState @ 0x14096771C (VfIoCompletionCheckState.c)
+ *     VfAllocateAdapterChannel @ 0x140968160 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140968390 (VfAllocateAdapterChannelEx.c)
+ *     VfBuildScatterGatherList @ 0x140968B50 (VfBuildScatterGatherList.c)
+ *     VfCancelAdapterChannel @ 0x1409690C0 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x140969480 (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x140969530 (VfFreeAdapterObject.c)
+ *     VfFreeMapRegisters @ 0x1409697F0 (VfFreeMapRegisters.c)
+ *     VfGetScatterGatherList @ 0x140969BD0 (VfGetScatterGatherList.c)
+ *     VfPutScatterGatherList @ 0x14096A9E0 (VfPutScatterGatherList.c)
+ *     ViAdapterCallback @ 0x14096AC20 (ViAdapterCallback.c)
+ *     ViDevObjRemove @ 0x140973968 (ViDevObjRemove.c)
+ *     ViRemLockDeleteFirstTreeNode @ 0x140973E10 (ViRemLockDeleteFirstTreeNode.c)
+ *     ViDeadlockFree @ 0x14097C8F4 (ViDeadlockFree.c)
+ *     ViDeadlockPopulateLookasideCache @ 0x14097CB00 (ViDeadlockPopulateLookasideCache.c)
+ *     ViWdIrpBeforeCompletionRoutine @ 0x14097E1B8 (ViWdIrpBeforeCompletionRoutine.c)
+ *     ViLookasideAdd @ 0x14097E8A4 (ViLookasideAdd.c)
+ *     ViLookasideDelete @ 0x14097E9CC (ViLookasideDelete.c)
+ *     IovpSessionDataDereference @ 0x14097EC18 (IovpSessionDataDereference.c)
+ *     ViPacketNotificationCallback @ 0x14097ED60 (ViPacketNotificationCallback.c)
+ *     VerifierExDeleteResourceLite @ 0x14097F100 (VerifierExDeleteResourceLite.c)
+ *     VerifierExInitializeResourceLite @ 0x14097F4E0 (VerifierExInitializeResourceLite.c)
+ *     VfCheckForResource @ 0x14097F76C (VfCheckForResource.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1401CBA30 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1401CC5F0 (_guard_dispatch_icall.c)
+ */
+
+void __stdcall ExFreeToNPagedLookasideList(PNPAGED_LOOKASIDE_LIST Lookaside, PVOID Entry)
+{
+  ++Lookaside->L.TotalFrees;
+  if ( LOWORD(Lookaside->L.ListHead.Alignment) >= Lookaside->L.Depth )
+  {
+    ++Lookaside->L.FreeMisses;
+    ((void (__fastcall *)(PVOID))Lookaside->L.FreeEx)(Entry);
+  }
+  else
+  {
+    RtlpInterlockedPushEntrySList(&Lookaside->L.ListHead, (PSLIST_ENTRY)Entry);
+  }
+}

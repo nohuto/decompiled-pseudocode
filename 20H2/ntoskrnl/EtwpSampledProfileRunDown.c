@@ -1,0 +1,100 @@
+/*
+ * XREFs of EtwpSampledProfileRunDown @ 0x140941538
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14078D08C (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14021B560 (KeWaitForSingleObject.c)
+ *     EtwpLogKernelEvent @ 0x140226150 (EtwpLogKernelEvent.c)
+ *     KeReleaseMutex @ 0x140240290 (KeReleaseMutex.c)
+ *     __security_check_cookie @ 0x1403CFAF0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x140405F40 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
+{
+  unsigned __int16 v3; // si
+  char *v6; // rcx
+  unsigned int v7; // eax
+  __int16 *v8; // rdi
+  __int64 v9; // r15
+  int v10; // r14d
+  int v11; // eax
+  const WCHAR *v12; // rcx
+  const WCHAR *v13; // rdx
+  __int64 v14; // rax
+  unsigned int v15; // r8d
+  __int64 v16; // rdx
+  int v17; // [rsp+38h] [rbp-29h] BYREF
+  __int128 v18; // [rsp+40h] [rbp-21h] BYREF
+  const WCHAR *v19; // [rsp+50h] [rbp-11h]
+  __int64 v20; // [rsp+58h] [rbp-9h] BYREF
+  int v21; // [rsp+60h] [rbp-1h]
+  _QWORD v22[3]; // [rsp+68h] [rbp+7h] BYREF
+  int v23; // [rsp+80h] [rbp+1Fh]
+  int v24; // [rsp+84h] [rbp+23h]
+
+  v20 = 0LL;
+  v21 = 0;
+  v19 = 0LL;
+  v3 = 3914 - (a2 != 0);
+  v17 = 0;
+  v18 = 0LL;
+  if ( a3 )
+  {
+    v6 = (char *)&EtwpProfileObject;
+    v7 = 1;
+  }
+  else
+  {
+    KeWaitForSingleObject(&EtwpGroupMaskMutex, Executive, 0, 0, 0LL);
+    v7 = EtwpPmcProfile;
+    v6 = (char *)qword_140C19B68;
+    if ( !EtwpPmcProfile )
+    {
+LABEL_14:
+      KeReleaseMutex(&EtwpGroupMaskMutex, 0);
+      return;
+    }
+  }
+  v22[1] = 12LL;
+  v22[0] = &v20;
+  v8 = (__int16 *)(v6 + 240);
+  v24 = 0;
+  v9 = v7;
+  do
+  {
+    v10 = *v8;
+    v17 = 0;
+    LODWORD(v18) = v10;
+    if ( ((int (__fastcall *)(__int64, __int64, __int128 *, int *))off_140C00A68[0])(1LL, 24LL, &v18, &v17) < 0 )
+    {
+      v11 = 0;
+      v12 = L"Unknown";
+    }
+    else
+    {
+      v11 = DWORD2(v18);
+      v12 = v19;
+    }
+    HIDWORD(v20) = v11;
+    v13 = L"Unknown";
+    v21 = v11;
+    if ( v12 )
+      v13 = v12;
+    LODWORD(v20) = v10;
+    v22[2] = v13;
+    v14 = -1LL;
+    do
+      ++v14;
+    while ( v13[v14] );
+    v15 = *(_DWORD *)a1;
+    v16 = *(_QWORD *)(a1 + 1080);
+    v23 = 2 * v14 + 2;
+    EtwpLogKernelEvent((__int64)v22, v16, v15, 2u, v3, 0x401903u);
+    v8 += 124;
+    --v9;
+  }
+  while ( v9 );
+  if ( !a3 )
+    goto LABEL_14;
+}

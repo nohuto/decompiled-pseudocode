@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?DrawDiagonal@@YAHPEAUHDC__@@PEAUtagRECT@@PEAUHBRUSH__@@2I@Z @ 0x1400383AC
+ * Callers:
+ *     DrawEdge @ 0x140037D18 (DrawEdge.c)
+ * Callees:
+ *     ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x14022492C (-DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z.c)
+ */
+
+_BOOL8 __fastcall DrawDiagonal(HDC a1, struct tagRECT *a2, HBRUSH a3, HBRUSH a4, unsigned int a5)
+{
+  int v7; // esi
+  __int64 v8; // r14
+  int v9; // r9d
+  unsigned int v10; // eax
+  __int64 v11; // r8
+  unsigned int v12; // eax
+
+  if ( (a5 & 8) == 0 )
+    a4 = a3;
+  if ( (a5 & 0x1F) == 0x1C || (a5 & 0x1F) == 0x13 )
+    v7 = -1;
+  else
+    v7 = 1;
+  v8 = GreSelectBrush(a1, a4, a3);
+  v10 = DrawDiagonalLine(a1, a2, v7, v9, a5 & 0xFFFFF7FF);
+  if ( (a5 & 2) != 0 )
+    a2->left += (unsigned __int16)v10;
+  else
+    a2->right -= (unsigned __int16)v10;
+  v12 = HIWORD(v10);
+  if ( (a5 & 4) != 0 )
+    a2->top += v12;
+  else
+    a2->bottom -= v12;
+  return GreSelectBrush(a1, v8, v11) != 0;
+}

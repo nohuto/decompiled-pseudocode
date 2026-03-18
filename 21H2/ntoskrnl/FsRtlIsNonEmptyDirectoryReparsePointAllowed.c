@@ -1,0 +1,12 @@
+/*
+ * XREFs of FsRtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140250BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIsNonEmptyDirectoryReparsePointAllowed @ 0x140250BC0 (RtlIsNonEmptyDirectoryReparsePointAllowed.c)
+ */
+
+__int64 FsRtlIsNonEmptyDirectoryReparsePointAllowed()
+{
+  return RtlIsNonEmptyDirectoryReparsePointAllowed();
+}

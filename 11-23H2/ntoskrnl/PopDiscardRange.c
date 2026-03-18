@@ -1,0 +1,13 @@
+/*
+ * XREFs of PopDiscardRange @ 0x140AA27FC
+ * Callers:
+ *     PopSetRange @ 0x14058EF1C (PopSetRange.c)
+ *     PopAllocateHiberContext @ 0x140987D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     RtlSetBits @ 0x1402E0530 (RtlSetBits.c)
+ */
+
+void __fastcall PopDiscardRange(RTL_BITMAP *a1, ULONG a2, ULONG a3)
+{
+  RtlSetBits(a1 + 2, a2, a3);
+}

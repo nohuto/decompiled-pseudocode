@@ -1,0 +1,53 @@
+/*
+ * XREFs of McTemplateK0pt_EtwWriteTransfer @ 0x140012744
+ * Callers:
+ *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x140011620 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
+ *     ?SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z @ 0x140011AE0 (-SetPowerComponentIdleCBWorker@DXGADAPTER@@QEAAXIK@Z.c)
+ *     ?SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z @ 0x140012110 (-SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z.c)
+ *     ?NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z @ 0x140014680 (-NotifyPrimaryMonitorPowerChange@DXGADAPTER@@QEAAXE@Z.c)
+ *     DpiCancelSuspendAdapterTimer @ 0x140032AD8 (DpiCancelSuspendAdapterTimer.c)
+ *     DpiSetDevicePowerTransitionState @ 0x140032BD0 (DpiSetDevicePowerTransitionState.c)
+ *     DpiRequestDevicePowerIrp @ 0x140032C50 (DpiRequestDevicePowerIrp.c)
+ *     ?DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x140032ECC (-DpiScheduleDelayedDevicePowerRequired@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     ?PowerRuntimeComponentIdleStateCallback@DXGADAPTER@@QEAAXKKE@Z @ 0x1400336C8 (-PowerRuntimeComponentIdleStateCallback@DXGADAPTER@@QEAAXKKE@Z.c)
+ *     ?DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z @ 0x140033DE0 (-DxgkPowerRuntimeComponentIdleStateCallback@@YAXPEAXKK@Z.c)
+ *     ?PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z @ 0x140036284 (-PowerRuntimeComponentIdleStateCallback_Worker@DXGADAPTER@@QEAAXKKE@Z.c)
+ *     ?CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z @ 0x14006E734 (-CompleteFStateTransitionCB@DXGADAPTER@@QEAAXI@Z.c)
+ *     DpiDxgkDdiDisplayMuxReportPresence @ 0x140094184 (DpiDxgkDdiDisplayMuxReportPresence.c)
+ *     ?NotifyDefaultQosChange@DXGPROCESS@@QEAAXW4_KHETERO_CPU_QOS@@@Z @ 0x14018B008 (-NotifyDefaultQosChange@DXGPROCESS@@QEAAXW4_KHETERO_CPU_QOS@@@Z.c)
+ *     ?SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x140193E3C (-SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z.c)
+ *     ?PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z @ 0x14019D760 (-PresentDisplayOnlyRecoveryWorker@DXGADAPTER@@SAXPEAX@Z.c)
+ *     ?Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x14019F50C (-Reset@DXGADAPTER@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1401D9E70 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ *     DpiDispatchSystemControl @ 0x14023E760 (DpiDispatchSystemControl.c)
+ *     DpiFdoStartAdapter @ 0x140245F9C (DpiFdoStartAdapter.c)
+ *     DpiFdoThermalActiveCooling @ 0x14024F910 (DpiFdoThermalActiveCooling.c)
+ *     DpiFdoThermalPassiveCooling @ 0x14024FA90 (DpiFdoThermalPassiveCooling.c)
+ *     ?DpiDxgkDdiRestoreMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_RESTOREMEMORYFORHOTUPDATE@@@Z @ 0x140251848 (-DpiDxgkDdiRestoreMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_RESTOREMEMORYFORHOTUPDAT.c)
+ *     DpiFdoDriverArmWaitWake @ 0x140255578 (DpiFdoDriverArmWaitWake.c)
+ *     DpiDxgkDdiStopDevice @ 0x140255B18 (DpiDxgkDdiStopDevice.c)
+ *     ?SysMmEnableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x140285CDC (-SysMmEnableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z.c)
+ *     ?AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEBD@Z @ 0x140293040 (-AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEBD@Z.c)
+ *     ?ResumeSchedulerForVidPnSource@ADAPTER_RENDER@@QEAAXI@Z @ 0x1402D04F4 (-ResumeSchedulerForVidPnSource@ADAPTER_RENDER@@QEAAXI@Z.c)
+ *     ?AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEBD@Z @ 0x14030D4B0 (-AcquireCoreResourceExclusive@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@IPEBD@Z.c)
+ *     ?ResumeScheduler@ADAPTER_RENDER@@QEAAXEE@Z @ 0x14030EB8C (-ResumeScheduler@ADAPTER_RENDER@@QEAAXEE@Z.c)
+ *     DxgkGetDeviceStateInternal @ 0x14036A470 (DxgkGetDeviceStateInternal.c)
+ *     ?TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_NIPEAX@Z @ 0x140389910 (-TdrCollectDbgInfoStage1@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_NIPEAX@Z.c)
+ *     DpiDispatchCleanupAndClose @ 0x140393330 (DpiDispatchCleanupAndClose.c)
+ *     DpiDispatchCreate @ 0x14039D3D0 (DpiDispatchCreate.c)
+ *     DpiDispatchIoctl @ 0x1403B3580 (DpiDispatchIoctl.c)
+ *     DpiDispatchInternalIoctl @ 0x1403B7270 (DpiDispatchInternalIoctl.c)
+ *     DpiDispatchPower @ 0x1403B8B20 (DpiDispatchPower.c)
+ *     DpiDispatchPnp @ 0x1403C5890 (DpiDispatchPnp.c)
+ *     DpiDxgkDdiRemoveDevice @ 0x14041A7F0 (DpiDxgkDdiRemoveDevice.c)
+ *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x14041EB18 (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
+ *     ?DxgkSetProcessStatus@@YAXPEAU_D3DKMT_PROCESS_STATUS_INTERNAL@@@Z @ 0x140440110 (-DxgkSetProcessStatus@@YAXPEAU_D3DKMT_PROCESS_STATUS_INTERNAL@@@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1400127B0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1400A59A0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall McTemplateK0pt_EtwWriteTransfer(__int64 a1, __int64 a2)
+{
+  return McGenEventWrite_EtwWriteTransfer(a1, a2);
+}

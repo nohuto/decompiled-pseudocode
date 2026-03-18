@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?AllocatePeerThunk@BamoConnectionImpl@dataprovider_AutoBamos@BamoImpl@@MEAAJPEAPEAVBaseBamoPeer@Bamo@Microsoft@@@Z @ 0x1800DB8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1800EE9F0 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 __fastcall BamoImpl::dataprovider_AutoBamos::BamoConnectionImpl::AllocatePeerThunk(
+        BamoImpl::dataprovider_AutoBamos::BamoConnectionImpl *this,
+        struct Microsoft::Bamo::BaseBamoPeer **a2)
+{
+  __int64 v2; // rcx
+  __int64 result; // rax
+  struct Microsoft::Bamo::BaseBamoPeer *v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = *((_QWORD *)this + 2);
+  v5 = 0LL;
+  result = (*(__int64 (__fastcall **)(__int64, struct Microsoft::Bamo::BaseBamoPeer **))(*(_QWORD *)v2 + 40LL))(v2, &v5);
+  *a2 = v5;
+  return result;
+}

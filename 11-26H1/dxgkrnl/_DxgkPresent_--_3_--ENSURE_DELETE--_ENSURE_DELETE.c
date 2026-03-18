@@ -1,0 +1,17 @@
+/*
+ * XREFs of _DxgkPresent_::_3_::ENSURE_DELETE::_ENSURE_DELETE @ 0x1402BD89C
+ * Callers:
+ *     DxgkSubmitPresentToHwQueue @ 0x1402B6190 (DxgkSubmitPresentToHwQueue.c)
+ *     ?PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAPEAV1@@Z @ 0x1402BBFE4 (-PresentFromCdd@DXGCONTEXT@@QEAAJPEAU_D3DKMT_SUBMITPRESENTTOHWQUEUE@@IPEAVCOREDEVICEACCESS@@PEAV.c)
+ *     DxgkPresent @ 0x140323BB0 (DxgkPresent.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x14000E010 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ */
+
+void __fastcall DxgkPresent_::_3_::ENSURE_DELETE::_ENSURE_DELETE(PVOID *a1)
+{
+  struct _LOOKASIDE_LIST_EX *Global; // rax
+
+  Global = (struct _LOOKASIDE_LIST_EX *)DXGGLOBAL::GetGlobal();
+  ExFreeToLookasideListEx(Global + 12, *a1);
+}

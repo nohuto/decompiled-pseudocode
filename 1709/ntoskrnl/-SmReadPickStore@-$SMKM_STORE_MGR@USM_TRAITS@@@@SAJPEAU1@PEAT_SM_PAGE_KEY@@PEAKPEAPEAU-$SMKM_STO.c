@@ -1,0 +1,46 @@
+/*
+ * XREFs of ?SmReadPickStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEAPEAU?$SMKM_STORE@USM_TRAITS@@@@2@Z @ 0x140267C50
+ * Callers:
+ *     ?SmPageRead@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1402675D8 (-SmPageRead@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAT_SM_PAGE_KEY@@PEAU_MDL@@PEAXPEAU_IO_STAT.c)
+ * Callees:
+ *     SmKmStoreReferenceEx @ 0x14011B018 (SmKmStoreReferenceEx.c)
+ *     ?SmFeReadInitiate@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEA_K2@Z @ 0x140266DD8 (-SmFeReadInitiate@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAKPEAU1@PEAT_SM_PAGE_KEY@@PEAKPEA_K2@Z.c)
+ */
+
+__int64 __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmReadPickStore(
+        __int64 a1,
+        unsigned int *a2,
+        unsigned int *a3,
+        unsigned __int64 *a4,
+        _DWORD *a5)
+{
+  unsigned int v8; // esi
+  unsigned int v9; // ebx
+  unsigned __int64 v10; // rax
+  _DWORD *v11; // rdx
+  bool v12; // zf
+  int v14; // [rsp+30h] [rbp-28h] BYREF
+  unsigned __int64 v15[4]; // [rsp+38h] [rbp-20h] BYREF
+  unsigned int v16; // [rsp+70h] [rbp+18h] BYREF
+
+  v16 = *a3;
+  v8 = SMKM_STORE_MGR<SM_TRAITS>::SmFeReadInitiate(a1, a2, &v16, v15, &v14);
+  if ( v8 != 1024 )
+  {
+    v9 = 0;
+    ++*(_DWORD *)(a1 + 1852);
+    if ( v15[0] && v15[0] > *(_QWORD *)&KeQueryPerformanceCounter(0LL) + (unsigned __int64)*(unsigned int *)(a1 + 1848) )
+      return (unsigned int)-1073741763;
+    v10 = SmKmStoreReferenceEx(a1, v8);
+    if ( v10 )
+    {
+      v11 = a5;
+      v12 = v14 == 0;
+      *a4 = v10;
+      *v11 = !v12;
+      *a3 = v16;
+      return v9;
+    }
+  }
+  return (unsigned int)-1073741275;
+}

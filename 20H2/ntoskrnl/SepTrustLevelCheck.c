@@ -1,0 +1,103 @@
+/*
+ * XREFs of SepTrustLevelCheck @ 0x14022AA60
+ * Callers:
+ *     SeAccessCheckByTypeWithAdminlessChecks @ 0x140229080 (SeAccessCheckByTypeWithAdminlessChecks.c)
+ *     SepCommonAccessCheckExWithAdminlessChecks @ 0x140372D04 (SepCommonAccessCheckExWithAdminlessChecks.c)
+ *     SepAccessCheckAndAuditAlarmWithAdminlessChecks @ 0x1405E3AB0 (SepAccessCheckAndAuditAlarmWithAdminlessChecks.c)
+ * Callees:
+ *     RtlSidDominatesForTrust @ 0x14020FCC0 (RtlSidDominatesForTrust.c)
+ *     KeLeaveCriticalRegion @ 0x140221480 (KeLeaveCriticalRegion.c)
+ *     ExReleaseResourceLite @ 0x1402214C0 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x140222030 (ExAcquireResourceSharedLite.c)
+ *     SeGetTrustLabelAce @ 0x14022AAD0 (SeGetTrustLabelAce.c)
+ *     SeLockSubjectContext @ 0x1406168B0 (SeLockSubjectContext.c)
+ *     SeUnlockSubjectContext @ 0x140616910 (SeUnlockSubjectContext.c)
+ */
+
+__int64 __fastcall SepTrustLevelCheck(
+        __int64 a1,
+        __int64 a2,
+        struct _SECURITY_SUBJECT_CONTEXT *a3,
+        __int64 a4,
+        __int64 a5,
+        char a6,
+        int *a7)
+{
+  char v9; // si
+  __int64 TrustLabelAce; // rax
+  __int64 result; // rax
+  int v12; // r14d
+  __int64 v13; // r15
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 v15; // r11
+  int v16; // ebp
+  _BYTE v17[40]; // [rsp+20h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+50h] [rbp+8h] BYREF
+
+  v18 = a1;
+  v17[0] = 0;
+  LOBYTE(v18) = 0;
+  v9 = 0;
+  TrustLabelAce = SeGetTrustLabelAce(a2);
+  if ( !TrustLabelAce || (v12 = *(_DWORD *)(TrustLabelAce + 4), v13 = TrustLabelAce + 8, TrustLabelAce == -8) )
+  {
+    result = 0LL;
+    *a7 = -1;
+    return result;
+  }
+  if ( a6 )
+  {
+    if ( a4 )
+    {
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
+      ExAcquireResourceSharedLite(*(PERESOURCE *)(a4 + 48), 1u);
+    }
+    else
+    {
+      SeLockSubjectContext(a3);
+    }
+    v9 = 1;
+  }
+  if ( a4 )
+  {
+    v15 = a5;
+    goto LABEL_15;
+  }
+  if ( !a3->ClientToken )
+  {
+LABEL_14:
+    v15 = *((_QWORD *)a3->PrimaryToken + 138);
+LABEL_15:
+    v16 = RtlSidDominatesForTrust(v15, v13, v17);
+    if ( v16 >= 0 )
+    {
+      if ( v17[0] )
+        *a7 = -1;
+      else
+        *a7 = v12 | 0x1000000;
+    }
+    goto LABEL_19;
+  }
+  v16 = RtlSidDominatesForTrust(*((_QWORD *)a3->PrimaryToken + 138), *((_QWORD *)a3->ClientToken + 138), &v18);
+  if ( v16 >= 0 )
+  {
+    if ( (_BYTE)v18 )
+      goto LABEL_15;
+    goto LABEL_14;
+  }
+LABEL_19:
+  if ( v9 )
+  {
+    if ( a4 )
+    {
+      ExReleaseResourceLite(*(PERESOURCE *)(a4 + 48));
+      KeLeaveCriticalRegion();
+    }
+    else
+    {
+      SeUnlockSubjectContext(a3);
+    }
+  }
+  return (unsigned int)v16;
+}

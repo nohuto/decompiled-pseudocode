@@ -1,0 +1,54 @@
+/*
+ * XREFs of PiUEventShouldQueueEvent @ 0x1404C43BC
+ * Callers:
+ *     PiUEventNotifyUserMode @ 0x1409DD808 (PiUEventNotifyUserMode.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall PiUEventShouldQueueEvent(__int64 a1)
+{
+  char v1; // dl
+  int v3; // ecx
+  int v4; // ecx
+  int v5; // ecx
+  int v6; // ecx
+  int v7; // ecx
+  bool v8; // zf
+
+  v1 = 1;
+  if ( !PiUEventBroadcastSubscriberPresent )
+  {
+    v3 = *(_DWORD *)(a1 + 136) - 1;
+    if ( !v3 )
+      goto LABEL_13;
+    v4 = v3 - 1;
+    if ( !v4 )
+    {
+      v8 = PiUEventDevInterfaceClientCount == 0;
+      return !v8;
+    }
+    v5 = v4 - 1;
+    if ( !v5 )
+    {
+LABEL_13:
+      v8 = PiUEventDevHandleClientCount == 0;
+      return !v8;
+    }
+    v6 = v5 - 1;
+    if ( v6 )
+    {
+      v7 = v6 - 5;
+      if ( !v7 )
+      {
+        v8 = PiUEventDevInstancePropertyClientCount == 0;
+        return !v8;
+      }
+      if ( (unsigned int)(v7 - 1) >= 2 )
+        return v1;
+    }
+    v8 = PiUEventDevInstanceClientCount == 0;
+    return !v8;
+  }
+  return v1;
+}

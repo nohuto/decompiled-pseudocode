@@ -1,0 +1,17 @@
+/*
+ * XREFs of VidSchiDriverNodeEngineToSchedulerNode @ 0x1C0012988
+ * Callers:
+ *     VidSchGetNodeOrdinal @ 0x1C0067EB4 (VidSchGetNodeOrdinal.c)
+ *     VidSchCreateContext @ 0x1C007B2D0 (VidSchCreateContext.c)
+ *     VidSchiPreemptEngineNodes @ 0x1C00C6D88 (VidSchiPreemptEngineNodes.c)
+ *     VidSchiResetEngines @ 0x1C00C7014 (VidSchiResetEngines.c)
+ *     VidSchInitializeComponentPowerManagement @ 0x1C00C85F0 (VidSchInitializeComponentPowerManagement.c)
+ *     VidSchCreateHwContext @ 0x1C00CA160 (VidSchCreateHwContext.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall VidSchiDriverNodeEngineToSchedulerNode(__int64 a1, int a2, unsigned int a3)
+{
+  return a2 + (unsigned int)*(unsigned __int8 *)(a3 + a1 + 76);
+}

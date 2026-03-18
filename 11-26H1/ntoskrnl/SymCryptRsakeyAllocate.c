@@ -1,0 +1,23 @@
+/*
+ * XREFs of SymCryptRsakeyAllocate @ 0x140559884
+ * Callers:
+ *     SymCryptRsaSelftest @ 0x1405632FC (SymCryptRsaSelftest.c)
+ * Callees:
+ *     SymCryptRsakeyCreate @ 0x14055A0C8 (SymCryptRsakeyCreate.c)
+ *     SymCryptSizeofRsakeyFromParams @ 0x14055ABE4 (SymCryptSizeofRsakeyFromParams.c)
+ *     SymCryptCallbackAlloc @ 0x140722890 (SymCryptCallbackAlloc.c)
+ */
+
+__int64 __fastcall SymCryptRsakeyAllocate(__int64 a1)
+{
+  __int64 v2; // rbx
+  __int64 v3; // rsi
+  __int64 v4; // rax
+
+  v2 = 0LL;
+  v3 = (unsigned int)SymCryptSizeofRsakeyFromParams();
+  v4 = SymCryptCallbackAlloc(v3);
+  if ( v4 )
+    return SymCryptRsakeyCreate(v4, (unsigned int)v3, a1);
+  return v2;
+}

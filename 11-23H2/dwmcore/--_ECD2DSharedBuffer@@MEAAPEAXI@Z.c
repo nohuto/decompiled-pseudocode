@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??_ECD2DSharedBuffer@@MEAAPEAXI@Z @ 0x18000FD50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1CD2DSharedBuffer@@MEAA@XZ @ 0x180010120 (--1CD2DSharedBuffer@@MEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x180042C34 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x180105114 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
+CD2DSharedBuffer *__fastcall CD2DSharedBuffer::`vector deleting destructor'(CD2DSharedBuffer *this, char a2)
+{
+  CD2DSharedBuffer::~CD2DSharedBuffer(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      __global_delete(this, 0x28uLL);
+    else
+      operator delete(this);
+  }
+  return this;
+}

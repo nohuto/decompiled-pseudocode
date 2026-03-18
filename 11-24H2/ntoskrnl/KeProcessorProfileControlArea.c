@@ -1,0 +1,78 @@
+/*
+ * XREFs of KeProcessorProfileControlArea @ 0x1405B07FC
+ * Callers:
+ *     NtSetSystemInformation @ 0x140AE1300 (NtSetSystemInformation.c)
+ * Callees:
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F4F48 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F4FAC (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiIsIntelPebsSupported @ 0x1405B763C (KiIsIntelPebsSupported.c)
+ *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall KeProcessorProfileControlArea(__int64 a1, int a2, char a3)
+{
+  char v5; // si
+  char *Pool2; // rdi
+  unsigned __int8 CurrentIrql; // bp
+  __int64 v8; // r8
+  unsigned int v9; // ebx
+  __int64 v10; // rax
+
+  if ( a3 )
+    return 3221225506LL;
+  if ( a2 != 16 )
+    return 3221225476LL;
+  v5 = *(_BYTE *)(a1 + 8);
+  Pool2 = 0LL;
+  if ( v5 )
+  {
+    Pool2 = (char *)ExAllocatePool2(0x48uLL);
+    if ( !Pool2 )
+    {
+      *(_QWORD *)a1 = 0LL;
+      return 3221225626LL;
+    }
+  }
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags )
+    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
+  if ( (unsigned __int8)KiIsIntelPebsSupported(KeGetCurrentPrcb()) )
+  {
+    if ( v5 )
+    {
+      v10 = *(_QWORD *)(v8 + 36504);
+      if ( v10 )
+      {
+        *(_QWORD *)a1 = v10;
+        v9 = -1073741302;
+        goto LABEL_17;
+      }
+      *(_QWORD *)(v8 + 36504) = Pool2;
+      *(_QWORD *)(v8 + 36512) = Pool2 + 40;
+      *(_QWORD *)a1 = Pool2;
+      Pool2 = 0LL;
+    }
+    else
+    {
+      *(_QWORD *)a1 = 0LL;
+      if ( !*(_QWORD *)(v8 + 36504) )
+      {
+        v9 = -1073741664;
+        goto LABEL_17;
+      }
+    }
+    v9 = 0;
+    goto LABEL_17;
+  }
+  *(_QWORD *)a1 = 0LL;
+  v9 = -1073741637;
+LABEL_17:
+  if ( KiIrqlFlags )
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
+  __writecr8(CurrentIrql);
+  if ( Pool2 )
+    ExFreePoolWithTag(Pool2, 0);
+  return v9;
+}

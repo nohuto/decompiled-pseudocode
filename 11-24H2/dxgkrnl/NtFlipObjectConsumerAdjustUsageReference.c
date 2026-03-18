@@ -1,0 +1,43 @@
+/*
+ * XREFs of NtFlipObjectConsumerAdjustUsageReference @ 0x14009DE30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z @ 0x14001721C (-ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x14001A1D4 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     RtlCopyFromUser @ 0x140064F88 (RtlCopyFromUser.c)
+ */
+
+__int64 __fastcall NtFlipObjectConsumerAdjustUsageReference(void *a1, void *a2, int a3)
+{
+  unsigned __int64 v5; // r14
+  __int64 v6; // r8
+  int v7; // ebx
+  struct FlipManagerObject *v8; // rdi
+  unsigned __int64 v10; // [rsp+20h] [rbp-38h] BYREF
+  unsigned __int64 v11; // [rsp+28h] [rbp-30h]
+  struct FlipManagerObject *v12; // [rsp+78h] [rbp+20h] BYREF
+
+  if ( a1 && a2 )
+  {
+    v12 = 0LL;
+    v11 = 0LL;
+    v10 = 0LL;
+    RtlCopyFromUser(&v10, a2, 8uLL);
+    v5 = v10;
+    v11 = v10;
+    KeEnterCriticalRegion();
+    v7 = FlipManagerObject::ResolveHandle(a1, 1u, v6, &v12);
+    v8 = v12;
+    if ( v7 >= 0 )
+      v7 = FlipManagerObject::ConsumerAdjustUsageReference(v12, v5, a3 != 0);
+    if ( v8 )
+      ObfDereferenceObject(v8);
+    KeLeaveCriticalRegion();
+  }
+  else
+  {
+    return (unsigned int)-1073741811;
+  }
+  return (unsigned int)v7;
+}

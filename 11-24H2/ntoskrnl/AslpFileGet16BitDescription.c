@@ -1,0 +1,49 @@
+/*
+ * XREFs of AslpFileGet16BitDescription @ 0x14080CA04
+ * Callers:
+ *     AslpFileGetHeaderAttributesNE @ 0x14080D9F0 (AslpFileGetHeaderAttributesNE.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1406A5920 (__security_check_cookie.c)
+ *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     AslStringAnsiToUnicode @ 0x140808394 (AslStringAnsiToUnicode.c)
+ *     AslpFileQuery16BitDescription @ 0x14080F698 (AslpFileQuery16BitDescription.c)
+ *     AslLogCallPrintf @ 0x1409601DC (AslLogCallPrintf.c)
+ */
+
+__int64 __fastcall AslpFileGet16BitDescription(wchar_t **a1, __int64 a2)
+{
+  int v4; // edi
+  int v5; // ebx
+  char v6[256]; // [rsp+30h] [rbp-118h] BYREF
+
+  if ( *(_DWORD *)(a2 + 64) == 5 )
+  {
+    memset_0(v6, 0, sizeof(v6));
+    v4 = AslpFileQuery16BitDescription(v6);
+    if ( v4 >= 0 )
+    {
+      v5 = AslStringAnsiToUnicode(a1, v6);
+      if ( v5 < 0 )
+        AslLogCallPrintf(
+          1,
+          (unsigned int)"AslpFileGet16BitDescription",
+          4308,
+          (unsigned int)"AslStringAnsiToUnicode failed [%x]");
+      return (unsigned int)v5;
+    }
+    else
+    {
+      AslLogCallPrintf(
+        1,
+        (unsigned int)"AslpFileGet16BitDescription",
+        4302,
+        (unsigned int)"AslpFileQuery16BitDescription failed [%x]");
+      return (unsigned int)v4;
+    }
+  }
+  else
+  {
+    *a1 = 0LL;
+    return 3221225659LL;
+  }
+}

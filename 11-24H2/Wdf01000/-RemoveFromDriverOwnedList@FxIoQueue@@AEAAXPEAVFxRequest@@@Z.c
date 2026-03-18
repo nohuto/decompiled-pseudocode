@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?RemoveFromDriverOwnedList@FxIoQueue@@AEAAXPEAVFxRequest@@@Z @ 0x14003E034
+ * Callers:
+ *     ?Requeue@FxIoQueue@@QEAAJPEAVFxRequest@@@Z @ 0x14003DE30 (-Requeue@FxIoQueue@@QEAAJPEAVFxRequest@@@Z.c)
+ *     ?ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z @ 0x14007C21C (-ProcessAcknowledgedRequests@FxIoQueue@@QEAAXPEAVFxRequest@@PEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall FxIoQueue::RemoveFromDriverOwnedList(FxIoQueue *this, FxRequest *Request)
+{
+  _LIST_ENTRY *p_m_OwnerListEntry2; // rdx
+  _LIST_ENTRY *Flink; // r8
+  _LIST_ENTRY *Blink; // rax
+
+  p_m_OwnerListEntry2 = &Request->m_OwnerListEntry2;
+  Flink = p_m_OwnerListEntry2->Flink;
+  if ( p_m_OwnerListEntry2->Flink->Blink != p_m_OwnerListEntry2
+    || (Blink = p_m_OwnerListEntry2->Blink, Blink->Flink != p_m_OwnerListEntry2) )
+  {
+    __fastfail(3u);
+  }
+  Blink->Flink = Flink;
+  Flink->Blink = Blink;
+  p_m_OwnerListEntry2->Blink = p_m_OwnerListEntry2;
+  p_m_OwnerListEntry2->Flink = p_m_OwnerListEntry2;
+  --this->m_DriverIoCount;
+}

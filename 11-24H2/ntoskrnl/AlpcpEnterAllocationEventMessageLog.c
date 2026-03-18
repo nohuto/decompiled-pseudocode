@@ -1,0 +1,59 @@
+/*
+ * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x14088E650
+ * Callers:
+ *     AlpcpSendLegacySynchronousRequest @ 0x14088D3F8 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x14088E810 (AlpcpSendMessage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x14025F9A0 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x1402BB060 (KeAbPostRelease.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14033FD00 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x140340250 (KeAbPreAcquire.c)
+ *     AlpcpAllocateMessageLog @ 0x1406F5850 (AlpcpAllocateMessageLog.c)
+ */
+
+__int64 __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1)
+{
+  _QWORD *v2; // rax
+  signed __int8 v3; // cf
+  _QWORD *v4; // rbx
+  __int64 MessageLog; // rax
+  __int64 *v6; // rcx
+  char *v7; // rdx
+  char *v8; // rcx
+  char **v9; // rax
+
+  v2 = KeAbPreAcquire((__int64)&AlpcpMessageLogLock, 0LL);
+  v3 = _interlockedbittestandset64((volatile signed __int32 *)&AlpcpMessageLogLock, 0LL);
+  v4 = v2;
+  if ( v3 )
+    ExfAcquirePushLockExclusiveEx(&AlpcpMessageLogLock, (__int64)v2, (__int64)&AlpcpMessageLogLock);
+  if ( v4 )
+    *((_BYTE *)v4 + 10) = 1;
+  MessageLog = AlpcpAllocateMessageLog();
+  if ( MessageLog )
+  {
+    *(_QWORD *)(MessageLog + 32) = a1;
+    *(_DWORD *)(MessageLog + 40) = *(_DWORD *)(a1 + 264);
+    *(_DWORD *)(MessageLog + 44) = 1;
+    v6 = (__int64 *)qword_140F0F278;
+    if ( *(__int64 **)qword_140F0F278 != &AlpcpMessageLogListHead
+      || (*(_QWORD *)(MessageLog + 8) = qword_140F0F278,
+          *(_QWORD *)MessageLog = &AlpcpMessageLogListHead,
+          v7 = (char *)(MessageLog + 16),
+          *v6 = MessageLog,
+          qword_140F0F278 = MessageLog,
+          v8 = (char *)AlpcpMessageLogLookupTable + 16 * ((*(_DWORD *)(MessageLog + 40) >> 2) & 0x3FF),
+          v9 = (char **)*((_QWORD *)v8 + 1),
+          *v9 != v8) )
+    {
+      __fastfail(3u);
+    }
+    *(_QWORD *)v7 = v8;
+    *((_QWORD *)v7 + 1) = v9;
+    *v9 = v7;
+    *((_QWORD *)v8 + 1) = v7;
+  }
+  if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)&AlpcpMessageLogLock, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&AlpcpMessageLogLock);
+  return KeAbPostRelease((ULONG_PTR)&AlpcpMessageLogLock);
+}

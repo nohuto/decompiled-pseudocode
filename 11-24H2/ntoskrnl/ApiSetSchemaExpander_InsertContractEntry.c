@@ -1,0 +1,32 @@
+/*
+ * XREFs of ApiSetSchemaExpander_InsertContractEntry @ 0x140662C94
+ * Callers:
+ *     ApiSetCompose_ProcessV7Extension_Phase1 @ 0x140661B20 (ApiSetCompose_ProcessV7Extension_Phase1.c)
+ *     ApiSetCompose_V7_ProcessV6Extension_Phase1 @ 0x1406632E0 (ApiSetCompose_V7_ProcessV6Extension_Phase1.c)
+ * Callees:
+ *     ApiSetpInsertHashEntry @ 0x140663870 (ApiSetpInsertHashEntry.c)
+ */
+
+__int64 __fastcall ApiSetSchemaExpander_InsertContractEntry(__int64 a1, __int64 a2, _WORD *a3)
+{
+  __int64 v5; // r8
+  __int64 result; // rax
+  unsigned __int64 v7; // rcx
+
+  v5 = *(unsigned __int16 *)(a1 + 172);
+  *a3 = v5;
+  *(_WORD *)(a1 + 172) = v5 + 1;
+  result = ApiSetpInsertHashEntry(*(_QWORD *)(a1 + 32), *(_QWORD *)(a1 + 32) + 44LL, v5, a2);
+  if ( (int)result >= 0 )
+  {
+    v7 = *(_QWORD *)(a1 + 32)
+       + (unsigned __int16)*a3 * (unsigned __int64)*(unsigned __int8 *)(*(_QWORD *)(a1 + 32) + 52LL)
+       - *(unsigned __int16 *)(*(_QWORD *)(a1 + 32) + 18LL)
+       + *(unsigned int *)(*(_QWORD *)(a1 + 32) + 44LL);
+    *(_QWORD *)v7 = 0LL;
+    *(_DWORD *)(v7 + 8) = 0;
+    ++*(_WORD *)(*(_QWORD *)(a1 + 32) + 48LL);
+    return 0LL;
+  }
+  return result;
+}

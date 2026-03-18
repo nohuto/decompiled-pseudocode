@@ -1,0 +1,38 @@
+/*
+ * XREFs of ACPIBuildProcessPowerResourcePhasePep @ 0x1C002D4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteCommon @ 0x1C001A29C (ACPIBuildCompleteCommon.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C002A0EC (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ *     WPP_RECORDER_SF_Lqs @ 0x1C002D590 (WPP_RECORDER_SF_Lqs.c)
+ *     __security_check_cookie @ 0x1C0030A80 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall ACPIBuildProcessPowerResourcePhasePep(__int64 a1, __int64 a2, int a3)
+{
+  __int64 v3; // rsi
+  int v5; // edi
+  signed __int32 v6; // edx
+
+  v3 = *(_QWORD *)(a1 + 40);
+  *(_DWORD *)(a1 + 32) = 4;
+  v5 = 0;
+  if ( (*(_DWORD *)(v3 + 16) & 0x4000LL) == 0 )
+  {
+    _InterlockedOr64((volatile signed __int64 *)(v3 + 16), 0x4000uLL);
+    v5 = AcpiNotifyPlExtDiscoverDeviceAsync(*(_QWORD *)(v3 + 32), (__int64)ACPIBuildDiscoverPowerNodeCompletion, a1);
+    if ( v5 < 0 )
+      WPP_RECORDER_SF_Lqs(WPP_GLOBAL_Control->DeviceExtension, 2, a3, 56);
+  }
+  WPP_RECORDER_SF_Lqs(WPP_GLOBAL_Control->DeviceExtension, 4, a3, 57);
+  if ( v5 != 259 )
+  {
+    v6 = *(_DWORD *)(a1 + 32);
+    if ( v5 < 0 )
+      *(_DWORD *)(a1 + 48) = v5;
+    *(_DWORD *)(a1 + 32) = 2;
+    ACPIBuildCompleteCommon((volatile signed __int32 *)(a1 + 24), v6);
+  }
+  return (unsigned int)v5;
+}

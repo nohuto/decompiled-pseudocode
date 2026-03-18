@@ -1,0 +1,54 @@
+/*
+ * XREFs of ?GetRotatedPoint@@YAXIIPEAI0W4_D3DKMDT_VIDPN_PRESENT_PATH_ROTATION@@II@Z @ 0x1C032D33C
+ * Callers:
+ *     ?RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z @ 0x1C0224A50 (-RotateCursorShapeWorker@@YAXPEAUCURSOR_INFO@@PEBU1@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0008E10 (DxgkLogInternalTriageEvent.c)
+ */
+
+void __fastcall GetRotatedPoint(
+        unsigned int a1,
+        unsigned int a2,
+        unsigned int *a3,
+        unsigned int *a4,
+        enum _D3DKMDT_VIDPN_PRESENT_PATH_ROTATION a5,
+        unsigned int a6,
+        unsigned int a7)
+{
+  unsigned int v7; // ebx
+
+  v7 = a1;
+  switch ( a5 )
+  {
+    case D3DKMDT_VPPR_ROTATE90:
+      v7 = a2;
+      a1 = a6 - a1 - 1;
+      break;
+    case D3DKMDT_VPPR_ROTATE180:
+      a1 = a7 - a2 - 1;
+      v7 = a6 - v7 - 1;
+      break;
+    case D3DKMDT_VPPR_ROTATE270:
+      v7 = a7 - a2 - 1;
+      break;
+    default:
+      if ( a5 != D3DKMDT_VPPR_IDENTITY )
+      {
+        WdLogSingleEntry1(1LL, 387LL);
+        DxgkLogInternalTriageEvent(
+          0LL,
+          262146,
+          -1,
+          (__int64)L"Orientation == D3DKMDT_VPPR_IDENTITY",
+          387LL,
+          0LL,
+          0LL,
+          0LL,
+          0LL);
+      }
+      a1 = a2;
+      break;
+  }
+  *a3 = v7;
+  *a4 = a1;
+}

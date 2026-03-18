@@ -1,0 +1,275 @@
+/*
+ * XREFs of KiStartDynamicProcessor @ 0x140973808
+ * Callers:
+ *     KeStartDynamicProcessor @ 0x140974700 (KeStartDynamicProcessor.c)
+ * Callees:
+ *     MmUnlockPagableImageSection @ 0x14025A440 (MmUnlockPagableImageSection.c)
+ *     MiLockPagableImageSection @ 0x14025A7E0 (MiLockPagableImageSection.c)
+ *     KiAllocatePrcbThreads @ 0x140376A18 (KiAllocatePrcbThreads.c)
+ *     KiAllocateProcessorStateInitializationParameters @ 0x140376A4C (KiAllocateProcessorStateInitializationParameters.c)
+ *     KiAllocateLocalSharedReadyQueue @ 0x140376DF0 (KiAllocateLocalSharedReadyQueue.c)
+ *     KiQueryProcessorNode @ 0x140377100 (KiQueryProcessorNode.c)
+ *     ExInitializeProcessor @ 0x140380F60 (ExInitializeProcessor.c)
+ *     KiFreeLocalSharedReadyQueue @ 0x140382D04 (KiFreeLocalSharedReadyQueue.c)
+ *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x14041EA50 (KeBugCheckEx.c)
+ *     memset @ 0x140435A00 (memset.c)
+ *     HalStartDynamicProcessor @ 0x140504BF0 (HalStartDynamicProcessor.c)
+ *     HalRegisterDynamicProcessor @ 0x1405068F0 (HalRegisterDynamicProcessor.c)
+ *     KiDynamicProcessorInitialization @ 0x14056BC68 (KiDynamicProcessorInitialization.c)
+ *     KiFreePrcbThreads @ 0x14056BD08 (KiFreePrcbThreads.c)
+ *     KiFreeProcessorStateInitializationParameters @ 0x14056BE34 (KiFreeProcessorStateInitializationParameters.c)
+ *     KiInitializeProcessorStateInitializationParameters @ 0x14056BEAC (KiInitializeProcessorStateInitializationParameters.c)
+ *     KiUnassignProcessorNumberFromPrcb @ 0x140570A5C (KiUnassignProcessorNumberFromPrcb.c)
+ *     KiDynamicProcessorAddNotification @ 0x140571924 (KiDynamicProcessorAddNotification.c)
+ *     ExDeletePoolTagTable @ 0x140606D40 (ExDeletePoolTagTable.c)
+ *     MmDeleteProcessor @ 0x140617BCC (MmDeleteProcessor.c)
+ *     ExCreatePoolTagTable @ 0x14081D188 (ExCreatePoolTagTable.c)
+ *     KiInitializeProcessorState @ 0x14081D208 (KiInitializeProcessorState.c)
+ *     HvlInitializeProcessor @ 0x14081D52C (HvlInitializeProcessor.c)
+ *     EtwInitializeProcessor @ 0x14081D7D8 (EtwInitializeProcessor.c)
+ *     EtwpInitializeActivityIdSeed @ 0x14081D92C (EtwpInitializeActivityIdSeed.c)
+ *     KeInitializeTimerTable @ 0x14081D9C4 (KeInitializeTimerTable.c)
+ *     CcInitializeProcessor @ 0x14081F03C (CcInitializeProcessor.c)
+ *     ObInitializeProcessor @ 0x14081FA24 (ObInitializeProcessor.c)
+ *     IoInitializeProcessor @ 0x14081FB3C (IoInitializeProcessor.c)
+ *     KiInitializeSingleDpcRuntimeHistoryHashTable @ 0x1408219C0 (KiInitializeSingleDpcRuntimeHistoryHashTable.c)
+ *     HvlDeleteProcessor @ 0x1409411FC (HvlDeleteProcessor.c)
+ *     EtwDeleteProcessor @ 0x1409E1DA8 (EtwDeleteProcessor.c)
+ *     CmInitializeProcessor @ 0x140A0F90C (CmInitializeProcessor.c)
+ *     KiComputeProcessorDataSize @ 0x140A88B80 (KiComputeProcessorDataSize.c)
+ *     KiInitializePrcbContext @ 0x140A88F30 (KiInitializePrcbContext.c)
+ *     MmInitializeProcessor @ 0x140A89098 (MmInitializeProcessor.c)
+ *     KiInitializeDynamicProcessor @ 0x140A9F278 (KiInitializeDynamicProcessor.c)
+ *     KiUnshadowProcessorAllocation @ 0x140A9FD1C (KiUnshadowProcessorAllocation.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140A9FDDC (KiAddProcessorToGroupSchedulingDatabase.c)
+ *     WheaInitializeProcessor @ 0x140AAB804 (WheaInitializeProcessor.c)
+ */
+
+__int64 __fastcall KiStartDynamicProcessor(__int64 a1, int a2, unsigned __int16 a3, unsigned int a4)
+{
+  ULONG_PTR v5; // r14
+  void *v6; // r12
+  __int64 v7; // r13
+  _OWORD *v8; // rsi
+  __int64 v9; // rdi
+  __int64 v10; // rcx
+  int ProcessorStateInitializationParameters; // ebx
+  int v12; // r9d
+  PVOID v13; // rcx
+  __int64 v14; // r15
+  int v15; // r12d
+  int started; // eax
+  _OWORD *v17; // rax
+  __int128 v18; // xmm1
+  unsigned __int16 v20; // [rsp+30h] [rbp-D0h] BYREF
+  ULONG_PTR v21; // [rsp+38h] [rbp-C8h] BYREF
+  int v22; // [rsp+40h] [rbp-C0h] BYREF
+  int v23; // [rsp+44h] [rbp-BCh] BYREF
+  void *PoolTagTable; // [rsp+48h] [rbp-B8h]
+  _DWORD v25[60]; // [rsp+50h] [rbp-B0h] BYREF
+  _OWORD v26[23]; // [rsp+140h] [rbp+40h] BYREF
+  ULONG_PTR BugCheckParameter1[184]; // [rsp+2B0h] [rbp+1B0h] BYREF
+
+  LODWORD(v21) = a2;
+  v5 = a4;
+  v22 = 0;
+  v23 = 0;
+  memset(v25, 0, 0xE4uLL);
+  memset(v26, 0, sizeof(v26));
+  memset(BugCheckParameter1, 0, sizeof(BugCheckParameter1));
+  v20 = 0;
+  v6 = 0LL;
+  v7 = 0LL;
+  v8 = 0LL;
+  v9 = 0LL;
+  KiInitializeProcessorStateInitializationParameters(v25);
+  v10 = 2LL;
+  if ( (unsigned int)KeNumberProcessors_0 >= 0x800
+    || KeNumprocSpecified && (unsigned int)KeNumberProcessors_0 >= KeNumprocSpecified )
+  {
+    ProcessorStateInitializationParameters = -1073741223;
+LABEL_43:
+    KiBarrierWait = 0;
+    if ( v7 )
+    {
+      v17 = (_OWORD *)v7;
+      do
+      {
+        *v17 = *v8;
+        v17[1] = v8[1];
+        v17[2] = v8[2];
+        v17[3] = v8[3];
+        v17[4] = v8[4];
+        v17[5] = v8[5];
+        v17[6] = v8[6];
+        v17 += 8;
+        v18 = v8[7];
+        v8 += 8;
+        *(v17 - 1) = v18;
+        --v10;
+      }
+      while ( v10 );
+      *v17 = *v8;
+      v17[1] = v8[1];
+      v17[2] = v8[2];
+      KeNodeBlock[v20] = v7;
+    }
+    if ( v9 )
+    {
+      KiFreeLocalSharedReadyQueue(v9);
+      KiFreePrcbThreads(v9);
+      HvlDeleteProcessor((struct _KPRCB *)v9);
+      MmDeleteProcessor(v9);
+      EtwDeleteProcessor(v9);
+      KiUnassignProcessorNumberFromPrcb(v9);
+    }
+    if ( v6 )
+      ExDeletePoolTagTable(v5);
+    if ( v9 )
+      KiUnshadowProcessorAllocation(v9, BugCheckParameter1, v25);
+    goto LABEL_53;
+  }
+  ProcessorStateInitializationParameters = HalRegisterDynamicProcessor();
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  v20 = a3;
+  ProcessorStateInitializationParameters = KiQueryProcessorNode(v5, &v21, &v20);
+  if ( ProcessorStateInitializationParameters )
+    goto LABEL_39;
+  v25[4] = KiComputeProcessorDataSize((unsigned int)KeMaximumProcessors, &v22, &v23);
+  v25[9] = v22;
+  v25[10] = v23;
+  v25[0] = 1;
+  v25[5] = v20;
+  v25[6] = v5;
+  v25[7] = v12;
+  ProcessorStateInitializationParameters = KiAllocateProcessorStateInitializationParameters((__int64)v25, v20);
+  if ( ProcessorStateInitializationParameters < 0 )
+  {
+LABEL_42:
+    v10 = 2LL;
+    goto LABEL_43;
+  }
+  PoolTagTable = ExCreatePoolTagTable(v5, v20);
+  v6 = PoolTagTable;
+  if ( !PoolTagTable )
+  {
+    ProcessorStateInitializationParameters = -1073741670;
+    KiBarrierWait = 0;
+LABEL_53:
+    KiFreeProcessorStateInitializationParameters((__int64)v25);
+    return (unsigned int)ProcessorStateInitializationParameters;
+  }
+  v7 = KeNodeBlock[v20];
+  v26[1] = *(_OWORD *)&PsLoadedModuleList;
+  v9 = KiInitializeProcessorState(BugCheckParameter1, v26, (__int64)v25);
+  if ( !v9 )
+  {
+    ProcessorStateInitializationParameters = -1073741670;
+    goto LABEL_42;
+  }
+  v8 = (_OWORD *)KeNodeBlock[v20];
+  if ( !(unsigned int)MmInitializeProcessor(v9) )
+  {
+    ProcessorStateInitializationParameters = -1073741823;
+    goto LABEL_42;
+  }
+  ProcessorStateInitializationParameters = KiInitializePrcbContext(v9, v20);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = KeInitializeTimerTable(v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = ExInitializeProcessor(v9, 1);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = ObInitializeProcessor((_QWORD *)v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = IoInitializeProcessor(v9, 0LL);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = CcInitializeProcessor(v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = EtwInitializeProcessor(v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  EtwpInitializeActivityIdSeed(*(_QWORD *)(v9 + 34472), *(_DWORD *)(v9 + 36));
+  ProcessorStateInitializationParameters = WheaInitializeProcessor(v9, 0LL);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = HvlInitializeProcessor((union _SLIST_HEADER *)v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = KiAllocatePrcbThreads(v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  ProcessorStateInitializationParameters = KiAllocateLocalSharedReadyQueue(v9);
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  if ( *(_QWORD *)(KiProcessorBlock[0] + 13072) )
+  {
+    ProcessorStateInitializationParameters = KiInitializeSingleDpcRuntimeHistoryHashTable(v9);
+    if ( ProcessorStateInitializationParameters < 0 )
+      goto LABEL_42;
+  }
+  v13 = ExPageLockHandle;
+  *(_QWORD *)(v9 + 34968) = 0LL;
+  *(_QWORD *)(v9 + 34976) = v9 + 34976;
+  MiLockPagableImageSection((ULONG_PTR)v13, 1uLL);
+  KiAddProcessorToGroupSchedulingDatabase(v9);
+  v14 = KeLoaderBlock_0;
+  KiBarrierWait = 1;
+  if ( !KeLoaderBlock_0 )
+  {
+    KeLoaderBlock_0 = (__int64)v26;
+    v26[1] = *(_OWORD *)&PsLoadedModuleList;
+  }
+  ProcessorStateInitializationParameters = KiDynamicProcessorAddNotification(
+                                             0,
+                                             *(_DWORD *)(v9 + 36),
+                                             *(unsigned __int8 *)(v9 + 208),
+                                             *(_BYTE *)(v9 + 209),
+                                             v21,
+                                             0);
+  v15 = 2;
+  if ( ProcessorStateInitializationParameters >= 0 )
+  {
+    started = HalStartDynamicProcessor((__int64)BugCheckParameter1, v5, v21, v20);
+    if ( started == 3 )
+      KeBugCheckEx(0x1DFu, (ULONG_PTR)BugCheckParameter1, 3uLL, v5, (unsigned int)v21);
+    if ( started == 2 )
+    {
+      ProcessorStateInitializationParameters = -1073741823;
+    }
+    else
+    {
+      while ( *((_QWORD *)&v26[8] + 1) )
+        _mm_pause();
+      KiInitializeDynamicProcessor(v9);
+      v15 = 1;
+    }
+  }
+  KiDynamicProcessorAddNotification(
+    v15,
+    *(_DWORD *)(v9 + 36),
+    *(unsigned __int8 *)(v9 + 208),
+    *(_BYTE *)(v9 + 209),
+    v21,
+    ProcessorStateInitializationParameters);
+  if ( ProcessorStateInitializationParameters >= 0 )
+  {
+    WheaInitializeProcessor(v9, 1LL);
+    CmInitializeProcessor(v9);
+    KiDynamicProcessorInitialization(v9);
+  }
+  KeLoaderBlock_0 = v14;
+  MmUnlockPagableImageSection(ExPageLockHandle);
+  v6 = PoolTagTable;
+LABEL_39:
+  if ( ProcessorStateInitializationParameters < 0 )
+    goto LABEL_42;
+  return (unsigned int)ProcessorStateInitializationParameters;
+}

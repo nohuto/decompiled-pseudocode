@@ -1,0 +1,72 @@
+/*
+ * XREFs of MiSwapHardFaultPage @ 0x140561CA0
+ * Callers:
+ *     MiFinishHardFault @ 0x1402C80B0 (MiFinishHardFault.c)
+ *     MiIdealClusterPage @ 0x140554344 (MiIdealClusterPage.c)
+ * Callees:
+ *     MiPteInShadowRange @ 0x14021EA50 (MiPteInShadowRange.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402A9540 (MiPfnReferenceCountIsZero.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x1402B12D0 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiRemoveLockedPageCharge @ 0x1402C96D0 (MiRemoveLockedPageCharge.c)
+ *     MiLockNestedPageAtDpcInline @ 0x14030DC80 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x140313F2C (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x140313F8C (MiPteHasShadow.c)
+ *     MiUpdateTransitionPteFrame @ 0x1403522C4 (MiUpdateTransitionPteFrame.c)
+ *     MiCopyPfnEntryEx @ 0x140352310 (MiCopyPfnEntryEx.c)
+ */
+
+__int64 __fastcall MiSwapHardFaultPage(__int64 *a1, __int64 a2, __int64 a3)
+{
+  __int64 v6; // rax
+  __int64 updated; // rbx
+  int v8; // ebp
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  __int64 v12; // rcx
+  __int64 result; // rax
+
+  v6 = MI_READ_PTE_LOCK_FREE((unsigned __int64)a1);
+  updated = MiUpdateTransitionPteFrame(v6, (a3 + 0x58000000000LL) / 48);
+  v8 = 0;
+  if ( MiPteInShadowRange((unsigned __int64)a1) )
+  {
+    if ( (unsigned int)MiPteHasShadow() )
+    {
+      v8 = 1;
+      if ( HIBYTE(word_140C4DE88) )
+        goto LABEL_8;
+    }
+    else if ( (HIDWORD(KeGetCurrentThread()->ApcState.Process[2].Header.WaitListHead.Flink) & 0x1000) == 0 )
+    {
+      goto LABEL_8;
+    }
+    if ( (updated & 1) != 0 )
+      updated |= 0x8000000000000000uLL;
+  }
+LABEL_8:
+  *a1 = updated;
+  if ( v8 )
+    MiWritePteShadow((__int64)a1, updated, v10);
+  MiLockNestedPageAtDpcInline(a3, v9, v10, v11);
+  MiCopyPfnEntryEx(a3, a2);
+  if ( ((*(_QWORD *)(a2 + 40) >> 60) & 7) == 3 )
+    *(_QWORD *)(a3 + 40) = *(_QWORD *)(a3 + 40) & 0x8FFFFFFFFFFFFFFFuLL | 0x3000000000000000LL;
+  *(_QWORD *)(a3 + 24) &= 0xC000000000000000uLL;
+  *(_QWORD *)(a2 + 24) |= 0x4000000000000000uLL;
+  v12 = *(_QWORD *)(a2 + 16);
+  if ( (v12 & 4) != 0 )
+  {
+    v12 &= ~4uLL;
+    *(_QWORD *)(a2 + 16) = v12;
+  }
+  if ( (v12 & 2) != 0 )
+    *(_QWORD *)(a2 + 16) = v12 & 0xFFFFFFFFFFFFFFFDuLL;
+  if ( (unsigned int)MiRemoveLockedPageCharge(a2) )
+    MiPfnReferenceCountIsZero(a2, (a2 + 0x58000000000LL) / 48);
+  else
+    *(_WORD *)(a3 + 32) = 1;
+  result = 0x7FFFFFFFFFFFFFFFLL;
+  _InterlockedAnd64((volatile signed __int64 *)(a2 + 24), 0x7FFFFFFFFFFFFFFFuLL);
+  return result;
+}

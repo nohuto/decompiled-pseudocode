@@ -1,0 +1,58 @@
+/*
+ * XREFs of PfSnLogPageFault @ 0x1403041E0
+ * Callers:
+ *     MiMakeSystemCachePteValid @ 0x140225760 (MiMakeSystemCachePteValid.c)
+ *     MiCompleteProtoPteFault @ 0x140232170 (MiCompleteProtoPteFault.c)
+ *     MiMakeSystemCacheRangeValid @ 0x1402C5040 (MiMakeSystemCacheRangeValid.c)
+ *     MiCompleteRestrictedImageFault @ 0x140464CC4 (MiCompleteRestrictedImageFault.c)
+ *     MiLogRelocationRva @ 0x1409441D4 (MiLogRelocationRva.c)
+ * Callees:
+ *     PfSnLogPageFaultCommon @ 0x140302910 (PfSnLogPageFaultCommon.c)
+ *     PfSnReferenceProcessTrace @ 0x140304310 (PfSnReferenceProcessTrace.c)
+ *     ExfReleaseRundownProtection @ 0x1403242B0 (ExfReleaseRundownProtection.c)
+ */
+
+void __fastcall PfSnLogPageFault(__int64 a1, unsigned __int64 a2, char a3)
+{
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v7; // rbx
+  int v8; // ecx
+  unsigned __int64 v9; // rax
+  int v10; // eax
+  struct _KTHREAD *v11; // rax
+  unsigned __int64 v12; // rtt
+
+  if ( (a3 & 4) == 0 || !*(_QWORD *)(a1 + 32) )
+  {
+    CurrentThread = KeGetCurrentThread();
+    v7 = PfSnReferenceProcessTrace(CurrentThread->ApcState.Process);
+    if ( v7 )
+    {
+      if ( (((a3 & 2) == 0) & (LOBYTE(CurrentThread[1].Queue) >> 6)) == 0 )
+      {
+        v8 = (*((_DWORD *)&CurrentThread[1].SwapListEntry + 2) >> 9) & 7;
+        v9 = CurrentThread->Process[1].Padding[3];
+        if ( v9 )
+        {
+          v10 = *(_DWORD *)(v9 + 1084);
+          if ( v8 >= v10 )
+            v8 = v10;
+        }
+        if ( v8 >= 2 || CurrentThread == KeGetCurrentThread() && LODWORD(CurrentThread[1].Timer.TimerListEntry.Flink) )
+        {
+          v11 = *(struct _KTHREAD **)(v7 + 432);
+          if ( !v11 || v11 == CurrentThread && *(_QWORD *)(v7 + 440) == *(_QWORD *)&CurrentThread[1].CurrentRunTime )
+            PfSnLogPageFaultCommon(v7, a1, *(_QWORD *)(a1 + 24), a2, a3);
+        }
+        else
+        {
+          _InterlockedIncrement((volatile signed __int32 *)(v7 + 336));
+        }
+      }
+      _m_prefetchw((const void *)(v7 + 360));
+      v12 = *(_QWORD *)(v7 + 360) & 0xFFFFFFFFFFFFFFFEuLL;
+      if ( v12 != _InterlockedCompareExchange64((volatile signed __int64 *)(v7 + 360), v12 - 2, v12) )
+        ExfReleaseRundownProtection((PEX_RUNDOWN_REF)(v7 + 360));
+    }
+  }
+}

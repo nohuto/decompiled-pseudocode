@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?CleanupPresentHistoryTokenQueue@ADAPTER_RENDER@@QEAAXXZ @ 0x14019BF1C
+ * Callers:
+ *     ?CleanupPresentHistoryTokenQueueAdapter@DXGPRESENTHISTORYTOKENQUEUE@@CAJPEAVDXGADAPTER@@PEAX@Z @ 0x1401EB7B0 (-CleanupPresentHistoryTokenQueueAdapter@DXGPRESENTHISTORYTOKENQUEUE@@CAJPEAVDXGADAPTER@@PEAX@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x140022B90 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x140022C10 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1DXGAUTOPUSHLOCK@@QEAA@XZ @ 0x140022E00 (--1DXGAUTOPUSHLOCK@@QEAA@XZ.c)
+ *     ??_GDXGPRESENTHISTORYTOKENQUEUE@@QEAAPEAXI@Z @ 0x14006817C (--_GDXGPRESENTHISTORYTOKENQUEUE@@QEAAPEAXI@Z.c)
+ */
+
+void __fastcall ADAPTER_RENDER::CleanupPresentHistoryTokenQueue(struct _KTHREAD **this)
+{
+  unsigned int CurrentProcessSessionId; // eax
+  __int64 v3; // rdi
+  DXGPRESENTHISTORYTOKENQUEUE *v4; // rcx
+  _BYTE v5[8]; // [rsp+20h] [rbp-28h] BYREF
+  DXGPUSHLOCK *v6; // [rsp+28h] [rbp-20h]
+  int v7; // [rsp+30h] [rbp-18h]
+
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v5, this + 122, 0);
+  DXGPUSHLOCK::AcquireExclusive(v6);
+  v7 = 2;
+  CurrentProcessSessionId = PsGetCurrentProcessSessionId();
+  if ( CurrentProcessSessionId < *((_DWORD *)this + 252) )
+  {
+    v3 = CurrentProcessSessionId;
+    v4 = (DXGPRESENTHISTORYTOKENQUEUE *)*((_QWORD *)this[127] + CurrentProcessSessionId);
+    if ( v4 )
+    {
+      DXGPRESENTHISTORYTOKENQUEUE::`scalar deleting destructor'(v4);
+      *((_QWORD *)this[127] + v3) = 0LL;
+    }
+  }
+  DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v5);
+}

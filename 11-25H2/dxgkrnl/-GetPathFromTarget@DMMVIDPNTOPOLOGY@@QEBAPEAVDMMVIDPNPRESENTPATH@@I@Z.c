@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?GetPathFromTarget@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@I@Z @ 0x140043668
+ * Callers:
+ *     ?DmmCheckMonitorPowerState@@YAJPEAXI@Z @ 0x140250C5C (-DmmCheckMonitorPowerState@@YAJPEAXI@Z.c)
+ *     ?UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x140257160 (-UpdateTargetLinkTrainingStatus@VIDPN_MGR@@QEAAJPEAU_DXGK_CONNECTION_CHANGE@@EPEAU_DXGK_DISPLAY_.c)
+ *     ?SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAU_DMM_SET_TIMING_RESULT@@EPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@@Z @ 0x14030CF78 (-SetTimingsFromVidPn@VIDPN_MGR@@QEAAJKW4_DMM_CLIENT_TYPE@@PEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_.c)
+ *     ?CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@AEAK3PEAU_DXGK_SET_TIMING_RESULTS@@PEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1403A8604 (-CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_P.c)
+ *     ?BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_MASKS@@PEAK2AEAV?$unique_ptr@$$BY0A@U_DXGK_SET_TIMING_PATH_INFO@@U?$default_delete@$$BY0A@U_DXGK_SET_TIMING_PATH_INFO@@@wistd@@@wistd@@AEAV?$unique_ptr@$$BY0A@IU?$default_delete@$$BY0A@I@wistd@@@5@4@Z @ 0x14042AC60 (-BuildSetTimingsPathInfoFromClientVidPn@VIDPN_MGR@@AEBAJKQEAVDMMVIDPN@@PEAUD3DKMT_VIDPN_SOURCE_M.c)
+ * Callees:
+ *     <none>
+ */
+
+struct DMMVIDPNPRESENTPATH *__fastcall DMMVIDPNTOPOLOGY::GetPathFromTarget(DMMVIDPNTOPOLOGY *this, int a2)
+{
+  char *v2; // r9
+  DMMVIDPNTOPOLOGY *v4; // rdx
+  char *v5; // rdx
+  char *v7; // rcx
+
+  v2 = (char *)this + 24;
+  v4 = (DMMVIDPNTOPOLOGY *)*((_QWORD *)this + 3);
+  if ( v4 == (DMMVIDPNTOPOLOGY *)((char *)this + 24) )
+    return 0LL;
+  v5 = (char *)v4 - 8;
+  while ( v5 )
+  {
+    if ( *(_DWORD *)(*((_QWORD *)v5 + 12) + 24LL) == a2 )
+      break;
+    v7 = (char *)*((_QWORD *)v5 + 1);
+    v5 = v7 - 8;
+    if ( v7 == v2 )
+      v5 = 0LL;
+  }
+  return (struct DMMVIDPNPRESENTPATH *)v5;
+}

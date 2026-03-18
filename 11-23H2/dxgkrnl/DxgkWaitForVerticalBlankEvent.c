@@ -1,0 +1,49 @@
+/*
+ * XREFs of DxgkWaitForVerticalBlankEvent @ 0x1C01D6EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C000A61C (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C000B0F0 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C00240A0 (McTemplateK0q_EtwWriteTransfer.c)
+ *     DxgkWaitForVerticalBlankEventInternal @ 0x1C01C59D0 (DxgkWaitForVerticalBlankEventInternal.c)
+ */
+
+__int64 __fastcall DxgkWaitForVerticalBlankEvent(__int64 a1, __int64 a2, __int64 a3)
+{
+  ULONG64 v3; // rbx
+  unsigned int v4; // r8d
+  unsigned int v5; // ebx
+  __int64 v6; // r8
+  __int64 v8; // [rsp+40h] [rbp-38h]
+  int v9; // [rsp+50h] [rbp-28h] BYREF
+  __int64 v10; // [rsp+58h] [rbp-20h]
+  char v11; // [rsp+60h] [rbp-18h]
+  union _LARGE_INTEGER v12; // [rsp+88h] [rbp+10h] BYREF
+
+  v3 = a1;
+  v9 = -1;
+  v10 = 0LL;
+  if ( (qword_1C013F870 & 2) != 0 )
+  {
+    v11 = 1;
+    v9 = 2026;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(a1, &EventProfilerEnter, a3, 2026);
+  }
+  else
+  {
+    v11 = 0;
+  }
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v9, 2026);
+  if ( v3 >= MmUserProbeAddress )
+    v3 = MmUserProbeAddress;
+  v8 = *(_QWORD *)v3;
+  v4 = *(_DWORD *)(v3 + 8);
+  v12.QuadPart = -800000LL;
+  v5 = DxgkWaitForVerticalBlankEventInternal((unsigned int)v8, HIDWORD(v8), v4, 0, 0LL, &v12, 0);
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v9);
+  if ( v11 && (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+    McTemplateK0q_EtwWriteTransfer(BYTE1(Microsoft_Windows_DxgKrnlEnableBits), &EventProfilerExit, v6, v9);
+  return v5;
+}

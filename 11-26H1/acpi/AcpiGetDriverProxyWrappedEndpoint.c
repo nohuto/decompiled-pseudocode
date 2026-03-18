@@ -1,0 +1,56 @@
+/*
+ * XREFs of AcpiGetDriverProxyWrappedEndpoint @ 0x140055AD8
+ * Callers:
+ *     ACPIConnectWakeInterrupt @ 0x1400A924C (ACPIConnectWakeInterrupt.c)
+ *     IrqTranslatorEjectInterface @ 0x1400A98F8 (IrqTranslatorEjectInterface.c)
+ *     ACPIDockIrpQueryInterface @ 0x1400AC120 (ACPIDockIrpQueryInterface.c)
+ *     AcpiArblibEjectInterface @ 0x1400AD42C (AcpiArblibEjectInterface.c)
+ *     ACPIBusIrpStartDevice @ 0x1400ADD90 (ACPIBusIrpStartDevice.c)
+ *     ACPICacheCoherencyInterface @ 0x1400AE4B8 (ACPICacheCoherencyInterface.c)
+ *     AcpiInitializeBusNumberArbiter @ 0x1400AE568 (AcpiInitializeBusNumberArbiter.c)
+ *     ACPIEcConnectGpeVector @ 0x1400AED98 (ACPIEcConnectGpeVector.c)
+ *     ACPIEcConnectGpioInterrupt @ 0x1400AEDF0 (ACPIEcConnectGpioInterrupt.c)
+ *     ACPIEcInstallOpRegionHandler @ 0x1400AF0E0 (ACPIEcInstallOpRegionHandler.c)
+ *     QueryExternalTranslatorInterface @ 0x1400AFF64 (QueryExternalTranslatorInterface.c)
+ *     RegisterExternalTranslatorInterface @ 0x1400B0324 (RegisterExternalTranslatorInterface.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1400B1080 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIFilterIrpStopDevice @ 0x1400B1360 (ACPIFilterIrpStopDevice.c)
+ *     AcpiInitializeMemoryArbiter @ 0x1400B1D28 (AcpiInitializeMemoryArbiter.c)
+ *     ACPIEjectPartitionUnitInterface @ 0x1400B1DE8 (ACPIEjectPartitionUnitInterface.c)
+ *     AcpiPccInitTypeLegacySubspace @ 0x1400B2738 (AcpiPccInitTypeLegacySubspace.c)
+ *     ACPIPccInterruptDeviceStart @ 0x1400B2AB0 (ACPIPccInterruptDeviceStart.c)
+ *     AcpiPccInitCommonFields @ 0x1400B2D94 (AcpiPccInitCommonFields.c)
+ *     AcpiPccInitDoorbell @ 0x1400B2F58 (AcpiPccInitDoorbell.c)
+ *     AcpiPccInitType34Subspace @ 0x1400B36F0 (AcpiPccInitType34Subspace.c)
+ *     PciBusEjectInterface @ 0x1400B3DE8 (PciBusEjectInterface.c)
+ *     ACPIPepInitializeEpmNotificationSupport @ 0x1400B434C (ACPIPepInitializeEpmNotificationSupport.c)
+ *     ACPIPepInitializePlatformNotificationSupport @ 0x1400B4674 (ACPIPepInitializePlatformNotificationSupport.c)
+ *     AcpiSetupNativeMethodInterface @ 0x1400B4E54 (AcpiSetupNativeMethodInterface.c)
+ *     AcpiInitializePortArbiter @ 0x1400B591C (AcpiInitializePortArbiter.c)
+ *     AcpiAcquirePrmInterface @ 0x1400B61A8 (AcpiAcquirePrmInterface.c)
+ *     ACPIRootIrpQueryCapabilities @ 0x1400BA050 (ACPIRootIrpQueryCapabilities.c)
+ *     AcpiSdevIdentifierInterface @ 0x1400BA6AC (AcpiSdevIdentifierInterface.c)
+ *     ACPIThermalStartDevice @ 0x1400BAC70 (ACPIThermalStartDevice.c)
+ *     AcpiEjectBusNumberTranslator @ 0x1400BB12C (AcpiEjectBusNumberTranslator.c)
+ *     TranslateEjectInterface @ 0x1400BB8B8 (TranslateEjectInterface.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1400C0080 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIFilterIrpQueryCapabilities @ 0x1400C2AF0 (ACPIFilterIrpQueryCapabilities.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1400C2C7C (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1400C58A0 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1400C9E20 (ACPIFilterIrpFilterResourceRequirements.c)
+ *     ACPIFilterIrpStartDeviceWorker @ 0x1400CCC00 (ACPIFilterIrpStartDeviceWorker.c)
+ *     ACPIRootIrpQueryDeviceRelations @ 0x1400CDB30 (ACPIRootIrpQueryDeviceRelations.c)
+ *     ACPIFilterIrpQueryPnpLocationInterface @ 0x1400CF900 (ACPIFilterIrpQueryPnpLocationInterface.c)
+ *     ACPIFilterIrpQueryId @ 0x1400CFE10 (ACPIFilterIrpQueryId.c)
+ *     ACPIThermalReadTemperature @ 0x1400D0330 (ACPIThermalReadTemperature.c)
+ *     ACPIFilterIrpDeviceUsageNotification @ 0x1400D1390 (ACPIFilterIrpDeviceUsageNotification.c)
+ *     ACPIFilterIrpQueryIommuInterface @ 0x1400D2004 (ACPIFilterIrpQueryIommuInterface.c)
+ *     RegisterOperationRegionHandler @ 0x1400D4214 (RegisterOperationRegionHandler.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall AcpiGetDriverProxyWrappedEndpoint(_QWORD *a1, __int64 a2)
+{
+  *a1 = a2;
+}

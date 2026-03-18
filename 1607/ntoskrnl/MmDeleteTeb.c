@@ -1,0 +1,30 @@
+/*
+ * XREFs of MmDeleteTeb @ 0x1404CD424
+ * Callers:
+ *     PspAllocateThread @ 0x1405154A0 (PspAllocateThread.c)
+ *     PspExitThread @ 0x14051611C (PspExitThread.c)
+ *     PspInsertThread @ 0x140516750 (PspInsertThread.c)
+ * Callees:
+ *     MiObtainReferencedVad @ 0x14003E320 (MiObtainReferencedVad.c)
+ *     KiStackAttachProcess @ 0x1400CD1F0 (KiStackAttachProcess.c)
+ *     KiUnstackDetachProcess @ 0x1400CE820 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x14014CA50 (__security_check_cookie.c)
+ *     MiDeleteTebRange @ 0x1404CD4BC (MiDeleteTebRange.c)
+ */
+
+int __fastcall MmDeleteTeb(_KPROCESS *a1, __int64 a2)
+{
+  int v3; // ebx
+  unsigned __int64 v4; // rax
+  int v6; // [rsp+20h] [rbp-48h] BYREF
+  _BYTE v7[48]; // [rsp+28h] [rbp-40h] BYREF
+
+  v3 = 6200;
+  if ( a1[1].ActiveProcessors.Bitmap[7] )
+    v3 = 10296;
+  KiStackAttachProcess(a1, 0, (__int64)v7);
+  v4 = MiObtainReferencedVad(a2, &v6);
+  if ( v4 )
+    MiDeleteTebRange(v4, a2, (v3 + 4095) & 0xFFFFF000, 0x4000LL);
+  return KiUnstackDetachProcess((struct _KTHREAD *)v7, 0);
+}

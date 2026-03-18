@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?OpmReset@ADAPTER_DISPLAY@@AEAAXXZ @ 0x140199F1C
+ * Callers:
+ *     ?Reset@ADAPTER_DISPLAY@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x14019AB14 (-Reset@ADAPTER_DISPLAY@@QEAAJPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x14000B9E0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140028A90 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?IsCoreResourceSharedOwner@ADAPTER_DISPLAY@@QEBAEXZ @ 0x140031B58 (-IsCoreResourceSharedOwner@ADAPTER_DISPLAY@@QEBAEXZ.c)
+ */
+
+void __fastcall ADAPTER_DISPLAY::OpmReset(ADAPTER_DISPLAY *this)
+{
+  _BYTE *i; // rax
+  _BYTE v3[24]; // [rsp+50h] [rbp-18h] BYREF
+
+  if ( !ADAPTER_DISPLAY::IsCoreResourceSharedOwner(this) )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 7022;
+    DxgkLogInternalTriageEvent(0LL, 262146LL, 0xFFFFFFFFLL, L"IsCoreResourceSharedOwner()", 7022LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v3, (ADAPTER_DISPLAY *)((char *)this + 376), 0);
+  for ( i = (_BYTE *)*((_QWORD *)this + 44); i != (char *)this + 352; i = *(_BYTE **)i )
+    i[32] = 1;
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v3);
+}

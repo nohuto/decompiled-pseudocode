@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1KeyframeSequence@@QEAA@XZ @ 0x18005D3B8
+ * Callers:
+ *     ?reset@?$unique_ptr@VKeyframeSequence@@U?$default_delete@VKeyframeSequence@@@std@@@std@@QEAAXPEAVKeyframeSequence@@@Z @ 0x18005D35C (-reset@-$unique_ptr@VKeyframeSequence@@U-$default_delete@VKeyframeSequence@@@std@@@std@@QEAAXPEA.c)
+ *     ??1?$unique_ptr@VKeyframeSequence@@U?$default_delete@VKeyframeSequence@@@std@@@std@@QEAA@XZ @ 0x18005D38C (--1-$unique_ptr@VKeyframeSequence@@U-$default_delete@VKeyframeSequence@@@std@@@std@@QEAA@XZ.c)
+ * Callees:
+ *     ?RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x18005D5B4 (-RemoveAllKeyFrames@KeyframeSequence@@AEAAXXZ.c)
+ */
+
+void __fastcall KeyframeSequence::~KeyframeSequence(CPathData **this)
+{
+  KeyframeSequence::RemoveAllKeyFrames((KeyframeSequence *)this);
+  Microsoft::WRL::ComPtr<CPathData>::InternalRelease(this + 8);
+}

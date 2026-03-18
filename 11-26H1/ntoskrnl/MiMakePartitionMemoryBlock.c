@@ -1,0 +1,148 @@
+/*
+ * XREFs of MiMakePartitionMemoryBlock @ 0x14087C5D4
+ * Callers:
+ *     MiClearPartitionPageBitMap @ 0x140708808 (MiClearPartitionPageBitMap.c)
+ *     MiInsertPartitionPageNodes @ 0x140708F28 (MiInsertPartitionPageNodes.c)
+ *     MiPartitionDeleteMemoryNode @ 0x1407094E0 (MiPartitionDeleteMemoryNode.c)
+ *     MiRebuildPartitionMemoryBlock @ 0x1407095C0 (MiRebuildPartitionMemoryBlock.c)
+ *     MiReturnPartitionPagesToParent @ 0x1407098B8 (MiReturnPartitionPagesToParent.c)
+ *     MiFinishChildPartitionHotAdd @ 0x14087BDA0 (MiFinishChildPartitionHotAdd.c)
+ * Callees:
+ *     ExAllocatePoolMm @ 0x1403985B0 (ExAllocatePoolMm.c)
+ *     MiDereferencePageRuns @ 0x1403C9634 (MiDereferencePageRuns.c)
+ *     MmGetCurrentProcessorColor @ 0x14044ADC0 (MmGetCurrentProcessorColor.c)
+ *     MiActOnPartitionNodePages @ 0x140707C4C (MiActOnPartitionNodePages.c)
+ *     MiUpdatePartitionMemory @ 0x140709F1C (MiUpdatePartitionMemory.c)
+ *     memset_0 @ 0x14073D880 (memset_0.c)
+ *     MiConvertInitialMemoryBlock @ 0x140865D74 (MiConvertInitialMemoryBlock.c)
+ *     MiCreateNodeLists @ 0x140866094 (MiCreateNodeLists.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall MiMakePartitionMemoryBlock(__int64 a1)
+{
+  _QWORD *v2; // rax
+  _QWORD *v3; // rbx
+  _QWORD **v4; // rcx
+  __int64 v5; // r10
+  _QWORD *v6; // rax
+  _QWORD *i; // rcx
+  __int64 v8; // r15
+  unsigned __int64 v9; // rbx
+  int v10; // edi
+  int CurrentProcessorColor; // eax
+  __int64 PoolMm; // rax
+  void *v13; // r14
+  _QWORD *v14; // rbx
+  _QWORD *j; // rax
+  _QWORD **v16; // rcx
+  __int64 v17; // r10
+  _QWORD *v18; // rax
+  _QWORD *k; // rcx
+  __int64 v20; // [rsp+28h] [rbp-79h] BYREF
+  __int128 v21; // [rsp+30h] [rbp-71h]
+  __int64 v22; // [rsp+40h] [rbp-61h]
+  _BYTE v23[40]; // [rsp+48h] [rbp-59h] BYREF
+  unsigned __int64 v24; // [rsp+70h] [rbp-31h]
+  __int64 v25; // [rsp+78h] [rbp-29h]
+  _BYTE v26[64]; // [rsp+98h] [rbp-9h] BYREF
+  __int64 v27; // [rsp+D8h] [rbp+37h]
+
+  v20 = 0LL;
+  v22 = 0LL;
+  memset_0(v26, 0, 0x48uLL);
+  memset_0(v23, 0, 0x48uLL);
+  if ( (ULONG *)a1 != &MiSystemPartition )
+  {
+    v2 = *(_QWORD **)(a1 + 24);
+    v3 = 0LL;
+    while ( v2 )
+    {
+      v3 = v2;
+      v2 = (_QWORD *)*v2;
+    }
+    while ( v3 )
+    {
+      v4 = (_QWORD **)v3[1];
+      v5 = (__int64)v3;
+      v6 = v3;
+      if ( v4 )
+      {
+        v3 = (_QWORD *)v3[1];
+        for ( i = *v4; i; i = (_QWORD *)*i )
+          v3 = i;
+      }
+      else
+      {
+        while ( 1 )
+        {
+          v3 = (_QWORD *)(v3[2] & 0xFFFFFFFFFFFFFFFCuLL);
+          if ( !v3 || (_QWORD *)*v3 == v6 )
+            break;
+          v6 = v3;
+        }
+      }
+      MiActOnPartitionNodePages(v5, 7u, 0, (__int64)v23);
+    }
+    v8 = v25;
+    v9 = v24;
+    v10 = 1;
+    v21 = 0LL;
+    if ( !v25 )
+      goto LABEL_35;
+    if ( v24 <= 0x7FFFFFFFFFFFFFFLL )
+    {
+      CurrentProcessorColor = MmGetCurrentProcessorColor();
+      PoolMm = ExAllocatePoolMm(64LL, 16 * (v9 + 1), 1817013581, CurrentProcessorColor | 0x80000000);
+      v13 = (void *)PoolMm;
+      if ( PoolMm )
+      {
+        v27 = PoolMm;
+        *(_DWORD *)PoolMm = v9;
+        v14 = 0LL;
+        *(_QWORD *)(PoolMm + 8) = v8;
+        for ( j = *(_QWORD **)(a1 + 24); j; j = (_QWORD *)*j )
+          v14 = j;
+        while ( v14 )
+        {
+          v16 = (_QWORD **)v14[1];
+          v17 = (__int64)v14;
+          v18 = v14;
+          if ( v16 )
+          {
+            v14 = (_QWORD *)v14[1];
+            for ( k = *v16; k; k = (_QWORD *)*k )
+              v14 = k;
+          }
+          else
+          {
+            while ( 1 )
+            {
+              v14 = (_QWORD *)(v14[2] & 0xFFFFFFFFFFFFFFFCuLL);
+              if ( !v14 || (_QWORD *)*v14 == v18 )
+                break;
+              v18 = v14;
+            }
+          }
+          MiActOnPartitionNodePages(v17, 8u, 0, (__int64)v26);
+        }
+        *(_QWORD *)&v21 = MiConvertInitialMemoryBlock(a1, (__int64)v13);
+        ExFreePoolWithTag(v13, 0);
+        if ( (_QWORD)v21 )
+        {
+          *((_QWORD *)&v21 + 1) = MiCreateNodeLists(a1, v21);
+          if ( *((_QWORD *)&v21 + 1) )
+          {
+LABEL_35:
+            MiUpdatePartitionMemory(a1, (__int64)&v20, v10);
+            return;
+          }
+          MiDereferencePageRuns(v21);
+          *(_QWORD *)&v21 = 0LL;
+        }
+      }
+    }
+    v10 = 0;
+    goto LABEL_35;
+  }
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?SelfDestruct@FxObject@@MEAAXXZ @ 0x140062520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400ACF10 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall FxObject::SelfDestruct(FxObject *this)
+{
+  if ( this )
+    ((void (__fastcall *)(FxObject *, __int64))this->~FxObject)(this, 1LL);
+}

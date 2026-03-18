@@ -1,0 +1,131 @@
+/*
+ * XREFs of ?SetInteractionConfiguration@CInteractionProcessor@@QEAAJW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@PEBXI@Z @ 0x1800290BC
+ * Callers:
+ *     ?OnInteractionUpdate@CManipulationManager@@AEAAXXZ @ 0x180025BC0 (-OnInteractionUpdate@CManipulationManager@@AEAAXXZ.c)
+ *     ?Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z @ 0x180191E7C (-Initialize@CInteractionRoot@@QEAAJPEAUIManipulationContext@@_N@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::SetArrayConfiguration_DwmTouchpadInteractionConfigurationPrimitive_ @ 0x1800C306C (_anonymous_namespace_--SetArrayConfiguration_DwmTouchpadInteractionConfigurationPrimitive_.c)
+ *     _anonymous_namespace_::SetArrayConfiguration_DwmMousewheelInteractionConfigurationPrimitive_ @ 0x1800C6260 (_anonymous_namespace_--SetArrayConfiguration_DwmMousewheelInteractionConfigurationPrimitive_.c)
+ */
+
+__int64 __fastcall CInteractionProcessor::SetInteractionConfiguration(
+        __int64 a1,
+        int a2,
+        int a3,
+        int *a4,
+        unsigned int a5)
+{
+  int v7; // r8d
+  int v8; // r8d
+  int v9; // r8d
+  int v10; // eax
+  char v11; // cl
+  unsigned int v12; // edx
+  int v14; // eax
+  int v15; // eax
+  int v16; // r8d
+  int v17; // eax
+  __int64 v18; // rdx
+  int v19; // eax
+
+  v7 = a3 - 1;
+  if ( !v7 )
+  {
+    v15 = anonymous_namespace_::SetArrayConfiguration_DwmTouchpadInteractionConfigurationPrimitive_(
+            a4,
+            a5,
+            a1 + (a2 != 0 ? 720LL : 88LL));
+    v11 = 0;
+    v12 = v15;
+    if ( v15 < 0 )
+      return v12;
+    if ( !a2 )
+      *(_BYTE *)(a1 + 148) |= 1u;
+    goto LABEL_7;
+  }
+  v8 = v7 - 1;
+  if ( !v8 )
+  {
+    v14 = anonymous_namespace_::SetArrayConfiguration_DwmTouchpadInteractionConfigurationPrimitive_(
+            a4,
+            a5,
+            a1 + (a2 != 0 ? 752LL : 248LL));
+    v11 = 0;
+    v12 = v14;
+    if ( v14 < 0 )
+      return v12;
+    if ( !a2 )
+      *(_BYTE *)(a1 + 308) |= 1u;
+    goto LABEL_7;
+  }
+  v9 = v8 - 1;
+  if ( !v9 )
+  {
+    v10 = anonymous_namespace_::SetArrayConfiguration_DwmTouchpadInteractionConfigurationPrimitive_(
+            a4,
+            a5,
+            a1 + (a2 != 0 ? 688LL : 408LL));
+    v11 = 0;
+    v12 = v10;
+    if ( v10 < 0 )
+      return v12;
+    if ( !a2 )
+      *(_BYTE *)(a1 + 468) |= 1u;
+    goto LABEL_7;
+  }
+  v16 = v9 - 1;
+  if ( !v16 )
+  {
+    v11 = 0;
+    v12 = 0;
+    if ( a4 )
+    {
+      if ( a5 )
+      {
+        v17 = *a4;
+LABEL_26:
+        *(_DWORD *)((a2 != 0 ? 8 : 0) + a1 + 640) = v17;
+LABEL_7:
+        if ( (v12 & 0x80000000) == 0 && a2 == 1 )
+        {
+          if ( *(_DWORD *)(a1 + 648)
+            || *(_DWORD *)(a1 + 680)
+            || *(_DWORD *)(a1 + 712)
+            || *(_DWORD *)(a1 + 744)
+            || *(_DWORD *)(a1 + 776) )
+          {
+            v11 = 1;
+          }
+          *(_BYTE *)(a1 + 1264) &= ~1u;
+          *(_BYTE *)(a1 + 1264) |= v11;
+        }
+        return v12;
+      }
+    }
+    else if ( a5 )
+    {
+      v12 = -2147024809;
+      goto LABEL_7;
+    }
+    v17 = 0;
+    goto LABEL_26;
+  }
+  if ( v16 != 1 )
+    return (unsigned int)-2147024809;
+  v18 = a5;
+  if ( a5 == 1 )
+    v18 = a4[2] != 0;
+  v19 = anonymous_namespace_::SetArrayConfiguration_DwmMousewheelInteractionConfigurationPrimitive_(
+          a4,
+          v18,
+          (a2 != 0 ? 0x58 : 0) + a1 + 568);
+  v11 = 0;
+  v12 = v19;
+  if ( v19 >= 0 )
+  {
+    if ( !a2 )
+      *(_BYTE *)(a1 + 628) |= 1u;
+    goto LABEL_7;
+  }
+  return v12;
+}

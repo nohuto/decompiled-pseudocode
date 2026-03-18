@@ -1,0 +1,31 @@
+/*
+ * XREFs of ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x1801B3EF8
+ * Callers:
+ *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x1800FB9F0 (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
+ *     ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x180217C7C (-TryCreateEffectInstance@CEffectBrush@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+const struct Windows::UI::Composition::ICompiledEffect *__fastcall CCompiledEffectTemplate::GetCompiledEffectNoRef(
+        CCompiledEffectTemplate *this)
+{
+  __int64 v1; // rbx
+  __int64 v2; // rdi
+  struct _TP_WORK *v3; // rcx
+
+  v1 = *((_QWORD *)this + 10);
+  v2 = 0LL;
+  if ( v1 && *(_DWORD *)(v1 + 72) == 3 )
+  {
+    v3 = *(struct _TP_WORK **)(v1 + 64);
+    if ( v3 )
+    {
+      WaitForThreadpoolWorkCallbacks(v3, 0);
+      CloseThreadpoolWork(*(PTP_WORK *)(v1 + 64));
+      *(_QWORD *)(v1 + 64) = 0LL;
+    }
+    return *(const struct Windows::UI::Composition::ICompiledEffect **)(*(_QWORD *)(v1 + 80) + 32LL);
+  }
+  return (const struct Windows::UI::Composition::ICompiledEffect *)v2;
+}

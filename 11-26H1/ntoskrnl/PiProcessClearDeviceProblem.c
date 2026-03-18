@@ -1,0 +1,73 @@
+/*
+ * XREFs of PiProcessClearDeviceProblem @ 0x140B419C4
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140482AA0 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     PipIsProblemReadonly @ 0x1407A53EC (PipIsProblemReadonly.c)
+ *     PipClearDevNodeFlags @ 0x14090E080 (PipClearDevNodeFlags.c)
+ *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
+ *     PiPnpRtlBeginOperation @ 0x1409A7AC8 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlEndOperation @ 0x1409A7CB4 (PiPnpRtlEndOperation.c)
+ *     PnpRestartDeviceNode @ 0x140B218FC (PnpRestartDeviceNode.c)
+ */
+
+__int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)
+{
+  __int64 v1; // rax
+  unsigned int v2; // ebx
+  _DWORD *v4; // rdi
+  int v5; // edx
+  int v6; // ecx
+  int v7; // eax
+  bool v8; // zf
+  __int64 v9; // rdx
+  int v10; // eax
+  PVOID P; // [rsp+30h] [rbp+8h] BYREF
+
+  v1 = *(_QWORD *)(a1 + 16);
+  v2 = 0;
+  P = 0LL;
+  v4 = *(_DWORD **)(*(_QWORD *)(v1 + 312) + 40LL);
+  v5 = v4[75];
+  if ( v5 != 769 && (unsigned int)(v5 - 770) > 2 && v5 != 788 )
+  {
+    if ( (unsigned int)(v5 - 789) <= 1 )
+      return (unsigned int)-1073741738;
+    return v2;
+  }
+  v6 = v4[99];
+  if ( (v6 & 0x6000) == 0 )
+    return v2;
+  v7 = *(_DWORD *)(a1 + 24);
+  switch ( v7 )
+  {
+    case 1:
+      if ( PipIsProblemReadonly((__int64)v4, v4[101]) )
+        return (unsigned int)-1073741584;
+      goto LABEL_18;
+    case 3:
+      if ( (v6 & 0x2000) == 0 )
+        return (unsigned int)-1073741808;
+      v8 = v4[101] == 47;
+      break;
+    case 25:
+      if ( (v6 & 0x2000) == 0 )
+        return (unsigned int)-1073741808;
+      v8 = v4[101] == 55;
+      break;
+    default:
+      goto LABEL_18;
+  }
+  if ( !v8 )
+    return (unsigned int)-1073741808;
+LABEL_18:
+  PiPnpRtlBeginOperation(&P);
+  PipClearDevNodeFlags((__int64)v4, 0x4000);
+  PipClearDevNodeProblem((__int64)v4, v9);
+  v10 = v4[75];
+  if ( v10 != 769 && v10 != 770 )
+    PnpRestartDeviceNode((__int64)v4);
+  if ( P )
+    PiPnpRtlEndOperation((char *)P);
+  return v2;
+}

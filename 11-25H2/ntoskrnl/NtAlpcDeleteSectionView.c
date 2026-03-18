@@ -1,0 +1,77 @@
+/*
+ * XREFs of NtAlpcDeleteSectionView @ 0x1408B5B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140206F00 (KeLeaveCriticalRegion.c)
+ *     KeAbPreAcquire @ 0x14029B110 (KeAbPreAcquire.c)
+ *     ExfReleasePushLockShared @ 0x14029B450 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x14029B5A0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x14029BE00 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x140309490 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
+ *     AlpcpDeleteView @ 0x1408AF704 (AlpcpDeleteView.c)
+ *     AlpcpDereferenceBlobEx @ 0x1408B27D0 (AlpcpDereferenceBlobEx.c)
+ *     AlpcpEnumerateResourcesPort @ 0x1408B4CD4 (AlpcpEnumerateResourcesPort.c)
+ */
+
+__int64 __fastcall NtAlpcDeleteSectionView(void *a1, int a2, ULONG_PTR a3)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  NTSTATUS v5; // ebx
+  signed __int64 *v6; // rbx
+  __int64 v7; // rdx
+  __int64 *v8; // rdi
+  __int64 v9; // r8
+  int v10; // edi
+  ULONG_PTR v11; // rdi
+  char v12; // bl
+  ULONG_PTR BugCheckParameter2[4]; // [rsp+38h] [rbp-20h] BYREF
+  PVOID Object; // [rsp+78h] [rbp+20h] BYREF
+
+  *(_OWORD *)BugCheckParameter2 = 0LL;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  if ( a2 )
+  {
+    v5 = -1073741811;
+  }
+  else
+  {
+    Object = 0LL;
+    v5 = ObReferenceObjectByHandle(a1, 1u, AlpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+    if ( v5 >= 0 )
+    {
+      v6 = (signed __int64 *)((char *)Object + 352);
+      BugCheckParameter2[1] = 0LL;
+      BugCheckParameter2[0] = a3;
+      do
+      {
+        v8 = KeAbPreAcquire((__int64)v6, 0LL);
+        if ( _InterlockedCompareExchange64(v6, 17LL, 0LL) )
+          ExfAcquirePushLockSharedEx(v6, 0, v8, (unsigned __int64)v6);
+        if ( v8 )
+          *((_BYTE *)v8 + 10) = 1;
+        v10 = AlpcpEnumerateResourcesPort((__int64)Object, v7, v9, (__int64)BugCheckParameter2);
+        if ( _InterlockedCompareExchange64(v6, 0LL, 17LL) != 17 )
+          ExfReleasePushLockShared(v6);
+        KeAbPostRelease((ULONG_PTR)v6);
+      }
+      while ( v10 == -1073741267 );
+      v11 = BugCheckParameter2[1];
+      if ( BugCheckParameter2[1] )
+      {
+        v12 = AlpcpDeleteView(BugCheckParameter2[1]);
+        AlpcpDereferenceBlobEx(v11, 1);
+        v5 = v12 == 0 ? 0xC0000056 : 0;
+      }
+      else
+      {
+        v5 = -1073741503;
+      }
+      ObfDereferenceObject(Object);
+    }
+  }
+  KeLeaveCriticalRegion();
+  return (unsigned int)v5;
+}

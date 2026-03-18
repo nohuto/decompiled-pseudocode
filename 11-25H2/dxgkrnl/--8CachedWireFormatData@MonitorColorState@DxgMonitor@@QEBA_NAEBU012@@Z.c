@@ -1,0 +1,15 @@
+/*
+ * XREFs of ??8CachedWireFormatData@MonitorColorState@DxgMonitor@@QEBA_NAEBU012@@Z @ 0x140273AB4
+ * Callers:
+ *     ?_ReevaluateColorAndLuminanceSources@MonitorColorState@DxgMonitor@@AEAA_NXZ @ 0x140275630 (-_ReevaluateColorAndLuminanceSources@MonitorColorState@DxgMonitor@@AEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DxgMonitor::MonitorColorState::CachedWireFormatData::operator==(_BYTE *a1, _BYTE *a2)
+{
+  return *a1 == *a2
+      && RtlCompareMemory(a1 + 4, a2 + 4, 0x14uLL) == 20
+      && RtlCompareMemory(a1 + 24, a2 + 24, 8uLL) == 8
+      && a1[32] == a2[32];
+}

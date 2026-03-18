@@ -1,0 +1,196 @@
+/*
+ * XREFs of UsbhIoctlGetDescriptorForPDO @ 0x1C003E230
+ * Callers:
+ *     UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003E6C4 (UsbhIoctlGetDescriptorFromNodeConnection.c)
+ * Callees:
+ *     FdoExt @ 0x1C000F050 (FdoExt.c)
+ *     Log @ 0x1C000FD80 (Log.c)
+ *     PdoExt @ 0x1C0011220 (PdoExt.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0015C80 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0016670 (UsbhDerefPdoDeviceHandle.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C00177A8 (UsbhSyncSendCommandToDevice.c)
+ *     memmove @ 0x1C001D080 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E0B4 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E188 (WPP_RECORDER_SF_d.c)
+ *     UsbhAcquireFdoPnpLock @ 0x1C0031714 (UsbhAcquireFdoPnpLock.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C00317D8 (UsbhReleaseFdoPnpLock.c)
+ */
+
+__int64 __fastcall UsbhIoctlGetDescriptorForPDO(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        unsigned __int16 *a5,
+        char *a6,
+        char a7,
+        char a8)
+{
+  int v12; // r10d
+  __int64 v13; // rbx
+  _DWORD *v14; // r14
+  __int64 v15; // r15
+  int v16; // r10d
+  _DWORD *v17; // rax
+  _DWORD *v18; // rax
+  char v19; // al
+  _WORD *v20; // rdx
+  unsigned __int16 v21; // bp
+  unsigned __int16 v22; // bp
+  int v23; // r10d
+  __int64 v24; // r9
+  int v25; // r8d
+  int v26; // r8d
+  char v27; // al
+  __int64 v29; // [rsp+20h] [rbp-48h]
+
+  Log(a1, 32, 1195659313, a2, 0LL);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    WPP_RECORDER_SF_(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      2u,
+      0x21u,
+      (__int64)&WPP_5e274af30a573d3e0e39e592c1d024f3_Traceguids);
+    v12 = 32;
+  }
+  if ( *(_WORD *)(a4 + 6) > *a5 )
+  {
+    Log(a1, v12, 1195659314, a2, 0LL);
+    LODWORD(v13) = -1073741789;
+    goto LABEL_59;
+  }
+  if ( *(_BYTE *)(a4 + 1) != 6 )
+  {
+    Log(a1, v12, 1195659315, a2, *(unsigned __int8 *)(a4 + 1));
+LABEL_8:
+    LODWORD(v13) = -1073741811;
+    goto LABEL_59;
+  }
+  if ( *(char *)a4 >= 0 )
+  {
+    Log(a1, v12, 1195659316, a2, 0LL);
+    goto LABEL_8;
+  }
+  v14 = PdoExt(a2);
+  v15 = UsbhRefPdoDeviceHandle(a1, a2, a3, 0x48446E67u);
+  Log(a1, 32, 1919304753, 0LL, v15);
+  if ( v15 && !a8 )
+  {
+    if ( a7 )
+    {
+      v17 = FdoExt(a1);
+      UsbhReleaseFdoPnpLock(a1, (__int64)(v17 + 434));
+    }
+    v13 = (int)UsbhSyncSendCommandToDevice(a1, a2, (_BYTE *)a4, (__int64)a6, a5);
+    UsbhDerefPdoDeviceHandle(a1, v15, a3, 0x48446E67u);
+    if ( a7 )
+    {
+      v18 = FdoExt(a1);
+      UsbhAcquireFdoPnpLock(a1, (__int64)(v18 + 434), 11, -267583477, 0);
+    }
+    Log(a1, 32, 1195659316, v13, 0LL);
+    goto LABEL_59;
+  }
+  v19 = *(_BYTE *)(a4 + 3);
+  if ( v19 == 2 )
+  {
+    if ( !*(_BYTE *)(a4 + 2) )
+    {
+      v20 = (_WORD *)*((_QWORD *)v14 + 299);
+      goto LABEL_21;
+    }
+    goto LABEL_56;
+  }
+  if ( v19 == 1 )
+  {
+    if ( *(_BYTE *)(a4 + 2) )
+      goto LABEL_56;
+    v22 = *a5;
+    if ( *a5 > 0x12u )
+      v22 = 18;
+    Log(a1, v16, 1195659316, *(unsigned __int16 *)(a4 + 6), *a5);
+    if ( v22 <= *(_WORD *)(a4 + 6) && v22 <= *a5 )
+    {
+      memmove(a6, v14 + 350, v22);
+      v24 = (__int64)a6;
+      v25 = 1195659317;
+      v29 = v22;
+LABEL_37:
+      *a5 = v22;
+      Log(a1, 32, v25, v24, v29);
+      LODWORD(v13) = 0;
+      goto LABEL_57;
+    }
+    v26 = 1195659318;
+    goto LABEL_54;
+  }
+  if ( v19 != 15 )
+  {
+    if ( v19 != 3 )
+      goto LABEL_56;
+    v27 = *(_BYTE *)(a4 + 2);
+    if ( !v27 || v27 != *((_BYTE *)v14 + 1416) || !*((_QWORD *)v14 + 267) || !v14[533] || *(_WORD *)(a4 + 4) != 1033 )
+      goto LABEL_56;
+    v22 = *((_WORD *)v14 + 1066);
+    if ( *(unsigned __int8 *)a5 <= v22 )
+      v22 = *(unsigned __int8 *)a5;
+    Log(a1, v16, 1195659319, *(unsigned __int16 *)(a4 + 6), *a5);
+    if ( v22 <= *(_WORD *)(a4 + 6) && v22 <= *a5 )
+    {
+      *a6 = v22;
+      a6[1] = 3;
+      memmove(a6 + 2, *((const void **)v14 + 267), (unsigned int)v14[533] - 2LL);
+      v24 = (__int64)a6;
+      v29 = v22;
+      v25 = 1195659320;
+      goto LABEL_37;
+    }
+    v26 = 1195659321;
+LABEL_54:
+    Log(a1, v23, v26, (__int64)a6, v22);
+LABEL_55:
+    *a5 = 0;
+    goto LABEL_56;
+  }
+  if ( !*(_BYTE *)(a4 + 2) )
+  {
+    v20 = (_WORD *)*((_QWORD *)v14 + 300);
+LABEL_21:
+    if ( v20 )
+    {
+      v21 = v20[1];
+      if ( *a5 <= v21 )
+        v21 = *a5;
+      if ( v21 <= *(_WORD *)(a4 + 6) && v21 <= *a5 && v21 )
+      {
+        memmove(a6, v20, v21);
+        LODWORD(v13) = 0;
+      }
+      else
+      {
+        LODWORD(v13) = -1073741823;
+        v21 = 0;
+      }
+      *a5 = v21;
+      goto LABEL_57;
+    }
+    goto LABEL_55;
+  }
+LABEL_56:
+  LODWORD(v13) = -1073741823;
+LABEL_57:
+  if ( v15 )
+    UsbhDerefPdoDeviceHandle(a1, v15, a3, 0x48446E67u);
+LABEL_59:
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      2u,
+      0x22u,
+      (__int64)&WPP_5e274af30a573d3e0e39e592c1d024f3_Traceguids,
+      v13);
+  return (unsigned int)v13;
+}

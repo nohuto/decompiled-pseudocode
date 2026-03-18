@@ -1,0 +1,98 @@
+/*
+ * XREFs of ??$Win32HM_UnlockFromThread@$00@@YAPEAU_HEAD@@PEAUtagTHREADINFO@@PEAU_Win32HMThreadLockItem@@@Z @ 0x1400416B0
+ * Callers:
+ *     ?xxxUpdateThreadsWindows@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@PEAUHRGN__@@@Z @ 0x140032130 (-xxxUpdateThreadsWindows@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     ?xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z @ 0x1400322FC (-xxxUpdateWindow2@@YAXPEAUtagWND@@K@Z.c)
+ *     ?xxxCompositedTraverse@@YAHPEAUtagWND@@@Z @ 0x140032964 (-xxxCompositedTraverse@@YAHPEAUtagWND@@@Z.c)
+ *     ?xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z @ 0x140034330 (-xxxInternalDoPaint@@YAPEAUtagWND@@PEAU1@PEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z @ 0x140035564 (-xxxSendChildNCPaint@@YAXPEAUtagWND@@@Z.c)
+ *     xxxGetControlBrush @ 0x14003A374 (xxxGetControlBrush.c)
+ *     ?xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHW4WindowHitTestOption@@@Z @ 0x14003C7B8 (-xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHW4WindowHitTestOption@@@Z.c)
+ *     xxxSendMinRectMessages @ 0x14003CD64 (xxxSendMinRectMessages.c)
+ *     ?xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_ARGS@@@Z @ 0x14003F500 (-xxxDCEWindowHitTestIndirect@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@_NPEAUtagDCE_WINDOW_HIT_TEST_.c)
+ *     xxxWindowFromPoint @ 0x140040384 (xxxWindowFromPoint.c)
+ *     ?xxxSendPostedMessage@@YAXAEBUtagMSG@@PEAU1@@Z @ 0x14004072C (-xxxSendPostedMessage@@YAXAEBUtagMSG@@PEAU1@@Z.c)
+ *     ??1?$Win32HMOptionalThreadLock@UtagHOOK@@@@QEAA@XZ @ 0x140040808 (--1-$Win32HMOptionalThreadLock@UtagHOOK@@@@QEAA@XZ.c)
+ *     ??$ManualUnlock@X@?$Win32HMThreadLockBase@UtagCURSOR@@$00$00@@QEAAPEAUtagCURSOR@@XZ @ 0x14004083C (--$ManualUnlock@X@-$Win32HMThreadLockBase@UtagCURSOR@@$00$00@@QEAAPEAUtagCURSOR@@XZ.c)
+ *     ??1?$Win32HMThreadLock@UtagCURSOR@@@@QEAA@XZ @ 0x140040874 (--1-$Win32HMThreadLock@UtagCURSOR@@@@QEAA@XZ.c)
+ *     xxxWindowEvent @ 0x1400408B0 (xxxWindowEvent.c)
+ *     xxxRedrawWindow @ 0x140042630 (xxxRedrawWindow.c)
+ *     ?xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z @ 0x140047AFC (-xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxWindowHitTest2@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHW4WindowHitTestOption@@@Z @ 0x1400678B8 (-xxxWindowHitTest2@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHW4WindowHitTestOption@@@Z.c)
+ *     xxxMenuDraw @ 0x14006938C (xxxMenuDraw.c)
+ *     xxxMNInvertItem @ 0x14006BB74 (xxxMNInvertItem.c)
+ *     xxxHandleMenuMessages @ 0x14006D0F0 (xxxHandleMenuMessages.c)
+ *     xxxMNMouseMove @ 0x14006DA24 (xxxMNMouseMove.c)
+ *     xxxEnableMenuItem @ 0x14006F560 (xxxEnableMenuItem.c)
+ *     NtUserDeleteMenu @ 0x14006FD90 (NtUserDeleteMenu.c)
+ *     xxxSetMenuItemInfo @ 0x14006FFFC (xxxSetMenuItemInfo.c)
+ *     NtUserRemoveMenu @ 0x140070AC0 (NtUserRemoveMenu.c)
+ *     xxxInsertMenuItem @ 0x140071A30 (xxxInsertMenuItem.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x140073DDC (xxxInitSendValidateMinMaxInfoEx.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1400749F8 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1400759F4 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x14007E01C (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     _anonymous_namespace_::xxxUpdateTray @ 0x1400883B4 (_anonymous_namespace_--xxxUpdateTray.c)
+ *     NtUserSetParent @ 0x140088820 (NtUserSetParent.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x140088950 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     SfnOUTCBOXSTRING @ 0x140089680 (SfnOUTCBOXSTRING.c)
+ *     NtUserSetCapture @ 0x140089770 (NtUserSetCapture.c)
+ *     SfnOUTLBOXSTRING @ 0x140089810 (SfnOUTLBOXSTRING.c)
+ *     xxxDW_SendDestroyMessages @ 0x14008A4B0 (xxxDW_SendDestroyMessages.c)
+ *     ?xxxMoveFocusAway@@YAXPEBUtagWND@@@Z @ 0x14008A638 (-xxxMoveFocusAway@@YAXPEBUtagWND@@@Z.c)
+ *     zzzInternalDestroyCaret @ 0x140095744 (zzzInternalDestroyCaret.c)
+ *     zzzLockWindowUpdate2 @ 0x140097CA0 (zzzLockWindowUpdate2.c)
+ *     xxxMNStartMenu @ 0x14009A980 (xxxMNStartMenu.c)
+ *     xxxMNOpenHierarchy @ 0x14009BE5C (xxxMNOpenHierarchy.c)
+ *     xxxTranslateAccelerator @ 0x14009CDF0 (xxxTranslateAccelerator.c)
+ *     xxxMNCancel @ 0x14009D784 (xxxMNCancel.c)
+ *     xxxMNSelectItem @ 0x14009DA30 (xxxMNSelectItem.c)
+ *     EditionPointerParentNotify @ 0x1400A97F0 (EditionPointerParentNotify.c)
+ *     xxxIsDragging @ 0x140109A1C (xxxIsDragging.c)
+ *     xxxInterSendMsgEx @ 0x14011A1D0 (xxxInterSendMsgEx.c)
+ *     ClearSendMessages @ 0x14011B918 (ClearSendMessages.c)
+ *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x140132C48 (-xxxEnsureAllDpiCursors@@YAXXZ.c)
+ *     xxxUserResetDisplayDevice @ 0x140135460 (xxxUserResetDisplayDevice.c)
+ *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x14014873C (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
+ *     zzzMoveShadow @ 0x14015CE1C (zzzMoveShadow.c)
+ *     xxxUpdateShadowZorder @ 0x14015CEB0 (xxxUpdateShadowZorder.c)
+ *     xxxAddShadow @ 0x14015CF84 (xxxAddShadow.c)
+ *     zzzUpdateShadowAlpha @ 0x14015DFA4 (zzzUpdateShadowAlpha.c)
+ *     NtUserSetFocus @ 0x140183290 (NtUserSetFocus.c)
+ *     ??1?$Win32HMThreadLockBase@UtagTIMER@@$00$00@@QEAA@XZ @ 0x140183910 (--1-$Win32HMThreadLockBase@UtagTIMER@@$00$00@@QEAA@XZ.c)
+ *     xxxSetMenuInfo @ 0x1401A95B8 (xxxSetMenuInfo.c)
+ *     ??1?$Win32HMThreadLockBase@UtagMONITOR@@$00$00@@QEAA@XZ @ 0x1401AA454 (--1-$Win32HMThreadLockBase@UtagMONITOR@@$00$00@@QEAA@XZ.c)
+ *     xxxHandleNCMouseGuys @ 0x1401AF278 (xxxHandleNCMouseGuys.c)
+ *     EditionPointerWindowHitTest @ 0x1401B3FF0 (EditionPointerWindowHitTest.c)
+ *     ?xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHUtagRECT@@KW4tagTARGETING_PROPERTY@@@Z @ 0x1401B5748 (-xxxTargetingHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@1PEAUtagPNTRWINDOWHITTTESTARGS@@PEAHU.c)
+ *     NtUserFillWindow @ 0x1401C95B0 (NtUserFillWindow.c)
+ *     ??1?$Win32HMThreadLockBase@UtagKL@@$00$0A@@@QEAA@XZ @ 0x1401D3670 (--1-$Win32HMThreadLockBase@UtagKL@@$00$0A@@@QEAA@XZ.c)
+ *     xxxPaintMenuBar @ 0x1401D8150 (xxxPaintMenuBar.c)
+ *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1401E2B3C (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
+ *     NtUserSetActiveWindow @ 0x1401E7ED0 (NtUserSetActiveWindow.c)
+ *     ?xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z @ 0x1401EFBD8 (-xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z.c)
+ *     NtUserSetMenu @ 0x1401F5330 (NtUserSetMenu.c)
+ *     ?xxxRestoreToPosAndState@AdvancedWindowPos@@YA_NPEAUtagWND@@AEBUMonitorData@CMonitorTopology@@W4State@1@UtagRECT@@3W4ApplyOption@1@PEAK@Z @ 0x140205E28 (-xxxRestoreToPosAndState@AdvancedWindowPos@@YA_NPEAUtagWND@@AEBUMonitorData@CMonitorTopology@@W4.c)
+ *     NtUserMenuItemFromPoint @ 0x14020EC40 (NtUserMenuItemFromPoint.c)
+ *     NtUserSetSystemCursor @ 0x140214240 (NtUserSetSystemCursor.c)
+ *     xxxTimersProc @ 0x14023F100 (xxxTimersProc.c)
+ *     xxxSnapWindow @ 0x1402641A0 (xxxSnapWindow.c)
+ *     xxxMNSetCapture @ 0x14026533C (xxxMNSetCapture.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Win32HM_UnlockFromThread<1>(ULONG_PTR BugCheckParameter2, _QWORD *BugCheckParameter3)
+{
+  _QWORD *v2; // r8
+  __int64 result; // rax
+
+  v2 = *(_QWORD **)(BugCheckParameter2 + 456);
+  if ( v2 != BugCheckParameter3 )
+    KeBugCheckEx(0x164u, 0x3BuLL, BugCheckParameter2, (ULONG_PTR)BugCheckParameter3, 0LL);
+  *(_QWORD *)(BugCheckParameter2 + 456) = *v2;
+  result = v2[1];
+  if ( result )
+    return HMUnlockObject(v2[1]);
+  return result;
+}

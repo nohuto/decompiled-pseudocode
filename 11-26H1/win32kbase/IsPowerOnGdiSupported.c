@@ -1,0 +1,20 @@
+/*
+ * XREFs of IsPowerOnGdiSupported @ 0x1400EB3F4
+ * Callers:
+ *     ?xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1400EA060 (-xxxWaitForVideoPortCalloutReady@@YAXEEPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x140112470 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1401132A0 (-xxxUserPowerStateCalloutWorker@@YAJXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14024BC70 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall IsPowerOnGdiSupported(__int64 a1)
+{
+  __int64 (*v1)(void); // rax
+
+  v1 = *(__int64 (**)(void))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(a1) + 48) + 1960LL);
+  if ( v1 )
+    return v1();
+  else
+    return 3221225659LL;
+}

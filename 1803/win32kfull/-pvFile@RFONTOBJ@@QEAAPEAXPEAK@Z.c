@@ -1,0 +1,41 @@
+/*
+ * XREFs of ?pvFile@RFONTOBJ@@QEAAPEAXPEAK@Z @ 0x1C0278330
+ * Callers:
+ *     FONTOBJ_pvTrueTypeFontFile @ 0x1C0263EC0 (FONTOBJ_pvTrueTypeFontFile.c)
+ * Callees:
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEAD@Z @ 0x1C0277FDC (-pchTranslate@RFONTOBJ@@QEAAPEADPEAD@Z.c)
+ *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C0290550 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
+ */
+
+char *__fastcall RFONTOBJ::pvFile(RFONTOBJ *this, unsigned int *a2)
+{
+  __int64 v2; // rax
+  char *v3; // r8
+  __int64 v6; // r9
+  unsigned __int64 v7; // rdx
+  char *TrueTypeFile; // rax
+  unsigned int v9; // eax
+  _QWORD v11[3]; // [rsp+20h] [rbp-18h] BYREF
+  unsigned int v12; // [rsp+40h] [rbp+8h] BYREF
+
+  v2 = *(_QWORD *)this;
+  v3 = 0LL;
+  v12 = 0;
+  v6 = *(_QWORD *)(v2 + 112);
+  if ( v6
+    && (v7 = *(_QWORD *)(v6 + 80)) != 0
+    && (v11[0] = *(_QWORD *)(v2 + 112),
+        TrueTypeFile = (char *)PFFOBJ::GetTrueTypeFile((PFFOBJ *)v11, v7, &v12),
+        (v3 = TrueTypeFile) != 0LL)
+    && (v3 = RFONTOBJ::pchTranslate(this, TrueTypeFile)) != 0LL )
+  {
+    v9 = v12;
+  }
+  else
+  {
+    v9 = 0;
+  }
+  if ( a2 )
+    *a2 = v9;
+  return v3;
+}

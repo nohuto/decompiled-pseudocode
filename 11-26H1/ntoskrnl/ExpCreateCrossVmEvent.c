@@ -1,0 +1,33 @@
+/*
+ * XREFs of ExpCreateCrossVmEvent @ 0x1408460C0
+ * Callers:
+ *     NtCreateCrossVmEvent @ 0x14083AD00 (NtCreateCrossVmEvent.c)
+ * Callees:
+ *     ExReleaseExtensionTable @ 0x14048FC18 (ExReleaseExtensionTable.c)
+ *     ExGetExtensionTable @ 0x14049B7B0 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall ExpCreateCrossVmEvent(_QWORD *a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
+{
+  struct _EX_RUNDOWN_REF *SparePtr; // rdi
+  int v9; // ebx
+  __int64 v11; // [rsp+40h] [rbp-28h] BYREF
+
+  SparePtr = (struct _EX_RUNDOWN_REF *)WheapConfigTableLock.WaitBlock[0].SparePtr;
+  v11 = 0LL;
+  if ( !a6 )
+    SparePtr = (struct _EX_RUNDOWN_REF *)WheapConfigTableLock.WaitBlock[1].WaitListEntry.Flink;
+  if ( ExGetExtensionTable(SparePtr) )
+  {
+    v9 = guard_dispatch_icall_no_overrides((__int64)&v11, a2);
+    if ( v9 >= 0 )
+      *a1 = v11;
+    ExReleaseExtensionTable(SparePtr);
+  }
+  else
+  {
+    return (unsigned int)-1073741822;
+  }
+  return (unsigned int)v9;
+}

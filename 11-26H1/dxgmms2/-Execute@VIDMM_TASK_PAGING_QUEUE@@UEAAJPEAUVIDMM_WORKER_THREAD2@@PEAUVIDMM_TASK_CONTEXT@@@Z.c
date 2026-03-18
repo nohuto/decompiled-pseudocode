@@ -1,0 +1,45 @@
+/*
+ * XREFs of ?Execute@VIDMM_TASK_PAGING_QUEUE@@UEAAJPEAUVIDMM_WORKER_THREAD2@@PEAUVIDMM_TASK_CONTEXT@@@Z @ 0x1400B8410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x140031E00 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x140035970 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ *     ExecutePagingCommand @ 0x1400B8780 (ExecutePagingCommand.c)
+ *     ShouldPreemptTask @ 0x1400B88E8 (ShouldPreemptTask.c)
+ *     ?VidMmSelectReadyPacket@@YAPEAUVIDMM_PAGING_QUEUE_PACKET@@PEBUVIDMM_WORKER_THREAD@@PEAUVIDMM_PAGING_QUEUE@@@Z @ 0x14010F370 (-VidMmSelectReadyPacket@@YAPEAUVIDMM_PAGING_QUEUE_PACKET@@PEBUVIDMM_WORKER_THREAD@@PEAUVIDMM_PAG.c)
+ */
+
+__int64 __fastcall VIDMM_TASK_PAGING_QUEUE::Execute(
+        VIDMM_TASK_PAGING_QUEUE *this,
+        struct VIDMM_WORKER_THREAD2 *a2,
+        struct VIDMM_TASK_CONTEXT *a3)
+{
+  char *v3; // rdi
+  _QWORD *v5; // rbp
+  const struct VIDMM_WORKER_THREAD *v7; // rcx
+  struct VIDMM_PAGING_QUEUE_PACKET *v8; // rbx
+  _BYTE v10[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v3 = (char *)this - 120;
+  v5 = (_QWORD *)((char *)this - 88);
+  while ( 1 )
+  {
+    DXGAUTOPUSHLOCKFASTEXCLUSIVE::DXGAUTOPUSHLOCKFASTEXCLUSIVE(
+      (DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v10,
+      (struct VIDMM_WORKER_THREAD2 *)((char *)a2 + 184),
+      1);
+    if ( (_QWORD *)*v5 == v5 )
+      break;
+    if ( *((_DWORD *)v3 + 26) == 2 || (unsigned __int8)ShouldPreemptTask(a2, a3) )
+    {
+      DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v10);
+      return 3221226029LL;
+    }
+    v8 = VidMmSelectReadyPacket(v7, (struct VIDMM_PAGING_QUEUE *)v3);
+    DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v10);
+    ExecutePagingCommand(a2, *((VIDMM_DEVICE **)v3 + 12), (struct VIDMM_PAGING_QUEUE *)v3, v8);
+  }
+  DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)v10);
+  return 0LL;
+}

@@ -1,0 +1,80 @@
+/*
+ * XREFs of ?TotalContactsCapturedUnderVisual@CManipulationContext@@SAIPEBUMCCollections@@PEAVCVisual@@PEAPEAVCInteraction@@@Z @ 0x1800FAEC0
+ * Callers:
+ *     ?QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@@@Z @ 0x180137CA4 (-QueueMidManipulationUpdate@CManipulationManager@@IEAAJW4MidManipulationUpdateType@@PEAVCVisual@.c)
+ * Callees:
+ *     ?GetTotalNumContacts@CInteraction@@AEBAIXZ @ 0x1800FAD34 (-GetTotalNumContacts@CInteraction@@AEBAIXZ.c)
+ *     ?GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z @ 0x1800FB600 (-GetClosestInteractionAncestor@CManipulationContext@@SAPEAVCInteraction@@PEBVCVisual@@PEA_N@Z.c)
+ *     ?GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ @ 0x180137C40 (-GetInteractionInternal@CVisual@@QEBAPEAVCInteraction@@XZ.c)
+ *     ??4?$ComPtr@VCVisual@@@WRL@Microsoft@@QEAAAEAV012@PEAVCVisual@@@Z @ 0x180139730 (--4-$ComPtr@VCVisual@@@WRL@Microsoft@@QEAAAEAV012@PEAVCVisual@@@Z.c)
+ *     ?IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z @ 0x180257CA0 (-IsInteractionDescendantOfVisual@CManipulationContext@@CA_NPEBVCInteraction@@PEBVCVisual@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CManipulationContext::TotalContactsCapturedUnderVisual(
+        const struct MCCollections *a1,
+        struct CVisual *a2,
+        struct CInteraction **a3)
+{
+  unsigned int v4; // esi
+  bool *v7; // rdx
+  struct CInteraction *InteractionInternal; // rax
+  CInteraction *v9; // rax
+  unsigned int TotalNumContacts; // eax
+  struct CInteraction *v11; // rbx
+  struct CInteraction *ClosestInteractionAncestor; // rax
+  int v14; // edi
+  __int64 v15; // r14
+  __int64 v16; // r13
+  CInteraction *i; // rdi
+  struct CInteraction *v18; // [rsp+60h] [rbp+18h] BYREF
+
+  v4 = 0;
+  v18 = 0LL;
+  if ( CVisual::GetInteractionInternal(a2) )
+  {
+    InteractionInternal = CVisual::GetInteractionInternal(a2);
+    Microsoft::WRL::ComPtr<CVisual>::operator=(&v18, *((_QWORD *)InteractionInternal + 28));
+    v9 = CVisual::GetInteractionInternal(a2);
+    TotalNumContacts = CInteraction::GetTotalNumContacts(v9);
+    v11 = v18;
+    v4 = TotalNumContacts;
+  }
+  else
+  {
+    ClosestInteractionAncestor = CManipulationContext::GetClosestInteractionAncestor(a2, v7);
+    Microsoft::WRL::ComPtr<CVisual>::operator=(&v18, ClosestInteractionAncestor);
+    v11 = v18;
+    if ( v18 )
+    {
+      for ( i = (CInteraction *)*((_QWORD *)v18 + 31); i; i = (CInteraction *)*((_QWORD *)i + 29) )
+      {
+        if ( CManipulationContext::IsInteractionDescendantOfVisual(i, a2) )
+          v4 += CInteraction::GetTotalNumContacts(i);
+      }
+    }
+    else
+    {
+      v14 = 0;
+      if ( *((int *)a1 + 8) > 0 )
+      {
+        v15 = 0LL;
+        do
+        {
+          v16 = *(_QWORD *)(v15 + *((_QWORD *)a1 + 3));
+          if ( CManipulationContext::IsInteractionDescendantOfVisual(*(const struct CInteraction **)(v16 + 48), a2) )
+            v4 += CInteraction::GetTotalNumContacts(*(CInteraction **)(v16 + 48));
+          ++v14;
+          v15 += 8LL;
+        }
+        while ( v14 < *((_DWORD *)a1 + 8) );
+      }
+    }
+  }
+  if ( v11 )
+    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v11 + 8LL))(v11);
+  *a3 = v11;
+  if ( v11 )
+    (*(void (__fastcall **)(struct CInteraction *))(*(_QWORD *)v11 + 16LL))(v11);
+  return v4;
+}

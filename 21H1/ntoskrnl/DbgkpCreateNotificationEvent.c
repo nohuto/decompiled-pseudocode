@@ -1,0 +1,125 @@
+/*
+ * XREFs of DbgkpCreateNotificationEvent @ 0x1407B48B0
+ * Callers:
+ *     DbgkpInitializePhase1SiloState @ 0x1407B4874 (DbgkpInitializePhase1SiloState.c)
+ * Callees:
+ *     RtlLengthSid @ 0x14025B480 (RtlLengthSid.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x1402DEFD0 (RtlDeriveCapabilitySidsFromName.c)
+ *     __security_check_cookie @ 0x1403CC020 (__security_check_cookie.c)
+ *     ZwClose @ 0x1403F2510 (ZwClose.c)
+ *     ZwCreateEvent @ 0x1403F2C30 (ZwCreateEvent.c)
+ *     RtlCreateSecurityDescriptor @ 0x1405D8350 (RtlCreateSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406064C0 (RtlpAddKnownAce.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x140615660 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x140615800 (RtlCreateAcl.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x14062B240 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
+ */
+
+NTSTATUS __fastcall DbgkpCreateNotificationEvent(UNICODE_STRING *a1, _DWORD *a2)
+{
+  NTSTATUS result; // eax
+  ULONG v5; // ebx
+  ULONG v6; // ebx
+  ULONG v7; // ebx
+  ULONG v8; // ebx
+  ULONG v9; // edi
+  ACL *PoolWithTag; // rax
+  ACL *v11; // rbx
+  int Acl; // edi
+  ACL *v13; // rcx
+  _QWORD *InitialState; // [rsp+20h] [rbp-E0h]
+  HANDLE EventHandle; // [rsp+40h] [rbp-C0h] BYREF
+  UNICODE_STRING SourceString; // [rsp+48h] [rbp-B8h] BYREF
+  OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+58h] [rbp-A8h] BYREF
+  _OWORD SecurityDescriptor[2]; // [rsp+88h] [rbp-78h] BYREF
+  __int64 v19; // [rsp+A8h] [rbp-58h]
+  _OWORD Sid[3]; // [rsp+B0h] [rbp-50h] BYREF
+  __int128 v21[3]; // [rsp+E0h] [rbp-20h] BYREF
+
+  *(_QWORD *)&SourceString.Length = 2621478LL;
+  v19 = 0LL;
+  EventHandle = 0LL;
+  *(&ObjectAttributes.Length + 1) = 0;
+  SourceString.Buffer = L"lpacInstrumentation";
+  *(&ObjectAttributes.Attributes + 1) = 0;
+  memset(SecurityDescriptor, 0, sizeof(SecurityDescriptor));
+  result = RtlDeriveCapabilitySidsFromName(&SourceString, v21, Sid);
+  if ( result >= 0 )
+  {
+    result = RtlCreateSecurityDescriptor(SecurityDescriptor, 1u);
+    if ( result >= 0 )
+    {
+      v5 = RtlLengthSid(SeWorldSid);
+      v6 = RtlLengthSid(SeLocalSystemSid) + v5;
+      v7 = RtlLengthSid(SeLocalSid) + v6;
+      v8 = RtlLengthSid(SeAllAppPackagesSid) + v7;
+      v9 = v8 + RtlLengthSid(Sid) + 68;
+      PoolWithTag = (ACL *)ExAllocatePoolWithTag(PagedPool, v9, 0x6C636144u);
+      v11 = PoolWithTag;
+      if ( !PoolWithTag )
+        return -1073741670;
+      Acl = RtlCreateAcl(PoolWithTag, v9, 2u);
+      v13 = v11;
+      if ( Acl >= 0 )
+      {
+        Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeLocalSid, 0);
+        v13 = v11;
+        if ( Acl >= 0 )
+        {
+          Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeAllAppPackagesSid, 0);
+          v13 = v11;
+          if ( Acl >= 0 )
+          {
+            Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)Sid, 0);
+            v13 = v11;
+            if ( Acl >= 0 )
+            {
+              Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 2031619, (unsigned __int8 *)SeLocalSystemSid, 0);
+              v13 = v11;
+              if ( Acl >= 0 )
+              {
+                Acl = RtlpAddKnownAce((__int64)v11, 2u, 0, 1179649, (unsigned __int8 *)SeWorldSid, 0);
+                if ( Acl >= 0 )
+                {
+                  Acl = RtlSetDaclSecurityDescriptor(SecurityDescriptor, 1u, v11, 0);
+                  if ( Acl >= 0 )
+                  {
+                    ObjectAttributes.Length = 48;
+                    ObjectAttributes.SecurityDescriptor = SecurityDescriptor;
+                    ObjectAttributes.RootDirectory = 0LL;
+                    ObjectAttributes.Attributes = 528;
+                    ObjectAttributes.ObjectName = a1;
+                    ObjectAttributes.SecurityQualityOfService = 0LL;
+                    Acl = ZwCreateEvent(&EventHandle, 0x1F0003u, &ObjectAttributes, NotificationEvent, 0);
+                    ExFreePoolWithTag(v11, 0);
+                    if ( Acl >= 0 )
+                    {
+                      LODWORD(InitialState) = 1801937476;
+                      Acl = ObpReferenceObjectByHandleWithTag(
+                              (ULONG_PTR)EventHandle,
+                              2LL,
+                              ExEventObjectType,
+                              0,
+                              InitialState,
+                              a2,
+                              0LL,
+                              0LL);
+                      ZwClose(EventHandle);
+                    }
+                    return Acl;
+                  }
+                }
+                v13 = v11;
+              }
+            }
+          }
+        }
+      }
+      ExFreePoolWithTag(v13, 0);
+      return Acl;
+    }
+  }
+  return result;
+}

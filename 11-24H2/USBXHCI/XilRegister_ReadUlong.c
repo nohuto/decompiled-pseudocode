@@ -1,0 +1,77 @@
+/*
+ * XREFs of XilRegister_ReadUlong @ 0x14000D210
+ * Callers:
+ *     RootHub_HideInvalidDebugPortStatusAndChange @ 0x140009C50 (RootHub_HideInvalidDebugPortStatusAndChange.c)
+ *     RootHub_HandlePortStatusChangeEvent @ 0x140009CC0 (RootHub_HandlePortStatusChangeEvent.c)
+ *     Controller_WdfEvtDeviceArmWakeFromS0 @ 0x14000A640 (Controller_WdfEvtDeviceArmWakeFromS0.c)
+ *     RootHub_DetectLinkErrorState @ 0x14000AEF8 (RootHub_DetectLinkErrorState.c)
+ *     Controller_WdfEvtDeviceDisarmWakeFromS0 @ 0x14000B2A0 (Controller_WdfEvtDeviceDisarmWakeFromS0.c)
+ *     RootHub_DetectAndAcknowledgePortResume @ 0x14000B478 (RootHub_DetectAndAcknowledgePortResume.c)
+ *     RootHub_WaitForPendingU3TransitionCompletion @ 0x14000CA5C (RootHub_WaitForPendingU3TransitionCompletion.c)
+ *     Controller_CheckHealth @ 0x14000CDC4 (Controller_CheckHealth.c)
+ *     RootHub_DumpPortData @ 0x14000CF98 (RootHub_DumpPortData.c)
+ *     RootHub_WaitForResumeCompletion @ 0x14000D59C (RootHub_WaitForResumeCompletion.c)
+ *     RootHub_WdfEvtTimer20PortResumeComplete @ 0x140018AD4 (RootHub_WdfEvtTimer20PortResumeComplete.c)
+ *     Register_WaitForControllerReady @ 0x140019340 (Register_WaitForControllerReady.c)
+ *     RootHub_ForceU3 @ 0x1400195BC (RootHub_ForceU3.c)
+ *     Register_D0Entry @ 0x140019B20 (Register_D0Entry.c)
+ *     Register_ControllerStop @ 0x14001A214 (Register_ControllerStop.c)
+ *     Register_BiosHandoff @ 0x14001A3F4 (Register_BiosHandoff.c)
+ *     Controller_Start @ 0x14001B1F0 (Controller_Start.c)
+ *     Interrupter_InterruptEnable @ 0x14001B7A8 (Interrupter_InterruptEnable.c)
+ *     Interrupter_InterruptDisable @ 0x14001B958 (Interrupter_InterruptDisable.c)
+ *     Register_ControllerReset @ 0x14001C654 (Register_ControllerReset.c)
+ *     Register_SetClearSSICPortUnused @ 0x14001CA30 (Register_SetClearSSICPortUnused.c)
+ *     Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x14001CAD8 (Register_SaveRestoreCHTNonArchitecturalRegisters.c)
+ *     RootHub_RestoreU1U2Timeouts @ 0x14001D070 (RootHub_RestoreU1U2Timeouts.c)
+ *     RootHub_UcxEvtGetPortStatus @ 0x140024160 (RootHub_UcxEvtGetPortStatus.c)
+ *     RootHub_UcxEvtSetPortFeature @ 0x140026440 (RootHub_UcxEvtSetPortFeature.c)
+ *     RootHub_UcxEvtClearPortFeature @ 0x1400277B0 (RootHub_UcxEvtClearPortFeature.c)
+ *     RootHub_D0Entry @ 0x140028D68 (RootHub_D0Entry.c)
+ *     RootHub_ForceU0AndWait @ 0x140028EFC (RootHub_ForceU0AndWait.c)
+ *     Controller_ExecuteDSMToSendPORTSCValues @ 0x140030570 (Controller_ExecuteDSMToSendPORTSCValues.c)
+ *     Wmi_CreateControllerCapabilities @ 0x140032444 (Wmi_CreateControllerCapabilities.c)
+ *     Register_RestoreRyzenFeatureBitsPostReset @ 0x140033298 (Register_RestoreRyzenFeatureBitsPostReset.c)
+ *     Register_GetAllExtendedCapability @ 0x140033898 (Register_GetAllExtendedCapability.c)
+ *     RootHub_Read30PortSpeeds @ 0x140033D10 (RootHub_Read30PortSpeeds.c)
+ *     Register_FindFirstExtendedCapability @ 0x140034BE8 (Register_FindFirstExtendedCapability.c)
+ *     Register_FindNextExtendedCapability @ 0x140034C54 (Register_FindNextExtendedCapability.c)
+ *     Register_DisableComplianceModeCapability @ 0x140034CB4 (Register_DisableComplianceModeCapability.c)
+ *     Register_GetExtendedCapabilityTotalSize @ 0x140034E34 (Register_GetExtendedCapabilityTotalSize.c)
+ *     Controller_D0EntryRestoreState @ 0x14003634C (Controller_D0EntryRestoreState.c)
+ *     Controller_D0ExitSaveState @ 0x1400366C4 (Controller_D0ExitSaveState.c)
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1400370B0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Interrupter_WdfEvtInterruptIsr @ 0x1400386B0 (Interrupter_WdfEvtInterruptIsr.c)
+ *     RootHub_D0Exit @ 0x140038974 (RootHub_D0Exit.c)
+ *     Controller_ClearHSIIWorkaround @ 0x14003FA90 (Controller_ClearHSIIWorkaround.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x14003FC38 (Controller_DetectFrameMicroframeBoundary.c)
+ *     Controller_SetHSIIWorkaround @ 0x140042094 (Controller_SetHSIIWorkaround.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x14004211C (Controller_StopTimeTrackingForHandle.c)
+ *     Controller_UcxEvtStartTrackingForTimeSync @ 0x140042CD0 (Controller_UcxEvtStartTrackingForTimeSync.c)
+ *     Interrupter_DeInitializeAfterOffload @ 0x140048710 (Interrupter_DeInitializeAfterOffload.c)
+ *     Interrupter_InitializeForOffload @ 0x140048A54 (Interrupter_InitializeForOffload.c)
+ *     Register_UpdateKBLUSB2PMCTRLRegister @ 0x140049330 (Register_UpdateKBLUSB2PMCTRLRegister.c)
+ *     RootHub_DisableLPMForSlot @ 0x140049584 (RootHub_DisableLPMForSlot.c)
+ *     RootHub_UcxEvtGetPortErrorCount @ 0x14004A220 (RootHub_UcxEvtGetPortErrorCount.c)
+ *     RootHub_Update20HardwareLpmParameters @ 0x14004A6BC (RootHub_Update20HardwareLpmParameters.c)
+ *     RootHub_Usb4TunnelState @ 0x14004A8C4 (RootHub_Usb4TunnelState.c)
+ *     Controller_ExecuteHSICDisconnectInU3WorkaroundDirect @ 0x1400767E0 (Controller_ExecuteHSICDisconnectInU3WorkaroundDirect.c)
+ *     Register_ParseCapabilityRegister @ 0x14007D158 (Register_ParseCapabilityRegister.c)
+ *     Register_PrepareHardware @ 0x14007DABC (Register_PrepareHardware.c)
+ *     RootHub_PrepareHardware @ 0x14007E080 (RootHub_PrepareHardware.c)
+ *     DmaEnabler_Create @ 0x14007F34C (DmaEnabler_Create.c)
+ *     RootHub_PopulatePortFlagsFromRegistry @ 0x1400821EC (RootHub_PopulatePortFlagsFromRegistry.c)
+ * Callees:
+ *     Register_ReadSecureMmio @ 0x14000D258 (Register_ReadSecureMmio.c)
+ */
+
+__int64 __fastcall XilRegister_ReadUlong(__int64 a1, unsigned int *a2)
+{
+  unsigned int v3; // [rsp+40h] [rbp+8h] BYREF
+
+  if ( !*(_BYTE *)(*(_QWORD *)(a1 + 8) + 1001LL) )
+    return *a2;
+  v3 = 0;
+  Register_ReadSecureMmio(a1, (int)a2, 2, 1, &v3);
+  return v3;
+}

@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?SwitchMux@DISPLAY_MUX_MGR@@QEAAJU_LUID@@I@Z @ 0x14008FC34
+ * Callers:
+ *     ?PerformSwitch@DISPLAY_MUX_SWITCH_OPERATION@@QEAAXPEAU_D3DKMT_DISPLAYMUX_SWITCH_STATUS@@PEAH@Z @ 0x14008D6DC (-PerformSwitch@DISPLAY_MUX_SWITCH_OPERATION@@QEAAXPEAU_D3DKMT_DISPLAYMUX_SWITCH_STATUS@@PEAH@Z.c)
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x14000D6A0 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x14000E0B0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x140016BA0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?SwitchMux@DISPLAY_MUX_PAIRING@@QEAAJU_LUID@@I@Z @ 0x14008FCEC (-SwitchMux@DISPLAY_MUX_PAIRING@@QEAAJU_LUID@@I@Z.c)
+ */
+
+__int64 __fastcall DISPLAY_MUX_MGR::SwitchMux(DISPLAY_MUX_MGR *this, struct _LUID a2, unsigned int a3)
+{
+  unsigned int v6; // ebx
+  DISPLAY_MUX_PAIRING *v7; // rcx
+  _BYTE v9[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v9, (DISPLAY_MUX_MGR *)((char *)this + 16), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v9);
+  if ( *((_DWORD *)this + 20) == 1 )
+  {
+    v7 = (DISPLAY_MUX_PAIRING *)*((_QWORD *)this + 9);
+    if ( v7 )
+    {
+      v6 = DISPLAY_MUX_PAIRING::SwitchMux(v7, a2, a3);
+    }
+    else
+    {
+      WdLogSingleEntry0(2LL);
+      WdLogGlobalForLineNumber = 3271;
+      v6 = -1073741601;
+    }
+  }
+  else
+  {
+    WdLogSingleEntry0(4LL);
+    WdLogGlobalForLineNumber = 3264;
+    v6 = -1073741762;
+  }
+  DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v9);
+  return v6;
+}

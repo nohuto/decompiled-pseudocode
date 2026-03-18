@@ -1,0 +1,42 @@
+/*
+ * XREFs of ?Createpxs@@YAPEAUtagXSTATE@@P6AKPEAKPEA_JPEAUtagDDECONV@@@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C01F902C
+ * Callers:
+ *     ?AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z @ 0x1C01F8F78 (-AnticipatePost@@YAPEAXPEAUtagDDECONV@@P6AKPEAKPEA_J0@ZPEAX4PEAUtagINTDDEINFO@@K@Z.c)
+ *     ?xxxAdviseData@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01F969C (-xxxAdviseData@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01F9A50 (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxExecuteAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01F9E90 (-xxxExecuteAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FA2A0 (-xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+struct tagXSTATE *__fastcall Createpxs(
+        unsigned int (*a1)(unsigned int *, __int64 *, struct tagDDECONV *),
+        void *a2,
+        void *a3,
+        struct tagINTDDEINFO *a4,
+        unsigned int a5)
+{
+  void *v7; // rdi
+  struct tagXSTATE *result; // rax
+
+  v7 = a3;
+  LOBYTE(a3) = 11;
+  result = (struct tagXSTATE *)HMAllocObject(gptiCurrent, 0LL, a3);
+  if ( result )
+  {
+    *((_QWORD *)result + 3) = 0LL;
+    *((_QWORD *)result + 4) = a1;
+    *((_QWORD *)result + 5) = a2;
+    *((_QWORD *)result + 6) = v7;
+    *((_QWORD *)result + 7) = a4;
+    *((_DWORD *)result + 16) = a5;
+  }
+  else
+  {
+    if ( a4 )
+      Win32FreePool(a4);
+    return 0LL;
+  }
+  return result;
+}

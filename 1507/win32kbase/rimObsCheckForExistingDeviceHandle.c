@@ -1,0 +1,37 @@
+/*
+ * XREFs of rimObsCheckForExistingDeviceHandle @ 0x1C00D1408
+ * Callers:
+ *     rimObsDeliverInputToObserver @ 0x1C00D1588 (rimObsDeliverInputToObserver.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C00766E0 (RawInputManagerDeviceObjectResolveHandle.c)
+ */
+
+void *__fastcall rimObsCheckForExistingDeviceHandle(__int64 a1, PVOID a2)
+{
+  _QWORD *v2; // rsi
+  _QWORD *v4; // rdi
+  __int64 v6; // rbp
+  void *v7; // r14
+  KPROCESSOR_MODE v8; // r8
+  bool v9; // bl
+  PVOID Object; // [rsp+50h] [rbp+8h] BYREF
+
+  v2 = (_QWORD *)(a1 + 112);
+  v4 = *(_QWORD **)(a1 + 112);
+  v6 = -1LL;
+  while ( v4 != v2 )
+  {
+    v7 = (void *)v4[2];
+    v8 = *(_BYTE *)(a1 + 64);
+    Object = 0LL;
+    if ( (int)RawInputManagerDeviceObjectResolveHandle(v7, 3u, v8, &Object) >= 0 )
+    {
+      v9 = Object == a2;
+      ObfDereferenceObject(Object);
+      if ( v9 )
+        return v7;
+    }
+    v4 = (_QWORD *)*v4;
+  }
+  return (void *)v6;
+}

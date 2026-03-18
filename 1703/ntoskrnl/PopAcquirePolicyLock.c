@@ -1,0 +1,96 @@
+/*
+ * XREFs of PopAcquirePolicyLock @ 0x1404046F8
+ * Callers:
+ *     PopSystemRequiredPowerRequest @ 0x140070204 (PopSystemRequiredPowerRequest.c)
+ *     PopThermalSxExit @ 0x1401387EC (PopThermalSxExit.c)
+ *     PopThermalSxEntry @ 0x14013C6B4 (PopThermalSxEntry.c)
+ *     PoSetUserPresent @ 0x14014ABB0 (PoSetUserPresent.c)
+ *     PopVideoPowerSettingCallback @ 0x1401622D0 (PopVideoPowerSettingCallback.c)
+ *     PopVideoBrightnessSettingsCallback @ 0x1401657E0 (PopVideoBrightnessSettingsCallback.c)
+ *     PdcPoLowPower @ 0x140166920 (PdcPoLowPower.c)
+ *     PopSwitchForcedShutdownSettingCallback @ 0x140167EE0 (PopSwitchForcedShutdownSettingCallback.c)
+ *     PopCheckAndHandleThermalConditions @ 0x140168960 (PopCheckAndHandleThermalConditions.c)
+ *     PopBackgroundActivityPolicyCallback @ 0x14022A280 (PopBackgroundActivityPolicyCallback.c)
+ *     PoSetSystemState @ 0x14022DCB0 (PoSetSystemState.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1402301D4 (PopCaptureSleepStudyStatistics.c)
+ *     NtSetSystemPowerState @ 0x140408DF4 (NtSetSystemPowerState.c)
+ *     PopUnlockAfterSleepWorker @ 0x140409EF0 (PopUnlockAfterSleepWorker.c)
+ *     PopIdleGlobalUserPresenceCallback @ 0x140420820 (PopIdleGlobalUserPresenceCallback.c)
+ *     PopDiagTraceControlCallback @ 0x1404537A0 (PopDiagTraceControlCallback.c)
+ *     NtSetThreadExecutionState @ 0x140459BC0 (NtSetThreadExecutionState.c)
+ *     PopUmpoProcessPowerMessage @ 0x1404C1A44 (PopUmpoProcessPowerMessage.c)
+ *     NtPowerInformation @ 0x1404C2F2C (NtPowerInformation.c)
+ *     PopPowerInformationInternal @ 0x1404C44B4 (PopPowerInformationInternal.c)
+ *     PopPolicySystemIdle @ 0x1404C55E0 (PopPolicySystemIdle.c)
+ *     PopWnfAudioCallback @ 0x140575E70 (PopWnfAudioCallback.c)
+ *     PopPolicyWorkerAction @ 0x1405767C0 (PopPolicyWorkerAction.c)
+ *     PoUserShutdownInitiated @ 0x1405768F0 (PoUserShutdownInitiated.c)
+ *     PopUserShutdownCancelled @ 0x140576B08 (PopUserShutdownCancelled.c)
+ *     PopIssueActionRequest @ 0x140576C20 (PopIssueActionRequest.c)
+ *     NtInitiatePowerAction @ 0x1405773F8 (NtInitiatePowerAction.c)
+ *     PopDispatchFullWake @ 0x14057A150 (PopDispatchFullWake.c)
+ *     PopPolicyWorkerActionPromote @ 0x14057A2B0 (PopPolicyWorkerActionPromote.c)
+ *     PopBatteryApplyCompositeState @ 0x14058289C (PopBatteryApplyCompositeState.c)
+ *     PopRecalculateCBTriggerLevels @ 0x140582B64 (PopRecalculateCBTriggerLevels.c)
+ *     NtInitializeRegistry @ 0x140585198 (NtInitializeRegistry.c)
+ *     PopConnectedStandbySettingCallback @ 0x140586350 (PopConnectedStandbySettingCallback.c)
+ *     PopRtcWakeSettingCallback @ 0x1405A90E0 (PopRtcWakeSettingCallback.c)
+ *     PoInitHiberServices @ 0x1405A913C (PoInitHiberServices.c)
+ *     PdcPoReportButton @ 0x1405C2C10 (PdcPoReportButton.c)
+ *     PopConsoleLockPowerSettingCallback @ 0x1405C2E00 (PopConsoleLockPowerSettingCallback.c)
+ *     PopHardDiskPowerSettingCallback @ 0x1405C2F30 (PopHardDiskPowerSettingCallback.c)
+ *     PopSleepPowerSettingCallback @ 0x1405C30A0 (PopSleepPowerSettingCallback.c)
+ *     PopPowerButtonSettingCallback @ 0x1405C3350 (PopPowerButtonSettingCallback.c)
+ *     PopBatteryAlarmPowerSettingCallback @ 0x1405C3620 (PopBatteryAlarmPowerSettingCallback.c)
+ *     PopNetEvaluationWorkerCallback @ 0x1405D0C70 (PopNetEvaluationWorkerCallback.c)
+ *     PopPdcRegister @ 0x1405D2040 (PopPdcRegister.c)
+ *     PopNetUpdateStandbyRequest @ 0x1405D42D4 (PopNetUpdateStandbyRequest.c)
+ *     PopDeepSleepPowerSettingCallback @ 0x1405D5030 (PopDeepSleepPowerSettingCallback.c)
+ *     PopCoalescingPowerSettingCallback @ 0x1405D5430 (PopCoalescingPowerSettingCallback.c)
+ *     PopAllowAwayModeSettingCallback @ 0x1405D58F0 (PopAllowAwayModeSettingCallback.c)
+ *     PopNetDisconnectedStandbyModeCallback @ 0x1405D61C0 (PopNetDisconnectedStandbyModeCallback.c)
+ *     PopNetConnectivityInStandbyCallback @ 0x1405D6210 (PopNetConnectivityInStandbyCallback.c)
+ *     PdcPoVerifyPowerState @ 0x1405D63B0 (PdcPoVerifyPowerState.c)
+ *     PopNotifyPolicyDevice @ 0x1405D6760 (PopNotifyPolicyDevice.c)
+ *     PopThermalZoneAdd @ 0x1405D6970 (PopThermalZoneAdd.c)
+ *     PopEvaluateAggressiveStandbyActions @ 0x1406C6F18 (PopEvaluateAggressiveStandbyActions.c)
+ *     PopWnfUserAwayPredictionCallback @ 0x1406C7310 (PopWnfUserAwayPredictionCallback.c)
+ *     PopCoalescingCallbackWorker @ 0x1406C9520 (PopCoalescingCallbackWorker.c)
+ *     PopCoalescingNotify @ 0x1406C95B0 (PopCoalescingNotify.c)
+ *     PopBatteryAdd @ 0x1406CA1F0 (PopBatteryAdd.c)
+ *     PopBatteryRemove @ 0x1406CAA10 (PopBatteryRemove.c)
+ *     PopBatteryUpdateCompositeInformation @ 0x1406CABEC (PopBatteryUpdateCompositeInformation.c)
+ *     PdcPoNetworkResiliency @ 0x1406CB1A0 (PdcPoNetworkResiliency.c)
+ *     PdcPoQueryExpectedStandbyTime @ 0x1406CB290 (PdcPoQueryExpectedStandbyTime.c)
+ *     PdcPoReportLidState @ 0x1406CB360 (PdcPoReportLidState.c)
+ *     PdcPoResiliencyClient @ 0x1406CB3C0 (PdcPoResiliencyClient.c)
+ *     PdcPoSetPowerAction @ 0x1406CB4E0 (PdcPoSetPowerAction.c)
+ *     PdcPoVerifyActionPolicy @ 0x1406CB550 (PdcPoVerifyActionPolicy.c)
+ *     PopPdcCsDeviceNotification @ 0x1406CB6E8 (PopPdcCsDeviceNotification.c)
+ *     PopPdcUpdateDeviceCompliance @ 0x1406CB8F4 (PopPdcUpdateDeviceCompliance.c)
+ *     PopThermalProcessUsermodeEvent @ 0x1406CBBFC (PopThermalProcessUsermodeEvent.c)
+ *     PopThermalZoneRemove @ 0x1406CBDD0 (PopThermalZoneRemove.c)
+ *     PopUpdateOverThrottledCount @ 0x1406CBF70 (PopUpdateOverThrottledCount.c)
+ *     PopDiagStopCsSleepStudySession @ 0x1406CC424 (PopDiagStopCsSleepStudySession.c)
+ *     PopIdleAoAcDozeToS4 @ 0x1406D4A60 (PopIdleAoAcDozeToS4.c)
+ *     PopIdleCsStateChanged @ 0x1406D4B54 (PopIdleCsStateChanged.c)
+ *     PoInitSystem @ 0x14080B764 (PoInitSystem.c)
+ *     PopPdcCsCheckSystemVolumeDevice @ 0x140826ABC (PopPdcCsCheckSystemVolumeDevice.c)
+ * Callees:
+ *     PsBoostThreadIo @ 0x14008D1F0 (PsBoostThreadIo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x14008F1B0 (ExAcquireResourceExclusiveLite.c)
+ */
+
+struct _KTHREAD *__fastcall PopAcquirePolicyLock()
+{
+  struct _KTHREAD *CurrentThread; // rax
+  struct _KTHREAD *result; // rax
+
+  PsBoostThreadIo((__int64)KeGetCurrentThread(), 0LL);
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  ExAcquireResourceExclusiveLite(&PopPolicyLock, 1u);
+  result = KeGetCurrentThread();
+  PopPolicyLockThread = (__int64)result;
+  return result;
+}

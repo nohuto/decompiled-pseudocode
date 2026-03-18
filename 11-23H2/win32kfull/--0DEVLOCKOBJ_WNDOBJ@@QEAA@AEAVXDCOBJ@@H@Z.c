@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??0DEVLOCKOBJ_WNDOBJ@@QEAA@AEAVXDCOBJ@@H@Z @ 0x1C0274538
+ * Callers:
+ *     ?iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z @ 0x1C02764C8 (-iOpenGLExtEscape@@YAHAEAVDCOBJ@@HHPEAXH1@Z.c)
+ *     NtGdiSwapBuffers @ 0x1C02D79B0 (NtGdiSwapBuffers.c)
+ * Callees:
+ *     ??0DEVLOCKOBJ@@QEAA@XZ @ 0x1C00C32AC (--0DEVLOCKOBJ@@QEAA@XZ.c)
+ *     ?vConstructor@DEVLOCKOBJ_WNDOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0276EAC (-vConstructor@DEVLOCKOBJ_WNDOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ */
+
+DEVLOCKOBJ_WNDOBJ *__fastcall DEVLOCKOBJ_WNDOBJ::DEVLOCKOBJ_WNDOBJ(DEVLOCKOBJ_WNDOBJ *this, struct XDCOBJ *a2)
+{
+  DEVLOCKOBJ::DEVLOCKOBJ(this);
+  *((_DWORD *)this + 30) = 1;
+  DEVLOCKOBJ_WNDOBJ::vConstructor(this, a2);
+  return this;
+}

@@ -1,0 +1,50 @@
+/*
+ * XREFs of RIMFreeSpecificDev @ 0x1C000C69C
+ * Callers:
+ *     rimPassivateSecondaryRims @ 0x1C0009354 (rimPassivateSecondaryRims.c)
+ *     RIMUnregisterForInput @ 0x1C00099C0 (RIMUnregisterForInput.c)
+ *     RIMRemoveDevOfInputType @ 0x1C000C5D4 (RIMRemoveDevOfInputType.c)
+ *     RIMFreeDev @ 0x1C010CAFC (RIMFreeDev.c)
+ * Callees:
+ *     RIMRemoveHoldingFrame @ 0x1C000B4D4 (RIMRemoveHoldingFrame.c)
+ *     rimDereferenceDev @ 0x1C000E690 (rimDereferenceDev.c)
+ *     RIMLockExclusive @ 0x1C0016D00 (RIMLockExclusive.c)
+ *     rimDoRimDevChange @ 0x1C001AEAC (rimDoRimDevChange.c)
+ */
+
+__int64 __fastcall RIMFreeSpecificDev(__int64 a1, __int64 a2)
+{
+  int v4; // eax
+  __int64 v5; // rax
+  __int64 v7; // rcx
+  _QWORD *v8; // rdx
+
+  if ( !*(_QWORD *)(a1 + 768) || *(_DWORD *)(a1 + 976) )
+    v4 = 1;
+  else
+    v4 = (unsigned __int16)(~(unsigned __int16)*(_DWORD *)(a2 + 184) & 0x1000) >> 12;
+  if ( v4 )
+    rimDoRimDevChange(a1, a2, 4LL);
+  v5 = a2 + 120;
+  if ( *(_QWORD *)v5 != v5 )
+  {
+    v7 = *(_QWORD *)v5;
+    if ( *(_QWORD *)(*(_QWORD *)v5 + 8LL) != v5 || (v8 = *(_QWORD **)(a2 + 128), *v8 != v5) )
+      __fastfail(3u);
+    *v8 = v7;
+    *(_QWORD *)(v7 + 8) = v8;
+    *(_QWORD *)(a2 + 128) = a2 + 120;
+    *(_QWORD *)v5 = v5;
+  }
+  if ( (*(_DWORD *)(a2 + 184) & 0x1000) != 0 )
+  {
+    RIMLockExclusive(&gObListLock);
+    *(_DWORD *)(a2 + 200) |= 4u;
+    qword_1C0193AE8 = 0LL;
+    ExReleasePushLockExclusiveEx(&gObListLock, 0LL);
+    KeLeaveCriticalRegion();
+  }
+  if ( *(_BYTE *)(a2 + 48) == 2 )
+    RIMRemoveHoldingFrame(a1, a2);
+  return rimDereferenceDev(a2);
+}

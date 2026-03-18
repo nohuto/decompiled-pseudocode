@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?SetIntegerProperty@CProjectedShadowReceiverMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x14023BFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1400DAF90 (-SetIntegerProperty@CPropertyChangeResourceMarshaler@DirectComposition@@MEAAJPEAVCApplicationCha.c)
+ */
+
+__int64 __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::SetIntegerProperty(
+        DirectComposition::CProjectedShadowReceiverMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        int a4,
+        bool *a5)
+{
+  *a5 = 0;
+  if ( a3 != 2 )
+    return DirectComposition::CPropertyChangeResourceMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
+  *((_DWORD *)this + 4) |= 0x100u;
+  *((_DWORD *)this + 20) = a4;
+  *a5 = 1;
+  return 0LL;
+}

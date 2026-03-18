@@ -1,0 +1,20 @@
+/*
+ * XREFs of ??1PFFREFOBJ@@QEAA@XZ @ 0x1C013F80C
+ * Callers:
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C010D900 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     ?vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z @ 0x1C015BDFE (-vInit@RFONTOBJ@@QEAAXAEAVXDCOBJ@@PEAVPFE@@PEAU_EUDCLOGFONT@@H@Z.c)
+ *     ?bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z @ 0x1C02B6418 (-bSetNewFDX@RFONTOBJ@@QEAAHAEAVXDCOBJ@@AEAU_FD_XFORM@@K@Z.c)
+ *     NtGdiGetFontFileData @ 0x1C02D5EA0 (NtGdiGetFontFileData.c)
+ *     NtGdiGetFontFileInfo @ 0x1C02D6100 (NtGdiGetFontFileInfo.c)
+ * Callees:
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C007E25C (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ */
+
+void __fastcall PFFREFOBJ::~PFFREFOBJ(PFFREFOBJ *this)
+{
+  if ( *(_QWORD *)this )
+  {
+    if ( !*((_DWORD *)this + 4) )
+      PFFOBJ::vDeleteRFONTRef(this);
+  }
+}

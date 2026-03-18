@@ -1,0 +1,19 @@
+/*
+ * XREFs of UserSetScaleFactorsFromRemoteMetric @ 0x1C0055DB0
+ * Callers:
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00548D8 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHHPEAUD3DKMT_GET.c)
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall UserSetScaleFactorsFromRemoteMetric(int a1)
+{
+  void *result; // rax
+
+  result = gpsi;
+  if ( a1 )
+    *((_DWORD *)gpsi + 559) |= 0x40u;
+  else
+    *((_DWORD *)gpsi + 559) &= ~0x40u;
+  return result;
+}

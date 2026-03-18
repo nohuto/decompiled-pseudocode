@@ -1,0 +1,55 @@
+/*
+ * XREFs of imp_WdfRequestGetFileObject @ 0x1C0002F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0001F2C (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?GetFileObject@FxRequest@@QEAAJPEAPEAVFxFileObject@@@Z @ 0x1C0002FF8 (-GetFileObject@FxRequest@@QEAAJPEAPEAVFxFileObject@@@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BA8A0 (-Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
+WDFFILEOBJECT__ *__fastcall imp_WdfRequestGetFileObject(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFREQUEST__ *Request)
+{
+  unsigned int v2; // edx
+  FxRequest *v3; // r9
+  _FX_DRIVER_GLOBALS *m_Globals; // rbx
+  signed int _a1; // eax
+  int IsDriverOwned; // edi
+  unsigned __int8 irql; // [rsp+50h] [rbp+20h] BYREF
+  FxRequest *pRequest; // [rsp+60h] [rbp+30h] BYREF
+  FxFileObject *pFO; // [rsp+68h] [rbp+38h] BYREF
+
+  pRequest = 0LL;
+  FxObjectHandleGetPtr((_FX_DRIVER_GLOBALS *)&DriverGlobals[-8], Request, 0x1008u, (void **)&pRequest);
+  v3 = pRequest;
+  pFO = 0LL;
+  m_Globals = pRequest->m_Globals;
+  if ( m_Globals->FxVerifierOn
+    && (_FX_DRIVER_GLOBALS::IsVersionGreaterThanOrEqualTo(pRequest->m_Globals, v2, 9u) || m_Globals->FxVerifyDownlevel) )
+  {
+    irql = 0;
+    FxNonPagedObject::Lock(v3, &irql);
+    if ( m_Globals->FxVerifierOn )
+      IsDriverOwned = FxRequest::Vf_VerifyRequestIsDriverOwned(pRequest, m_Globals);
+    else
+      IsDriverOwned = 0;
+    FxNonPagedObject::Unlock(pRequest, irql);
+    if ( IsDriverOwned < 0 )
+      return 0LL;
+    v3 = pRequest;
+  }
+  _a1 = FxRequest::GetFileObject(v3, &pFO);
+  if ( _a1 < 0 )
+  {
+    WPP_IFR_SF_D(m_Globals, 2u, 0x10u, 0x3Fu, WPP_FxRequestApi_cpp_Traceguids, _a1);
+    return 0LL;
+  }
+  if ( !pFO )
+    return 0LL;
+  return (WDFFILEOBJECT__ *)FxObject::GetObjectHandleUnchecked(pFO);
+}

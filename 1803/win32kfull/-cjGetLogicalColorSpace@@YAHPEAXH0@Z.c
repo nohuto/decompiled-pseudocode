@@ -1,0 +1,49 @@
+/*
+ * XREFs of ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C0286518
+ * Callers:
+ *     GreExtGetObjectW @ 0x1C0017838 (GreExtGetObjectW.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0270698 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
+__int64 __fastcall cjGetLogicalColorSpace(void *a1, __int64 a2, char *a3)
+{
+  unsigned int v3; // edi
+  unsigned __int64 v4; // rbp
+  __int64 v6; // rax
+  __int64 v7; // rbx
+
+  v3 = 0;
+  v4 = (int)a2;
+  if ( (unsigned __int64)(int)a2 >= 0x24C )
+  {
+    if ( a3 )
+    {
+      LOBYTE(a2) = 9;
+      v6 = HmgShareLockCheck(a1, a2);
+      v7 = v6;
+      if ( v6 )
+      {
+        *(_DWORD *)a3 = *(_DWORD *)(v6 + 24);
+        *((_DWORD *)a3 + 1) = *(_DWORD *)(v6 + 28);
+        *((_DWORD *)a3 + 2) = *(_DWORD *)(v6 + 32);
+        *((_DWORD *)a3 + 3) = *(_DWORD *)(v6 + 36);
+        *((_DWORD *)a3 + 4) = *(_DWORD *)(v6 + 40);
+        *(_OWORD *)(a3 + 20) = *(_OWORD *)(v6 + 44);
+        *(_OWORD *)(a3 + 36) = *(_OWORD *)(v6 + 60);
+        *((_DWORD *)a3 + 13) = *(_DWORD *)(v6 + 76);
+        *((_DWORD *)a3 + 14) = *(_DWORD *)(v6 + 80);
+        *((_DWORD *)a3 + 15) = *(_DWORD *)(v6 + 84);
+        *((_DWORD *)a3 + 16) = *(_DWORD *)(v6 + 88);
+        RtlStringCchCopyW(a3 + 68, 260LL, (char *)(v6 + 92));
+        v3 = 592;
+        if ( v4 < 0x250 )
+          v3 = 588;
+        else
+          *((_DWORD *)a3 + 147) = *(_DWORD *)(v7 + 612);
+        DEC_SHARE_REF_CNT(v7);
+      }
+    }
+  }
+  return v3;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?Release@CDeviceTextureTarget@@WHA@EAAKXZ @ 0x1800F0570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CDeviceTextureTarget::Release(__int64 a1)
+{
+  return CRenderTargetBitmap::Release((CRenderTargetBitmap *)(a1 - 112));
+}

@@ -1,0 +1,25 @@
+/*
+ * XREFs of EtwpGetReserveTraceBufferStatus @ 0x1402189D0
+ * Callers:
+ *     EtwpEventWriteFull @ 0x14021336C (EtwpEventWriteFull.c)
+ *     EtwTraceEvent @ 0x140216BB0 (EtwTraceEvent.c)
+ *     EtwpTraceMessageVa @ 0x1402176B0 (EtwpTraceMessageVa.c)
+ *     EtwpLogKernelEvent @ 0x14032CDC0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14041297C (EtwpLogSystemEventUnsafe.c)
+ *     EtwTraceRaw @ 0x140516B78 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x140B7D098 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall EtwpGetReserveTraceBufferStatus(__int64 a1, unsigned int a2)
+{
+  __int64 result; // rax
+
+  if ( a2 > 0xFFF8 )
+    return 3221225621LL;
+  result = 3221225495LL;
+  if ( a2 > *(_DWORD *)(a1 + 8) )
+    return 2147483653LL;
+  return result;
+}

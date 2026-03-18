@@ -1,0 +1,47 @@
+/*
+ * XREFs of DbgkUnMapViewOfSection @ 0x1407CB830
+ * Callers:
+ *     MiUnmapViewOfSection @ 0x14071EFC0 (MiUnmapViewOfSection.c)
+ *     MiFreeEnclaveModules @ 0x140A3DE28 (MiFreeEnclaveModules.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     memset @ 0x140435A00 (memset.c)
+ *     DbgkpSuppressDbgMsg @ 0x14093947C (DbgkpSuppressDbgMsg.c)
+ *     DbgkpSendApiMessage @ 0x14093A050 (DbgkpSendApiMessage.c)
+ */
+
+__int64 __fastcall DbgkUnMapViewOfSection(_KPROCESS *Object, __int64 a2)
+{
+  __int64 result; // rax
+  struct _KTHREAD *CurrentThread; // r8
+  struct _KTHREAD *v6; // rcx
+  void *Teb; // rcx
+  _QWORD v8[34]; // [rsp+20h] [rbp-128h] BYREF
+
+  memset(v8, 0, sizeof(v8));
+  result = (__int64)KeGetCurrentThread();
+  if ( *(_BYTE *)(result + 562) )
+  {
+    CurrentThread = KeGetCurrentThread();
+    result = *((unsigned int *)&CurrentThread[1].SwapListEntry + 2);
+    if ( (result & 4) == 0 )
+    {
+      if ( Object[1].Affinity.StaticBitmap[29] )
+      {
+        v6 = KeGetCurrentThread();
+        if ( (v6->MiscFlags & 0x400) != 0
+          || v6->ApcStateIndex == 1
+          || (Teb = v6->Teb) == 0LL
+          || Object != CurrentThread->Process
+          || (result = DbgkpSuppressDbgMsg(Teb), !(_DWORD)result) )
+        {
+          v8[6] = a2;
+          v8[0] = 0x800380010LL;
+          LODWORD(v8[5]) = 6;
+          return DbgkpSendApiMessage(Object);
+        }
+      }
+    }
+  }
+  return result;
+}

@@ -1,0 +1,69 @@
+/*
+ * XREFs of ??0CButtonEvent@CMouseProcessor@@QEAA@W4ButtonNumber@@W4ButtonState@1@W4ButtonStateSpecialization@1@PEBVCMouseEvent@1@@Z @ 0x1C00A694C
+ * Callers:
+ *     ?ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z @ 0x1C00A6840 (-ComputeAndDeliverMouseButtons@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::IsMouseButtonSwapped @ 0x1C00A6A08 (_anonymous_namespace_--IsMouseButtonSwapped.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C01FA2AC (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
+__int64 __fastcall CMouseProcessor::CButtonEvent::CButtonEvent(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5)
+{
+  __int64 v6; // r10
+  void *v7; // rax
+
+  v6 = *(_QWORD *)(a5 + 8);
+  *(_QWORD *)(a1 + 40) = 0LL;
+  *(_QWORD *)(a1 + 8) = v6;
+  *(_QWORD *)a1 = &CMouseProcessor::CButtonEvent::`vftable';
+  *(_DWORD *)(a1 + 24) = a2;
+  *(_DWORD *)(a1 + 28) = a2;
+  *(_DWORD *)(a1 + 32) = a3;
+  *(_DWORD *)(a1 + 36) = a4;
+  *(_DWORD *)(a1 + 16) = 2;
+  if ( !(_DWORD)a2 )
+  {
+    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3, a4);
+    a2 = *(unsigned int *)(a1 + 24);
+  }
+  if ( (((_DWORD)a2 - 1) & (unsigned int)a2) != 0 )
+    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3, a4);
+  if ( (unsigned int)(*(_DWORD *)(a1 + 32) - 1) > 1 )
+    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3, a4);
+  if ( (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 112LL) & 0x400) == 0 )
+  {
+    LOBYTE(a2) = *(_DWORD *)(a1 + 32) == 2;
+    if ( (unsigned __int8)anonymous_namespace_::IsMouseButtonSwapped(*(unsigned int *)(a1 + 24), a2) )
+      *(_DWORD *)(a1 + 24) ^= 3u;
+  }
+  if ( *(_QWORD *)(a1 + 40) )
+    MicrosoftTelemetryAssertTriggeredNoArgsKM(a1, a2, a3, a4);
+  switch ( *(_DWORD *)(a1 + 24) )
+  {
+    case 1:
+      v7 = &CMouseProcessor::CButtonEvent::_dependentInfo;
+      break;
+    case 2:
+      v7 = &unk_1C0208948;
+      break;
+    case 4:
+      v7 = &unk_1C0208960;
+      break;
+    case 8:
+      v7 = &unk_1C0208978;
+      break;
+    case 0x10:
+      v7 = &unk_1C0208990;
+      break;
+    default:
+      MicrosoftTelemetryAssertTriggeredNoArgsKM((unsigned int)(*(_DWORD *)(a1 + 24) - 8), a2, a3, a4);
+      return a1;
+  }
+  *(_QWORD *)(a1 + 40) = v7;
+  return a1;
+}

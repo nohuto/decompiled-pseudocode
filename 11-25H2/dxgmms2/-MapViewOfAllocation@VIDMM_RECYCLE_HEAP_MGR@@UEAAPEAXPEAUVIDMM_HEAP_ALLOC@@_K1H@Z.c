@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?MapViewOfAllocation@VIDMM_RECYCLE_HEAP_MGR@@UEAAPEAXPEAUVIDMM_HEAP_ALLOC@@_K1H@Z @ 0x1400CEBD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x140033EB0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??1DXGAUTOMUTEX@@QEAA@XZ @ 0x140036068 (--1DXGAUTOMUTEX@@QEAA@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140036D60 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z @ 0x1400CE718 (-Map@VIDMM_RECYCLE_MULTIRANGE@@QEAAPEAX_K0H@Z.c)
+ */
+
+void *__fastcall VIDMM_RECYCLE_HEAP_MGR::MapViewOfAllocation(
+        VIDMM_RECYCLE_HEAP_MGR *this,
+        struct VIDMM_HEAP_ALLOC *a2,
+        __int64 a3,
+        unsigned __int64 a4,
+        unsigned __int8 a5)
+{
+  void *v8; // rbx
+  _BYTE v10[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v10, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328), 1);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v10);
+  v8 = VIDMM_RECYCLE_MULTIRANGE::Map(a2, a3, a4, a5);
+  DXGAUTOMUTEX::~DXGAUTOMUTEX((DXGAUTOMUTEX *)v10);
+  return v8;
+}

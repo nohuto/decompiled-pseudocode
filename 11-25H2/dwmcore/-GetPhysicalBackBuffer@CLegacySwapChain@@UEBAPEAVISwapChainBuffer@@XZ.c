@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?GetPhysicalBackBuffer@CLegacySwapChain@@UEBAPEAVISwapChainBuffer@@XZ @ 0x180084260
+ * Callers:
+ *     ?CopyFrontToBackBuffer@COverlaySwapChain@@UEAAJXZ @ 0x180083F80 (-CopyFrontToBackBuffer@COverlaySwapChain@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+struct ISwapChainBuffer *__fastcall CLegacySwapChain::GetPhysicalBackBuffer(CLegacySwapChain *this)
+{
+  __int64 v1; // rdx
+  unsigned __int64 v2; // r8
+
+  v1 = *((_QWORD *)this + 44);
+  v2 = *((unsigned int *)this + 119);
+  if ( v2 >= (*((_QWORD *)this + 45) - v1) >> 3 )
+    return 0LL;
+  else
+    return *(struct ISwapChainBuffer **)(v1 + 8 * v2);
+}

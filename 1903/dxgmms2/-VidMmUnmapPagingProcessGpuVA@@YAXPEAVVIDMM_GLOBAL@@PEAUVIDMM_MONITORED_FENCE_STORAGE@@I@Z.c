@@ -1,0 +1,15 @@
+/*
+ * XREFs of ?VidMmUnmapPagingProcessGpuVA@@YAXPEAVVIDMM_GLOBAL@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I@Z @ 0x1C00247A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnmapGpuVA@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I_N@Z @ 0x1C005F534 (-UnmapGpuVA@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAUVIDMM_MONITORED_FENCE_STORAGE@@I_N@Z.c)
+ */
+
+void __fastcall VidMmUnmapPagingProcessGpuVA(
+        struct VIDMM_GLOBAL *a1,
+        struct VIDMM_MONITORED_FENCE_STORAGE *a2,
+        unsigned int a3)
+{
+  VIDMM_GLOBAL::UnmapGpuVA(a1, 0LL, a2, a3, 1);
+}

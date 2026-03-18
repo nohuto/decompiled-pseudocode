@@ -1,0 +1,54 @@
+/*
+ * XREFs of MiDbgUnTranslatePhysicalAddress @ 0x1402D1508
+ * Callers:
+ *     MiDbgCopyMemory @ 0x1402D08E8 (MiDbgCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x1402D115C (MiDbgTranslatePhysicalAddress.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140060A60 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeFlushSingleTb @ 0x14009F7D4 (KeFlushSingleTb.c)
+ *     KeFlushSingleCurrentTb @ 0x1401670BC (KeFlushSingleCurrentTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x1401BE818 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+void __fastcall MiDbgUnTranslatePhysicalAddress(int *a1)
+{
+  __int64 v2; // rcx
+  unsigned __int64 v3; // rcx
+  int v4; // eax
+  unsigned __int8 v5; // bl
+  struct _KPRCB *CurrentPrcb; // rcx
+
+  if ( (*a1 & 0x20) != 0 )
+  {
+    v2 = qword_1404663C8 << 25;
+    _InterlockedExchange64((volatile __int64 *)qword_1404663C8, ZeroPte);
+    v3 = v2 >> 16;
+    if ( (*a1 & 0x12) != 0 )
+      KeFlushSingleTb(v3, 0, 1u);
+    else
+      KeFlushSingleCurrentTb(v3, 0);
+  }
+  v4 = *a1;
+  if ( (*a1 & 4) == 0 )
+  {
+    if ( (v4 & 1) != 0 || (v4 & 2) != 0 )
+    {
+      _InterlockedAnd64((volatile signed __int64 *)(*((_QWORD *)a1 + 1) + 24LL), 0x7FFFFFFFFFFFFFFFuLL);
+    }
+    else if ( (v4 & 8) != 0 || (v4 & 0x10) != 0 )
+    {
+      ExReleaseSpinLockExclusiveFromDpcLevel(&dword_140466780);
+    }
+  }
+  v5 = *((_BYTE *)a1 + 4);
+  if ( v5 != 17 )
+  {
+    if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && KeGetCurrentIrql() >= 2u && v5 < 2u )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      _InterlockedAnd((volatile signed __int32 *)CurrentPrcb->SchedulerAssist, 0xFFFEFFFF);
+      KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    }
+    __writecr8(v5);
+  }
+}

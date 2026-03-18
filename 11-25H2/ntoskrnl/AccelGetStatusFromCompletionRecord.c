@@ -1,0 +1,33 @@
+/*
+ * XREFs of AccelGetStatusFromCompletionRecord @ 0x1406596B4
+ * Callers:
+ *     AccelpSubmitWork @ 0x1404F68DC (AccelpSubmitWork.c)
+ *     SmHwAcceleratorWaitForRequest @ 0x140603AAC (SmHwAcceleratorWaitForRequest.c)
+ * Callees:
+ *     AccelpInternalOperationHandler @ 0x140659FB0 (AccelpInternalOperationHandler.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ */
+
+__int64 __fastcall AccelGetStatusFromCompletionRecord(__int64 *a1)
+{
+  __int64 v3; // rax
+  _DWORD v4[2]; // [rsp+20h] [rbp-78h] BYREF
+  __int64 v5; // [rsp+28h] [rbp-70h]
+  int v6; // [rsp+30h] [rbp-68h]
+  __int64 v7; // [rsp+38h] [rbp-60h]
+  __int64 v8; // [rsp+40h] [rbp-58h]
+  __int64 v9; // [rsp+48h] [rbp-50h]
+
+  v4[1] = 0;
+  memset_0(v4, 0, 0x6CuLL);
+  if ( !a1 )
+    return 3221225485LL;
+  v3 = *a1;
+  v9 = 0LL;
+  v5 = v3;
+  v6 = *((_DWORD *)a1 + 4);
+  v7 = a1[3];
+  v8 = a1[4];
+  v4[0] = 3;
+  return AccelpInternalOperationHandler(v4, 0LL);
+}

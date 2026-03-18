@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?GetClientSurfaceInfo@DXGSWAPCHAIN@@AEAAXPEAUSWAPCHAIN_CLIENT_INFO@1@IPEAPEAUSWAPCHAIN_SURF_INFO@1@PEAPEAUSWAPCHAIN_CLIENT_SURF_INFO@1@@Z @ 0x1C0037948
+ * Callers:
+ *     ?AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z @ 0x1C01DDA50 (-AcquireBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_ACQUIRESWAPCHAIN@@PEAI@Z.c)
+ *     ?GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z @ 0x1C01DE5F8 (-GetSetMetaData@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_GETSETSWAPCHAINMETADATA@@IPEAXD@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C01DF630 (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DXGSWAPCHAIN::GetClientSurfaceInfo(
+        DXGSWAPCHAIN *this,
+        struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_INFO *a2,
+        unsigned int a3,
+        struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO **a4,
+        struct DXGSWAPCHAIN::SWAPCHAIN_CLIENT_SURF_INFO **a5)
+{
+  __int64 v6; // rbx
+  __int64 v9; // rax
+  __int64 v10; // rdx
+  struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *v11; // rcx
+
+  v6 = a3;
+  if ( a3 >= *((_DWORD *)this + 12) )
+  {
+    v9 = WdLogNewEntry5_WdAssertion(this);
+    *(_QWORD *)(v9 + 24) = 438LL;
+    WdLogEvent5_WdAssertion(v9);
+  }
+  v10 = *((int *)a2 + 7) + 1LL;
+  v11 = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)(*((_QWORD *)this + 7) + 96 * v6);
+  *a4 = v11;
+  *a5 = (struct DXGSWAPCHAIN::SWAPCHAIN_SURF_INFO *)((char *)v11 + 32 * v10);
+}

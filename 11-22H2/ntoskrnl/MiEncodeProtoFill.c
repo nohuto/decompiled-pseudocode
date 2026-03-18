@@ -1,0 +1,47 @@
+/*
+ * XREFs of MiEncodeProtoFill @ 0x14034E460
+ * Callers:
+ *     MiInitializePrototypePtes @ 0x1406B0EE4 (MiInitializePrototypePtes.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x1402146D4 (MiGetAnyMultiplexedVm.c)
+ *     MiLockPageTableInternal @ 0x1402376E0 (MiLockPageTableInternal.c)
+ *     MiUnlockWorkingSetShared @ 0x14023C4E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x140283B70 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x1403193E0 (MiUnlockPageTableInternal.c)
+ */
+
+__int64 __fastcall MiEncodeProtoFill(unsigned __int64 a1, unsigned __int64 a2, __int64 a3)
+{
+  unsigned __int64 v4; // rsi
+  unsigned __int64 v5; // rdi
+  unsigned __int64 v6; // r14
+  char *AnyMultiplexedVm; // rbp
+  __int64 v8; // r9
+  unsigned __int8 v9; // r15
+
+  v4 = ((a1 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+  v5 = 0LL;
+  v6 = v4 + 8 * (a2 >> 12);
+  AnyMultiplexedVm = MiGetAnyMultiplexedVm(2);
+  v9 = MiLockWorkingSetShared((__int64)AnyMultiplexedVm);
+  if ( v4 >= v6 )
+    return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v9);
+  do
+  {
+    if ( v5 )
+    {
+      if ( (v4 & 0xFFF) != 0 )
+        goto LABEL_4;
+      MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v5);
+    }
+    v5 = ((v4 >> 9) & 0x7FFFFFFFF8LL) - 0x98000000000LL;
+    MiLockPageTableInternal((__int64)AnyMultiplexedVm, v5, 0, v8);
+LABEL_4:
+    *(_QWORD *)v4 = a3;
+    v4 += 8LL;
+  }
+  while ( v4 < v6 );
+  if ( v5 )
+    MiUnlockPageTableInternal((__int64)AnyMultiplexedVm, v5);
+  return MiUnlockWorkingSetShared((__int64)AnyMultiplexedVm, v9);
+}

@@ -1,0 +1,82 @@
+/*
+ * XREFs of MiSetSystemRegionTypes @ 0x1409F04E0
+ * Callers:
+ *     MiInitializeSystemVa @ 0x1409EFD10 (MiInitializeSystemVa.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int64 MiSetSystemRegionTypes()
+{
+  int v0; // edx
+  __int64 *v1; // r9
+  unsigned __int64 v2; // r8
+  char v3; // cl
+  unsigned __int64 i; // r10
+  unsigned __int64 result; // rax
+
+  v0 = 0;
+  v1 = qword_140467240;
+  do
+  {
+    v2 = (((unsigned __int64)*v1 >> 39) & 0x1FF) - 256;
+    if ( v0 > 7 )
+    {
+      switch ( v0 )
+      {
+        case 8:
+          v3 = 14;
+          break;
+        case 9:
+          goto LABEL_18;
+        case 10:
+          v3 = 1;
+          break;
+        default:
+          v3 = 12;
+          break;
+      }
+    }
+    else if ( v0 == 7 )
+    {
+      v3 = 2;
+    }
+    else if ( v0 )
+    {
+      switch ( v0 )
+      {
+        case 1:
+          v3 = 6;
+          break;
+        case 2:
+          v3 = 8;
+          break;
+        case 3:
+          v3 = 9;
+          break;
+        case 5:
+LABEL_18:
+          v3 = 4;
+          break;
+        default:
+          v3 = 0;
+          break;
+      }
+    }
+    else
+    {
+      v3 = 5;
+    }
+    for ( i = (unsigned __int64)v1[1] >> 39; i; --i )
+    {
+      *((_BYTE *)&MiState[1520] + v2) = v3;
+      v2 = (unsigned int)(v2 + 1);
+    }
+    ++v0;
+    v1 += 2;
+  }
+  while ( (unsigned int)v0 < 0xC );
+  result = (((unsigned __int64)MiState >> 39) & 0x1FF) - 256;
+  *((_BYTE *)&MiState[1520] + (unsigned int)result) = 12;
+  return result;
+}

@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?bXform@DC@@QEBA_NAEBVEXFORMOBJ@@AEAVERECTL@@@Z @ 0x1400781D0
+ * Callers:
+ *     ?NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@4JPEADPEAU_DRAWSTREAMINFO@@@Z @ 0x140077868 (-NtGdiDrawStreamInternal@@YAHAEAVXDCOBJ@@AEAVEXFORMOBJ@@PEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_RECTL@@.c)
+ *     ?GrepMaskBlt@@YAHAEAVXDCOBJ@@HHHHAEAVOPTAPIDCOBJ@@HHPEAUHBITMAP__@@HHKK@Z @ 0x14016B868 (-GrepMaskBlt@@YAHAEAVXDCOBJ@@HHHHAEAVOPTAPIDCOBJ@@HHPEAUHBITMAP__@@HHKK@Z.c)
+ *     ?GrepMaskBltDevLocked@@YAHAEAVXDCOBJ@@HHHHAEAVOPTAPIDCOBJ@@HHHHKKAEAVDEVLOCKBLTOBJ@@AEAVBLTRECORD@@PEAVSURFACE@@@Z @ 0x14016BC94 (-GrepMaskBltDevLocked@@YAHAEAVXDCOBJ@@HHHHAEAVOPTAPIDCOBJ@@HHHHKKAEAVDEVLOCKBLTOBJ@@AEAVBLTRECOR.c)
+ *     ?NtGdiFlushUserBatchInternal@@YAXPEAX@Z @ 0x1401ACC30 (-NtGdiFlushUserBatchInternal@@YAXPEAX@Z.c)
+ * Callees:
+ *     bCvtPts1 @ 0x14007822C (bCvtPts1.c)
+ */
+
+char __fastcall DC::bXform(DC *this, const struct EXFORMOBJ *a2, struct ERECTL *a3)
+{
+  if ( (*(_BYTE *)(*(_QWORD *)a2 + 32LL) & 0x43) != 0x43 && !(unsigned int)bCvtPts1(*(_QWORD *)a2, a3) )
+    return 0;
+  if ( (*(_DWORD *)(*((_QWORD *)this + 122) + 108LL) & 1) != 0 )
+  {
+    ++*(_DWORD *)a3;
+    ++*((_DWORD *)a3 + 2);
+  }
+  return 1;
+}

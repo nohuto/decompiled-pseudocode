@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?GetAdapterInfo@VIDMM_PARTITION@@QEAAPEAUVIDMM_PARTITION_ADAPTER_INFO@@PEAVVIDMM_GLOBAL@@@Z @ 0x14003A788
+ * Callers:
+ *     ??1VIDMM_PARTITION@@QEAA@XZ @ 0x1400ABC7C (--1VIDMM_PARTITION@@QEAA@XZ.c)
+ *     ?EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z @ 0x1400ABE44 (-EnsureAdapter@VIDMM_PARTITION@@QEAAJPEAVVIDMM_GLOBAL@@@Z.c)
+ * Callees:
+ *     ?AdapterId@VIDMM_GLOBAL@@QEBAKXZ @ 0x1400E6870 (-AdapterId@VIDMM_GLOBAL@@QEBAKXZ.c)
+ */
+
+struct VIDMM_PARTITION_ADAPTER_INFO *__fastcall VIDMM_PARTITION::GetAdapterInfo(
+        VIDMM_PARTITION *this,
+        struct VIDMM_GLOBAL *a2)
+{
+  unsigned int v2; // eax
+  __int64 v3; // r8
+
+  v2 = VIDMM_GLOBAL::AdapterId(a2);
+  return (struct VIDMM_PARTITION_ADAPTER_INFO *)(*(_QWORD *)(v3 + 40) + 384LL * v2);
+}

@@ -1,0 +1,64 @@
+/*
+ * XREFs of ??$GrepAcquireLockValidate@$02@@YAXXZ @ 0x14008B1E4
+ * Callers:
+ *     ?bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ @ 0x14008AC84 (-bDisposeTrgDcoWorker@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x14008B05C (-vClearRenderState@DEVLOCKOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1400D8AF0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     W32GetCurrentWin32kSessionId @ 0x1400D8E2C (W32GetCurrentWin32kSessionId.c)
+ */
+
+__int64 GrepAcquireLockValidate<3>()
+{
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v1; // rdi
+  __int64 *ThreadWin32Thread; // rax
+  unsigned __int64 v3; // rcx
+  __int64 result; // rax
+  __int64 *v5; // rbx
+  __int64 v6; // rdx
+  int CurrentWin32kSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  int v9; // r8d
+  int v10; // eax
+
+  CurrentThread = KeGetCurrentThread();
+  v1 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentWin32kSessionId = W32GetCurrentWin32kSessionId(),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        CurrentWin32kSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v1 = *ThreadWin32Thread;
+  }
+  result = v1 + 8;
+  v5 = (__int64 *)((v1 + 8) & -(__int64)(v1 != 0));
+  if ( v5 )
+  {
+    v6 = *v5;
+    if ( (*v5 & 0xFFFFFFFFFFFFFFF8uLL) != 0 && (*v5 & 8) == 0 )
+    {
+      v3 = 0LL;
+      v9 = 37;
+      do
+      {
+        v10 = v3;
+        if ( !_bittest64(&v6, v3) )
+          v10 = v9;
+        ++v3;
+        v9 = v10;
+      }
+      while ( v3 < 0x40 );
+      if ( v10 > 3 )
+        MicrosoftTelemetryAssertTriggeredNoArgsKM(v3, v6, (unsigned int)v10);
+    }
+    LOBYTE(v3) = *(_BYTE *)(((v1 + 8) & -(__int64)(v1 != 0)) + 0xB);
+    result = (unsigned int)(v3 + 1);
+    *(_BYTE *)(((v1 + 8) & -(__int64)(v1 != 0)) + 0xB) = v3 + 1;
+    if ( !(_BYTE)v3 )
+      *v5 |= 8uLL;
+  }
+  return result;
+}

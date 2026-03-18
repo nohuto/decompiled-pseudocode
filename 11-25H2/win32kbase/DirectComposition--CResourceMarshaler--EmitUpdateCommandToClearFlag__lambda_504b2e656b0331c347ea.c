@@ -1,0 +1,40 @@
+/*
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommandToClearFlag__lambda_504b2e656b0331c347eaff34b8484def___ @ 0x140100BA4
+ * Callers:
+ *     ?EmitUpdateCommands@CContainerShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x140100B30 (-EmitUpdateCommands@CContainerShapeMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x140023B74 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
+char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommandToClearFlag__lambda_504b2e656b0331c347eaff34b8484def___(
+        __int64 a1,
+        struct DirectComposition::CBatch ***a2,
+        __int64 a3,
+        __int64 a4)
+{
+  int v6; // edi
+  _DWORD *v7; // rcx
+  __int64 v8; // rax
+  _DWORD *v10; // [rsp+30h] [rbp+8h] BYREF
+
+  if ( (*(_DWORD *)(a1 + 16) & 0x20) == 0 )
+    return 1;
+  v6 = 0;
+  v10 = 0LL;
+  if ( DirectComposition::CBatch::EnsureBatchBuffer(a2, 0x10uLL, (void **)&v10) )
+  {
+    v7 = v10;
+    *v10 = 16;
+    *(_QWORD *)(v7 + 1) = 0LL;
+    v7[3] = 0;
+    v7[1] = 368;
+    v7[2] = *(_DWORD *)(a1 + 32);
+    v8 = *(_QWORD *)(a4 + 56);
+    if ( v8 )
+      v6 = *(_DWORD *)(v8 + 32);
+    v7[3] = v6;
+    *(_DWORD *)(a1 + 16) &= ~0x20u;
+    return 1;
+  }
+  return 0;
+}

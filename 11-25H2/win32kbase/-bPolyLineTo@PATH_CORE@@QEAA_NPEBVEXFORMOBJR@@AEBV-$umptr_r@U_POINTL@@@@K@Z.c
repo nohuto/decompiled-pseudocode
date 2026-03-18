@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?bPolyLineTo@PATH_CORE@@QEAA_NPEBVEXFORMOBJR@@AEBV?$umptr_r@U_POINTL@@@@K@Z @ 0x14009A000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?addpoints@PATH_CORE@@QEAA_NPEBVEXFORMOBJR@@PEAUPATHDATAL@@@Z @ 0x14009A0C4 (-addpoints@PATH_CORE@@QEAA_NPEBVEXFORMOBJR@@PEAUPATHDATAL@@@Z.c)
+ */
+
+bool __fastcall PATH_CORE::bPolyLineTo(PATH_CORE *a1, const struct EXFORMOBJR *a2, __int64 a3, int a4)
+{
+  __int16 v4; // ax
+  _QWORD v6[3]; // [rsp+20h] [rbp-38h] BYREF
+  __int16 v7; // [rsp+38h] [rbp-20h]
+  int v8; // [rsp+40h] [rbp-18h]
+  int v9; // [rsp+44h] [rbp-14h]
+
+  v6[0] = *(_QWORD *)a3;
+  v6[1] = *(_QWORD *)(a3 + 8);
+  v6[2] = *(_QWORD *)(a3 + 16);
+  v4 = *(_WORD *)(a3 + 24);
+  v8 = 0;
+  v7 = v4;
+  v9 = a4;
+  return PATH_CORE::addpoints(a1, a2, (struct PATHDATAL *)v6);
+}

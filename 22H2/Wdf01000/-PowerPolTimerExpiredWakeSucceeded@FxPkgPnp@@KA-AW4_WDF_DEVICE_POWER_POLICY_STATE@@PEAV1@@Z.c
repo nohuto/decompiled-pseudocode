@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?PowerPolTimerExpiredWakeSucceeded@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C00882E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C0003FA0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     ?Invoke@FxPowerDeviceDisarmWakeFromS0@@QEAAJPEAUWDFDEVICE__@@@Z @ 0x1C001BB54 (-Invoke@FxPowerDeviceDisarmWakeFromS0@@QEAAJPEAUWDFDEVICE__@@@Z.c)
+ */
+
+__int64 __fastcall FxPkgPnp::PowerPolTimerExpiredWakeSucceeded(FxPkgPnp *This)
+{
+  WDFDEVICE__ *ObjectHandleUnchecked; // rax
+  __int64 v2; // rdx
+
+  ObjectHandleUnchecked = (WDFDEVICE__ *)FxObject::GetObjectHandleUnchecked(This->m_DeviceBase);
+  FxPowerDeviceDisarmWakeFromS0::Invoke(
+    (FxPowerDeviceWakeFromSxTriggered *)(*(_QWORD *)(v2 + 888) + 536LL),
+    ObjectHandleUnchecked);
+  return 1349LL;
+}

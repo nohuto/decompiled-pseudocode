@@ -1,0 +1,18 @@
+/*
+ * XREFs of ??1ATTACHOBJ@@QEAA@XZ @ 0x1400B13B0
+ * Callers:
+ *     ?QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU_GLYPHBITS@@@Z @ 0x1400AA550 (-QueryGlyphMetricsPlusBits@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAPEAU_GLYPHDATA@@PEAPEAU.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1400AE594 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     FONTOBJ_pQueryGlyphAttrs @ 0x140309D90 (FONTOBJ_pQueryGlyphAttrs.c)
+ *     ?FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z @ 0x140320580 (-FontManagement@PFFOBJ@@QEAAHPEAU_SURFOBJ@@PEAU_FONTOBJ@@KKPEAXK2@Z.c)
+ * Callees:
+ *     EngUnmapFontFileFD @ 0x1400B2490 (EngUnmapFontFileFD.c)
+ */
+
+void __fastcall ATTACHOBJ::~ATTACHOBJ(ATTACHOBJ *this)
+{
+  __int64 i; // rbx
+
+  for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 2); i = (unsigned int)(i + 1) )
+    EngUnmapFontFileFD(*(_QWORD *)(*(_QWORD *)this + 8 * i));
+}

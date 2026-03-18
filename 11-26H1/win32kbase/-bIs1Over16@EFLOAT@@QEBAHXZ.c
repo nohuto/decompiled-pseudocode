@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?bIs1Over16@EFLOAT@@QEBAHXZ @ 0x1401F1660
+ * Callers:
+ *     ?vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z @ 0x140011570 (-vComputeAccelFlags@EXFORMOBJ@@QEAAXK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall EFLOAT::bIs1Over16(EFLOAT *this)
+{
+  return *(float *)this == 0.0625;
+}

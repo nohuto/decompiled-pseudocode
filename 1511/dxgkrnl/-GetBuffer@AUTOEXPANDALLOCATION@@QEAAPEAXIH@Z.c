@@ -1,0 +1,74 @@
+/*
+ * XREFs of ?GetBuffer@AUTOEXPANDALLOCATION@@QEAAPEAXIH@Z @ 0x1C00BBFA0
+ * Callers:
+ *     ?Initialize@OUTPUTDUPL_SESSION_MGR@@QEAAJXZ @ 0x1C00BBE74 (-Initialize@OUTPUTDUPL_SESSION_MGR@@QEAAJXZ.c)
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C00D4B08 (--0DXGGLOBAL@@AEAA@XZ.c)
+ *     ?AddEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@PEAU_LUID@@IH@Z @ 0x1C00DB8E4 (-AddEntry@DXGADAPTERSOURCEHASH@@AEAAPEAUADAPTERSOURCEHASH_ENTRY@1@PEAU_LUID@@IH@Z.c)
+ *     ?CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ @ 0x1C00DBAB0 (-CreateSourceContextLists@OUTPUTDUPL_MGR@@AEAAJXZ.c)
+ *     ?AddRef@OUTPUTDUPL_SESSION_MGR@@QEAAHPEAU_EPROCESS@@H@Z @ 0x1C0156758 (-AddRef@OUTPUTDUPL_SESSION_MGR@@QEAAHPEAU_EPROCESS@@H@Z.c)
+ *     ?GetMetaData@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_METADATA@@@Z @ 0x1C01577B8 (-GetMetaData@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_METADATA@@@Z.c)
+ *     ?LogPresentParams@OUTPUTDUPL_MGR@@AEAAJPEBU_D3DKMT_OUTPUTDUPLPRESENT@@PEAVAUTOEXPANDALLOCATION@@@Z @ 0x1C01580D8 (-LogPresentParams@OUTPUTDUPL_MGR@@AEAAJPEBU_D3DKMT_OUTPUTDUPLPRESENT@@PEAVAUTOEXPANDALLOCATION@@.c)
+ *     ?AddToMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@@Z @ 0x1C015B29C (-AddToMoveList@DDAMetaData@@AEAAHPEAU_D3DKMT_MOVE_RECT@@@Z.c)
+ *     ?ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ @ 0x1C015B5F0 (-ConvertGdiRgnToRects@DDAMetaData@@AEAAHXZ.c)
+ *     ?GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z @ 0x1C015B850 (-GetDirtyRectData@DDAMetaData@@AEAAPEAUtagRECT@@I@Z.c)
+ *     ?Initialize@DDAMetaData@@QEAAHII@Z @ 0x1C015BB48 (-Initialize@DDAMetaData@@QEAAHII@Z.c)
+ *     ?Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C015BC30 (-Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
+ *     ?ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUTEX@@PEAU_PRODUCER_INFO@@PEAH3@Z @ 0x1C015CE30 (-ProcessUpdateLowLevel@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@PEAVDXGDXGIKEYEDMUT.c)
+ *     ?SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT_RGNS@@@Z @ 0x1C015D5B0 (-SubmitBltForRegions@OUTPUTDUPL_CONTEXT@@AEAAJPEAU_OUTPUTDUPL_UPDATE_INFO@@IIPEAU_D3DKMT_PRESENT.c)
+ *     ??0DXGSWAPCHAIN@@QEAA@XZ @ 0x1C01655D0 (--0DXGSWAPCHAIN@@QEAA@XZ.c)
+ *     ?InitializeGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z @ 0x1C0166660 (-InitializeGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z.c)
+ *     ?ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z @ 0x1C0166E9C (-ReleaseBuffer@DXGSWAPCHAIN@@QEAAJPEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXD@Z.c)
+ *     ?SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADATA_ETW_INFO@1@D@Z @ 0x1C016716C (-SetMetaDataInternal@DXGSWAPCHAIN@@AEAAJPEAVAUTOEXPANDALLOCATION@@AEAHIIPEAXAEAUSWAPCHAIN_METADA.c)
+ * Callees:
+ *     memmove @ 0x1C00120C0 (memmove.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0065F88 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C0065FA0 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ */
+
+void *__fastcall AUTOEXPANDALLOCATION::GetBuffer(void **this, unsigned int a2, int a3)
+{
+  SIZE_T v4; // rdi
+  void *v5; // rcx
+  void *result; // rax
+  PVOID v7; // rax
+  PVOID v8; // rsi
+
+  v4 = a2;
+  if ( *((_DWORD *)this + 3) < a2 )
+  {
+    if ( a3 )
+    {
+      v7 = operator new[](a2, 0x674D444Fu, PagedPool);
+      v8 = v7;
+      if ( !v7 )
+      {
+        operator delete(*this);
+        *this = 0LL;
+        goto LABEL_12;
+      }
+      memmove(v7, *this, *((unsigned int *)this + 2));
+      operator delete(*this);
+      *this = v8;
+    }
+    else
+    {
+      v5 = *this;
+      if ( v5 )
+        operator delete(v5);
+      *this = operator new[](v4, 0x674D444Fu, PagedPool);
+    }
+    if ( *this )
+    {
+      *((_DWORD *)this + 2) = v4;
+      *((_DWORD *)this + 3) = v4;
+      return *this;
+    }
+LABEL_12:
+    *((_DWORD *)this + 2) = 0;
+    *((_DWORD *)this + 3) = 0;
+    return *this;
+  }
+  result = *this;
+  *((_DWORD *)this + 2) = a2;
+  return result;
+}

@@ -1,0 +1,56 @@
+/*
+ * XREFs of ?WriteDpiToHKLMRegistry@DpiPersistence@@YAJAEBU_LUID@@IK@Z @ 0x1401CAA0C
+ * Callers:
+ *     DxgkUpdateGdiInfo @ 0x14030D570 (DxgkUpdateGdiInfo.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ?WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z @ 0x14033B220 (-WriteDwordToParticularRegValue@DpiPersistence@@YAJAEBU_UNICODE_STRING@@00QEBGK@Z.c)
+ *     ?AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z @ 0x14033CD38 (-AllocateMonitorSetIdFromAdapterSource@DpiPersistence@@YAJAEBU_LUID@@IPEAU_UNICODE_STRING@@@Z.c)
+ */
+
+__int64 __fastcall DpiPersistence::WriteDpiToHKLMRegistry(
+        struct _LUID *this,
+        const struct _LUID *a2,
+        int a3,
+        struct _UNICODE_STRING *a4)
+{
+  __int64 v5; // rdi
+  const struct _UNICODE_STRING *v6; // r9
+  int v7; // eax
+  unsigned __int16 *v9; // [rsp+20h] [rbp-68h]
+  unsigned int v10; // [rsp+28h] [rbp-60h]
+  struct _UNICODE_STRING v11; // [rsp+50h] [rbp-38h] BYREF
+  struct _UNICODE_STRING v12; // [rsp+60h] [rbp-28h] BYREF
+  struct _UNICODE_STRING DestinationString; // [rsp+70h] [rbp-18h] BYREF
+
+  v11 = 0LL;
+  LODWORD(v5) = DpiPersistence::AllocateMonitorSetIdFromAdapterSource(this, a2, (unsigned int)&v11, a4);
+  if ( (int)v5 >= 0 )
+  {
+    DestinationString = 0LL;
+    v12 = 0LL;
+    RtlInitUnicodeString(&DestinationString, L"\\Registry\\Machine\\System");
+    RtlInitUnicodeString(&v12, L"CurrentControlSet\\Control\\GraphicsDrivers\\ScaleFactors");
+    LODWORD(v9) = a3;
+    v7 = DpiPersistence::WriteDwordToParticularRegValue((DpiPersistence *)&DestinationString, &v12, &v11, v6, v9, v10);
+    v5 = v7;
+    if ( v7 < 0 )
+    {
+      WdLogSingleEntry1(2LL, v7);
+      WdLogGlobalForLineNumber = 709;
+      DxgkLogInternalTriageEvent(
+        0LL,
+        0x40000LL,
+        0xFFFFFFFFLL,
+        L"Failed to write DPI value to HKLM. (Status = 0x%I64x)",
+        v5,
+        0LL,
+        0LL,
+        0LL,
+        0LL);
+    }
+  }
+  DXGQUOTAALLOCATOR<256,1835156294>::operator delete(v11.Buffer);
+  return (unsigned int)v5;
+}

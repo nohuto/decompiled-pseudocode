@@ -1,0 +1,41 @@
+/*
+ * XREFs of ACPIDispatchForwardIrp @ 0x1C0001660
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001410 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIDispatchWmiLog @ 0x1C002D7E0 (ACPIDispatchWmiLog.c)
+ *     ACPIDispatchForwardIrpWithExceptions @ 0x1C0052330 (ACPIDispatchForwardIrpWithExceptions.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C0091E90 (ACPIRootIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C00920A0 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C00937D0 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0097840 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     ACPIFilterIrpQueryId @ 0x1C00A0E10 (ACPIFilterIrpQueryId.c)
+ *     ACPIThermalWmi @ 0x1C00A1B80 (ACPIThermalWmi.c)
+ *     ACPIEcOtherIrpDispatch @ 0x1C00AD3A0 (ACPIEcOtherIrpDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ACPIDispatchForwardIrp(ULONG_PTR BugCheckParameter3, PIRP Irp)
+{
+  KIRQL v4; // al
+  __int64 v5; // rdi
+  unsigned int Status; // edi
+
+  v4 = KeAcquireSpinLockRaiseToDpc(&AcpiDeviceTreeLock);
+  v5 = *(_QWORD *)(BugCheckParameter3 + 64);
+  if ( v5 && *(_DWORD *)(v5 + 16) != 1599293264 )
+    KeBugCheckEx(0xA3u, 2uLL, 0x901A5uLL, BugCheckParameter3, *(_QWORD *)(BugCheckParameter3 + 64));
+  KeReleaseSpinLock(&AcpiDeviceTreeLock, v4);
+  if ( *(_QWORD *)(v5 + 776) )
+  {
+    ++Irp->CurrentLocation;
+    ++Irp->Tail.Overlay.CurrentStackLocation;
+    return (unsigned int)IofCallDriver(*(PDEVICE_OBJECT *)(v5 + 776), Irp);
+  }
+  else
+  {
+    Status = Irp->IoStatus.Status;
+    IofCompleteRequest(Irp, 0);
+  }
+  return Status;
+}

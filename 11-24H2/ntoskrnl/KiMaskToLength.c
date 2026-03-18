@@ -1,0 +1,18 @@
+/*
+ * XREFs of KiMaskToLength @ 0x140B57990
+ * Callers:
+ *     KiInitializeMTRR @ 0x140C2984C (KiInitializeMTRR.c)
+ * Callees:
+ *     RtlFindLeastSignificantBit @ 0x14045B1B0 (RtlFindLeastSignificantBit.c)
+ */
+
+__int64 __fastcall KiMaskToLength(ULONGLONG a1)
+{
+  CCHAR LeastSignificantBit; // cl
+
+  if ( a1 )
+    LeastSignificantBit = RtlFindLeastSignificantBit(a1);
+  else
+    LeastSignificantBit = KiMtrrMaxRangeShift;
+  return 1LL << LeastSignificantBit;
+}

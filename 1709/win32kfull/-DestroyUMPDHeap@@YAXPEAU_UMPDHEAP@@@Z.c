@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C0100D30
+ * Callers:
+ *     ?FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ @ 0x1C00BA0AC (-FreeNonCachedUserMem@UMPDOBJ@@QEAAXXZ.c)
+ *     ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C0100CE4 (-vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall DestroyUMPDHeap(struct _UMPDHEAP *a1, __int64 a2, __int64 a3)
+{
+  void *v4; // rcx
+  ULONG_PTR RegionSize; // [rsp+30h] [rbp+8h] BYREF
+  PVOID BaseAddress; // [rsp+38h] [rbp+10h] BYREF
+
+  if ( a1 )
+  {
+    v4 = (void *)*((_QWORD *)a1 + 1);
+    if ( v4 )
+      MmUnsecureVirtualMemory(v4);
+    if ( *(_QWORD *)a1 )
+    {
+      BaseAddress = *(PVOID *)a1;
+      RegionSize = 0x400000LL;
+      ZwFreeVirtualMemory((HANDLE)0xFFFFFFFFFFFFFFFFLL, &BaseAddress, &RegionSize, 0x8000u);
+    }
+    Win32FreePool(a1, a2, a3);
+  }
+}

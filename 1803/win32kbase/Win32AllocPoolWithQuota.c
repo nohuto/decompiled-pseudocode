@@ -1,0 +1,66 @@
+/*
+ * XREFs of Win32AllocPoolWithQuota @ 0x1C00192D0
+ * Callers:
+ *     ?SetBufferProperty@CAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0007320 (-SetBufferProperty@CAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_K.c)
+ *     ?SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0008EB0 (-SetBufferProperty@CKeyframeAnimationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2.c)
+ *     ?SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0009880 (-SetBufferProperty@CExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_.c)
+ *     ?SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C000A260 (-SetBufferProperty@CBaseExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IP.c)
+ *     ?AnimationScenarioBegin@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C00101A0 (-AnimationScenarioBegin@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z.c)
+ *     ?AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z @ 0x1C0010284 (-AnimationScenarioReference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z.c)
+ *     ?AnimationScenarioUnreference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z @ 0x1C0010324 (-AnimationScenarioUnreference@CTelemetryInfo@DirectComposition@@QEAAJPEBU_GUID@@PEA_K@Z.c)
+ *     ?AllocateTableEntry@?$CGenericTable@PEAVCResourceMarshaler@DirectComposition@@VCWeakReferenceBase@2@$0HEHHEDEE@$00@DirectComposition@@CAPEAXPEAU_RTL_GENERIC_TABLE@@K@Z @ 0x1C00105F0 (-AllocateTableEntry@-$CGenericTable@PEAVCResourceMarshaler@DirectComposition@@VCWeakReferenceBas.c)
+ *     ?AllocateTableEntry@?$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectComposition@@CAPEAXPEAU_RTL_GENERIC_TABLE@@K@Z @ 0x1C00132F0 (-AllocateTableEntry@-$CGenericTable@IVCChannel@DirectComposition@@$0HEGDEDEE@$00@DirectCompositi.c)
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C00149DC (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     ?ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z @ 0x1C00156F0 (-ProcessCommandBufferIterator@CApplicationChannel@DirectComposition@@IEAAJPEAXI_NPEAK@Z.c)
+ *     AllocAce @ 0x1C001C210 (AllocAce.c)
+ *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C001C310 (UserAllocDefaultCompositionSecurityDescriptor.c)
+ *     FastGetProfileStringW @ 0x1C003C7A0 (FastGetProfileStringW.c)
+ *     NtUserDisplayConfigGetDeviceInfo @ 0x1C00427C0 (NtUserDisplayConfigGetDeviceInfo.c)
+ *     ?SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C005F998 (-SetApplicationId@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z.c)
+ *     CreateSecurityDescriptor @ 0x1C0060E70 (CreateSecurityDescriptor.c)
+ *     AllocateWindowManagerSid @ 0x1C0063B40 (AllocateWindowManagerSid.c)
+ *     ?AllocateLocalSystemSid@@YAJPEAPEAX@Z @ 0x1C00643AC (-AllocateLocalSystemSid@@YAJPEAPEAX@Z.c)
+ *     UserReAllocPoolWithQuota @ 0x1C006AC80 (UserReAllocPoolWithQuota.c)
+ *     xxxCreateThreadInfo @ 0x1C006F538 (xxxCreateThreadInfo.c)
+ *     InitSystemThread @ 0x1C00A0CF0 (InitSystemThread.c)
+ *     CreateProfileUserName @ 0x1C00A7F70 (CreateProfileUserName.c)
+ *     FastGetProfileKeysW @ 0x1C00A8220 (FastGetProfileKeysW.c)
+ *     FastGetProfileValue @ 0x1C00A84E0 (FastGetProfileValue.c)
+ *     NtDWMSetInputSystemOutputConfig @ 0x1C00B34F0 (NtDWMSetInputSystemOutputConfig.c)
+ *     NtMITBindInputTypeToMonitors @ 0x1C00B38F0 (NtMITBindInputTypeToMonitors.c)
+ *     NtUserDisplayConfigSetDeviceInfo @ 0x1C00B5830 (NtUserDisplayConfigSetDeviceInfo.c)
+ *     NtUserGetRawPointerDeviceData @ 0x1C00B7280 (NtUserGetRawPointerDeviceData.c)
+ *     NtUserInitializeGenericHidInjection @ 0x1C00B7760 (NtUserInitializeGenericHidInjection.c)
+ *     NtUserInitializeInputDeviceInjection @ 0x1C00B7AA0 (NtUserInitializeInputDeviceInjection.c)
+ *     NtUserInjectDeviceInput @ 0x1C00B7E40 (NtUserInjectDeviceInput.c)
+ *     NtUserInjectKeyboardInput @ 0x1C00B8190 (NtUserInjectKeyboardInput.c)
+ *     NtUserInjectMouseInput @ 0x1C00B8340 (NtUserInjectMouseInput.c)
+ *     NtUserInjectPointerInput @ 0x1C00B84E0 (NtUserInjectPointerInput.c)
+ *     NtUserSetDisplayConfig @ 0x1C00B8EC0 (NtUserSetDisplayConfig.c)
+ *     NtUserSetFeatureReportResponse @ 0x1C00B9430 (NtUserSetFeatureReportResponse.c)
+ *     NtUserSetManipulationInputTarget @ 0x1C00B9810 (NtUserSetManipulationInputTarget.c)
+ *     NtUserSetSysColors @ 0x1C00B9CD0 (NtUserSetSysColors.c)
+ *     NtUserSystemParametersInfo @ 0x1C00BA130 (NtUserSystemParametersInfo.c)
+ *     ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C00C9430 (-IsAllowedToCallMiracast@@YA_NXZ.c)
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C010BC40 (xxxUpdatePerUserAccessPackSettings.c)
+ *     NtDCompositionTelemetryTouchInteractionEnd @ 0x1C0143AA0 (NtDCompositionTelemetryTouchInteractionEnd.c)
+ *     ?SetResourceHandleArrayProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEB_K_K@Z @ 0x1C0147048 (-SetResourceHandleArrayProperty@CApplicationChannel@DirectComposition@@QEAAJIIPEB_K_K@Z.c)
+ *     ?AddInteractionBeginInfo@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z @ 0x1C0147760 (-AddInteractionBeginInfo@CTelemetryInfo@DirectComposition@@QEAAJ_KPEBX@Z.c)
+ *     ?AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO@@@Z @ 0x1C014784C (-AddInteractionUpdateInfo@CTelemetryInfo@DirectComposition@@QEAAJPEAUTOUCH_TELEMETRY_UPDATE_INFO.c)
+ *     ?SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C014A780 (-SetBufferProperty@CAnimationLoggingManagerMarshaler@DirectComposition@@UEAAJPEAVCApplicationCha.c)
+ *     ?SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C014DFD0 (-SetBufferProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@.c)
+ *     ?Initialize@CEffectInputSet@DirectComposition@@QEAAJI@Z @ 0x1C01531C8 (-Initialize@CEffectInputSet@DirectComposition@@QEAAJI@Z.c)
+ *     ?SetBufferProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0153700 (-SetBufferProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
+ *     ?SetBufferProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0154C50 (-SetBufferProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX.c)
+ *     InitCreateUserSubsystem @ 0x1C01F2710 (InitCreateUserSubsystem.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall Win32AllocPoolWithQuota(__int64 a1, unsigned int a2)
+{
+  if ( (int)IsWin32AllocPoolWithQuotaImplSupported() < 0 )
+    return 0LL;
+  else
+    return Win32AllocPoolWithQuotaImpl(41LL, a1, a2);
+}

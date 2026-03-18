@@ -1,0 +1,125 @@
+/*
+ * XREFs of DrawTextExWorker @ 0x1C024C94C
+ * Callers:
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C013B328 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     xxxDrawCaptionTemp @ 0x1C022B7E4 (xxxDrawCaptionTemp.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C00EDA4C (UserSetLastError.c)
+ *     GreExtSelectClipRgnInternal @ 0x1C011B070 (GreExtSelectClipRgnInternal.c)
+ *     GreGetRandomRgn @ 0x1C0131120 (GreGetRandomRgn.c)
+ *     __security_check_cookie @ 0x1C01381F0 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0140D40 (memset_0.c)
+ *     ?AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z @ 0x1C024C028 (-AddEllipsisAndDrawLine@@YAHPEAUHDC__@@HPEAGHKPEAUDRAWTEXTDATA@@H@Z.c)
+ *     ?DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z @ 0x1C024C5A8 (-DT_InitDrawTextInfo@@YAHPEAUHDC__@@PEAUtagRECT@@IPEAUDRAWTEXTDATA@@PEAUtagDRAWTEXTPARAMS@@@Z.c)
+ *     GreGetTextAlign @ 0x1C02D7170 (GreGetTextAlign.c)
+ *     GreSetTextAlign @ 0x1C02D7214 (GreSetTextAlign.c)
+ */
+
+__int64 __fastcall DrawTextExWorker(
+        HDC a1,
+        unsigned __int16 *a2,
+        int a3,
+        struct tagRECT *a4,
+        unsigned int a5,
+        struct tagDRAWTEXTPARAMS *a6)
+{
+  __int64 v7; // rsi
+  __int64 v10; // rdi
+  HRGN RectRgn; // rax
+  __m128i v13; // xmm0
+  unsigned int top; // ebx
+  unsigned int v15; // eax
+  int v16; // eax
+  int v17; // ebx
+  int v18; // esi
+  LONG v19; // ecx
+  _BYTE v20[28]; // [rsp+50h] [rbp-A8h] BYREF
+  int v21; // [rsp+6Ch] [rbp-8Ch]
+  int v22; // [rsp+90h] [rbp-68h]
+
+  LODWORD(v7) = a3;
+  memset_0(v20, 0, 0x48uLL);
+  v10 = 0LL;
+  if ( !a2 )
+    return 0LL;
+  if ( (_DWORD)v7 )
+  {
+    if ( (_DWORD)v7 == -1 )
+    {
+      v7 = -1LL;
+      do
+        ++v7;
+      while ( a2[v7] );
+    }
+  }
+  else if ( *a2 )
+  {
+    return 1LL;
+  }
+  if ( a6 && *(_DWORD *)a6 != 20 )
+  {
+    UserSetLastError(87);
+    return 0LL;
+  }
+  if ( !(unsigned int)DT_InitDrawTextInfo(a1, a4, a5, (struct DRAWTEXTDATA *)v20, a6) )
+    return 0LL;
+  v22 = -1;
+  if ( (a5 & 0x20000) != 0 )
+  {
+    GreGetTextAlign(a1);
+    GreSetTextAlign(a1);
+  }
+  if ( (a5 & 0x100) == 0 )
+  {
+    RectRgn = (HRGN)GreCreateRectRgn(0LL, 0LL, 0LL, 0LL);
+    v10 = (__int64)RectRgn;
+    if ( RectRgn )
+    {
+      if ( (unsigned int)GreGetRandomRgn(a1, RectRgn, 1) != 1 )
+      {
+        GreDeleteObject(v10);
+        v10 = -1LL;
+      }
+      v13 = _mm_srli_si128(*(__m128i *)a4, 8);
+      GreIntersectClipRect(
+        a1,
+        *(_QWORD *)&a4->left,
+        HIDWORD(*(_QWORD *)&a4->left),
+        (unsigned int)_mm_cvtsi128_si32(v13),
+        v13.m128i_i32[1]);
+    }
+  }
+  top = a4->top;
+  v15 = a5 & 0xC;
+  if ( v15 == 4 )
+  {
+    top += (int)(a4->bottom - top - v21) / 2;
+  }
+  else if ( v15 == 8 )
+  {
+    top = a4->bottom - v21;
+  }
+  v16 = AddEllipsisAndDrawLine((__int64)a1, top, a2, (unsigned int)v7, a5, (struct DRAWTEXTDATA *)v20);
+  v17 = v21 + top;
+  v18 = (_DWORD)a2 + 2 * v16;
+  if ( v10 )
+  {
+    if ( v10 == -1 )
+    {
+      GreExtSelectClipRgnInternal((__int64)a1, 0LL, 5, 1);
+    }
+    else
+    {
+      GreExtSelectClipRgnInternal((__int64)a1, (HRGN)v10, 5, 1);
+      GreDeleteObject(v10);
+    }
+  }
+  if ( (a5 & 0x20000) != 0 )
+    GreSetTextAlign(a1);
+  if ( a6 )
+    *((_DWORD *)a6 + 4) = (unsigned int)(v18 - (_DWORD)a2) >> 1;
+  v19 = a4->top;
+  if ( v17 == v19 )
+    return 1LL;
+  return (unsigned int)(v17 - v19);
+}

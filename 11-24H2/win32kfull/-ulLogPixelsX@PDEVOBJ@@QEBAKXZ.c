@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?ulLogPixelsX@PDEVOBJ@@QEBAKXZ @ 0x1401608B4
+ * Callers:
+ *     ?bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@AEAVUDCOBJ@@KQEAU_POINTL@@H@Z @ 0x1400BC0A0 (-bGetNtoD_Win31@@YAHPEAU_FD_XFORM@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@AEAVUDCOBJ@@KQEAU_POINTL@@H@Z.c)
+ *     ?bGetNtoW_Win31@@YAHPEAUMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@AEAVUDCOBJ@@KH@Z @ 0x1400BC5E0 (-bGetNtoW_Win31@@YAHPEAUMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@AEAVUDCOBJ@@KH@Z.c)
+ *     ?vGetNtoW@@YAXPEAUMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@AEAVUDCOBJ@@@Z @ 0x1400BD124 (-vGetNtoW@@YAXPEAUMATRIX@@PEAUtagLOGFONTW@@AEAVIFIOBJ@@AEAVUDCOBJ@@@Z.c)
+ *     ?bRealizeFont@RFONTOBJ@@QEAAHAEAVUDCOBJ@@PEAUHDEV__@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_XFORM@@QEAU_POINTL@@KKHHK@Z @ 0x14025A468 (-bRealizeFont@RFONTOBJ@@QEAAHAEAVUDCOBJ@@PEAUHDEV__@@PEAUtagENUMLOGFONTEXDVW@@PEAVPFE@@PEAU_FD_X.c)
+ *     GreGetAspectRatioFilter @ 0x140303D00 (GreGetAspectRatioFilter.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PDEVOBJ::ulLogPixelsX(PDEVOBJ *this)
+{
+  unsigned int CurrentThreadDpiAwarenessContext; // eax
+
+  CurrentThreadDpiAwarenessContext = W32GetCurrentThreadDpiAwarenessContext(this);
+  if ( (*(_DWORD *)(*(_QWORD *)this + 40LL) & 1) != 0 && (CurrentThreadDpiAwarenessContext & 0xF) - 1 > 1 )
+    return (CurrentThreadDpiAwarenessContext >> 8) & 0x1FF;
+  else
+    return *(unsigned int *)(*(_QWORD *)this + 2160LL);
+}

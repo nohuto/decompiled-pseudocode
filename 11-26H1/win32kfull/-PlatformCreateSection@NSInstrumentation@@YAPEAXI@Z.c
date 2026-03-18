@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?PlatformCreateSection@NSInstrumentation@@YAPEAXI@Z @ 0x140231A8C
+ * Callers:
+ *     ?Initialize@?$CSectionEntry@$0DKAAA@$0DKA@@NSInstrumentation@@AEAA_NXZ @ 0x1402318FC (-Initialize@-$CSectionEntry@$0DKAAA@$0DKA@@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?Initialize@?$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@AEAA_NXZ @ 0x140231A2C (-Initialize@-$CSectionEntry@$0JAAA@$0JA@@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?Initialize@?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA_NXZ @ 0x1402D05F4 (-Initialize@-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA_NXZ.c)
+ *     ?Initialize@?$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ @ 0x1402F3B28 (-Initialize@-$CSectionEntry@$0HAAA@$0HA@@NSInstrumentation@@AEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+PVOID __fastcall NSInstrumentation::PlatformCreateSection(NSInstrumentation *this)
+{
+  __int64 v1; // rbx
+  int v2; // edi
+  int v4; // [rsp+58h] [rbp+10h] BYREF
+  int v5; // [rsp+5Ch] [rbp+14h]
+  PVOID Object; // [rsp+60h] [rbp+18h] BYREF
+
+  v1 = 0LL;
+  v2 = (int)this;
+  v5 = 0;
+  v4 = (int)this;
+  Object = 0LL;
+  if ( (unsigned int)MmCreateSection(&Object, 983071LL, 0LL, &v4, 4, 0x4000000, 0LL, 0LL) || v4 == v2 && !v5 )
+    return Object;
+  ObfDereferenceObject(Object);
+  return (PVOID)v1;
+}

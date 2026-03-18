@@ -1,0 +1,84 @@
+/*
+ * XREFs of Template_pppqqQ6qqqqn @ 0x1C00316B0
+ * Callers:
+ *     Etw_DeviceCreate @ 0x1C0030D2C (Etw_DeviceCreate.c)
+ *     Etw_DeviceDelete @ 0x1C0030DC4 (Etw_DeviceDelete.c)
+ *     Etw_DeviceRundown @ 0x1C0030E5C (Etw_DeviceRundown.c)
+ *     Etw_DeviceUpdate @ 0x1C0030F18 (Etw_DeviceUpdate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00105E0 (__security_check_cookie.c)
+ */
+
+NTSTATUS Template_pppqqQ6qqqqn(
+        _DWORD a1,
+        const EVENT_DESCRIPTOR *a2,
+        const GUID *a3,
+        __int64 a4,
+        char a5,
+        char a6,
+        char a7,
+        char a8,
+        __int64 a9,
+        char a10,
+        char a11,
+        char a12,
+        ...)
+{
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-C9h] BYREF
+  char *v14; // [rsp+40h] [rbp-B9h]
+  __int64 v15; // [rsp+48h] [rbp-B1h]
+  char *v16; // [rsp+50h] [rbp-A9h]
+  __int64 v17; // [rsp+58h] [rbp-A1h]
+  char *v18; // [rsp+60h] [rbp-99h]
+  __int64 v19; // [rsp+68h] [rbp-91h]
+  char *v20; // [rsp+70h] [rbp-89h]
+  __int64 v21; // [rsp+78h] [rbp-81h]
+  __int64 v22; // [rsp+80h] [rbp-79h]
+  __int64 v23; // [rsp+88h] [rbp-71h]
+  char *v24; // [rsp+90h] [rbp-69h]
+  __int64 v25; // [rsp+98h] [rbp-61h]
+  char *v26; // [rsp+A0h] [rbp-59h]
+  __int64 v27; // [rsp+A8h] [rbp-51h]
+  char *v28; // [rsp+B0h] [rbp-49h]
+  __int64 v29; // [rsp+B8h] [rbp-41h]
+  va_list v30; // [rsp+C0h] [rbp-39h]
+  __int64 v31; // [rsp+C8h] [rbp-31h]
+  __int64 v32; // [rsp+D0h] [rbp-29h]
+  __int64 v33; // [rsp+D8h] [rbp-21h]
+  __int64 v34; // [rsp+128h] [rbp+2Fh] BYREF
+  __int64 v35; // [rsp+170h] [rbp+77h] BYREF
+  va_list va; // [rsp+170h] [rbp+77h]
+  __int64 v37; // [rsp+178h] [rbp+7Fh]
+  __int64 v38; // [rsp+180h] [rbp+87h]
+  va_list va1; // [rsp+188h] [rbp+8Fh] BYREF
+
+  va_start(va1, a12);
+  va_start(va, a12);
+  v35 = va_arg(va1, _QWORD);
+  v37 = va_arg(va1, _QWORD);
+  v38 = va_arg(va1, _QWORD);
+  v34 = a4;
+  UserData.Ptr = (unsigned __int64)&v34;
+  *(_QWORD *)&UserData.Size = 8LL;
+  v14 = &a5;
+  v16 = &a6;
+  v18 = &a7;
+  v20 = &a8;
+  v22 = a9;
+  v24 = &a10;
+  v26 = &a11;
+  v28 = &a12;
+  va_copy(v30, va);
+  v32 = v38;
+  v15 = 8LL;
+  v17 = 8LL;
+  v19 = 4LL;
+  v21 = 4LL;
+  v23 = 24LL;
+  v25 = 4LL;
+  v27 = 4LL;
+  v29 = 4LL;
+  v31 = 4LL;
+  v33 = 18LL;
+  return EtwWrite((REGHANDLE)WPP_MAIN_CB.Dpc.SystemArgument1, a2, a3, 0xBu, &UserData);
+}

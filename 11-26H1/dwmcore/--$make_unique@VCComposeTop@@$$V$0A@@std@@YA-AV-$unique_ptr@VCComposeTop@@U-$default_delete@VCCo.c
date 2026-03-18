@@ -1,0 +1,53 @@
+/*
+ * XREFs of ??$make_unique@VCComposeTop@@$$V$0A@@std@@YA?AV?$unique_ptr@VCComposeTop@@U?$default_delete@VCComposeTop@@@std@@@0@XZ @ 0x18025FDB0
+ * Callers:
+ *     ?AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z @ 0x1801580A0 (-AddNewComposeTopContent@CDesktopTree@@QEAAJPEAVIBitmapResource@@AEBVCShape@@AEBVCMILMatrix@@@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x1800E9260 (--2@YAPEAX_K@Z.c)
+ */
+
+_QWORD *__fastcall std::make_unique<CComposeTop,,0>(_QWORD *a1)
+{
+  _QWORD *v2; // rax
+
+  v2 = operator new(0xA8uLL);
+  if ( v2 )
+  {
+    *v2 = 0LL;
+    v2[1] = 0LL;
+    v2[2] = 0LL;
+    *(_QWORD *)((char *)v2 + 84) = 1065353216LL;
+    v2[3] = 1065353216LL;
+    v2[4] = 0LL;
+    *((_DWORD *)v2 + 10) = 0;
+    *(_QWORD *)((char *)v2 + 44) = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 52) = 0LL;
+    *((_DWORD *)v2 + 15) = 0;
+    v2[8] = 1065353216LL;
+    v2[9] = 0LL;
+    *((_DWORD *)v2 + 20) = 0;
+    *((_BYTE *)v2 + 89) &= 0xE9u;
+    *((_BYTE *)v2 + 89) |= 0x29u;
+    *((_BYTE *)v2 + 88) = -86;
+    v2[19] = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 92) = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 100) = 0LL;
+    *((_DWORD *)v2 + 27) = 0;
+    v2[14] = 1065353216LL;
+    v2[15] = 0LL;
+    *((_DWORD *)v2 + 32) = 0;
+    *(_QWORD *)((char *)v2 + 132) = 1065353216LL;
+    *(_QWORD *)((char *)v2 + 140) = 0LL;
+    *((_DWORD *)v2 + 37) = 0;
+    *((_BYTE *)v2 + 157) &= 0xE9u;
+    *((_BYTE *)v2 + 157) |= 0x29u;
+    *((_BYTE *)v2 + 156) = -86;
+    v2[20] = 0LL;
+  }
+  else
+  {
+    v2 = 0LL;
+  }
+  *a1 = v2;
+  return a1;
+}

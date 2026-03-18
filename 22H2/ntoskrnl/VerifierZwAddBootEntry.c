@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierZwAddBootEntry @ 0x140AE6150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140429560 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierZwAddBootEntry()
+{
+  return ((__int64 (*)(void))pXdvZwAddBootEntry)();
+}

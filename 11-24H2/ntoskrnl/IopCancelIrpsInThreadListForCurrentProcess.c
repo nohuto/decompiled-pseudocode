@@ -1,0 +1,44 @@
+/*
+ * XREFs of IopCancelIrpsInThreadListForCurrentProcess @ 0x14094A628
+ * Callers:
+ *     IopCheckHandleForRevocation @ 0x1405972F0 (IopCheckHandleForRevocation.c)
+ *     IopCancelIoFile @ 0x140A3573C (IopCancelIoFile.c)
+ * Callees:
+ *     IopCancelApcRequired @ 0x14027B464 (IopCancelApcRequired.c)
+ *     KeInitializeEvent @ 0x140409D80 (KeInitializeEvent.c)
+ *     memset_0 @ 0x1406C0040 (memset_0.c)
+ *     PsGetNextProcessThread @ 0x14094A700 (PsGetNextProcessThread.c)
+ *     IopCancelIrpsInThreadList @ 0x14094A824 (IopCancelIrpsInThreadList.c)
+ */
+
+__int64 __fastcall IopCancelIrpsInThreadListForCurrentProcess(__int64 a1, __int64 a2)
+{
+  unsigned int v4; // edi
+  _KPROCESS *Process; // rsi
+  __int64 i; // rdx
+  __int64 NextProcessThread; // rax
+  __int64 v8; // rbx
+  _BYTE v10[88]; // [rsp+20h] [rbp-98h] BYREF
+  __int64 v11; // [rsp+78h] [rbp-40h]
+  __int64 v12; // [rsp+80h] [rbp-38h]
+  struct _KEVENT Event; // [rsp+88h] [rbp-30h] BYREF
+  char v14; // [rsp+A0h] [rbp-18h]
+
+  v4 = 0;
+  Process = KeGetCurrentThread()->ApcState.Process;
+  memset_0(v10, 0, 0x88uLL);
+  v11 = a1;
+  v12 = a2;
+  v14 = 0;
+  KeInitializeEvent(&Event, NotificationEvent, 0);
+  for ( i = 0LL; ; i = v8 )
+  {
+    NextProcessThread = PsGetNextProcessThread(Process, i);
+    v8 = NextProcessThread;
+    if ( !NextProcessThread )
+      break;
+    if ( (unsigned int)IopCancelApcRequired(NextProcessThread, a1, a2) )
+      v4 |= IopCancelIrpsInThreadList(v8, v10);
+  }
+  return v4;
+}

@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetFinalValue@CExpressionForce@@UEBAMXZ @ 0x180226550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ModuleFailFastForHRESULT @ 0x180260218 (ModuleFailFastForHRESULT.c)
+ */
+
+void __fastcall __noreturn CExpressionForce::GetFinalValue(CExpressionForce *this)
+{
+  void *retaddr; // [rsp+28h] [rbp+0h]
+
+  ModuleFailFastForHRESULT(2147500037LL, retaddr);
+}

@@ -1,0 +1,83 @@
+/*
+ * XREFs of PopRegisterTargetDeviceProtection @ 0x1407CB3E4
+ * Callers:
+ *     PopAssociatePowerLimitRequest @ 0x1407CA800 (PopAssociatePowerLimitRequest.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x140265140 (ObfDereferenceObject.c)
+ *     IoGetDeviceAttachmentBaseRef @ 0x14026F260 (IoGetDeviceAttachmentBaseRef.c)
+ *     RtlInitUnicodeString @ 0x140430A40 (RtlInitUnicodeString.c)
+ *     IoGetDeviceObjectPointer @ 0x140908800 (IoGetDeviceObjectPointer.c)
+ *     IoRegisterPlugPlayNotification @ 0x140908ED0 (IoRegisterPlugPlayNotification.c)
+ *     IoGetDeviceProperty @ 0x140994C70 (IoGetDeviceProperty.c)
+ *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall PopRegisterTargetDeviceProtection(char *Context)
+{
+  PVOID *NotificationEntry; // r12
+  bool v2; // zf
+  NTSTATUS DeviceProperty; // ebx
+  struct _DEVICE_OBJECT *DeviceAttachmentBaseRef; // rdi
+  void *Pool2; // rsi
+  UNICODE_STRING DestinationString; // [rsp+40h] [rbp-10h] BYREF
+  ULONG BufferLength; // [rsp+80h] [rbp+30h] BYREF
+  PFILE_OBJECT FileObject; // [rsp+88h] [rbp+38h] BYREF
+  PDEVICE_OBJECT DeviceObject; // [rsp+90h] [rbp+40h] BYREF
+
+  NotificationEntry = (PVOID *)(Context + 64);
+  BufferLength = 0;
+  v2 = *((_QWORD *)Context + 8) == 0LL;
+  DeviceObject = 0LL;
+  DestinationString = 0LL;
+  FileObject = 0LL;
+  if ( v2 )
+  {
+    DeviceAttachmentBaseRef = IoGetDeviceAttachmentBaseRef(*((PDEVICE_OBJECT *)Context + 7));
+    if ( IoGetDeviceProperty(DeviceAttachmentBaseRef, DevicePropertyPhysicalDeviceObjectName, 0, 0LL, &BufferLength) == -1073741789 )
+    {
+      Pool2 = (void *)ExAllocatePool2(0x100uLL);
+      if ( Pool2 )
+      {
+        DeviceProperty = IoGetDeviceProperty(
+                           DeviceAttachmentBaseRef,
+                           DevicePropertyPhysicalDeviceObjectName,
+                           BufferLength,
+                           Pool2,
+                           &BufferLength);
+        if ( DeviceProperty >= 0 )
+        {
+          RtlInitUnicodeString(&DestinationString, (PCWSTR)Pool2);
+          DeviceProperty = IoGetDeviceObjectPointer(&DestinationString, 0x1F01FFu, &FileObject, &DeviceObject);
+          if ( DeviceProperty >= 0 )
+            DeviceProperty = IoRegisterPlugPlayNotification(
+                               EventCategoryTargetDeviceChange,
+                               0,
+                               FileObject,
+                               DeviceObject->DriverObject,
+                               (PDRIVER_NOTIFICATION_CALLBACK_ROUTINE)PopPowerLimitPnpNotification,
+                               Context,
+                               NotificationEntry);
+          if ( FileObject )
+            ObfDereferenceObject(FileObject);
+        }
+        ExFreePoolWithTag(Pool2, 0x6D6C5050u);
+      }
+      else
+      {
+        DeviceProperty = -1073741670;
+      }
+    }
+    else
+    {
+      DeviceProperty = -1073741823;
+    }
+    if ( DeviceAttachmentBaseRef )
+      ObfDereferenceObject(DeviceAttachmentBaseRef);
+  }
+  else
+  {
+    return 0;
+  }
+  return (unsigned int)DeviceProperty;
+}

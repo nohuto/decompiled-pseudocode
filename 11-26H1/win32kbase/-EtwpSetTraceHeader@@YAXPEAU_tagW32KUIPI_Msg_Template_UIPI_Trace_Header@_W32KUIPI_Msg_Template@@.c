@@ -1,0 +1,48 @@
+/*
+ * XREFs of ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1401284B0
+ * Callers:
+ *     EtwTraceUIPIEventHookError @ 0x140128350 (EtwTraceUIPIEventHookError.c)
+ *     EtwTraceUIPIClipboardError @ 0x1401DB990 (EtwTraceUIPIClipboardError.c)
+ *     EtwTraceUIPISystemError @ 0x1401DBAF0 (EtwTraceUIPISystemError.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall EtwpSetTraceHeader(
+        struct _W32KUIPI_Msg_Template::_tagW32KUIPI_Msg_Template_UIPI_Trace_Header *a1,
+        int a2,
+        PETHREAD *a3,
+        PEPROCESS *a4,
+        PETHREAD *a5,
+        const struct tagPROCESSINFO *a6)
+{
+  const struct tagPROCESSINFO *v9; // rdi
+
+  *(_DWORD *)a1 = a2;
+  if ( a3 )
+  {
+    *((_DWORD *)a1 + 2) = (unsigned int)PsGetThreadId(*a3);
+    a4 = (PEPROCESS *)a3[57];
+  }
+  if ( a4 )
+  {
+    *((_DWORD *)a1 + 1) = (unsigned int)PsGetProcessId(*a4);
+    *((_DWORD *)a1 + 3) = *((_DWORD *)a4 + 216);
+    *((_DWORD *)a1 + 4) = *((_DWORD *)a4 + 217);
+  }
+  if ( a5 )
+  {
+    *((_DWORD *)a1 + 6) = (unsigned int)PsGetThreadId(*a5);
+    v9 = a5[57];
+  }
+  else
+  {
+    v9 = a6;
+  }
+  if ( v9 )
+  {
+    *((_DWORD *)a1 + 5) = (unsigned int)PsGetProcessId(*(PEPROCESS *)v9);
+    *((_DWORD *)a1 + 7) = *((_DWORD *)v9 + 216);
+    *((_DWORD *)a1 + 8) = *((_DWORD *)v9 + 217);
+  }
+}

@@ -1,0 +1,47 @@
+/*
+ * XREFs of PoUnregisterCoalescingCallback @ 0x140986E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReferenceCallBackBlock @ 0x140214EF0 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x140214FB0 (ExDereferenceCallBackBlock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14022F700 (KeLeaveCriticalRegionThread.c)
+ *     ExWaitForRundownProtectionRelease @ 0x14030A340 (ExWaitForRundownProtectionRelease.c)
+ *     PopReleaseRwLock @ 0x14032C480 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x14032C5E4 (PopAcquireRwLockExclusive.c)
+ *     ExCompareExchangeCallBack @ 0x14039FE58 (ExCompareExchangeCallBack.c)
+ *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall PoUnregisterCoalescingCallback(_QWORD *a1)
+{
+  struct _KTHREAD *CurrentThread; // rdi
+  signed __int64 *v2; // rsi
+  struct _EX_RUNDOWN_REF *v4; // rbx
+  __int64 v5; // r8
+  _QWORD *v6; // rax
+
+  CurrentThread = KeGetCurrentThread();
+  v2 = a1 + 8;
+  --CurrentThread->KernelApcDisable;
+  v4 = ExReferenceCallBackBlock(a1 + 8);
+  if ( ExCompareExchangeCallBack(v2, 0LL, (__int64)v4) )
+  {
+    ExDereferenceCallBackBlock(v2, v4);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+    ExWaitForRundownProtectionRelease(v4);
+    PopAcquireRwLockExclusive((ULONG_PTR)&PopCoalRegistrationListLock);
+    v5 = a1[6];
+    if ( *(_QWORD **)(v5 + 8) != a1 + 6 || (v6 = (_QWORD *)a1[7], (_QWORD *)*v6 != a1 + 6) )
+      __fastfail(3u);
+    *v6 = v5;
+    *(_QWORD *)(v5 + 8) = v6;
+    PopReleaseRwLock((__int64 *)&PopCoalRegistrationListLock);
+    ExFreePoolWithTag(v4, 0);
+  }
+  else
+  {
+    ExDereferenceCallBackBlock(v2, v4);
+    KeLeaveCriticalRegionThread((__int64)CurrentThread);
+  }
+}

@@ -1,0 +1,86 @@
+/*
+ * XREFs of DxgkGetIndirectDisplayRenderAdapterByHandle @ 0x1401AC7A0
+ * Callers:
+ *     DxgkHandleIndirectEscape @ 0x140428678 (DxgkHandleIndirectEscape.c)
+ * Callees:
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x14000A0F0 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x14000A8B0 (DxgkLogInternalTriageEvent.c)
+ *     ?GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z @ 0x14000B870 (-GetPairedRenderAdapter@ADAPTER_DISPLAY@@QEBAXAEAVDXGADAPTER_REFERENCE@@PEAU_GUID@@@Z.c)
+ *     ??1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ @ 0x14000B9E0 (--1DXGPROCESSCOPYPROTECTIONMUTEX@@QEAA@XZ.c)
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x14000CAD0 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ *     ??1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ @ 0x14000CB60 (--1DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@XZ.c)
+ *     ??0DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@PEAVDXGADAPTER@@E@Z @ 0x140010030 (--0DXGADAPTERSTOPRESETLOCKSHARED@@QEAA@PEAVDXGADAPTER@@E@Z.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x140028A90 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z @ 0x1403A23C0 (-AssignByHandle@DXGADAPTER_REFERENCE@@QEAA_NI@Z.c)
+ */
+
+__int64 __fastcall DxgkGetIndirectDisplayRenderAdapterByHandle(unsigned int a1, _QWORD *a2, _QWORD *a3)
+{
+  struct DXGADAPTER *v6; // rbx
+  int v8; // eax
+  struct DXGADAPTER *v9; // rbx
+  ADAPTER_DISPLAY *v10; // rcx
+  __int64 v11; // rbx
+  struct DXGADAPTER *v12[2]; // [rsp+58h] [rbp+7h] BYREF
+  _QWORD v13[2]; // [rsp+68h] [rbp+17h] BYREF
+  _BYTE v14[16]; // [rsp+78h] [rbp+27h] BYREF
+  _BYTE v15[32]; // [rsp+88h] [rbp+37h] BYREF
+
+  v12[0] = 0LL;
+  DXGADAPTER_REFERENCE::AssignByHandle(v12, a1);
+  v6 = v12[0];
+  if ( !v12[0] )
+  {
+    WdLogSingleEntry2(3LL, a1, -1073741811LL);
+    WdLogGlobalForLineNumber = 12303;
+LABEL_3:
+    DXGADAPTER_REFERENCE::Assign((DXGADAPTER_REFERENCE *)v12, 0LL);
+    return 3221225711LL;
+  }
+  if ( (*((_DWORD *)v12[0] + 111) & 0x100) == 0 )
+  {
+    WdLogSingleEntry2(2LL, v12[0], -1073741811LL);
+    WdLogGlobalForLineNumber = 12315;
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000LL,
+      0xFFFFFFFFLL,
+      L"Caller specified adapter (0x%I64x) is not a indirect display adapter, returning 0x%I64x.",
+      (__int64)v6,
+      -1073741811LL,
+      0LL,
+      0LL,
+      0LL);
+    goto LABEL_3;
+  }
+  DXGADAPTERSTOPRESETLOCKSHARED::DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v15, v12[0], 1);
+  v8 = *((_DWORD *)v6 + 50);
+  v9 = v12[0];
+  if ( v8 != 1 || *((_BYTE *)v12[0] + 3017) )
+  {
+    WdLogSingleEntry2(3LL, v12[0], -1073741130LL);
+    WdLogGlobalForLineNumber = 12327;
+    DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v15);
+    DXGADAPTER_REFERENCE::Assign((DXGADAPTER_REFERENCE *)v12, 0LL);
+    return 3221226166LL;
+  }
+  else
+  {
+    v10 = (ADAPTER_DISPLAY *)*((_QWORD *)v12[0] + 390);
+    v13[0] = 0LL;
+    ADAPTER_DISPLAY::GetPairedRenderAdapter(v10, (struct DXGADAPTER_REFERENCE *)v13, 0LL);
+    if ( v13[0] )
+      *a2 = *(_QWORD *)(v13[0] + 412LL);
+    else
+      *a2 = 0LL;
+    v11 = *((_QWORD *)v9 + 390);
+    DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v14, (struct DXGFASTMUTEX *const)(v11 + 200), 0);
+    DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v14);
+    *a3 = *(_QWORD *)(v11 + 280);
+    DXGPROCESSCOPYPROTECTIONMUTEX::~DXGPROCESSCOPYPROTECTIONMUTEX((DXGPROCESSCOPYPROTECTIONMUTEX *)v14);
+    DXGADAPTER_REFERENCE::Assign((DXGADAPTER_REFERENCE *)v13, 0LL);
+    DXGADAPTERSTOPRESETLOCKSHARED::~DXGADAPTERSTOPRESETLOCKSHARED((DXGADAPTERSTOPRESETLOCKSHARED *)v15);
+    DXGADAPTER_REFERENCE::Assign((DXGADAPTER_REFERENCE *)v12, 0LL);
+    return 0LL;
+  }
+}

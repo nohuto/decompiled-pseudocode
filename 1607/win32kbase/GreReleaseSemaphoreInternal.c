@@ -1,0 +1,84 @@
+/*
+ * XREFs of GreReleaseSemaphoreInternal @ 0x1C0026BF0
+ * Callers:
+ *     MultiUserGreTrackAddEngResource @ 0x1C000DA40 (MultiUserGreTrackAddEngResource.c)
+ *     hdcOpenDCW @ 0x1C0020120 (hdcOpenDCW.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C0026180 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0026B40 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C002F4A0 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C002FA5C (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z @ 0x1C0031C50 (-vUnreferencePdev@PDEVOBJ@@QEAAXW4_CLEANUPTYPE@@@Z.c)
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C0032010 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     hdevEnumerate @ 0x1C0034350 (hdevEnumerate.c)
+ *     GreGetDeviceCaps @ 0x1C0034D30 (GreGetDeviceCaps.c)
+ *     ??1SPRITELOCK@@QEAA@XZ @ 0x1C003A380 (--1SPRITELOCK@@QEAA@XZ.c)
+ *     ??1SEMOBJSHARED@@QEAA@XZ @ 0x1C0049D70 (--1SEMOBJSHARED@@QEAA@XZ.c)
+ *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C004A498 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
+ *     GreSfmOpenTokenEvent @ 0x1C004E0D0 (GreSfmOpenTokenEvent.c)
+ *     GreSfmGetNotificationTokens @ 0x1C004E1C0 (GreSfmGetNotificationTokens.c)
+ *     GreSfmDwmShutdown @ 0x1C004EBB0 (GreSfmDwmShutdown.c)
+ *     ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C005C034 (-hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z.c)
+ *     DrvEnumDisplaySettings @ 0x1C0062AF0 (DrvEnumDisplaySettings.c)
+ *     DrvGetHDEV @ 0x1C0063040 (DrvGetHDEV.c)
+ *     ApplyPathsModality @ 0x1C0065594 (ApplyPathsModality.c)
+ *     DrvNotifyModeChangeStartStop @ 0x1C0065808 (DrvNotifyModeChangeStartStop.c)
+ *     GreUnlockSprite @ 0x1C0065AF0 (GreUnlockSprite.c)
+ *     GreUnlockDisplayDevice @ 0x1C0065B20 (GreUnlockDisplayDevice.c)
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAU_D3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@1PEAPEAU2@@Z @ 0x1C0065BC0 (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAU_D3DKMT_GETP.c)
+ *     ?DrvReleaseChangeDisplaySettingLocks@@YAXXZ @ 0x1C0066E88 (-DrvReleaseChangeDisplaySettingLocks@@YAXXZ.c)
+ *     ?DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHH1PEAU_D3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00671D4 (-DrvCreateMDEV@@YAPEAU_MDEV@@PEAU_UNICODE_STRING@@PEAU_devicemodeW@@PEAXKPEAU1@KHH1PEAU_D3DKMT_G.c)
+ *     ?vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ @ 0x1C00684AC (-vUnlock@MULTIDEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0068660 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     DrvDestroyMDEV @ 0x1C0069344 (DrvDestroyMDEV.c)
+ *     DrvEnableMDEV @ 0x1C00693F8 (DrvEnableMDEV.c)
+ *     DrvDisableMDEV @ 0x1C0069650 (DrvDisableMDEV.c)
+ *     ?DxgkEngReleaseWin32kAndPDEVLocks@@YAXQEBXI@Z @ 0x1C00699B0 (-DxgkEngReleaseWin32kAndPDEVLocks@@YAXQEBXI@Z.c)
+ *     MultiUserGreTrackRemoveEngResource @ 0x1C006A1A0 (MultiUserGreTrackRemoveEngResource.c)
+ *     ldevUnloadImage @ 0x1C006C2D0 (ldevUnloadImage.c)
+ *     ldevLoadDriver @ 0x1C006C3D0 (ldevLoadDriver.c)
+ *     ldevLoadInternal @ 0x1C006CAC0 (ldevLoadInternal.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C006CE28 (DrvCleanupAndDestroyMDEV.c)
+ *     GreUnlockDwmState @ 0x1C0071C10 (GreUnlockDwmState.c)
+ *     ?vUnlock@NEEDGRELOCK@@QEAAXXZ @ 0x1C0075010 (-vUnlock@NEEDGRELOCK@@QEAAXXZ.c)
+ *     NtGdiDdDDIOpenAdapterFromHdc @ 0x1C0075850 (NtGdiDdDDIOpenAdapterFromHdc.c)
+ *     GreUnlockVisRgnPublish @ 0x1C00779F0 (GreUnlockVisRgnPublish.c)
+ *     ?DxgkEngVisRgnUniq@@YAIXZ @ 0x1C007D6E0 (-DxgkEngVisRgnUniq@@YAIXZ.c)
+ *     ?DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z @ 0x1C007E4B8 (-DrvDisableDisplay@@YAHPEAUHDEV__@@H@Z.c)
+ *     DrvInitializeDxgkrnlDpiCache @ 0x1C0080FD0 (DrvInitializeDxgkrnlDpiCache.c)
+ *     GreUnlockPointer @ 0x1C0082520 (GreUnlockPointer.c)
+ *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C0088628 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
+ *     DrvEscapeRemoteDrivers @ 0x1C0088D80 (DrvEscapeRemoteDrivers.c)
+ *     HDXDrvEscape @ 0x1C0088F30 (HDXDrvEscape.c)
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C00891E0 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ?vReleaseCache@RFONTOBJ@@QEAAXXZ @ 0x1C00BD904 (-vReleaseCache@RFONTOBJ@@QEAAXXZ.c)
+ *     ??0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z @ 0x1C00BE240 (--0PDEVOBJ@@QEAA@PEAUHDEV__@@K@Z.c)
+ *     ?vClearSurface@PDEVOBJ@@QEAAXXZ @ 0x1C00BEDE4 (-vClearSurface@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUnlockIfNeeded@NEEDDYNAMICMODECHANGESHARELOCK@@QEAAXXZ @ 0x1C00BFC1C (-vUnlockIfNeeded@NEEDDYNAMICMODECHANGESHARELOCK@@QEAAXXZ.c)
+ *     DxEngUnlockShareSem @ 0x1C00C3B80 (DxEngUnlockShareSem.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C00C4EA0 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     ?DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z @ 0x1C00C6660 (-DrvBackoutMDEV@@YAXPEAU_MDEV@@K@Z.c)
+ *     ?DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z @ 0x1C00C68F8 (-DrvCreateCloneHDEV@@YAPEAUHDEV__@@PEAU1@K@Z.c)
+ *     ?DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAU_D3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00C7118 (-DrvUpdateDisplayModeInMdev@@YAHPEAU_MDEV@@PEAU_D3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAU_D3DKMT_GETPATHSMODALITY@@@Z @ 0x1C00C7488 (-DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAU_D3DKMT_GETPATHSMODALITY@@@Z.c)
+ *     DrvCleanupGraphicsDevices @ 0x1C00C8484 (DrvCleanupGraphicsDevices.c)
+ *     DrvDisplayConfigGetScaleFactorOverrides @ 0x1C00C8690 (DrvDisplayConfigGetScaleFactorOverrides.c)
+ *     DrvDisplayConfigSetScaleFactorOverride @ 0x1C00C8B60 (DrvDisplayConfigSetScaleFactorOverride.c)
+ *     DrvDxgkUpgradeLegacyDpiSettings @ 0x1C00C8FA0 (DrvDxgkUpgradeLegacyDpiSettings.c)
+ *     GreUnlockVisRgnWithDmcLockAcquiredEx @ 0x1C00CB000 (GreUnlockVisRgnWithDmcLockAcquiredEx.c)
+ *     EngDeleteDriverObj @ 0x1C00CBCF0 (EngDeleteDriverObj.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall GreReleaseSemaphoreInternal(struct _ERESOURCE *a1)
+{
+  __int64 v1; // rcx
+  __int64 result; // rax
+
+  if ( a1 )
+  {
+    ExReleaseResourceAndLeaveCriticalRegion(a1);
+    return PsLeavePriorityRegion(v1);
+  }
+  return result;
+}

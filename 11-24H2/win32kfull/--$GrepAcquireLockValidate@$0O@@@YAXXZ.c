@@ -1,0 +1,67 @@
+/*
+ * XREFs of ??$GrepAcquireLockValidate@$0O@@@YAXXZ @ 0x14016E5C4
+ * Callers:
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0@Z @ 0x14001D230 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0@Z.c)
+ *     GreClientRgnUpdated @ 0x140060F88 (GreClientRgnUpdated.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@@Z @ 0x1400D076C (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@@Z.c)
+ *     GreClientRgnUpdatedStable @ 0x14016E4E4 (GreClientRgnUpdatedStable.c)
+ *     ??0?$SEMOBJSHARED@$0O@@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x14016E58C (--0-$SEMOBJSHARED@$0O@@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ * Callees:
+ *     W32GetCurrentWin32kSessionId @ 0x1400A428C (W32GetCurrentWin32kSessionId.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1400A4334 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
+__int64 GrepAcquireLockValidate<14>()
+{
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v1; // rdi
+  __int64 *ThreadWin32Thread; // rax
+  __int64 result; // rax
+  __int64 *v4; // rbx
+  __int64 v5; // rcx
+  int CurrentWin32kSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  unsigned __int64 v8; // rdx
+  int v9; // r8d
+  int v10; // eax
+
+  CurrentThread = KeGetCurrentThread();
+  v1 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentWin32kSessionId = W32GetCurrentWin32kSessionId(),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        CurrentWin32kSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v1 = *ThreadWin32Thread;
+  }
+  result = v1 + 8;
+  v4 = (__int64 *)((v1 + 8) & -(__int64)(v1 != 0));
+  if ( v4 )
+  {
+    v5 = *v4;
+    if ( (*v4 & 0xFFFFFFFFFFFFC000uLL) != 0 && (v5 & 0x4000) == 0 )
+    {
+      v8 = 0LL;
+      v9 = 37;
+      do
+      {
+        v10 = v8;
+        if ( !_bittest64(&v5, v8) )
+          v10 = v9;
+        ++v8;
+        v9 = v10;
+      }
+      while ( v8 < 0x40 );
+      if ( v10 > 14 )
+        MicrosoftTelemetryAssertTriggeredNoArgsKM();
+    }
+    LOBYTE(v5) = *(_BYTE *)(((v1 + 8) & -(__int64)(v1 != 0)) + 0x16);
+    result = (unsigned int)(v5 + 1);
+    *(_BYTE *)(((v1 + 8) & -(__int64)(v1 != 0)) + 0x16) = v5 + 1;
+    if ( !(_BYTE)v5 )
+      *v4 |= 0x4000uLL;
+  }
+  return result;
+}

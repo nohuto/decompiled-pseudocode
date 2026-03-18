@@ -1,0 +1,60 @@
+/*
+ * XREFs of ?FindMousePromotionInContactRange@@YAHAEBUtagMOUSE_PROMOTION_QUEUE@@KPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x14022BD30
+ * Callers:
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x14013968C (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1402B03A0 (-CancelAutoPromotion@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall FindMousePromotionInContactRange(
+        __int64 **a1,
+        unsigned int a2,
+        struct tagMOUSE_PROMOTION_ENTRY **a3,
+        struct tagMOUSE_PROMOTION_ENTRY **a4)
+{
+  __int64 *v4; // rax
+  __int64 *v5; // r11
+  struct tagMOUSE_PROMOTION_ENTRY *v6; // r10
+  struct tagMOUSE_PROMOTION_ENTRY *v7; // rbx
+  int v8; // ecx
+  __int64 result; // rax
+
+  v4 = *a1;
+  v5 = 0LL;
+  v6 = 0LL;
+  v7 = 0LL;
+  while ( v4 )
+  {
+    v8 = *((_DWORD *)v4 + 5);
+    if ( (v8 & 0x10000) != 0 )
+      v6 = (struct tagMOUSE_PROMOTION_ENTRY *)v4;
+    if ( *((_DWORD *)v4 + 8) <= a2 && *((_DWORD *)v4 + 9) >= a2 )
+    {
+      if ( !v6 )
+        break;
+      v5 = v4;
+    }
+    if ( (v8 & 0x40000) != 0 )
+    {
+      if ( v5 )
+      {
+        v7 = (struct tagMOUSE_PROMOTION_ENTRY *)v4;
+        goto LABEL_15;
+      }
+      v6 = 0LL;
+    }
+    v4 = (__int64 *)*v4;
+  }
+  if ( !v5 )
+    return 0LL;
+LABEL_15:
+  if ( v6 )
+  {
+    *a3 = v6;
+    result = 1LL;
+    *a4 = v7;
+    return result;
+  }
+  return 0LL;
+}

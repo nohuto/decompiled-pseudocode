@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?IsYUVAllocation@DXGDEVICE@@QEAAHPEAX@Z @ 0x1C015E378
+ * Callers:
+ *     ?CheckMultiPlaneOverlayInternal3@DXGDEVICE@@QEAAJIIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXHPEAHPEAUD3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO@@@Z @ 0x1C015B788 (-CheckMultiPlaneOverlayInternal3@DXGDEVICE@@QEAAJIIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE.c)
+ *     ?ClassifyOverlayScenario@DXGDEVICE@@QEAAXIIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPEAXPEAI22@Z @ 0x1C015CCBC (-ClassifyOverlayScenario@DXGDEVICE@@QEAAXIIPEAPEAU_D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3@@PEAPE.c)
+ * Callees:
+ *     memset @ 0x1C00127C0 (memset.c)
+ *     ?DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z @ 0x1C0093988 (-DdiDescribeAllocation@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_DESCRIBEALLOCATION@@@Z.c)
+ */
+
+__int64 __fastcall DXGDEVICE::IsYUVAllocation(DXGDEVICE *this, void *a2)
+{
+  unsigned int v4; // esi
+  ADAPTER_RENDER *v5; // rcx
+  __int64 v6; // r8
+  struct _DXGKARG_DESCRIBEALLOCATION v8; // [rsp+20h] [rbp-38h] BYREF
+
+  v4 = 0;
+  memset(&v8.Width, 0, 0x28uLL);
+  v5 = (ADAPTER_RENDER *)*((_QWORD *)this + 2);
+  v8.hAllocation = a2;
+  if ( (int)ADAPTER_RENDER::DdiDescribeAllocation(v5, &v8, v6) >= 0 )
+    return v8.Format >= 0xFFFFFF;
+  return v4;
+}

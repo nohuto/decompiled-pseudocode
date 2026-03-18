@@ -1,0 +1,52 @@
+/*
+ * XREFs of IopCancelIrpsInThreadList @ 0x1404CC8BC
+ * Callers:
+ *     IopCancelIrpsInThreadListForCurrentProcess @ 0x1405134CC (IopCancelIrpsInThreadListForCurrentProcess.c)
+ *     IopCancelSynchronousIrpsForThread @ 0x140620FEC (IopCancelSynchronousIrpsForThread.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14002DEA0 (KeInitializeEvent.c)
+ *     KeResetEvent @ 0x14002E630 (KeResetEvent.c)
+ *     KeWaitForSingleObject @ 0x14005C880 (KeWaitForSingleObject.c)
+ *     IopCancelIrpsInCurrentThreadList @ 0x1400A1F6C (IopCancelIrpsInCurrentThreadList.c)
+ *     KeInsertQueueApc @ 0x1400C9FD0 (KeInsertQueueApc.c)
+ *     KeInitializeApc @ 0x1400F0F58 (KeInitializeApc.c)
+ */
+
+__int64 __fastcall IopCancelIrpsInThreadList(__int64 a1, __int64 a2)
+{
+  struct _KTHREAD *CurrentThread; // rdx
+  char v6; // [rsp+50h] [rbp+8h] BYREF
+
+  CurrentThread = KeGetCurrentThread();
+  if ( (struct _KTHREAD *)a1 == CurrentThread )
+    return IopCancelIrpsInCurrentThreadList(
+             *(_QWORD *)(a2 + 88),
+             (__int64)CurrentThread,
+             *(_QWORD *)(a2 + 96),
+             *(_BYTE *)(a2 + 128));
+  KeInitializeApc(a2, a1, 0, (__int64)IopCancelIrpsInCurrentThreadListSpecialApc, 0LL, 0LL, 0, 0LL);
+  if ( (unsigned __int8)KeInsertQueueApc(a2, (__int64)&v6, 0LL, 0) )
+  {
+    KeWaitForSingleObject((PVOID)(a2 + 104), Executive, 0, 0, 0LL);
+    KeResetEvent((PRKEVENT)(a2 + 104));
+    if ( !*(_BYTE *)(a2 + 128) || v6 )
+    {
+      KeInitializeEvent((PRKEVENT)(a2 + 104), NotificationEvent, 0);
+      KeInitializeApc(
+        a2,
+        a1,
+        0,
+        (__int64)CmpMarkLockTryAcquired,
+        0LL,
+        (__int64)IopCancelIrpsInCurrentThreadListApcRoutine,
+        0,
+        a2);
+      if ( (unsigned __int8)KeInsertQueueApc(a2, 0LL, 0LL, 0) )
+      {
+        KeWaitForSingleObject((PVOID)(a2 + 104), Executive, 0, 0, 0LL);
+        KeResetEvent((PRKEVENT)(a2 + 104));
+      }
+    }
+  }
+  return *(unsigned int *)(a2 + 132);
+}

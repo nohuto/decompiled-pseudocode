@@ -1,0 +1,165 @@
+/*
+ * XREFs of InternalMapVirtualKeyEx @ 0x1C00582A0
+ * Callers:
+ *     NtUserMapVirtualKeyEx @ 0x1C0057750 (NtUserMapVirtualKeyEx.c)
+ *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C012C540 (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C012EF08 (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C012F200 (ProcessKeyboardInputWorker.c)
+ *     _GetKeyNameText @ 0x1C012F870 (_GetKeyNameText.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C005D6F8 (UserSetLastError.c)
+ */
+
+unsigned int __fastcall InternalMapVirtualKeyEx(unsigned int a1, int a2, __int64 a3)
+{
+  int v3; // r9d
+  int v4; // r11d
+  unsigned int v6; // r10d
+  unsigned __int16 v7; // dx
+  unsigned __int8 *v8; // rcx
+  unsigned int result; // eax
+  unsigned __int8 v10; // al
+  __int64 *v11; // rcx
+  _BYTE *v12; // rax
+  unsigned __int8 *v13; // rcx
+  unsigned __int8 **v14; // rdx
+  unsigned __int8 *v15; // rcx
+
+  v3 = 0;
+  v4 = a1;
+  v6 = 0;
+  if ( a2 )
+  {
+    if ( a2 != 1 )
+    {
+      if ( a2 == 2 )
+      {
+        if ( a1 - 65 <= 0x19 )
+          return a1;
+        v14 = *(unsigned __int8 ***)(a3 + 8);
+        if ( v14 )
+        {
+LABEL_57:
+          v15 = *v14;
+          if ( *v14 )
+          {
+            while ( 1 )
+            {
+              if ( !*v15 )
+              {
+                v14 += 2;
+                goto LABEL_57;
+              }
+              if ( *v15 == v4 )
+                break;
+              v15 += *((unsigned __int8 *)v14 + 9);
+            }
+            LOWORD(result) = *((_WORD *)v15 + 1);
+            if ( (_WORD)result == 0xF001 )
+              return *(unsigned __int16 *)&v15[*((unsigned __int8 *)v14 + 9) + 2] | 0x80000000;
+            if ( (_WORD)result != 0xF000 )
+              return (unsigned __int16)result;
+            return 0;
+          }
+        }
+LABEL_52:
+        UserSetLastError(87LL);
+        return 0;
+      }
+      if ( a2 != 3 )
+      {
+        if ( a2 == 4 )
+          goto LABEL_2;
+        goto LABEL_52;
+      }
+    }
+    if ( a1 < *(unsigned __int8 *)(a3 + 56) )
+    {
+      v6 = *(unsigned __int8 *)(*(_QWORD *)(a3 + 48) + 2LL * a1);
+    }
+    else
+    {
+      if ( (a1 & 0xFFFFFF00) == 0xE000 )
+      {
+        v12 = *(_BYTE **)(a3 + 64);
+        goto LABEL_30;
+      }
+      if ( (a1 & 0xFFFFFF00) == 0xE100 )
+      {
+        v12 = *(_BYTE **)(a3 + 72);
+LABEL_30:
+        if ( v12 )
+        {
+          while ( *((_WORD *)v12 + 1) )
+          {
+            if ( *v12 == (_BYTE)a1 )
+            {
+              v6 = (unsigned __int8)v12[2];
+              break;
+            }
+            v12 += 4;
+          }
+        }
+      }
+    }
+    if ( a2 == 1 && v6 - 160 <= 5 )
+      v6 = ((v6 - 160) >> 1) + 16;
+    if ( v6 != 255 )
+      return v6;
+    return v3;
+  }
+LABEL_2:
+  if ( a1 - 16 <= 2 )
+    v4 = 2 * a1 + 128;
+  v7 = 0;
+  if ( !*(_BYTE *)(a3 + 56) )
+  {
+LABEL_7:
+    v8 = *(unsigned __int8 **)(a3 + 64);
+    if ( v8 )
+    {
+      while ( *((_WORD *)v8 + 1) )
+      {
+        if ( v8[2] == v4 )
+        {
+          result = *v8;
+          if ( a2 == 4 )
+            result |= 0xE000u;
+          return result;
+        }
+        v8 += 4;
+      }
+    }
+    if ( a2 == 4 )
+    {
+      v13 = *(unsigned __int8 **)(a3 + 72);
+      if ( v13 )
+      {
+        while ( *((_WORD *)v13 + 1) )
+        {
+          if ( v13[2] == v4 )
+            return *v13 | 0xE100;
+          v13 += 4;
+          if ( !v13 )
+            break;
+        }
+      }
+    }
+    v10 = aVkNumpad;
+    v11 = &aVkNumpad;
+    while ( v10 )
+    {
+      if ( v10 == v4 )
+        return (_DWORD)v11 - (unsigned int)&aVkNumpad + 71;
+      v11 = (__int64 *)((char *)v11 + 1);
+      v10 = *(_BYTE *)v11;
+    }
+    return 0;
+  }
+  while ( *(unsigned __int8 *)(*(_QWORD *)(a3 + 48) + 2LL * v7) != v4 )
+  {
+    if ( ++v7 >= *(unsigned __int8 *)(a3 + 56) )
+      goto LABEL_7;
+  }
+  return (unsigned __int8)v7;
+}

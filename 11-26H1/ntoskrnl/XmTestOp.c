@@ -1,0 +1,12 @@
+/*
+ * XREFs of XmTestOp @ 0x1404A8C10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XmSetLogicalResult @ 0x1404A8DA0 (XmSetLogicalResult.c)
+ */
+
+__int64 __fastcall XmTestOp(__int64 a1)
+{
+  return XmSetLogicalResult(a1, (unsigned int)(*(_DWORD *)(a1 + 104) & *(_DWORD *)(a1 + 108)));
+}

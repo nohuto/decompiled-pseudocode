@@ -1,0 +1,12 @@
+/*
+ * XREFs of VidMmCreateContextAllocation @ 0x14003FBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@@PEAVDXGCONTEXT@@PEAX_KKW4_DXGK_PAGESIZE@@5KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_SEGMENTBANKPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@PEAPEAUVIDMM_CONTEXT_ALLOC@@@Z @ 0x1400DD45C (-CreateContextAllocation@VIDMM_GLOBAL@@QEAAJU_DXGK_CREATECONTEXTALLOCATIONFLAGS@@IPEAVDXGDEVICE@.c)
+ */
+
+__int64 __fastcall VidMmCreateContextAllocation(__int64 a1, unsigned int a2, unsigned int a3)
+{
+  return VIDMM_GLOBAL::CreateContextAllocation(a1, a3, a2);
+}

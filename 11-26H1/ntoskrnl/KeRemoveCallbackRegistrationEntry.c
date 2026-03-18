@@ -1,0 +1,47 @@
+/*
+ * XREFs of KeRemoveCallbackRegistrationEntry @ 0x1407B9030
+ * Callers:
+ *     KeUnregisterAvailableCpusChangeNotification @ 0x1407B90F8 (KeUnregisterAvailableCpusChangeNotification.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402781A0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140279A70 (KeAbPostRelease.c)
+ *     KeLeaveGuardedRegion @ 0x14027DB10 (KeLeaveGuardedRegion.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14027DEB0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ?KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z @ 0x14027F6F0 (-KiAbpPostAcquire@AutoBoost@@YAXPEAX@Z.c)
+ *     ExfTryToWakePushLock @ 0x1403170A0 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x140377C60 (RtlRbRemoveNode.c)
+ */
+
+void __fastcall KeRemoveCallbackRegistrationEntry(__int64 a1, __int64 a2, __int64 a3, struct _KLOCK_ENTRIES *a4)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  AutoBoost *v6; // rax
+  void *v7; // rdx
+  signed __int8 v8; // cf
+  AutoBoost *v9; // rdi
+
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->SpecialApcDisable;
+  v6 = (AutoBoost *)KeAbPreAcquire((__int64)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object, 0LL, 0LL, a4);
+  v8 = _interlockedbittestandset64((volatile signed __int32 *)&KiSupervisorXStateFeaturesLock.WaitBlockFill11[32], 0LL);
+  v9 = v6;
+  if ( v8 )
+    ExfAcquirePushLockExclusiveEx(
+      (unsigned __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object,
+      v6,
+      (__int64)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object);
+  if ( v9 )
+  {
+    if ( (KiAbpGlobalState & 1) != 0 )
+      AutoBoost::KiAbpPostAcquire(v9, v7);
+    else
+      *((_BYTE *)v9 + 10) = 1;
+  }
+  RtlRbRemoveNode((__int64)&KiSupervisorXStateFeaturesLock.WaitBlock[1], a1);
+  if ( (_InterlockedExchangeAdd64(
+          (volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object,
+          0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+    ExfTryToWakePushLock((volatile signed __int64 *)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object);
+  KeAbPostRelease((unsigned __int64)&KiSupervisorXStateFeaturesLock.WaitBlock[0].Object);
+  KeLeaveGuardedRegion();
+}

@@ -1,0 +1,267 @@
+/*
+ * XREFs of IopQueryNameInternal @ 0x1405DABE4
+ * Callers:
+ *     IopQueryName @ 0x1405D95A0 (IopQueryName.c)
+ *     IoQueryFileDosDeviceName @ 0x1405DAB40 (IoQueryFileDosDeviceName.c)
+ * Callees:
+ *     ExAllocatePoolWithTagPriority @ 0x14024FDE0 (ExAllocatePoolWithTagPriority.c)
+ *     VfIsVerifierEnabled @ 0x140323280 (VfIsVerifierEnabled.c)
+ *     memmove @ 0x140408CC0 (memmove.c)
+ *     IopExceptionFilterMode @ 0x1404FAFFC (IopExceptionFilterMode.c)
+ *     ObQueryNameStringMode @ 0x1405D9AA0 (ObQueryNameStringMode.c)
+ *     IopGetFileInformation @ 0x1405DB0F4 (IopGetFileInformation.c)
+ *     IoVolumeDeviceToDosName @ 0x1405DB3D0 (IoVolumeDeviceToDosName.c)
+ *     IopQueryXxxInformation @ 0x14063AACC (IopQueryXxxInformation.c)
+ *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1409B1030 (ExAllocatePoolWithTag.c)
+ */
+
+__int64 __fastcall IopQueryNameInternal(
+        __int64 a1,
+        __int64 a2,
+        char a3,
+        UNICODE_STRING *a4,
+        unsigned int NumberOfBytes,
+        _DWORD *a6,
+        char a7)
+{
+  __int64 v7; // r8
+  UNICODE_STRING *v8; // r12
+  char v9; // r13
+  unsigned int v10; // r14d
+  UNICODE_STRING *v11; // rsi
+  _DWORD *v12; // rcx
+  int v13; // ebx
+  UNICODE_STRING *v14; // rdx
+  UNICODE_STRING *v15; // r15
+  char v16; // r8
+  unsigned int Length; // ecx
+  __int64 v18; // r10
+  char v19; // cl
+  _DWORD *v20; // r13
+  char *v21; // rsi
+  int FileInformation; // eax
+  int v23; // eax
+  unsigned int v24; // eax
+  unsigned int v25; // r14d
+  char *v26; // r15
+  UNICODE_STRING *PoolWithTagPriority; // rax
+  unsigned int v29; // eax
+  int v30; // ecx
+  __int64 v31; // [rsp+40h] [rbp-68h] BYREF
+  char *v32; // [rsp+48h] [rbp-60h]
+  PVOID P; // [rsp+50h] [rbp-58h]
+  _OWORD v34[5]; // [rsp+58h] [rbp-50h] BYREF
+  bool v36; // [rsp+B8h] [rbp+10h]
+  char v37; // [rsp+B8h] [rbp+10h]
+
+  v7 = a1;
+  LODWORD(v31) = 0;
+  v8 = 0LL;
+  P = 0LL;
+  v36 = 0;
+  v9 = 0;
+  v34[0] = 0LL;
+  v10 = 16;
+  if ( NumberOfBytes >= 0x10 )
+    v10 = NumberOfBytes;
+  if ( a7 == 1 )
+  {
+    if ( (unsigned int)VfIsVerifierEnabled()
+      && ((VfRuleClasses & 0xFFAFFFFF) != 0
+       || (VfRuleClasses & 0x200000000LL) != 0
+       || (VfRuleClasses & 0x400000000LL) != 0) )
+    {
+      PoolWithTagPriority = (UNICODE_STRING *)ExAllocatePoolWithTagPriority(
+                                                PagedPool,
+                                                v10,
+                                                0x20206F49u,
+                                                (EX_POOL_PRIORITY)((MmVerifierData & 0x10 | 0x40u) >> 1));
+    }
+    else
+    {
+      PoolWithTagPriority = (UNICODE_STRING *)ExAllocatePoolWithTag(PagedPool, v10, 0x20206F49u);
+    }
+    v8 = PoolWithTagPriority;
+    P = PoolWithTagPriority;
+    if ( !PoolWithTagPriority )
+    {
+      v13 = -1073741670;
+      goto LABEL_44;
+    }
+    v11 = PoolWithTagPriority;
+    v7 = a1;
+  }
+  else
+  {
+    v11 = (UNICODE_STRING *)v34;
+    if ( NumberOfBytes >= 0x10 )
+      v11 = a4;
+  }
+  v12 = *(_DWORD **)(v7 + 8);
+  if ( !a3 )
+    goto LABEL_47;
+  if ( (v12[13] & 0x10) == 0 )
+  {
+    v13 = IoVolumeDeviceToDosName(v12, v11);
+    LODWORD(v31) = v11->Length + 18;
+    v7 = a1;
+    goto LABEL_9;
+  }
+  LODWORD(v31) = 20;
+  if ( v10 >= 0x14 )
+  {
+    v13 = 0;
+    *(_DWORD *)&v11->Length = 131074;
+    v11[1].Length = 92;
+    v11->Buffer = &v11[1].Length;
+LABEL_9:
+    if ( v13 >= 0 )
+    {
+      v9 = 1;
+      goto LABEL_11;
+    }
+  }
+  v12 = *(_DWORD **)(v7 + 8);
+LABEL_47:
+  v13 = ObQueryNameStringMode((char *)v12, (__int64)v11, v10, &v31, 0);
+LABEL_11:
+  if ( v13 < 0 )
+  {
+    if ( v13 != -1073741820 )
+      goto LABEL_44;
+  }
+  else if ( !v9 )
+  {
+    v36 = v11->Length == 0;
+  }
+  v14 = a4;
+  v15 = a4 + 1;
+  v16 = a3;
+  if ( a3 && v9 )
+  {
+    if ( v10 < (unsigned int)v31 )
+      Length = v10 - 16;
+    else
+      Length = v11->Length;
+    memmove(&a4[1], v11->Buffer, Length);
+    v18 = a1;
+    if ( (*(_DWORD *)(*(_QWORD *)(a1 + 8) + 52LL) & 0x10) == 0 )
+    {
+      ExFreePoolWithTag(v11->Buffer, 0);
+      v14 = a4;
+      v16 = a3;
+LABEL_20:
+      v18 = a1;
+      goto LABEL_21;
+    }
+    v14 = a4;
+    v16 = a3;
+  }
+  else
+  {
+    if ( a7 != 1 || NumberOfBytes < 0x10 || (unsigned int)v31 > v10 )
+      goto LABEL_20;
+    a4->Length = v11->Length;
+    a4->MaximumLength = v11->MaximumLength;
+    memmove(v15, &v11[1], (unsigned int)v31 - 16LL);
+    v14 = a4;
+    v18 = a1;
+    v16 = a3;
+  }
+LABEL_21:
+  if ( v36 )
+    LODWORD(v31) = v31 + 2;
+  v19 = 0;
+  v37 = 0;
+  if ( NumberOfBytes < 0x10 || (unsigned int)v31 > v10 )
+  {
+    v20 = a6;
+    *a6 = v31;
+    v19 = 1;
+    v37 = 1;
+  }
+  else
+  {
+    v14->Buffer = &v15->Length;
+    v15 = (UNICODE_STRING *)((char *)v15 + v11->Length);
+    v20 = a6;
+  }
+  if ( a7 == 1 )
+  {
+    v21 = (char *)v8;
+  }
+  else if ( v19 )
+  {
+    v21 = (char *)v34;
+    if ( NumberOfBytes >= 0x10 )
+      v21 = (char *)v14;
+  }
+  else
+  {
+    v21 = (char *)&v15[-1].Buffer + 4;
+    LODWORD(v32) = HIDWORD(v15[-1].Buffer);
+  }
+  if ( (a7 != 1 || v16) && (*(_DWORD *)(v18 + 80) & 2) != 0 )
+    FileInformation = IopGetFileInformation((PADAPTER_OBJECT)v18, (__int64)&v31);
+  else
+    FileInformation = IopQueryXxxInformation((PADAPTER_OBJECT)v18, (__int64)v21, (__int64)&v31, 1);
+  v13 = FileInformation;
+  if ( (FileInformation & 0xC0000000) == 0xC0000000 )
+  {
+    v29 = FileInformation + 1073741822;
+    if ( (unsigned int)(v13 + 1073741822) > 0xE )
+      goto LABEL_44;
+    v30 = 18435;
+    if ( !_bittest(&v30, v29) )
+      goto LABEL_44;
+    LODWORD(v31) = 4;
+    *(_DWORD *)v21 = 0;
+    *((_WORD *)v21 + 2) = 92;
+    v13 = 0;
+    v23 = v31;
+  }
+  else
+  {
+    v23 = v31;
+    if ( (unsigned int)v31 < 4 )
+      v23 = 4;
+    LODWORD(v31) = v23;
+  }
+  if ( v37 )
+  {
+    *v20 += *(_DWORD *)v21;
+    v13 = NumberOfBytes < 0x10 ? -1073741820 : -2147483643;
+  }
+  else
+  {
+    v24 = v23 - 4;
+    v25 = *(_DWORD *)v21;
+    if ( v24 <= *(_DWORD *)v21 )
+      v25 = v24;
+    LODWORD(v31) = (_DWORD)v15 + *(_DWORD *)v21 - (_DWORD)a4;
+    if ( *((_WORD *)v21 + 2) == 92 )
+    {
+      if ( a7 == 1 )
+        memmove(v15, v21 + 4, v25);
+      else
+        *(_DWORD *)v21 = (_DWORD)v32;
+      v26 = (char *)v15 + v25;
+      v32 = v26;
+      *(_WORD *)v26 = 0;
+      LODWORD(v31) = v31 + 2;
+      *v20 = v31;
+      LOWORD(v26) = (_WORD)v26 - (_WORD)a4;
+      a4->Length = (_WORD)v26 - 16;
+      a4->MaximumLength = (_WORD)v26 - 14;
+    }
+    else
+    {
+      v13 = -1073741767;
+    }
+  }
+LABEL_44:
+  if ( v8 )
+    ExFreePoolWithTag(v8, 0);
+  return (unsigned int)v13;
+}

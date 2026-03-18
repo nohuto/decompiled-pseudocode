@@ -1,0 +1,41 @@
+/*
+ * XREFs of McTemplateU0qqqq @ 0x180164C60
+ * Callers:
+ *     ?UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V?$span@$$CBE$0?0@gsl@@@Z @ 0x180018A94 (-UpdateGradientStrip@CAtlasTexture@@QEAAXPEBVCAtlasEntry@@V-$span@$$CBE$0-0@gsl@@@Z.c)
+ *     ?CreateRenderTargetBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFormatInfo@@U_LUID@@VDisplayId@@_N55PEAPEAVIRenderTargetBitmap@@@Z @ 0x180051E10 (-CreateRenderTargetBitmap@CExternalLayer@@KAJAEBVCResourceTag@@AEBUMilPointAndSizeL@@AEBUPixelFo.c)
+ *     ?Update@CSecondaryD2DBitmap@@UEAAJAEBV?$TMilRect@IUMilRectU@@UNotNeeded@RectUniqueness@@@@PEAVID2DBitmapCacheSource@@@Z @ 0x180053420 (-Update@CSecondaryD2DBitmap@@UEAAJAEBV-$TMilRect@IUMilRectU@@UNotNeeded@RectUniqueness@@@@PEAVID.c)
+ *     ?UpdateFrameIndices@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18006F510 (-UpdateFrameIndices@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?PostRender@CComposition@@IEAAJ_N@Z @ 0x180070190 (-PostRender@CComposition@@IEAAJ_N@Z.c)
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAJXZ @ 0x1800716E0 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAJXZ.c)
+ *     ?ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x1800C8F70 (-ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     McGenEventWrite @ 0x1800B6720 (McGenEventWrite.c)
+ *     __security_check_cookie @ 0x1800E7E60 (__security_check_cookie.c)
+ */
+
+ULONG __fastcall McTemplateU0qqqq(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, int a4, char a5, char a6)
+{
+  struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+38h] [rbp-19h] BYREF
+  int *v8; // [rsp+48h] [rbp-9h]
+  __int64 v9; // [rsp+50h] [rbp-1h]
+  int *v10; // [rsp+58h] [rbp+7h]
+  __int64 v11; // [rsp+60h] [rbp+Fh]
+  char *v12; // [rsp+68h] [rbp+17h]
+  __int64 v13; // [rsp+70h] [rbp+1Fh]
+  char *v14; // [rsp+78h] [rbp+27h]
+  __int64 v15; // [rsp+80h] [rbp+2Fh]
+  int v16; // [rsp+B8h] [rbp+67h] BYREF
+  int v17; // [rsp+C0h] [rbp+6Fh] BYREF
+
+  v17 = a4;
+  v16 = a3;
+  v9 = 4LL;
+  v8 = &v16;
+  v11 = 4LL;
+  v10 = &v17;
+  v13 = 4LL;
+  v12 = &a5;
+  v14 = &a6;
+  v15 = 4LL;
+  return McGenEventWrite(Microsoft_Windows_Dwm_Core_Provider_Context, a2, a3, 5u, &v7);
+}

@@ -1,0 +1,101 @@
+/*
+ * XREFs of PnpReadDeviceConfiguration @ 0x1406432B0
+ * Callers:
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1405DBD3C (PnpGetDeviceResourcesFromRegistry.c)
+ * Callees:
+ *     memmove @ 0x1401BC900 (memmove.c)
+ *     ExFreePoolWithTag @ 0x1402EA410 (ExFreePoolWithTag.c)
+ *     ExAllocatePoolWithTag @ 0x1402EADB0 (ExAllocatePoolWithTag.c)
+ *     IopGetRegistryValue @ 0x1405D9B94 (IopGetRegistryValue.c)
+ */
+
+__int64 __fastcall PnpReadDeviceConfiguration(void *a1, int a2, void **a3, _DWORD *a4)
+{
+  int v6; // edx
+  int v7; // edx
+  const WCHAR *v8; // rdx
+  NTSTATUS RegistryValue; // ebx
+  unsigned int *v10; // rdi
+  int v11; // eax
+  unsigned int v12; // ecx
+  PVOID PoolWithTag; // rax
+  unsigned int *v14; // r9
+  unsigned int v15; // r8d
+  __int64 i; // rcx
+  unsigned int v17; // eax
+  __int64 v18; // rdx
+  __int64 v19; // rcx
+  __int64 v20; // rax
+  PVOID P; // [rsp+40h] [rbp+18h] BYREF
+
+  *a3 = 0LL;
+  *a4 = 0;
+  v6 = a2 - 1;
+  if ( v6 )
+  {
+    v7 = v6 - 1;
+    if ( v7 )
+    {
+      if ( v7 != 2 )
+        return 3221225712LL;
+      v8 = L"BootConfig";
+    }
+    else
+    {
+      v8 = L"ForcedConfig";
+    }
+  }
+  else
+  {
+    v8 = L"AllocConfig";
+  }
+  RegistryValue = IopGetRegistryValue(a1, v8, 0, &P);
+  if ( RegistryValue >= 0 )
+  {
+    v10 = (unsigned int *)P;
+    v11 = *((_DWORD *)P + 1);
+    if ( v11 == 8 && (v12 = *((_DWORD *)P + 3)) != 0 )
+    {
+      PoolWithTag = ExAllocatePoolWithTag(PagedPool, v12, 0x75737050u);
+      *a3 = PoolWithTag;
+      if ( PoolWithTag )
+      {
+        *a4 = v10[3];
+        memmove(*a3, (char *)v10 + v10[2], v10[3]);
+        v14 = (unsigned int *)*a3;
+        v15 = 0;
+        for ( i = (__int64)*a3 + 4; v15 < *v14; i = v18 )
+        {
+          if ( *(_DWORD *)i == -1 )
+            *(_QWORD *)i = (unsigned int)PnpDefaultInterfaceType;
+          v17 = *(_DWORD *)(i + 12);
+          v18 = i + 16;
+          if ( v17 )
+          {
+            v19 = v17;
+            do
+            {
+              v20 = 0LL;
+              if ( *(_BYTE *)v18 == 5 )
+                v20 = *(unsigned int *)(v18 + 4);
+              v18 += v20 + 20;
+              --v19;
+            }
+            while ( v19 );
+          }
+          ++v15;
+        }
+      }
+      else
+      {
+        RegistryValue = -1073741670;
+      }
+    }
+    else if ( v11 != 8 )
+    {
+      RegistryValue = -1073741823;
+    }
+    ExFreePoolWithTag(v10, 0);
+  }
+  return (unsigned int)RegistryValue;
+}

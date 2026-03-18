@@ -1,0 +1,75 @@
+/*
+ * XREFs of ??1SFMALTLOGICALSURFACEREF@@QEAA@XZ @ 0x1C00126F8
+ * Callers:
+ *     ?vCheckForICM@XLATE@@QEAAXPEAXK@Z @ 0x1C0005974 (-vCheckForICM@XLATE@@QEAAXPEAXK@Z.c)
+ *     ?pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z @ 0x1C00082B0 (-pConvertDfbSurfaceToDibNKAPC@@YAXPEAX00@Z.c)
+ *     RecreateRedirectionBitmap @ 0x1C000B580 (RecreateRedirectionBitmap.c)
+ *     GreSetRedirectionSurfaceSignaling @ 0x1C000B994 (GreSetRedirectionSurfaceSignaling.c)
+ *     GreReferenceObject @ 0x1C000BE2C (GreReferenceObject.c)
+ *     GreDereferenceObject @ 0x1C000C01C (GreDereferenceObject.c)
+ *     GreSetRedirection @ 0x1C000C0BC (GreSetRedirection.c)
+ *     GreSetRedirectionBitmapOwner @ 0x1C000C124 (GreSetRedirectionBitmapOwner.c)
+ *     GreAccNotifyWindow @ 0x1C000E4BC (GreAccNotifyWindow.c)
+ *     GreGetBitmapBits @ 0x1C000EBCC (GreGetBitmapBits.c)
+ *     GreSfmGetDirtyRgn @ 0x1C0012580 (GreSfmGetDirtyRgn.c)
+ *     EngCopyBits @ 0x1C00131B0 (EngCopyBits.c)
+ *     GreGetDIBitsInternal @ 0x1C0016330 (GreGetDIBitsInternal.c)
+ *     GreSelectRedirectionBitmap @ 0x1C00168E0 (GreSelectRedirectionBitmap.c)
+ *     ??1DEVLOCKBLTOBJ@@QEAA@XZ @ 0x1C0016E90 (--1DEVLOCKBLTOBJ@@QEAA@XZ.c)
+ *     ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C00175C0 (-bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C00192B0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C001A0A0 (-UntrapAppContainerRenderingWorker@@YAXAEAPEAUHDC__@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C001A330 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ *     NtGdiGetPixel @ 0x1C0020EF0 (NtGdiGetPixel.c)
+ *     ?CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C0025BE0 (-CreateXlateObject@@YAPEAVXLATE@@PEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     ?bSpDwmUpdateSurface@@YAHPEAUHWND__@@I_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z @ 0x1C003FD1C (-bSpDwmUpdateSurface@@YAHPEAUHWND__@@I_KAEAVXDCOBJ@@PEAUHSURF__@@MHHAEAVERECTL@@PEAVREGION@@@Z.c)
+ *     NtGdiBitBltInternal @ 0x1C0095CC0 (NtGdiBitBltInternal.c)
+ *     hsurfCreateCompatibleSurface @ 0x1C009921C (hsurfCreateCompatibleSurface.c)
+ *     ?vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z @ 0x1C00A08F4 (-vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z.c)
+ *     GreMaskBlt @ 0x1C00A1D64 (GreMaskBlt.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C00CF43C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     NtGdiGetDCObject @ 0x1C00D3E90 (NtGdiGetDCObject.c)
+ *     XDCOBJ_vCleanupColorTransformWrap @ 0x1C00D8AE0 (XDCOBJ_vCleanupColorTransformWrap.c)
+ *     ?vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@W4_CLEANUPTYPE@@@Z @ 0x1C00EBFF8 (-vCleanupOwnedRedirectionDeviceBitmaps@@YAXPEAVPDEV@@W4_CLEANUPTYPE@@@Z.c)
+ *     GreDwmGetSurfaceData @ 0x1C00F015C (GreDwmGetSurfaceData.c)
+ *     GreSetDIBitsInternal @ 0x1C0121D20 (GreSetDIBitsInternal.c)
+ *     GrePlgBlt @ 0x1C0122434 (GrePlgBlt.c)
+ *     ?vProfileDriver@PDEVOBJ@@QEAAXXZ @ 0x1C0140EC0 (-vProfileDriver@PDEVOBJ@@QEAAXXZ.c)
+ *     ?TmpSrcCleanup@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C025E2C0 (-TmpSrcCleanup@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     GreDwmGetRedirectionStyle @ 0x1C02625BC (GreDwmGetRedirectionStyle.c)
+ *     GreHLsurfSetPresentFlags @ 0x1C0262AE4 (GreHLsurfSetPresentFlags.c)
+ *     GreHLsurfSetUpdateId @ 0x1C0262BEC (GreHLsurfSetUpdateId.c)
+ *     ?vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z @ 0x1C0276EBC (-vSpReadFromScreen@@YAXPEAU_SPRITESTATE@@PEAU_POINTL@@PEAU_SURFOBJ@@PEAU_RECTL@@@Z.c)
+ *     EngMarkBandingSurface @ 0x1C0280090 (EngMarkBandingSurface.c)
+ *     ?MulCreateDeviceBitmap@@YAPEAUHBITMAP__@@PEAUDHPDEV__@@UtagSIZE@@K@Z @ 0x1C02959B0 (-MulCreateDeviceBitmap@@YAPEAUHBITMAP__@@PEAUDHPDEV__@@UtagSIZE@@K@Z.c)
+ *     ?MulGetBitmapForDisplayDevice@@YAPEAUHBITMAP__@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C0296A68 (-MulGetBitmapForDisplayDevice@@YAPEAUHBITMAP__@@PEAUHDEV__@@0PEAU1@@Z.c)
+ *     MulConvertChildRedirectionDfbSurfaceToDib @ 0x1C029A1C0 (MulConvertChildRedirectionDfbSurfaceToDib.c)
+ *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C029D980 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ *     NtGdiEngAssociateSurface @ 0x1C02AB430 (NtGdiEngAssociateSurface.c)
+ *     NtGdiEngCreateBitmap @ 0x1C02ABD40 (NtGdiEngCreateBitmap.c)
+ *     NtGdiEngDeleteSurface @ 0x1C02AC1A0 (NtGdiEngDeleteSurface.c)
+ *     NtGdiEngMarkBandingSurface @ 0x1C02ACC10 (NtGdiEngMarkBandingSurface.c)
+ *     ?GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z @ 0x1C02B0130 (-GreCheckBitmapBits@@YAHPEAUHDC__@@PEAXPEAU_DEVBITMAPINFO@@1PEAE@Z.c)
+ *     ?GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C02B02A0 (-GreCreateColorTransform@@YAPEAXPEAUHDC__@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ *     ?GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z @ 0x1C02B03C0 (-GreDeleteColorTransform@@YAHPEAUHDC__@@PEAX@Z.c)
+ *     ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02B0970 (-cjGetLogicalColorSpace@@YAHPEAXH0@Z.c)
+ *     NtGdiSetColorSpace @ 0x1C02B1510 (NtGdiSetColorSpace.c)
+ *     GreCreateDIBBrush @ 0x1C02B1998 (GreCreateDIBBrush.c)
+ *     NtGdiMonoBitmap @ 0x1C02B1DE0 (NtGdiMonoBitmap.c)
+ *     NtGdiGetColorSpaceforBitmap @ 0x1C02B35F0 (NtGdiGetColorSpaceforBitmap.c)
+ *     BRUSHOBJ_hGetColorTransform @ 0x1C02B7740 (BRUSHOBJ_hGetColorTransform.c)
+ *     GreGetBitmapDimension @ 0x1C02B8D1C (GreGetBitmapDimension.c)
+ *     GreSetBitmapDimension @ 0x1C02B8DA8 (GreSetBitmapDimension.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall SFMALTLOGICALSURFACEREF::~SFMALTLOGICALSURFACEREF(SFMALTLOGICALSURFACEREF *this)
+{
+  __int64 v2; // rcx
+
+  v2 = *((_QWORD *)this + 4);
+  if ( v2 )
+    DEC_SHARE_REF_CNT(v2);
+  UnexpectedThreadTerminationHandler<DWMSPRITEREF>::~UnexpectedThreadTerminationHandler<DWMSPRITEREF>(this);
+}

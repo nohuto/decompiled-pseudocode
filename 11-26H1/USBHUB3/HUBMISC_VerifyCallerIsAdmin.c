@@ -1,0 +1,33 @@
+/*
+ * XREFs of HUBMISC_VerifyCallerIsAdmin @ 0x1400874BC
+ * Callers:
+ *     HUBFDO_IoctlCyclePort @ 0x14007CB88 (HUBFDO_IoctlCyclePort.c)
+ *     HUBFDO_IoctlResetHub @ 0x14007F748 (HUBFDO_IoctlResetHub.c)
+ *     HUBFDO_IoctlTestPortPLDRRecovery @ 0x14007F8D0 (HUBFDO_IoctlTestPortPLDRRecovery.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1400068F8 (WPP_RECORDER_SF_.c)
+ */
+
+__int64 __fastcall HUBMISC_VerifyCallerIsAdmin(int a1)
+{
+  int v2; // edx
+  void *PrimaryToken; // rbx
+  BOOLEAN IsAdmin; // bl
+  struct _SECURITY_SUBJECT_CONTEXT SubjectContext; // [rsp+30h] [rbp-28h] BYREF
+
+  memset(&SubjectContext, 0, sizeof(SubjectContext));
+  SeCaptureSubjectContext(&SubjectContext);
+  SeLockSubjectContext(&SubjectContext);
+  PrimaryToken = SubjectContext.PrimaryToken;
+  if ( SubjectContext.ClientToken )
+    PrimaryToken = SubjectContext.ClientToken;
+  if ( !PrimaryToken && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+  {
+    LOBYTE(v2) = 2;
+    WPP_RECORDER_SF_(a1, v2, 3, 99, (__int64)&WPP_dde998bf8bb3310d95d4227a99ba80b7_Traceguids);
+  }
+  IsAdmin = SeTokenIsAdmin(PrimaryToken);
+  SeUnlockSubjectContext(&SubjectContext);
+  SeReleaseSubjectContext(&SubjectContext);
+  return IsAdmin == 0 ? 0xC0000001 : 0;
+}

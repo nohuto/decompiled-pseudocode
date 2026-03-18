@@ -1,0 +1,73 @@
+/*
+ * XREFs of NtReleaseMutant @ 0x14099E790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x140325680 (ObfDereferenceObject.c)
+ *     KeReleaseMutantEx @ 0x1403379F0 (KeReleaseMutantEx.c)
+ *     ExpReleaseCrossVmMutant @ 0x1407C5850 (ExpReleaseCrossVmMutant.c)
+ *     ObReferenceObjectByHandle @ 0x14084AF40 (ObReferenceObjectByHandle.c)
+ */
+
+__int64 __fastcall NtReleaseMutant(HANDLE Handle, _DWORD *a2)
+{
+  KPROCESSOR_MODE PreviousMode; // r15
+  NTSTATUS v5; // eax
+  int v6; // ebx
+  PVOID v7; // rdi
+  __int64 v9; // rcx
+  PVOID Object; // [rsp+68h] [rbp+10h] BYREF
+  int v11; // [rsp+70h] [rbp+18h] BYREF
+  PVOID v12; // [rsp+78h] [rbp+20h]
+
+  v11 = 0;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( a2 && PreviousMode )
+  {
+    v9 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)a2 < 0x7FFFFFFF0000LL )
+      v9 = (__int64)a2;
+    *(_DWORD *)v9 = *(_DWORD *)v9;
+  }
+  Object = 0LL;
+  v5 = ObReferenceObjectByHandle(Handle, 0, ExMutantObjectType, PreviousMode, &Object, 0LL);
+  v6 = v5;
+  v7 = Object;
+  v12 = Object;
+  LODWORD(Object) = v5;
+  if ( v5 < 0 )
+  {
+    if ( v5 == -1073741788 )
+    {
+      if ( ExCrossVmMutantObjectType )
+      {
+        Object = 0LL;
+        v6 = ObReferenceObjectByHandle(Handle, 0, ExCrossVmMutantObjectType, PreviousMode, &Object, 0LL);
+        v7 = Object;
+        v12 = Object;
+        LODWORD(Object) = v6;
+        if ( v6 >= 0 )
+        {
+          v6 = ExpReleaseCrossVmMutant((__int64)v7, (__int64)&v11);
+          LODWORD(Object) = v6;
+        }
+      }
+    }
+  }
+  else
+  {
+    v6 = KeReleaseMutantEx((ULONG_PTR)v7, 1u, 0, &v11);
+    LODWORD(Object) = v6;
+    if ( v6 == 128 || v6 == -1073741754 )
+    {
+LABEL_4:
+      ObfDereferenceObject(v7);
+      return (unsigned int)v6;
+    }
+  }
+  if ( v6 >= 0 && a2 )
+    *a2 = v11;
+  if ( v7 )
+    goto LABEL_4;
+  return (unsigned int)v6;
+}

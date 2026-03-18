@@ -1,0 +1,19 @@
+/*
+ * XREFs of ZwDeleteWnfStateName @ 0x14069CD60
+ * Callers:
+ *     PspJobDelete @ 0x1404EB860 (PspJobDelete.c)
+ *     PopFreeRegistration @ 0x140745274 (PopFreeRegistration.c)
+ *     PspProcessDelete @ 0x1408E1310 (PspProcessDelete.c)
+ *     PiUEventFreeClientRegistrationContext @ 0x140967C20 (PiUEventFreeClientRegistrationContext.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x140969360 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspAllocateAndQueryProcessNotificationChannel @ 0x1409CD200 (PspAllocateAndQueryProcessNotificationChannel.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ZwDeleteWnfStateName(__int64 a1, __int64 a2)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(a1, a2);
+}

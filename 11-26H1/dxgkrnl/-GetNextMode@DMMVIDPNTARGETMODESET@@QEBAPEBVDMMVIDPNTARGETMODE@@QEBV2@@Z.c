@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?GetNextMode@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@QEBV2@@Z @ 0x14004B370
+ * Callers:
+ *     ?FindBestMatch@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@AEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x14006E29C (-FindBestMatch@DMMVIDPNTARGETMODESET@@QEBAPEBVDMMVIDPNTARGETMODE@@AEBU_D3DKMDT_VIDEO_SIGNAL_INFO.c)
+ *     ?Serialize@DMMVIDPNTARGETMODESET@@QEBAJQEAV?$AutoBuffer@U_DMM_VIDPNTARGETMODESET_SERIALIZATION@@@DMM@@@Z @ 0x140267B28 (-Serialize@DMMVIDPNTARGETMODESET@@QEBAJQEAV-$AutoBuffer@U_DMM_VIDPNTARGETMODESET_SERIALIZATION@@.c)
+ *     _BmlBuildVirtualRefreshRateListFromTargetModeSet @ 0x14026A494 (_BmlBuildVirtualRefreshRateListFromTargetModeSet.c)
+ * Callees:
+ *     <none>
+ */
+
+const struct DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODESET::GetNextMode(
+        DMMVIDPNTARGETMODESET *this,
+        const struct DMMVIDPNTARGETMODE *const a2)
+{
+  DMMVIDPNTARGETMODESET *v4; // rdx
+  const struct DMMVIDPNTARGETMODE *result; // rax
+
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 409;
+  }
+  v4 = (DMMVIDPNTARGETMODESET *)*((_QWORD *)a2 + 1);
+  result = (DMMVIDPNTARGETMODESET *)((char *)v4 - 8);
+  if ( v4 == (DMMVIDPNTARGETMODESET *)((char *)this + 48) )
+    return 0LL;
+  return result;
+}

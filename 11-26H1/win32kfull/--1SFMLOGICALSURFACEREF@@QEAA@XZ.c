@@ -1,0 +1,14 @@
+/*
+ * XREFs of ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1401EA0C0
+ * Callers:
+ *     ?bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@PEAPEAV3@@Z @ 0x140076840 (-bSpDwmCreateLogicalSurface@@YAHPEAUHDEV__@@PEAVDWMSPRITE@@PEAVSFMLOGICALSURFACE@@PEAUtagSIZE@@P.c)
+ *     GrepSfmRemoveSurfaces @ 0x140328430 (GrepSfmRemoveSurfaces.c)
+ * Callees:
+ *     SFMLOGICALSURFACEREF_vDestructor @ 0x1400745F4 (SFMLOGICALSURFACEREF_vDestructor.c)
+ */
+
+void __fastcall SFMLOGICALSURFACEREF::~SFMLOGICALSURFACEREF(SFMLOGICALSURFACEREF *this)
+{
+  SFMLOGICALSURFACEREF_vDestructor((__int64)this);
+  PopThreadGuardedObject(this);
+}

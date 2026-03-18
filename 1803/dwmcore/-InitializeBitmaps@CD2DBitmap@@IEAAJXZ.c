@@ -1,0 +1,34 @@
+/*
+ * XREFs of ?InitializeBitmaps@CD2DBitmap@@IEAAJXZ @ 0x180077470
+ * Callers:
+ *     ?Initialize@CD2DBitmap@@IEAAJPEAUID3D11Texture2D@@PEAUIDXGISurface@@AEBUD3D11_TEXTURE2D_DESC@@AEBUD2D1_BITMAP_PROPERTIES1@@W4DXGI_COLOR_SPACE_TYPE@@VDisplayId@@I@Z @ 0x1800777A0 (-Initialize@CD2DBitmap@@IEAAJPEAUID3D11Texture2D@@PEAUIDXGISurface@@AEBUD3D11_TEXTURE2D_DESC@@AE.c)
+ *     ?SetAlphaMode@CD2DBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z @ 0x1801E5C70 (-SetAlphaMode@CD2DBitmap@@UEAAXW4DXGI_ALPHA_MODE@@@Z.c)
+ * Callees:
+ *     ??$SetInterface@VIRenderTargetBitmap@@V1@@@YAXAEAPEAVIRenderTargetBitmap@@PEAV0@@Z @ 0x180024D1C (--$SetInterface@VIRenderTargetBitmap@@V1@@@YAXAEAPEAVIRenderTargetBitmap@@PEAV0@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x18005E450 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     ?CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@@PEAPEAUID2D1Bitmap1@@@Z @ 0x180095D88 (-CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@.c)
+ */
+
+__int64 __fastcall CD2DBitmap::InitializeBitmaps(CD2DBitmap *this)
+{
+  __int64 *v1; // rsi
+  int D2DBitmapFromDxgiSurface; // eax
+  unsigned int v4; // edi
+
+  v1 = (__int64 *)((char *)this + 152);
+  D2DBitmapFromDxgiSurface = CD2DContext::CreateD2DBitmapFromDxgiSurface(
+                               *(CD2DContext **)(*((_QWORD *)this + 3) + 24LL),
+                               *((struct IDXGISurface **)this + 17),
+                               (const struct D2D1_BITMAP_PROPERTIES1 *)((char *)this + 216),
+                               (struct ID2D1Bitmap1 **)this + 19);
+  v4 = D2DBitmapFromDxgiSurface;
+  if ( D2DBitmapFromDxgiSurface < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(0x14u, 0LL, 0, D2DBitmapFromDxgiSurface, 0x80u);
+  }
+  else if ( *((_DWORD *)this + 55) == 3 )
+  {
+    SetInterface<IRenderTargetBitmap,IRenderTargetBitmap>((_QWORD *)this + 20, *v1);
+  }
+  return v4;
+}

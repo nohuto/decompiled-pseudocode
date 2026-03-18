@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?FlushPendingCPUAccess@VIDMM_SEGMENT@@QEAAXPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x14011C2B8
+ * Callers:
+ *     ?VidMmAcquireTemporaryResourcesForLegacyAllocation@@YAJPEAUVIDMM_PHYSICAL_ADAPTER_LEGACY@@PEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x1400B3598 (-VidMmAcquireTemporaryResourcesForLegacyAllocation@@YAJPEAUVIDMM_PHYSICAL_ADAPTER_LEGACY@@PEAUVI.c)
+ *     ?ReserveTemporaryResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x1400BDB40 (-ReserveTemporaryResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z.c)
+ *     ?ReserveTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x14011C220 (-ReserveTemporaryResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z.c)
+ *     ?CommitResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x14012A3F0 (-CommitResource@VIDMM_SYSMEM_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z.c)
+ *     ?CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z @ 0x14012A910 (-CommitResource@VIDMM_APERTURE_SEGMENT@@UEAAJPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@@Z.c)
+ * Callees:
+ *     ?VidMmFlushAllocationRangeFromProcessorCache@@YAXPEAUVIDMM_GLOBAL_ALLOC@@_K1@Z @ 0x1400A2F6C (-VidMmFlushAllocationRangeFromProcessorCache@@YAXPEAUVIDMM_GLOBAL_ALLOC@@_K1@Z.c)
+ */
+
+void __fastcall VIDMM_SEGMENT::FlushPendingCPUAccess(VIDMM_SEGMENT *this, struct VIDMM_GLOBAL_ALLOC **a2)
+{
+  __int64 v2; // rax
+
+  v2 = (__int64)this + 64;
+  if ( !this )
+    v2 = 56LL;
+  if ( (*(_DWORD *)v2 & 0x10) == 0 && (**((_DWORD **)*a2 + 46) & 4) != 0 )
+    VidMmFlushAllocationRangeFromProcessorCache(*a2, 0LL, (ULONG)a2[2]);
+}

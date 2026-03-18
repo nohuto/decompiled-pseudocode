@@ -1,0 +1,84 @@
+/*
+ * XREFs of MiExpandPartitionIds @ 0x1408D7858
+ * Callers:
+ *     MiAllocatePartitionId @ 0x1408C449C (MiAllocatePartitionId.c)
+ * Callees:
+ *     MiReservePtes @ 0x14021B350 (MiReservePtes.c)
+ *     MiGetPteAddress @ 0x140221EF0 (MiGetPteAddress.c)
+ *     MiAllocatePool @ 0x140247F80 (MiAllocatePool.c)
+ *     RtlClearAllBits @ 0x140271930 (RtlClearAllBits.c)
+ *     MiReleasePtes @ 0x140284720 (MiReleasePtes.c)
+ *     MiMakeZeroedPageTables @ 0x14039B0B0 (MiMakeZeroedPageTables.c)
+ *     memmove @ 0x140409FC0 (memmove.c)
+ *     memset @ 0x14040A280 (memset.c)
+ *     ExFreePoolWithTag @ 0x1409B1140 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall MiExpandPartitionIds(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
+{
+  unsigned int v4; // ebx
+  RTL_BITMAP *Pool; // rax
+  __int64 v6; // rsi
+  RTL_BITMAP *v7; // rdi
+  ULONG_PTR v9; // rax
+  unsigned __int64 v10; // rbx
+  _QWORD *PteAddress; // rbp
+  unsigned __int64 SizeOfBitMap; // rax
+
+  v4 = 512;
+  if ( (__int64 *)qword_140C4E448 != &qword_140C4E440 )
+    v4 = qword_140C4E428->SizeOfBitMap + 512;
+  if ( v4 <= qword_140C4E428->SizeOfBitMap || v4 > 0x400 )
+  {
+    v6 = 0LL;
+    v7 = 0LL;
+  }
+  else
+  {
+    Pool = (RTL_BITMAP *)MiAllocatePool(64, 8 * ((v4 >> 6) + ((v4 & 0x3F) != 0) + 2), 0x20206D4Du);
+    v6 = 0LL;
+    v7 = Pool;
+    if ( !Pool )
+      return 0LL;
+    Pool->SizeOfBitMap = v4;
+    Pool->Buffer = &Pool[1].SizeOfBitMap;
+  }
+  if ( !v7 )
+    return 0LL;
+  if ( (__int64 *)qword_140C4E448 == &qword_140C4E440 )
+  {
+    v9 = MiReservePtes((__int64)&qword_140C4ED40, 2u, qword_140C4E448, a4);
+    if ( !v9 )
+      goto LABEL_18;
+    v10 = (__int64)(v9 << 25) >> 16;
+    if ( !v10 )
+      goto LABEL_18;
+  }
+  else
+  {
+    v10 = qword_140C4E448 + 8LL * qword_140C4E428->SizeOfBitMap;
+  }
+  PteAddress = (_QWORD *)MiGetPteAddress(v10);
+  if ( !(unsigned int)MiMakeZeroedPageTables((__int64)PteAddress, (__int64)PteAddress, 0x21u, 9) )
+  {
+    if ( (__int64 *)qword_140C4E448 == &qword_140C4E440 )
+      MiReleasePtes((__int64)&qword_140C4ED40, PteAddress, 1u);
+LABEL_18:
+    ExFreePoolWithTag(v7, 0);
+    return 0LL;
+  }
+  memset((void *)v10, 0, 0x1000uLL);
+  if ( (__int64 *)qword_140C4E448 == &qword_140C4E440 )
+  {
+    *(_QWORD *)v10 = *(_QWORD *)qword_140C4E448;
+    qword_140C4E448 = v10;
+  }
+  RtlClearAllBits(v7);
+  SizeOfBitMap = qword_140C4E428->SizeOfBitMap;
+  LOBYTE(v6) = (SizeOfBitMap & 0x3F) != 0;
+  memmove(v7->Buffer, qword_140C4E428->Buffer, 8 * ((SizeOfBitMap >> 6) + v6));
+  if ( qword_140C4E428 != (PRTL_BITMAP)&dword_140C4E430 )
+    ExFreePoolWithTag(qword_140C4E428, 0);
+  qword_140C4E428 = v7;
+  return 1LL;
+}

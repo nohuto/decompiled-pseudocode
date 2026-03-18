@@ -1,0 +1,25 @@
+/*
+ * XREFs of ??1DXGVMBUSCHANNEL@@UEAA@XZ @ 0x14020471C
+ * Callers:
+ *     ??_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z @ 0x140204800 (--_GDXGVMBUSCHANNEL@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x1400110B0 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x140019E90 (DxgkLogInternalTriageEvent.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x14005DA48 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?Cleanup@DXGVMBUSCHANNEL@@QEAAXXZ @ 0x1401FFBAC (-Cleanup@DXGVMBUSCHANNEL@@QEAAXXZ.c)
+ */
+
+void __fastcall DXGVMBUSCHANNEL::~DXGVMBUSCHANNEL(void **this)
+{
+  *this = &DXGVMBUSCHANNEL::`vftable';
+  DXGVMBUSCHANNEL::Cleanup((DXGVMBUSCHANNEL *)this);
+  if ( this[6] != this + 6 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 166;
+    DxgkLogInternalTriageEvent(0LL, 262146, 0xFFFFFFFFLL, L"IsListEmpty(&m_SubscriberList)", 166LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  DXGQUOTAALLOCATOR<256,1835156294>::operator delete(this[4]);
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 15));
+  DXGFASTMUTEX::~DXGFASTMUTEX((DXGFASTMUTEX *)(this + 9));
+}

@@ -1,0 +1,65 @@
+/*
+ * XREFs of ??$GreAcquireSemaphoreCommon@$02P6AXPEAUHSEMAPHORE__@@@Z@@YAXP6AXPEAUHSEMAPHORE__@@@Z0@Z @ 0x140057320
+ * Callers:
+ *     ?DrvDisableDisplay@@YAHAEAVPDEVOBJ@@H@Z @ 0x140030770 (-DrvDisableDisplay@@YAHAEAVPDEVOBJ@@H@Z.c)
+ *     DrvDisableMDEV @ 0x1400C6E50 (DrvDisableMDEV.c)
+ *     DrvNotifyModeChangeStartStop @ 0x140188CE8 (DrvNotifyModeChangeStartStop.c)
+ *     ??0?$SEMOBJ@$02@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z @ 0x14018E080 (--0-$SEMOBJ@$02@@QEAA@AEAUSESSION_GLOBALS@Base@Gre@@@Z.c)
+ * Callees:
+ *     W32GetCurrentWin32kSessionId @ 0x1400584BC (W32GetCurrentWin32kSessionId.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1400BF80C (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     _guard_dispatch_icall @ 0x14024BC70 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall GreAcquireSemaphoreCommon<3,void (*)(HSEMAPHORE__ *)>(void (__fastcall *a1)(__int64), __int64 a2)
+{
+  struct _KTHREAD *CurrentThread; // rsi
+  __int64 v3; // rdi
+  __int64 *ThreadWin32Thread; // rax
+  unsigned __int64 i; // rcx
+  __int64 result; // rax
+  __int64 *v7; // rbx
+  __int64 v8; // r8
+  int CurrentWin32kSessionId; // ebx
+  __int64 CurrentThreadProcess; // rax
+  int v11; // edx
+  int v12; // eax
+
+  a1(a2);
+  CurrentThread = KeGetCurrentThread();
+  v3 = 0LL;
+  if ( !(unsigned __int8)KeIsAttachedProcess()
+    || (CurrentWin32kSessionId = W32GetCurrentWin32kSessionId(),
+        CurrentThreadProcess = PsGetCurrentThreadProcess(),
+        CurrentWin32kSessionId == (unsigned int)PsGetProcessSessionIdEx(CurrentThreadProcess)) )
+  {
+    ThreadWin32Thread = (__int64 *)PsGetThreadWin32Thread(CurrentThread);
+    if ( ThreadWin32Thread )
+      v3 = *ThreadWin32Thread;
+  }
+  result = v3 + 8;
+  v7 = (__int64 *)((v3 + 8) & -(__int64)(v3 != 0));
+  if ( v7 )
+  {
+    v8 = *v7;
+    if ( (*v7 & 0xFFFFFFDFFFFFFFF8uLL) != 0 && (v8 & 8) == 0 )
+    {
+      v11 = 38;
+      for ( i = 0LL; i < 0x40; ++i )
+      {
+        v12 = i;
+        if ( ((1LL << i) & 0xFFFFFFDFFFFFFFFFuLL & v8) == 0 )
+          v12 = v11;
+        v11 = v12;
+      }
+      if ( v12 > 3 && v12 != 38 )
+        MicrosoftTelemetryAssertTriggeredNoArgsKM(i, (unsigned int)v12, v8);
+    }
+    LOBYTE(i) = *(_BYTE *)(((v3 + 8) & -(__int64)(v3 != 0)) + 0xB);
+    result = (unsigned int)(i + 1);
+    *(_BYTE *)(((v3 + 8) & -(__int64)(v3 != 0)) + 0xB) = i + 1;
+    if ( !(_BYTE)i )
+      *v7 |= 8uLL;
+  }
+  return result;
+}

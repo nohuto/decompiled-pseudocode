@@ -1,0 +1,43 @@
+/*
+ * XREFs of TtmiLogQueueHandleOpened @ 0x140884984
+ * Callers:
+ *     TtmpOpenQueueHandle @ 0x140882840 (TtmpOpenQueueHandle.c)
+ * Callees:
+ *     _TlgKeywordOn @ 0x140012A04 (_TlgKeywordOn.c)
+ *     _TlgWrite @ 0x140012EE4 (_TlgWrite.c)
+ *     __security_check_cookie @ 0x140193FF0 (__security_check_cookie.c)
+ */
+
+void TtmiLogQueueHandleOpened()
+{
+  int v0; // r9d
+  __int64 v1; // r10
+  __int64 v2; // r11
+  int v3; // [rsp+30h] [rbp-29h] BYREF
+  __int64 v4; // [rsp+38h] [rbp-21h] BYREF
+  __int64 v5; // [rsp+40h] [rbp-19h] BYREF
+  EVENT_DATA_DESCRIPTOR pData; // [rsp+50h] [rbp-9h] BYREF
+  __int64 *v7; // [rsp+70h] [rbp+17h]
+  __int64 v8; // [rsp+78h] [rbp+1Fh]
+  __int64 *v9; // [rsp+80h] [rbp+27h]
+  __int64 v10; // [rsp+88h] [rbp+2Fh]
+  int *v11; // [rsp+90h] [rbp+37h]
+  __int64 v12; // [rsp+98h] [rbp+3Fh]
+
+  if ( stru_14096D820.LevelPlus1 > 5 )
+  {
+    if ( TlgKeywordOn(&stru_14096D820, 1uLL) )
+    {
+      v4 = v2;
+      v7 = &v4;
+      v9 = &v5;
+      v11 = &v3;
+      v5 = v1;
+      v3 = v0;
+      v8 = 8LL;
+      v10 = 8LL;
+      v12 = 4LL;
+      TlgWrite(&stru_14096D820, &unk_1403717EE, 0LL, 0LL, 5u, &pData);
+    }
+  }
+}

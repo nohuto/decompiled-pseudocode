@@ -1,0 +1,38 @@
+/*
+ * XREFs of ??1ADAPTER_RENDER@@QEAA@XZ @ 0x14019BC2C
+ * Callers:
+ *     ??_GADAPTER_RENDER@@QEAAPEAXI@Z @ 0x14006523C (--_GADAPTER_RENDER@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3?$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z @ 0x140020540 (--3-$DXGQUOTAALLOCATOR@$0BAA@$0GNGCEDEG@@@SAXPEAX@Z.c)
+ *     ??1?$DXGNODELIST@VADAPTER_DISPLAY@@VDXGPROTECTEDSESSION@@@@AEAA@XZ @ 0x14004F630 (--1-$DXGNODELIST@VADAPTER_DISPLAY@@VDXGPROTECTEDSESSION@@@@AEAA@XZ.c)
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x14005D990 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ *     ?DestroyFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ @ 0x1400681A4 (-DestroyFormattingBuffer@ADAPTER_RENDER@@QEAAXXZ.c)
+ *     _guard_dispatch_icall @ 0x1400A1CA0 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall ADAPTER_RENDER::~ADAPTER_RENDER(ADAPTER_RENDER *this)
+{
+  void (__fastcall ***v2)(_QWORD, __int64); // rcx
+  void (__fastcall ***v3)(_QWORD, __int64); // rcx
+
+  if ( *((_BYTE *)this + 968) )
+    ADAPTER_RENDER::DestroyFormattingBuffer(this);
+  if ( *((_BYTE *)this + 1369) )
+    ExDeleteLookasideListEx((PLOOKASIDE_LIST_EX)((char *)this + 1424));
+  DXGQUOTAALLOCATOR<256,1835156294>::operator delete(*((void **)this + 158));
+  v2 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 234);
+  if ( v2 )
+    (**v2)(v2, 1LL);
+  v3 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 233);
+  if ( v3 )
+    (**v3)(v3, 1LL);
+  ExDeletePagedLookasideList((PPAGED_LOOKASIDE_LIST)this + 13);
+  ExDeletePagedLookasideList((PPAGED_LOOKASIDE_LIST)this + 12);
+  DXGFASTMUTEX::~DXGFASTMUTEX((ADAPTER_RENDER *)((char *)this + 856));
+  DXGFASTMUTEX::~DXGFASTMUTEX((ADAPTER_RENDER *)((char *)this + 776));
+  DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>::~DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>((_QWORD *)this + 30);
+  DXGFASTMUTEX::~DXGFASTMUTEX((ADAPTER_RENDER *)((char *)this + 192));
+  DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>::~DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>((_QWORD *)this + 20);
+  DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>::~DXGNODELIST<ADAPTER_DISPLAY,DXGPROTECTEDSESSION>((_QWORD *)this + 18);
+  *((_QWORD *)this + 2) = 0LL;
+}

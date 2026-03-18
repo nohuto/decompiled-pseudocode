@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?IsEnabled@RAPID_HPD_MANAGER@@QEAA_NXZ @ 0x140064CFC
+ * Callers:
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x14041AC88 (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall RAPID_HPD_MANAGER::IsEnabled(RAPID_HPD_MANAGER *this)
+{
+  return *((_BYTE *)this + 32);
+}

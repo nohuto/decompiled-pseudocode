@@ -1,0 +1,247 @@
+/*
+ * XREFs of KiInsertTimer2WithCollectionLockHeld @ 0x1400BF310
+ * Callers:
+ *     KeSetTimer2 @ 0x1400BC1F0 (KeSetTimer2.c)
+ *     KiInsertTimer2 @ 0x140121DE4 (KiInsertTimer2.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x140064590 (RtlRbInsertNodeEx.c)
+ *     KiRemoveTimer2 @ 0x1400BFC50 (KiRemoveTimer2.c)
+ */
+
+__int64 __fastcall KiInsertTimer2WithCollectionLockHeld(__int64 a1, char a2, _BYTE *a3, bool *a4)
+{
+  char v6; // cl
+  char v7; // bp
+  unsigned __int8 v8; // r15
+  int v10; // r14d
+  int v11; // edi
+  __int64 v12; // rcx
+  __int64 v13; // rax
+  unsigned __int64 v14; // rdx
+  unsigned __int64 *v15; // rdi
+  bool v16; // r8
+  int v17; // r9d
+  unsigned __int64 v18; // rax
+  unsigned __int64 v19; // rax
+  __int64 v20; // rcx
+  char v21; // cl
+  unsigned __int64 *v22; // rsi
+  __int64 v23; // rax
+  unsigned __int64 v24; // rdx
+  bool v25; // r8
+  int v26; // ecx
+  unsigned __int64 v27; // rax
+  __int64 v28; // rax
+  unsigned __int64 v30; // rcx
+  bool v31; // dl
+  signed __int32 *v32; // r8
+  signed __int32 v33; // eax
+  signed __int32 v34; // ett
+  signed __int32 v35[8]; // [rsp+0h] [rbp-48h] BYREF
+
+  v6 = *(_BYTE *)(a1 + 130);
+  v7 = a2;
+  v8 = 1;
+  v10 = 0;
+  *a3 = 0;
+  v11 = 0;
+  *a4 = 0;
+  if ( v6 == 20 || (v6 & 0x20) != 0 && *(_QWORD *)(a1 + 72) == *(_QWORD *)(a1 + 80) )
+  {
+    *(_BYTE *)(a1 + 130) = v6 | 0x10;
+  }
+  else
+  {
+    *(_BYTE *)(a1 + 130) = v6 & 0xEF;
+    v12 = 3LL * (v6 & 3);
+    v13 = KiTimer2Collections[v12 + 1];
+    v14 = KiTimer2Collections[v12];
+    v15 = &KiTimer2Collections[v12];
+    if ( (v13 & 1) != 0 )
+    {
+      if ( v14 )
+        v14 ^= (unsigned __int64)v15;
+      else
+        v14 = 0LL;
+    }
+    v16 = 0;
+    v17 = v13 & 1;
+    if ( v14 )
+    {
+      while ( 1 )
+      {
+        if ( *(_QWORD *)(a1 + 72) < *(_QWORD *)(v14 + 48) )
+        {
+          v18 = *(_QWORD *)v14;
+          if ( v17 )
+          {
+            if ( !v18 )
+              goto LABEL_19;
+            v18 ^= v14;
+          }
+          if ( !v18 )
+          {
+LABEL_19:
+            v16 = 0;
+            break;
+          }
+        }
+        else
+        {
+          v18 = *(_QWORD *)(v14 + 8);
+          if ( v17 )
+          {
+            if ( !v18 )
+              goto LABEL_20;
+            v18 ^= v14;
+          }
+          if ( !v18 )
+          {
+LABEL_20:
+            v16 = 1;
+            break;
+          }
+        }
+        v14 = v18;
+      }
+    }
+    RtlRbInsertNodeEx(v15, v14, v16, a1 + 24);
+    v19 = v15[1];
+    if ( (v19 & 1) != 0 )
+    {
+      if ( v19 == 1 )
+        v20 = 0LL;
+      else
+        v20 = v19 ^ ((unsigned __int64)v15 | 1);
+    }
+    else
+    {
+      v20 = v15[1];
+    }
+    if ( v20 == a1 + 24 )
+    {
+      v15[2] = *(_QWORD *)(a1 + 72);
+      v11 = 1;
+    }
+    else
+    {
+      v11 = 0;
+    }
+  }
+  v21 = *(_BYTE *)(a1 + 131);
+  if ( *(_QWORD *)(a1 + 80) == -1LL )
+  {
+    *(_BYTE *)(a1 + 131) = v21 | 0x10;
+  }
+  else
+  {
+    *(_BYTE *)(a1 + 131) = v21 & 0xEF;
+    v22 = (unsigned __int64 *)(0x140000000LL + 24LL * (v21 & 3) + 4512288);
+    v23 = *(_QWORD *)(0x140000008LL + 24LL * (v21 & 3) + 4512288);
+    v24 = *v22;
+    if ( (v23 & 1) != 0 )
+    {
+      if ( v24 )
+        v24 ^= (unsigned __int64)v22;
+      else
+        v24 = 0LL;
+    }
+    v25 = 0;
+    v26 = v23 & 1;
+    if ( v24 )
+    {
+      while ( 1 )
+      {
+        if ( *(_QWORD *)(a1 + 80) < *(_QWORD *)(v24 + 32) )
+        {
+          v27 = *(_QWORD *)v24;
+          if ( v26 )
+          {
+            if ( !v27 )
+              goto LABEL_40;
+            v27 ^= v24;
+          }
+          if ( !v27 )
+          {
+LABEL_40:
+            v25 = 0;
+            break;
+          }
+        }
+        else
+        {
+          v27 = *(_QWORD *)(v24 + 8);
+          if ( v26 )
+          {
+            if ( !v27 )
+              goto LABEL_49;
+            v27 ^= v24;
+          }
+          if ( !v27 )
+          {
+LABEL_49:
+            v25 = 1;
+            break;
+          }
+        }
+        v24 = v27;
+      }
+    }
+    RtlRbInsertNodeEx(v22, v24, v25, a1 + 48);
+    v30 = v22[1];
+    if ( (v30 & 1) != 0 )
+    {
+      if ( v30 == 1 )
+        v28 = 0LL;
+      else
+        v28 = v30 ^ ((unsigned __int64)v22 | 1);
+    }
+    else
+    {
+      v28 = v22[1];
+    }
+    if ( v28 == a1 + 48 )
+    {
+      v10 = 1;
+      v22[2] = *(_QWORD *)(a1 + 80);
+    }
+    v7 = a2;
+    v11 |= v10;
+  }
+  if ( v11 )
+  {
+    if ( (unsigned __int64)KiNextTimer2DueTime > *(_QWORD *)(a1 + 72) )
+    {
+      KiNextTimer2DueTime = *(_QWORD *)(a1 + 72);
+      _InterlockedOr(v35, 0);
+    }
+    if ( *(_QWORD *)(a1 + 72) <= MEMORY[0xFFFFF78000000008] )
+    {
+      *a3 = 1;
+      if ( !v7 )
+      {
+        KiRemoveTimer2(a1);
+        v8 = 0;
+      }
+    }
+  }
+  if ( (*(_BYTE *)(a1 + 129) & 4) != 0 && _InterlockedIncrement(&KiHrTimerActiveCount) == 1 )
+  {
+    v31 = 0;
+    v32 = *(signed __int32 **)(KiProcessorBlock[KiClockTimerOwner] + 25016);
+    if ( v32 && (KiVelocityFlags & 0x40) != 0 )
+    {
+      _m_prefetchw(v32);
+      v33 = *v32;
+      do
+      {
+        v34 = v33;
+        v33 = _InterlockedCompareExchange(v32, v33 | 0x80000, v33);
+      }
+      while ( v34 != v33 );
+      v31 = (v33 & 0x80000) == 0;
+    }
+    *a4 = v31;
+  }
+  return v8;
+}

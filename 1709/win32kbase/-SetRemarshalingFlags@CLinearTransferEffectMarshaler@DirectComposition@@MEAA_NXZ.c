@@ -1,0 +1,38 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CLinearTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C014F150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall DirectComposition::CLinearTransferEffectMarshaler::SetRemarshalingFlags(
+        DirectComposition::CLinearTransferEffectMarshaler *this)
+{
+  bool result; // al
+  char v2; // dl
+
+  result = 0;
+  *((_DWORD *)this + 20) = 0;
+  if ( *((_DWORD *)this + 12) )
+    return 1;
+  if ( *((float *)this + 22) != 0.0 )
+    return 1;
+  if ( *((float *)this + 23) != 1.0 )
+    return 1;
+  v2 = *((_BYTE *)this + 120);
+  if ( (v2 & 1) != 0
+    || *((float *)this + 24) != 0.0
+    || *((float *)this + 25) != 1.0
+    || (v2 & 2) != 0
+    || *((float *)this + 26) != 0.0
+    || *((float *)this + 27) != 1.0
+    || (v2 & 8) != 0
+    || *((float *)this + 28) != 0.0
+    || *((float *)this + 29) != 1.0
+    || (v2 & 0x14) != 0 )
+  {
+    return 1;
+  }
+  return result;
+}

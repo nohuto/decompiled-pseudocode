@@ -1,0 +1,25 @@
+/*
+ * XREFs of DxgkUnblockUEFIFrameBufferRangesCB @ 0x14006C9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetDxgAdapter @ 0x140016C90 (DpiGetDxgAdapter.c)
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x140016D04 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     ??1DXGVALIDATIONPROCESSATTACH@@QEAA@XZ @ 0x140030700 (--1DXGVALIDATIONPROCESSATTACH@@QEAA@XZ.c)
+ *     ?NotifyUnblockUEFIFrameBufferRanges@DXGADAPTER@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x140066124 (-NotifyUnblockUEFIFrameBufferRanges@DXGADAPTER@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z.c)
+ *     __security_check_cookie @ 0x14009F860 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall DxgkUnblockUEFIFrameBufferRangesCB(__int64 a1, const struct _DXGK_QUERYSEGMENTMEMORYSTATE *a2)
+{
+  DXGADAPTER *DxgAdapter; // rax
+  __int64 v5; // r8
+  __int64 v6; // r9
+  _BYTE v8[56]; // [rsp+20h] [rbp-48h] BYREF
+
+  DXGVALIDATIONPROCESSREATTACH::DXGVALIDATIONPROCESSREATTACH((DXGVALIDATIONPROCESSREATTACH *)v8);
+  DxgAdapter = (DXGADAPTER *)DpiGetDxgAdapter(a1);
+  LODWORD(a1) = DXGADAPTER::NotifyUnblockUEFIFrameBufferRanges(DxgAdapter, a2, v5, v6);
+  DXGVALIDATIONPROCESSATTACH::~DXGVALIDATIONPROCESSATTACH((DXGVALIDATIONPROCESSATTACH *)v8);
+  return (unsigned int)a1;
+}

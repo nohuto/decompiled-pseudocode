@@ -1,0 +1,24 @@
+/*
+ * XREFs of ??1CInteractionMarshaler@DirectComposition@@UEAA@XZ @ 0x1C000E4A8
+ * Callers:
+ *     ??_ECSharedInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C000DE00 (--_ECSharedInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ *     ??_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C000E1F0 (--_ECInteractionMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ @ 0x1C000EEEC (--1CInteractionConfigurationGroup@DirectComposition@@QEAA@XZ.c)
+ *     ?Reset@?$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@@QEAAX_N@Z @ 0x1C000F47C (-Reset@-$CStructDynamicArray@UManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@@.c)
+ *     ?Reset@?$CDynamicArray@PEAUManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@$0HHHAHDFF@@@QEAAX_N@Z @ 0x1C000F4B0 (-Reset@-$CDynamicArray@PEAUManipulationCaptureInfo@CInteractionMarshaler@DirectComposition@@$0HH.c)
+ */
+
+void __fastcall DirectComposition::CInteractionMarshaler::~CInteractionMarshaler(
+        DirectComposition::CInteractionMarshaler *this)
+{
+  char *v2; // rbx
+
+  v2 = (char *)this + 296;
+  *(_QWORD *)this = &DirectComposition::CInteractionMarshaler::`vftable';
+  CStructDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo>::Reset((char *)this + 296);
+  CDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo *,2003858261>::Reset(v2);
+  CDynamicArray<DirectComposition::CInteractionMarshaler::ManipulationCaptureInfo *,2003858261>::Reset((char *)this + 280);
+  DirectComposition::CInteractionConfigurationGroup::~CInteractionConfigurationGroup((DirectComposition::CInteractionMarshaler *)((char *)this + 160));
+  DirectComposition::CInteractionConfigurationGroup::~CInteractionConfigurationGroup((DirectComposition::CInteractionMarshaler *)((char *)this + 56));
+}

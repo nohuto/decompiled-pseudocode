@@ -1,0 +1,84 @@
+/*
+ * XREFs of FsRtlpPostStackOverflow @ 0x14057E9FC
+ * Callers:
+ *     FsRtlPostPagingFileStackOverflow @ 0x14057E8A0 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x14057E8C0 (FsRtlPostStackOverflow.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x14025AB10 (RtlRaiseStatus.c)
+ *     EtwTraceEnqueueWork @ 0x1402811B8 (EtwTraceEnqueueWork.c)
+ *     KeIsThreadRunning @ 0x14028123C (KeIsThreadRunning.c)
+ *     KiWakeOtherQueueWaiters @ 0x140283660 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140287200 (KiAcquireKobjectLockSafe.c)
+ *     KiExitDispatcher @ 0x140287260 (KiExitDispatcher.c)
+ *     KeWaitForSingleObject @ 0x14029C6A0 (KeWaitForSingleObject.c)
+ *     KiWakeQueueWaiter @ 0x140308B20 (KiWakeQueueWaiter.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F1018 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
+ */
+
+void __fastcall FsRtlpPostStackOverflow(__int64 a1, __int64 a2, __int64 a3, unsigned __int8 a4)
+{
+  __int64 v5; // rbx
+  char *Pool2; // rdi
+  char *v9; // rbx
+  _QWORD *v10; // r14
+  unsigned __int8 CurrentIrql; // r15
+  struct _KPRCB *CurrentPrcb; // rsi
+  __int64 CurrentThread; // rbp
+  char IsThreadRunning; // al
+  int v15; // edx
+  char **v16; // rcx
+
+  v5 = a4;
+  Pool2 = (char *)ExAllocatePool2(0x42uLL);
+  if ( !Pool2 )
+  {
+    if ( !(_BYTE)v5 )
+      RtlRaiseStatus(-1073741670);
+    KeWaitForSingleObject(&StackOverflowFallbackSerialEvent, Executive, 0, 0, 0LL);
+    Pool2 = (char *)&StackOverflowFallback;
+  }
+  *((_QWORD *)Pool2 + 5) = a1;
+  *((_QWORD *)Pool2 + 6) = a2;
+  *((_QWORD *)Pool2 + 4) = a3;
+  *(_QWORD *)Pool2 = 0LL;
+  *((_QWORD *)Pool2 + 2) = FsRtlStackOverflowRead;
+  v9 = (char *)&FsRtlWorkerQueues + 64 * v5;
+  *((_QWORD *)Pool2 + 3) = Pool2;
+  v10 = v9 + 8;
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(2uLL);
+  if ( KiIrqlFlags )
+    KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
+  CurrentPrcb = KeGetCurrentPrcb();
+  CurrentThread = (__int64)CurrentPrcb->CurrentThread;
+  if ( (DWORD1(PerfGlobalGroupMask) & 0x1000000) != 0 )
+  {
+    IsThreadRunning = KeIsThreadRunning((__int64)CurrentPrcb->CurrentThread);
+    EtwTraceEnqueueWork(CurrentThread, (__int64)Pool2, IsThreadRunning);
+  }
+  KiAcquireKobjectLockSafe((volatile signed __int32 *)v9);
+  if ( (_QWORD *)*v10 == v10
+    || *((_DWORD *)v9 + 10) >= *((_DWORD *)v9 + 11)
+    || *(char **)(CurrentThread + 232) == v9 && *(_BYTE *)(CurrentThread + 643) == 15
+    || !KiWakeQueueWaiter((__int64)CurrentPrcb, (__int64)v9, (__int64)Pool2) )
+  {
+    v15 = *((_DWORD *)v9 + 1);
+    *((_DWORD *)v9 + 1) = v15 + 1;
+    v16 = (char **)*((_QWORD *)v9 + 4);
+    if ( *v16 != v9 + 24 )
+      __fastfail(3u);
+    *(_QWORD *)Pool2 = v9 + 24;
+    *((_QWORD *)Pool2 + 1) = v16;
+    *v16 = Pool2;
+    *((_QWORD *)v9 + 4) = Pool2;
+    if ( !v15 && (_QWORD *)*v10 != v10 )
+      KiWakeOtherQueueWaiters((__int64)CurrentPrcb, (__int64)v9);
+  }
+  else
+  {
+    *(_QWORD *)Pool2 = 0LL;
+  }
+  _InterlockedAnd((volatile signed __int32 *)v9, 0xFFFFFF7F);
+  KiExitDispatcher(CurrentPrcb, 0LL, 1u, 0, CurrentIrql);
+}

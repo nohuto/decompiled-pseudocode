@@ -1,0 +1,28 @@
+/*
+ * XREFs of RtlLookupImageSectionByName @ 0x140360144
+ * Callers:
+ *     KasanDriverLoadImage @ 0x1403600B0 (KasanDriverLoadImage.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B457F0 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ * Callees:
+ *     strncmp @ 0x1403D8E90 (strncmp.c)
+ */
+
+const char *__fastcall RtlLookupImageSectionByName(__int64 a1, const char *a2)
+{
+  unsigned __int16 v2; // si
+  const char *v3; // rbx
+  __int16 v5; // di
+
+  v2 = *(_WORD *)(a1 + 6);
+  v3 = (const char *)(*(unsigned __int16 *)(a1 + 20) + a1 + 24);
+  v5 = 0;
+  if ( !v2 )
+    return 0LL;
+  while ( strncmp(v3, a2, 8uLL) )
+  {
+    v3 += 40;
+    if ( (unsigned __int16)++v5 >= v2 )
+      return 0LL;
+  }
+  return v3;
+}

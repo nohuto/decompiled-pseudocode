@@ -1,0 +1,54 @@
+/*
+ * XREFs of SepQueryNameString @ 0x1409FBF48
+ * Callers:
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14092F570 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409F8930 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x1409F966C (SeSecurityDescriptorChangedAuditAlarm.c)
+ *     SeOperationAuditAlarm @ 0x1409FA6B0 (SeOperationAuditAlarm.c)
+ *     SepValidateReferencedCachedHandles @ 0x140A293B8 (SepValidateReferencedCachedHandles.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x140B4FC88 (SepAdtObjectReferenceAuditAlarm.c)
+ *     SeAdtRegistryValueChangedAuditAlarm @ 0x140B64ACC (SeAdtRegistryValueChangedAuditAlarm.c)
+ * Callees:
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1409FABB0 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     ObQueryNameStringMode @ 0x1409FDA40 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140C10430 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall SepQueryNameString(__int64 a1, PVOID *a2)
+{
+  int NameStringMode; // eax
+  int v5; // ebx
+  __int64 Pool2; // rax
+  int v8; // [rsp+48h] [rbp+10h] BYREF
+
+  *a2 = 0LL;
+  v8 = 0;
+  NameStringMode = ObQueryNameStringMode(a1, 0, 0, (unsigned int)&v8, 0);
+  v5 = NameStringMode;
+  if ( NameStringMode == -1073741820 || NameStringMode == -1073741789 )
+  {
+    Pool2 = ExAllocatePool2(0x100uLL);
+    *a2 = (PVOID)Pool2;
+    if ( Pool2 )
+    {
+      v5 = ObQueryNameStringMode(a1, Pool2, v8, (unsigned int)&v8, 0);
+      if ( v5 < 0 || !*(_WORD *)*a2 )
+      {
+        ExFreePoolWithTag(*a2, 0);
+        *a2 = 0LL;
+        if ( v5 >= 0
+          && (POBJECT_TYPE *)ObTypeIndexTable[(unsigned __int8)ObHeaderCookie ^ *(unsigned __int8 *)(a1 - 24) ^ (unsigned __int64)(unsigned __int8)((unsigned __int16)(a1 - 48) >> 8)] == PsProcessType )
+        {
+          PsGetAllocatedFullProcessImageNameEx(a1, (__int64 *)a2);
+        }
+        return 0;
+      }
+    }
+    else
+    {
+      return (unsigned int)-1073741670;
+    }
+  }
+  return (unsigned int)v5;
+}

@@ -1,0 +1,27 @@
+/*
+ * XREFs of ControllerConfigure @ 0x14000FB30
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x140006C00 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall ControllerConfigure(__int64 a1)
+{
+  __int64 v1; // rdx
+  int v3; // eax
+  int v4; // ecx
+  signed __int32 v6[10]; // [rsp+0h] [rbp-28h] BYREF
+
+  v1 = *(_QWORD *)(a1 + 192);
+  if ( (v1 & 0x20000) != 0 && (*(_DWORD *)(a1 + 56) & 0x400) != 0 )
+    v3 = 2048;
+  else
+    v3 = 0;
+  v4 = v3 | 0x60;
+  if ( (v1 & 0x80000000000LL) == 0 )
+    v4 = v3;
+  *(_DWORD *)(*(_QWORD *)(a1 + 176) + 20LL) = v4 | 0x460000;
+  _InterlockedOr(v6, 0);
+  return StorPortStallExecution(5000LL);
+}

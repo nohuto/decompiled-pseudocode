@@ -1,0 +1,110 @@
+/*
+ * XREFs of NtStartProfile @ 0x14095D550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x140219190 (KeQueryActiveProcessorCountEx.c)
+ *     KeWaitForSingleObject @ 0x14021B560 (KeWaitForSingleObject.c)
+ *     HalPutDmaAdapter @ 0x1402211F0 (HalPutDmaAdapter.c)
+ *     KeReleaseMutex @ 0x140240290 (KeReleaseMutex.c)
+ *     MmSizeOfMdl @ 0x14025F2E0 (MmSizeOfMdl.c)
+ *     MmProbeAndLockPages @ 0x14026AA30 (MmProbeAndLockPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1402864D0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmUnlockPages @ 0x1402936A0 (MmUnlockPages.c)
+ *     KeStartProfile @ 0x14051A0EC (KeStartProfile.c)
+ *     ObReferenceObjectByHandle @ 0x1406118C0 (ObReferenceObjectByHandle.c)
+ *     KeInitializeProfile @ 0x1408BE90C (KeInitializeProfile.c)
+ *     ExAllocatePoolWithTag @ 0x1409B7010 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x1409B70B0 (ExFreePoolWithTag.c)
+ */
+
+NTSTATUS __fastcall NtStartProfile(void *a1)
+{
+  KPROCESSOR_MODE PreviousMode; // r14
+  NTSTATUS result; // eax
+  PADAPTER_OBJECT v3; // rbx
+  int v4; // edi
+  SIZE_T v5; // rax
+  char *PoolWithTag; // rax
+  void *v7; // rdi
+  struct _MDL *v8; // rsi
+  __int64 v9; // r10
+  _DMA_OPERATIONS *DmaOperations; // r8
+  PVOID v11; // r14
+  PADAPTER_OBJECT DmaAdapter; // [rsp+78h] [rbp+10h] BYREF
+  PVOID P; // [rsp+80h] [rbp+18h]
+
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  DmaAdapter = 0LL;
+  result = ObReferenceObjectByHandle(a1, 1u, ExProfileObjectType, PreviousMode, (PVOID *)&DmaAdapter, 0LL);
+  if ( result >= 0 )
+  {
+    KeWaitForSingleObject(&ExpProfileStateMutex, Executive, 0, 0, 0LL);
+    v3 = DmaAdapter;
+    if ( *(_QWORD *)&DmaAdapter[3].Version )
+    {
+      v4 = -1073741640;
+LABEL_8:
+      KeReleaseMutex((PRKMUTEX)&ExpProfileStateMutex, 0);
+      HalPutDmaAdapter(v3);
+      return v4;
+    }
+    if ( ExpCurrentProfileUsage == KeQueryActiveProcessorCountEx(0xFFFFu) << 13 )
+    {
+      v4 = -1073741613;
+      goto LABEL_8;
+    }
+    v5 = MmSizeOfMdl(v3[1].DmaOperations, *(unsigned int *)&v3[2].Version);
+    PoolWithTag = (char *)ExAllocatePoolWithTag(NonPagedPoolNx, v5 + 248, 0x666F7250u);
+    v7 = PoolWithTag;
+    P = PoolWithTag;
+    if ( !PoolWithTag )
+    {
+      v4 = -1073741670;
+      goto LABEL_8;
+    }
+    v8 = (struct _MDL *)(PoolWithTag + 248);
+    v3[3].DmaOperations = (_DMA_OPERATIONS *)(PoolWithTag + 248);
+    v3[2].DmaOperations = (_DMA_OPERATIONS *)PoolWithTag;
+    v9 = *(unsigned int *)&v3[2].Version;
+    DmaOperations = v3[1].DmaOperations;
+    *((_QWORD *)PoolWithTag + 31) = 0LL;
+    *((_WORD *)PoolWithTag + 128) = 8
+                                  * ((((unsigned __int64)((unsigned __int16)DmaOperations & 0xFFF) + v9 + 4095) >> 12)
+                                   + 6);
+    *((_WORD *)PoolWithTag + 129) = 0;
+    *((_QWORD *)PoolWithTag + 35) = (unsigned __int64)DmaOperations & 0xFFFFFFFFFFFFF000uLL;
+    *((_DWORD *)PoolWithTag + 73) = (unsigned __int16)DmaOperations & 0xFFF;
+    *((_DWORD *)PoolWithTag + 72) = v9;
+    MmProbeAndLockPages((PMDL)(PoolWithTag + 248), PreviousMode, IoWriteAccess);
+    v11 = MmMapLockedPagesSpecifyCache((PMDL)v3[3].DmaOperations, 0, MmCached, 0LL, 0, 0x40000010u);
+    if ( v11 )
+    {
+      KeInitializeProfile(
+        (__int64)v7,
+        *(_QWORD *)&v3->Version,
+        (__int64)v11,
+        (__int64)v3->DmaOperations,
+        *(_QWORD *)&v3[1].Version,
+        *(_DWORD *)(&v3[2].Size + 1),
+        *(_DWORD *)&v3[4].Version,
+        *(_DWORD *)(&v3[4].Size + 1),
+        (unsigned __int16 *)&v3[4].DmaOperations);
+      KeStartProfile((ULONG_PTR)v7);
+      *(_QWORD *)&v3[3].Version = v11;
+      ++ExpCurrentProfileUsage;
+      KeReleaseMutex((PRKMUTEX)&ExpProfileStateMutex, 0);
+      HalPutDmaAdapter(v3);
+      return 0;
+    }
+    else
+    {
+      KeReleaseMutex((PRKMUTEX)&ExpProfileStateMutex, 0);
+      MmUnlockPages(v8);
+      ExFreePoolWithTag(v7, 0);
+      HalPutDmaAdapter(v3);
+      return -1073741670;
+    }
+  }
+  return result;
+}

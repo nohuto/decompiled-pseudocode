@@ -1,0 +1,39 @@
+/*
+ * XREFs of NtSetDefaultHardErrorPort @ 0x1407B0BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsReferenceSiloContext @ 0x14029A8F0 (PsReferenceSiloContext.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x14030F050 (PsGetCurrentServerSiloGlobals.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x140311890 (PsIsCurrentThreadInServerSilo.c)
+ *     ObReferenceObjectByHandle @ 0x14084F190 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x140858330 (SeSinglePrivilegeCheck.c)
+ */
+
+NTSTATUS __fastcall NtSetDefaultHardErrorPort(HANDLE Handle)
+{
+  struct _LIST_ENTRY *CurrentServerSiloGlobals; // rbx
+  NTSTATUS result; // eax
+  _KPROCESS *Process; // rcx
+  PVOID Object; // [rsp+48h] [rbp+10h] BYREF
+
+  CurrentServerSiloGlobals = PsGetCurrentServerSiloGlobals();
+  if ( !SeSinglePrivilegeCheck(SeTcbPrivilege, KeGetCurrentThread()->PreviousMode) )
+    return -1073741727;
+  if ( LODWORD(CurrentServerSiloGlobals[54].Flink) == 1 )
+    return -1073741823;
+  Object = 0LL;
+  result = ObReferenceObjectByHandle(Handle, 0, LpcPortObjectType, KeGetCurrentThread()->PreviousMode, &Object, 0LL);
+  CurrentServerSiloGlobals[53].Blink = (struct _LIST_ENTRY *)Object;
+  if ( result >= 0 )
+  {
+    if ( !PsIsCurrentThreadInServerSilo() )
+      ExReadyForErrors = 1;
+    LODWORD(CurrentServerSiloGlobals[54].Flink) = 1;
+    Process = KeGetCurrentThread()->ApcState.Process;
+    CurrentServerSiloGlobals[53].Flink = (struct _LIST_ENTRY *)Process;
+    PsReferenceSiloContext(Process);
+    return 0;
+  }
+  return result;
+}

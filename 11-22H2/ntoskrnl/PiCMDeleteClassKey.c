@@ -1,0 +1,76 @@
+/*
+ * XREFs of PiCMDeleteClassKey @ 0x140968DDC
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406D0810 (PiCMHandleIoctl.c)
+ * Callees:
+ *     PiPnpRtlEndOperation @ 0x140788CDC (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x140788EE0 (PiPnpRtlBeginOperation.c)
+ *     PiCMReleaseObjectInputData @ 0x14079A5E8 (PiCMReleaseObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x14079A618 (PiCMReturnBasicResultData.c)
+ *     PiCMCaptureObjectInputData @ 0x14079A694 (PiCMCaptureObjectInputData.c)
+ *     PiAuDoesClientHaveAccess @ 0x14079AD98 (PiAuDoesClientHaveAccess.c)
+ *     _CmDeleteInstallerClass @ 0x140A62A64 (_CmDeleteInstallerClass.c)
+ *     _CmDeleteInterfaceClass @ 0x140A62E2C (_CmDeleteInterfaceClass.c)
+ */
+
+__int64 __fastcall PiCMDeleteClassKey(
+        unsigned __int64 a1,
+        unsigned int a2,
+        _QWORD *a3,
+        unsigned int a4,
+        int a5,
+        PVOID **P)
+{
+  PVOID **v6; // r15
+  int v9; // ebx
+  int v10; // eax
+  __int64 v11; // rbx
+  int v12; // edi
+  __int128 v14; // [rsp+30h] [rbp-30h] BYREF
+  __int128 v15; // [rsp+40h] [rbp-20h]
+  __int64 v16; // [rsp+50h] [rbp-10h]
+
+  v6 = P;
+  P = 0LL;
+  v16 = 0LL;
+  *(_DWORD *)v6 = 0;
+  v14 = 0LL;
+  v15 = 0LL;
+  v9 = PiCMCaptureObjectInputData(a1, a2, a5, (__int64)&v14);
+  if ( v9 >= 0 )
+  {
+    if ( PiAuDoesClientHaveAccess(2u) )
+    {
+      v11 = v15;
+      if ( (_QWORD)v15
+        && !HIDWORD(v15)
+        && a3
+        && a4 >= 8
+        && (v12 = DWORD2(v14), (unsigned int)(DWORD2(v14) - 2) <= 1)
+        && (unsigned int)(DWORD1(v14) - 1) <= 1 )
+      {
+        v10 = PiPnpRtlBeginOperation((__int64 **)&P);
+        if ( v10 >= 0 )
+        {
+          if ( v12 == 3 )
+            v10 = CmDeleteInterfaceClass(*(_QWORD *)&PiPnpRtlCtx, v11, 0LL);
+          else
+            v10 = CmDeleteInstallerClass(*(_QWORD *)&PiPnpRtlCtx, v11, 0LL);
+        }
+      }
+      else
+      {
+        v10 = -1073741811;
+      }
+    }
+    else
+    {
+      v10 = -1073741790;
+    }
+    v9 = PiCMReturnBasicResultData(v10, v16, a3, a4, v6);
+  }
+  PiCMReleaseObjectInputData((__int64)&v14);
+  if ( P )
+    PiPnpRtlEndOperation(P);
+  return (unsigned int)v9;
+}

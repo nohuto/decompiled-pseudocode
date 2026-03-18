@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?bLoadSource@MULTISURF@@QEAAHPEAU_DISPSURF@@@Z @ 0x14005269C
+ * Callers:
+ *     ?MulTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x140050610 (-MulTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z.c)
+ *     ?MulStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POINTL@@PEAU_RECTL@@54K@Z @ 0x140051290 (-MulStretchBlt@@YAHPEAU_SURFOBJ@@00PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAUtagCOLORADJUSTMENT@@PEAU_POI.c)
+ *     ?MulAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z @ 0x140051F70 (-MulAlphaBlend@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3PEAU_BLENDOBJ@@@Z.c)
+ *     ?MulDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXPEAU_DSSTATE@@@Z @ 0x140052700 (-MulDrawStream@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@PEAU_POINTL@@KPEAXPEA.c)
+ * Callees:
+ *     ?bLoadSourceNotMetaDEVBITMAP@MULTISURF@@AEAAHPEAUHDEV__@@@Z @ 0x140331BBC (-bLoadSourceNotMetaDEVBITMAP@MULTISURF@@AEAAHPEAUHDEV__@@@Z.c)
+ */
+
+__int64 __fastcall MULTISURF::bLoadSource(MULTISURF *this, HDEV *a2)
+{
+  unsigned int v3; // r9d
+  __int64 v5; // rax
+  __int64 v6; // rcx
+
+  v3 = 1;
+  if ( *((_QWORD *)this + 3) )
+  {
+    v5 = *((_QWORD *)this + 10);
+    if ( v5 )
+    {
+      v6 = *(_QWORD *)(*(_QWORD *)(v5 + 8) + 8LL * *((unsigned int *)a2 + 4));
+      *((_QWORD *)this + 11) = v6;
+      if ( !v6 )
+        *((_QWORD *)this + 11) = *(_QWORD *)this + 24LL;
+    }
+    else
+    {
+      return (unsigned int)MULTISURF::bLoadSourceNotMetaDEVBITMAP(this, a2[6]);
+    }
+  }
+  return v3;
+}

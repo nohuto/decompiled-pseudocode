@@ -1,0 +1,12 @@
+/*
+ * XREFs of KiQueryProximityNode @ 0x140513EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140405F40 (_guard_dispatch_icall.c)
+ */
+
+__int64 KiQueryProximityNode()
+{
+  return ((__int64 (*)(void))KiNumaQueryProximityNode)();
+}

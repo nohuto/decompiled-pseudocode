@@ -1,0 +1,105 @@
+/*
+ * XREFs of ArbGetNextAllocationRange @ 0x1C00958B0
+ * Callers:
+ *     IrqArbGetNextAllocationRange @ 0x1C0088020 (IrqArbGetNextAllocationRange.c)
+ * Callees:
+ *     ArbpUpdatePriority @ 0x1C0095A04 (ArbpUpdatePriority.c)
+ */
+
+char __fastcall ArbGetNextAllocationRange(__int64 a1, __int64 a2)
+{
+  unsigned __int64 v4; // rdi
+  unsigned __int64 i; // rax
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // rdx
+  unsigned __int64 v8; // r9
+  int v9; // ecx
+  unsigned int v10; // ecx
+  unsigned __int64 v11; // r9
+  __int64 v12; // rax
+  unsigned __int64 v13; // rcx
+  unsigned __int64 *v14; // rax
+  unsigned __int64 v15; // rdx
+  unsigned __int64 v16; // r10
+  __int64 v17; // r11
+  unsigned __int64 v18; // rdi
+  char result; // al
+
+  while ( 1 )
+  {
+    if ( *(_QWORD *)(a2 + 40) )
+    {
+      ArbpUpdatePriority(a1);
+    }
+    else
+    {
+      v4 = *(_QWORD *)(a2 + 56);
+      for ( i = v4 + ((unsigned __int64)*(unsigned int *)(a2 + 48) << 6);
+            v4 < i;
+            i = *(_QWORD *)(a2 + 56) + ((unsigned __int64)*(unsigned int *)(a2 + 48) << 6) )
+      {
+        *(_DWORD *)(v4 + 32) = 0;
+        ArbpUpdatePriority(a1);
+        v4 += 64LL;
+      }
+    }
+    v6 = *(_QWORD *)(a2 + 56);
+    v7 = v6 + 64;
+    v8 = v6 + (((unsigned int)(*(_DWORD *)(a2 + 48) - 1) + 1LL) << 6);
+    while ( v7 < v8 )
+    {
+      if ( *(_DWORD *)(v7 + 32) < *(_DWORD *)(v6 + 32) )
+        v6 = v7;
+      v7 += 64LL;
+    }
+    v9 = *(_DWORD *)(v6 + 32);
+    if ( v9 == 0x7FFFFFFF )
+      return 0;
+    if ( (unsigned int)(v9 - 2147483645) <= 1 )
+    {
+      v11 = *(_QWORD *)v6;
+      v13 = *(_QWORD *)(v6 + 8);
+      v15 = *(_QWORD *)v6;
+      v16 = v13;
+    }
+    else
+    {
+      if ( v9 > 0 )
+        v10 = v9 - 1;
+      else
+        v10 = ~v9;
+      v11 = *(_QWORD *)v6;
+      v12 = v10;
+      v13 = *(_QWORD *)(v6 + 8);
+      v14 = (unsigned __int64 *)(*(_QWORD *)(a1 + 64) + 16 * v12);
+      v15 = *v14;
+      v16 = v14[1];
+      if ( *(_QWORD *)v6 > *v14 )
+        v15 = *(_QWORD *)v6;
+      if ( v13 < v16 )
+        v16 = *(_QWORD *)(v6 + 8);
+    }
+    v17 = *(_QWORD *)(v6 + 16);
+    if ( !v17 )
+      goto LABEL_17;
+    v18 = *(_QWORD *)(v6 + 24);
+    v11 = v18 + v15 - 1 - (v18 + v15 - 1) % v18;
+    if ( v17 - 1 > v16 - v11 )
+    {
+      *(_QWORD *)(a2 + 40) = v6;
+    }
+    else
+    {
+      v13 = v16 - (1 - v17 + v16) % v18;
+LABEL_17:
+      if ( v11 != *(_QWORD *)(a2 + 16) || v13 != *(_QWORD *)(a2 + 24) || *(_QWORD *)(a2 + 40) != v6 )
+      {
+        *(_QWORD *)(a2 + 16) = v11;
+        result = 1;
+        *(_QWORD *)(a2 + 24) = v13;
+        *(_QWORD *)(a2 + 40) = v6;
+        return result;
+      }
+    }
+  }
+}

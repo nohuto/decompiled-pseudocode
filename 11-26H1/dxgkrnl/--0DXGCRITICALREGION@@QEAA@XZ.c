@@ -1,0 +1,13 @@
+/*
+ * XREFs of ??0DXGCRITICALREGION@@QEAA@XZ @ 0x140058858
+ * Callers:
+ *     ?DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z @ 0x140368B20 (-DxgkEnumAdapters2Impl@@YAJPEAU_D3DKMT_ENUMADAPTERS2@@DEW4_KWAIT_REASON@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+DXGCRITICALREGION *__fastcall DXGCRITICALREGION::DXGCRITICALREGION(DXGCRITICALREGION *this)
+{
+  *((_BYTE *)this + 1) = 0;
+  return this;
+}

@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?DoesGpuChildMatchMuxTargets@DISPLAY_MUX_DEVICE@@QEAA?AW4MUX_GPU_CHILD@@PEBU_UNICODE_STRING@@@Z @ 0x14008BCA0
+ * Callers:
+ *     ?CheckMdmDeviceAndMuxOwnership@DISPLAY_MUX_PAIRING@@QEBAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPORT@@PEAE1@Z @ 0x14008B29C (-CheckMdmDeviceAndMuxOwnership@DISPLAY_MUX_PAIRING@@QEBAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_S.c)
+ *     ?ReportMuxGpuChild@DISPLAY_MUX_PAIRING@@QEAAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPORT@@W4MUX_GPU_TYPE@@@Z @ 0x14008F0F0 (-ReportMuxGpuChild@DISPLAY_MUX_PAIRING@@QEAAJPEBU_DISPLAYCONFIG_DISPLAYMUX_ADAPTER_SUPPORT@@W4MU.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DISPLAY_MUX_DEVICE::DoesGpuChildMatchMuxTargets(const UNICODE_STRING *a1, const UNICODE_STRING *a2)
+{
+  if ( RtlEqualUnicodeString(a2, a1 + 2, 1u) )
+    return 1LL;
+  else
+    return RtlEqualUnicodeString(a2, a1 + 3, 1u) != 0 ? 2 : 0;
+}

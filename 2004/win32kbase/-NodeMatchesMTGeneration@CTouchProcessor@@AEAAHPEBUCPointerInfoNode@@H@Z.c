@@ -1,0 +1,29 @@
+/*
+ * XREFs of ?NodeMatchesMTGeneration@CTouchProcessor@@AEAAHPEBUCPointerInfoNode@@H@Z @ 0x1C01957E4
+ * Callers:
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C018F2D8 (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ *     ?ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNode@@H@Z @ 0x1C019C164 (-ShouldGenerateMessagesForNode@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@PEBUCPointerInfoNod.c)
+ * Callees:
+ *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C0194EC0 (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
+ */
+
+__int64 __fastcall CTouchProcessor::NodeMatchesMTGeneration(CTouchProcessor *this, const struct CPointerInfoNode *a2)
+{
+  BOOL v2; // eax
+  __int64 v3; // rdx
+  int v4; // r8d
+  unsigned int v5; // r9d
+  int v6; // eax
+
+  v2 = CPointerInfoNode::IsForManipulationThread(a2);
+  v5 = 0;
+  if ( v2 == (v4 != 0) )
+  {
+    if ( !v4 )
+      return 1;
+    v6 = *(_DWORD *)(v3 + 4);
+    if ( (v6 & 0x200) != 0 && (v6 & 0x400) == 0 )
+      return 1;
+  }
+  return v5;
+}

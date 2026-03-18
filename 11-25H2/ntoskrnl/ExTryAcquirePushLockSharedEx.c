@@ -1,0 +1,37 @@
+/*
+ * XREFs of ExTryAcquirePushLockSharedEx @ 0x1403F5AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x14027D430 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x14029B110 (KeAbPreAcquire.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1403F5B90 (ExfTryAcquirePushLockSharedEx.c)
+ *     KeBugCheckEx @ 0x1404F9280 (KeBugCheckEx.c)
+ */
+
+char __fastcall ExTryAcquirePushLockSharedEx(volatile signed __int64 *BugCheckParameter2, ULONG_PTR BugCheckParameter1)
+{
+  unsigned int v2; // edi
+  __int64 *v4; // rbx
+
+  v2 = BugCheckParameter1;
+  if ( (BugCheckParameter1 & 0xFFFFFFF8) != 0 )
+    KeBugCheckEx(0x152u, (unsigned int)BugCheckParameter1, (ULONG_PTR)BugCheckParameter2, 0LL, 0LL);
+  if ( (BugCheckParameter1 & 2) != 0 )
+    v4 = 0LL;
+  else
+    v4 = KeAbPreAcquire((__int64)BugCheckParameter2, 0LL);
+  if ( !_InterlockedCompareExchange64(BugCheckParameter2, 17LL, 0LL)
+    || (unsigned __int8)ExfTryAcquirePushLockSharedEx(BugCheckParameter2, v2) )
+  {
+    if ( v4 )
+      *((_BYTE *)v4 + 10) = 1;
+    return 1;
+  }
+  else
+  {
+    if ( v4 )
+      KeAbPostReleaseEx((ULONG_PTR)BugCheckParameter2, (ULONG_PTR)v4);
+    return 0;
+  }
+}

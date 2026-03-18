@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?bCalcBreakExtra@@YAEVEFLOAT@@JJPEAJ@Z @ 0x1400C10A0
+ * Callers:
+ *     ?vCharPos_H3@ESTROBJ@@QEAAXAEAVUDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z @ 0x1400AE8F0 (-vCharPos_H3@ESTROBJ@@QEAAXAEAVUDCOBJ@@AEAVRFONTOBJ@@JJJJJVEFLOAT@@PEBH@Z.c)
+ *     ?bTextExtent@RFONTOBJ@@QEAAHAEAVUDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z @ 0x1400C0820 (-bTextExtent@RFONTOBJ@@QEAAHAEAVUDCOBJ@@PEAGHJJJJIPEAUtagSIZE@@@Z.c)
+ *     ?vCharPos_G2@ESTROBJ@@QEAAXAEAVUDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z @ 0x1400C0CA0 (-vCharPos_G2@ESTROBJ@@QEAAXAEAVUDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z.c)
+ *     ?vCharPos_G3@ESTROBJ@@QEAAXAEAVUDCOBJ@@AEAVRFONTOBJ@@JJJJJPEBJPEAJ@Z @ 0x140229114 (-vCharPos_G3@ESTROBJ@@QEAAXAEAVUDCOBJ@@AEAVRFONTOBJ@@JJJJJPEBJPEAJ@Z.c)
+ * Callees:
+ *     bFToL @ 0x1400E8DB0 (bFToL.c)
+ *     ??$SafeDivide@JJJ@@YAJJJPEAJ@Z @ 0x1401A1FE8 (--$SafeDivide@JJJ@@YAJJJPEAJ@Z.c)
+ */
+
+bool __fastcall bCalcBreakExtra(__int64 a1, int a2, unsigned int a3, __int64 a4)
+{
+  unsigned int v7; // [rsp+38h] [rbp+10h] BYREF
+
+  if ( !a2 )
+    return 0;
+  v7 = 0;
+  bFToL(a1, &v7, 0LL);
+  return (unsigned int)SafeDivide<long,long,long>(v7, a3, a4) == 0;
+}

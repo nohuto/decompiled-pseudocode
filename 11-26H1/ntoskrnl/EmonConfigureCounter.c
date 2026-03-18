@@ -1,0 +1,72 @@
+/*
+ * XREFs of EmonConfigureCounter @ 0x1405950D0
+ * Callers:
+ *     EmonDisableMonitoring @ 0x140595280 (EmonDisableMonitoring.c)
+ *     EmonEnableMonitoring @ 0x140595350 (EmonEnableMonitoring.c)
+ *     EmonRestartProfilingInternal @ 0x140596524 (EmonRestartProfilingInternal.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall EmonConfigureCounter(int a1, int a2, char a3, __int64 a4, unsigned int a5, char a6)
+{
+  unsigned __int64 v8; // r9
+  char v9; // cl
+  unsigned __int64 v10; // r11
+  __int64 v11; // rax
+  unsigned __int64 v12; // rax
+  unsigned __int64 v13; // rdx
+  unsigned int v14; // ecx
+  __int64 v15; // rax
+
+  if ( a2 )
+  {
+    if ( a2 != 1 )
+      return;
+    v8 = __readmsr(0x38Fu);
+    v9 = 4 * a1;
+    v10 = ~(15LL << (4 * (unsigned __int8)a1)) & __readmsr(0x38Du);
+    if ( a3 )
+    {
+      v10 |= a5;
+      if ( a6 )
+        v10 |= 8LL << v9;
+      if ( *(&IommuInterfaceStateChangeCallbackPushLock.ForegroundLossTime + 1) < 0x40 )
+        v11 = (1LL << *((char *)&IommuInterfaceStateChangeCallbackPushLock.ForegroundLossTime + 4)) - 1;
+      else
+        v11 = -1LL;
+      __writemsr(a1 + 777, v11 & -(a4 & -(__int64)(a6 != 0)));
+      _bittestandset64((__int64 *)&v8, (unsigned int)(a1 + 32));
+    }
+    else
+    {
+      _bittestandreset64((__int64 *)&v8, (unsigned int)(a1 + 32));
+    }
+    __writemsr(0x38Fu, v8);
+    LODWORD(v12) = v10;
+    v13 = HIDWORD(v10);
+    v14 = 909;
+    goto LABEL_19;
+  }
+  if ( !a3 )
+  {
+    LODWORD(v12) = 0;
+    v14 = a1 + 390;
+    LODWORD(v13) = 0;
+    goto LABEL_19;
+  }
+  if ( IommuInterfaceStateChangeCallbackPushLock.ForegroundLossTime < 0x40 )
+    v15 = (1LL << SLOBYTE(IommuInterfaceStateChangeCallbackPushLock.ForegroundLossTime)) - 1;
+  else
+    v15 = -1LL;
+  __writemsr(a1 + 193, v15 & -(a4 & -(__int64)(a6 != 0)));
+  __writemsr(a1 + 390, a5 | (a6 != 0 ? 5242880 : 0x400000));
+  if ( *(_DWORD *)IommuInterfaceStateChangeCallbackPushLock.PriorityFloorCounts >= 2u )
+  {
+    v14 = 911;
+    v12 = __readmsr(0x38Fu) | (1LL << a1);
+    v13 = HIDWORD(v12);
+LABEL_19:
+    __writemsr(v14, __PAIR64__(v13, v12));
+  }
+}

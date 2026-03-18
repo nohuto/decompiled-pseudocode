@@ -1,0 +1,182 @@
+/*
+ * XREFs of WmipIncludeStaticNames @ 0x1409B318C
+ * Callers:
+ *     WmipProcessEvent @ 0x1409B3480 (WmipProcessEvent.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14029C6A0 (KeWaitForSingleObject.c)
+ *     KeReleaseMutex @ 0x1402F0970 (KeReleaseMutex.c)
+ *     RtlStringCbPrintfW @ 0x140404520 (RtlStringCbPrintfW.c)
+ *     RtlStringCbCopyW @ 0x140436640 (RtlStringCbCopyW.c)
+ *     RtlStringCbCatW @ 0x14044D218 (RtlStringCbCatW.c)
+ *     WmipAlign @ 0x14046B0EC (WmipAlign.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ *     memmove @ 0x1406B4940 (memmove.c)
+ *     WmipFindGEByGuid @ 0x1409B5550 (WmipFindGEByGuid.c)
+ *     WmipUnreferenceEntry @ 0x1409B5E78 (WmipUnreferenceEntry.c)
+ *     WmipInsertStaticNames @ 0x1409B622C (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x1409B6448 (WmipStaticInstanceNameSize.c)
+ *     WmipReferenceEntry @ 0x1409B6D18 (WmipReferenceEntry.c)
+ *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
+ */
+
+unsigned int *__fastcall WmipIncludeStaticNames(unsigned int *Src, unsigned int a2)
+{
+  unsigned int *v3; // rbx
+  ULONG_PTR v4; // rbp
+  __int64 GEByGuid; // rdi
+  unsigned int v6; // esi
+  ULONG_PTR i; // rcx
+  int v8; // ecx
+  unsigned int v9; // edx
+  __int64 v10; // rax
+  __int64 v11; // r12
+  const wchar_t *v12; // r12
+  __int64 v13; // rdi
+  __int64 v14; // r14
+  unsigned int v15; // r14d
+  unsigned int v16; // r15d
+  unsigned int *v17; // rax
+  unsigned int *v18; // rsi
+  _WORD *v19; // rbx
+  unsigned int v20; // r14d
+  int v21; // eax
+  __int64 v23; // r14
+  unsigned int v24; // eax
+  unsigned int v25; // eax
+  unsigned int v26; // edi
+  unsigned int *Pool2; // rax
+  unsigned int v28; // [rsp+30h] [rbp-58h] BYREF
+  wchar_t pszDest[8]; // [rsp+38h] [rbp-50h] BYREF
+
+  v3 = Src;
+  v4 = 0LL;
+  if ( (Src[11] & 7) != 0 )
+  {
+    GEByGuid = WmipFindGEByGuid(Src + 6, 0LL);
+    if ( GEByGuid )
+    {
+      v6 = v3[1];
+      KeWaitForSingleObject(&WmipSMMutex, Executive, 0, 0, 0LL);
+      for ( i = *(_QWORD *)(GEByGuid + 56); i != GEByGuid + 56; i = *(_QWORD *)i )
+      {
+        if ( *(_DWORD *)(i + 80) == v6 )
+        {
+          v4 = i;
+          WmipReferenceEntry(i);
+          break;
+        }
+      }
+      KeReleaseMutex((PRKMUTEX)&WmipSMMutex, 0);
+      WmipUnreferenceEntry(&WmipGEChunkInfo, GEByGuid);
+      if ( v4 )
+      {
+        v8 = *(_DWORD *)(v4 + 16);
+        if ( (v8 & 3) != 0 )
+        {
+          v9 = *(_DWORD *)(v4 + 72);
+          if ( (v3[11] & 1) != 0 )
+          {
+            v28 = a2;
+            if ( WmipAlign(4, (int *)&v28) )
+            {
+              v25 = WmipStaticInstanceNameSize(v4);
+              if ( v25 <= -1 - v28 )
+              {
+                v26 = v25 + v28;
+                Pool2 = (unsigned int *)ExAllocatePool2(0x100uLL);
+                v18 = Pool2;
+                if ( Pool2 )
+                {
+                  memmove(Pool2, v3, *v3);
+                  WmipInsertStaticNames(v18, v26, v4);
+LABEL_24:
+                  v3 = v18;
+LABEL_25:
+                  WmipUnreferenceEntry(&WmipISChunkInfo, v4);
+                  return v3;
+                }
+              }
+            }
+          }
+          else
+          {
+            v10 = v3[13];
+            v28 = v10;
+            if ( (unsigned int)v10 < v9 )
+            {
+              v11 = *(_QWORD *)(v4 + 88);
+              if ( (v8 & 2) != 0 )
+              {
+                v12 = *(const wchar_t **)(v11 + 8 * v10);
+                v13 = -1LL;
+                v23 = -1LL;
+                do
+                  ++v23;
+                while ( v12[v23] );
+                v15 = 2 * v23 + 4;
+              }
+              else
+              {
+                v12 = (const wchar_t *)(v11 + 4);
+                v13 = -1LL;
+                v14 = -1LL;
+                do
+                  ++v14;
+                while ( v12[v14] );
+                v15 = 2 * v14 + 16;
+              }
+              if ( a2 + 1 >= a2 )
+              {
+                v16 = (a2 + 1) & 0xFFFFFFFE;
+                if ( v15 <= ~v16 )
+                {
+                  v17 = (unsigned int *)ExAllocatePool2(0x100uLL);
+                  v18 = v17;
+                  if ( v17 )
+                  {
+                    memmove(v17, v3, *v3);
+                    *v18 = v16 + v15;
+                    v19 = (_WORD *)((char *)v18 + v16);
+                    v18[12] = v16;
+                    v20 = v15 - 2;
+                    v21 = *(_DWORD *)(v4 + 16);
+                    if ( (v21 & 2) != 0 )
+                    {
+                      *v19 = v20;
+                      RtlStringCbCopyW(v19 + 1, v20, v12);
+                    }
+                    else
+                    {
+                      if ( (v21 & 0x20000) != 0 )
+                        v18[11] |= 0x10000u;
+                      RtlStringCbPrintfW(pszDest, 0xEuLL, L"%d", **(_DWORD **)(v4 + 88) + v28);
+                      RtlStringCbCopyW(v19 + 1, v20, v12);
+                      RtlStringCbCatW(v19 + 1, v20, pszDest);
+                      do
+                        ++v13;
+                      while ( v19[v13 + 1] );
+                      *v19 = 2 * (v13 + 1);
+                    }
+                    goto LABEL_24;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  v24 = v3[11];
+  if ( (v24 & 1) != 0 && a2 >= 0x3C )
+  {
+    v3[14] = 0;
+  }
+  else if ( (v24 & 6) != 0 && a2 >= 0x34 )
+  {
+    v3[12] = 0;
+  }
+  if ( v4 )
+    goto LABEL_25;
+  return v3;
+}

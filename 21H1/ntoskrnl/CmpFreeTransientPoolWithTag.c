@@ -1,0 +1,52 @@
+/*
+ * XREFs of CmpFreeTransientPoolWithTag @ 0x14025C5D8
+ * Callers:
+ *     CmpFreeExtraParameter @ 0x1405CDC74 (CmpFreeExtraParameter.c)
+ *     CmSetValueKey @ 0x140619570 (CmSetValueKey.c)
+ *     CmCallbackReleaseKeyObjectIDEx @ 0x14061ADD0 (CmCallbackReleaseKeyObjectIDEx.c)
+ *     CmpDereferenceNameControlBlockWithLock @ 0x14061D680 (CmpDereferenceNameControlBlockWithLock.c)
+ *     CmQueryKey @ 0x14061F340 (CmQueryKey.c)
+ *     CmpDoParseKey @ 0x140624810 (CmpDoParseKey.c)
+ *     CmpLightWeightCreateSetValueData @ 0x140656D4C (CmpLightWeightCreateSetValueData.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140656F34 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpLightWeightCommitSetValueKeyUoW @ 0x140658030 (CmpLightWeightCommitSetValueKeyUoW.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140658158 (CmpLightWeightCleanupSetValueKeyUoW.c)
+ *     CmpCleanupLightWeightPrepare @ 0x1406585D4 (CmpCleanupLightWeightPrepare.c)
+ *     CmpFreeKeyControlBlock @ 0x140659940 (CmpFreeKeyControlBlock.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x14068B1C0 (CmpSetSecurityDescriptorInfo.c)
+ *     CmpTraceSecurityChanging @ 0x14068BFF8 (CmpTraceSecurityChanging.c)
+ *     CmpLinkHiveToMaster @ 0x14068C2C8 (CmpLinkHiveToMaster.c)
+ *     CmLoadDifferencingKey @ 0x14068C83C (CmLoadDifferencingKey.c)
+ *     CmRealKCBToVirtualPath @ 0x14068F388 (CmRealKCBToVirtualPath.c)
+ *     CmDeleteValueKey @ 0x1406941D8 (CmDeleteValueKey.c)
+ *     CmAddLogForAction @ 0x1406DBB4C (CmAddLogForAction.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1406E2A60 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x1406E2C20 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     CmpConstructAndCacheName @ 0x1406E5394 (CmpConstructAndCacheName.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x1406EC080 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpTraceHiveSaveStart @ 0x1407164EC (CmpTraceHiveSaveStart.c)
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x14071D9B8 (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightCommitDeleteValueKeyUoW @ 0x14071E93C (CmpLightWeightCommitDeleteValueKeyUoW.c)
+ *     CmEtwRunDown @ 0x1408659F8 (CmEtwRunDown.c)
+ *     CmpEtwDumpKcb @ 0x140865D08 (CmpEtwDumpKcb.c)
+ *     CmpDumpKeyBodyList @ 0x14086A668 (CmpDumpKeyBodyList.c)
+ *     CmVirtualKCBToRealPath @ 0x14086B4AC (CmVirtualKCBToRealPath.c)
+ *     CmpDoAccessCheckOnSubtree @ 0x14086CC60 (CmpDoAccessCheckOnSubtree.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x14086CF34 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpFreeSiloKeyLockEntry @ 0x14086D954 (CmpFreeSiloKeyLockEntry.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x14086D994 (CmpGlobalUnlockKeyForWrite.c)
+ *     CmpLoadHiveVolatile @ 0x140878768 (CmpLoadHiveVolatile.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x14087A740 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     SshpFlushBlockerDataCache @ 0x1408F6350 (SshpFlushBlockerDataCache.c)
+ *     SshpFreeDataEntry @ 0x1408F6568 (SshpFreeDataEntry.c)
+ *     SshpSendSessionData @ 0x1408F65F8 (SshpSendSessionData.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x1408F6A70 (SshpGenerateDeviceFriendlyName.c)
+ *     SleepstudyHelperDestroyLibrary @ 0x1408F72E0 (SleepstudyHelperDestroyLibrary.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x1409B1010 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall CmpFreeTransientPoolWithTag(void *a1, ULONG a2)
+{
+  ExFreePoolWithTag(a1, a2);
+}

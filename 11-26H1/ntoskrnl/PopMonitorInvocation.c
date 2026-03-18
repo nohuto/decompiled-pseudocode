@@ -1,0 +1,48 @@
+/*
+ * XREFs of PopMonitorInvocation @ 0x14077C050
+ * Callers:
+ *     NtPowerInformation @ 0x1409DE3E0 (NtPowerInformation.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x14052D25C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140532A10 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     PopTraceMonitorOnRequestUserInput @ 0x1407D5C4C (PopTraceMonitorOnRequestUserInput.c)
+ *     PopProcessSessionDisplayStateChange @ 0x140A3EE2C (PopProcessSessionDisplayStateChange.c)
+ *     PopIsInputSuppressionEngaged @ 0x140AC3148 (PopIsInputSuppressionEngaged.c)
+ *     PopAcquirePolicyLock @ 0x140C04BF0 (PopAcquirePolicyLock.c)
+ *     PopReleasePolicyLock @ 0x140C04C40 (PopReleasePolicyLock.c)
+ */
+
+__int64 __fastcall PopMonitorInvocation(__int64 a1, __int64 a2)
+{
+  unsigned int v2; // edi
+  unsigned int v3; // ebx
+  __int64 v4; // rcx
+  unsigned __int8 v6; // [rsp+30h] [rbp+8h]
+
+  v2 = *(_DWORD *)(a1 + 4);
+  v3 = 0;
+  if ( *(_BYTE *)a1 )
+  {
+    PopAcquirePolicyLock(a1, a2);
+    if ( (unsigned __int8)PopIsInputSuppressionEngaged(v2) )
+    {
+      if ( (Feature_AggressiveInputSuppression__private_featureState & 0x10) == 0 )
+      {
+        v6 = Feature_AggressiveInputSuppression__private_featureState | 1;
+        wil_details_FeatureReporting_ReportUsageToService(
+          (__int64)&Feature_AggressiveInputSuppression__private_descriptor,
+          Feature_AggressiveInputSuppression__private_featureState | 1,
+          3);
+        wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(
+          v6,
+          3,
+          (__int64)&Feature_AggressiveInputSuppression__private_descriptor);
+      }
+      PopTraceMonitorOnRequestUserInput(v2);
+    }
+    LOBYTE(v4) = 1;
+    v3 = PopProcessSessionDisplayStateChange(v4, v2);
+    PopReleasePolicyLock();
+  }
+  return v3;
+}

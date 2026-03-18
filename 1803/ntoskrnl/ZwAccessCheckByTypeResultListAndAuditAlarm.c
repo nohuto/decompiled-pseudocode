@@ -1,0 +1,30 @@
+/*
+ * XREFs of ZwAccessCheckByTypeResultListAndAuditAlarm @ 0x1401A8160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+NTSTATUS __stdcall ZwAccessCheckByTypeResultListAndAuditAlarm(
+        PUNICODE_STRING SubsystemName,
+        PVOID HandleId,
+        PUNICODE_STRING ObjectTypeName,
+        PUNICODE_STRING ObjectName,
+        PSECURITY_DESCRIPTOR SecurityDescriptor,
+        PSID PrincipalSelfSid,
+        ACCESS_MASK DesiredAccess,
+        AUDIT_EVENT_TYPE AuditType,
+        ULONG Flags,
+        POBJECT_TYPE_LIST ObjectTypeList,
+        ULONG ObjectTypeListLength,
+        PGENERIC_MAPPING GenericMapping,
+        BOOLEAN ObjectCreation,
+        PACCESS_MASK GrantedAccessList,
+        PNTSTATUS AccessStatusList,
+        PBOOLEAN GenerateOnClose)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(SubsystemName, HandleId, ObjectTypeName);
+}

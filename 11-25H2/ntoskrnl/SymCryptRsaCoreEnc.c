@@ -1,0 +1,64 @@
+/*
+ * XREFs of SymCryptRsaCoreEnc @ 0x140522A20
+ * Callers:
+ *     SymCryptRsaPkcs1Verify @ 0x140522E18 (SymCryptRsaPkcs1Verify.c)
+ * Callees:
+ *     SymCryptIntBitsizeOfValue @ 0x140521048 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1405210C0 (SymCryptIntCreate.c)
+ *     SymCryptIntSetValueUint64 @ 0x1405212B4 (SymCryptIntSetValueUint64.c)
+ *     SymCryptIntWipe @ 0x1405213A4 (SymCryptIntWipe.c)
+ *     SymCryptModElementCreate @ 0x140521454 (SymCryptModElementCreate.c)
+ *     SymCryptModElementGetValue @ 0x14052146C (SymCryptModElementGetValue.c)
+ *     SymCryptModElementSetValue @ 0x1405214E8 (SymCryptModElementSetValue.c)
+ *     SymCryptModExp @ 0x14052167C (SymCryptModExp.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x140521890 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptRsaCoreVerifyInput @ 0x140522BF8 (SymCryptRsaCoreVerifyInput.c)
+ *     __security_check_cookie @ 0x14069A6F0 (__security_check_cookie.c)
+ */
+
+__int64 __fastcall SymCryptRsaCoreEnc(
+        __int64 a1,
+        int a2,
+        int a3,
+        int a4,
+        int a5,
+        __int64 a6,
+        __int64 a7,
+        __int64 a8,
+        __int64 a9)
+{
+  unsigned int Value; // ebx
+  __int64 v14; // rbx
+  void *v15; // r15
+  __int64 v16; // rbp
+  __int64 v17; // rdi
+  int v18; // eax
+  __int64 v20; // [rsp+40h] [rbp-108h]
+
+  Value = SymCryptRsaCoreVerifyInput(a1, a2, a3, a4, a7, a8);
+  if ( !Value )
+  {
+    v14 = (unsigned int)SymCryptSizeofModElementFromModulus(*(_QWORD *)(a1 + 120));
+    v15 = (void *)SymCryptModElementCreate();
+    v16 = a9 - v14;
+    v20 = v14 + a8;
+    Value = SymCryptModElementSetValue(a2, a3, a4, *(_DWORD **)(a1 + 120), v15, v14 + a8, a9 - v14);
+    if ( !Value )
+    {
+      v17 = SymCryptIntCreate();
+      if ( v17 )
+      {
+        SymCryptIntSetValueUint64();
+        v18 = SymCryptIntBitsizeOfValue();
+        SymCryptModExp(*(_QWORD *)(a1 + 120), (int)v15, v17, v18, 1, (__int64)v15, v20, v16);
+        Value = SymCryptModElementGetValue(*(_QWORD *)(a1 + 120), (int)v15, a6, a7, a4, v20, v16);
+        SymCryptIntWipe(v17);
+      }
+      else
+      {
+        return 32778;
+      }
+    }
+  }
+  return Value;
+}

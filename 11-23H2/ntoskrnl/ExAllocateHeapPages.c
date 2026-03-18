@@ -1,0 +1,32 @@
+/*
+ * XREFs of ExAllocateHeapPages @ 0x1403B9BBC
+ * Callers:
+ *     ExpInitializePoolTrackerTable @ 0x140389B74 (ExpInitializePoolTrackerTable.c)
+ *     ExpResizeBigPageTable @ 0x1403B985C (ExpResizeBigPageTable.c)
+ *     ExGetBigPoolInfo @ 0x140606F50 (ExGetBigPoolInfo.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140607B38 (ExpInsertPoolTrackerExpansion.c)
+ * Callees:
+ *     RtlpHpAllocateHeap @ 0x14024D420 (RtlpHpAllocateHeap.c)
+ *     RtlpHpSegAlloc @ 0x14024DB40 (RtlpHpSegAlloc.c)
+ *     ExGetHeapFromType @ 0x1403BA3BC (ExGetHeapFromType.c)
+ */
+
+char *ExAllocateHeapPages()
+{
+  __int64 HeapFromType; // rax
+  int v1; // r8d
+  __int16 v2; // r9
+  unsigned __int64 v3; // r10
+  unsigned int v5; // [rsp+20h] [rbp-18h]
+
+  HeapFromType = ExGetHeapFromType(512LL, 0x80000000LL, 0LL);
+  if ( v3 >= *(unsigned int *)(HeapFromType + 528) )
+    return RtlpHpAllocateHeap(HeapFromType, v3, v1, v2);
+  else
+    return (char *)RtlpHpSegAlloc(
+                     HeapFromType + 320 + (*(unsigned int *)(HeapFromType + 336) < v3 ? 0xC0 : 0),
+                     v3,
+                     v3,
+                     v3,
+                     v1 & v5);
+}

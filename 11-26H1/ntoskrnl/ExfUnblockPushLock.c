@@ -1,0 +1,52 @@
+/*
+ * XREFs of ExfUnblockPushLock @ 0x1404CE970
+ * Callers:
+ *     PopBatteryWorker @ 0x1407D7EF0 (PopBatteryWorker.c)
+ *     CmFcpFeatureUsageProviderSubscriptionWrapper @ 0x140861780 (CmFcpFeatureUsageProviderSubscriptionWrapper.c)
+ *     CmpTransInitializeTransaction @ 0x1408AC920 (CmpTransInitializeTransaction.c)
+ *     CmpCommitLightWeightTransaction @ 0x1408AE64C (CmpCommitLightWeightTransaction.c)
+ *     CmpPerformUnloadKey @ 0x1408AFC14 (CmpPerformUnloadKey.c)
+ *     CmpCompleteUnloadKey @ 0x1408B9ACC (CmpCompleteUnloadKey.c)
+ *     CmpDeleteKeyObject @ 0x1408C9470 (CmpDeleteKeyObject.c)
+ *     CmpCallCallBacksEx @ 0x1408C9E40 (CmpCallCallBacksEx.c)
+ *     CmpTransSearchAddTrans @ 0x1408EC150 (CmpTransSearchAddTrans.c)
+ *     ObDuplicateObject @ 0x1408F0680 (ObDuplicateObject.c)
+ *     ObReferenceFileObjectForWrite @ 0x1408F9590 (ObReferenceFileObjectForWrite.c)
+ *     ExpSnapShotHandleTables @ 0x1408F99A0 (ExpSnapShotHandleTables.c)
+ *     ObpReferenceObjectByHandle @ 0x1408FA460 (ObpReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1408FA680 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCloseHandleTableEntry2 @ 0x1408FAF70 (ObCloseHandleTableEntry2.c)
+ *     NtWriteFile @ 0x1408FB6D0 (NtWriteFile.c)
+ *     RtlLookupAtomInAtomTable @ 0x14091A550 (RtlLookupAtomInAtomTable.c)
+ *     ExDestroyHandle @ 0x14092C030 (ExDestroyHandle.c)
+ *     PspClearProcessThreadCidRefs @ 0x140959970 (PspClearProcessThreadCidRefs.c)
+ *     ObSetHandleAttributes @ 0x140970980 (ObSetHandleAttributes.c)
+ *     ObCaptureObjectStateForDuplication @ 0x140971174 (ObCaptureObjectStateForDuplication.c)
+ *     ExDupHandleTable @ 0x140971D40 (ExDupHandleTable.c)
+ *     ObQueryObjectAuditingByHandle @ 0x1409728D0 (ObQueryObjectAuditingByHandle.c)
+ *     AlpcpSendMessage @ 0x1409BD2F0 (AlpcpSendMessage.c)
+ *     AlpcpLookupMessage @ 0x1409BEA70 (AlpcpLookupMessage.c)
+ *     NtAlpcImpersonateClientOfPort @ 0x1409C1390 (NtAlpcImpersonateClientOfPort.c)
+ *     ObpAuditObjectAccess @ 0x1409FA54C (ObpAuditObjectAccess.c)
+ *     CmpEnumerateCallback @ 0x140A05280 (CmpEnumerateCallback.c)
+ *     RtlpHashStringToAtom @ 0x140A2FA00 (RtlpHashStringToAtom.c)
+ *     ExUnlockHandleTableEntry @ 0x140A33080 (ExUnlockHandleTableEntry.c)
+ *     RtlQueryAtomInAtomTable @ 0x140A413C0 (RtlQueryAtomInAtomTable.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x140A417E0 (RtlpAtomMapAtomToHandleEntry.c)
+ *     ObpProcessRemoveObjectQueue @ 0x140A59D90 (ObpProcessRemoveObjectQueue.c)
+ *     ObpEnumFindHandleProcedure @ 0x140A66010 (ObpEnumFindHandleProcedure.c)
+ *     IopIsFileOpenOrSection @ 0x140A67350 (IopIsFileOpenOrSection.c)
+ *     PnpHandleProcessWalkWorker @ 0x140A8E5B0 (PnpHandleProcessWalkWorker.c)
+ *     MiLockImageSection @ 0x140A9BE78 (MiLockImageSection.c)
+ *     CmFcpManagerProcessUsageDataProviders @ 0x140ABF658 (CmFcpManagerProcessUsageDataProviders.c)
+ *     CmpLateUnloadHiveWorker @ 0x140AD4630 (CmpLateUnloadHiveWorker.c)
+ *     CmFcpManagerOnFeatureUsageDataTransferComplete @ 0x140B04388 (CmFcpManagerOnFeatureUsageDataTransferComplete.c)
+ *     PsSetVmProcessorHostProcess @ 0x140B688F0 (PsSetVmProcessorHostProcess.c)
+ * Callees:
+ *     ExpUnblockPushLock @ 0x1403682A0 (ExpUnblockPushLock.c)
+ */
+
+NTSTATUS __fastcall ExfUnblockPushLock(volatile __int64 *a1, void *a2)
+{
+  return ExpUnblockPushLock(a1, a2, 0);
+}

@@ -1,0 +1,83 @@
+/*
+ * XREFs of ?_AdapterControl@FxDmaPacketTransaction@@KA?AW4_IO_ALLOCATION_ACTION@@PEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX2@Z @ 0x14006FAA0
+ * Callers:
+ *     ?AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z @ 0x14001FAEC (-AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z.c)
+ * Callees:
+ *     WPP_IFR_SF_qq @ 0x14000642C (WPP_IFR_SF_qq.c)
+ *     ?SetMapRegisterBase@FxDmaPacketTransaction@@IEAAXPEAX@Z @ 0x140087CA0 (-SetMapRegisterBase@FxDmaPacketTransaction@@IEAAXPEAX@Z.c)
+ *     WPP_IFR_SF_qqqDd @ 0x1400884A0 (WPP_IFR_SF_qqqDd.c)
+ *     _guard_dispatch_icall @ 0x1400ACF10 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall FxDmaPacketTransaction::_AdapterControl(
+        _DEVICE_OBJECT *DeviceObject,
+        _IRP *Irp,
+        void *MapRegisterBase,
+        unsigned __int64 Context)
+{
+  _FX_DRIVER_GLOBALS *v4; // rsi
+  unsigned int v7; // ebp
+  int id; // eax
+  unsigned __int16 v9; // r9
+  int v10; // edi
+  void (__fastcall *v12)(unsigned __int64, _QWORD); // rax
+  __int16 v13; // dx
+  unsigned __int64 v14; // rcx
+  const void *_a1; // rcx
+  const void *level; // rdx
+  const _GUID *traceGuid; // [rsp+20h] [rbp-38h]
+
+  v4 = *(_FX_DRIVER_GLOBALS **)(Context + 16);
+  v7 = (*(__int64 (__fastcall **)(unsigned __int64, _IRP *))(*(_QWORD *)Context + 136LL))(Context, Irp);
+  if ( !*(_BYTE *)(Context + 272) )
+    FxDmaPacketTransaction::SetMapRegisterBase((FxDmaPacketTransaction *)Context, MapRegisterBase);
+  if ( v4->FxVerifierOn && v4->FxVerboseOn )
+  {
+    _a1 = (const void *)(Context ^ 0xFFFFFFFFFFFFFFF8uLL);
+    if ( !*(_WORD *)(Context + 10) )
+      _a1 = 0LL;
+    WPP_IFR_SF_qq(v4, 5u, 0xFu, 0x18u, WPP_FxDmaTransactionPacket_cpp_Traceguids, _a1, MapRegisterBase);
+  }
+  if ( *(_DWORD *)(Context + 120) == 2 )
+  {
+    v12 = *(void (__fastcall **)(unsigned __int64, _QWORD))(Context + 152);
+    v13 = *(_WORD *)(Context + 10);
+    *(_QWORD *)(Context + 152) = 0LL;
+    if ( v12 )
+    {
+      v14 = Context ^ 0xFFFFFFFFFFFFFFF8uLL;
+      if ( !v13 )
+        v14 = 0LL;
+      v12(v14, *(_QWORD *)(Context + 160));
+    }
+  }
+  else
+  {
+    id = (*(__int64 (__fastcall **)(unsigned __int64))(*(_QWORD *)Context + 80LL))(Context);
+    v10 = id;
+    if ( id < 0 )
+    {
+      if ( v4->FxVerifierOn && v4->FxVerboseOn )
+      {
+        level = (const void *)(Context ^ 0xFFFFFFFFFFFFFFF8uLL);
+        if ( !*(_WORD *)(Context + 10) )
+          level = 0LL;
+        WPP_IFR_SF_qqqDd(
+          v4,
+          (unsigned __int8)level,
+          3 - (id != -1073741536),
+          v9,
+          traceGuid,
+          *(const void **)(Context + 328),
+          *(const void **)(Context + 336),
+          level,
+          3 - (id != -1073741536),
+          id);
+      }
+      (*(void (__fastcall **)(unsigned __int64, _QWORD))(*(_QWORD *)Context + 168LL))(
+        Context,
+        3 - (unsigned int)(v10 != -1073741536));
+    }
+  }
+  return v7;
+}

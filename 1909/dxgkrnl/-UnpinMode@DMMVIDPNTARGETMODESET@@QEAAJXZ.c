@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?UnpinMode@DMMVIDPNTARGETMODESET@@QEAAJXZ @ 0x1C0021DD8
+ * Callers:
+ *     ?PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z @ 0x1C00E2B38 (-PinVidPnTargetMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTARGETMODESET@@I_N@Z.c)
+ *     ?PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z @ 0x1C01320F8 (-PinVidPnSourceMode@VIDPN_MGR@@QEBAJQEAVDMMVIDPNSOURCEMODESET@@I_N@Z.c)
+ *     ?UnpinMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@_N@Z @ 0x1C017CD90 (-UnpinMode@DXGDMM_VIDPNTARGETMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTARGETMODESET__@@_N.c)
+ *     ?UnpinMode@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@_N@Z @ 0x1C0181800 (-UnpinMode@DXGDMM_VIDPNSOURCEMODESET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNSOURCEMODESET__@@_N.c)
+ *     ?RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z @ 0x1C02B6544 (-RemovePathFromVidPnTopology@VIDPN_MGR@@QEBAJQEAVDMMVIDPNTOPOLOGY@@IIE@Z.c)
+ *     ?UnpinPathModalityFromSource@DMMVIDPNTOPOLOGY@@QEAAJI@Z @ 0x1C02BD08C (-UnpinPathModalityFromSource@DMMVIDPNTOPOLOGY@@QEAAJI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DMMVIDPNTARGETMODESET::UnpinMode(DMMVIDPNTARGETMODESET *this, __int64 a2)
+{
+  __int64 result; // rax
+  __int64 v4; // rax
+
+  result = 0LL;
+  if ( *((_BYTE *)this + 136) )
+  {
+    if ( *((_QWORD *)this + 18) )
+    {
+      *((_QWORD *)this + 18) = 0LL;
+    }
+    else
+    {
+      WdLogNewEntry5_WdTrace(this, a2);
+      return 1075708679LL;
+    }
+  }
+  else
+  {
+    v4 = WdLogNewEntry5_WdDmmEvent();
+    *(_QWORD *)(v4 + 24) = this;
+    WdLogEvent5_WdDmmEvent(v4);
+    return 3223192352LL;
+  }
+  return result;
+}

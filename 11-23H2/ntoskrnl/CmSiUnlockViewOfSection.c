@@ -1,0 +1,23 @@
+/*
+ * XREFs of CmSiUnlockViewOfSection @ 0x140354A38
+ * Callers:
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x14070B044 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x1407C3644 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140829588 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140885630 (HvpViewMapMakeViewRangeInvalid.c)
+ * Callees:
+ *     ZwUnlockVirtualMemory @ 0x14041E8C0 (ZwUnlockVirtualMemory.c)
+ */
+
+__int64 __fastcall CmSiUnlockViewOfSection(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
+{
+  __int64 v4; // rcx
+  __int64 v6; // [rsp+30h] [rbp+8h] BYREF
+  __int64 v7; // [rsp+38h] [rbp+10h] BYREF
+
+  v6 = a1;
+  v4 = *a2;
+  v7 = a3;
+  v6 = a4;
+  return ZwUnlockVirtualMemory(v4, &v7, &v6, 1LL);
+}

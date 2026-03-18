@@ -1,0 +1,81 @@
+/*
+ * XREFs of ACPISystemPowerProcessRootMapping @ 0x1400BA7F0
+ * Callers:
+ *     ACPISystemPowerInitializeRootMapping @ 0x14004EBB0 (ACPISystemPowerInitializeRootMapping.c)
+ * Callees:
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x140041748 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     WPP_RECORDER_SF_DLqss @ 0x14006945C (WPP_RECORDER_SF_DLqss.c)
+ */
+
+__int64 __fastcall ACPISystemPowerProcessRootMapping(_QWORD *a1, __int64 a2)
+{
+  signed int *v3; // rdi
+  signed int i; // ebx
+  int v5; // eax
+  int v6; // eax
+  __int64 v7; // r8
+  __int64 v8; // r9
+  const char *v9; // rdx
+  const char *v10; // rcx
+  signed int v11; // eax
+  int v12; // ecx
+  int v14; // [rsp+20h] [rbp-38h]
+  int v15; // [rsp+70h] [rbp+18h] BYREF
+
+  v3 = (signed int *)(a2 + 8);
+  for ( i = 2; i <= 6; ++i )
+  {
+    v5 = AcpiSupportedSystemStates;
+    if ( _bittest(&v5, i) )
+    {
+      v15 = 16;
+      v6 = ACPISystemPowerDetermineSupportedDeviceStates((__int64)a1, i, &v15);
+      if ( v6 >= 0 )
+      {
+        v11 = *v3;
+        v12 = v15;
+        while ( v11 <= 4 )
+        {
+          if ( _bittest(&v12, v11) )
+          {
+            *v3 = v11;
+            break;
+          }
+          ++v11;
+        }
+      }
+      else
+      {
+        v8 = 0LL;
+        v9 = byte_140075A82;
+        v10 = byte_140075A82;
+        if ( a1 )
+        {
+          v7 = a1[1];
+          v8 = (__int64)a1;
+          if ( (v7 & 0x200000000000LL) != 0 )
+          {
+            v9 = (const char *)a1[76];
+            if ( (v7 & 0x400000000000LL) != 0 )
+              v10 = (const char *)a1[77];
+          }
+        }
+        if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+          WPP_RECORDER_SF_DLqss(
+            (__int64)WPP_GLOBAL_Control->DeviceExtension,
+            (__int64)v9,
+            v7,
+            v8,
+            v14,
+            i - 1,
+            v6,
+            v8,
+            v9,
+            v10);
+        *v3 = 4;
+      }
+    }
+    ++v3;
+  }
+  return 0LL;
+}

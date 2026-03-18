@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?ReleaseAndRestore@FxUsbUrbContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x140058200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1400832D8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     _guard_dispatch_icall @ 0x1400AC750 (_guard_dispatch_icall.c)
+ *     memset @ 0x1400AC800 (memset.c)
+ */
+
+void __fastcall FxUsbUrbContext::ReleaseAndRestore(FxUsbUrbContext *this, FxRequestBase *Request)
+{
+  _MDL *MdlAddress; // rdi
+  IFxMemory *m_RequestMemory; // rcx
+  _MDL *Next; // rbp
+
+  this->m_pUrb = 0LL;
+  if ( Request->m_IrpAllocation && !Request->m_CanComplete )
+  {
+    MdlAddress = Request->m_Irp.m_Irp->MdlAddress;
+    if ( MdlAddress )
+    {
+      do
+      {
+        Next = MdlAddress->Next;
+        if ( (MdlAddress->MdlFlags & 2) != 0 )
+        {
+          MmUnlockPages(MdlAddress);
+        }
+        else if ( Request->m_Globals->FxVerifierOn )
+        {
+          DbgPrint(
+            "pMdl %p, Flags 0x%x in PIRP %p should be locked",
+            MdlAddress,
+            MdlAddress->MdlFlags,
+            Request->m_Irp.m_Irp);
+          FxVerifierDbgBreakPoint(Request->m_Globals);
+        }
+        IoFreeMdl(MdlAddress);
+        MdlAddress = Next;
+      }
+      while ( Next );
+    }
+    Request->m_Irp.m_Irp->MdlAddress = 0LL;
+  }
+  m_RequestMemory = this->m_RequestMemory;
+  if ( m_RequestMemory )
+  {
+    m_RequestMemory->Release(
+      m_RequestMemory,
+      this,
+      112,
+      "minkernel\\wdf\\framework\\shared\\core\\fxrequestcontext.cpp");
+    this->m_RequestMemory = 0LL;
+  }
+  memset(&this->m_CompletionParams, 0, sizeof(this->m_CompletionParams));
+  this->m_CompletionParams.Size = 72;
+  this->m_CompletionParams.Type = WdfRequestTypeNoFormat;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierIoWMIAllocateInstanceIds @ 0x140970A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1401CD170 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierIoWMIAllocateInstanceIds()
+{
+  return ((__int64 (*)(void))pXdvIoWMIAllocateInstanceIds)();
+}

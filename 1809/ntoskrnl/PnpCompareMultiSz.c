@@ -1,0 +1,25 @@
+/*
+ * XREFs of PnpCompareMultiSz @ 0x14083A228
+ * Callers:
+ *     PiSwDoesCreateChangesRequireReEnum @ 0x140761FD8 (PiSwDoesCreateChangesRequireReEnum.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140840BC0 (PiCreateDriverSwDeviceCallback.c)
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x14069B170 (RtlCompareUnicodeStrings.c)
+ *     PnpGetMultiSzLength @ 0x140755D7C (PnpGetMultiSzLength.c)
+ */
+
+bool __fastcall PnpCompareMultiSz(PCWCH String1, PCWCH String2)
+{
+  char v4; // bl
+  SIZE_T String2Length[3]; // [rsp+30h] [rbp-18h] BYREF
+  SIZE_T String1Length; // [rsp+68h] [rbp+20h] BYREF
+
+  v4 = 0;
+  if ( (int)PnpGetMultiSzLength((__int64)String1, 0x7FFFFFFFLL, &String1Length) >= 0
+    && (int)PnpGetMultiSzLength((__int64)String2, 0x7FFFFFFFLL, String2Length) >= 0
+    && String1Length == String2Length[0] )
+  {
+    return RtlCompareUnicodeStrings(String1, String1Length, String2, String2Length[0], 1u) == 0;
+  }
+  return v4;
+}

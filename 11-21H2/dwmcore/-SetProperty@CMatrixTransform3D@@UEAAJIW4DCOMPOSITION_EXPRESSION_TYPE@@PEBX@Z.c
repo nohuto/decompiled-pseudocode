@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?SetProperty@CMatrixTransform3D@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180224DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800443B0 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800734B4 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
+__int64 __fastcall CMatrixTransform3D::SetProperty(float *a1, unsigned int a2, int a3, float *a4)
+{
+  __int64 v4; // r10
+  float v5; // xmm1_4
+  unsigned int v6; // ebx
+
+  v4 = (__int64)a1;
+  if ( a3 == 18 && (v5 = *a4, a2 < 0x10) && (a1 += a2 + 40) != 0LL )
+  {
+    if ( *a1 != v5 )
+    {
+      *a1 = v5;
+      CResource::NotifyOnChanged(v4, 0, 0LL);
+    }
+    return 0;
+  }
+  else
+  {
+    v6 = -2147024809;
+    MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0LL, -2147024809, 0x44u);
+  }
+  return v6;
+}

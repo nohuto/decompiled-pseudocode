@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CProjectedShadowReceiverMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0005B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z @ 0x1C0013C00 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAAKPEAVCResourceMarshaler@2@@Z.c)
+ */
+
+void __fastcall DirectComposition::CProjectedShadowReceiverMarshaler::ReleaseAllReferences(
+        DirectComposition::CProjectedShadowReceiverMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2)
+{
+  struct DirectComposition::CResourceMarshaler *v4; // rdx
+  struct DirectComposition::CResourceMarshaler *v5; // rdx
+
+  v4 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 7);
+  if ( v4 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, v4);
+    *((_QWORD *)this + 7) = 0LL;
+  }
+  v5 = (struct DirectComposition::CResourceMarshaler *)*((_QWORD *)this + 9);
+  if ( v5 )
+  {
+    DirectComposition::CApplicationChannel::ReleaseResource(a2, v5);
+    *((_QWORD *)this + 9) = 0LL;
+  }
+}

@@ -1,0 +1,31 @@
+/*
+ * XREFs of VidSchFlushPresentReferencesAndDisableOverlays @ 0x140106C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x140003F60 (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ *     VidSchiSuspendFlipQueues @ 0x140106C98 (VidSchiSuspendFlipQueues.c)
+ */
+
+void __fastcall VidSchFlushPresentReferencesAndDisableOverlays(
+        KSPIN_LOCK *a1,
+        unsigned int a2,
+        __int64 a3,
+        __int64 a4,
+        int a5)
+{
+  unsigned int v5; // edi
+  int v6; // ebp
+  unsigned int i; // ebx
+
+  v5 = 0;
+  v6 = a4;
+  for ( i = a2; i; i >>= 1 )
+  {
+    if ( (i & 1) != 0 )
+      VidSchFlushQueuePacketsInternal(a1, 1, v5, a4, _bittest(&v6, v5));
+    ++v5;
+  }
+  if ( a5 )
+    VidSchiSuspendFlipQueues((struct _VIDSCH_GLOBAL *)a1);
+}

@@ -1,0 +1,34 @@
+/*
+ * XREFs of EtwpGetSystemMaximumBufferCount @ 0x140A6DAC8
+ * Callers:
+ *     EtwpUpdateTrace @ 0x140A6C6F0 (EtwpUpdateTrace.c)
+ *     EtwpAllocateTraceBufferPool @ 0x140A6D988 (EtwpAllocateTraceBufferPool.c)
+ * Callees:
+ *     MmGetNumberOfPhysicalPages @ 0x1404AF740 (MmGetNumberOfPhysicalPages.c)
+ *     MmGetMaximumNonPagedPoolInBytes @ 0x1404F0030 (MmGetMaximumNonPagedPoolInBytes.c)
+ */
+
+unsigned __int64 __fastcall EtwpGetSystemMaximumBufferCount(unsigned int *a1)
+{
+  unsigned __int64 MaximumNonPagedPoolInBytes; // rax
+  unsigned __int64 v3; // rdx
+  unsigned __int64 v4; // r8
+  unsigned int v6; // eax
+
+  if ( a1[75] == 1 )
+  {
+    v3 = MmSizeOfPagedPoolInBytes;
+  }
+  else
+  {
+    MmGetNumberOfPhysicalPages(0);
+    MaximumNonPagedPoolInBytes = MmGetMaximumNonPagedPoolInBytes();
+    if ( v3 >= MaximumNonPagedPoolInBytes )
+      v3 = MaximumNonPagedPoolInBytes;
+  }
+  if ( (a1[204] & 2) != 0 && (v6 = a1[3], (v6 & 0x2000000) != 0) && (v6 & 0x400) != 0 )
+    v4 = 50 * v3;
+  else
+    v4 = v3 * LODWORD(ExpPlatformBinaryLock.WaitListEntry.Flink);
+  return v4 / 0x64 / a1[1];
+}

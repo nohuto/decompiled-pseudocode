@@ -1,0 +1,37 @@
+/*
+ * XREFs of NtOpenMutant @ 0x140A040F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1403FA570 (PsGetCurrentSilo.c)
+ *     ObOpenObjectByName @ 0x14085AA70 (ObOpenObjectByName.c)
+ *     ObOpenObjectByNameEx @ 0x14085B430 (ObOpenObjectByNameEx.c)
+ */
+
+__int64 __fastcall NtOpenMutant(_QWORD *a1, int a2, __int64 a3)
+{
+  char PreviousMode; // si
+  __int64 v7; // rdx
+  POBJECT_TYPE v8; // rbx
+  struct _LIST_ENTRY *CurrentSilo; // rax
+  int v10; // ecx
+  _QWORD v12[5]; // [rsp+40h] [rbp-28h] BYREF
+
+  v12[0] = 0LL;
+  PreviousMode = KeGetCurrentThread()->PreviousMode;
+  if ( PreviousMode )
+  {
+    v7 = 0x7FFFFFFF0000LL;
+    if ( (unsigned __int64)a1 < 0x7FFFFFFF0000LL )
+      v7 = (__int64)a1;
+    *(_QWORD *)v7 = *(_QWORD *)v7;
+  }
+  v8 = ExMutantObjectType;
+  CurrentSilo = PsGetCurrentSilo();
+  v10 = ObOpenObjectByNameEx(a3, (__int64)v8, PreviousMode, 0LL, a2, 0, (__int64)CurrentSilo, v12);
+  if ( v10 == -1073741788 && ExCrossVmMutantObjectType )
+    v10 = ObOpenObjectByName(a3, (__int64)ExCrossVmMutantObjectType, PreviousMode, 0LL, a2, 0LL, (__int64)v12);
+  if ( v10 >= 0 )
+    *a1 = v12[0];
+  return (unsigned int)v10;
+}

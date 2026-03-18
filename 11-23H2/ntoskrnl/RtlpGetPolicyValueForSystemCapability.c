@@ -1,0 +1,78 @@
+/*
+ * XREFs of RtlpGetPolicyValueForSystemCapability @ 0x1407EEFA8
+ * Callers:
+ *     RtlpCapabilityCheckSystemCapability @ 0x1407EEF20 (RtlpCapabilityCheckSystemCapability.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x140208A00 (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryLicenseValue @ 0x14041D920 (ZwQueryLicenseValue.c)
+ *     memmove @ 0x140435700 (memmove.c)
+ *     memset @ 0x140435A00 (memset.c)
+ *     RtlFreeUnicodeString @ 0x14076F3D0 (RtlFreeUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x1407C6F90 (ExpAllocateStringRoutine.c)
+ *     ExFreePoolWithTag @ 0x140AAE110 (ExFreePoolWithTag.c)
+ *     ExAllocatePool2 @ 0x140AAE6B0 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall RtlpGetPolicyValueForSystemCapability(PCUNICODE_STRING Source, PUNICODE_STRING UnicodeString)
+{
+  void *Pool2; // r14
+  unsigned __int16 v5; // bx
+  wchar_t *StringRoutine; // rax
+  wchar_t *v7; // r15
+  int appended; // ebx
+  int LicenseValue; // eax
+  UNICODE_STRING Destination; // [rsp+30h] [rbp-10h] BYREF
+  int v12; // [rsp+90h] [rbp+50h] BYREF
+
+  v12 = 0;
+  Pool2 = 0LL;
+  Destination = 0LL;
+  if ( !Source || !UnicodeString )
+  {
+    appended = -1073741811;
+LABEL_8:
+    if ( !UnicodeString )
+      goto LABEL_11;
+    goto LABEL_9;
+  }
+  v5 = Source->Length + 56;
+  StringRoutine = (wchar_t *)ExpAllocateStringRoutine(v5);
+  v7 = StringRoutine;
+  if ( StringRoutine )
+  {
+    memset(StringRoutine, 0, v5);
+    Destination.MaximumLength = v5;
+    Destination.Buffer = v7;
+    appended = RtlAppendUnicodeStringToString(&Destination, &stru_140002788);
+    if ( appended >= 0 )
+    {
+      appended = RtlAppendUnicodeStringToString(&Destination, Source);
+      if ( appended >= 0 )
+      {
+        LicenseValue = ZwQueryLicenseValue((__int64)&Destination, (__int64)&v12);
+        appended = LicenseValue;
+        if ( LicenseValue != -1073741789 )
+        {
+          if ( LicenseValue >= 0 )
+            goto LABEL_11;
+          goto LABEL_8;
+        }
+        Pool2 = (void *)ExAllocatePool2(65LL, 0LL, 1649439826LL);
+        appended = ZwQueryLicenseValue((__int64)&Destination, (__int64)&v12);
+        if ( appended >= 0 )
+          appended = -1073741823;
+      }
+    }
+  }
+  else
+  {
+    appended = -1073741801;
+  }
+LABEL_9:
+  RtlFreeUnicodeString(UnicodeString);
+  if ( Pool2 )
+    ExFreePoolWithTag(Pool2, 0);
+LABEL_11:
+  RtlFreeUnicodeString(&Destination);
+  return (unsigned int)appended;
+}

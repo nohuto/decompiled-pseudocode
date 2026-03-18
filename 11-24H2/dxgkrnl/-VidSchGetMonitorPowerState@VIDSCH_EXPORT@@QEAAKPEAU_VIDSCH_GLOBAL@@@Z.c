@@ -1,0 +1,12 @@
+/*
+ * XREFs of ?VidSchGetMonitorPowerState@VIDSCH_EXPORT@@QEAAKPEAU_VIDSCH_GLOBAL@@@Z @ 0x140041728
+ * Callers:
+ *     ?Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@PEAPEAV1@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1402ED810 (-Present@DXGCONTEXT@@QEAAJPEBUDXGK_PRESENT_PARAMS@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESET.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400A1CA0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall VIDSCH_EXPORT::VidSchGetMonitorPowerState(VIDSCH_EXPORT *this, struct _VIDSCH_GLOBAL *a2)
+{
+  return (*(__int64 (__fastcall **)(struct _VIDSCH_GLOBAL *))(*((_QWORD *)this + 1) + 536LL))(a2);
+}

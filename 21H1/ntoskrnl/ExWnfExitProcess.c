@@ -1,0 +1,27 @@
+/*
+ * XREFs of ExWnfExitProcess @ 0x140665934
+ * Callers:
+ *     PspProcessDelete @ 0x14065FD30 (PspProcessDelete.c)
+ *     PspExitThread @ 0x1407064A0 (PspExitThread.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140261420 (KeLeaveCriticalRegion.c)
+ *     ExpWnfDeleteScopeById @ 0x140662C0C (ExpWnfDeleteScopeById.c)
+ *     ExpWnfDeleteProcessContext @ 0x140665990 (ExpWnfDeleteProcessContext.c)
+ */
+
+void __fastcall ExWnfExitProcess(__int64 a1, int a2)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  void *v4; // rcx
+  __int64 v5; // [rsp+30h] [rbp+8h] BYREF
+
+  v5 = a1;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v4 = *(void **)(v5 + 2152);
+  if ( v4 )
+    ExpWnfDeleteProcessContext(v4);
+  if ( a2 )
+    ExpWnfDeleteScopeById(3u, (__int64)&v5, 8u);
+  KeLeaveCriticalRegion();
+}

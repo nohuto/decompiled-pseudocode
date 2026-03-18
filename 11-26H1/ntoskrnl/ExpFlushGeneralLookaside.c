@@ -1,0 +1,29 @@
+/*
+ * XREFs of ExpFlushGeneralLookaside @ 0x1404BCBA4
+ * Callers:
+ *     ExDeletePagedLookasideList @ 0x1404BCAF0 (ExDeletePagedLookasideList.c)
+ *     ExDeleteNPagedLookasideList @ 0x1404BCB50 (ExDeleteNPagedLookasideList.c)
+ * Callees:
+ *     RtlpInterlockedFlushSList @ 0x140730D10 (RtlpInterlockedFlushSList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall ExpFlushGeneralLookaside(union _SLIST_HEADER *a1)
+{
+  __int64 v1; // rdx
+  PSLIST_ENTRY v2; // rcx
+  struct _SLIST_ENTRY *Next; // rbx
+
+  v2 = RtlpInterlockedFlushSList(a1);
+  if ( v2 )
+  {
+    do
+    {
+      Next = v2->Next;
+      guard_dispatch_icall_no_overrides(v2, v1);
+      v2 = Next;
+    }
+    while ( Next );
+  }
+  return 0LL;
+}

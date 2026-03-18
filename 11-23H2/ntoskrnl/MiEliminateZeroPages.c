@@ -1,0 +1,62 @@
+/*
+ * XREFs of MiEliminateZeroPages @ 0x140696B90
+ * Callers:
+ *     MiCopyToCfgBitMap @ 0x1406B1380 (MiCopyToCfgBitMap.c)
+ *     MiUpdateCfgSystemWideBitmapWorker @ 0x1406B19D0 (MiUpdateCfgSystemWideBitmapWorker.c)
+ * Callees:
+ *     MiInitializeTbFlushList @ 0x14020B29C (MiInitializeTbFlushList.c)
+ *     MiGetPdeAddress @ 0x14020B2BC (MiGetPdeAddress.c)
+ *     MiConvertAndFlushWsleVas @ 0x14020B2DC (MiConvertAndFlushWsleVas.c)
+ *     MiTbFlushType @ 0x14025BAAC (MiTbFlushType.c)
+ *     MiInsertTbFlushEntry @ 0x14027F570 (MiInsertTbFlushEntry.c)
+ *     __security_check_cookie @ 0x1403D7CE0 (__security_check_cookie.c)
+ *     memset @ 0x140435A00 (memset.c)
+ */
+
+void __fastcall MiEliminateZeroPages(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+{
+  int v6; // eax
+  unsigned __int64 v7; // rsi
+  __int64 v8; // r14
+  _QWORD *v9; // r8
+  _QWORD *v10; // rdx
+  __int64 PdeAddress; // rbx
+  _DWORD v12[48]; // [rsp+50h] [rbp-E8h] BYREF
+
+  memset(v12, 0, 0xB8uLL);
+  v6 = MiTbFlushType(a1);
+  MiInitializeTbFlushList((__int64)v12, v6, 20);
+  LOBYTE(v12[1]) |= 4u;
+  v7 = a3 >> 12;
+  v8 = 0LL;
+  while ( v7 )
+  {
+    v9 = (_QWORD *)a2;
+    v10 = (_QWORD *)(a2 + 4088);
+    do
+    {
+      if ( *v9 | *v10 )
+        break;
+      ++v9;
+      --v10;
+    }
+    while ( v9 <= v10 );
+    if ( v9 > v10 )
+    {
+      PdeAddress = MiGetPdeAddress(a2);
+      if ( v8 != PdeAddress )
+      {
+        if ( v12[3] )
+          MiConvertAndFlushWsleVas(a1, (__int64)v12);
+        v8 = PdeAddress;
+      }
+      MiInsertTbFlushEntry((__int64)v12, a2, 1LL, 0);
+      if ( v12[3] == v12[2] )
+        MiConvertAndFlushWsleVas(a1, (__int64)v12);
+    }
+    a2 += 4096LL;
+    --v7;
+  }
+  if ( v12[3] )
+    MiConvertAndFlushWsleVas(a1, (__int64)v12);
+}

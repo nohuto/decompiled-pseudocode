@@ -1,0 +1,69 @@
+/*
+ * XREFs of RtlCompareString @ 0x140430950
+ * Callers:
+ *     KsepGetModuleInfoByName @ 0x1406B003C (KsepGetModuleInfoByName.c)
+ * Callees:
+ *     RtlUpperChar @ 0x140430A80 (RtlUpperChar.c)
+ */
+
+LONG __stdcall RtlCompareString(const STRING *String1, const STRING *String2, BOOLEAN CaseInSensitive)
+{
+  unsigned int Length; // ebp
+  unsigned int v4; // r12d
+  unsigned int v5; // eax
+  char *Buffer; // rbx
+  char *v7; // rdi
+  char *v8; // rsi
+  signed __int64 v9; // rdi
+  CHAR v10; // r14
+  unsigned __int8 v12; // r15
+  unsigned __int8 v13; // al
+  int v14; // ecx
+  signed __int64 v15; // rdi
+
+  Length = String1->Length;
+  v4 = String2->Length;
+  v5 = Length;
+  Buffer = String1->Buffer;
+  v7 = String2->Buffer;
+  if ( Length > v4 )
+    v5 = String2->Length;
+  v8 = &Buffer[v5];
+  if ( !CaseInSensitive )
+  {
+    if ( Buffer < v8 )
+    {
+      v15 = v7 - Buffer;
+      while ( 1 )
+      {
+        LOBYTE(v14) = *Buffer;
+        v13 = Buffer[v15];
+        if ( *Buffer != v13 )
+          break;
+        if ( ++Buffer >= v8 )
+          return Length - v4;
+      }
+      v14 = (unsigned __int8)v14;
+      return v14 - v13;
+    }
+    return Length - v4;
+  }
+  if ( Buffer >= v8 )
+    return Length - v4;
+  v9 = v7 - Buffer;
+  while ( 1 )
+  {
+    v10 = Buffer[v9];
+    if ( *Buffer != v10 )
+    {
+      v12 = RtlUpperChar(*Buffer);
+      v13 = RtlUpperChar(v10);
+      if ( v12 != v13 )
+        break;
+    }
+    if ( ++Buffer >= v8 )
+      return Length - v4;
+  }
+  v14 = v12;
+  return v14 - v13;
+}

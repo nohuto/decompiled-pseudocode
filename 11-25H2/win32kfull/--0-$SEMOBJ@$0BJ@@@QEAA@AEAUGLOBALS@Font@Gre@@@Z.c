@@ -1,0 +1,54 @@
+/*
+ * XREFs of ??0?$SEMOBJ@$0BJ@@@QEAA@AEAUGLOBALS@Font@Gre@@@Z @ 0x1400B5D5C
+ * Callers:
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1400B663C (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     InitFNTCache @ 0x14010CA54 (InitFNTCache.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAUFONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x14010DAC8 (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAUFONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x14010EBF0 (-PutFNTCacheCheckSum@@YAXKK@Z.c)
+ *     ?FntCacheHDEV@@YAXPEAUHDEV__@@K@Z @ 0x1402202E8 (-FntCacheHDEV@@YAXPEAUHDEV__@@K@Z.c)
+ *     ?bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAUFONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEAU_UNIVERSAL_FONT_ID@@PEAH@Z @ 0x140228C20 (-bLoadRemoteFonts@PUBLIC_PFTOBJ@@QEAAHAEAVXDCOBJ@@PEAPEAUFONTFILEVIEW@@IPEAUtagDESIGNVECTOR@@PEA.c)
+ *     ?vCleanUpFntCache@@YAXXZ @ 0x14026EE0C (-vCleanUpFntCache@@YAXXZ.c)
+ *     CloseFNTCache @ 0x14030404C (CloseFNTCache.c)
+ * Callees:
+ *     ?GreGetCurrentThreadCrossSessionCheck@@YAPEAU_GRETHREAD@@XZ @ 0x14001B170 (-GreGetCurrentThreadCrossSessionCheck@@YAPEAU_GRETHREAD@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1400D8AF0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
+HSEMAPHORE *__fastcall SEMOBJ<25>::SEMOBJ<25>(HSEMAPHORE *a1, __int64 a2)
+{
+  HSEMAPHORE v3; // rcx
+  struct _GRETHREAD *v4; // rax
+  unsigned __int64 v5; // r8
+  struct _GRETHREAD *v6; // rbx
+  __int64 v7; // rdx
+  int v9; // ecx
+  int v10; // eax
+
+  v3 = *(HSEMAPHORE *)(a2 + 15464);
+  *a1 = v3;
+  GreAcquireSemaphoreInternal(v3);
+  v4 = GreGetCurrentThreadCrossSessionCheck();
+  v5 = 0LL;
+  v6 = v4;
+  if ( v4 )
+  {
+    v7 = *(_QWORD *)v4;
+    if ( (*(_QWORD *)v4 & 0xFFFFFFFFFE000000uLL) != 0 && (v7 & 0x2000000) == 0 )
+    {
+      v9 = 37;
+      do
+      {
+        v10 = v5;
+        if ( !_bittest64(&v7, v5) )
+          v10 = v9;
+        ++v5;
+        v9 = v10;
+      }
+      while ( v5 < 0x40 );
+      if ( v10 > 25 )
+        MicrosoftTelemetryAssertTriggeredNoArgsKM((unsigned int)v10, v7, v5);
+    }
+    *(_QWORD *)v6 |= 0x2000000uLL;
+  }
+  return a1;
+}

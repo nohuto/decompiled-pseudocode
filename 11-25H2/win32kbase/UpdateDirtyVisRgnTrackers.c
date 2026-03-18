@@ -1,0 +1,18 @@
+/*
+ * XREFs of UpdateDirtyVisRgnTrackers @ 0x1400B6240
+ * Callers:
+ *     ?NtUserEnumDisplaySettingsExclusive@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z @ 0x14004C39C (-NtUserEnumDisplaySettingsExclusive@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z.c)
+ *     LeaveCrit @ 0x1401675A0 (LeaveCrit.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x140242EE0 (_guard_dispatch_icall.c)
+ */
+
+__int64 (*__fastcall UpdateDirtyVisRgnTrackers(__int64 a1, __int64 a2))(void)
+{
+  __int64 (*result)(void); // rax
+
+  result = *(__int64 (**)(void))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(a1, a2) + 48) + 3968LL);
+  if ( result )
+    return (__int64 (*)(void))result();
+  return result;
+}

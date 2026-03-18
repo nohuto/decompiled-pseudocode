@@ -1,0 +1,23 @@
+/*
+ * XREFs of AcpiDiagOverrideAttribute @ 0x140055F98
+ * Callers:
+ *     ACPIInitRecordEmOverrides @ 0x1400D88DC (ACPIInitRecordEmOverrides.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1400722F0 (__security_check_cookie.c)
+ */
+
+NTSTATUS __fastcall AcpiDiagOverrideAttribute(__int16 a1)
+{
+  struct _EVENT_DATA_DESCRIPTOR v2; // [rsp+30h] [rbp-28h] BYREF
+  __int16 v3; // [rsp+60h] [rbp+8h] BYREF
+
+  v3 = a1;
+  v2.Ptr = (unsigned __int64)&v3;
+  *(_QWORD *)&v2.Size = 2LL;
+  return EtwWrite(
+           *(REGHANDLE *)&WPP_MAIN_CB.Queue.Wcb.NumberOfMapRegisters,
+           &ACPI_ETW_EVENT_ACPI_OVERRIDE,
+           0LL,
+           1u,
+           &v2);
+}

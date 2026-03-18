@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x1801F6E70
+ * Callers:
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F6ABC (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x18011B9E0 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
+void __fastcall CDirectFlipInfo::CalcIndependentFlipSupport(CDirectFlipInfo *this)
+{
+  char v2; // bl
+  __int64 v3; // rax
+
+  if ( CCommonRegistryData::m_fDisableIndependentFlip
+    || (v2 = 1, *((_DWORD *)this + 13) == 1)
+    || *((int *)this + 13) >= 3
+    || (v3 = (*(__int64 (__fastcall **)(_QWORD))(**(_QWORD **)this + 176LL))(*(_QWORD *)this),
+        !(*(unsigned __int8 (__fastcall **)(__int64))(*(_QWORD *)v3 + 152LL))(v3)) )
+  {
+    v2 = 0;
+  }
+  *((_BYTE *)this + 122) = v2;
+}

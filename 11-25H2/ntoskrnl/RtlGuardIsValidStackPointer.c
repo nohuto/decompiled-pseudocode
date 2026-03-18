@@ -1,0 +1,29 @@
+/*
+ * XREFs of RtlGuardIsValidStackPointer @ 0x1409EAF70
+ * Callers:
+ *     KiContinuePreviousModeUser @ 0x140261330 (KiContinuePreviousModeUser.c)
+ *     KeVerifyContextRecord @ 0x140262360 (KeVerifyContextRecord.c)
+ * Callees:
+ *     <none>
+ */
+
+_BOOL8 __fastcall RtlGuardIsValidStackPointer(unsigned __int64 a1, _QWORD *Teb)
+{
+  struct _KTHREAD *CurrentThread; // rdx
+  unsigned __int64 v4; // [rsp+10h] [rbp+10h]
+  unsigned __int64 v5; // [rsp+18h] [rbp+18h]
+
+  if ( !Teb )
+  {
+    CurrentThread = KeGetCurrentThread();
+    if ( (CurrentThread->MiscFlags & 0x400) != 0 || CurrentThread->ApcStateIndex == 1 )
+      Teb = 0LL;
+    else
+      Teb = CurrentThread->Teb;
+  }
+  v4 = Teb[1];
+  v5 = Teb[2];
+  if ( a1 >= v5 && a1 <= v4 )
+    return 1LL;
+  return v5 != Teb[655] && a1 >= v5 - 4096 && a1 <= v4;
+}

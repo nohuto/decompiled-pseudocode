@@ -1,0 +1,93 @@
+/*
+ * XREFs of PnpLookupArbitersNewResources @ 0x140AADFA4
+ * Callers:
+ *     IopRetestConfiguration @ 0x140721A0C (IopRetestConfiguration.c)
+ *     IopTestConfiguration @ 0x140721D2C (IopTestConfiguration.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ */
+
+__int64 __fastcall PnpLookupArbitersNewResources(
+        _QWORD *a1,
+        unsigned int a2,
+        __int64 a3,
+        char a4,
+        __int64 *a5,
+        _DWORD *a6)
+{
+  unsigned int v6; // ebx
+  __int64 v8; // rax
+  __int64 v9; // r10
+  _QWORD *v10; // r8
+  int v11; // edi
+  __int64 *v12; // rcx
+  __int64 v13; // rsi
+  unsigned int v14; // eax
+  __int64 v15; // rdx
+  __int64 v16; // r8
+  char v17; // al
+  __int64 Pool2; // rdx
+  __int64 v20; // rax
+  char v21; // cl
+
+  v6 = 0;
+  v8 = 0LL;
+  if ( !a2 )
+    return 3221225473LL;
+  v9 = *(_QWORD *)(a3 + 32);
+  v10 = a1;
+  do
+  {
+    if ( *v10 == v9 )
+      break;
+    v8 = (unsigned int)(v8 + 1);
+    v10 += 8;
+  }
+  while ( (unsigned int)v8 < a2 );
+  if ( (unsigned int)v8 >= a2 )
+    return 3221225473LL;
+  _mm_lfence();
+  v11 = 0;
+  v12 = *(__int64 **)(a1[8 * v8 + 4] + 16LL);
+  v13 = *v12;
+  v14 = *(_DWORD *)(*v12 + 20);
+  if ( v14 )
+  {
+    v15 = v13 + 24;
+    v16 = v14;
+    do
+    {
+      v17 = *(_BYTE *)(*(_QWORD *)(*(_QWORD *)v15 + 32LL) + 136LL);
+      if ( v17 == a4 || v17 == 7 && a4 == 3 )
+        ++v11;
+      v15 += 8LL;
+      --v16;
+    }
+    while ( v16 );
+    if ( v11 )
+    {
+      Pool2 = ExAllocatePool2(0x100uLL);
+      if ( !Pool2 )
+        return 3221225626LL;
+      *a6 = v11;
+      *a5 = Pool2;
+      if ( *(_DWORD *)(v13 + 20) )
+      {
+        do
+        {
+          v20 = *(_QWORD *)(*(_QWORD *)(v13 + 8LL * v6 + 24) + 32LL);
+          v21 = *(_BYTE *)(v20 + 136);
+          if ( v21 == a4 || v21 == 7 && a4 == 3 )
+          {
+            *(_OWORD *)Pool2 = *(_OWORD *)(v20 + 136);
+            *(_DWORD *)(Pool2 + 16) = *(_DWORD *)(v20 + 152);
+            Pool2 += 20LL;
+          }
+          ++v6;
+        }
+        while ( v6 < *(_DWORD *)(v13 + 20) );
+      }
+    }
+  }
+  return 0LL;
+}

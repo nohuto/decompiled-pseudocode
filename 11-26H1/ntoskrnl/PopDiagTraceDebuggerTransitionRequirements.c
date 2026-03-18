@@ -1,0 +1,48 @@
+/*
+ * XREFs of PopDiagTraceDebuggerTransitionRequirements @ 0x14060877C
+ * Callers:
+ *     PopPepInitializeDebuggerMasks @ 0x140611620 (PopPepInitializeDebuggerMasks.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140212D90 (EtwEventEnabled.c)
+ *     EtwWriteEx @ 0x140212F70 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x140722910 (__security_check_cookie.c)
+ */
+
+void __fastcall PopDiagTraceDebuggerTransitionRequirements(__int64 a1, __int64 a2, int a3)
+{
+  struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+40h] [rbp-40h] BYREF
+  int *v5; // [rsp+50h] [rbp-30h]
+  __int64 v6; // [rsp+58h] [rbp-28h]
+  __int64 v7; // [rsp+60h] [rbp-20h]
+  int v8; // [rsp+68h] [rbp-18h]
+  int v9; // [rsp+6Ch] [rbp-14h]
+  __int64 v10; // [rsp+90h] [rbp+10h] BYREF
+  int v11; // [rsp+A0h] [rbp+20h] BYREF
+
+  v11 = a3;
+  v10 = a1;
+  if ( byte_140E67628 )
+  {
+    if ( EtwEventEnabled(
+           *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+           &POP_ETW_EVENT_DEBUGGER_TRANSITION_REQUIREMENTS) )
+    {
+      UserData.Ptr = (ULONGLONG)&v10;
+      *(_QWORD *)&UserData.Size = 8LL;
+      v5 = &v11;
+      v8 = v11;
+      v6 = 4LL;
+      v7 = a2;
+      v9 = 0;
+      EtwWriteEx(
+        *(REGHANDLE *)&PopSleepstudySessionLock.PriorityFloorCounts[16],
+        &POP_ETW_EVENT_DEBUGGER_TRANSITION_REQUIREMENTS,
+        0LL,
+        0,
+        0LL,
+        0LL,
+        3u,
+        &UserData);
+    }
+  }
+}

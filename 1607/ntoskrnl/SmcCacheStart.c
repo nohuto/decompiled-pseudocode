@@ -1,0 +1,90 @@
+/*
+ * XREFs of SmcCacheStart @ 0x14069A250
+ * Callers:
+ *     SmcProcessCreateRequest @ 0x140697464 (SmcProcessCreateRequest.c)
+ * Callees:
+ *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14000562C (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
+ *     ObfDereferenceObject @ 0x14006AC00 (ObfDereferenceObject.c)
+ *     SmKmStoreFileCreate @ 0x140698AE8 (SmKmStoreFileCreate.c)
+ *     SmKmStoreFileOpenVolume @ 0x140699764 (SmKmStoreFileOpenVolume.c)
+ *     SmKmVolumeQueryUniqueId @ 0x140699ADC (SmKmVolumeQueryUniqueId.c)
+ */
+
+__int64 __fastcall SmcCacheStart(__int64 a1, __int64 *a2, __int64 a3)
+{
+  PVOID v3; // rsi
+  int v5; // ecx
+  int UniqueId; // ebx
+  unsigned __int64 v9; // r15
+  unsigned int v10; // r8d
+  struct _DEVICE_OBJECT *v11; // rcx
+  int v12; // eax
+  int v14; // [rsp+28h] [rbp-48h]
+  PVOID Object; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v16; // [rsp+68h] [rbp-8h] BYREF
+  PDEVICE_OBJECT v17; // [rsp+A8h] [rbp+38h] BYREF
+  int v18; // [rsp+B8h] [rbp+48h] BYREF
+
+  v3 = 0LL;
+  v5 = *((_DWORD *)a2 + 2);
+  Object = 0LL;
+  if ( !v5 || ((v5 - 1) & v5) != 0 )
+  {
+    UniqueId = -1073741811;
+    goto LABEL_21;
+  }
+  if ( !*a2 )
+    return (unsigned int)-1073741811;
+  if ( (unsigned __int64)*a2 > 0x800000000LL )
+    return (unsigned int)-1073739516;
+  *(_OWORD *)(a1 + 16) = *(_OWORD *)a2;
+  *(_QWORD *)(a1 + 32) = a2[2];
+  if ( (a3 & 1) != 0 )
+    v9 = a3 & 0xFFFFFFFFFFFFFFFEuLL;
+  else
+    v9 = 0LL;
+  v10 = *(_DWORD *)(a1 + 24);
+  LODWORD(v17) = *((_DWORD *)a2 + 3) & 1;
+  v16 = *a2;
+  UniqueId = SmKmStoreFileCreate(
+               a1 + 4,
+               a3,
+               v10,
+               v10,
+               &v16,
+               v14,
+               (unsigned int *)&v17,
+               (_OWORD *)(a1 + 40),
+               (_DWORD *)(a1 + 4),
+               (_DWORD *)(a1 + 8),
+               (__int64)&v18);
+  if ( UniqueId >= 0 )
+  {
+    if ( v9 && v16 != *a2 )
+      return (unsigned int)-1073741792;
+    *(_DWORD *)(a1 + 28) = (unsigned __int8)v17 & 1 | *(_DWORD *)(a1 + 28) & 0xFFFFFFFC | (2 * (v18 & 1));
+    v11 = *(struct _DEVICE_OBJECT **)(a1 + 64);
+    v17 = v11;
+    if ( v11 )
+      goto LABEL_17;
+    v12 = SmKmStoreFileOpenVolume(*(_QWORD *)(a1 + 48), &Object, &v17);
+    v3 = Object;
+    UniqueId = v12;
+    if ( v12 >= 0 )
+    {
+      v11 = v17;
+LABEL_17:
+      UniqueId = SmKmVolumeQueryUniqueId(v11, (unsigned __int16 *)(a1 + 552), 0x200u);
+      if ( UniqueId >= 0 )
+      {
+        UniqueId = StEtaHelper::StartHelper((struct _ST_ETA_CONTEXT *)(a1 + 104), *(_DWORD *)(a1 + 24));
+        if ( UniqueId >= 0 )
+          UniqueId = 0;
+      }
+    }
+LABEL_21:
+    if ( v3 )
+      ObfDereferenceObject(v3);
+  }
+  return (unsigned int)UniqueId;
+}

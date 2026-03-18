@@ -1,0 +1,29 @@
+/*
+ * XREFs of BgLibraryEnable @ 0x14014C8C8
+ * Callers:
+ *     BgkNotifyDisplayOwnershipChange @ 0x14014FED8 (BgkNotifyDisplayOwnershipChange.c)
+ *     BgkAcquireDisplayOwnership @ 0x1401F104C (BgkAcquireDisplayOwnership.c)
+ * Callees:
+ *     BgpFwLibraryEnable @ 0x14015003C (BgpFwLibraryEnable.c)
+ *     BgpFwReleaseLock @ 0x140150250 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140150298 (BgpFwAcquireLock.c)
+ */
+
+__int64 __fastcall BgLibraryEnable(__int64 a1, char a2)
+{
+  unsigned int v3; // ebx
+
+  if ( a2 )
+    dword_140323CF0 |= 0xC00u;
+  if ( !a1 )
+    return (dword_140323CF0 & 2) == 0 ? 0xC00000EF : 0;
+  if ( !a2 && KeGetCurrentIrql() )
+    return 3221225473LL;
+  BgpFwAcquireLock();
+  if ( (dword_140323CF0 & 1) != 0 )
+    v3 = BgpFwLibraryEnable(a1);
+  else
+    v3 = -1073741637;
+  BgpFwReleaseLock();
+  return v3;
+}

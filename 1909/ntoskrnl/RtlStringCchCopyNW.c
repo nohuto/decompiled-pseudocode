@@ -1,0 +1,42 @@
+/*
+ * XREFs of RtlStringCchCopyNW @ 0x140154688
+ * Callers:
+ *     PiDevCfgParsePropertyKeyName @ 0x14029F398 (PiDevCfgParsePropertyKeyName.c)
+ *     AslPathSplit @ 0x14070D1CC (AslPathSplit.c)
+ *     PiUEventHandleVetoEvent @ 0x14072E5D0 (PiUEventHandleVetoEvent.c)
+ *     WmipBuildInstanceSet @ 0x140734A84 (WmipBuildInstanceSet.c)
+ *     IopErrorLogThread @ 0x140739D70 (IopErrorLogThread.c)
+ *     IopLogBlockedDriverEvent @ 0x140853A34 (IopLogBlockedDriverEvent.c)
+ *     PoQueryProcessEnergyTrackingState @ 0x1408B4394 (PoQueryProcessEnergyTrackingState.c)
+ *     EtwpCoverageSamplerQuery @ 0x140904C64 (EtwpCoverageSamplerQuery.c)
+ *     SdbQueryDataExTagID @ 0x1409216A0 (SdbQueryDataExTagID.c)
+ * Callees:
+ *     RtlStringCopyWorkerW_3 @ 0x1401546E0 (RtlStringCopyWorkerW_3.c)
+ */
+
+NTSTATUS __stdcall RtlStringCchCopyNW(
+        NTSTRSAFE_PWSTR pszDest,
+        size_t cchDest,
+        STRSAFE_PCNZWCH pszSrc,
+        size_t cchToCopy)
+{
+  NTSTATUS v4; // r10d
+
+  v4 = 0;
+  if ( cchDest - 1 > 0x7FFFFFFE )
+    v4 = -1073741811;
+  if ( v4 < 0 )
+  {
+    if ( !cchDest )
+      return v4;
+LABEL_9:
+    *pszDest = 0;
+    return v4;
+  }
+  if ( cchToCopy > 0x7FFFFFFE )
+  {
+    v4 = -1073741811;
+    goto LABEL_9;
+  }
+  return RtlStringCopyWorkerW_3(pszDest, cchDest, (size_t *)pszSrc, pszSrc, cchToCopy);
+}

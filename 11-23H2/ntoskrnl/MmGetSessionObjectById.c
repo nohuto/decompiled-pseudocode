@@ -1,0 +1,67 @@
+/*
+ * XREFs of MmGetSessionObjectById @ 0x1402C0B60
+ * Callers:
+ *     NtSetInformationObject @ 0x140697640 (NtSetInformationObject.c)
+ *     SepSetTokenSessionById @ 0x1406B7AE0 (SepSetTokenSessionById.c)
+ *     SepDuplicateToken @ 0x140729B80 (SepDuplicateToken.c)
+ *     SeSetSessionIdToken @ 0x1407F1174 (SeSetSessionIdToken.c)
+ *     SeExchangePrimaryToken @ 0x1408402F8 (SeExchangePrimaryToken.c)
+ *     IoGetContainerInformation @ 0x140948150 (IoGetContainerInformation.c)
+ *     IoRegisterContainerNotification @ 0x1409481D0 (IoRegisterContainerNotification.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x140231570 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x140260360 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x140260E60 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x1402B68C0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionById @ 0x1402C1E30 (MmGetSessionById.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056DEB4 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
+void *__fastcall MmGetSessionObjectById(__int64 a1, __int64 a2)
+{
+  void *v2; // rdi
+  __int64 SessionById; // rax
+  void *v4; // rsi
+  __int64 v5; // rbx
+  unsigned __int64 OldIrql; // rbx
+  unsigned __int8 CurrentIrql; // al
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  int v11; // edx
+  bool v12; // zf
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF
+
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v2 = 0LL;
+  SessionById = MmGetSessionById(a1, a2);
+  v4 = (void *)SessionById;
+  if ( SessionById )
+  {
+    v5 = *(_QWORD *)(SessionById + 1368);
+    v2 = *(void **)(v5 + 48);
+    KeAcquireInStackQueuedSpinLock(&qword_140C697C0, &LockHandle);
+    if ( (*(_DWORD *)(v5 + 4) & 2) != 0 )
+      v2 = 0LL;
+    else
+      ObfReferenceObjectWithTag(v2, 0x746C6644u);
+    KxReleaseQueuedSpinLock((volatile signed __int64 **)&LockHandle);
+    OldIrql = LockHandle.OldIrql;
+    if ( KiIrqlFlags )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu && LockHandle.OldIrql <= 0xFu && CurrentIrql >= 2u )
+      {
+        CurrentPrcb = KeGetCurrentPrcb();
+        SchedulerAssist = CurrentPrcb->SchedulerAssist;
+        v11 = ~(unsigned __int16)(-1LL << (LockHandle.OldIrql + 1));
+        v12 = (v11 & SchedulerAssist[5]) == 0;
+        SchedulerAssist[5] &= v11;
+        if ( v12 )
+          KiRemoveSystemWorkPriorityKick(CurrentPrcb);
+      }
+    }
+    __writecr8(OldIrql);
+    ObfDereferenceObject(v4);
+  }
+  return v2;
+}

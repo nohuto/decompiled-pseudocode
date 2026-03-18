@@ -1,0 +1,18 @@
+/*
+ * XREFs of ZwOpenIoCompletion @ 0x14017FB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// local variable allocation has failed, the output may be wrong!
+NTSTATUS __stdcall ZwOpenIoCompletion(
+        PHANDLE CompetionPort,
+        ACCESS_MASK DesiredAccess,
+        POBJECT_ATTRIBUTES ObjectAttributes)
+{
+  _disable();
+  __readeflags();
+  return KiServiceInternal(CompetionPort, *(_QWORD *)&DesiredAccess, ObjectAttributes);
+}

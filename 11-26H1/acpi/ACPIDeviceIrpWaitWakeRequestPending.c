@@ -1,0 +1,86 @@
+/*
+ * XREFs of ACPIDeviceIrpWaitWakeRequestPending @ 0x1400328B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qLqss @ 0x14001B834 (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x14001FC90 (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x140032B58 (ACPIDereferenceWaitWakePowerRequest.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x140032C00 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x140033D60 (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ */
+
+__int64 __fastcall ACPIDeviceIrpWaitWakeRequestPending(__int64 a1, int a2, __int64 a3, _QWORD *a4)
+{
+  _QWORD *v4; // rdi
+  const char *v5; // rcx
+  __int64 v6; // rsi
+  char v7; // r8
+  const char *v10; // rdx
+  __int64 v11; // rax
+  _QWORD *v12; // rax
+  KIRQL Irql; // [rsp+68h] [rbp+10h] BYREF
+
+  v4 = (_QWORD *)a4[5];
+  v5 = byte_140075A82;
+  v6 = a4[25];
+  v7 = 0;
+  Irql = 0;
+  v10 = byte_140075A82;
+  if ( v4 )
+  {
+    v11 = v4[1];
+    v7 = (char)v4;
+    if ( (v11 & 0x200000000000LL) != 0 )
+    {
+      v5 = (const char *)v4[76];
+      if ( (v11 & 0x400000000000LL) != 0 )
+        v10 = (const char *)v4[77];
+    }
+  }
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
+    WPP_RECORDER_SF_qLqss(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      4u,
+      0x11u,
+      0x23u,
+      (__int64)&WPP_2c64a3eb75823feba16c7995e2df05b8_Traceguids,
+      (char)a4,
+      a2,
+      v7,
+      v5,
+      v10);
+  IoAcquireCancelSpinLock(&Irql);
+  KeAcquireSpinLockAtDpcLevel(&AcpiPowerLock);
+  ++*((_DWORD *)a4 + 28);
+  if ( a2 < 0 )
+  {
+    KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
+    IoReleaseCancelSpinLock(Irql);
+    *((_DWORD *)a4 + 64) = a2;
+    ACPIDeviceIrpWaitWakeRequestComplete(a4);
+    goto LABEL_9;
+  }
+  v12 = (_QWORD *)qword_140090CD8;
+  if ( *(__int64 **)qword_140090CD8 != &AcpiPowerWaitWakeList )
+    __fastfail(3u);
+  *a4 = &AcpiPowerWaitWakeList;
+  a4[1] = v12;
+  *v12 = a4;
+  qword_140090CD8 = (__int64)a4;
+  if ( !*(_BYTE *)(v6 + 68) )
+  {
+    *((_DWORD *)a4 + 14) |= 0x40u;
+    ACPIWakeRemoveDevicesAndUpdate(0LL, 0LL);
+    _InterlockedExchange64((volatile __int64 *)(v6 + 104), (__int64)ACPIDeviceCancelWaitWakeIrp);
+    KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
+    IoReleaseCancelSpinLock(Irql);
+LABEL_9:
+    ACPIDereferenceWaitWakePowerRequest(a4);
+    return 259LL;
+  }
+  KeReleaseSpinLockFromDpcLevel(&AcpiPowerLock);
+  ACPIDeviceCancelWaitWakeIrp(v4[96], v6);
+  ACPIDereferenceWaitWakePowerRequest(a4);
+  return 3221225760LL;
+}

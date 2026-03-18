@@ -1,0 +1,13 @@
+/*
+ * XREFs of RtlSetVolatileMemory @ 0x140342400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+// attributes: thunk
+void *__cdecl RtlSetVolatileMemory(void *a1, int Val, size_t Size)
+{
+  return memset_0(a1, Val, Size);
+}

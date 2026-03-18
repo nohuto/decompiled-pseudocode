@@ -1,0 +1,72 @@
+/*
+ * XREFs of ?ensure_extra_capacity@?$buffer_impl@UAlign16Chunk@CDrawListEntryBuilder@@$0DM@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x18019EA04
+ * Callers:
+ *     ?reserve_region@?$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V?$buffer_impl@UAlign16Chunk@CDrawListEntryBuilder@@$0DM@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAPEAUAlign16Chunk@CDrawListEntryBuilder@@_K0@Z @ 0x18019ECB4 (-reserve_region@-$vector_facade@UAlign16Chunk@CDrawListEntryBuilder@@V-$buffer_impl@UAlign16Chun.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x1800466E8 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800585C8 (--3@YAXPEAX@Z.c)
+ *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180099B10 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
+ *     ??$uninitialized_copy@V?$move_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@std@@V?$checked_array_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@stdext@@V?$move_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@0@0V12@@Z @ 0x1800C9E68 (--$uninitialized_copy@V-$move_iterator@PEAUAlign16Chunk@CDrawListEntryBuilder@@@std@@V-$checked_.c)
+ */
+
+void __fastcall detail::buffer_impl<CDrawListEntryBuilder::Align16Chunk,60,1,detail::liberal_expansion_policy>::ensure_extra_capacity(
+        const void **a1,
+        unsigned __int64 a2)
+{
+  _BYTE *v3; // rcx
+  _BYTE *v4; // rsi
+  unsigned __int64 v5; // rsi
+  unsigned __int64 v6; // r8
+  unsigned __int64 v7; // rdi
+  const void *v8; // rax
+  __int64 v9; // r8
+  const void *v10; // rdx
+  const void *v11; // rbx
+  void *v12; // rcx
+  bool v13; // zf
+  __int64 v14; // rsi
+  __int128 v15; // [rsp+20h] [rbp-48h] BYREF
+  __int64 v16; // [rsp+30h] [rbp-38h]
+  __int128 v17; // [rsp+40h] [rbp-28h] BYREF
+  __int64 v18; // [rsp+50h] [rbp-18h]
+
+  v3 = a1[2];
+  v4 = a1[1];
+  if ( (v3 - v4) >> 4 < a2 )
+  {
+    v5 = (v4 - (_BYTE *)*a1) >> 4;
+    v6 = v5 + a2;
+    if ( v5 + a2 < v5 )
+    {
+      std::_Xoverflow_error("overflow");
+      __debugbreak();
+    }
+    v7 = detail::liberal_expansion_policy::expand(
+           (detail::liberal_expansion_policy *)((v3 - (_BYTE *)*a1) >> 4),
+           (v3 - (_BYTE *)*a1) >> 4,
+           v6);
+    v8 = operator new(saturated_mul(v7, 0x10uLL));
+    v9 = (__int64)a1[1];
+    v10 = *a1;
+    *(_QWORD *)&v15 = v8;
+    *((_QWORD *)&v15 + 1) = v5;
+    v11 = v8;
+    v16 = 0LL;
+    v17 = v15;
+    v18 = 0LL;
+    std::uninitialized_copy<std::move_iterator<CDrawListEntryBuilder::Align16Chunk *>,stdext::checked_array_iterator<CDrawListEntryBuilder::Align16Chunk *>>(
+      (__int64)&v15,
+      v10,
+      v9,
+      &v17);
+    v12 = (void *)*a1;
+    v13 = *a1 == a1 + 4;
+    *a1 = v11;
+    if ( v13 )
+      v12 = 0LL;
+    operator delete(v12);
+    v14 = (__int64)*a1 + 16 * v5;
+    a1[2] = (char *)*a1 + 16 * v7;
+    a1[1] = (const void *)v14;
+  }
+}

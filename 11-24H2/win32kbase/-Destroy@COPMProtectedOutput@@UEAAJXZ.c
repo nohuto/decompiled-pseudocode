@@ -1,0 +1,36 @@
+/*
+ * XREFs of ?Destroy@COPMProtectedOutput@@UEAAJXZ @ 0x14008BA00
+ * Callers:
+ *     ??1COPMProtectedOutput@@UEAA@XZ @ 0x14008B018 (--1COPMProtectedOutput@@UEAA@XZ.c)
+ *     ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x14008B4D4 (--0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z.c)
+ * Callees:
+ *     ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x14008BC00 (-Destroy@CMonitorPDO@OPM@@UEAAJXZ.c)
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x14008BFA0 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ?Unlock@CMutex@OPM@@QEAAXXZ @ 0x14008C010 (-Unlock@CMutex@OPM@@QEAAXXZ.c)
+ *     CallMonitor @ 0x14008C1A0 (CallMonitor.c)
+ */
+
+__int64 __fastcall COPMProtectedOutput::Destroy(COPMProtectedOutput *this)
+{
+  OPM::CMutex *v1; // rbx
+  int v3; // esi
+  int v4; // eax
+  int v6; // eax
+
+  v1 = (OPM::CMutex *)*((_QWORD *)this + 1);
+  v3 = 0;
+  OPM::CMutex::Lock(v1);
+  if ( *((_BYTE *)this + 80) )
+  {
+    v6 = CallMonitor(*((PDEVICE_OBJECT *)this + 2), 0x2324A3u, (char *)this + 72, 8u, 0LL, 0);
+    *((_BYTE *)this + 80) = 0;
+    if ( v6 < 0 )
+      v3 = v6;
+    *((_QWORD *)this + 9) = 0LL;
+  }
+  OPM::CMutex::Unlock(v1);
+  v4 = OPM::CMonitorPDO::Destroy(this);
+  if ( v4 < 0 && v3 >= 0 )
+    return (unsigned int)v4;
+  return (unsigned int)v3;
+}

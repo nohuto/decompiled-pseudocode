@@ -1,0 +1,33 @@
+/*
+ * XREFs of ?vSrcCopyS8D8IdentityRtoL@@YAXPEAUBLTINFO@@@Z @ 0x14033B560
+ * Callers:
+ *     ?BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z @ 0x1400DD5A0 (-BltLnkRect@@YAXPEAU_BLTLNKINFO@@PEAU_RECTL@@@Z.c)
+ *     EngCopyBits @ 0x1400E3940 (EngCopyBits.c)
+ * Callees:
+ *     ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x140294748 (-vSrcAlignCopyMemory@@YAXPEAE0K@Z.c)
+ *     memmove @ 0x14034FF00 (memmove.c)
+ */
+
+void __fastcall vSrcCopyS8D8IdentityRtoL(struct BLTINFO *a1)
+{
+  size_t v1; // r15
+  unsigned __int8 *v3; // rbx
+  int v4; // ebp
+  unsigned __int8 *v5; // rdi
+
+  v1 = *((unsigned int *)a1 + 7);
+  v3 = (unsigned __int8 *)(*((_QWORD *)a1 + 1) + *((int *)a1 + 12) - v1 + 1);
+  v4 = *((_DWORD *)a1 + 8);
+  v5 = (unsigned __int8 *)(*((_QWORD *)a1 + 2) + *((int *)a1 + 14) - v1 + 1);
+  do
+  {
+    if ( *((_DWORD *)a1 + 16) )
+      vSrcAlignCopyMemory(v5, v3, v1);
+    else
+      memmove(v5, v3, v1);
+    v3 += *((int *)a1 + 10);
+    v5 += *((int *)a1 + 11);
+    --v4;
+  }
+  while ( v4 );
+}

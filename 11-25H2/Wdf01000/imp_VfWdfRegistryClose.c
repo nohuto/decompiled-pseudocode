@@ -1,0 +1,12 @@
+/*
+ * XREFs of imp_VfWdfRegistryClose @ 0x1400E0320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1400AC680 (_guard_dispatch_icall.c)
+ */
+
+void __fastcall imp_VfWdfRegistryClose(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFKEY__ *Key)
+{
+  WdfVersion.Functions.pfnWdfRegistryClose(DriverGlobals, Key);
+}

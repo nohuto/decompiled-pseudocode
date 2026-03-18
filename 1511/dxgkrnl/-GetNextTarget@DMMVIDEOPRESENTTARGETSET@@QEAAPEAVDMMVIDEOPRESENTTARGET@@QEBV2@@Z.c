@@ -1,0 +1,28 @@
+/*
+ * XREFs of ?GetNextTarget@DMMVIDEOPRESENTTARGETSET@@QEAAPEAVDMMVIDEOPRESENTTARGET@@QEBV2@@Z @ 0x1C00194D0
+ * Callers:
+ *     ??1VIDPN_MGR@@UEAA@XZ @ 0x1C002AEF4 (--1VIDPN_MGR@@UEAA@XZ.c)
+ *     ?FindFirstAvailableTarget@DMMVIDPNTOPOLOGY@@QEBAJIW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@PEAIPEAW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C017E808 (-FindFirstAvailableTarget@DMMVIDPNTOPOLOGY@@QEBAJIW4_D3DKMDT_VIDEO_PRESENT_TARGET_SUBSET_TYPE@@P.c)
+ * Callees:
+ *     <none>
+ */
+
+struct DMMVIDEOPRESENTTARGET *__fastcall DMMVIDEOPRESENTTARGETSET::GetNextTarget(
+        DMMVIDEOPRESENTTARGETSET *this,
+        const struct DMMVIDEOPRESENTTARGET *const a2)
+{
+  __int64 v2; // rbx
+  __int64 v5; // rax
+  DMMVIDEOPRESENTTARGETSET *v6; // rdx
+
+  v2 = 0LL;
+  if ( !a2 )
+  {
+    v5 = WdLogNewEntry5_WdAssertion(this);
+    WdLogEvent5_WdAssertion(v5);
+  }
+  v6 = (DMMVIDEOPRESENTTARGETSET *)*((_QWORD *)a2 + 1);
+  if ( v6 != (DMMVIDEOPRESENTTARGETSET *)((char *)this + 24) )
+    return (DMMVIDEOPRESENTTARGETSET *)((char *)v6 - 8);
+  return (struct DMMVIDEOPRESENTTARGET *)v2;
+}

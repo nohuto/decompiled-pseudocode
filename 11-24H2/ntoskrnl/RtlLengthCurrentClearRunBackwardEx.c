@@ -1,0 +1,43 @@
+/*
+ * XREFs of RtlLengthCurrentClearRunBackwardEx @ 0x1404F5A4C
+ * Callers:
+ *     RtlCSparseBitmapFindBitSetCapped @ 0x1402C28B4 (RtlCSparseBitmapFindBitSetCapped.c)
+ * Callees:
+ *     <none>
+ */
+
+unsigned __int64 __fastcall RtlLengthCurrentClearRunBackwardEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
+{
+  _DWORD *v3; // rdi
+  unsigned __int64 v4; // rax
+  __int64 v6; // rdx
+  unsigned int v7; // r11d
+  unsigned __int64 v8; // r8
+  _DWORD *v9; // r10
+  char v10; // dl
+  unsigned __int64 v12; // r8
+
+  v3 = *(_DWORD **)(a1 + 8);
+  v4 = a2 >> 5;
+  v6 = a2 & 0x1F;
+  v7 = 31 - v6;
+  v8 = 0LL;
+  v9 = &v3[v4];
+  LODWORD(a1) = *((_DWORD *)qword_1400112F0 + v6) & *v9;
+  while ( !(_DWORD)a1 )
+  {
+    v8 += 32LL;
+    if ( v8 >= a3 && v8 - v7 >= a3 || v9 == v3 )
+      goto LABEL_10;
+    LODWORD(a1) = *--v9;
+  }
+  v10 = -1;
+  if ( _BitScanReverse64((unsigned __int64 *)&a1, (unsigned int)a1) )
+    v10 = a1;
+  v8 += (unsigned int)(31 - v10);
+LABEL_10:
+  v12 = v8 - v7;
+  if ( v12 > a3 )
+    return a3;
+  return v12;
+}

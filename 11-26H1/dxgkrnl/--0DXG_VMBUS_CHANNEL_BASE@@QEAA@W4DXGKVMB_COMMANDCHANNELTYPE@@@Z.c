@@ -1,0 +1,28 @@
+/*
+ * XREFs of ??0DXG_VMBUS_CHANNEL_BASE@@QEAA@W4DXGKVMB_COMMANDCHANNELTYPE@@@Z @ 0x14018B6B4
+ * Callers:
+ *     ??0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z @ 0x14018B568 (--0DXGK_VIRTUAL_GPU_PARAV@@QEAA@PEAVADAPTER_RENDER@@@Z.c)
+ *     ??0DXGADAPTER@@QEAA@PEAVDXGGLOBAL@@@Z @ 0x1401968BC (--0DXGADAPTER@@QEAA@PEAVDXGGLOBAL@@@Z.c)
+ *     ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1401DD134 (-EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ.c)
+ *     ??0DXGVIRTUALMACHINE@@QEAA@PEAVDXGPROCESSVMWP@@@Z @ 0x1401F4F14 (--0DXGVIRTUALMACHINE@@QEAA@PEAVDXGPROCESSVMWP@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DXG_VMBUS_CHANNEL_BASE::DXG_VMBUS_CHANNEL_BASE(__int64 a1, int a2)
+{
+  __int64 result; // rax
+
+  *(_QWORD *)a1 = 0LL;
+  *(_QWORD *)(a1 + 16) = 0LL;
+  *(_QWORD *)(a1 + 24) = 0LL;
+  *(_DWORD *)(a1 + 32) = 0;
+  *(_DWORD *)(a1 + 36) = 1;
+  *(_DWORD *)(a1 + 40) = -1;
+  *(_QWORD *)(a1 + 56) = 0LL;
+  *(_DWORD *)(a1 + 64) = 0;
+  result = a1;
+  *(_DWORD *)(a1 + 48) = a2;
+  *(_DWORD *)(a1 + 68) = 16842752;
+  return result;
+}

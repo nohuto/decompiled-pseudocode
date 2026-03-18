@@ -1,0 +1,37 @@
+/*
+ * XREFs of RtlIsParentOfChildAppContainer @ 0x1409BC298
+ * Callers:
+ *     SepSetTokenCapabilities @ 0x1406BD618 (SepSetTokenCapabilities.c)
+ *     SepSetTokenPackage @ 0x140714D60 (SepSetTokenPackage.c)
+ *     SeTokenCanImpersonate @ 0x140734FA0 (SeTokenCanImpersonate.c)
+ *     SepCheckCreateLowBox @ 0x1407F4414 (SepCheckCreateLowBox.c)
+ *     SepIsParentOfChildAppContainer @ 0x1409D19E4 (SepIsParentOfChildAppContainer.c)
+ * Callees:
+ *     RtlSubAuthoritySid @ 0x140297AD0 (RtlSubAuthoritySid.c)
+ *     RtlGetAppContainerSidType @ 0x1407F43A0 (RtlGetAppContainerSidType.c)
+ */
+
+char __fastcall RtlIsParentOfChildAppContainer(PSID Sid, PSID a2)
+{
+  ULONG v4; // edi
+  PULONG v5; // rbx
+  int v7; // [rsp+40h] [rbp+18h] BYREF
+
+  v7 = 0;
+  if ( (int)RtlGetAppContainerSidType((char *)Sid, &v7) >= 0
+    && v7 == 2
+    && (int)RtlGetAppContainerSidType((char *)a2, &v7) >= 0
+    && v7 == 1 )
+  {
+    v4 = 1;
+    while ( 1 )
+    {
+      v5 = RtlSubAuthoritySid(Sid, v4);
+      if ( *v5 != *RtlSubAuthoritySid(a2, v4) )
+        break;
+      if ( ++v4 >= 8 )
+        return 1;
+    }
+  }
+  return 0;
+}

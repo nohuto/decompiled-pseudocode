@@ -1,0 +1,55 @@
+/*
+ * XREFs of IoFreeMapRegistersV3 @ 0x14043EBE0
+ * Callers:
+ *     IoFreeAdapterChannelV3Internal @ 0x14043EB84 (IoFreeAdapterChannelV3Internal.c)
+ *     HalPutScatterGatherListV3 @ 0x14043ED84 (HalPutScatterGatherListV3.c)
+ *     IoFreeMapRegistersThunk @ 0x140579C10 (IoFreeMapRegistersThunk.c)
+ * Callees:
+ *     KiLowerIrqlProcessIrqlFlags @ 0x140246770 (KiLowerIrqlProcessIrqlFlags.c)
+ *     HalpDmaFreeMapRegisters @ 0x140359820 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x14043E9DC (HalpDmaProcessMapRegisterQueueV3.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ */
+
+char __fastcall IoFreeMapRegistersV3(__int64 a1, __int64 a2, unsigned int a3)
+{
+  __int64 v3; // r15
+  __int64 v6; // rsi
+  char v7; // di
+  unsigned __int8 CurrentIrql; // bl
+  __int64 v9; // rdx
+  char result; // al
+
+  v3 = *(_QWORD *)(a1 + 160);
+  v6 = a1;
+  if ( v3 && a2 )
+  {
+    v7 = 0;
+    CurrentIrql = 0;
+    v9 = 2LL;
+    if ( KeGetCurrentIrql() < 2u )
+    {
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql != 2 )
+        __writecr8(2uLL);
+      if ( KiIrqlFlags )
+      {
+        LOBYTE(a1) = CurrentIrql;
+        KiRaiseIrqlProcessIrqlFlags(a1, 2LL);
+      }
+      v7 = 1;
+    }
+    if ( a3 )
+      HalpDmaFreeMapRegisters(v6, a2, a3);
+    LOBYTE(v9) = *(_BYTE *)(v6 + 442);
+    result = HalpDmaProcessMapRegisterQueueV3(v3, v9);
+    if ( v7 )
+    {
+      if ( KiIrqlFlags )
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), CurrentIrql);
+      result = CurrentIrql;
+      __writecr8(CurrentIrql);
+    }
+  }
+  return result;
+}

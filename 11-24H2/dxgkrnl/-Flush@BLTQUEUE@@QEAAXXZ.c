@@ -1,0 +1,40 @@
+/*
+ * XREFs of ?Flush@BLTQUEUE@@QEAAXXZ @ 0x1403D6D88
+ * Callers:
+ *     ?DxgkCheckPairedRenderAdapterForStopCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z @ 0x14018EBD0 (-DxgkCheckPairedRenderAdapterForStopCallBack@@YAJPEAVDXGADAPTER@@PEAX@Z.c)
+ *     ?SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z @ 0x140283034 (-SetQueuedPresentLimit@BLTQUEUE@@QEAAXI@Z.c)
+ *     ?RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z @ 0x14028F8B0 (-RemoveVidPnOwnership@ADAPTER_DISPLAY@@QEAAXI@Z.c)
+ *     ?Flush@DXGDODPRESENT@@QEAAXXZ @ 0x1403D6D48 (-Flush@DXGDODPRESENT@@QEAAXXZ.c)
+ * Callees:
+ *     Feature_SafeDodBltQueueAccesses__private_IsEnabledDeviceUsageNoInline @ 0x140094408 (Feature_SafeDodBltQueueAccesses__private_IsEnabledDeviceUsageNoInline.c)
+ *     ?IssueCommand@BLTQUEUE@@AEAAJXZ @ 0x14043016C (-IssueCommand@BLTQUEUE@@AEAAJXZ.c)
+ */
+
+void __fastcall BLTQUEUE::Flush(BLTQUEUE *this)
+{
+  __int64 v2; // rsi
+  __int64 v3; // rbx
+
+  if ( *((_QWORD *)this + 89) )
+  {
+    v2 = *((unsigned int *)this + 244);
+    if ( KeReadStateEvent((PRKEVENT)this + 24) )
+      *((_DWORD *)this + 266) |= 1u;
+    *((LARGE_INTEGER *)this + 5 * v2 + 123) = KeQueryPerformanceCounter(0LL);
+    if ( (unsigned int)Feature_SafeDodBltQueueAccesses__private_IsEnabledDeviceUsageNoInline() )
+    {
+      KeWaitForSingleObject((char *)this + 600, Executive, 0, 0, 0LL);
+      *((_DWORD *)this + 169) |= 0x20u;
+      KeReleaseMutex((PRKMUTEX)((char *)this + 600), 0);
+    }
+    else
+    {
+      *((_BYTE *)this + 661) = 1;
+    }
+    BLTQUEUE::IssueCommand(this);
+    *((LARGE_INTEGER *)this + 5 * v2 + 126) = KeQueryPerformanceCounter(0LL);
+    v3 = MEMORY[0xFFFFF78000000320];
+    *((_QWORD *)this + 5 * v2 + 127) = v3 * KeQueryTimeIncrement();
+    *((_DWORD *)this + 244) = ((_BYTE)v2 - 1) & 1;
+  }
+}

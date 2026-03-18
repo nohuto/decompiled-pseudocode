@@ -1,0 +1,20 @@
+/*
+ * XREFs of ?AllocateAt@VIDMM_LINEAR_POOL@@QEAAJT_LARGE_INTEGER@@_KPEAXPEAPEAX@Z @ 0x1C00B19B4
+ * Callers:
+ *     ?ReAllocateOldResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z @ 0x1C00AB404 (-ReAllocateOldResource@VIDMM_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@E@Z.c)
+ *     ?MarkMemoryBlocks@VIDMM_LINEAR_POOL@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z @ 0x1C00B2850 (-MarkMemoryBlocks@VIDMM_LINEAR_POOL@@QEAAJW4_VIDMM_POOL_BLOCK_STATE@@IPEAU_DXGK_MEMORYRANGE@@@Z.c)
+ * Callees:
+ *     ?Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z @ 0x1C0050454 (-Allocate@VIDMM_LINEAR_POOL@@QEAAJ_KKE00EEPEAXPEAT_LARGE_INTEGER@@PEAPEAX@Z.c)
+ */
+
+__int64 __fastcall VIDMM_LINEAR_POOL::AllocateAt(
+        VIDMM_LINEAR_POOL *this,
+        union _LARGE_INTEGER a2,
+        __int64 a3,
+        void *a4,
+        void **a5)
+{
+  union _LARGE_INTEGER v6; // [rsp+78h] [rbp+10h] BYREF
+
+  return VIDMM_LINEAR_POOL::Allocate(this, a3, 0, 1, a2.QuadPart, a2.QuadPart + a3, 0, 0, a4, &v6, a5);
+}

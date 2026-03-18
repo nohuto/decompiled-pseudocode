@@ -1,0 +1,45 @@
+/*
+ * XREFs of ??$FindProperty@UPresentedContentUpdateFlags@@@CFlipPropertySetBase@@QEAAXPEAPEAUPresentedContentUpdateFlags@@@Z @ 0x1C006AFE8
+ * Callers:
+ *     ?PrepareUpdateTokensForDwm@CEndpointResourceStateManager@@QEAAJPEAUFlipManagerObject@@PEAVCFlipPropertySet@@AEAU_LIST_ENTRY@@@Z @ 0x1C006C258 (-PrepareUpdateTokensForDwm@CEndpointResourceStateManager@@QEAAJPEAUFlipManagerObject@@PEAVCFlipP.c)
+ *     ?ApplyPresentAttributeMetadataToUpdateToken@CContentResourceState@@IEAAXPEAVCFlipPropertySet@@PEAVCFlipContentToken@@@Z @ 0x1C006D490 (-ApplyPresentAttributeMetadataToUpdateToken@CContentResourceState@@IEAAXPEAVCFlipPropertySet@@PE.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall CFlipPropertySetBase::FindProperty<PresentedContentUpdateFlags>(__int64 a1, _QWORD *a2)
+{
+  unsigned int v2; // r9d
+  unsigned int v3; // r11d
+  __int64 v4; // r8
+  __int64 v5; // r10
+  __int64 v6; // rax
+  __int64 v7; // rcx
+  bool v8; // zf
+  unsigned int v9; // ecx
+
+  *a2 = 0LL;
+  v2 = 0;
+  v3 = *(_DWORD *)(a1 + 12);
+  v4 = *(_QWORD *)(a1 + 24);
+  if ( v3 )
+  {
+    v5 = *(_QWORD *)(a1 + 16);
+    while ( 1 )
+    {
+      v6 = 32LL * v2;
+      v7 = *(_QWORD *)(v6 + v5) - *(_QWORD *)&GUID_6db60c24_841f_412f_b8c5_83136b5c8f75.Data1;
+      if ( !v7 )
+        v7 = *(_QWORD *)(v6 + v5 + 8) - *(_QWORD *)GUID_6db60c24_841f_412f_b8c5_83136b5c8f75.Data4;
+      v8 = v7 == 0;
+      v9 = *(_DWORD *)(v6 + v5 + 16);
+      if ( v8 && v9 == 2 )
+        break;
+      ++v2;
+      v4 += v9;
+      if ( v2 >= v3 )
+        return;
+    }
+    *a2 = v4;
+  }
+}

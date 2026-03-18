@@ -1,0 +1,127 @@
+/*
+ * XREFs of CcDeletePartition @ 0x14057C6EC
+ * Callers:
+ *     CcGetPartitionWithCreate @ 0x1404DEB40 (CcGetPartitionWithCreate.c)
+ *     CcCreatePartition @ 0x14057C660 (CcCreatePartition.c)
+ *     CcExitPartition @ 0x14057CB90 (CcExitPartition.c)
+ * Callees:
+ *     KeReleaseSpinLock @ 0x14024DD30 (KeReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x140254B20 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x1402725A0 (KeSetEvent.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x140275CD0 (KeReleaseInStackQueuedSpinLock.c)
+ *     CcDereferencePartition @ 0x1402A7F20 (CcDereferencePartition.c)
+ *     DbgPrintEx @ 0x1402CB2F0 (DbgPrintEx.c)
+ *     CcDeleteNumaNode @ 0x1402CBD74 (CcDeleteNumaNode.c)
+ *     CcForEachNumaNode @ 0x1402CBE88 (CcForEachNumaNode.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x1402D8540 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeCancelTimer @ 0x140333B20 (KeCancelTimer.c)
+ *     KeDelayExecutionThread @ 0x14033BC60 (KeDelayExecutionThread.c)
+ *     KeWaitForSingleObject @ 0x14033E960 (KeWaitForSingleObject.c)
+ *     CcDrainDelayDeleteForPartitionExit @ 0x14057C3FC (CcDrainDelayDeleteForPartitionExit.c)
+ *     CcUninitializePartitionVacbs @ 0x14057D4C0 (CcUninitializePartitionVacbs.c)
+ *     ZwWaitForSingleObject @ 0x1406A6490 (ZwWaitForSingleObject.c)
+ *     ZwClose @ 0x1406A65F0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140B72CD0 (ExFreePoolWithTag.c)
+ */
+
+void __fastcall CcDeletePartition(char *P)
+{
+  void *v2; // rbp
+  void *v3; // rcx
+  KIRQL v4; // al
+  void *v5; // rcx
+  _QWORD **v6; // rsi
+  _QWORD *v7; // rbx
+  _QWORD *v8; // rax
+  __int64 v9; // rbx
+  _QWORD **v10; // rbx
+  _QWORD *v11; // rcx
+  _QWORD *v12; // rax
+  struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+30h] [rbp-28h] BYREF
+
+  memset(&LockHandle, 0, sizeof(LockHandle));
+  v2 = 0LL;
+  KeSetEvent((PRKEVENT)(P + 1304), 0, 0);
+  CcDereferencePartition((__int64)P);
+  v3 = (void *)*((_QWORD *)P + 169);
+  if ( v3 )
+  {
+    ZwWaitForSingleObject(v3, 0, 0LL);
+    ZwClose(*((HANDLE *)P + 169));
+    *((_QWORD *)P + 169) = 0LL;
+  }
+  if ( P[1048] )
+  {
+    P[1048] = 0;
+    KeCancelTimer((PKTIMER)(P + 984));
+  }
+  if ( P[1293] )
+  {
+    v4 = KeAcquireSpinLockRaiseToDpc(&CcGlobalPartitionLock);
+    --CcPartitionCount;
+    *(_QWORD *)(*((_QWORD *)P + 1) + 8LL) = 0LL;
+    KeReleaseSpinLock(&CcGlobalPartitionLock, v4);
+  }
+  KeCancelTimer((PKTIMER)(P + 1376));
+  P[1504] = 0;
+  CcDrainDelayDeleteForPartitionExit((__int64)P);
+  if ( CcEnablePerVolumeLazyWriter )
+  {
+    if ( *((_QWORD *)P + 162) )
+    {
+      KeWaitForSingleObject(P + 56, Executive, 0, 0, 0LL);
+      KeAcquireInStackQueuedSpinLock((PKSPIN_LOCK)P + 96, &LockHandle);
+      KeReleaseInStackQueuedSpinLock(&LockHandle);
+    }
+    if ( CcEnablePerVolumeLazyWriter )
+    {
+      while ( *((char **)P + 12) == P + 96 )
+        KeDelayExecutionThread(0, 0, &Cc10Milliseconds);
+    }
+  }
+  v5 = (void *)*((_QWORD *)P + 142);
+  if ( v5 )
+  {
+    ExFreePoolWithTag(v5, 0x70546343u);
+    *((_QWORD *)P + 142) = 0LL;
+  }
+  CcUninitializePartitionVacbs(P);
+  if ( !CcEnablePerVolumeLazyWriter )
+    CcForEachNumaNode((__int64)CcUnInitializeAsyncReadForNodeHelper, (__int64)P, 0LL, 0LL);
+  v6 = (_QWORD **)(P + 16);
+  while ( 1 )
+  {
+    v7 = *v6;
+    if ( *v6 == v6 )
+      break;
+    if ( (_QWORD **)v7[1] != v6 || (v8 = (_QWORD *)*v7, *(_QWORD **)(*v7 + 8LL) != v7) )
+LABEL_31:
+      __fastfail(3u);
+    *v6 = v8;
+    v9 = (__int64)(v7 - 4);
+    v8[1] = v6;
+    CcDeleteNumaNode(v9);
+    if ( v2 )
+      v9 = (__int64)v2;
+    v2 = (void *)v9;
+  }
+  if ( v2 )
+    ExFreePoolWithTag(v2, 0x754E6343u);
+  v10 = (_QWORD **)(P + 96);
+  while ( 1 )
+  {
+    v11 = *v10;
+    if ( *v10 == v10 )
+      break;
+    if ( (_QWORD **)v11[1] != v10 )
+      goto LABEL_31;
+    v12 = (_QWORD *)*v11;
+    if ( *(_QWORD **)(*v11 + 8LL) != v11 )
+      goto LABEL_31;
+    *v10 = v12;
+    v12[1] = v10;
+    ExFreePoolWithTag(v11, 0x71576343u);
+  }
+  DbgPrintEx(0x7Fu, 2u, "CcDeletePartition: Partition Deleted=%p, PartitionObject=%p \n", P, *((const void **)P + 1));
+  ExFreePoolWithTag(P, 0x72506343u);
+}

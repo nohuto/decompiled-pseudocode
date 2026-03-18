@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierKeInitializeDeviceQueue @ 0x140A8EDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14042A5E0 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierKeInitializeDeviceQueue()
+{
+  return ((__int64 (*)(void))pXdvKeInitializeDeviceQueue)();
+}

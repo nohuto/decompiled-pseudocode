@@ -1,0 +1,44 @@
+/*
+ * XREFs of IopIoRingCompleteIrp @ 0x1402A2964
+ * Callers:
+ *     IopfCompleteRequest @ 0x140251740 (IopfCompleteRequest.c)
+ *     IopCompleteRequest @ 0x14029FD20 (IopCompleteRequest.c)
+ *     IopSynchronousServiceTail @ 0x1408C5420 (IopSynchronousServiceTail.c)
+ * Callees:
+ *     IopDequeueIrpFromThread @ 0x140252C50 (IopDequeueIrpFromThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140257820 (ObfDereferenceObjectWithTag.c)
+ *     IopDropIrp @ 0x140283AE0 (IopDropIrp.c)
+ *     IopDequeueIrpFromFileObject @ 0x140284230 (IopDequeueIrpFromFileObject.c)
+ *     IopUpdateIrpTransferCount @ 0x1402A1480 (IopUpdateIrpTransferCount.c)
+ *     IopProcessBufferedIoCompletion @ 0x1402A2A40 (IopProcessBufferedIoCompletion.c)
+ *     IopCompleteIoRingEntry @ 0x1402A2AE0 (IopCompleteIoRingEntry.c)
+ *     IopMcReleaseMdl @ 0x14059F578 (IopMcReleaseMdl.c)
+ */
+
+void __fastcall IopIoRingCompleteIrp(PIRP Irp, ULONG_PTR a2, unsigned int a3)
+{
+  unsigned __int64 v3; // rsi
+  void *v4; // rbp
+
+  v3 = 0LL;
+  v4 = (void *)((unsigned __int64)Irp->Overlay.AsynchronousParameters.UserApcContext & 0xFFFFFFFFFFFFFFF8uLL);
+  if ( (Irp->Flags & 0x2000) != 0 )
+    v3 = Irp->Overlay.AllocationSize.QuadPart & 0xFFFFFFFFFFFFFFF9uLL;
+  IopProcessBufferedIoCompletion(Irp);
+  if ( a2 )
+    *(_DWORD *)(a2 + 56) = Irp->IoStatus.Status;
+  IopUpdateIrpTransferCount((__int64)Irp, v3);
+  if ( (Irp->Flags & 0x2000) != 0 )
+    IopDequeueIrpFromFileObject((__int64)Irp, a2);
+  else
+    IopDequeueIrpFromThread(Irp);
+  IopCompleteIoRingEntry(v4, Irp->UserIosb, &Irp->IoStatus, a3);
+  if ( (*(_DWORD *)(&Irp->Overlay.AllocationSize + 1) & 1) != 0 )
+  {
+    IopMcReleaseMdl((ULONG_PTR)Irp->MdlAddress);
+    Irp->MdlAddress = 0LL;
+  }
+  ObfDereferenceObjectWithTag(v4, 0x49526F49u);
+  Irp->Flags &= ~0x200000u;
+  IopDropIrp(Irp, a2);
+}

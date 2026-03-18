@@ -1,0 +1,145 @@
+/*
+ * XREFs of RtlRaiseStatus @ 0x14025AB10
+ * Callers:
+ *     RtlpxVirtualUnwind @ 0x140259250 (RtlpxVirtualUnwind.c)
+ *     RtlpUnwindPrologue @ 0x140259E60 (RtlpUnwindPrologue.c)
+ *     RtlRaiseStatus @ 0x14025AB10 (RtlRaiseStatus.c)
+ *     CcMapAndRead @ 0x14025AE80 (CcMapAndRead.c)
+ *     RtlpLookupDynamicUserFunctionTable @ 0x14025BA28 (RtlpLookupDynamicUserFunctionTable.c)
+ *     RtlUnwindEx @ 0x14025C330 (RtlUnwindEx.c)
+ *     RtlDispatchException @ 0x14025CE90 (RtlDispatchException.c)
+ *     KiInitializeUserApc @ 0x140260620 (KiInitializeUserApc.c)
+ *     KeWaitForMultipleObjects @ 0x14027C240 (KeWaitForMultipleObjects.c)
+ *     KiWaitForAllObjects @ 0x14027DDF0 (KiWaitForAllObjects.c)
+ *     KeReleaseSemaphore @ 0x14027FE40 (KeReleaseSemaphore.c)
+ *     KeReleaseSemaphoreEx @ 0x1402838B8 (KeReleaseSemaphoreEx.c)
+ *     AlpcpSignal @ 0x140284330 (AlpcpSignal.c)
+ *     KeWaitForSingleObject @ 0x14029C6A0 (KeWaitForSingleObject.c)
+ *     NtSetInformationFile @ 0x1402A04A0 (NtSetInformationFile.c)
+ *     MmProbeAndLockSelectedPages @ 0x1402AABA0 (MmProbeAndLockSelectedPages.c)
+ *     CcMdlWriteComplete2 @ 0x1402D2A60 (CcMdlWriteComplete2.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x1402D4D60 (IopAllocateAndPopulateWriteIrp.c)
+ *     MmProbeAndLockPages @ 0x1402D5660 (MmProbeAndLockPages.c)
+ *     CcZeroDataInCache @ 0x1402D5AD0 (CcZeroDataInCache.c)
+ *     CcPinFileData @ 0x1402D7150 (CcPinFileData.c)
+ *     MiAllocatePool @ 0x1402DA740 (MiAllocatePool.c)
+ *     ExAllocatePoolMm @ 0x1402DA890 (ExAllocatePoolMm.c)
+ *     ExAllocateHeapPool @ 0x1402DAB20 (ExAllocateHeapPool.c)
+ *     KeReleaseMutantEx @ 0x1402F09B0 (KeReleaseMutantEx.c)
+ *     AlpcpSignalAndWait @ 0x140308E00 (AlpcpSignalAndWait.c)
+ *     RtlIsNameInExpression @ 0x14030F100 (RtlIsNameInExpression.c)
+ *     RtlIsNameInUnUpcasedExpression @ 0x14030F180 (RtlIsNameInUnUpcasedExpression.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x14030F240 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlAreNamesEqual @ 0x1403104F0 (RtlAreNamesEqual.c)
+ *     FsRtlPrivateLock @ 0x140373FB0 (FsRtlPrivateLock.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x140374D3C (FsRtlPrivateInitializeFileLock.c)
+ *     CcZeroData @ 0x1403A6B60 (CcZeroData.c)
+ *     CcPrepareMdlWrite @ 0x1403A6EA0 (CcPrepareMdlWrite.c)
+ *     CcAsyncCopyRead @ 0x1403AAC00 (CcAsyncCopyRead.c)
+ *     CcGetVacbMiss @ 0x1403B3D50 (CcGetVacbMiss.c)
+ *     CcZeroDataOnDisk @ 0x1403BEDF0 (CcZeroDataOnDisk.c)
+ *     PsChargePoolQuota @ 0x1403C5CC0 (PsChargePoolQuota.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1403D28E0 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlAddEntry @ 0x1403D2ED0 (FsRtlAddEntry.c)
+ *     RtlpUnwindOpSlots @ 0x1403F25B0 (RtlpUnwindOpSlots.c)
+ *     FsRtlInitializeLargeMcb @ 0x1403F2BD0 (FsRtlInitializeLargeMcb.c)
+ *     FsRtlInitializeBaseMcbEx @ 0x1403F2C40 (FsRtlInitializeBaseMcbEx.c)
+ *     MiProbeAndLockPages @ 0x1404011D0 (MiProbeAndLockPages.c)
+ *     CcCopyToCacheHelper @ 0x140404E90 (CcCopyToCacheHelper.c)
+ *     CcInitializeCacheMapInternal @ 0x14045E3B0 (CcInitializeCacheMapInternal.c)
+ *     InitializeSListHead @ 0x140460EA0 (InitializeSListHead.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x140483600 (RtlpLookupPrimaryFunctionEntry.c)
+ *     KeSuspendThread @ 0x1404875A0 (KeSuspendThread.c)
+ *     CcSetFileSizesEx @ 0x1404A5BD0 (CcSetFileSizesEx.c)
+ *     CcCopyReadEx @ 0x1404DC880 (CcCopyReadEx.c)
+ *     CcMapAndCopyInToCache @ 0x1404DDB50 (CcMapAndCopyInToCache.c)
+ *     FsRtlAllocatePool @ 0x14057D100 (FsRtlAllocatePool.c)
+ *     FsRtlAllocatePoolWithQuota @ 0x14057D130 (FsRtlAllocatePoolWithQuota.c)
+ *     FsRtlAllocatePoolWithQuotaTag @ 0x14057D160 (FsRtlAllocatePoolWithQuotaTag.c)
+ *     FsRtlAllocatePoolWithTag @ 0x14057D190 (FsRtlAllocatePoolWithTag.c)
+ *     FsRtlpPostStackOverflow @ 0x14057E9FC (FsRtlpPostStackOverflow.c)
+ *     RtlRaiseException @ 0x1405DC840 (RtlRaiseException.c)
+ *     DifExRaiseStatusWrapper @ 0x140613C70 (DifExRaiseStatusWrapper.c)
+ *     _purecall @ 0x14064C5F0 (_purecall.c)
+ *     MiZeroPageCalibrate @ 0x140688A2C (MiZeroPageCalibrate.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x1407068A0 (IopSetEaOrQuotaInformationFile.c)
+ *     IopSetFileObjectIosbRange @ 0x140706CF8 (IopSetFileObjectIosbRange.c)
+ *     NtQueryQuotaInformationFile @ 0x14070BB10 (NtQueryQuotaInformationFile.c)
+ *     ObpInitStackAndObjectTables @ 0x140739038 (ObpInitStackAndObjectTables.c)
+ *     EtwpInitializeStackLookasideList @ 0x14079C078 (EtwpInitializeStackLookasideList.c)
+ *     EtwpInitializeLastBranchTracing @ 0x1407A2524 (EtwpInitializeLastBranchTracing.c)
+ *     NtSetUuidSeed @ 0x1407B1650 (NtSetUuidSeed.c)
+ *     CmpInitCallbacks @ 0x1407C2288 (CmpInitCallbacks.c)
+ *     RtlRunOnceExecuteOnce @ 0x140825180 (RtlRunOnceExecuteOnce.c)
+ *     ExRaiseDatatypeMisalignment @ 0x14085AF60 (ExRaiseDatatypeMisalignment.c)
+ *     IopXxxControlFile @ 0x1408C3AD0 (IopXxxControlFile.c)
+ *     BuildQueryDirectoryIrp @ 0x1408C6A20 (BuildQueryDirectoryIrp.c)
+ *     IopCreateFile @ 0x1408EE530 (IopCreateFile.c)
+ *     MiMapLockedPagesInUserSpace @ 0x1408F8DEC (MiMapLockedPagesInUserSpace.c)
+ *     NtQueryEaFile @ 0x140935870 (NtQueryEaFile.c)
+ *     IopReadFile @ 0x140935F80 (IopReadFile.c)
+ *     ExRaiseAccessViolation @ 0x140936B90 (ExRaiseAccessViolation.c)
+ *     NtQueryVolumeInformationFile @ 0x140936F60 (NtQueryVolumeInformationFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x14098A4B0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtQueryMultipleValueKey @ 0x140995DD0 (NtQueryMultipleValueKey.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x14099F4B0 (IoCreateStreamFileObjectEx2.c)
+ *     NtSetEaFile @ 0x140A5F1F0 (NtSetEaFile.c)
+ *     IopReadFileScatter @ 0x140A89998 (IopReadFileScatter.c)
+ *     IopWriteFileGather @ 0x140A9170C (IopWriteFileGather.c)
+ *     CcMapAndCopyFromCache @ 0x140ABF7A0 (CcMapAndCopyFromCache.c)
+ *     CcMdlRead @ 0x140ABFBF0 (CcMdlRead.c)
+ *     PopEndMirroring @ 0x140B54550 (PopEndMirroring.c)
+ *     ExAllocatePool2 @ 0x140B620F0 (ExAllocatePool2.c)
+ *     ExAllocatePool3 @ 0x140B64430 (ExAllocatePool3.c)
+ *     VerifierExAllocatePool @ 0x140B81090 (VerifierExAllocatePool.c)
+ *     VerifierExAllocatePool2 @ 0x140B811B0 (VerifierExAllocatePool2.c)
+ *     VerifierExAllocatePool3 @ 0x140B81300 (VerifierExAllocatePool3.c)
+ *     VerifierExAllocatePoolWithQuota @ 0x140B814A0 (VerifierExAllocatePoolWithQuota.c)
+ *     VerifierExAllocatePoolWithQuotaTag @ 0x140B81540 (VerifierExAllocatePoolWithQuotaTag.c)
+ *     VerifierExAllocatePoolWithTag @ 0x140B815E0 (VerifierExAllocatePoolWithTag.c)
+ *     VerifierExAllocatePoolWithTagPriority @ 0x140B81700 (VerifierExAllocatePoolWithTagPriority.c)
+ *     ViRlrsMmProbeAndLockProcessPages_Entry @ 0x140B8F7F0 (ViRlrsMmProbeAndLockProcessPages_Entry.c)
+ *     VerifierMmMapLockedPagesSpecifyCache @ 0x140B90B60 (VerifierMmMapLockedPagesSpecifyCache.c)
+ *     VfHandlePoolAlloc @ 0x140B98AC0 (VfHandlePoolAlloc.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140BFF394 (HalpDmaAllocateReservedMappingArray.c)
+ *     ExpWorkerFactoryInitialization @ 0x140C324E4 (ExpWorkerFactoryInitialization.c)
+ *     WheapInitializeEventing @ 0x140C33838 (WheapInitializeEventing.c)
+ *     MiInitNucleus @ 0x140C3E068 (MiInitNucleus.c)
+ *     MiInitializeSystemPteTracker @ 0x140C4AF08 (MiInitializeSystemPteTracker.c)
+ *     MiInitializeDecayPfns @ 0x140C4AF58 (MiInitializeDecayPfns.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x14025AB10 (RtlRaiseStatus.c)
+ *     RtlRaiseNoncontinuableException @ 0x1404FA8F0 (RtlRaiseNoncontinuableException.c)
+ *     memset_0 @ 0x1406B4D40 (memset_0.c)
+ */
+
+void __fastcall __noreturn RtlRaiseStatus(int a1)
+{
+  __int64 v2; // r8
+  char v3; // bl
+  unsigned int v4; // eax
+  __int64 v5; // rdx
+  __int64 v6; // r9
+  _DWORD v7[2]; // [rsp+20h] [rbp-578h] BYREF
+  __int64 v8; // [rsp+28h] [rbp-570h]
+  __int64 v9; // [rsp+30h] [rbp-568h]
+  int v10; // [rsp+38h] [rbp-560h]
+  _BYTE v11[132]; // [rsp+3Ch] [rbp-55Ch] BYREF
+  _BYTE v12[1240]; // [rsp+C0h] [rbp-4D8h] BYREF
+
+  memset_0(v11, 0, 0x7CuLL);
+  v8 = 0LL;
+  v10 = 0;
+  v9 = -1LL;
+  v7[0] = a1;
+  v3 = 1;
+  v7[1] = 129;
+  do
+  {
+    LOBYTE(v2) = v3;
+    v4 = RtlRaiseNoncontinuableException(v7, v12, v2);
+    --v3;
+  }
+  while ( !v3 );
+  RtlRaiseStatus(v4, v5, v2, v6);
+}

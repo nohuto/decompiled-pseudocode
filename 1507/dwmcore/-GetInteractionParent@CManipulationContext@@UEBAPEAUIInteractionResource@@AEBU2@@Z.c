@@ -1,0 +1,14 @@
+/*
+ * XREFs of ?GetInteractionParent@CManipulationContext@@UEBAPEAUIInteractionResource@@AEBU2@@Z @ 0x180130190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ @ 0x180097F10 (-OnAnimationStop@ConstantInput@Animations@Components@@UEAAXXZ.c)
+ */
+
+struct IInteractionResource *__fastcall CManipulationContext::GetInteractionParent(
+        CManipulationContext *this,
+        const struct IInteractionResource *a2)
+{
+  return (struct IInteractionResource *)(*(__int64 (__fastcall **)(const struct IInteractionResource *))(*(_QWORD *)a2 + 88LL))(a2);
+}

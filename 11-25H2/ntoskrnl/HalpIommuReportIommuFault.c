@@ -1,0 +1,22 @@
+/*
+ * XREFs of HalpIommuReportIommuFault @ 0x1404B6910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuTraceFault @ 0x1404B695C (HalpIommuTraceFault.c)
+ *     KeBugCheckEx @ 0x1404F9280 (KeBugCheckEx.c)
+ */
+
+__int64 __fastcall HalpIommuReportIommuFault(ULONG_PTR BugCheckParameter2, __int64 a2)
+{
+  __int64 result; // rax
+  ULONG_PTR v3; // r10
+
+  result = (unsigned int)HalpIommuRootIommuFaultPolicy;
+  v3 = *(_QWORD *)(a2 + 16);
+  if ( HalpIommuRootIommuFaultPolicy == 1 )
+    return HalpIommuTraceFault(BugCheckParameter2, v3, *(unsigned int *)(a2 + 28), *(unsigned int *)(a2 + 40));
+  if ( !HalpIommuRootIommuFaultPolicy )
+    KeBugCheckEx(0xE6u, 0x26uLL, BugCheckParameter2, v3, *(unsigned int *)(a2 + 28));
+  return result;
+}

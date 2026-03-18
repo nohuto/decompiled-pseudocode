@@ -1,0 +1,134 @@
+/*
+ * XREFs of ?ProcessUpdate@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@PEBUMILCMD_LINEARGRADIENTLEGACYMILBRUSH@@PEBXI@Z @ 0x18017AE68
+ * Callers:
+ *     ?ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@@Z @ 0x1800ABB40 (-ProcessCommandBatch@CComposition@@IEAAJPEBXIPEAVCChannelContext@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x180076954 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800A9B40 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ?GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z @ 0x1800AA2B0 (-GetResource@CResourceTable@@QEBAPEAVCResource@@IW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     memcpy_0 @ 0x1800C5D86 (memcpy_0.c)
+ *     ?RegisterNotifiers@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z @ 0x18017BA58 (-RegisterNotifiers@CLinearGradientLegacyMilBrush@@QEAAJPEAVCResourceTable@@@Z.c)
+ *     ?UnRegisterNotifiers@CLinearGradientLegacyMilBrush@@UEAAXXZ @ 0x18017BF60 (-UnRegisterNotifiers@CLinearGradientLegacyMilBrush@@UEAAXXZ.c)
+ */
+
+__int64 __fastcall CLinearGradientLegacyMilBrush::ProcessUpdate(
+        CLinearGradientLegacyMilBrush *this,
+        struct CResourceTable *a2,
+        const struct MILCMD_LINEARGRADIENTLEGACYMILBRUSH *a3,
+        const void *a4,
+        unsigned int a5)
+{
+  __m128d v8; // xmm6
+  __m128i v9; // xmm7
+  unsigned int v10; // edx
+  __int64 Resource; // rax
+  signed int v12; // edi
+  __int64 v13; // rax
+  struct CResourceTable *v14; // rdx
+  __int64 v15; // rax
+  void **v16; // r15
+  LPVOID v17; // rax
+  signed int v18; // eax
+  _BYTE dwBytes[44]; // [rsp+58h] [rbp-11h]
+
+  v8 = *(__m128d *)a3;
+  v9 = *((__m128i *)a3 + 1);
+  *(_OWORD *)dwBytes = *((_OWORD *)a3 + 2);
+  *(_QWORD *)&dwBytes[32] = *((_QWORD *)a3 + 8);
+  *(_OWORD *)&dwBytes[16] = *((_OWORD *)a3 + 3);
+  *(_DWORD *)&dwBytes[40] = *((_DWORD *)a3 + 18);
+  CLinearGradientLegacyMilBrush::UnRegisterNotifiers(this);
+  v10 = _mm_cvtsi128_si32(v9);
+  *((_QWORD *)this + 11) = *(_OWORD *)&_mm_unpackhi_pd(v8, v8);
+  if ( v10 )
+  {
+    Resource = CResourceTable::GetResource((__int64)a2, v10, 0x2Au);
+    *((_QWORD *)this + 12) = Resource;
+    if ( !Resource )
+    {
+      v12 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, 0x88980403, 0x4C6u);
+LABEL_24:
+      CLinearGradientLegacyMilBrush::UnRegisterNotifiers(this);
+      goto LABEL_25;
+    }
+  }
+  else
+  {
+    *((_QWORD *)this + 12) = 0LL;
+  }
+  if ( v9.m128i_i32[1] )
+  {
+    v13 = CResourceTable::GetResource((__int64)a2, v9.m128i_u32[1], 0x7Fu);
+    *((_QWORD *)this + 13) = v13;
+    if ( !v13 )
+    {
+      v12 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, 0x88980403, 0x4D9u);
+      goto LABEL_24;
+    }
+  }
+  else
+  {
+    *((_QWORD *)this + 13) = 0LL;
+  }
+  v14 = (struct CResourceTable *)v9.m128i_u32[2];
+  if ( v9.m128i_i32[2] )
+  {
+    v15 = CResourceTable::GetResource((__int64)a2, v9.m128i_u32[2], 0x7Fu);
+    *((_QWORD *)this + 14) = v15;
+    if ( !v15 )
+    {
+      v12 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, 0x88980403, 0x4EBu);
+      goto LABEL_24;
+    }
+  }
+  else
+  {
+    *((_QWORD *)this + 14) = 0LL;
+  }
+  *((_DWORD *)this + 30) = v9.m128i_i32[3];
+  *(_QWORD *)((char *)this + 124) = *(_QWORD *)dwBytes;
+  *((_OWORD *)this + 9) = *(_OWORD *)&dwBytes[12];
+  *((_OWORD *)this + 10) = *(_OWORD *)&dwBytes[28];
+  if ( *(_DWORD *)&dwBytes[8] )
+  {
+    if ( *(_DWORD *)&dwBytes[8] > a5 || *(unsigned int *)&dwBytes[8] != 24 * (*(unsigned int *)&dwBytes[8] / 0x18uLL) )
+    {
+      v12 = -2003303421;
+      MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, 0x88980403, 0x502u);
+      goto LABEL_24;
+    }
+    v16 = (void **)((char *)this + 136);
+    v12 = 0;
+    if ( this == (CLinearGradientLegacyMilBrush *)-136LL )
+    {
+      v12 = -2147024809;
+    }
+    else
+    {
+      v17 = HeapAlloc(WPF::g_processHeap, 0, *(unsigned int *)&dwBytes[8]);
+      *v16 = v17;
+      if ( !v17 )
+        v12 = -2147024882;
+    }
+    if ( v12 < 0 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v12, 0x508u);
+      goto LABEL_24;
+    }
+    memcpy_0(*v16, a4, *(unsigned int *)&dwBytes[8]);
+    *((_DWORD *)this + 33) = *(_DWORD *)&dwBytes[8];
+  }
+  v18 = CLinearGradientLegacyMilBrush::RegisterNotifiers(this, v14);
+  v12 = v18;
+  if ( v18 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(20LL, 0LL, 0, v18, 0x514u);
+    goto LABEL_24;
+  }
+LABEL_25:
+  CResource::NotifyOnChanged(this, 0, 0LL);
+  return (unsigned int)v12;
+}

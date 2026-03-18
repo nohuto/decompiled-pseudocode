@@ -1,0 +1,92 @@
+/*
+ * XREFs of RtlCopyContext @ 0x14064CDA0
+ * Callers:
+ *     PspWow64SetContextThread @ 0x1404A4990 (PspWow64SetContextThread.c)
+ *     PspWow64GetContextThread @ 0x1404A4C94 (PspWow64GetContextThread.c)
+ * Callees:
+ *     RtlpCopyLegacyContext @ 0x14002B31C (RtlpCopyLegacyContext.c)
+ *     RtlpValidateContextFlags @ 0x14002B50C (RtlpValidateContextFlags.c)
+ *     RtlpGetContextFlagsLocation @ 0x1400E1354 (RtlpGetContextFlagsLocation.c)
+ *     RtlpCopyXStateChunk @ 0x1400E7F48 (RtlpCopyXStateChunk.c)
+ */
+
+__int64 __fastcall RtlCopyContext(__int64 a1, int a2, __int64 a3)
+{
+  __int64 v6; // rdi
+  __int64 v7; // rbp
+  __int64 result; // rax
+  int v9; // r12d
+  int v10; // esi
+  int v11; // esi
+  __int64 v12; // rcx
+  unsigned int v13; // ebx
+  int v14; // [rsp+30h] [rbp-38h] BYREF
+  int *ContextFlagsLocation; // [rsp+38h] [rbp-30h]
+  int v16; // [rsp+88h] [rbp+20h] BYREF
+
+  v6 = 0LL;
+  v7 = 0LL;
+  result = RtlpValidateContextFlags(a2, 0LL);
+  if ( (int)result >= 0 )
+  {
+    ContextFlagsLocation = (int *)RtlpGetContextFlagsLocation(a1, a2);
+    v9 = *ContextFlagsLocation;
+    v10 = *(_DWORD *)RtlpGetContextFlagsLocation(a3, a2);
+    result = RtlpValidateContextFlags(a2 | v10 | (unsigned int)v9, 0LL);
+    if ( (int)result >= 0 )
+    {
+      v11 = a2 & v10;
+      result = RtlpValidateContextFlags(v11, &v14);
+      if ( (int)result >= 0 )
+      {
+        result = RtlpValidateContextFlags(v9, &v16);
+        v13 = result;
+        if ( (int)result >= 0 )
+        {
+          if ( (~v16 & v14) != 0 )
+          {
+            return 2147483653LL;
+          }
+          else
+          {
+            LOBYTE(v12) = 1;
+            RtlpCopyLegacyContext(v12, a1, v11);
+            *ContextFlagsLocation |= v9;
+            if ( (v16 & 0xFFFFFFFE) != 0 )
+            {
+              if ( (v11 & 0x10000) != 0 )
+              {
+                v7 = a3 + 716;
+                v6 = a1 + 716;
+                if ( (v9 & 0x10020) != 65568 && (v11 & 0x10020) == 65568 )
+                  *(_DWORD *)(a1 + 728) = 716;
+              }
+              else if ( (a2 & 0x100000) != 0 )
+              {
+                v7 = a3 + 1232;
+                v6 = a1 + 1232;
+              }
+              else if ( (a2 & 0x200000) != 0 )
+              {
+                v7 = a3 + 416;
+                v6 = a1 + 416;
+              }
+              else if ( (a2 & 0x400000) != 0 )
+              {
+                v7 = a3 + 912;
+                v6 = a1 + 912;
+              }
+            }
+            if ( (v14 & 2) == 0 )
+              return v13;
+            result = RtlpCopyXStateChunk(1, v6, v6, v7, v7);
+            v13 = result;
+            if ( (int)result >= 0 )
+              return v13;
+          }
+        }
+      }
+    }
+  }
+  return result;
+}

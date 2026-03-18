@@ -1,0 +1,17 @@
+/*
+ * XREFs of ??1UNDOENGUPDATEDEVICESURFACE@@QEAA@XZ @ 0x1C0157314
+ * Callers:
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C0083518 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ?GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z @ 0x1C01571D4 (-GdiUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
+void __fastcall UNDOENGUPDATEDEVICESURFACE::~UNDOENGUPDATEDEVICESURFACE(UNDOENGUPDATEDEVICESURFACE *this)
+{
+  __int64 v1; // rdx
+
+  v1 = *((_QWORD *)this + 1);
+  if ( v1 )
+    *(_DWORD *)(v1 + 328) ^= (*(_DWORD *)(v1 + 328) ^ *(unsigned __int8 *)this) & 1;
+}

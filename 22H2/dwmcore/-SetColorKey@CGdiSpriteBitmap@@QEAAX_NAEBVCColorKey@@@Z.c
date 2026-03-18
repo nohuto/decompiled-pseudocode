@@ -1,0 +1,35 @@
+/*
+ * XREFs of ?SetColorKey@CGdiSpriteBitmap@@QEAAX_NAEBVCColorKey@@@Z @ 0x1800AA8AC
+ * Callers:
+ *     ?SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z @ 0x1800AA5F0 (-SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z.c)
+ *     ?ProcessSetSourceModifications@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SETSOURCEMODIFICATIONS@@@Z @ 0x1800AB798 (-ProcessSetSourceModifications@CWindowNode@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_WINDOWNODE_SE.c)
+ * Callees:
+ *     ?ReleaseBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ @ 0x1800A9600 (-ReleaseBitmapRealization@CGdiSpriteBitmap@@AEAA_NXZ.c)
+ *     ?IsNonEmpty@CColorKey@@QEBA_NXZ @ 0x1800AB93C (-IsNonEmpty@CColorKey@@QEBA_NXZ.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BC160 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ */
+
+void __fastcall CGdiSpriteBitmap::SetColorKey(CGdiSpriteBitmap *this, char a2, const struct CColorKey *a3)
+{
+  char *v3; // r9
+
+  v3 = (char *)this + 368;
+  if ( a2 != *((_BYTE *)this + 146)
+    || (CColorKey::IsNonEmpty((CGdiSpriteBitmap *)((char *)this + 368)) || CColorKey::IsNonEmpty(a3))
+    && (*(float *)v3 != *(float *)a3
+     || *((float *)v3 + 1) != *((float *)a3 + 1)
+     || *((float *)v3 + 2) != *((float *)a3 + 2)
+     || *((float *)v3 + 3) != *((float *)a3 + 3)
+     || *((float *)v3 + 4) != *((float *)a3 + 4)
+     || *((float *)v3 + 5) != *((float *)a3 + 5)
+     || *((float *)v3 + 6) != *((float *)a3 + 6)
+     || *((float *)v3 + 7) != *((float *)a3 + 7)) )
+  {
+    *((_BYTE *)this + 146) = a2;
+    *(_OWORD *)v3 = *(_OWORD *)a3;
+    *((_OWORD *)v3 + 1) = *((_OWORD *)a3 + 1);
+    *((_DWORD *)v3 + 8) = *((_DWORD *)a3 + 8);
+    if ( CGdiSpriteBitmap::ReleaseBitmapRealization(this) )
+      CResource::NotifyOnChanged(this, 0LL, 0LL);
+  }
+}

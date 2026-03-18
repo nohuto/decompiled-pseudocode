@@ -1,0 +1,30 @@
+/*
+ * XREFs of PipAttemptDependentStart @ 0x14079FD20
+ * Callers:
+ *     PipAttemptDependentsStart @ 0x14090690C (PipAttemptDependentsStart.c)
+ *     PipDeleteAllDependencyRelations @ 0x14090EE9C (PipDeleteAllDependencyRelations.c)
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x140482588 (PnpRequestDeviceAction.c)
+ *     PipCheckForUnsatisfiedDependencies @ 0x14090EF88 (PipCheckForUnsatisfiedDependencies.c)
+ *     PipClearDevNodeProblem @ 0x140914C5C (PipClearDevNodeProblem.c)
+ */
+
+__int64 __fastcall PipAttemptDependentStart(_QWORD *Object)
+{
+  __int64 v2; // rax
+  __int64 v3; // rbx
+
+  if ( !Object )
+    return 3221225473LL;
+  v2 = Object[39];
+  v3 = *(_QWORD *)(v2 + 40);
+  if ( !v3
+    || (*(_DWORD *)(v3 + 396) & 0x2000) == 0
+    || *(_DWORD *)(v3 + 404) != 51
+    || (unsigned __int8)PipCheckForUnsatisfiedDependencies(*(_QWORD *)(v2 + 40), 3LL) )
+  {
+    return 3221225473LL;
+  }
+  PipClearDevNodeProblem(v3);
+  return PnpRequestDeviceAction(Object, 0x10u, 1, 0LL, 0LL, 0LL, 0LL);
+}

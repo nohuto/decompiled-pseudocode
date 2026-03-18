@@ -1,0 +1,244 @@
+/*
+ * XREFs of KeUnstackDetachProcess @ 0x1403C41A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiAcquireThreadLockRaiseToDpc @ 0x140204DB0 (KiAcquireThreadLockRaiseToDpc.c)
+ *     KiReleaseThreadLockLowerIrql @ 0x140204FF0 (KiReleaseThreadLockLowerIrql.c)
+ *     KeSetEvent @ 0x140250100 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x140287200 (KiAcquireKobjectLockSafe.c)
+ *     HalpInterruptSendIpi @ 0x140288640 (HalpInterruptSendIpi.c)
+ *     HalpDisableInterrupts @ 0x140288F50 (HalpDisableInterrupts.c)
+ *     KiDetachProcess @ 0x14028A0A0 (KiDetachProcess.c)
+ *     KiSetAddressPolicy @ 0x14028A690 (KiSetAddressPolicy.c)
+ *     HvlNotifyLongSpinWait @ 0x14032DED0 (HvlNotifyLongSpinWait.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x14032DF00 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x1403C4700 (HvlSwitchVirtualAddressSpace.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1404F1018 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F1088 (KiLowerIrqlProcessIrqlFlags.c)
+ *     KeBugCheck @ 0x1404F9260 (KeBugCheck.c)
+ */
+
+void __stdcall KeUnstackDetachProcess(PRKAPC_STATE ApcState)
+{
+  _KPROCESS *Process; // rax
+  struct _KTHREAD *CurrentThread; // rbx
+  _KPROCESS *v3; // r15
+  unsigned __int8 CurrentIrql; // di
+  int v5; // edi
+  $727077A9B6E167EAE1398C74674DC5A5 *v6; // rdi
+  struct _KTHREAD *Flink; // rdx
+  __int64 v8; // rdx
+  struct _LIST_ENTRY *v9; // rax
+  struct _KPRCB *CurrentPrcb; // rax
+  _KPROCESS *v11; // r8
+  unsigned __int64 GroupIndex; // r14
+  __int64 v13; // rbp
+  unsigned __int64 DirectoryTableBase; // rsi
+  unsigned __int64 v15; // rax
+  unsigned __int64 v16; // rsi
+  bool v17; // al
+  __int64 v18; // r8
+  int v19; // edx
+  bool v20; // r9
+  struct _LIST_ENTRY *Blink; // rax
+  struct _LIST_ENTRY *v22; // rcx
+  unsigned __int64 v23; // rcx
+  unsigned __int8 v24; // si
+  unsigned __int32 Value; // eax
+  unsigned __int32 v26; // ett
+  signed __int64 *p_SwapListEntry; // rdx
+  signed __int64 v28; // rax
+  signed __int64 v29; // rcx
+  unsigned __int64 v30; // rax
+  int v31; // [rsp+20h] [rbp-48h] BYREF
+  __int128 v32; // [rsp+24h] [rbp-44h]
+  unsigned __int8 v33; // [rsp+70h] [rbp+8h] BYREF
+
+  Process = ApcState->Process;
+  if ( Process != (_KPROCESS *)1 )
+  {
+    if ( Process )
+    {
+      KiDetachProcess((__int64)ApcState, 0);
+    }
+    else
+    {
+      CurrentThread = KeGetCurrentThread();
+      v3 = CurrentThread->ApcState.Process;
+      CurrentIrql = KeGetCurrentIrql();
+      __writecr8(2uLL);
+      if ( KiIrqlFlags )
+        KiRaiseIrqlProcessIrqlFlags(CurrentIrql);
+      v33 = CurrentIrql;
+      v5 = 0;
+      while ( _interlockedbittestandset64((volatile signed __int32 *)&CurrentThread->ThreadLock, 0LL) )
+      {
+        do
+        {
+          if ( (++v5 & HvlLongSpinCountMask) == 0
+            && (HvlEnlightenments & 0x40) != 0
+            && KiCheckVpBackingLongSpinWaitHypercall() )
+          {
+            HvlNotifyLongSpinWait();
+          }
+          else
+          {
+            _mm_pause();
+          }
+        }
+        while ( CurrentThread->ThreadLock );
+      }
+      while ( CurrentThread->ApcState.KernelApcPending )
+      {
+        if ( CurrentThread->SpecialApcDisable )
+          break;
+        if ( v33 )
+          break;
+        KiReleaseThreadLockLowerIrql((__int64)CurrentThread, 0);
+        KiAcquireThreadLockRaiseToDpc((__int64)CurrentThread, &v33);
+      }
+      if ( !CurrentThread->ApcStateIndex
+        || (CurrentThread->ApcState.InProgressFlags & 1) != 0
+        || (v6 = &CurrentThread->152, ($727077A9B6E167EAE1398C74674DC5A5 *)v6->ApcState.ApcListHead[0].Flink != v6)
+        || (unsigned __int8 *)CurrentThread->ApcState.ApcListHead[1].Flink != &CurrentThread->ApcStateFill[16] )
+      {
+        KeBugCheck(6u);
+      }
+      CurrentThread->MiscFlags |= 0x800u;
+      CurrentThread->ApcState.Process = CurrentThread->SavedApcState.Process;
+      CurrentThread->ApcState.InProgressFlags = CurrentThread->SavedApcState.InProgressFlags;
+      CurrentThread->ApcState.KernelApcPending = CurrentThread->SavedApcState.KernelApcPending;
+      CurrentThread->ApcState.UserApcPendingAll = CurrentThread->SavedApcState.UserApcPendingAll;
+      Flink = (struct _KTHREAD *)CurrentThread->SavedApcState.ApcListHead[0].Flink;
+      if ( Flink == (struct _KTHREAD *)&CurrentThread->600 )
+      {
+        CurrentThread->ApcState.ApcListHead[0].Blink = CurrentThread->ApcState.ApcListHead;
+        v6->ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)v6;
+        CurrentThread->ApcState.KernelApcPending = 0;
+      }
+      else
+      {
+        Blink = CurrentThread->SavedApcState.ApcListHead[0].Blink;
+        v6->ApcState.ApcListHead[0].Flink = (struct _LIST_ENTRY *)Flink;
+        CurrentThread->ApcState.ApcListHead[0].Blink = Blink;
+        Flink->Header.WaitListHead.Flink = (struct _LIST_ENTRY *)v6;
+        Blink->Flink = (struct _LIST_ENTRY *)v6;
+      }
+      v8 = (__int64)CurrentThread->SavedApcState.ApcListHead[1].Flink;
+      v9 = &CurrentThread->ApcState.ApcListHead[1];
+      if ( (unsigned __int8 *)v8 == &CurrentThread->SavedApcStateFill[16] )
+      {
+        CurrentThread->ApcState.ApcListHead[1].Blink = &CurrentThread->ApcState.ApcListHead[1];
+        v9->Flink = v9;
+        CurrentThread->ApcState.UserApcPendingAll = 0;
+      }
+      else
+      {
+        v22 = CurrentThread->SavedApcState.ApcListHead[1].Blink;
+        v9->Flink = (struct _LIST_ENTRY *)v8;
+        CurrentThread->ApcState.ApcListHead[1].Blink = v22;
+        *(_QWORD *)(v8 + 8) = v9;
+        v22->Flink = v9;
+      }
+      CurrentThread->SavedApcState.Process = 0LL;
+      CurrentThread->ApcStateIndex = 0;
+      CurrentThread->ThreadLock = 0LL;
+      CurrentPrcb = KeGetCurrentPrcb();
+      v11 = CurrentThread->ApcState.Process;
+      GroupIndex = CurrentPrcb->GroupIndex;
+      v13 = 8LL * CurrentPrcb->Group;
+      _interlockedbittestandset64((volatile signed __int32 *)((char *)&v11->ActiveProcessors->8 + v13), GroupIndex);
+      DirectoryTableBase = v11->DirectoryTableBase;
+      if ( KiKvaShadow )
+      {
+        v15 = DirectoryTableBase | 0x8000000000000000uLL;
+        if ( (DirectoryTableBase & 2) == 0 )
+          v15 = v11->DirectoryTableBase;
+        __writegsqword(0xB000u, v15);
+        KiSetAddressPolicy(v11->AddressPolicy, v8);
+      }
+      if ( (HvlEnlightenments & 1) != 0 )
+        HvlSwitchVirtualAddressSpace(DirectoryTableBase);
+      else
+        __writecr3(DirectoryTableBase);
+      if ( KiKvaShadow && !KiFlushPcid )
+      {
+        v23 = __readcr4();
+        if ( (v23 & 0x20080) != 0 )
+        {
+          __writecr4(v23 ^ 0x80);
+          __writecr4(v23);
+        }
+        else
+        {
+          v30 = __readcr3();
+          __writecr3(v30);
+        }
+      }
+      _interlockedbittestandreset64((volatile signed __int32 *)((char *)&v3->ActiveProcessors->8 + v13), GroupIndex);
+      CurrentThread->MiscFlags &= ~0x800u;
+      v16 = v33;
+      if ( KiIrqlFlags )
+        KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v33);
+      __writecr8(v16);
+      if ( (_InterlockedExchangeAdd(&v3->StackCount.Value, 0xFFFFFFF8) & 0xFFFFFFF8) == 8 )
+      {
+        v24 = KeGetCurrentIrql();
+        __writecr8(2uLL);
+        if ( KiIrqlFlags )
+          KiRaiseIrqlProcessIrqlFlags(v24);
+        KiAcquireKobjectLockSafe(&v3->Header.Lock);
+        Value = v3->StackCount.Value;
+        if ( (Value & 7) == 0 && v3->ThreadListHead.Flink != &v3->ThreadListHead )
+        {
+          while ( Value < 8 )
+          {
+            v26 = Value;
+            Value = _InterlockedCompareExchange(&v3->StackCount.Value, Value & 0xFFFFFFF8 | 3, Value);
+            if ( v26 == Value )
+            {
+              _InterlockedAnd(&v3->Header.Lock, 0xFFFFFF7F);
+              p_SwapListEntry = (signed __int64 *)&v3->SwapListEntry;
+              _m_prefetchw(&KiProcessOutSwapListHead);
+              v28 = KiProcessOutSwapListHead;
+              do
+              {
+                *p_SwapListEntry = v28;
+                v29 = v28;
+                v28 = _InterlockedCompareExchange64(&KiProcessOutSwapListHead, (signed __int64)p_SwapListEntry, v28);
+              }
+              while ( v28 != v29 );
+              if ( !v28 )
+                KeSetEvent(&KiSwapEvent, 10, 0);
+              goto LABEL_57;
+            }
+          }
+        }
+        _InterlockedAnd(&v3->Header.Lock, 0xFFFFFF7F);
+LABEL_57:
+        if ( KiIrqlFlags )
+          KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), v24);
+        __writecr8(v24);
+      }
+      if ( ($727077A9B6E167EAE1398C74674DC5A5 *)v6->ApcState.ApcListHead[0].Flink != v6 )
+      {
+        CurrentThread->ApcState.KernelApcPending = 1;
+        v32 = 0LL;
+        if ( KiAmdTprLowerInterruptDelayDynamicWorkaround )
+        {
+          v17 = HalpDisableInterrupts();
+          v19 = *(_DWORD *)(v18 + 168);
+          v20 = v17;
+          *(_DWORD *)(v18 + 168) = v19 | 2;
+          if ( !v19 )
+            __writemsr(0xC0010015, __readmsr(0xC0010015) | 0x100000000LL);
+          if ( v20 )
+            _enable();
+        }
+        v31 = 5;
+        HalpInterruptSendIpi(&v31, 0x1Fu);
+      }
+    }
+  }
+}

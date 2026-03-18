@@ -1,0 +1,176 @@
+/*
+ * XREFs of PspDisassociateUmsThreadFromPrimary @ 0x1407801FC
+ * Callers:
+ *     PspUmsUnInitThread @ 0x14077CAD4 (PspUmsUnInitThread.c)
+ *     PspRelinquishUmsThreadSpecialApc @ 0x140780520 (PspRelinquishUmsThreadSpecialApc.c)
+ * Callees:
+ *     ObReferenceObjectSafe @ 0x1400A9D20 (ObReferenceObjectSafe.c)
+ *     EtwTraceKernelEvent @ 0x1400C1C38 (EtwTraceKernelEvent.c)
+ *     ObfDereferenceObject @ 0x140103810 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection @ 0x140105490 (ExReleaseRundownProtection.c)
+ *     ExAcquireRundownProtection @ 0x1401054C0 (ExAcquireRundownProtection.c)
+ *     RtlGetExtendedContextLength @ 0x140131758 (RtlGetExtendedContextLength.c)
+ *     RtlInitializeExtendedContext @ 0x140131818 (RtlInitializeExtendedContext.c)
+ *     __security_check_cookie @ 0x140187410 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1401B3450 (_alloca_probe.c)
+ *     memset @ 0x1401BCC40 (memset.c)
+ *     KeDoesTebMatchThread @ 0x14024CE4C (KeDoesTebMatchThread.c)
+ *     KeGetCurrentUmsTeb @ 0x14024CE68 (KeGetCurrentUmsTeb.c)
+ *     KeSetCurrentUmsTeb @ 0x14024CEB0 (KeSetCurrentUmsTeb.c)
+ *     PspSetContextThreadInternal @ 0x1404D0960 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1405B83A0 (PspGetContextThreadInternal.c)
+ *     KeRemoveUmsThreadCidOwnership @ 0x140742BC4 (KeRemoveUmsThreadCidOwnership.c)
+ *     KeUpdateUmsThreadState @ 0x140742D5C (KeUpdateUmsThreadState.c)
+ *     KeBuildPrimaryThreadContext @ 0x140743490 (KeBuildPrimaryThreadContext.c)
+ *     KeFixUserSwitchContext @ 0x140744024 (KeFixUserSwitchContext.c)
+ *     PspFindThreadForTeb @ 0x14077C918 (PspFindThreadForTeb.c)
+ *     PspSetUmsThreadContext @ 0x14078072C (PspSetUmsThreadContext.c)
+ */
+
+__int64 __fastcall PspDisassociateUmsThreadFromPrimary(PETHREAD Thread, __int64 Object, int *a3)
+{
+  int updated; // ebx
+  unsigned __int64 CurrentUmsTeb; // rax
+  char v8; // r15
+  char v9; // r12
+  __int64 v10; // rdx
+  _DWORD *v11; // r8
+  struct _EX_RUNDOWN_REF *ThreadForTeb; // rax
+  _QWORD *v13; // r13
+  int v14; // r12d
+  unsigned __int64 v15; // rax
+  void *v16; // rsp
+  __int64 v17; // rbx
+  __int64 v18; // r12
+  __int64 v19; // rdx
+  __int64 v20; // rcx
+  __int64 v21; // rdx
+  void *v22; // rcx
+  __int64 v23; // r13
+  int v24; // eax
+  __int64 v26; // [rsp+30h] [rbp+0h] BYREF
+  __int64 v27; // [rsp+38h] [rbp+8h] BYREF
+  int CycleTime; // [rsp+40h] [rbp+10h] BYREF
+  int v29; // [rsp+44h] [rbp+14h]
+  unsigned int CurrentRunTime; // [rsp+48h] [rbp+18h]
+  int v31; // [rsp+4Ch] [rbp+1Ch]
+  int v32; // [rsp+50h] [rbp+20h]
+  int *p_CycleTime; // [rsp+58h] [rbp+28h] BYREF
+  int v34; // [rsp+60h] [rbp+30h]
+  int v35; // [rsp+64h] [rbp+34h]
+
+  updated = 0;
+  CurrentUmsTeb = KeGetCurrentUmsTeb(Thread);
+  v8 = 0;
+  v9 = 0;
+  if ( KeDoesTebMatchThread((__int64)Thread, CurrentUmsTeb) )
+    goto LABEL_2;
+  if ( Object )
+  {
+    if ( v10 != *(_QWORD *)(Object + 240) )
+    {
+LABEL_2:
+      *v11 |= 2u;
+      goto LABEL_24;
+    }
+    goto LABEL_10;
+  }
+  ThreadForTeb = (struct _EX_RUNDOWN_REF *)PspFindThreadForTeb(v10);
+  Object = (__int64)ThreadForTeb;
+  if ( !ThreadForTeb )
+  {
+LABEL_5:
+    updated = -1073740004;
+    goto LABEL_24;
+  }
+  v8 = 1;
+  if ( ExAcquireRundownProtection(ThreadForTeb + 215) )
+  {
+LABEL_10:
+    v13 = Thread->WaitBlock[3].Object;
+    if ( (Thread->MiscFlags & 0x100) != 0 )
+    {
+      *a3 |= 1u;
+    }
+    else
+    {
+      KeSetCurrentUmsTeb(Thread, (unsigned __int64)Thread->Teb);
+      v14 = MEMORY[0xFFFFF780000003D8] != 0LL ? 0x40 : 0;
+      RtlGetExtendedContextLength((unsigned int)(v14 + 1048603));
+      v15 = (unsigned int)v26 + 15LL;
+      if ( v15 <= (unsigned int)v26 )
+        v15 = 0xFFFFFFFFFFFFFF0LL;
+      v16 = alloca(v15 & 0xFFFFFFFFFFFFFFF0uLL);
+      memset(&v26, 0, (unsigned int)v26);
+      RtlInitializeExtendedContext((__int64)&v26, v14 + 1048603, &v27);
+      v17 = v27 - 1232;
+      v26 = v27 - 1232;
+      PspGetContextThreadInternal((__int64)Thread, v27 - 1232, 0, 1, 1);
+      v27 = **(_QWORD **)(Object + 496);
+      v18 = v27;
+      KeFixUserSwitchContext(Object, v27, 0LL, v17);
+      updated = KeRemoveUmsThreadCidOwnership(v18, 1);
+      v9 = v8;
+      if ( updated < 0 )
+        goto LABEL_24;
+      v19 = v26;
+      *a3 |= 2u;
+      updated = PspSetUmsThreadContext(Object, v19, a3);
+      if ( updated < 0 )
+        goto LABEL_24;
+      v20 = v13[2];
+      if ( *(_QWORD *)(*(_QWORD *)(Object + 496) + 16LL) != v20 )
+      {
+        ObReferenceObjectSafe(v20);
+        v21 = *(_QWORD *)(Object + 496);
+        v22 = *(void **)(v21 + 16);
+        if ( v22 )
+        {
+          ObfDereferenceObject(v22);
+          v21 = *(_QWORD *)(Object + 496);
+        }
+        *(_QWORD *)(v21 + 8) = v13[1];
+        *(_QWORD *)(*(_QWORD *)(Object + 496) + 16LL) = v13[2];
+      }
+      v23 = v26;
+      updated = KeBuildPrimaryThreadContext((__int64)Thread, 0LL, v26, 1, 0LL, 0LL);
+      v9 = v8;
+      if ( updated < 0 )
+        goto LABEL_24;
+      PspSetContextThreadInternal(Thread, v23, 0, 1, 1);
+      *a3 |= 8u;
+      if ( !v8 )
+        goto LABEL_24;
+      updated = KeUpdateUmsThreadState(v27, 0, 1);
+    }
+    v9 = v8;
+    goto LABEL_24;
+  }
+  KeSetCurrentUmsTeb(Thread, (unsigned __int64)Thread->Teb);
+  if ( _interlockedbittestandset((volatile signed __int32 *)(Object + 1744), 0x10u) )
+    goto LABEL_5;
+LABEL_24:
+  if ( SBYTE8(PerfGlobalGroupMask[0]) < 0 )
+  {
+    CycleTime = Thread[1].CycleTime;
+    CurrentRunTime = Thread[1].CurrentRunTime;
+    if ( Object )
+      v29 = *(_DWORD *)(Object + 1600);
+    else
+      v29 = 0;
+    v24 = *a3;
+    v35 = 0;
+    v31 = v24;
+    v32 = updated;
+    p_CycleTime = &CycleTime;
+    v34 = 20;
+    EtwTraceKernelEvent((int)&p_CycleTime, 1, 0x40000080u, 6435, 4200450);
+  }
+  if ( v8 )
+  {
+    if ( v9 )
+      ExReleaseRundownProtection((PEX_RUNDOWN_REF)(Object + 1720));
+    ObfDereferenceObject((PVOID)Object);
+  }
+  return (unsigned int)updated;
+}

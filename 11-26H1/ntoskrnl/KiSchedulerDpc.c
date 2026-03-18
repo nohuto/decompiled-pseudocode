@@ -1,0 +1,51 @@
+/*
+ * XREFs of KiSchedulerDpc @ 0x1407136E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlWriteTryAcquireTickLock @ 0x140497E4C (RtlWriteTryAcquireTickLock.c)
+ *     KiRaiseIrqlProcessIrqlFlags @ 0x1405209F0 (KiRaiseIrqlProcessIrqlFlags.c)
+ *     KiMcaDeferredRecoveryService @ 0x140732E40 (KiMcaDeferredRecoveryService.c)
+ */
+
+void __fastcall __noreturn KiSchedulerDpc(
+        struct _KDPC *Dpc,
+        _QWORD *DeferredContext,
+        PVOID SystemArgument1,
+        PVOID SystemArgument2)
+{
+  struct _KTHREAD *v5; // rax
+  struct _KTHREAD *CurrentThread; // rax
+  unsigned __int8 CurrentIrql; // cl
+
+  switch ( DeferredContext[13] % 0xAuLL )
+  {
+    case 5uLL:
+      RtlWriteTryAcquireTickLock((signed __int64 *)(MmWriteableSharedUserData + 832));
+      break;
+    case 6uLL:
+      CurrentIrql = KeGetCurrentIrql();
+      if ( CurrentIrql != 2 )
+        __writecr8(2uLL);
+      if ( KiIrqlFlags )
+        KiRaiseIrqlProcessIrqlFlags(CurrentIrql, 2);
+      break;
+    case 7uLL:
+      CurrentThread = KeGetCurrentThread();
+      --CurrentThread->KernelApcDisable;
+      break;
+    case 8uLL:
+      v5 = KeGetCurrentThread();
+      --v5->SpecialApcDisable;
+      break;
+    case 9uLL:
+      _disable();
+      break;
+  }
+  KiMcaDeferredRecoveryService(
+    (unsigned int)__ROR4__(67840, 104),
+    DeferredContext[9],
+    DeferredContext[10],
+    DeferredContext[11],
+    DeferredContext[12]);
+}

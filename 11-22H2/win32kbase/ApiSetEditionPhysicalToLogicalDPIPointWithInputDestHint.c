@@ -1,0 +1,30 @@
+/*
+ * XREFs of ApiSetEditionPhysicalToLogicalDPIPointWithInputDestHint @ 0x1C0206F44
+ * Callers:
+ *     ?MouseHitTest@CMouseProcessor@@AEAA?AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@1@W4MouseHitTestOptions@@PEAI@Z @ 0x1C0055BE0 (-MouseHitTest@CMouseProcessor@@AEAA-AVCInputDest@@PEAUtagPOINT@@PEBU_SUBPIXELS@@AEBVCMouseEvent@.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00D6980 (_guard_dispatch_icall_nop.c)
+ */
+
+__int64 (*__fastcall ApiSetEditionPhysicalToLogicalDPIPointWithInputDestHint(
+        _QWORD *a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4))(void)
+{
+  __int64 (*result)(void); // rax
+
+  *a1 = a2;
+  result = qword_1C0296C40;
+  if ( qword_1C0296C40 )
+  {
+    result = (__int64 (*)(void))qword_1C0296C40();
+    if ( (int)result >= 0 )
+    {
+      result = (__int64 (*)(void))qword_1C0296C48;
+      if ( qword_1C0296C48 )
+        return (__int64 (*)(void))qword_1C0296C48(a1, a2, a3, a4);
+    }
+  }
+  return result;
+}

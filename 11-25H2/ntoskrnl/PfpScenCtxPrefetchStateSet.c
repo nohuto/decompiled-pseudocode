@@ -1,0 +1,65 @@
+/*
+ * XREFs of PfpScenCtxPrefetchStateSet @ 0x140B4B0F8
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1408E9C54 (PfSetSuperfetchInformation.c)
+ *     PfpScenCtxScenarioSet @ 0x140B5E460 (PfpScenCtxScenarioSet.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140206F00 (KeLeaveCriticalRegion.c)
+ *     KeSetEvent @ 0x140250100 (KeSetEvent.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x14029AB60 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x14029B110 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x14029BE00 (KeAbPostRelease.c)
+ *     ExfTryToWakePushLock @ 0x1403D62D0 (ExfTryToWakePushLock.c)
+ */
+
+__int64 __fastcall PfpScenCtxPrefetchStateSet(ULONG_PTR BugCheckParameter2, int a2, int a3, int a4)
+{
+  struct _KTHREAD *CurrentThread; // rax
+  __int64 *v9; // rax
+  __int64 *v10; // rsi
+  unsigned int v11; // esi
+  int v12; // ecx
+
+  if ( !a4 )
+  {
+    CurrentThread = KeGetCurrentThread();
+    --CurrentThread->KernelApcDisable;
+    v9 = KeAbPreAcquire(BugCheckParameter2, 0LL);
+    v10 = v9;
+    if ( _interlockedbittestandset64((volatile signed __int32 *)BugCheckParameter2, 0LL) )
+      ExfAcquirePushLockExclusiveEx((unsigned __int64 *)BugCheckParameter2, v9, BugCheckParameter2);
+    if ( v10 )
+      *((_BYTE *)v10 + 10) = 1;
+  }
+  if ( *(_DWORD *)(BugCheckParameter2 + 48) == a2 )
+  {
+    if ( a3 == 1 && (*(_DWORD *)(BugCheckParameter2 + 8) & 0xC) == 8 )
+    {
+      v11 = -1073741431;
+    }
+    else
+    {
+      v12 = *(_DWORD *)(BugCheckParameter2 + 8);
+      if ( (v12 & 0xC) == 4 )
+      {
+        KeSetEvent((PRKEVENT)(BugCheckParameter2 + 16), 1, 0);
+        *(_DWORD *)(BugCheckParameter2 + 8) &= 0xFFFFFFF3;
+        v12 = *(_DWORD *)(BugCheckParameter2 + 8);
+      }
+      *(_DWORD *)(BugCheckParameter2 + 8) = v12 ^ ((unsigned __int8)a3 ^ (unsigned __int8)v12) & 3;
+      v11 = 0;
+    }
+  }
+  else
+  {
+    v11 = -1073741735;
+  }
+  if ( !a4 )
+  {
+    if ( (_InterlockedExchangeAdd64((volatile signed __int64 *)BugCheckParameter2, 0xFFFFFFFFFFFFFFFFuLL) & 6) == 2 )
+      ExfTryToWakePushLock((volatile signed __int64 *)BugCheckParameter2);
+    KeAbPostRelease(BugCheckParameter2);
+    KeLeaveCriticalRegion();
+  }
+  return v11;
+}

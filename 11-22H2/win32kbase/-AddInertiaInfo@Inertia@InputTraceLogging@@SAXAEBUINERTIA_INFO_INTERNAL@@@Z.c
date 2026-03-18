@@ -1,0 +1,44 @@
+/*
+ * XREFs of ?AddInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C00D4F94
+ * Callers:
+ *     ?AddInertiaInfo@CInertiaManager@@QEAA_NPEAUtagTHREADINFO@@_KPEAVCInputDest@@PEAUtagInputRoutingInfo@@HHAEBUINERTIA_INFO@@NPEBUtagRECT@@PEBU_D3DMATRIX@@@Z @ 0x1C01E16A4 (-AddInertiaInfo@CInertiaManager@@QEAA_NPEAUtagTHREADINFO@@_KPEAVCInputDest@@PEAUtagInputRoutingI.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C0053E90 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@555@Z @ 0x1C01E15C8 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@@-$_tlgWrit.c)
+ *     ?InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z @ 0x1C01E1BAC (-InertiaSourceToString@InputTraceLogging@@CAPEBDW4INERTIA_SOURCE@@@Z.c)
+ */
+
+void __fastcall InputTraceLogging::Inertia::AddInertiaInfo(const struct INERTIA_INFO_INTERNAL *a1)
+{
+  __int64 v1; // r8
+  int v2; // ecx
+  __int64 v3; // rax
+  __int64 v4; // rcx
+  __int64 v5; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v6; // [rsp+58h] [rbp-18h] BYREF
+  __int64 v7; // [rsp+60h] [rbp-10h] BYREF
+  __int64 v8; // [rsp+88h] [rbp+18h] BYREF
+  __int64 v9; // [rsp+90h] [rbp+20h] BYREF
+  __int64 v10; // [rsp+98h] [rbp+28h] BYREF
+
+  if ( (unsigned int)dword_1C0289810 > 4 && tlgKeywordOn((__int64)&dword_1C0289810, 2LL) )
+  {
+    v2 = *(_DWORD *)(v1 + 184);
+    LODWORD(v8) = -__CFSHR__(v2, 4);
+    LODWORD(v9) = -__CFSHR__(v2, 3);
+    LODWORD(v10) = -__CFSHR__(v2, 5);
+    v3 = *(_QWORD *)(v1 + 120);
+    LODWORD(v5) = -__CFSHR__(v2, 2);
+    v4 = *(unsigned int *)(v1 + 24);
+    v6 = v3;
+    v7 = InputTraceLogging::InertiaSourceToString(v4);
+    _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<4>>(
+      (int)&dword_1C0289810,
+      (__int64)&v7,
+      (__int64)&v6,
+      (__int64)&v5,
+      (__int64)&v10,
+      (__int64)&v9,
+      (__int64)&v8);
+  }
+}

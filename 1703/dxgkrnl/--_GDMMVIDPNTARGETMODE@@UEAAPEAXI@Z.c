@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??_GDMMVIDPNTARGETMODE@@UEAAPEAXI@Z @ 0x1C0007500
+ * Callers:
+ *     ??_EDMMVIDPNTARGETMODE@@WCA@EAAPEAXI@Z @ 0x1C00158F0 (--_EDMMVIDPNTARGETMODE@@WCA@EAAPEAXI@Z.c)
+ *     ??_EDMMVIDPNTARGETMODE@@WDA@EAAPEAXI@Z @ 0x1C0015900 (--_EDMMVIDPNTARGETMODE@@WDA@EAAPEAXI@Z.c)
+ *     ??_EDMMVIDPNTARGETMODE@@WEA@EAAPEAXI@Z @ 0x1C0015910 (--_EDMMVIDPNTARGETMODE@@WEA@EAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00D93C0 (--3@YAXPEAX@Z.c)
+ */
+
+DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODE::`scalar deleting destructor'(DMMVIDPNTARGETMODE *this, char a2)
+{
+  *((_QWORD *)this + 8) = &DoublyLinkedListElement::`vftable';
+  *((_DWORD *)this + 14) |= 0x6D640000u;
+  *((_QWORD *)this + 6) = &SignedWithClassSignature<DMMVIDPNSOURCESET>::`vftable';
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 4) = &ContainedBy<DMMVIDPNSOURCEMODESET>::`vftable';
+  *(_QWORD *)this = &DoublyLinkedListElement::`vftable';
+  if ( (a2 & 1) != 0 )
+    operator delete(this);
+  return this;
+}

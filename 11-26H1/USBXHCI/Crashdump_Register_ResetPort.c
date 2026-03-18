@@ -1,0 +1,88 @@
+/*
+ * XREFs of Crashdump_Register_ResetPort @ 0x140052384
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1400510C0 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_ResetDevice @ 0x140051590 (Crashdump_ResetDevice.c)
+ * Callees:
+ *     Crashdump_Register_LogRHPortInfo @ 0x1400520D8 (Crashdump_Register_LogRHPortInfo.c)
+ */
+
+__int64 __fastcall Crashdump_Register_ResetPort(__int64 a1, int a2, int a3)
+{
+  int *v6; // r14
+  unsigned int v7; // esi
+  int v8; // ebp
+  int v9; // ebx
+  unsigned int v10; // ebp
+  int v11; // ebx
+  unsigned int i; // ebp
+  int v13; // ebx
+  int v14; // ebx
+  int v15; // eax
+  signed __int32 v17[8]; // [rsp+0h] [rbp-58h] BYREF
+
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_Register_ResetPort: begin: port %u\n", a2);
+  v6 = (int *)(*(_QWORD *)(*(_QWORD *)a1 + 32LL) + 16 * ((unsigned int)(a2 - 1) + 64LL));
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Polling port %u for device presence\n", a2);
+  v7 = 0;
+  v8 = 0;
+  while ( 1 )
+  {
+    v9 = *v6;
+    if ( (*v6 & 1) != 0 || a3 == 30 && (((*v6 & 0x1E0) - 192) & 0xFFFFFF7F) == 0 )
+      break;
+    KeStallExecutionProcessor(0xC8u);
+    if ( (unsigned int)++v8 >= 0x4E20 )
+    {
+      if ( v8 == 20000 )
+      {
+        DbgPrintEx(0x93u, 1u, "XHCIDUMP: Unable to detect a device on port %u in %u ms\n", a2, 4000);
+        v7 = -1073741632;
+        goto LABEL_22;
+      }
+      break;
+    }
+  }
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Device found present on port %u\n", a2);
+  *v6 = v9 & 0xE00C200 | 0x20000;
+  _InterlockedOr(v17, 0);
+  v10 = 16;
+  v11 = *v6;
+  if ( (*v6 & 0x10) != 0 )
+  {
+    DbgPrintEx(0x93u, 3u, "XHCIDUMP: Port reset is underway on port %u.\n", a2);
+  }
+  else
+  {
+    DbgPrintEx(0x93u, 3u, "XHCIDUMP: Issuing port reset on port %u.\n", a2);
+    if ( a3 != 20 )
+      v10 = 0x80000000;
+    *v6 = v11 & 0xE00C200 | v10;
+    _InterlockedOr(v17, 0);
+  }
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Checking port %u for reset completion.\n", a2);
+  for ( i = 0; ; ++i )
+  {
+    if ( i >= 0x3E8 )
+    {
+      DbgPrintEx(0x93u, 1u, "XHCIDUMP: Port %u failed to reset in %u ms\n", a2, 500 * i / 0x3E8);
+      v7 = -1073741630;
+      goto LABEL_22;
+    }
+    v13 = *v6;
+    if ( (*v6 & 0x2001F3) == 0x200003 && (((*v6 & 0x3C00) - 1024) & 0xFFFFFBFF) != 0 )
+      break;
+    KeStallExecutionProcessor(0x1F4u);
+  }
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Port %u is correctly reset in %u ms\n", a2, 500 * i / 0x3E8);
+  v14 = v13 & 0xE00C200;
+  v15 = v14 | 0x80000;
+  if ( a3 != 30 )
+    v15 = v14;
+  *v6 = v15 | 0x200000;
+  _InterlockedOr(v17, 0);
+LABEL_22:
+  Crashdump_Register_LogRHPortInfo(a1, a2);
+  DbgPrintEx(0x93u, 3u, "XHCIDUMP: Crashdump_Register_ResetPort: end 0x%X\n", v7);
+  return v7;
+}

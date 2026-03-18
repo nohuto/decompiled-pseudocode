@@ -1,0 +1,59 @@
+/*
+ * XREFs of ?Initialize@?$AutoBuffer@E@DMM@@QEAAJ_KQEBXW4_POOL_TYPE@@@Z @ 0x1C00339CC
+ * Callers:
+ *     ?AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z @ 0x1C019EE9C (-AcquireDiagInfo@VIDPN_MGR@@QEAAJQEAX_KW4DIAGINFO_TYPE@1@QEBTDIAGINFO_CONTEXT@1@QEA_K@Z.c)
+ *     ?AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C019F7F8 (-AcquireDiagSummary@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@E@DMM@@@Z.c)
+ *     ?AcquireDiagVersion@VIDPN_MGR@@QEAAJPEAV?$AutoBuffer@E@DMM@@@Z @ 0x1C01A0020 (-AcquireDiagVersion@VIDPN_MGR@@QEAAJPEAV-$AutoBuffer@E@DMM@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0012480 (memmove.c)
+ *     memset @ 0x1C00127C0 (memset.c)
+ *     ??_U@YAPEAX_KIW4_POOL_TYPE@@@Z @ 0x1C00B4048 (--_U@YAPEAX_KIW4_POOL_TYPE@@@Z.c)
+ */
+
+__int64 __fastcall DMM::AutoBuffer<unsigned char>::Initialize(
+        __int64 a1,
+        unsigned __int64 a2,
+        const void *a3,
+        enum _POOL_TYPE a4)
+{
+  __int64 v8; // rax
+  void *v9; // rax
+  __int64 v10; // rcx
+  __int64 v11; // rax
+  __int64 v13; // rax
+
+  if ( a2 - 1 > 0xFFFFF )
+  {
+    v13 = WdLogNewEntry5_WdError(a1);
+    *(_QWORD *)(v13 + 24) = a2;
+    WdLogEvent5_WdError(v13);
+    return 3221225990LL;
+  }
+  else
+  {
+    if ( *(_QWORD *)(a1 + 32) )
+    {
+      v8 = WdLogNewEntry5_WdAssertion(a1);
+      WdLogEvent5_WdAssertion(v8);
+    }
+    v9 = operator new[](a2, 0x4E506456u, a4);
+    *(_QWORD *)(a1 + 32) = v9;
+    if ( v9 )
+    {
+      *(_QWORD *)(a1 + 40) = a2;
+      *(_DWORD *)(a1 + 48) = a4;
+      if ( a3 )
+        memmove(v9, a3, a2);
+      else
+        memset(v9, 0, a2);
+      return 0LL;
+    }
+    else
+    {
+      v11 = WdLogNewEntry5_WdLowResource(v10);
+      *(_QWORD *)(v11 + 24) = a2;
+      WdLogEvent5_WdLowResource(v11);
+      return 3221225495LL;
+    }
+  }
+}

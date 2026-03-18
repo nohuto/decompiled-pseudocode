@@ -1,0 +1,17 @@
+/*
+ * XREFs of RtlGetDefaultCodePage @ 0x14076DCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall RtlGetDefaultCodePage(_WORD *a1, _WORD *a2)
+{
+  __int64 result; // rax
+
+  *a1 = NlsAnsiCodePage;
+  result = (unsigned __int16)NlsOemCodePage;
+  *a2 = NlsOemCodePage;
+  return result;
+}

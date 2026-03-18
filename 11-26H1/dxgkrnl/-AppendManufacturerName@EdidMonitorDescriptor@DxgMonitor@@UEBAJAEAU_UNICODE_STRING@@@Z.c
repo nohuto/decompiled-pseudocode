@@ -1,0 +1,68 @@
+/*
+ * XREFs of ?AppendManufacturerName@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_UNICODE_STRING@@@Z @ 0x1403EAC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z @ 0x1400431C8 (-EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z.c)
+ *     ?EDIDV1_ObtainMonitorManufacturerName@@YAJPEBEPEAG@Z @ 0x140063D68 (-EDIDV1_ObtainMonitorManufacturerName@@YAJPEBEPEAG@Z.c)
+ *     __security_check_cookie @ 0x1400A59A0 (__security_check_cookie.c)
+ *     ?MonitorLogBadEDID@@YAXJ@Z @ 0x1403EBA64 (-MonitorLogBadEDID@@YAXJ@Z.c)
+ */
+
+__int64 __fastcall DxgMonitor::EdidMonitorDescriptor::AppendManufacturerName(
+        DxgMonitor::EdidMonitorDescriptor *this,
+        struct _UNICODE_STRING *a2)
+{
+  const unsigned __int8 *v3; // rax
+  int IsEDIDBaseBlock; // ebx
+  unsigned __int8 *v6; // r10
+  WCHAR Source[4]; // [rsp+20h] [rbp-18h] BYREF
+
+  if ( *((_DWORD *)this + 4) )
+  {
+    v3 = (const unsigned __int8 *)*((_QWORD *)this + 3);
+    if ( v3 )
+    {
+      while ( 1 )
+      {
+        v3 = *(const unsigned __int8 **)v3;
+        if ( !v3 )
+          break;
+        if ( *((_DWORD *)v3 + 2) == 2 )
+        {
+          IsEDIDBaseBlock = EDIDV1_IsEDIDBaseBlock(v3 + 24, (bool)a2);
+          if ( IsEDIDBaseBlock < 0 )
+          {
+            WdLogSingleEntry1(3LL);
+            WdLogGlobalForLineNumber = 726;
+            MonitorLogBadEDID(IsEDIDBaseBlock);
+            goto LABEL_4;
+          }
+          *(_QWORD *)Source = 0LL;
+          IsEDIDBaseBlock = EDIDV1_ObtainMonitorManufacturerName(v6, Source);
+          if ( IsEDIDBaseBlock < 0 )
+          {
+            WdLogSingleEntry1(2LL);
+            WdLogGlobalForLineNumber = 348;
+            return (unsigned int)IsEDIDBaseBlock;
+          }
+          IsEDIDBaseBlock = RtlAppendUnicodeToString(a2, Source);
+          if ( IsEDIDBaseBlock < 0 )
+          {
+            WdLogSingleEntry1(2LL);
+            WdLogGlobalForLineNumber = 350;
+            return (unsigned int)IsEDIDBaseBlock;
+          }
+          return 0LL;
+        }
+      }
+    }
+  }
+  WdLogSingleEntry1(3LL);
+  WdLogGlobalForLineNumber = 713;
+  IsEDIDBaseBlock = -1071841279;
+LABEL_4:
+  WdLogSingleEntry1(2LL);
+  WdLogGlobalForLineNumber = 345;
+  return (unsigned int)IsEDIDBaseBlock;
+}

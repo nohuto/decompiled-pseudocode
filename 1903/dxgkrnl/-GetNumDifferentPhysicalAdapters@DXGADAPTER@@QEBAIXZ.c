@@ -1,0 +1,22 @@
+/*
+ * XREFs of ?GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ @ 0x1C0009B80
+ * Callers:
+ *     ?CheckMcdmDdiSubmission@DXGADAPTER@@AEAAJXZ @ 0x1C001F278 (-CheckMcdmDdiSubmission@DXGADAPTER@@AEAAJXZ.c)
+ *     ?DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z @ 0x1C00C9564 (-DisableAllPrimaries@ADAPTER_DISPLAY@@QEAAXPEAVADAPTER_RENDER@@@Z.c)
+ *     ?DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C00EAD1C (-DxgkQueryAdapterInfoInternal@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ *     DxgkEscape @ 0x1C01012F0 (DxgkEscape.c)
+ *     ?CreateDriverAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINFO2@@PEAU_DXGK_ALLOCATIONINFO@@PEAVDXGALLOCATION@@PEAVDXGRESOURCE@@PEAPEAX5PEAXPEBU_D3DKM_CREATESTANDARDALLOCATION@@HPEAU_D3DKMT_CREATESTANDARDALLOCATION@@@Z @ 0x1C011E400 (-CreateDriverAllocations@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEALLOCATION@@PEAU_D3DDDI_ALLOCATIONINF.c)
+ *     ?Initialize@ADAPTER_RENDER@@QEAAJXZ @ 0x1C015BE84 (-Initialize@ADAPTER_RENDER@@QEAAJXZ.c)
+ *     ?InitializePowerManagement@DXGADAPTER@@AEAAJXZ @ 0x1C0166B3C (-InitializePowerManagement@DXGADAPTER@@AEAAJXZ.c)
+ *     ?DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ @ 0x1C01EC734 (-DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall DXGADAPTER::GetNumDifferentPhysicalAdapters(DXGADAPTER *this)
+{
+  if ( *((int *)this + 546) < 0x2000 )
+    return 1LL;
+  else
+    return *((unsigned int *)this + 64);
+}

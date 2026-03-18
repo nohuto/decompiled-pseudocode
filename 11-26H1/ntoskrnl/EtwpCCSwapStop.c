@@ -1,0 +1,27 @@
+/*
+ * XREFs of EtwpCCSwapStop @ 0x140831FA4
+ * Callers:
+ *     EtwpUpdateSelectedGroupMasks @ 0x1404CCCE8 (EtwpUpdateSelectedGroupMasks.c)
+ *     EtwpFlushTrace @ 0x140A6F6CC (EtwpFlushTrace.c)
+ * Callees:
+ *     KeGetPrcb @ 0x1402916D0 (KeGetPrcb.c)
+ */
+
+void __fastcall EtwpCCSwapStop(unsigned int a1, char a2)
+{
+  unsigned int v2; // esi
+  unsigned int v3; // edi
+  __int64 i; // rbx
+  __int64 v6; // rcx
+
+  v2 = KeNumberProcessors_0;
+  v3 = 0;
+  for ( i = a1; v3 < v2; ++v3 )
+  {
+    v6 = *(_QWORD *)(KeGetPrcb(v3) + 35816);
+    if ( *(_QWORD *)(v6 + 8 * i + 408) )
+      *(_BYTE *)(i + v6 + 400) = 1;
+  }
+  if ( a2 )
+    --CCSwapNumLoggersPerClockType[i];
+}

@@ -1,0 +1,13 @@
+/*
+ * XREFs of RtlpFlsHeapAlloc @ 0x140A423EC
+ * Callers:
+ *     ?ChunkAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K@Z @ 0x140463330 (-ChunkAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAPEAURTL_BINARY_ARRAY_CHUNK@1@PEAU1@K.c)
+ *     ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1405F2208 (-SlotAllocate@-$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140B720F0 (ExAllocatePool2.c)
+ */
+
+__int64 RtlpFlsHeapAlloc()
+{
+  return ExAllocatePool2(0x100uLL);
+}

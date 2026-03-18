@@ -1,0 +1,51 @@
+/*
+ * XREFs of ?GetDriverCapsSizeFromDdiVersion@@YAII@Z @ 0x140198F5C
+ * Callers:
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x140199398 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     ?VmBusDdiQueryAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x140428650 (-VmBusDdiQueryAdapterInfo@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x14002BDA0 (DxgkLogInternalTriageEvent.c)
+ */
+
+__int64 __fastcall GetDriverCapsSizeFromDdiVersion(unsigned int a1)
+{
+  __int64 v2; // rbx
+
+  if ( a1 >= 0xE003 )
+    return 592LL;
+  if ( a1 >= 0x9002 )
+    return 584LL;
+  if ( a1 >= 0x5011 )
+    return 576LL;
+  if ( a1 >= 0x4000 )
+    return 552LL;
+  if ( a1 >= 0x3000 )
+    return 544LL;
+  if ( a1 >= 0x2001 )
+    return 528LL;
+  if ( a1 < 0x2000 )
+  {
+    if ( a1 >= 0x104E )
+      return 336LL;
+    v2 = a1;
+    WdLogSingleEntry1(2LL);
+    WdLogGlobalForLineNumber = 6550;
+  }
+  else
+  {
+    v2 = a1;
+    WdLogSingleEntry1(2LL);
+    WdLogGlobalForLineNumber = 6520;
+  }
+  DxgkLogInternalTriageEvent(
+    0LL,
+    0x40000,
+    -1,
+    (__int64)L"Miniport returned unknown/unsupported driver version 0x%I64x",
+    v2,
+    0LL,
+    0LL,
+    0LL,
+    0LL);
+  return 0LL;
+}

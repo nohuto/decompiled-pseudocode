@@ -1,0 +1,51 @@
+/*
+ * XREFs of NtUserfnINWPARAMCHAR @ 0x14023EEB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrent@@YAPEAUtagTHREADINFO@@XZ @ 0x140036890 (-PtiCurrent@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     RtlMBMessageWParamCharToWCS @ 0x14003E354 (RtlMBMessageWParamCharToWCS.c)
+ *     _guard_dispatch_icall @ 0x14034FDB0 (_guard_dispatch_icall.c)
+ */
+
+__int64 __fastcall NtUserfnINWPARAMCHAR(
+        __int64 a1,
+        unsigned int a2,
+        __int64 a3,
+        __int64 a4,
+        __int64 a5,
+        char a6,
+        int a7)
+{
+  __int64 v10; // rdx
+  __int64 v11; // rcx
+  __int64 UserSessionState; // rax
+  CHAR v14[24]; // [rsp+30h] [rbp-18h] BYREF
+  __int64 v15; // [rsp+60h] [rbp+18h] BYREF
+
+  v15 = a3;
+  PtiCurrent(a1);
+  if ( a7 )
+  {
+    if ( a2 == 47 || a2 == 288 )
+    {
+      *(_QWORD *)v14 = (unsigned __int16)v15;
+      RtlMBMessageWParamCharToWCS(a2, v14);
+      v11 = WORD1(v15) << 16;
+      v15 = (int)(v11 | *(unsigned __int16 *)v14);
+    }
+    else
+    {
+      RtlMBMessageWParamCharToWCS(a2, (CHAR *)&v15);
+    }
+  }
+  UserSessionState = W32GetUserSessionState(v11, v10);
+  return (*(__int64 (__fastcall **)(__int64, _QWORD, __int64, __int64, __int64))(UserSessionState
+                                                                               + 8LL * ((a6 + 6) & 0x1F)
+                                                                               + 70904))(
+           a1,
+           a2,
+           v15,
+           a4,
+           a5);
+}

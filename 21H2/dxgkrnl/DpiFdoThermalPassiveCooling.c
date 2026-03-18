@@ -1,0 +1,61 @@
+/*
+ * XREFs of DpiFdoThermalPassiveCooling @ 0x1C0391310
+ * Callers:
+ *     DxgkHandleThermalCoolingDrtEscape @ 0x1C0391968 (DxgkHandleThermalCoolingDrtEscape.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0012BA4 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C0044CF4 (McTemplateK0pt_EtwWriteTransfer.c)
+ *     DpiEnableD3Requests @ 0x1C016E8A8 (DpiEnableD3Requests.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C01B40A0 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C01B445C (DpiAcquireCoreSyncAccessSafe.c)
+ */
+
+void __fastcall DpiFdoThermalPassiveCooling(__int64 a1, unsigned int a2)
+{
+  __int64 v2; // rbx
+  NTSTATUS v5; // eax
+  __int64 v6; // r8
+  __int64 v7; // [rsp+20h] [rbp-18h]
+
+  v2 = *(_QWORD *)(a1 + 64);
+  v5 = IoAcquireRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), DpiFdoThermalPassiveCooling, File, 1u, 0x20u);
+  if ( v5 >= 0 )
+  {
+    KeEnterCriticalRegion();
+    if ( *(_BYTE *)(v2 + 484) )
+      DpiCheckForOutstandingD3Requests(v2);
+    ExAcquireResourceSharedLite(*(PERESOURCE *)(v2 + 168), 1u);
+    if ( (int)DpiAcquireCoreSyncAccessSafe(a1, 0) < 0 )
+    {
+      *(_BYTE *)(*(_QWORD *)(v2 + 4864) + 1LL) = 1;
+    }
+    else
+    {
+      if ( bTracingEnabled && (Microsoft_Windows_DxgKrnlEnableBits & 0x10000) != 0 )
+      {
+        LODWORD(v7) = a2;
+        McTemplateK0pt_EtwWriteTransfer(
+          (REGHANDLE *)&DxgkControlGuid_Context,
+          &EventDpiFdoThermalPassiveCooling,
+          v6,
+          a1,
+          v7);
+      }
+      (*(void (__fastcall **)(_QWORD, _QWORD))(*(_QWORD *)(v2 + 4864) + 56LL))(
+        *(_QWORD *)(*(_QWORD *)(v2 + 4864) + 16LL),
+        a2);
+      DpiReleaseCoreSyncAccessSafe(a1, 0);
+    }
+    *(_DWORD *)(*(_QWORD *)(v2 + 4864) + 4LL) = a2;
+    if ( *(_BYTE *)(v2 + 484) )
+      DpiEnableD3Requests(*(_QWORD *)(v2 + 24));
+    ExReleaseResourceLite(*(PERESOURCE *)(v2 + 168));
+    KeLeaveCriticalRegion();
+    IoReleaseRemoveLockEx((PIO_REMOVE_LOCK)(v2 + 64), DpiFdoThermalPassiveCooling, 0x20u);
+  }
+  else
+  {
+    WdLogSingleEntry1(2LL, v5);
+  }
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of RtlInitUTF8String @ 0x14046B670
+ * Callers:
+ *     PiGetDefaultMessageString @ 0x1409B00D4 (PiGetDefaultMessageString.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x14046B2E0 (RtlInitAnsiString.c)
+ */
+
+void __fastcall RtlInitUTF8String(STRING *a1, const char *a2)
+{
+  RtlInitAnsiString(a1, a2);
+}

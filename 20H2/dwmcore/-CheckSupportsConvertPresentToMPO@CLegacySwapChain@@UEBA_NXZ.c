@@ -1,0 +1,13 @@
+/*
+ * XREFs of ?CheckSupportsConvertPresentToMPO@CLegacySwapChain@@UEBA_NXZ @ 0x180246C18
+ * Callers:
+ *     ?CheckSupportsConvertPresentToMPO@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ @ 0x1800F16B0 (-CheckSupportsConvertPresentToMPO@CLegacySwapChain@@$4PPPPPPPM@A@EBA_NXZ.c)
+ *     ?CheckSupportsConvertPresentToMPO@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NXZ @ 0x1800F1E50 (-CheckSupportsConvertPresentToMPO@CLegacySwapChain@@$4PPPPPPPM@BKI@EBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CLegacySwapChain::CheckSupportsConvertPresentToMPO(CLegacySwapChain *this)
+{
+  return *((_DWORD *)this - 41) >= 2;
+}

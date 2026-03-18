@@ -1,0 +1,53 @@
+/*
+ * XREFs of __asan_load2_volatile @ 0x1405AB920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KasaniReport @ 0x1405AA0B0 (KasaniReport.c)
+ *     KcsanValidateAddress @ 0x1405AE5E0 (KcsanValidateAddress.c)
+ */
+
+char __fastcall _asan_load2_volatile(ULONG_PTR BugCheckParameter1)
+{
+  ULONG_PTR v1; // rdi
+  ULONG_PTR v3; // rax
+  int v4; // r9d
+  signed __int8 v5; // cl
+
+  if ( !byte_140FCDC2A )
+    return v3;
+  LOBYTE(v3) = 0;
+  if ( BugCheckParameter1 < 0xFFFF800000000000uLL )
+    return v3;
+  v4 = 0;
+  v5 = *(_BYTE *)(((BugCheckParameter1 + 0x800000000000LL) >> 3) + KasaniShadow);
+  LOBYTE(v3) = BugCheckParameter1 & 7;
+  if ( (BugCheckParameter1 & 7) == 7 )
+  {
+    if ( !v5 || v5 >= 8 )
+    {
+      v3 = (BugCheckParameter1 + 0x800000000001LL) >> 3;
+      v5 = *(_BYTE *)(v3 + KasaniShadow);
+      if ( !v5 || v5 >= 8 || (char)(((BugCheckParameter1 + 1) & 7) + 1) <= v5 )
+        goto LABEL_14;
+    }
+    goto LABEL_13;
+  }
+  if ( v5 )
+  {
+    if ( v5 < 8 )
+    {
+      LOBYTE(v3) = ((BugCheckParameter1 + 1) & 7) + 1;
+      if ( (char)v3 > v5 )
+LABEL_13:
+        LOBYTE(v3) = (unsigned __int8)KasaniReport(BugCheckParameter1, 2uLL, 0, v1, v5);
+    }
+  }
+LABEL_14:
+  if ( KcsaniValidationEnabled )
+  {
+    LOBYTE(v4) = 1;
+    LOBYTE(v3) = KcsanValidateAddress(BugCheckParameter1, 2, 0, v4, v1);
+  }
+  return v3;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of READ_REGISTER_USHORT @ 0x140557EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+USHORT __stdcall READ_REGISTER_USHORT(volatile USHORT *Register)
+{
+  return *Register;
+}

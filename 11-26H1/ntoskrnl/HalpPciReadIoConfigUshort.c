@@ -1,0 +1,19 @@
+/*
+ * XREFs of HalpPciReadIoConfigUshort @ 0x14058C1C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall HalpPciReadIoConfigUshort(unsigned int *a1, _WORD *a2, unsigned __int8 a3)
+{
+  unsigned int v3; // eax
+
+  v3 = *a1 ^ (a3 ^ (unsigned __int8)*a1) & 0xFC;
+  *a1 = v3;
+  __outdword(0xCF8u, v3);
+  LOWORD(v3) = __inword((a3 & 3) + 3324);
+  *a2 = v3;
+  return 2LL;
+}

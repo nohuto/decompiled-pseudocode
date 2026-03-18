@@ -1,0 +1,43 @@
+/*
+ * XREFs of ?AddTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x14025E950
+ * Callers:
+ *     ?CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@EPEAW4_CONNECTION_CHANGE_FAILURE_REASON@@@Z @ 0x14025ECE8 (-CreateDynamicVideoPresentTarget@DMMVIDEOPRESENTTARGETSET@@QEAAJIIAEAU_DXGK_CHILD_CAPABILITIES@@.c)
+ *     ?AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESENTTARGETSET__@@PEBU_D3DKMDT_VIDEO_PRESENT_TARGET@@@Z @ 0x140267090 (-AddStaticTarget@DXGPORTDMM_VIDEOPRESENTTARGETSET_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDEOPRESEN.c)
+ * Callees:
+ *     ?FindById@?$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z @ 0x140038E00 (-FindById@-$IndexedSet@VDMMVIDEOPRESENTTARGET@@@@QEBAPEAVDMMVIDEOPRESENTTARGET@@I@Z.c)
+ *     ?Add@?$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x14008F518 (-Add@-$Set@VDMMVIDEOPRESENTTARGET@@@@QEAAEQEAVDMMVIDEOPRESENTTARGET@@@Z.c)
+ */
+
+__int64 __fastcall DMMVIDEOPRESENTTARGETSET::AddTarget(
+        DMMVIDEOPRESENTTARGETSET *this,
+        struct DMMVIDEOPRESENTTARGET *a2)
+{
+  struct DMMVIDEOPRESENTTARGET *v4; // rax
+  __int64 result; // rax
+
+  if ( !a2 )
+  {
+    WdLogSingleEntry0(1LL);
+    WdLogGlobalForLineNumber = 792;
+  }
+  v4 = (struct DMMVIDEOPRESENTTARGET *)IndexedSet<DMMVIDEOPRESENTTARGET>::FindById((__int64)this, *((_DWORD *)a2 + 6));
+  if ( v4 )
+  {
+    if ( v4 != a2 )
+    {
+      WdLogSingleEntry3(2LL, *((unsigned int *)a2 + 6), a2, this);
+      result = 3223192370LL;
+      WdLogGlobalForLineNumber = 823;
+      return result;
+    }
+  }
+  else if ( Set<DMMVIDEOPRESENTTARGET>::Add((__int64)this, (__int64)a2) )
+  {
+    _InterlockedIncrement((volatile signed __int32 *)a2 + 18);
+    return 0LL;
+  }
+  WdLogSingleEntry2(2LL, a2, this);
+  result = 3223192344LL;
+  WdLogGlobalForLineNumber = 814;
+  return result;
+}

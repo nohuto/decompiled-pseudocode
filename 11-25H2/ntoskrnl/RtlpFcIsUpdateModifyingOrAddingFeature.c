@@ -1,0 +1,23 @@
+/*
+ * XREFs of RtlpFcIsUpdateModifyingOrAddingFeature @ 0x14077E0D4
+ * Callers:
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x14077DCB8 (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x140A93040 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall RtlpFcIsUpdateModifyingOrAddingFeature(__int64 a1)
+{
+  int v1; // edx
+  char result; // al
+
+  v1 = *(_DWORD *)(a1 + 28);
+  result = 1;
+  if ( ((v1 & 1) == 0 || !*(_DWORD *)(a1 + 8) && !*(_DWORD *)(a1 + 12))
+    && ((v1 & 2) == 0 || !*(_BYTE *)(a1 + 16) && !*(_DWORD *)(a1 + 20)) )
+  {
+    return 0;
+  }
+  return result;
+}

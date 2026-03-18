@@ -1,0 +1,33 @@
+/*
+ * XREFs of UsbhHardErrorInvalidData @ 0x140057CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhException @ 0x140006C1C (UsbhException.c)
+ *     FdoExt @ 0x140009560 (FdoExt.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x14001B830 (UsbhReleaseEnumBusLockEx.c)
+ *     Log @ 0x14001C5D0 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x14003E938 (WPP_RECORDER_SF_d.c)
+ */
+
+__int64 __fastcall UsbhHardErrorInvalidData(__int64 a1, __int64 a2)
+{
+  int v5; // [rsp+28h] [rbp-30h]
+
+  FdoExt(a1);
+  if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED && LOWORD(WPP_GLOBAL_Control->DeviceType) )
+  {
+    v5 = *(unsigned __int16 *)(a2 + 4);
+    WPP_RECORDER_SF_d(
+      (__int64)WPP_GLOBAL_Control->DeviceExtension,
+      0,
+      1u,
+      0x17u,
+      (__int64)&WPP_8026ecaf353e33c620bb7ebcf688be2f_Traceguids,
+      v5);
+  }
+  Log(a1, 1024, 1883852374, a2, 0LL);
+  UsbhReleaseEnumBusLockEx(a1, *(_QWORD *)(a2 + 376), *(_WORD *)(a2 + 4));
+  UsbhException(a1, *(_WORD *)(a2 + 4), 62, (const void *)a2, 0xB70u, -1, -1, usbfile_busfunc_c, 1127, 0);
+  return 3LL;
+}

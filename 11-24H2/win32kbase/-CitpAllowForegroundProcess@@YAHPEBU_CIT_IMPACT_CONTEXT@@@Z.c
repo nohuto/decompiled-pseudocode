@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?CitpAllowForegroundProcess@@YAHPEBU_CIT_IMPACT_CONTEXT@@@Z @ 0x1400B5EF4
+ * Callers:
+ *     ?CitpSetForegroundProcess@@YAXPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@@Z @ 0x1400B26AC (-CitpSetForegroundProcess@@YAXPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@@Z.c)
+ *     CitDisplayPowerChange @ 0x1400B59E4 (CitDisplayPowerChange.c)
+ *     CitSessionConnectChange @ 0x140150F90 (CitSessionConnectChange.c)
+ * Callees:
+ *     <none>
+ */
+
+bool __fastcall CitpAllowForegroundProcess(const struct _CIT_IMPACT_CONTEXT *a1)
+{
+  bool result; // al
+
+  result = 0;
+  if ( (*((_BYTE *)a1 + 112) & 2) != 0 )
+    return *((_DWORD *)a1 + 50) != 0;
+  return result;
+}

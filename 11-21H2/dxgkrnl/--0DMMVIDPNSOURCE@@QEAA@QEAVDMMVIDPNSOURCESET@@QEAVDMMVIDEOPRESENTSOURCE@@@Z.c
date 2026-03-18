@@ -1,0 +1,88 @@
+/*
+ * XREFs of ??0DMMVIDPNSOURCE@@QEAA@QEAVDMMVIDPNSOURCESET@@QEAVDMMVIDEOPRESENTSOURCE@@@Z @ 0x1C001C740
+ * Callers:
+ *     ??0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z @ 0x1C018A4B0 (--0DMMVIDPN@@QEAA@QEAVVIDPN_MGR@@@Z.c)
+ * Callees:
+ *     ??0?$IndexedSetElement@I@@QEAA@I@Z @ 0x1C000CAA0 (--0-$IndexedSetElement@I@@QEAA@I@Z.c)
+ *     ?_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ @ 0x1C000FD30 (-_SetEmptyCofuncModeSet@DMMVIDPNSOURCE@@IEAAXXZ.c)
+ *     ?reset@?$auto_ptr@V?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@@@QEAAXPEAV?$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCEMODESET@@@@@@@Z @ 0x1C00116A0 (-reset@-$auto_ptr@V-$DoublyLinkedList@VDMMVIDPNSOURCEMODESET@@U-$DoubleLinkedListElementDeleter@.c)
+ *     _guard_dispatch_icall_nop @ 0x1C002CCC0 (_guard_dispatch_icall_nop.c)
+ */
+
+DMMVIDPNSOURCE *__fastcall DMMVIDPNSOURCE::DMMVIDPNSOURCE(
+        DMMVIDPNSOURCE *this,
+        struct DMMVIDPNSOURCESET *const a2,
+        struct DMMVIDEOPRESENTSOURCE *const a3)
+{
+  __int64 v6; // r9
+  _QWORD *v7; // rbx
+  __int64 Pool2; // rax
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  __int64 v11; // r9
+
+  IndexedSetElement<unsigned int>::IndexedSetElement<unsigned int>((__int64)this, *((_DWORD *)a3 + 6));
+  *((_QWORD *)this + 5) = 0LL;
+  *((_DWORD *)this + 18) = 0;
+  *((_QWORD *)this + 13) = 0LL;
+  *((_QWORD *)this + 15) = 0LL;
+  *(_QWORD *)this = &DMMVIDPNSOURCE::`vftable'{for `IndexedSetElement<unsigned int>'};
+  *((_QWORD *)this + 4) = &DMMVIDPNSOURCE::`vftable'{for `ContainedBy<DMMVIDPNSOURCESET>'};
+  *((_QWORD *)this + 6) = &DMMVIDPNSOURCE::`vftable'{for `SignedWithClassSignature<DMMVIDPNSOURCE>'};
+  *((_QWORD *)this + 8) = &DMMVIDPNSOURCE::`vftable'{for `FallibleConstruction'};
+  *((_QWORD *)this + 10) = &DMMVIDPNSOURCE::`vftable'{for `NonReferenceCounted'};
+  *((_QWORD *)this + 12) = a3;
+  v7 = (_QWORD *)((char *)this + 112);
+  *((_QWORD *)this + 14) = 0LL;
+  *((_DWORD *)this + 14) = 1833173000;
+  *((_QWORD *)this + 17) = 0LL;
+  *((_QWORD *)this + 18) = 0LL;
+  *((_QWORD *)this + 20) = 0LL;
+  *((_QWORD *)this + 21) = 0LL;
+  *((_QWORD *)this + 16) = &DMM::AutoBuffer<_D3DDDI_MULTISAMPLINGMETHOD>::`vftable'{for `SetElement'};
+  *((_QWORD *)this + 19) = &DMM::AutoBuffer<unsigned short>::`vftable'{for `NonReferenceCounted'};
+  *((_QWORD *)this + 22) = 256LL;
+  *((_DWORD *)this + 22) = 1;
+  if ( a2 )
+  {
+    if ( *((_QWORD *)this + 5) )
+      WdLogSingleEntry0(1LL);
+    *((_QWORD *)this + 5) = a2;
+  }
+  else
+  {
+    WdLogSingleEntry2(2LL, (char *)this + 32, *((_QWORD *)this + 5));
+  }
+  Pool2 = ExAllocatePool2(256LL, 48LL, 1313891414LL, v6);
+  if ( Pool2 )
+  {
+    *(_DWORD *)(Pool2 + 8) = 0;
+    *(_QWORD *)(Pool2 + 32) = 0LL;
+    *(_QWORD *)Pool2 = &DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>::`vftable';
+    *(_QWORD *)(Pool2 + 24) = Pool2 + 16;
+    *(_QWORD *)(Pool2 + 16) = Pool2 + 16;
+    *(_DWORD *)(Pool2 + 40) = 2;
+  }
+  auto_ptr<DoublyLinkedList<DMMVIDPNSOURCEMODESET,DoubleLinkedListElementDeleter<DMMVIDPNSOURCEMODESET>>>::reset(
+    (__int64 *)this + 14,
+    Pool2);
+  if ( *v7 )
+  {
+    if ( (**(unsigned __int8 (__fastcall ***)(_QWORD))*v7)(*v7) )
+    {
+      DMMVIDPNSOURCE::_SetEmptyCofuncModeSet(this, v9, v10, v11);
+      *((_DWORD *)this + 22) = 2;
+    }
+    else
+    {
+      WdLogSingleEntry2(7LL, this, *((unsigned int *)this + 6));
+      *((_DWORD *)this + 18) = *(_DWORD *)(*v7 + 8LL);
+    }
+  }
+  else
+  {
+    WdLogSingleEntry2(6LL, this, *((unsigned int *)this + 6));
+    *((_DWORD *)this + 18) = -1073741801;
+  }
+  return this;
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?IssueCommand@BLTQUEUE@@AEAAJXZ @ 0x1403CFB5C
+ * Callers:
+ *     ?NotifyGlobalVmBusStatusChange@DXGDODPRESENT@@QEAAXE@Z @ 0x14027B920 (-NotifyGlobalVmBusStatusChange@DXGDODPRESENT@@QEAAXE@Z.c)
+ *     ?NotifyHostMonitorPowerState@DXGDODPRESENT@@QEAAXIE@Z @ 0x14027B978 (-NotifyHostMonitorPowerState@DXGDODPRESENT@@QEAAXIE@Z.c)
+ *     ?Reset@BLTQUEUE@@QEAAXE@Z @ 0x14027BCF0 (-Reset@BLTQUEUE@@QEAAXE@Z.c)
+ *     ?UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z @ 0x14027C330 (-UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z.c)
+ *     ?Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVICEACCESS@@@Z @ 0x14030635C (-Present@BLTQUEUE@@QEAAJPEAVDXGCONTEXT@@PEBU_D3DKMT_PRESENT@@PEBU_DXGKARG_PRESENT@@PEAVCOREDEVIC.c)
+ *     ?Flush@BLTQUEUE@@QEAAXXZ @ 0x1403CFA74 (-Flush@BLTQUEUE@@QEAAXXZ.c)
+ *     ?AcquireVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@PEBW4_D3DKMT_VIDPNSOURCEOWNER_TYPE@@PEBIIU_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@@Z @ 0x14040E0D4 (-AcquireVidPnSourceOwner@ADAPTER_DISPLAY@@QEAAJPEAVDXGDEVICE@@PEBW4_D3DKMT_VIDPNSOURCEOWNER_TYPE.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall BLTQUEUE::IssueCommand(BLTQUEUE *this)
+{
+  *((_QWORD *)this + 83) = KeGetCurrentThread();
+  *((LARGE_INTEGER *)this + 102) = KeQueryPerformanceCounter(0LL);
+  KeSetEvent((PRKEVENT)this + 23, 0, 0);
+  KeWaitForSingleObject((char *)this + 576, Executive, 0, 0, 0LL);
+  *((_QWORD *)this + 83) = 0LL;
+  return *((unsigned int *)this + 160);
+}

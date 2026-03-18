@@ -1,0 +1,12 @@
+/*
+ * XREFs of VerifierExIsProcessorFeaturePresent @ 0x140930D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1401C5EB0 (_guard_dispatch_icall.c)
+ */
+
+__int64 VerifierExIsProcessorFeaturePresent()
+{
+  return ((__int64 (*)(void))pXdvExIsProcessorFeaturePresent)();
+}

@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?SetRedDisable@?$CTableTransferEffectGeneratedT@VCTableTransferEffect@@VCFilterEffect@@@@QEAAJ_N@Z @ 0x18024E690
+ * Callers:
+ *     ?ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x1801E7E80 (-ProcessMessage@CGlobalComposition@@EEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@.c)
+ *     ?SetProperty@?$CTableTransferEffectGeneratedT@VCTableTransferEffect@@VCFilterEffect@@@@MEAAJUDCOMPOSITION_PROPERTY_ID@@W4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x1802855C0 (-SetProperty@-$CTableTransferEffectGeneratedT@VCTableTransferEffect@@VCFilterEffect@@@@MEAAJUDCO.c)
+ * Callees:
+ *     ?InvalidateConsumingAnimationsInternal@CResource@@AEAAXUDCOMPOSITION_PROPERTY_ID@@@Z @ 0x180022E18 (-InvalidateConsumingAnimationsInternal@CResource@@AEAAXUDCOMPOSITION_PROPERTY_ID@@@Z.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x1802D6010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+__int64 __fastcall CTableTransferEffectGeneratedT<CTableTransferEffect,CFilterEffect>::SetRedDisable(
+        __int64 a1,
+        char a2)
+{
+  if ( a2 != *(_BYTE *)(a1 + 352) )
+  {
+    *(_BYTE *)(a1 + 352) = a2;
+    if ( *(_QWORD *)(a1 + 48) )
+      CResource::InvalidateConsumingAnimationsInternal(a1);
+    (*(void (__fastcall **)(__int64, _QWORD, _QWORD))(*(_QWORD *)a1 + 80LL))(a1, 0LL, 0LL);
+  }
+  return 0LL;
+}

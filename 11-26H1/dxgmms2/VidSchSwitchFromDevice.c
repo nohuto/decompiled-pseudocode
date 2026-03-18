@@ -1,0 +1,36 @@
+/*
+ * XREFs of VidSchSwitchFromDevice @ 0x1401089B0
+ * Callers:
+ *     ?NotifyContextAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@@Z @ 0x14010873C (-NotifyContextAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@@Z.c)
+ * Callees:
+ *     VidSchWaitForEvents @ 0x14002FB1C (VidSchWaitForEvents.c)
+ *     VidSchIsTDRPending @ 0x140035D80 (VidSchIsTDRPending.c)
+ *     memset @ 0x14005BBC0 (memset.c)
+ *     VidSchSubmitGlobalCommand @ 0x140108A8C (VidSchSubmitGlobalCommand.c)
+ */
+
+void __fastcall VidSchSwitchFromDevice(__int64 a1)
+{
+  __int64 v1; // rbx
+  __int64 v3; // rcx
+  struct _KEVENT Event; // [rsp+30h] [rbp-19h] BYREF
+  _QWORD v5[10]; // [rsp+50h] [rbp+7h] BYREF
+  struct _KEVENT *p_Event; // [rsp+B0h] [rbp+67h] BYREF
+
+  v1 = *(_QWORD *)(a1 + 40);
+  if ( (*(_BYTE *)(v1 + 3284) & 1) == 0 && !VidSchIsTDRPending(*(_QWORD *)(a1 + 40)) )
+  {
+    memset(&Event, 0, sizeof(Event));
+    KeInitializeEvent(&Event, SynchronizationEvent, 0);
+    memset(v5, 0, sizeof(v5));
+    LODWORD(v5[5]) = 4;
+    v5[3] = VidSchiSwitchNodeFromDevice;
+    LODWORD(v5[0]) = 0;
+    v5[4] = &Event;
+    v5[6] = a1;
+    VidSchSubmitGlobalCommand(v1, v5);
+    v3 = *(_QWORD *)(a1 + 40);
+    p_Event = &Event;
+    VidSchWaitForEvents(v3, 1u, (PVOID *)&p_Event, 0LL, 0);
+  }
+}

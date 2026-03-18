@@ -1,0 +1,26 @@
+/*
+ * XREFs of ApiSeEditionDeferWinEventNotify @ 0x14009C1C8
+ * Callers:
+ *     ?ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z @ 0x14009A480 (-ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x14024BC70 (_guard_dispatch_icall.c)
+ */
+
+__int64 (*__fastcall ApiSeEditionDeferWinEventNotify(__int64 a1))(void)
+{
+  __int64 (*result)(void); // rax
+  __int64 v2; // rcx
+
+  result = *(__int64 (**)(void))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(a1) + 48) + 4600LL);
+  if ( result )
+  {
+    result = (__int64 (*)(void))result();
+    if ( (int)result >= 0 )
+    {
+      result = *(__int64 (**)(void))(*(_QWORD *)(W32GetWin32kBaseApiSetTable(v2) + 48) + 4608LL);
+      if ( result )
+        return (__int64 (*)(void))result();
+    }
+  }
+  return result;
+}

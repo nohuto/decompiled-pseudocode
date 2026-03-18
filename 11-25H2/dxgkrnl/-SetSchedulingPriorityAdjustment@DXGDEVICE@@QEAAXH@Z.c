@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?SetSchedulingPriorityAdjustment@DXGDEVICE@@QEAAXH@Z @ 0x1403B0424
+ * Callers:
+ *     ?SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAGS@@PEBQEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x140285A10 (-SetVidPnSourceOwnerInternal@@YAJPEBU_D3DKMT_SETVIDPNSOURCEOWNER@@U_D3DKMT_VIDPNSOURCEOWNER_FLAG.c)
+ * Callees:
+ *     ?IsDxgmms2@DXGADAPTER@@QEBAEXZ @ 0x14002EC00 (-IsDxgmms2@DXGADAPTER@@QEBAEXZ.c)
+ *     ?SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z @ 0x1403B04E8 (-SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z.c)
+ */
+
+void __fastcall DXGDEVICE::SetSchedulingPriorityAdjustment(DXGDEVICE *this, int a2)
+{
+  char *v2; // rdi
+  char *i; // rbx
+  bool IsDxgmms2; // al
+
+  v2 = (char *)this + 496;
+  for ( i = (char *)*((_QWORD *)this + 62); i != v2 && i; i = *(char **)i )
+  {
+    IsDxgmms2 = DXGADAPTER::IsDxgmms2(*(DXGADAPTER **)(*(_QWORD *)(*((_QWORD *)i + 2) + 16LL) + 16LL));
+    DXGCONTEXT::SetSchedulingPriority((DXGCONTEXT *)i, a2 + *((_DWORD *)i + 105), !IsDxgmms2);
+    *((_DWORD *)i + 104) = a2;
+  }
+}

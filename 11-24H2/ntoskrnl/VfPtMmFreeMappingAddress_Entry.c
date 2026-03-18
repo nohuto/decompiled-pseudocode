@@ -1,0 +1,23 @@
+/*
+ * XREFs of VfPtMmFreeMappingAddress_Entry @ 0x140B8C4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfPtMiscPoolNotification @ 0x140400260 (VfPtMiscPoolNotification.c)
+ *     VfIsKernelVerificationOn @ 0x1404FB110 (VfIsKernelVerificationOn.c)
+ */
+
+char __fastcall VfPtMmFreeMappingAddress_Entry(__int64 a1)
+{
+  char result; // al
+  __int64 v3; // rcx
+
+  result = VfIsKernelVerificationOn();
+  if ( !result )
+  {
+    v3 = *(_QWORD *)(a1 + 16);
+    if ( v3 )
+      return VfPtMiscPoolNotification(v3, 0LL, *(_DWORD *)(a1 + 8), 1);
+  }
+  return result;
+}

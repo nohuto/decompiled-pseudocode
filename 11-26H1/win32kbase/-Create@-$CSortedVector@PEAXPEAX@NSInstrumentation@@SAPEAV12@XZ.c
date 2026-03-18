@@ -1,0 +1,32 @@
+/*
+ * XREFs of ?Create@?$CSortedVector@PEAXPEAX@NSInstrumentation@@SAPEAV12@XZ @ 0x1401FC7E4
+ * Callers:
+ *     ?InitializeSortedVector@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAV?$CSortedVector@PEAXPEAX@2@@Z @ 0x1401FCC90 (-InitializeSortedVector@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAV-$CSortedVector@PE.c)
+ * Callees:
+ *     <none>
+ */
+
+_QWORD *NSInstrumentation::CSortedVector<void *,void *>::Create()
+{
+  _QWORD *Pool2; // rbx
+  _QWORD *result; // rax
+  __int64 v2; // rax
+
+  Pool2 = (_QWORD *)ExAllocatePool2(258LL, 56LL, 1665758037LL);
+  if ( !Pool2 )
+    return 0LL;
+  v2 = ExAllocatePool2(258LL, 0x2000LL, 1665758037LL);
+  if ( !v2 )
+  {
+    ExFreePoolWithTag(Pool2, 0);
+    return 0LL;
+  }
+  Pool2[6] = v2;
+  result = Pool2;
+  Pool2[4] = 512LL;
+  Pool2[5] = 0LL;
+  Pool2[3] = 0LL;
+  *Pool2 = 0LL;
+  *((_DWORD *)Pool2 + 4) = 0;
+  return result;
+}

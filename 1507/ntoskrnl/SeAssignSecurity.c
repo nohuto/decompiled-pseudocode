@@ -1,0 +1,47 @@
+/*
+ * XREFs of SeAssignSecurity @ 0x140449E58
+ * Callers:
+ *     CmpDoCreateChild @ 0x140448EE0 (CmpDoCreateChild.c)
+ *     CmpKcbCacheLookup @ 0x1404993B0 (CmpKcbCacheLookup.c)
+ *     VerifierSeAssignSecurity @ 0x14074250C (VerifierSeAssignSecurity.c)
+ * Callees:
+ *     RtlpNewSecurityObject @ 0x140488DB0 (RtlpNewSecurityObject.c)
+ */
+
+NTSTATUS __stdcall SeAssignSecurity(
+        PSECURITY_DESCRIPTOR ParentDescriptor,
+        PSECURITY_DESCRIPTOR ExplicitDescriptor,
+        PSECURITY_DESCRIPTOR *NewDescriptor,
+        BOOLEAN IsDirectoryObject,
+        PSECURITY_SUBJECT_CONTEXT SubjectContext,
+        PGENERIC_MAPPING GenericMapping,
+        POOL_TYPE PoolType)
+{
+  int v7; // r10d
+
+  v7 = 0;
+  if ( ParentDescriptor )
+  {
+    if ( (!ExplicitDescriptor || (*((_BYTE *)ExplicitDescriptor + 2) & 4) == 0)
+      && (*((_WORD *)ParentDescriptor + 1) & 0x400) != 0 )
+    {
+      v7 = 1;
+    }
+    if ( (!ExplicitDescriptor || (*((_BYTE *)ExplicitDescriptor + 2) & 0x10) == 0)
+      && (*((_WORD *)ParentDescriptor + 1) & 0x800) != 0 )
+    {
+      v7 |= 2u;
+    }
+  }
+  return RtlpNewSecurityObject(
+           (_DWORD)ParentDescriptor,
+           (_DWORD)ExplicitDescriptor,
+           (_DWORD)NewDescriptor,
+           0,
+           0,
+           IsDirectoryObject,
+           v7,
+           (__int64)SubjectContext,
+           (__int64)GenericMapping,
+           0LL);
+}

@@ -1,0 +1,60 @@
+/*
+ * XREFs of RtlScrubMemory @ 0x140413C54
+ * Callers:
+ *     MiScrubPage @ 0x140413AE4 (MiScrubPage.c)
+ * Callees:
+ *     RtlpGenericMATSPlusWorker @ 0x140413D90 (RtlpGenericMATSPlusWorker.c)
+ *     RtlpGenericInverseCouplingWorker @ 0x140413EA0 (RtlpGenericInverseCouplingWorker.c)
+ *     RtlpGenericStrideWorker @ 0x1404141F8 (RtlpGenericStrideWorker.c)
+ *     RtlpGenericRandomPatternWorker @ 0x140414460 (RtlpGenericRandomPatternWorker.c)
+ *     RtlCompareMemoryUlong @ 0x140730E10 (RtlCompareMemoryUlong.c)
+ */
+
+__int64 __fastcall RtlScrubMemory(unsigned __int64 Source)
+{
+  char *v2; // r10
+  unsigned __int64 v3; // r9
+  unsigned __int64 v4; // r8
+  struct _KPRCB *CurrentPrcb; // rax
+  __int64 CFlushSize; // rdx
+  char *i; // rcx
+  __int64 v9; // r8
+  __int64 v10; // r8
+  __int64 v11; // r8
+  signed __int32 v12[14]; // [rsp+0h] [rbp-38h] BYREF
+
+  v2 = (char *)Source;
+  v3 = 1024LL;
+  v4 = __rdtsc() >> 4;
+  if ( (Source & 4) != 0 )
+  {
+    *(_DWORD *)Source = v4;
+    v2 = (char *)(Source + 4);
+    v3 = 1023LL;
+  }
+  memset64(v2, (unsigned int)v4 | ((unsigned __int64)(unsigned int)v4 << 32), v3 >> 1);
+  if ( (v3 & 1) != 0 )
+    *(_DWORD *)&v2[4 * v3 - 4] = v4;
+  CurrentPrcb = KeGetCurrentPrcb();
+  CFlushSize = CurrentPrcb->CFlushSize;
+  if ( CurrentPrcb->CFlushSize )
+  {
+    _InterlockedOr(v12, 0);
+    for ( i = (char *)(Source & ~(CFlushSize - 1)); (unsigned __int64)i < Source + 4096; i += CFlushSize )
+      _mm_clflush(i);
+  }
+  if ( RtlCompareMemoryUlong((PVOID)Source, 0x1000uLL, v4) == 4096
+    && (unsigned __int8)RtlpGenericMATSPlusWorker(0LL, 0xFFFFFFFFLL, Source)
+    && (unsigned __int8)RtlpGenericMATSPlusWorker(0xFFFFFFFFLL, 0LL, v9)
+    && (unsigned __int8)RtlpGenericInverseCouplingWorker(0LL, 0xFFFFFFFFLL)
+    && (unsigned __int8)RtlpGenericInverseCouplingWorker(0xFFFFFFFFLL, 0LL)
+    && (unsigned __int8)RtlpGenericStrideWorker(0LL, 0xFFFFFFFFLL, v10, Source)
+    && (unsigned __int8)RtlpGenericStrideWorker(0xFFFFFFFFLL, 0LL, v11, Source) )
+  {
+    return (unsigned __int8)RtlpGenericRandomPatternWorker(Source) == 0 ? 0xC0000709 : 0;
+  }
+  else
+  {
+    return 3221227273LL;
+  }
+}

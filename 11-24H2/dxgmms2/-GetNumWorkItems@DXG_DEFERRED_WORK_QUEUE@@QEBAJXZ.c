@@ -1,0 +1,27 @@
+/*
+ * XREFs of ?GetNumWorkItems@DXG_DEFERRED_WORK_QUEUE@@QEBAJXZ @ 0x140036F6C
+ * Callers:
+ *     ?TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@EPEAUVIDMM_LOCAL_ALLOC@@_N@Z @ 0x1400B2188 (-TransferToSystem@VIDMM_MEMORY_SEGMENT@@QEAAXPEAUVIDMM_GLOBAL_ALLOC@@EPEAUVIDMM_LOCAL_ALLOC@@_N@.c)
+ *     ?TransferToSegment@VIDMM_MEMORY_SEGMENT@@QEAAJPEAUVIDMM_GLOBAL_ALLOC@@PEAU_MDL@@_N@Z @ 0x1400C1A1C (-TransferToSegment@VIDMM_MEMORY_SEGMENT@@QEAAJPEAUVIDMM_GLOBAL_ALLOC@@PEAU_MDL@@_N@Z.c)
+ *     ?ProcessPendingMoves@VIDMM_SEGMENT@@QEAAXXZ @ 0x1400F6658 (-ProcessPendingMoves@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?UpdateActiveVPRAfterMove@VIDMM_SEGMENT@@QEAAJXZ @ 0x14010EFBC (-UpdateActiveVPRAfterMove@VIDMM_SEGMENT@@QEAAJXZ.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x140034280 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ */
+
+__int64 __fastcall DXG_DEFERRED_WORK_QUEUE::GetNumWorkItems(DXG_DEFERRED_WORK_QUEUE *this)
+{
+  DXG_DEFERRED_WORK_QUEUE *v1; // rbx
+  DXG_DEFERRED_WORK_QUEUE *v3; // [rsp+20h] [rbp-18h] BYREF
+  char v4; // [rsp+28h] [rbp-10h]
+
+  v1 = this;
+  v3 = this;
+  KeEnterCriticalRegion();
+  ExAcquirePushLockExclusiveEx(v1, 0LL);
+  *((_QWORD *)v1 + 1) = KeGetCurrentThread();
+  LODWORD(v1) = *((_DWORD *)v1 + 10);
+  v4 = 1;
+  DXGAUTOPUSHLOCKFASTEXCLUSIVE::Release((DXGAUTOPUSHLOCKFASTEXCLUSIVE *)&v3);
+  return (unsigned int)v1;
+}

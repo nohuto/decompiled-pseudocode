@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?SysMmFreeLogicalMemory@@YAXPEAUSYSMM_ADAPTER@@PEAX@Z @ 0x1C002CC40
+ * Callers:
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C008D5A0 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?AllocateStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@PEAVVIDMM_GLOBAL@@@Z @ 0x1C009B3B4 (-AllocateStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
+ *     ?ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@@@Z @ 0x1C009B7EC (-ReleaseStoragePageGpuData@VIDMM_FENCE_STORAGE_PAGE@@QEAAXPEAUVIDMM_FENCE_STORAGE_PAGE_GPU_DATA@.c)
+ *     ??1VIDMM_MEMORY_SEGMENT@@UEAA@XZ @ 0x1C00E8968 (--1VIDMM_MEMORY_SEGMENT@@UEAA@XZ.c)
+ *     ?FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ @ 0x1C00EA8DC (-FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001D930 (_guard_dispatch_icall_nop.c)
+ */
+
+void __fastcall SysMmFreeLogicalMemory(struct SYSMM_ADAPTER *a1, void *a2)
+{
+  ((void (__fastcall *)(struct SYSMM_ADAPTER *, void *))DxgCoreInterface[89])(a1, a2);
+}

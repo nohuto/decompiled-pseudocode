@@ -1,0 +1,17 @@
+/*
+ * XREFs of _lambda_74fc1e22101fb496760f58e758191252_::_lambda_invoker_cdecl_ @ 0x140277400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetOrClrWF @ 0x1400373A0 (SetOrClrWF.c)
+ */
+
+struct tagWND *__fastcall lambda_74fc1e22101fb496760f58e758191252_::_lambda_invoker_cdecl_(__int64 a1)
+{
+  struct tagWND *result; // rax
+
+  result = (struct tagWND *)ValidateHwnd(a1);
+  if ( result )
+    return (struct tagWND *)SetOrClrWF(0, result, 0x210u, 1);
+  return result;
+}

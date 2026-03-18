@@ -1,0 +1,23 @@
+/*
+ * XREFs of ?AllocateOcclusionInfo@CWindowNode@@MEAA?AV?$unique_ptr@VCOcclusionInfo@@U?$default_delete@VCOcclusionInfo@@@std@@@std@@I@Z @ 0x1800E8B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x1800E9260 (--2@YAPEAX_K@Z.c)
+ */
+
+_QWORD *__fastcall CWindowNode::AllocateOcclusionInfo(__int64 a1, _QWORD *a2, int a3)
+{
+  _QWORD *v6; // rax
+
+  v6 = operator new(0x38uLL);
+  if ( v6 )
+  {
+    v6[1] = a1;
+    *v6 = &CWindowOcclusionInfo::`vftable';
+    v6[2] = 0LL;
+    *((_DWORD *)v6 + 8) = a3;
+  }
+  *a2 = v6;
+  return a2;
+}

@@ -1,0 +1,12 @@
+/*
+ * XREFs of ??_EDMMVIDEOPRESENTSOURCE@@WCA@EAAPEAXI@Z @ 0x140090870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+void *__fastcall DMMVIDEOPRESENTSOURCE::`vector deleting destructor'(__int64 a1, unsigned int a2)
+{
+  return DMMVIDEOPRESENTSOURCE::`vector deleting destructor'((DMMVIDEOPRESENTSOURCE *)(a1 - 32), a2);
+}

@@ -1,0 +1,61 @@
+/*
+ * XREFs of CmpInitializePreloadedHives @ 0x14083C5EC
+ * Callers:
+ *     CmInitSystem1 @ 0x14083BF10 (CmInitSystem1.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x1402B2440 (ExFreePoolWithTag.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x1405C1760 (CmpHiveRootSecurityDescriptor.c)
+ *     CmpInitializePreloadedHive @ 0x14083C6D0 (CmpInitializePreloadedHive.c)
+ */
+
+__int64 __fastcall CmpInitializePreloadedHives(__int64 a1, int a2)
+{
+  ACL *v2; // rbx
+  unsigned int v3; // ebp
+  _QWORD **v5; // rax
+  _QWORD *v6; // rdx
+  _QWORD **v8; // rax
+  _QWORD *v9; // rsi
+
+  v2 = 0LL;
+  v3 = 0;
+  if ( a2 )
+  {
+    qword_140387358 = (__int64)&CmpPreloadedHivesList;
+    CmpPreloadedHivesList = (__int64)&CmpPreloadedHivesList;
+    v8 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 208LL);
+    v9 = *v8;
+    if ( *v8 != v8 )
+    {
+      while ( 1 )
+      {
+        if ( !v2 )
+        {
+          v2 = CmpHiveRootSecurityDescriptor();
+          if ( !v2 )
+            break;
+        }
+        CmpInitializePreloadedHive(v9, v2);
+        v9 = (_QWORD *)*v9;
+        if ( v9 == (_QWORD *)(*(_QWORD *)(a1 + 240) + 208LL) )
+          goto LABEL_10;
+      }
+      v3 = -1073741670;
+LABEL_10:
+      if ( v2 )
+        ExFreePoolWithTag(v2, 0);
+    }
+  }
+  else
+  {
+    v5 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 208LL);
+    v6 = *v5;
+    while ( v6 != v5 )
+    {
+      ++CmpPreloadedHivesCount;
+      v6 = (_QWORD *)*v6;
+      v5 = (_QWORD **)(*(_QWORD *)(a1 + 240) + 208LL);
+    }
+  }
+  return v3;
+}

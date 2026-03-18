@@ -1,0 +1,45 @@
+/*
+ * XREFs of ??0CSharedDirect3DResources@CDrawListEntryBatch@@AEAA@XZ @ 0x180248E54
+ * Callers:
+ *     ?Create@CSharedDirect3DResources@CDrawListEntryBatch@@SAJPEAVCD3DDevice@@PEAPEAV12@@Z @ 0x1801BE728 (-Create@CSharedDirect3DResources@CDrawListEntryBatch@@SAJPEAVCD3DDevice@@PEAPEAV12@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x180251AD8 (memset_0.c)
+ */
+
+CDrawListEntryBatch::CSharedDirect3DResources *__fastcall CDrawListEntryBatch::CSharedDirect3DResources::CSharedDirect3DResources(
+        CDrawListEntryBatch::CSharedDirect3DResources *this)
+{
+  *((_DWORD *)this + 2) = 0;
+  *(_QWORD *)this = &CDrawListEntryBatch::CSharedDirect3DResources::`vftable';
+  *((_QWORD *)this + 2) = 0LL;
+  *((_QWORD *)this + 3) = 0LL;
+  *((_DWORD *)this + 8) = 1;
+  *((_QWORD *)this + 5) = 0LL;
+  *((_QWORD *)this + 6) = 0LL;
+  *((_DWORD *)this + 14) = 0;
+  *((_DWORD *)this + 15) = -1;
+  *((_QWORD *)this + 8) = 0LL;
+  *((_QWORD *)this + 9) = 0LL;
+  *((_DWORD *)this + 20) = 2;
+  *((_QWORD *)this + 11) = 0LL;
+  *((_QWORD *)this + 12) = 0LL;
+  *((_DWORD *)this + 26) = 0;
+  *((_DWORD *)this + 27) = -1;
+  *((_QWORD *)this + 14) = 0LL;
+  *((_BYTE *)this + 120) = 0;
+  memset_0((char *)this + 128, 0, 0x80uLL);
+  *((_BYTE *)this + 256) = 0;
+  *((_QWORD *)this + 34) = 0LL;
+  *((_BYTE *)this + 280) = 0;
+  *((_OWORD *)this + 18) = 0LL;
+  *((_QWORD *)this + 38) = 0LL;
+  *((_BYTE *)this + 312) = 0;
+  memset_0((char *)this + 320, 0, 0x110uLL);
+  *((_QWORD *)this + 74) = 0LL;
+  *((_BYTE *)this + 600) = 0;
+  memset_0((char *)this + 608, 0, 0xF0uLL);
+  *((_QWORD *)this + 106) = 0LL;
+  *((_BYTE *)this + 856) = 0;
+  memset_0((char *)this + 864, 0, 0x110uLL);
+  return this;
+}

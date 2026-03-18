@@ -1,0 +1,97 @@
+/*
+ * XREFs of ?Modulus@CExpressionValueStack@@QEAAJXZ @ 0x180260654
+ * Callers:
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BDA50 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ * Callees:
+ *     ??4CExpressionValue@@QEAAAEAV0@AEBV0@@Z @ 0x180016278 (--4CExpressionValue@@QEAAAEAV0@AEBV0@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C0E8C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CExpressionValue@@QEAA@XZ @ 0x1800C1EC4 (--0CExpressionValue@@QEAA@XZ.c)
+ *     fmodf_0 @ 0x18011B8F0 (fmodf_0.c)
+ *     ??1CExpressionValue@@QEAA@XZ @ 0x18021737C (--1CExpressionValue@@QEAA@XZ.c)
+ */
+
+__int64 __fastcall CExpressionValueStack::Modulus(CExpressionValueStack *this)
+{
+  unsigned int v1; // eax
+  unsigned int v3; // ebp
+  __int64 v4; // rax
+  float *v5; // rbx
+  CExpressionValue *v6; // rax
+  _DWORD *v7; // rsi
+  __int64 v8; // rax
+  CExpressionValue *v9; // rax
+  int v10; // eax
+  float v11; // xmm1_4
+  float v12; // xmm0_4
+  unsigned int v14; // [rsp+20h] [rbp-68h]
+  _BYTE v15[80]; // [rsp+30h] [rbp-58h] BYREF
+
+  v1 = *((_DWORD *)this + 4);
+  if ( v1 >= 2 )
+  {
+    v4 = v1 - 2;
+    v5 = (float *)&CExpressionValueStack::s_emptyValue;
+    if ( (unsigned int)v4 < *((_DWORD *)this + 12) )
+    {
+      v7 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v4);
+    }
+    else
+    {
+      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
+      v7 = &CExpressionValueStack::s_emptyValue;
+    }
+    v8 = (unsigned int)(*((_DWORD *)this + 4) - 1);
+    if ( (unsigned int)v8 < *((_DWORD *)this + 12) )
+    {
+      v5 = (float *)(*((_QWORD *)this + 3) + 80 * v8);
+    }
+    else
+    {
+      v9 = CExpressionValue::CExpressionValue((CExpressionValue *)v15);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v9);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v15);
+    }
+    v10 = v7[18];
+    v3 = 0;
+    if ( v10 == *((_DWORD *)v5 + 18) )
+    {
+      if ( v10 == 18 )
+      {
+        v11 = *v5;
+        if ( *v5 > 0.0 )
+        {
+          v12 = *(float *)v7;
+          v7[18] = 18;
+          *(float *)v7 = fmodf_0(v12, v11);
+          *((_BYTE *)v7 + 76) = 1;
+          --*((_DWORD *)this + 4);
+          return v3;
+        }
+        v14 = 1457;
+      }
+      else
+      {
+        v14 = 1473;
+      }
+    }
+    else
+    {
+      v14 = 1442;
+    }
+  }
+  else
+  {
+    v14 = 1419;
+  }
+  v3 = -2147467259;
+  MilInstrumentationCheckHR_MaybeFailFast(
+    (__int64)this,
+    &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
+    1u,
+    -2147467259,
+    v14,
+    0LL);
+  return v3;
+}

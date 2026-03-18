@@ -1,0 +1,37 @@
+/*
+ * XREFs of ?NeedsCursorPositionUpdates@CDesktopTree@@QEBA_NPEBVCCursorVisual@@@Z @ 0x180296460
+ * Callers:
+ *     ?SetNotificationMode@CCursorVisual@@QEAAXXZ @ 0x18025B494 (-SetNotificationMode@CCursorVisual@@QEAAXXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18002F800 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x180041FB8 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_dispatch_icall$thunk$10345483385596137414 @ 0x180301010 (_guard_dispatch_icall$thunk$10345483385596137414.c)
+ */
+
+char __fastcall CDesktopTree::NeedsCursorPositionUpdates(CDesktopTree *this, const struct CCursorVisual *a2)
+{
+  int (__fastcall ****v2)(_QWORD, GUID *, __int64 *); // rbx
+  int (__fastcall ****v4)(_QWORD, GUID *, __int64 *); // rsi
+  int (__fastcall ***v5)(_QWORD, GUID *, __int64 *); // rdi
+  __int64 v6; // rax
+  __int64 v8; // [rsp+30h] [rbp+8h] BYREF
+
+  v2 = (int (__fastcall ****)(_QWORD, GUID *, __int64 *))*((_QWORD *)this + 306);
+  v4 = (int (__fastcall ****)(_QWORD, GUID *, __int64 *))*((_QWORD *)this + 307);
+  while ( v2 != v4 )
+  {
+    v5 = *v2;
+    v8 = 0LL;
+    wil::com_ptr_t<IDXGISwapChain1,wil::err_returncode_policy>::reset(&v8);
+    if ( (**v5)(v5, &GUID_246c9be3_da00_417e_8eb0_aefc3aebe2a9, &v8) < 0
+      || (v6 = (*(__int64 (__fastcall **)(__int64))(*(_QWORD *)v8 + 72LL))(v8)) == 0
+      || *(const struct CCursorVisual **)(v6 + 19608) != a2 )
+    {
+      wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v8);
+      return 1;
+    }
+    wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>(&v8);
+    ++v2;
+  }
+  return 0;
+}

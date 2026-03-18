@@ -1,0 +1,21 @@
+/*
+ * XREFs of EtwTraceEndDelegatedInputWorker @ 0x1400A4820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0cpttttttpppqqq_EtwWriteTransfer @ 0x1400A4948 (McTemplateK0cpttttttpppqqq_EtwWriteTransfer.c)
+ *     ?GetCallbackCount@@YACXZ @ 0x1400A5190 (-GetCallbackCount@@YACXZ.c)
+ */
+
+void __fastcall EtwTraceEndDelegatedInputWorker(char a1)
+{
+  int v2; // r9d
+  int v3; // ecx
+  int v4; // r8d
+
+  if ( (Microsoft_Windows_Win32kEnableBits & 0x4000) != 0 )
+  {
+    LOBYTE(v2) = GetCallbackCount();
+    McTemplateK0cpttttttpppqqq_EtwWriteTransfer(v3, (unsigned int)&EndDelegatedInputWorker, v4, v2, a1);
+  }
+}

@@ -1,0 +1,24 @@
+/*
+ * XREFs of ?ReleaseRange@VIDMM_CPU_HOST_APERTURE@@QEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x140124588
+ * Callers:
+ *     AcquireResidentSystemAddressInCpuHostAperture @ 0x1400B10FC (AcquireResidentSystemAddressInCpuHostAperture.c)
+ *     DiscardCpuHostApertureRange @ 0x1400B1B94 (DiscardCpuHostApertureRange.c)
+ *     ReleaseResidentSystemAddressInCpuHostAperture @ 0x1400B2780 (ReleaseResidentSystemAddressInCpuHostAperture.c)
+ *     ?InvalidateAllVirtualAddress@VIDMM_SEGMENT@@QEAAXXZ @ 0x1400B66CC (-InvalidateAllVirtualAddress@VIDMM_SEGMENT@@QEAAXXZ.c)
+ *     ?AddReservedRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@PEAPEAXPEAPEAU_MDL@@_K3@Z @ 0x1400BC208 (-AddReservedRange@VIDMM_CPU_HOST_APERTURE@@QEAAJPEAPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@PEAPEAXPEA.c)
+ *     ?VidMmReleaseUpdatePageTableChaData@@YAXPEAVVIDMM_CPU_HOST_APERTURE@@PEAUVIDMM_UPDATEPAGETABLE_CHA_DATA@@@Z @ 0x1400BC5CC (-VidMmReleaseUpdatePageTableChaData@@YAXPEAVVIDMM_CPU_HOST_APERTURE@@PEAUVIDMM_UPDATEPAGETABLE_C.c)
+ *     PageInAllocation_0 @ 0x1400D2924 (PageInAllocation_0.c)
+ *     ?PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXUVIDMM_PURGE_FLAGS@@PEA_K@Z @ 0x1400FF140 (-PurgeCpuVisibleAllocations@VIDMM_MEMORY_SEGMENT@@QEAAXUVIDMM_PURGE_FLAGS@@PEA_K@Z.c)
+ *     MapInCpuHostAperture @ 0x140103194 (MapInCpuHostAperture.c)
+ *     ?EvictResource@VIDMM_MEMORY_SEGMENT@@UEAA_NPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@_N11PEAUVIDMM_LOCAL_ALLOC@@@Z @ 0x14012B100 (-EvictResource@VIDMM_MEMORY_SEGMENT@@UEAA_NPEAUVIDMM_PHYSICAL_ALLOC_LEGACY@@_N11PEAUVIDMM_LOCAL_.c)
+ * Callees:
+ *     ?ReleaseRangeInternal@VIDMM_CPU_HOST_APERTURE@@AEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z @ 0x1401245B4 (-ReleaseRangeInternal@VIDMM_CPU_HOST_APERTURE@@AEAAXPEAUVIDMM_CPU_HOST_APERTURE_RANGE@@@Z.c)
+ */
+
+void __fastcall VIDMM_CPU_HOST_APERTURE::ReleaseRange(
+        VIDMM_CPU_HOST_APERTURE *this,
+        struct VIDMM_CPU_HOST_APERTURE_RANGE *a2)
+{
+  VIDMM_CPU_HOST_APERTURE::ReleaseRangeInternal(this, a2);
+  ExFreePoolWithTag(a2, 0);
+}

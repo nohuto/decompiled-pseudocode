@@ -1,0 +1,70 @@
+/*
+ * XREFs of HalpHandleMaskUnmaskSecondaryInterrupt @ 0x14042683C
+ * Callers:
+ *     HalpMaskInterrupt @ 0x140426960 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x140426AB0 (HalpUnmaskInterrupt.c)
+ * Callees:
+ *     KeSetEvent @ 0x1402DE9C0 (KeSetEvent.c)
+ *     HalpFindSecondaryIcEntry @ 0x140426CC8 (HalpFindSecondaryIcEntry.c)
+ *     HalpInsertSecondarySignalList @ 0x14058F77C (HalpInsertSecondarySignalList.c)
+ *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ */
+
+__int64 __fastcall HalpHandleMaskUnmaskSecondaryInterrupt(unsigned int a1, unsigned int a2, char a3)
+{
+  int v6; // edi
+  __int64 SecondaryIcEntry; // rax
+  __int64 v9; // rbx
+  __int64 v10; // rsi
+  __int64 v11; // rsi
+  __int64 v12; // rdx
+  __int64 v13; // r8
+
+  if ( SecondaryIcServicesEnabled )
+  {
+    if ( a1 >= SecondaryGsivRangeStart && a1 < SecondaryGsivRangeSize + SecondaryGsivRangeStart )
+    {
+      SecondaryIcEntry = HalpFindSecondaryIcEntry(a1);
+      v9 = SecondaryIcEntry;
+      if ( SecondaryIcEntry )
+      {
+        v10 = a1 - *(_DWORD *)(SecondaryIcEntry + 16);
+        if ( a3 )
+        {
+          v6 = guard_dispatch_icall_no_overrides(*(_QWORD *)(SecondaryIcEntry + 32), a2);
+          if ( v6 >= 0 )
+            *(_BYTE *)(v9 + 16LL * (unsigned int)v10 + 172) = 0;
+        }
+        else
+        {
+          v11 = 2 * v10;
+          *(_BYTE *)(SecondaryIcEntry + 8 * v11 + 172) = 1;
+          v6 = guard_dispatch_icall_no_overrides(*(_QWORD *)(SecondaryIcEntry + 32), a2);
+          if ( v6 < 0 )
+            *(_BYTE *)(v9 + 8 * v11 + 172) = 0;
+        }
+        if ( _InterlockedDecrement((volatile signed __int32 *)(v9 + 112)) == 1
+          && _InterlockedCompareExchange((volatile signed __int32 *)(v9 + 116), 0, 0) )
+        {
+          if ( KeGetCurrentIrql() <= 2u )
+            KeSetEvent((PRKEVENT)(v9 + 120), 0, 0);
+          else
+            HalpInsertSecondarySignalList(v9, v12, v13);
+        }
+      }
+      else
+      {
+        return (unsigned int)-1073700575;
+      }
+    }
+    else
+    {
+      return (unsigned int)-1073741811;
+    }
+  }
+  else
+  {
+    return (unsigned int)-1073741637;
+  }
+  return (unsigned int)v6;
+}

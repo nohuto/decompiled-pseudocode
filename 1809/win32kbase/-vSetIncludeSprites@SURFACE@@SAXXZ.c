@@ -1,0 +1,16 @@
+/*
+ * XREFs of ?vSetIncludeSprites@SURFACE@@SAXXZ @ 0x1C00928D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0025170 (W32GetThreadWin32Thread.c)
+ */
+
+void SURFACE::vSetIncludeSprites(void)
+{
+  __int64 ThreadWin32Thread; // rax
+
+  ThreadWin32Thread = W32GetThreadWin32Thread((__int64)KeGetCurrentThread());
+  if ( ThreadWin32Thread )
+    *(_BYTE *)(ThreadWin32Thread + 329) = 1;
+}

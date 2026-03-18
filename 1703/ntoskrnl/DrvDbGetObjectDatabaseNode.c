@@ -1,0 +1,50 @@
+/*
+ * XREFs of DrvDbGetObjectDatabaseNode @ 0x140486E48
+ * Callers:
+ *     DrvDbOpenObjectRegKey @ 0x140486A00 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDeleteObjectRegKey @ 0x140742610 (DrvDbDeleteObjectRegKey.c)
+ * Callees:
+ *     wcschr @ 0x14016BB40 (wcschr.c)
+ *     DrvDbFindDatabaseNode @ 0x14044C7CC (DrvDbFindDatabaseNode.c)
+ *     RtlDuplicateUnicodeString @ 0x1404C17D0 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x140541820 (RtlFreeUnicodeString.c)
+ */
+
+__int64 __fastcall DrvDbGetObjectDatabaseNode(__int64 a1, wchar_t *a2, wchar_t **a3, const UNICODE_STRING **a4)
+{
+  int DatabaseNode; // ebx
+  wchar_t *v9; // rdi
+  wchar_t *v11; // rbp
+  wchar_t *v12; // rax
+  UNICODE_STRING StringIn; // [rsp+20h] [rbp-38h] BYREF
+  UNICODE_STRING StringOut; // [rsp+30h] [rbp-28h] BYREF
+
+  DatabaseNode = 0;
+  if ( *a2 != 64
+    || (v11 = a2 + 1, (v12 = wcschr(a2 + 1, 0x3Au)) == 0LL)
+    || (StringIn.Buffer = v11,
+        StringIn.Length = 2 * (v12 - v11),
+        StringIn.MaximumLength = StringIn.Length,
+        v9 = v12 + 1,
+        v12 == (wchar_t *)-2LL) )
+  {
+    v9 = a2;
+LABEL_3:
+    *a4 = *(const UNICODE_STRING **)(a1 + 40);
+    goto LABEL_4;
+  }
+  if ( v9 == a2 )
+    goto LABEL_3;
+  DatabaseNode = RtlDuplicateUnicodeString(1u, &StringIn, &StringOut);
+  if ( DatabaseNode < 0 )
+    return (unsigned int)DatabaseNode;
+  DatabaseNode = DrvDbFindDatabaseNode(a1, StringOut.Buffer, a4);
+  RtlFreeUnicodeString(&StringOut);
+  if ( DatabaseNode == -1073741772 )
+    return (unsigned int)-1073741766;
+  if ( DatabaseNode < 0 )
+    return (unsigned int)DatabaseNode;
+LABEL_4:
+  *a3 = v9;
+  return (unsigned int)DatabaseNode;
+}

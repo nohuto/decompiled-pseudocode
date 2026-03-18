@@ -1,0 +1,31 @@
+/*
+ * XREFs of RawInputManagerObjectOpen @ 0x1401E39D0
+ * Callers:
+ *     RIMObjectManagerCallout @ 0x140116F54 (RIMObjectManagerCallout.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x14019C14C (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
+__int64 __fastcall RawInputManagerObjectOpen(__int64 a1)
+{
+  __int64 v1; // rsi
+  unsigned int v3; // ebx
+  int ProcessSessionId; // eax
+
+  v1 = *(_QWORD *)(a1 + 32);
+  v3 = 0;
+  if ( ObGetObjectType(v1) != ExRawInputManagerObjectType )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 79);
+  if ( !*(_QWORD *)(v1 + 32) )
+    MicrosoftTelemetryAssertTriggeredArgsKM("IXPTelAssert", 0x20000, 81);
+  if ( *(_WORD *)(a1 + 40) )
+  {
+    if ( !(unsigned __int8)PsIsSystemProcess(*(_QWORD *)(a1 + 24)) )
+    {
+      ProcessSessionId = PsGetProcessSessionIdEx(*(_QWORD *)(a1 + 24));
+      if ( ProcessSessionId == -1 || ProcessSessionId != *(_DWORD *)v1 )
+        return (unsigned int)-1073741790;
+    }
+  }
+  return v3;
+}

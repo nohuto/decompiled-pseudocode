@@ -1,0 +1,27 @@
+/*
+ * XREFs of KiSynchronizeSecurityDomainTarget @ 0x14013B480
+ * Callers:
+ *     KeSynchronizeSecurityDomain @ 0x14013841C (KeSynchronizeSecurityDomain.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 KiSynchronizeSecurityDomainTarget()
+{
+  __int64 result; // rax
+  struct _KPRCB *CurrentPrcb; // rcx
+
+  result = (__int64)KeGetCurrentThread();
+  CurrentPrcb = KeGetCurrentPrcb();
+  _m_prefetchw((char *)&CurrentPrcb->2 + 20);
+  if ( (*((_BYTE *)&CurrentPrcb->2 + 20) & 4) != 0 )
+  {
+    result = *(_QWORD *)(*(_QWORD *)(result + 184) + 2096LL);
+    if ( result != CurrentPrcb->TrappedSecurityDomain )
+    {
+      result = 2LL;
+      _InterlockedOr16(&CurrentPrcb->PairRegister, 2u);
+    }
+  }
+  return result;
+}

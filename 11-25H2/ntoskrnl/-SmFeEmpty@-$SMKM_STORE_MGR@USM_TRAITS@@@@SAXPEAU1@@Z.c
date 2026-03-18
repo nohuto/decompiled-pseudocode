@@ -1,0 +1,25 @@
+/*
+ * XREFs of ?SmFeEmpty@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405FE01C
+ * Callers:
+ *     ?SmStoreMgrCallback@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_LIST@@PEAXW4_SMKM_CALLBACK_TYPE@@@Z @ 0x140396160 (-SmStoreMgrCallback@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU_SMKM_STORE_LIST@@PEAXW4_SMKM_CALLBACK.c)
+ * Callees:
+ *     ?StLockReleaseExclusive@@YAXPEAUVLOCK@@K@Z @ 0x14031F750 (-StLockReleaseExclusive@@YAXPEAUVLOCK@@K@Z.c)
+ *     ?StLockAcquireExclusive@@YAKPEAUVLOCK@@@Z @ 0x1403D5C30 (-StLockAcquireExclusive@@YAKPEAUVLOCK@@@Z.c)
+ *     ?BTreeNodeFree@?$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAAA@UB_TREE_DUMMY_NODE_POOL@@U?$B_TREE_KEY_COMPARATOR@T_SM_PAGE_KEY@@@@@@SAXPEAU1@PEAUNODE@?$B_TREE_HEADER@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@?$SMKM_STORE_MGR@USM_TRAITS@@@@@@@Z @ 0x1405FD570 (-BTreeNodeFree@-$B_TREE@T_SM_PAGE_KEY@@USMKM_FRONTEND_ENTRY@-$SMKM_STORE_MGR@USM_TRAITS@@@@$0BAA.c)
+ */
+
+void __fastcall SMKM_STORE_MGR<SM_TRAITS>::SmFeEmpty(__int64 a1)
+{
+  ULONG_PTR v1; // rdi
+  char *v3; // rdx
+
+  v1 = a1 + 440;
+  StLockAcquireExclusive((struct VLOCK *)(a1 + 440));
+  v3 = *(char **)(a1 + 448);
+  if ( v3 )
+    B_TREE<_SM_PAGE_KEY,SMKM_STORE_MGR<SM_TRAITS>::SMKM_FRONTEND_ENTRY,4096,B_TREE_DUMMY_NODE_POOL,B_TREE_KEY_COMPARATOR<_SM_PAGE_KEY>>::BTreeNodeFree(
+      a1 + 448,
+      v3);
+  *(_OWORD *)(a1 + 448) = 0LL;
+  StLockReleaseExclusive(v1, (__int64)v3);
+}

@@ -1,0 +1,91 @@
+/*
+ * XREFs of ExReleaseSpinLockExclusive @ 0x1403A2D40
+ * Callers:
+ *     MiCheckControlArea @ 0x14022F1E0 (MiCheckControlArea.c)
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14026E720 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     PopPepProcessEvent @ 0x1402BD780 (PopPepProcessEvent.c)
+ *     PopPepReleaseActivityLink @ 0x1402BE970 (PopPepReleaseActivityLink.c)
+ *     PopPepComponentSetLatency @ 0x1402C0F08 (PopPepComponentSetLatency.c)
+ *     ExGetBigPoolInfo @ 0x1402F70C0 (ExGetBigPoolInfo.c)
+ *     ExpAddTagForBigPages @ 0x1402FCDC0 (ExpAddTagForBigPages.c)
+ *     PfSnGetFileInformation @ 0x140302AF0 (PfSnGetFileInformation.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x140355CD0 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopFxHandleReportDevicePoweredOn @ 0x140356360 (PopFxHandleReportDevicePoweredOn.c)
+ *     PopFxReleasePowerIrp @ 0x1403588E0 (PopFxReleasePowerIrp.c)
+ *     PopFxAllocatePowerIrp @ 0x140358D10 (PopFxAllocatePowerIrp.c)
+ *     RtlpCSparseBitmapUnlock @ 0x14035E2E4 (RtlpCSparseBitmapUnlock.c)
+ *     ExCompareExchangeCallBack @ 0x14036CC90 (ExCompareExchangeCallBack.c)
+ *     IoStopDiskIoAttributionForContext @ 0x14036D660 (IoStopDiskIoAttributionForContext.c)
+ *     ?SmCompressCtxBalancerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x140393600 (-SmCompressCtxBalancerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressCtxWorkerThread@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403A0C80 (-SmCompressCtxWorkerThread@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAX@Z.c)
+ *     ?SmCompressCtxCompleteEntry@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU_SM_WORK_ITEM@1@KKJ@Z @ 0x1403A142C (-SmCompressCtxCompleteEntry@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_THREAD_CTX@1@PEAU.c)
+ *     PfSnNameQueryWorker @ 0x1403A2C70 (PfSnNameQueryWorker.c)
+ *     PopPepArmIdleTimer @ 0x1403A4ADC (PopPepArmIdleTimer.c)
+ *     PopFxArmResidentTimer @ 0x1403A4B70 (PopFxArmResidentTimer.c)
+ *     PopPepIdleTimeoutRoutine @ 0x1403A5D50 (PopPepIdleTimeoutRoutine.c)
+ *     ?SmCompressCtxProcessReadyQueue@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEAU1@E@Z @ 0x1403D4210 (-SmCompressCtxProcessReadyQueue@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@PEA.c)
+ *     SepCleanupMarkedForDeletionEntries @ 0x1403EA0B8 (SepCleanupMarkedForDeletionEntries.c)
+ *     PspIumFreePartitionPages @ 0x140411C58 (PspIumFreePartitionPages.c)
+ *     PfSnNameRemove @ 0x1404393D0 (PfSnNameRemove.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1404635C0 (IoStartDiskIoAttributionForContext.c)
+ *     PoFxIdleDevice @ 0x140477718 (PoFxIdleDevice.c)
+ *     PopFxActivateDevice @ 0x14047D560 (PopFxActivateDevice.c)
+ *     EtwpUnregisterPartitionPages @ 0x140482E20 (EtwpUnregisterPartitionPages.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x140489A74 (IoSetDiskIoAttributionOnProcess.c)
+ *     FlushLookUpTableBucket @ 0x14048C490 (FlushLookUpTableBucket.c)
+ *     PspJobIoRateVolumeEntryRemoveAll @ 0x14048EE74 (PspJobIoRateVolumeEntryRemoveAll.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x140491DBC (PopFxIncrementDeviceSleepCount.c)
+ *     SepInitSingletonEntry @ 0x1404923DC (SepInitSingletonEntry.c)
+ *     PsIoRateControlOverQuotaNotify @ 0x140496F5C (PsIoRateControlOverQuotaNotify.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14049C294 (PopFxIsDevicePotentialDripsConstraint.c)
+ *     RtlpHpAcquireReleaseLockExclusive @ 0x1404A782C (RtlpHpAcquireReleaseLockExclusive.c)
+ *     PoFxStartDevicePowerManagement @ 0x1404AA2A0 (PoFxStartDevicePowerManagement.c)
+ *     PopPepDeviceStarted @ 0x1404AA434 (PopPepDeviceStarted.c)
+ *     ?SmCompressCtxUpdatePriority@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@J@Z @ 0x1404B30D4 (-SmCompressCtxUpdatePriority@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU_SM_COMPRESS_CONTEXT@1@J@Z.c)
+ *     SepExpandSingletonArrays @ 0x1404B576C (SepExpandSingletonArrays.c)
+ *     PopFxAssignDeviceToDevNode @ 0x1404B9958 (PopFxAssignDeviceToDevNode.c)
+ *     IopMcAddMdlPagesToTable @ 0x1404BDAC4 (IopMcAddMdlPagesToTable.c)
+ *     PopPepInitializeVetoMasks @ 0x1404BF148 (PopPepInitializeVetoMasks.c)
+ *     SmFpPreAllocate @ 0x1404C4BB8 (SmFpPreAllocate.c)
+ *     PopPepWaitForDeviceRelease @ 0x1404F88A8 (PopPepWaitForDeviceRelease.c)
+ *     IommupDomainAttachPasidDevice @ 0x14054B814 (IommupDomainAttachPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14054BB10 (IommupDomainDetachPasidDevice.c)
+ *     HalpNumaAddRangeProximity @ 0x140555180 (HalpNumaAddRangeProximity.c)
+ *     HalpUpdateCoolingPacket @ 0x1405655B0 (HalpUpdateCoolingPacket.c)
+ *     IopMcRemoveMdlPagesFromTable @ 0x14059F624 (IopMcRemoveMdlPagesFromTable.c)
+ *     PoFxAddComponentRelation @ 0x1405CB690 (PoFxAddComponentRelation.c)
+ *     PoFxAddDeviceRelation @ 0x1405CB900 (PoFxAddDeviceRelation.c)
+ *     PoFxRegisterDripsWatchdogCallback @ 0x1405CBC80 (PoFxRegisterDripsWatchdogCallback.c)
+ *     PoFxRemoveComponentRelation @ 0x1405CBD40 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x1405CBFA0 (PoFxRemoveDeviceRelation.c)
+ *     PopFxGetParentFxDevice @ 0x1405CCC4C (PopFxGetParentFxDevice.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1405D9898 (PspJobIoRateVolumeEntryInsert.c)
+ *     PspJobIoRateVolumeEntryRemove @ 0x1405D9A3C (PspJobIoRateVolumeEntryRemove.c)
+ *     PspAddPartitionToGlobalList @ 0x1405DA7DC (PspAddPartitionToGlobalList.c)
+ *     PspRemovePartitionFromGlobalList @ 0x1405DA83C (PspRemovePartitionFromGlobalList.c)
+ *     SepSetSingletonEntry @ 0x1405FCF90 (SepSetSingletonEntry.c)
+ *     SmpFpReleaseResource @ 0x140602264 (SmpFpReleaseResource.c)
+ *     SmpFpWaitForResource @ 0x1406022D8 (SmpFpWaitForResource.c)
+ *     SmRecordDecompressionFailureDumpPayload @ 0x140603150 (SmRecordDecompressionFailureDumpPayload.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x140609750 (ViIrpDatabaseReleaseLockExclusive.c)
+ *     EtwpRegisterPartitionPages @ 0x140644650 (EtwpRegisterPartitionPages.c)
+ *     PopSystemIrpCompletion @ 0x140B5A4B0 (PopSystemIrpCompletion.c)
+ * Callees:
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x1403A2D94 (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     KiLowerIrqlProcessIrqlFlags @ 0x1404F1088 (KiLowerIrqlProcessIrqlFlags.c)
+ */
+
+void __stdcall ExReleaseSpinLockExclusive(PEX_SPIN_LOCK SpinLock, KIRQL OldIrql)
+{
+  unsigned __int64 v2; // rbx
+  void *retaddr; // [rsp+28h] [rbp+0h]
+
+  v2 = OldIrql;
+  if ( (BYTE6(PerfGlobalGroupMask) & 1) == 0 || PopHibernateInProgress )
+    *SpinLock = 0;
+  else
+    ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented(SpinLock, retaddr);
+  if ( KiIrqlFlags )
+    KiLowerIrqlProcessIrqlFlags(KeGetCurrentIrql(), (unsigned __int8)v2);
+  __writecr8(v2);
+}

@@ -1,0 +1,44 @@
+/*
+ * XREFs of PspQueryLastCallThread @ 0x1404099F0
+ * Callers:
+ *     NtQueryInformationThread @ 0x14049C030 (NtQueryInformationThread.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall PspQueryLastCallThread(__int64 a1, __int64 a2, int a3, _DWORD *a4)
+{
+  bool v4; // r11
+  int v5; // r8d
+  __int64 v6; // rbx
+  __int16 v7; // di
+  unsigned __int64 v8; // rcx
+  signed __int32 v10[4]; // [rsp+0h] [rbp-28h] BYREF
+  __int64 v11; // [rsp+10h] [rbp-18h]
+
+  v4 = a3 == 16;
+  if ( a3 != 24 && a3 != 16 )
+    return 3221225476LL;
+  if ( (struct _KTHREAD *)a1 == KeGetCurrentThread() )
+    return 3221225485LL;
+  v5 = *(_DWORD *)(a1 + 340);
+  _InterlockedOr(v10, 0);
+  if ( *(_BYTE *)(a1 + 388) != 5 )
+    return 3221225473LL;
+  if ( *(_BYTE *)(a1 + 562) != 1 )
+    return 3221225473LL;
+  v6 = *(_QWORD *)(a1 + 136);
+  v7 = *(_WORD *)(a1 + 128);
+  v11 = *(unsigned int *)(a1 + 436);
+  _InterlockedOr(v10, 0);
+  if ( v5 != *(_DWORD *)(a1 + 340) )
+    return 3221225473LL;
+  v8 = KeMaximumIncrement * (unsigned __int64)(unsigned int)(MEMORY[0xFFFFF78000000320] - v11);
+  *(_QWORD *)a2 = v6;
+  *(_WORD *)(a2 + 8) = v7;
+  if ( !v4 )
+    *(_QWORD *)(a2 + 16) = v8;
+  if ( a4 )
+    *a4 = v4 ? 16 : 24;
+  return 0LL;
+}

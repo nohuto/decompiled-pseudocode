@@ -1,0 +1,15 @@
+/*
+ * XREFs of NVMeHwResetBus @ 0x1C0002110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+char __fastcall NVMeHwResetBus(__int64 a1)
+{
+  if ( *(_BYTE *)(a1 + 16) )
+    return 1;
+  else
+    return NVMeControllerReset(a1);
+}

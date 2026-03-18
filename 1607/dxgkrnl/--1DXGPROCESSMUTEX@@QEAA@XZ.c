@@ -1,0 +1,22 @@
+/*
+ * XREFs of ??1DXGPROCESSMUTEX@@QEAA@XZ @ 0x1C00112A0
+ * Callers:
+ *     ?DdiSetPointerShape@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETPOINTERSHAPE@@@Z @ 0x1C0085BFC (-DdiSetPointerShape@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETPOINTERSHAPE@@@Z.c)
+ *     ?DdiSetPointerPosition@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@@Z @ 0x1C008637C (-DdiSetPointerPosition@ADAPTER_DISPLAY@@QEAAJPEBU_DXGKARG_SETPOINTERPOSITION@@@Z.c)
+ *     ?PrepareIndependentFlipToken@DXGCONTEXT@@AEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@@Z @ 0x1C00AF070 (-PrepareIndependentFlipToken@DXGCONTEXT@@AEAAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_.c)
+ *     DxgkGetPresentHistory @ 0x1C00CA740 (DxgkGetPresentHistory.c)
+ *     DxgkCreateOverlay @ 0x1C016D600 (DxgkCreateOverlay.c)
+ *     DxgkDestroyOverlay @ 0x1C016DAF0 (DxgkDestroyOverlay.c)
+ *     DxgkFlipOverlay @ 0x1C016DF10 (DxgkFlipOverlay.c)
+ *     DxgkGetOverlayState @ 0x1C016E260 (DxgkGetOverlayState.c)
+ *     DxgkUpdateOverlay @ 0x1C016E650 (DxgkUpdateOverlay.c)
+ *     ?OpenLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z @ 0x1C018E860 (-OpenLocal@DXGSWAPCHAIN@@QEAAJIPEAVDXGDEVICE@@PEAXHH@Z.c)
+ * Callees:
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0009D40 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ */
+
+void __fastcall DXGPROCESSMUTEX::~DXGPROCESSMUTEX(DXGPROCESSMUTEX *this)
+{
+  if ( *((_BYTE *)this + 8) )
+    DXGAUTOMUTEX::Release(this);
+}

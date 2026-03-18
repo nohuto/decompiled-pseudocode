@@ -1,0 +1,70 @@
+/*
+ * XREFs of ?GetOrCreateCompositionSurfaceInfo@CCompositionSurfaceManager@@QEAAJPEAXPEAPEAVCCompositionSurfaceInfo@@@Z @ 0x1800A10B8
+ * Callers:
+ *     ?ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUMILCMD_COMPOSITIONSURFACEBITMAP@@@Z @ 0x1800A07F0 (-ProcessUpdate@CCompositionSurfaceBitmap@@UEAAJPEBVCResourceTable@@PEBUMILCMD_COMPOSITIONSURFACE.c)
+ *     ?CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCCompositionSurfaceBitmap@@@Z @ 0x18016D730 (-CreateCompositionSurfaceBitmap@CCompositionSurfaceManager@@QEAAJPEAVCComposition@@PEAXPEAPEAVCC.c)
+ * Callees:
+ *     ?InternalAddRef@CMILCOMBase@@QEAAKXZ @ 0x18005A790 (-InternalAddRef@CMILCOMBase@@QEAAKXZ.c)
+ *     ?GetCompositionSurfaceInfoByLuid@CCompositionSurfaceManager@@QEAAPEAVCCompositionSurfaceInfo@@U_LUID@@@Z @ 0x1800A1174 (-GetCompositionSurfaceInfoByLuid@CCompositionSurfaceManager@@QEAAPEAVCCompositionSurfaceInfo@@U_.c)
+ *     ?Create@CCompositionSurfaceInfo@@SAJPEAXU_LUID@@PEAVCCompositionSurfaceManager@@PEAPEAV1@@Z @ 0x1800A11B0 (-Create@CCompositionSurfaceInfo@@SAJPEAXU_LUID@@PEAVCCompositionSurfaceManager@@PEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z @ 0x1800C7F7C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJI@Z.c)
+ */
+
+__int64 __fastcall CCompositionSurfaceManager::GetOrCreateCompositionSurfaceInfo(
+        CCompositionSurfaceManager *this,
+        void *a2,
+        struct CCompositionSurfaceInfo **a3)
+{
+  char v6; // si
+  int v7; // ebx
+  int v8; // eax
+  unsigned int v9; // ecx
+  struct CCompositionSurfaceInfo *CompositionSurfaceInfoByLuid; // rax
+  struct CCompositionSurfaceInfo *v11; // rdi
+  int v12; // eax
+  unsigned int v13; // ecx
+  struct _LUID v15; // [rsp+70h] [rbp+18h] BYREF
+  struct CCompositionSurfaceInfo *v16; // [rsp+78h] [rbp+20h] BYREF
+
+  *a3 = 0LL;
+  v6 = 0;
+  v7 = 0;
+  v8 = NtValidateCompositionSurfaceHandle(a2, &v15);
+  if ( v8 < 0 )
+  {
+    v7 = v8 | 0x10000000;
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v8 | 0x10000000, 0x19u);
+  }
+  if ( v7 < 0 )
+  {
+    MilInstrumentationCheckHR_MaybeFailFast(v9, 0LL, 0, v7, 0x44u);
+  }
+  else
+  {
+    v6 = 1;
+    CompositionSurfaceInfoByLuid = CCompositionSurfaceManager::GetCompositionSurfaceInfoByLuid(this, v15);
+    v16 = CompositionSurfaceInfoByLuid;
+    v11 = CompositionSurfaceInfoByLuid;
+    if ( CompositionSurfaceInfoByLuid )
+    {
+      CMILCOMBase::InternalAddRef(CompositionSurfaceInfoByLuid);
+    }
+    else
+    {
+      v12 = CCompositionSurfaceInfo::Create(a2, v15, this, &v16);
+      v7 = v12;
+      if ( v12 < 0 )
+      {
+        MilInstrumentationCheckHR_MaybeFailFast(v13, 0LL, 0, v12, 0x58u);
+        goto LABEL_11;
+      }
+      v11 = v16;
+      v6 = 0;
+    }
+    *a3 = v11;
+  }
+  if ( v6 )
+LABEL_11:
+    CloseHandle(a2);
+  return (unsigned int)v7;
+}

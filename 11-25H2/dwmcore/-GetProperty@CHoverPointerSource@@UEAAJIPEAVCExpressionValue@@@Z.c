@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?GetProperty@CHoverPointerSource@@UEAAJIPEAVCExpressionValue@@@Z @ 0x18021A7F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
+__int64 __fastcall CHoverPointerSource::GetProperty(CHoverPointerSource *this, int a2, struct CExpressionValue *a3)
+{
+  __int64 result; // rax
+
+  result = 0LL;
+  if ( !a3 || a2 )
+    return 2147942487LL;
+  *(_QWORD *)a3 = _mm_unpacklo_ps((__m128)*((unsigned int *)this + 20), (__m128)*((unsigned int *)this + 21)).m128_u64[0];
+  *((_DWORD *)a3 + 18) = 35;
+  return result;
+}

@@ -1,0 +1,19 @@
+/*
+ * XREFs of ?SetVirtualGpu@DXGDEVICE@@QEAAXPEAUDXGK_VIRTUAL_GPU_PARAV@@@Z @ 0x140062510
+ * Callers:
+ *     ?DestroyVirtualGpu@DXGK_VIRTUAL_GPU_PARAV@@UEAAXXZ @ 0x14020FC70 (-DestroyVirtualGpu@DXGK_VIRTUAL_GPU_PARAV@@UEAAXXZ.c)
+ *     ?VmBusCreateDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1403B5430 (-VmBusCreateDevice@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x140013A20 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     Feature_Servicing_GraphicsKernel_VolatileAccessorUpdate__private_IsEnabledDeviceUsageNoInline @ 0x14006681C (Feature_Servicing_GraphicsKernel_VolatileAccessorUpdate__private_IsEnabledDeviceUsageNoInline.c)
+ */
+
+void __fastcall DXGDEVICE::SetVirtualGpu(DXGDEVICE *this, struct DXGK_VIRTUAL_GPU_PARAV *a2)
+{
+  DXGPUSHLOCK::AcquireExclusive((DXGDEVICE *)((char *)this + 80));
+  *((_QWORD *)this + 14) = a2;
+  Feature_Servicing_GraphicsKernel_VolatileAccessorUpdate__private_IsEnabledDeviceUsageNoInline();
+  *((_QWORD *)this + 11) = 0LL;
+  ExReleasePushLockExclusiveEx((char *)this + 80, 0LL);
+  KeLeaveCriticalRegion();
+}

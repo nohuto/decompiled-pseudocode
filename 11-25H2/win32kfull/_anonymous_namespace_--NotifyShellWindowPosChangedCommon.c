@@ -1,0 +1,37 @@
+/*
+ * XREFs of _anonymous_namespace_::NotifyShellWindowPosChangedCommon @ 0x1402C1C5C
+ * Callers:
+ *     ?TrackedWindowPosChanged@NotifyShell@@YAXPEAUtagWND@@_N@Z @ 0x1402C2A50 (-TrackedWindowPosChanged@NotifyShell@@YAXPEAUtagWND@@_N@Z.c)
+ *     _anonymous_namespace_::WindowSizingUpdate @ 0x1402C2D6C (_anonymous_namespace_--WindowSizingUpdate.c)
+ * Callees:
+ *     ?PtiCurrent@@YAPEAUtagTHREADINFO@@XZ @ 0x140036850 (-PtiCurrent@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x14014BB20 (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     ?GetWindowTrackState@ShellWindowManagement@@YA?AW4TRACKED_WINDOW_STATE@@PEBUtagWND@@_N@Z @ 0x14026A78C (-GetWindowTrackState@ShellWindowManagement@@YA-AW4TRACKED_WINDOW_STATE@@PEBUtagWND@@_N@Z.c)
+ *     __security_check_cookie @ 0x1403423B0 (__security_check_cookie.c)
+ *     memset_0 @ 0x140342900 (memset_0.c)
+ */
+
+char __fastcall anonymous_namespace_::NotifyShellWindowPosChangedCommon(
+        const struct tagWND *a1,
+        char a2,
+        char a3,
+        int a4)
+{
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  struct tagTHREADINFO *v10; // rax
+  __int64 v12; // [rsp+20h] [rbp-78h] BYREF
+  int v13; // [rsp+28h] [rbp-70h]
+  BOOL v14; // [rsp+30h] [rbp-68h]
+  int WindowTrackState; // [rsp+34h] [rbp-64h]
+  _BYTE v16[56]; // [rsp+38h] [rbp-60h] BYREF
+
+  memset_0(&v12, 0, 0x50uLL);
+  v12 = *(_QWORD *)a1;
+  v13 = a4;
+  v14 = a2 != 0;
+  WindowTrackState = ShellWindowManagement::GetWindowTrackState(a1, a3);
+  v10 = PtiCurrent(v9, v8);
+  TransformRectBetweenCoordinateSpaces(v16, *((_QWORD *)a1 + 5) + 88LL, *(_QWORD *)(*((_QWORD *)v10 + 62) + 328LL), a1);
+  return anonymous_namespace_::NotifyIAMWindowManagementEvent((__int64)&v12, 0);
+}

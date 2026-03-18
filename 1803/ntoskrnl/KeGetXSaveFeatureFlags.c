@@ -1,0 +1,21 @@
+/*
+ * XREFs of KeGetXSaveFeatureFlags @ 0x140171CB0
+ * Callers:
+ *     KiInitializeKernel @ 0x14047A5D0 (KiInitializeKernel.c)
+ * Callees:
+ *     <none>
+ */
+
+__int64 KeGetXSaveFeatureFlags()
+{
+  unsigned int v0; // edx
+
+  v0 = 0;
+  if ( MEMORY[0xFFFFF780000003D8] )
+  {
+    v0 = 8 * (MEMORY[0xFFFFF780000003EC] & 1);
+    if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )
+      return (8 * (MEMORY[0xFFFFF780000003EC] & 1)) | 0x10u;
+  }
+  return v0;
+}

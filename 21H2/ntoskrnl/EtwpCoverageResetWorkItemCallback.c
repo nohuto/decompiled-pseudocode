@@ -1,0 +1,13 @@
+/*
+ * XREFs of EtwpCoverageResetWorkItemCallback @ 0x1409E5790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpCoverageReset @ 0x1409E52D0 (EtwpCoverageReset.c)
+ */
+
+char __fastcall EtwpCoverageResetWorkItemCallback(__int64 a1)
+{
+  *(_DWORD *)(EtwpCoverageNonPagedContext + 8) = 0;
+  return EtwpCoverageReset(a1, 2);
+}

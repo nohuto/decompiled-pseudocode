@@ -1,0 +1,54 @@
+/*
+ * XREFs of SiGetSystemDeviceName @ 0x140AE9378
+ * Callers:
+ *     SyspartGetFirmwarePartition @ 0x1407713C4 (SyspartGetFirmwarePartition.c)
+ *     IopFindSystemDevice @ 0x14079B660 (IopFindSystemDevice.c)
+ *     SyspartDirectGetFirmwareSystemPartition @ 0x140894600 (SyspartDirectGetFirmwareSystemPartition.c)
+ *     SyspartGetSystemPartition @ 0x140894628 (SyspartGetSystemPartition.c)
+ *     SyspartDirectGetSystemDisk @ 0x140AE9320 (SyspartDirectGetSystemDisk.c)
+ *     SyspartDirectGetSystemPartition @ 0x140AE9350 (SyspartDirectGetSystemPartition.c)
+ * Callees:
+ *     _guard_dispatch_icall_no_overrides @ 0x1407311E0 (_guard_dispatch_icall_no_overrides.c)
+ *     RtlCopyVolatileMemory @ 0x140733080 (RtlCopyVolatileMemory.c)
+ *     RtlCopyToUser @ 0x14077F284 (RtlCopyToUser.c)
+ *     SiGetFirmwareType @ 0x140AE9454 (SiGetFirmwareType.c)
+ *     ExFreePoolWithTag @ 0x140C10E50 (ExFreePoolWithTag.c)
+ */
+
+__int64 __fastcall SiGetSystemDeviceName(__int64 a1, void *a2, unsigned int a3, unsigned int *a4)
+{
+  unsigned int FirmwareType; // eax
+  int v8; // esi
+  __int64 v9; // rbx
+  unsigned int v10; // ebx
+  PVOID P[6]; // [rsp+28h] [rbp-30h] BYREF
+
+  *a4 = 0;
+  P[0] = 0LL;
+  FirmwareType = SiGetFirmwareType();
+  v8 = guard_dispatch_icall_no_overrides(FirmwareType, (__int64)P);
+  if ( v8 >= 0 )
+  {
+    v9 = -1LL;
+    do
+      ++v9;
+    while ( *((_WORD *)P[0] + v9) );
+    v10 = 2 * v9 + 2;
+    if ( a2 && a3 >= v10 )
+    {
+      v8 = 0;
+      if ( KeGetCurrentThread()->PreviousMode )
+        RtlCopyToUser(a2, P[0], v10);
+      else
+        RtlCopyVolatileMemory(a2, P[0], v10);
+    }
+    else
+    {
+      v8 = -1073741789;
+    }
+    *a4 = v10;
+  }
+  if ( P[0] )
+    ExFreePoolWithTag(P[0], 0);
+  return (unsigned int)v8;
+}
