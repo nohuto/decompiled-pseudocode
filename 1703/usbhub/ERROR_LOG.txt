@@ -1,9 +1,0 @@
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001F453B15400>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001F453B14480>) 
- 
-[EXCEPTION]:''NoneType' object has no attribute 'get_pseudocode'' 
-[Exception info]: (<class 'AttributeError'>, AttributeError("'NoneType' object has no attribute 'get_pseudocode'"), <traceback object at 0x000001F453B14480>) 
- 
